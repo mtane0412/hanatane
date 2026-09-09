@@ -1,7 +1,7 @@
 /**
  * OGP 画像の事前生成: 対象記事の選定と描画パラメータの組み立て（純粋関数）
  *
- * Ghost Admin API から取得した記事のうち、feature_image も og_image も無いものを対象にし、
+ * Ghost Admin API から取得した記事のうち、feature_image が無く og_image か twitter_image が未設定のものを対象にし、
  * slug から決定的にグラデーションを選んで `OgpRenderParams` を組み立てます。
  */
 
@@ -19,6 +19,7 @@ export interface GhostPost {
 	updated_at: string;
 	feature_image: string | null;
 	og_image: string | null;
+	twitter_image: string | null;
 	/** `include=authors` で取得したときに入る */
 	primary_author?: { name: string } | null;
 }
@@ -41,12 +42,21 @@ export function gradientForSlug(slug: string): GradientPreset {
 }
 
 /**
- * feature_image と og_image のどちらも設定されていない記事だけを返す
+ * feature_image が無く、og_image か twitter_image のどちらかが未設定の記事だけを返す
  *
  * API 側のフィルタと二重になりますが、空文字を null と同様に扱うための防御です。
  */
 export function selectPostsNeedingOgImage(posts: GhostPost[]): GhostPost[] {
-	return posts.filter((post) => !post.feature_image && !post.og_image);
+	return posts.filter(
+		(post) => !post.feature_image && (!post.og_image || !post.twitter_image),
+	);
+}
+
+/**
+ * 既に生成済みの画像 URL があれば返す（再生成と二重アップロードを避けるため）
+ */
+export function existingSocialImage(post: GhostPost): string | null {
+	return post.og_image || post.twitter_image || null;
 }
 
 /**

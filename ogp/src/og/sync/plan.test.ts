@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { GRADIENT_PRESETS } from "@/types/ogp";
 import {
 	buildRenderParams,
+	existingSocialImage,
 	type GhostPost,
 	gradientForSlug,
 	selectPostsNeedingOgImage,
@@ -17,6 +18,7 @@ const 基本記事: GhostPost = {
 	updated_at: "2026-09-09T10:00:00.000Z",
 	feature_image: null,
 	og_image: null,
+	twitter_image: null,
 	primary_author: { name: "たねのぶ" },
 };
 
@@ -40,17 +42,49 @@ describe("gradientForSlug", () => {
 });
 
 describe("selectPostsNeedingOgImage", () => {
-	it("feature_image と og_image が両方無い記事だけを選ぶ", () => {
+	it("feature_image が無く、og_image か twitter_image が未設定の記事だけを選ぶ", () => {
 		const posts: GhostPost[] = [
 			基本記事,
 			{ ...基本記事, id: "post-2", feature_image: "https://example.com/a.jpg" },
 			{ ...基本記事, id: "post-3", og_image: "https://example.com/og.png" },
-			{ ...基本記事, id: "post-4", feature_image: "", og_image: "" },
+			{
+				...基本記事,
+				id: "post-4",
+				feature_image: "",
+				og_image: "",
+				twitter_image: "",
+			},
+			{
+				...基本記事,
+				id: "post-5",
+				og_image: "https://example.com/og.png",
+				twitter_image: "https://example.com/og.png",
+			},
 		];
 		expect(selectPostsNeedingOgImage(posts).map((p) => p.id)).toEqual([
 			"post-1",
+			"post-3",
 			"post-4",
 		]);
+	});
+});
+
+describe("existingSocialImage", () => {
+	it("og_image、次いで twitter_image を返し、どちらも無ければ null", () => {
+		expect(existingSocialImage(基本記事)).toBeNull();
+		expect(
+			existingSocialImage({
+				...基本記事,
+				twitter_image: "https://example.com/tw.png",
+			}),
+		).toBe("https://example.com/tw.png");
+		expect(
+			existingSocialImage({
+				...基本記事,
+				og_image: "https://example.com/og.png",
+				twitter_image: "https://example.com/tw.png",
+			}),
+		).toBe("https://example.com/og.png");
 	});
 });
 
