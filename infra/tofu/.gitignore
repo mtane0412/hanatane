@@ -1,0 +1,10 @@
+# OpenTofu / Terraform
+.terraform/
+# .terraform.lock.hcl はプロバイダバージョン固定のためコミット対象（除外しない）
+*.tfstate
+*.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

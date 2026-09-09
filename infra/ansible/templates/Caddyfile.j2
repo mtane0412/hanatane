@@ -1,0 +1,18 @@
+{# Caddyfile.j2
+ # Caddy リバースプロキシ設定
+ # Ansible テンプレートとして管理: Jinja2 変数（{{ }}、{% %}）は Ansible が展開し、
+ # Caddy の環境変数参照（{$VAR}）はそのまま Caddy に渡される。
+ # snippets/ は ./caddy/snippets/ 配下に配置されたファイルを参照する（ghost_network 経由）。
+ #}
+{{ ghost_domain }}, www.{{ ghost_domain }} {
+{% if ghost_analytics_enabled %}
+    import snippets/TrafficAnalytics
+{% endif %}
+{% if ghost_activitypub_enabled %}
+    import snippets/ActivityPub
+{% endif %}
+
+    handle {
+        reverse_proxy ghost:2368
+    }
+}

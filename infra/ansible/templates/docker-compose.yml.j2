@@ -1,0 +1,270 @@
+{# docker-compose.yml.j2
+ # Ansible テンプレート: Jinja2 はメタ文字 {{ }} と {% %} のみを処理する。
+ # ${VAR} は Docker Compose の変数参照構文であり、Jinja2 は素通しする。
+ # 機密値は ~/ghost/.env に記載し、Docker Compose が起動時に参照する。
+ #
+ # 有効化トグル（ansible/group_vars/all.yml）:
+ #   ghost_analytics_enabled: true/false  → Web Analytics (Tinybird + traffic-analytics)
+ #   ghost_activitypub_enabled: true/false → ActivityPub (Social Web 自己ホスト)
+ #
+ # COMPOSE_PROFILES は ~/ghost/.env の COMPOSE_PROFILES で制御する。
+ # profiles 付きサービス（traffic-analytics, activitypub 等）は
+ # COMPOSE_PROFILES に対応プロファイルが含まれる場合のみ起動する。
+ #}
+
+networks:
+  ghost_network:
+
+services:
+
+  ghost:
+    image: ghost:{{ ghost_image_tag }}
+    restart: always
+    expose:
+      - "2368"
+    environment:
+      NODE_ENV: production
+      # Ghost 設定: https://ghost.org/docs/config/#configuration-options
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: ${MYSQL_ROOT_PASSWORD}
+      database__connection__database: ghost
+      url: https://{{ ghost_domain }}/
+      # メール設定（Mailgun SMTP）
+      mail__transport: 'SMTP'
+      mail__from: 'noreply@mg.hanatane.net'
+      mail__options__host: smtp.mailgun.org
+      mail__options__port: 465
+      mail__options__secure: 'true'
+      mail__options__service: 'Mailgun'
+      mail__options__auth__user: ${MAIL_AUTH_USER}
+      mail__options__auth__pass: ${MAIL_AUTH_PASS}
+      # Mailgun ウォームアップ用（徐々に上げる必要あり）
+      bulkEmail__batchSize: 5
+{% if ghost_analytics_enabled %}
+      # Tinybird Web Analytics 設定
+      # tinybird-login/sync/deploy ブートストラップ完了後に有効化される
+      tinybird__tracker__endpoint: https://{{ ghost_domain }}/.ghost/analytics/api/v1/page_hit
+      tinybird__adminToken: ${TINYBIRD_ADMIN_TOKEN}
+      tinybird__workspaceId: ${TINYBIRD_WORKSPACE_ID}
+      tinybird__tracker__datasource: analytics_events
+      tinybird__stats__endpoint: ${TINYBIRD_API_URL:-https://api.tinybird.co}
+{% endif %}
+{% if ghost_activitypub_enabled %}
+      # ActivityPub サービスの URL（Ghost Admin の Network トグルがこのエンドポイントへ登録リクエストを送る）
+      activitypub__apiUrl: http://activitypub:8080
+{% endif %}
+    volumes:
+      - ghost:/var/lib/ghost/content
+    depends_on:
+      db:
+        condition: service_healthy
+{% if ghost_analytics_enabled %}
+      tinybird-sync:
+        condition: service_completed_successfully
+        required: false
+      tinybird-deploy:
+        condition: service_completed_successfully
+        required: false
+{% endif %}
+{% if ghost_activitypub_enabled %}
+      activitypub:
+        condition: service_started
+        required: false
+{% endif %}
+    networks:
+      - ghost_network
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+{% if ghost_activitypub_enabled %}
+      # ActivityPub 用追加データベース（既存ボリュームでは init スクリプトは不要、deploy.yml が冪等作成する）
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_MULTIPLE_DATABASES: activitypub
+{% endif %}
+    volumes:
+      - db:/var/lib/mysql
+{% if ghost_activitypub_enabled %}
+      - ./mysql-init:/docker-entrypoint-initdb.d
+{% endif %}
+    healthcheck:
+      test: "mysqladmin ping -p$$MYSQL_ROOT_PASSWORD -h 127.0.0.1"
+      interval: 1s
+      start_period: 30s
+      start_interval: 10s
+      retries: 120
+    networks:
+      - ghost_network
+
+  caddy:
+    image: caddy:{{ caddy_image_tag }}
+    restart: always
+    depends_on:
+      - ghost
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # {$DOMAIN} は Caddyfile 内で参照される（snippets/ActivityPub 等でも使用）
+      DOMAIN: {{ ghost_domain }}
+      # ActivityPub リバースプロキシターゲット
+      # ghost_activitypub_enabled=true の場合は自己ホスト activitypub コンテナ、
+      # false の場合は Ghost(Pro) ホスト AP サービスにフォールバック
+      ACTIVITYPUB_TARGET: {% if ghost_activitypub_enabled %}activitypub:8080{% else %}https://ap.ghost.org{% endif %}
+
+    volumes:
+      - ./caddy:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - ghost_network
+
+{% if ghost_analytics_enabled %}
+  # ---- Web Analytics（Tinybird） ----
+  # COMPOSE_PROFILES=analytics の場合のみ起動
+
+  traffic-analytics:
+    # Ghost の統計 JS から受け取ったイベントを Tinybird Cloud へプロキシするサービス
+    image: ghost/traffic-analytics:{{ traffic_analytics_image_tag }}
+    restart: always
+    expose:
+      - "3000"
+    volumes:
+      - traffic_analytics_data:/data
+    environment:
+      NODE_ENV: production
+      PROXY_TARGET: ${TINYBIRD_API_URL:-https://api.tinybird.co}/v0/events
+      SALT_STORE_TYPE: file
+      SALT_STORE_FILE_PATH: /data/salts.json
+      TINYBIRD_TRACKER_TOKEN: ${TINYBIRD_TRACKER_TOKEN}
+    profiles:
+      - analytics
+    networks:
+      - ghost_network
+
+  tinybird-login:
+    # 初回ブートストラップ専用: docker compose run --rm tinybird-login で対話認証する
+    build:
+      context: ./tinybird
+      dockerfile: Dockerfile
+    working_dir: /home/tinybird
+    command: /usr/local/bin/tinybird-login
+    volumes:
+      - tinybird_home:/home/tinybird
+      - tinybird_files:/data/tinybird
+    profiles:
+      - analytics
+    networks:
+      - ghost_network
+    tty: false
+    restart: "no"
+
+  tinybird-sync:
+    # Ghost イメージ内の Tinybird データファイルを共有ボリュームへコピーする
+    image: ghost:{{ ghost_image_tag }}
+    command: >
+      sh -c "
+        if [ -d /var/lib/ghost/current/core/server/data/tinybird ]; then
+          rm -rf /data/tinybird/*;
+          cp -rf /var/lib/ghost/current/core/server/data/tinybird/* /data/tinybird/;
+          echo 'Tinybird files synced into shared volume.';
+        else
+          echo 'Tinybird source directory not found.';
+        fi
+      "
+    volumes:
+      - tinybird_files:/data/tinybird
+    depends_on:
+      tinybird-login:
+        condition: service_completed_successfully
+    networks:
+      - ghost_network
+    profiles:
+      - analytics
+    restart: "no"
+
+  tinybird-deploy:
+    # Tinybird Cloud へ Ghost の分析スキーマをデプロイする
+    build:
+      context: ./tinybird
+      dockerfile: Dockerfile
+    working_dir: /data/tinybird
+    command: >
+      sh -c "
+        tb-wrapper --cloud deploy
+      "
+    volumes:
+      - tinybird_home:/home/tinybird
+      - tinybird_files:/data/tinybird
+    depends_on:
+      tinybird-sync:
+        condition: service_completed_successfully
+    profiles:
+      - analytics
+    networks:
+      - ghost_network
+    tty: true
+
+{% endif %}
+{% if ghost_activitypub_enabled %}
+  # ---- ActivityPub（Social Web 自己ホスト） ----
+  # COMPOSE_PROFILES=activitypub の場合のみ起動
+  # 制限: フォロワー最大2000、フォロー最大2000、1日100インタラクション
+
+  activitypub:
+    image: ghcr.io/tryghost/activitypub:{{ activitypub_image_tag }}
+    restart: always
+    expose:
+      - "8080"
+    volumes:
+      # Ghost コンテンツボリュームを共有（images/activitypub/ サブディレクトリを使用）
+      - ghost:/opt/activitypub/content
+    environment:
+      NODE_ENV: production
+      MYSQL_HOST: db
+      # root ユーザーで接続（既存の MYSQL_ROOT_PASSWORD を再利用）
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: activitypub
+      LOCAL_STORAGE_PATH: /opt/activitypub/content/images/activitypub
+      LOCAL_STORAGE_HOSTING_URL: https://{{ ghost_domain }}/content/images/activitypub
+    depends_on:
+      db:
+        condition: service_healthy
+      activitypub-migrate:
+        condition: service_completed_successfully
+    profiles:
+      - activitypub
+    networks:
+      - ghost_network
+
+  activitypub-migrate:
+    # activitypub データベースのマイグレーションを実行する（一度きり）
+    image: ghcr.io/tryghost/activitypub-migrations:{{ activitypub_image_tag }}
+    environment:
+      MYSQL_DB: mysql://root:${MYSQL_ROOT_PASSWORD}@tcp(db:3306)/activitypub
+    networks:
+      - ghost_network
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles:
+      - activitypub
+    restart: "no"
+
+{% endif %}
+volumes:
+  ghost:
+  db:
+  caddy_data:
+  caddy_config:
+{% if ghost_analytics_enabled %}
+  tinybird_home:
+  tinybird_files:
+  traffic_analytics_data:
+{% endif %}

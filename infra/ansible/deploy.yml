@@ -1,0 +1,222 @@
+---
+# Ghost VPS デプロイ Playbook
+#
+# 概要:
+#   Mac 側（Ansible コントローラ）で sops 復号を行い、
+#   VPS の ~/ghost/ 以下にファイルを配置して docker compose up -d を実行する。
+#   VPS に age 秘密鍵を置かない「ローカル中心」設計。
+#
+# 前提:
+#   - community.sops コレクションがインストール済みであること
+#     ansible-galaxy collection install -r requirements.yml
+#   - ~/.config/sops/age/keys.txt に age 秘密鍵が存在すること
+#
+# 実行方法:
+#   # dry-run（差分確認）
+#   ansible-playbook -C -i inventory.ini deploy.yml
+#   # 本適用
+#   ansible-playbook -i inventory.ini deploy.yml
+#
+# Web Analytics (Tinybird) ブートストラップについて:
+#   ghost_analytics_enabled: true にして初回デプロイする前に、
+#   VPS 上 ~/ghost/ で以下を実行してトークンを取得し secrets/ghost.env へ追記すること:
+#     docker compose run --rm tinybird-login
+#     docker compose run --rm tinybird-sync
+#     docker compose run --rm tinybird-deploy
+#     docker compose run --rm tinybird-login get-tokens
+#   詳細は docs/runbook.md の「Tinybird ブートストラップ手順」を参照。
+
+- name: Ghost VPS デプロイ
+  hosts: ghost
+  gather_facts: false
+
+  vars:
+    ghost_dir: /home/debian/ghost
+
+  tasks:
+    # ---- 1. シークレット復号（Mac 側） ----
+    - name: sops 暗号化 .env を復号して変数に読み込む（コントローラ側）
+      ansible.builtin.set_fact:
+        _ghost_env_raw: "{{ lookup('community.sops.sops', playbook_dir + '/../secrets/ghost.env') }}"
+      delegate_to: localhost
+      run_once: true
+      no_log: true
+
+    - name: .env から個別シークレットを抽出する
+      ansible.builtin.set_fact:
+        ghost_secrets: >-
+          {{
+            dict(
+              _ghost_env_raw.splitlines()
+              | select('match', '^[A-Z_]+=')
+              | list
+              | map('split', '=', 1)
+              | list
+            )
+          }}
+      delegate_to: localhost
+      run_once: true
+      no_log: true
+
+    # ---- 2. VPS へのファイル配置 ----
+    - name: ~/ghost/ 配下の必要ディレクトリを作成する
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: "0755"
+        owner: debian
+        group: debian
+      loop:
+        - "{{ ghost_dir }}/caddy/snippets"
+        - "{{ ghost_dir }}/mysql-init"
+        - "{{ ghost_dir }}/tinybird"
+
+    - name: VPS に .env を配置する
+      ansible.builtin.template:
+        src: templates/env.j2
+        dest: "{{ ghost_dir }}/.env"
+        mode: "0600"
+        owner: debian
+        group: debian
+      no_log: true
+
+    - name: docker-compose.yml を配置する（変数参照形式）
+      ansible.builtin.template:
+        src: templates/docker-compose.yml.j2
+        dest: "{{ ghost_dir }}/docker-compose.yml"
+        mode: "0644"
+        owner: debian
+        group: debian
+
+    - name: Caddyfile を配置する（Ansible テンプレート）
+      ansible.builtin.template:
+        src: templates/Caddyfile.j2
+        dest: "{{ ghost_dir }}/caddy/Caddyfile"
+        mode: "0644"
+        owner: debian
+        group: debian
+      register: _caddyfile_result
+
+    - name: Caddy snippets を配置する（TrafficAnalytics, ActivityPub）
+      ansible.builtin.copy:
+        src: "files/caddy/snippets/"
+        dest: "{{ ghost_dir }}/caddy/snippets/"
+        mode: "0644"
+        owner: debian
+        group: debian
+      register: _caddy_snippets_result
+
+    - name: mysql-init スクリプトを配置する（新規ボリューム用 DB 初期化）
+      ansible.builtin.copy:
+        src: "files/mysql-init/"
+        dest: "{{ ghost_dir }}/mysql-init/"
+        mode: "0755"
+        owner: debian
+        group: debian
+
+    - name: Tinybird ビルドコンテキストを配置する
+      ansible.builtin.copy:
+        src: "files/tinybird/"
+        dest: "{{ ghost_dir }}/tinybird/"
+        mode: "0755"
+        owner: debian
+        group: debian
+      when: ghost_analytics_enabled
+
+    # ---- 3. ActivityPub 用データベースの準備（冪等） ----
+    # 既存の db ボリュームでは mysql-init スクリプトが再実行されないため、
+    # Ansible タスクで冪等に CREATE DATABASE を実行する。
+    - name: db コンテナを起動する（ActivityPub 用データベース準備）
+      ansible.builtin.command:
+        cmd: docker compose up -d db
+        chdir: "{{ ghost_dir }}"
+      changed_when: false
+      when: ghost_activitypub_enabled
+
+    - name: MySQL が healthy になるまで待機する
+      ansible.builtin.command:
+        argv:
+          - docker
+          - compose
+          - exec
+          - "-T"
+          - db
+          - mysqladmin
+          - ping
+          - "-h"
+          - "127.0.0.1"
+          - "-uroot"
+          - "-p{{ ghost_secrets['MYSQL_ROOT_PASSWORD'] }}"
+      args:
+        chdir: "{{ ghost_dir }}"
+      register: _mysql_ping
+      until: _mysql_ping.rc == 0
+      retries: 60
+      delay: 2
+      changed_when: false
+      when: ghost_activitypub_enabled
+      no_log: true
+
+    - name: activitypub データベースを作成する（冪等）
+      ansible.builtin.command:
+        argv:
+          - docker
+          - compose
+          - exec
+          - "-T"
+          - db
+          - mysql
+          - "-uroot"
+          - "-p{{ ghost_secrets['MYSQL_ROOT_PASSWORD'] }}"
+          - "-e"
+          - "CREATE DATABASE IF NOT EXISTS activitypub;"
+      args:
+        chdir: "{{ ghost_dir }}"
+      changed_when: false
+      when: ghost_activitypub_enabled
+      no_log: true
+
+    # ---- 4. アナリティクス未設定時のクリーンアップ ----
+    # Tinybird トークン未設定かつ analytics サービスが稼働中の場合、停止・削除する。
+    # （トークンなしで traffic-analytics が起動するとクラッシュループが発生するため）
+    - name: アナリティクスサービスが不要な場合は停止・削除する
+      ansible.builtin.command:
+        cmd: >
+          docker compose rm -sf
+          traffic-analytics tinybird-login tinybird-sync tinybird-deploy
+        chdir: "{{ ghost_dir }}"
+      changed_when: false
+      failed_when: false
+      when:
+        - ghost_analytics_enabled
+        - ghost_secrets.get('TINYBIRD_TRACKER_TOKEN', '') == ''
+
+    # ---- 5. コンテナ再起動（変更がある場合のみ）----
+    - name: docker compose up -d を実行する
+      ansible.builtin.command:
+        cmd: docker compose up -d --remove-orphans
+        chdir: "{{ ghost_dir }}"
+      register: _compose_result
+      changed_when: "'Started' in _compose_result.stderr or 'Recreated' in _compose_result.stderr"
+
+    # Caddyfile または snippets が変更された場合、コンテナ再作成なしにリロードする。
+    # docker compose up -d は volume マウント先のファイル変更を検知しないため、
+    # 明示的に caddy reload を呼ぶ必要がある。
+    - name: Caddy 設定が変更された場合はリロードする
+      ansible.builtin.command:
+        cmd: docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
+        chdir: "{{ ghost_dir }}"
+      when: _caddyfile_result.changed or _caddy_snippets_result.changed
+      changed_when: true
+
+    # ---- 6. 疎通確認 ----
+    - name: コンテナの稼働状態を確認する
+      ansible.builtin.command:
+        cmd: docker compose ps --format json
+        chdir: "{{ ghost_dir }}"
+      register: _compose_ps
+      changed_when: false
+
+    - name: コンテナの稼働状態を表示する
+      ansible.builtin.debug:
+        msg: "{{ _compose_ps.stdout }}"

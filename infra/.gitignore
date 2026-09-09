@@ -1,0 +1,34 @@
+# --- シークレット・復号一時ファイル ---
+# 平文の .env は原則コミットしない
+*.env
+!*.env.example
+# secrets/ 配下の暗号化済み .env はコミット対象（sops 暗号化済み）
+!secrets/*.env
+# 復号一時ファイル
+*.dec
+
+# --- Ansible ---
+ansible/roles/
+*.retry
+
+# --- OpenTofu / Terraform ---
+tofu/.terraform/
+tofu/*.tfstate
+tofu/*.tfstate.backup
+# .terraform.lock.hcl はプロバイダバージョン固定のためコミット対象（除外しない）
+tofu/crash.log
+tofu/override.tf
+tofu/override.tf.json
+tofu/*_override.tf
+tofu/*_override.tf.json
+
+# --- age 秘密鍵（絶対にコミットしない）---
+*.age
+keys.txt
+
+# --- OS / Editor ---
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/

@@ -1,0 +1,12 @@
+# SOPS 暗号化設定
+# age 公開鍵: ~/.config/sops/age/keys.txt に対応する秘密鍵で復号する
+# 両キーのどちらでも復号可能（同一マシン上の2つの鍵ペア）
+creation_rules:
+  - path_regex: secrets/.*\.env$
+    age: >-
+      age1wegta6e9stczq4k56djgnuym48eup5k5gkysnm0aawmuqurnw3xspepxry,
+      age187xyvlrhufzdpyxlvcasuqr5k6du0dht7p5g5zslaztr9pgh6sgs26tj9s
+  - path_regex: tofu/.*\.sops\.tfvars$
+    age: >-
+      age1wegta6e9stczq4k56djgnuym48eup5k5gkysnm0aawmuqurnw3xspepxry,
+      age187xyvlrhufzdpyxlvcasuqr5k6du0dht7p5g5zslaztr9pgh6sgs26tj9s
