@@ -82,3 +82,22 @@ import Header from '@/components/Header'
 ## スタイリング
 
 Tailwind CSS v4を使用しています。Viteプラグイン（`@tailwindcss/vite`）によってビルド時に自動的に処理されます。
+
+## OGP 画像生成エンドポイント（`/og`）
+
+`GET /og?title=...&site=...&author=...&gradient=...` で 1200x630 の PNG を返すサーバールートです。Ghost テーマ側から `og:image` として参照する用途を想定しています。
+
+- ルート: `src/routes/og.tsx`（`createFileRoute` の `server.handlers.GET`）
+- パラメータ解析: `src/og/params.ts`（`title` 必須、`gradient` は `src/types/ogp.ts` のプリセット名のみ受け付け、不正値は 400）
+- レンダリング: `src/og/render.tsx`（Satori で JSX → SVG、resvg で SVG → PNG）、レイアウトは `src/og/layout.tsx`
+- フォント: `public/fonts/LINESeedJP_OTF_Bd.otf`（Satori は woff2 を読めないため OTF を使用）。Workers では `ASSETS` バインディング経由で取得し、モジュール単位でキャッシュする
+- wasm: Cloudflare Workers では実行時バイト列から wasm をコンパイルできないため、`satori/yoga.wasm` と `@resvg/resvg-wasm/index_bg.wasm` を素インポートして `WebAssembly.Module` として渡す（型宣言は `src/wasm.d.ts`）
+
+### 依存バージョンの固定理由
+
+- `satori` は **0.32.0 に固定**しています。0.33.0 以降は harfbuzzjs に依存し、Workers 上で `self.location` 参照と実行時 wasm コンパイルにより起動時に失敗します。更新する場合は `npm run build && npm run preview` で `/og` が 200 を返すことを確認してください
+- `tsconfig.json` に `baseUrl` を設定しないでください。設定すると vite-tsconfig-paths が `@resvg/...` のような bare import をプロジェクト直下の相対パスとして解決しようとし、Cloudflare プラグインの `.wasm` 解決が失敗します
+
+### テスト
+
+`vitest.config.ts` は `vite.config.ts` と分離しています（Cloudflare / TanStack Start プラグインを Node のテストに読み込まないため）。`src/og/render.test.tsx` は実フォントと実 wasm をディスクから読み込んで PNG を生成する結合テストです。
