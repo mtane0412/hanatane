@@ -749,7 +749,7 @@
         });
         svg.appendChild(bandGroup);
 
-        // 地層の境界線(緩やかな波線)とラベル(ラベルは右端に寄せる)
+        // 地層の境界線(緩やかな波線)とラベル。ラベルは境界線の下(その月の帯の内側)に置き、右端に寄せる
         const monthGroup = createElement('g', {class: 'gh-strata-pane-months'});
         layout.monthMarks.forEach(function (mark, index) {
             monthGroup.appendChild(createElement('path', {
@@ -760,7 +760,7 @@
             const label = createElement('text', {
                 class: 'gh-strata-pane-month-label',
                 x: options.width - 8,
-                y: mark.y - 5
+                y: mark.y + 14
             });
             label.textContent = mark.label;
             monthGroup.appendChild(label);
