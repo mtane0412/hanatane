@@ -1,0 +1,18 @@
+{{!--
+    ページタイトルとシェア用タイトルのメタタグ
+
+    記事・固定ページでは「記事タイトル - サイト名」を <title>、og:title、twitter:title に出力する。
+    ghost_head が出力する og:title / twitter:title は記事タイトルのみで、テーマから書き換える手段が無いため、
+    ghost_head より前に置くこと: クローラーは最初に現れたタグを優先する（auto-ogp と同じ理由）。
+    タイトルは記事のメタタイトル（Ghost 管理画面の Meta data）があればそれを、無ければ記事タイトルを使う。
+    Handlebars では変数に保持できないため同じ式を三度書いている。
+    meta_title / title は Ghost に同名のヘルパーがあり、素の名前だとヘルパーが優先されるため this. を付けて記事のプロパティを参照する。
+    記事以外のページ（ホーム、タグ、著者など）は Ghost の meta_title ヘルパーの出力（タグ名 - サイト名 など）をそのまま使う。
+--}}
+{{#post}}
+    <title>{{#if this.meta_title}}{{this.meta_title}}{{else}}{{this.title}}{{/if}} - {{@site.title}}</title>
+    <meta property="og:title" content="{{#if this.meta_title}}{{this.meta_title}}{{else}}{{this.title}}{{/if}} - {{@site.title}}">
+    <meta name="twitter:title" content="{{#if this.meta_title}}{{this.meta_title}}{{else}}{{this.title}}{{/if}} - {{@site.title}}">
+{{else}}
+    <title>{{meta_title page=(t " (Page %)")}}</title>
+{{/post}}
