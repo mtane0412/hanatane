@@ -163,7 +163,7 @@
      * ペインと同じ「地層の中を種と根が伸びる」デザイン: 年ごとの帯を地層として塗り分け(古い年ほど深く濃い)、
      * 境界は波線、記事は種(楕円)、引用の線は古い層へ伸びる根(左に膨らむ弧)として描く。
      *
-     * @param {{axisX: number, paddingTop: number, paddingBottom: number, width: number, maxArcWidth: number, nodeRadius: number, maxDepthShade: number, titleMaxLength: number, label: string}} options
+     * @param {{axisX: number, paddingTop: number, paddingBottom: number, width: number, maxArcWidth: number, nodeRadius: number, yearGap: number, maxDepthShade: number, titleMaxLength: number, label: string}} options
      * @returns {SVGSVGElement}
      */
     function renderSvg(layout, options) {
@@ -180,9 +180,9 @@
             nodeY[node.slug] = node.y + options.paddingTop;
         });
 
-        // 地層の帯(年ごと)。境界はその年で最も新しいノードの少し上に置く
+        // 地層の帯(年ごと)。境界はその年で最も新しいノードの上に、年ラベルを挟める余白(yearGap)を空けて置く
         const yearMarks = layout.yearMarks.map(function (mark) {
-            return {label: String(mark.year), y: mark.y + options.paddingTop - options.nodeRadius * 3};
+            return {label: String(mark.year), y: mark.y + options.paddingTop - options.yearGap};
         });
         const bandGroup = createElement('g', {class: 'gh-strata-strata'});
         buildStrataBands(yearMarks, height).forEach(function (band) {
@@ -194,7 +194,7 @@
         });
         svg.appendChild(bandGroup);
 
-        // 地層の境界線(波線)と年ラベル。ラベルは時間軸のすぐ右・境界線の上に置く
+        // 地層の境界線(波線)と年ラベル。ラベルは時間軸のすぐ右・境界線の下(その年の帯の内側)に置く
         // (右端に寄せると狭い画面で横スクロールしないと見えなくなるため)
         const yearGroup = createElement('g', {class: 'gh-strata-years'});
         yearMarks.forEach(function (mark, index) {
@@ -205,7 +205,7 @@
             const label = createElement('text', {
                 class: 'gh-strata-year',
                 x: options.axisX + options.nodeRadius * 2 + 4,
-                y: mark.y - 6
+                y: mark.y + 14
             });
             label.textContent = mark.label;
             yearGroup.appendChild(label);
@@ -749,7 +749,7 @@
         });
         svg.appendChild(bandGroup);
 
-        // 地層の境界線(緩やかな波線)とラベル(ラベルは右端に寄せる)
+        // 地層の境界線(緩やかな波線)とラベル。ラベルは境界線の下(その月の帯の内側)に置き、右端に寄せる
         const monthGroup = createElement('g', {class: 'gh-strata-pane-months'});
         layout.monthMarks.forEach(function (mark, index) {
             monthGroup.appendChild(createElement('path', {
@@ -760,7 +760,7 @@
             const label = createElement('text', {
                 class: 'gh-strata-pane-month-label',
                 x: options.width - 8,
-                y: mark.y - 5
+                y: mark.y + 14
             });
             label.textContent = mark.label;
             monthGroup.appendChild(label);
@@ -1298,6 +1298,7 @@
             paddingBottom: 24,
             maxArcWidth: 160,
             nodeRadius: 6,
+            yearGap: 34,
             maxDepthShade: 6,
             titleMaxLength: 32,
             label: container.dataset.strataLabel || ''
