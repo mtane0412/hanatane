@@ -5,13 +5,16 @@
  * この Worker が `post.published` イベントを受け取り、GitHub に `ghost-post-published` を送ります。
  * これにより OGP 画像の事前生成（.github/workflows/sync-og-images.yml）が cron を待たずに走ります。
  *
- * 認証: Ghost の管理画面では Webhook の署名 secret を指定できないため、
- * 送信先 URL のクエリ `token` を Worker の secret と定数時間で比較して検証します。
+ * 認証: Ghost の Webhook に設定した secret による署名ヘッダーを検証します。
+ *   `X-Ghost-Signature: sha256=<HMAC-SHA256(secret, 本文 + タイムスタンプ) の hex>, t=<タイムスタンプ(ms)>`
+ * （Ghost の ghost/core/core/server/services/webhooks/webhook-trigger.js と同じ形式）
+ * 生の本文で HMAC を計算するため、本文は JSON として解釈する前に文字列として読みます。
+ * タイムスタンプが現在時刻から 5 分以上ずれている場合はリプレイとみなして拒否します。
  *
  * 注意: 失敗は例外や 4xx/5xx で明示し、暗黙に成功扱いにしません（Ghost 側の配信ログに残す）。
  */
 
-import { timingSafeEqual } from "node:crypto";
+import { createHmac, timingSafeEqual } from "node:crypto";
 
 /** GitHub に送る repository_dispatch の event_type（workflow 側の types と一致させる） */
 export const DISPATCH_EVENT_TYPE = "ghost-post-published";
@@ -19,15 +22,26 @@ export const DISPATCH_EVENT_TYPE = "ghost-post-published";
 /** GitHub API が要求する User-Agent */
 const USER_AGENT = "hanatane-ogp-webhook";
 
+/** Ghost が署名を付けるヘッダー名 */
+const SIGNATURE_HEADER = "X-Ghost-Signature";
+
+/** 署名のタイムスタンプと現在時刻の許容差（ミリ秒） */
+const TIMESTAMP_TOLERANCE_MS = 5 * 60 * 1000;
+
+/** 署名ヘッダーの形式（例: `sha256=0123abcd..., t=1700000000000`） */
+const SIGNATURE_PATTERN = /^sha256=([0-9a-f]+),\s*t=(\d+)$/;
+
 export interface GhostWebhookConfig {
-	/** Ghost の送信先 URL に付与した token（Worker の secret） */
-	webhookToken: string;
+	/** Ghost の Webhook 設定の Secret 欄と同じ値（Worker の secret） */
+	webhookSecret: string;
 	/** repository_dispatch を送るための GitHub トークン（contents: write が必要） */
 	githubToken: string;
 	/** `owner/repo` 形式のリポジトリ名 */
 	githubRepository: string;
 	/** テスト用に差し替え可能な fetch */
 	fetchImpl?: typeof fetch;
+	/** テスト用に差し替え可能な現在時刻（ミリ秒） */
+	now?: () => number;
 }
 
 /** Ghost の post 系 Webhook ペイロードのうち、この中継で使う項目 */
@@ -45,6 +59,34 @@ function safeEqual(a: string, b: string): boolean {
 	const bufA = Buffer.from(a);
 	const bufB = Buffer.from(b);
 	return bufA.length === bufB.length && timingSafeEqual(bufA, bufB);
+}
+
+/**
+ * Ghost の署名ヘッダーを検証する
+ *
+ * @param header X-Ghost-Signature の値（無ければ null）
+ * @param rawBody 受信した生の本文
+ * @returns 署名とタイムスタンプが妥当なら true
+ */
+function verifySignature(
+	header: string | null,
+	rawBody: string,
+	secret: string,
+	now: number,
+): boolean {
+	if (!header) return false;
+	const match = SIGNATURE_PATTERN.exec(header.trim());
+	if (!match) return false;
+	const [, receivedHex, timestampText] = match;
+
+	// リプレイ防止: タイムスタンプが許容差を超えて古い（または未来）なら拒否する
+	const timestamp = Number(timestampText);
+	if (Math.abs(now - timestamp) > TIMESTAMP_TOLERANCE_MS) return false;
+
+	const expectedHex = createHmac("sha256", secret)
+		.update(`${rawBody}${timestampText}`)
+		.digest("hex");
+	return safeEqual(receivedHex, expectedHex);
 }
 
 /**
@@ -79,7 +121,7 @@ function textResponse(message: string, status: number): Response {
 /**
  * Ghost からの Webhook リクエストを処理し、必要なら GitHub に repository_dispatch を送る
  *
- * - token 不一致: 401
+ * - 署名が無い・不正・期限切れ: 401
  * - 本文が不正: 400
  * - feature_image あり / 未公開: 200（dispatch しない）
  * - dispatch 成功: 202、GitHub 側の失敗: 502
@@ -88,14 +130,22 @@ export async function handleGhostWebhook(
 	request: Request,
 	config: GhostWebhookConfig,
 ): Promise<Response> {
-	const token = new URL(request.url).searchParams.get("token") ?? "";
-	if (!safeEqual(token, config.webhookToken)) {
-		return textResponse("token が一致しません", 401);
+	const rawBody = await request.text();
+	const now = config.now ? config.now() : Date.now();
+	if (
+		!verifySignature(
+			request.headers.get(SIGNATURE_HEADER),
+			rawBody,
+			config.webhookSecret,
+			now,
+		)
+	) {
+		return textResponse(`${SIGNATURE_HEADER} の検証に失敗しました`, 401);
 	}
 
 	let payload: unknown;
 	try {
-		payload = await request.json();
+		payload = JSON.parse(rawBody);
 	} catch {
 		return textResponse("本文を JSON として読めません", 400);
 	}

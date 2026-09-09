@@ -1,13 +1,13 @@
 /**
  * Ghost Webhook 受け口（サーバールート）
  *
- * `POST /webhooks/ghost?token=...` で Ghost の `post.published` イベントを受け取り、
+ * `POST /webhooks/ghost` で Ghost の `post.published` イベントを受け取り、署名を検証したうえで
  * GitHub の repository_dispatch に中継します。処理本体は `@/webhooks/ghost-dispatch` を参照。
  *
  * 必要な設定（wrangler.jsonc の vars と `wrangler secret put`）:
  * - GITHUB_REPOSITORY: `owner/repo`（vars）
  * - GITHUB_DISPATCH_TOKEN: repository_dispatch を送れる GitHub トークン（secret）
- * - GHOST_WEBHOOK_TOKEN: Ghost の送信先 URL に付ける token（secret）
+ * - GHOST_WEBHOOK_SECRET: Ghost の Webhook 設定の Secret 欄と同じ値（secret）
  */
 
 import { env } from "cloudflare:workers";
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/webhooks/ghost")({
 		handlers: {
 			POST: ({ request }) =>
 				handleGhostWebhook(request, {
-					webhookToken: requireEnv("GHOST_WEBHOOK_TOKEN"),
+					webhookSecret: requireEnv("GHOST_WEBHOOK_SECRET"),
 					githubToken: requireEnv("GITHUB_DISPATCH_TOKEN"),
 					githubRepository: requireEnv("GITHUB_REPOSITORY"),
 				}),

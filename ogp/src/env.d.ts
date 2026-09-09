@@ -12,7 +12,7 @@ declare namespace Cloudflare {
 		GITHUB_REPOSITORY: string;
 		/** repository_dispatch を送れる GitHub トークン（secret） */
 		GITHUB_DISPATCH_TOKEN: string;
-		/** Ghost の Webhook 送信先 URL に付ける token（secret） */
-		GHOST_WEBHOOK_TOKEN: string;
+		/** Ghost の Webhook 設定の Secret 欄と同じ値（secret） */
+		GHOST_WEBHOOK_SECRET: string;
 	}
 }
