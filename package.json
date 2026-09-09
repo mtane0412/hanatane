@@ -10,7 +10,8 @@
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "sync:og": "tsx scripts/sync-og-images.ts"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.13.8",
@@ -41,6 +42,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
     "jsdom": "^27.0.0",
+    "tsx": "^4.23.13",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
     "vitest": "^3.0.5",

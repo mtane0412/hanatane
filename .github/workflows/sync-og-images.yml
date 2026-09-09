@@ -1,0 +1,50 @@
+# feature image の無い公開記事に OGP 画像を事前生成して og_image に設定するワークフロー。
+# 処理内容は scripts/sync-og-images.ts を参照。
+#
+# Ghost の Webhook は任意ヘッダーを付けられず GitHub を直接叩けないため、
+# 定期実行(cron)と手動実行(workflow_dispatch)で同期する。
+# og_image が設定済みの記事は Admin API のフィルタで除外されるため、再実行しても二重に生成しない。
+#
+# 事前準備: Secrets に GHOST_ADMIN_API_URL / GHOST_ADMIN_API_KEY を登録すること
+# (mtane0412/Source の deploy-theme.yml / hyperstrata-sync.yml と同じ値)。
+name: Sync OG images
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '生成せずに対象記事だけ表示する'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# 15 分ごとの実行が重なって同じ記事を二重に処理しないようにする
+concurrency:
+  group: sync-og-images
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Generate OG images and set og_image
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generate OG images via Ghost Admin API
+        env:
+          GHOST_ADMIN_API_URL: ${{ secrets.GHOST_ADMIN_API_URL }}
+          GHOST_ADMIN_API_KEY: ${{ secrets.GHOST_ADMIN_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: npx tsx scripts/sync-og-images.ts $([ "$DRY_RUN" = "true" ] && echo --dry-run)

@@ -101,3 +101,14 @@ Tailwind CSS v4を使用しています。Viteプラグイン（`@tailwindcss/vi
 ### テスト
 
 `vitest.config.ts` は `vite.config.ts` と分離しています（Cloudflare / TanStack Start プラグインを Node のテストに読み込まないため）。`src/og/render.test.tsx` は実フォントと実 wasm をディスクから読み込んで PNG を生成する結合テストです。
+
+## OGP 画像の事前生成（`scripts/sync-og-images.ts`）
+
+`/og` の実行時レンダリングは Workers 無料プランの CPU 上限（10ms）を超えるため、本番運用は事前生成方式です。GitHub Actions（`.github/workflows/sync-og-images.yml`、15 分おき + 手動）が Ghost Admin API で「公開済み・feature_image なし・og_image なし」の記事を取得し、PNG を生成して images/upload にアップロードし、記事の `og_image` に設定します。`ghost_head` は `og_image` を最優先で使うため、テーマ側の変更は不要です。
+
+- 対象選定・配色決定: `src/og/sync/plan.ts`（slug の FNV-1a ハッシュでグラデーションを決定的に選ぶ）
+- Admin API クライアント: `src/og/sync/ghost-admin.ts`（JWT 生成、記事取得、画像アップロード、og_image 更新）
+- 実行フロー: `src/og/sync/run.ts`（失敗時は例外で停止し、暗黙にスキップしない）
+- Node 用資源ローダー: `src/og/resources-node.ts`
+- 必要な Secrets: `GHOST_ADMIN_API_URL`、`GHOST_ADMIN_API_KEY`（mtane0412/Source と同じ値）
+- ローカル実行: `GHOST_ADMIN_API_URL=... GHOST_ADMIN_API_KEY=... npm run sync:og -- --dry-run`
