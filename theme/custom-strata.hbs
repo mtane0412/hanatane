@@ -1,0 +1,38 @@
+{{!< default}}
+{{!--
+    Hyperstrata: 時系列 × 引用関係のグラフビュー(固定ページ用テンプレート)。
+    Ghost 管理画面でページの Template に「Strata」を選ぶと使われる。
+
+    記事一覧と引用関係は scripts/hyperstrata-sync.mjs が生成する assets/graph.json に持ち、
+    assets/js/strata-graph.js が data-strata-graph-url から fetch して SVG のアーク図を描く。見た目は左側の固定ペインと同じ
+    「地層の中を種と根が伸びる」デザイン(年ごとの帯を地層として塗り分け、記事は種、引用の線は根)。
+    {{#get}} で一覧を埋め込まないのは、Ghost の get ヘルパーが 100 件上限で、公開記事がそれを超えると
+    古い記事がグラフから消えるため(#25)。並び順は JS 側で公開日の降順(新しい記事が上=地表)に整える。
+    JavaScript が無効な環境ではグラフは表示されない。
+--}}
+
+{{#post}}
+
+<main class="gh-main">
+    <article class="gh-article {{post_class}}">
+
+        {{#match @page.show_title_and_feature_image}}
+            <header class="gh-article-header gh-canvas">
+                <h1 class="gh-article-title is-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                    <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
+                {{/if}}
+                {{> "feature-image"}}
+            </header>
+        {{/match}}
+
+        <section class="gh-content gh-canvas is-body">
+            {{content}}
+        </section>
+
+        <section class="gh-strata gh-canvas" data-strata data-strata-label="{{t "Citation graph"}}" data-strata-graph-url="{{asset "graph.json"}}"></section>
+
+    </article>
+</main>
+
+{{/post}}
