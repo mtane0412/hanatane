@@ -7,5 +7,10 @@
 	// OGP 生成ルートがフォントと著者アイコンを静的アセットから読むためのバインディング
 	"assets": {
 		"binding": "ASSETS"
+	},
+	// Ghost Webhook 中継（/webhooks/ghost）が repository_dispatch を送る先。
+	// GITHUB_DISPATCH_TOKEN と GHOST_WEBHOOK_TOKEN は `wrangler secret put` で登録する。
+	"vars": {
+		"GITHUB_REPOSITORY": "mtane0412/hanatane"
 	}
 }

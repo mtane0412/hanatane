@@ -2,13 +2,16 @@
 # 処理内容は ogp/scripts/sync-og-images.ts を参照。
 #
 # Ghost の Webhook は任意ヘッダーを付けられず GitHub を直接叩けないため、
-# 定期実行(cron)と手動実行(workflow_dispatch)で同期する。
+# ogp/ の Worker(/webhooks/ghost)が post.published を受けて repository_dispatch に中継する。
+# 取りこぼしの保険として定期実行(cron)と手動実行(workflow_dispatch)も残す。
 # og_image が設定済みの記事は Admin API のフィルタで除外されるため、再実行しても二重に生成しない。
 #
 # 事前準備: deploy-theme.yml と同じ Secrets(GHOST_ADMIN_API_URL / GHOST_ADMIN_API_KEY)を使う。
 name: Sync OG images
 
 on:
+  repository_dispatch:
+    types: [ghost-post-published]
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:

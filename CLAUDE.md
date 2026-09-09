@@ -30,7 +30,7 @@ pnpm --filter ./ogp dev
 | `test-ogp.yml` | PR（ogp/ 変更時） | 型チェック、Lint、テスト、ビルド |
 | `deploy-theme.yml` | main への push（theme/ 変更時）、手動 | テーマ zip を Ghost へデプロイ |
 | `hyperstrata-sync.yml` | 15 分おき、手動 | 引用タグ付与と `theme/assets/graph.json` 更新 |
-| `sync-og-images.yml` | 15 分おき、手動 | feature image の無い記事に OGP 画像を生成して `og_image` に設定 |
+| `sync-og-images.yml` | Ghost の `post.published` Webhook（`ogp/` の Worker が `repository_dispatch` に中継）、15 分おき、手動 | feature image の無い記事に OGP 画像を生成して `og_image` に設定 |
 
 必要な Secrets: `GHOST_ADMIN_API_URL`、`GHOST_ADMIN_API_KEY`（すべての workflow で共通）。
 

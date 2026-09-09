@@ -34,7 +34,7 @@ jobs:
 
       - run: pnpm --filter ./ogp exec tsc --noEmit
 
-      - run: pnpm --filter ./ogp exec biome check src/og scripts
+      - run: pnpm --filter ./ogp exec biome check src/og src/webhooks src/routes/webhooks.ghost.tsx src/env.d.ts scripts
 
       - run: pnpm --filter ./ogp test
 
