@@ -9,48 +9,65 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OgRouteImport } from './routes/og'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OgRouteImport } from './routes/og'
+import { Route as WebhooksGhostRouteImport } from './routes/webhooks.ghost'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OgRoute = OgRouteImport.update({
   id: '/og',
   path: '/og',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const WebhooksGhostRoute = WebhooksGhostRouteImport.update({
+  id: '/webhooks/ghost',
+  path: '/webhooks/ghost',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/og': typeof OgRoute
+  '/webhooks/ghost': typeof WebhooksGhostRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/og': typeof OgRoute
+  '/webhooks/ghost': typeof WebhooksGhostRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/og': typeof OgRoute
+  '/webhooks/ghost': typeof WebhooksGhostRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/og'
+  fullPaths: '/' | '/og' | '/webhooks/ghost'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/og'
-  id: '__root__' | '/' | '/og'
+  to: '/' | '/og' | '/webhooks/ghost'
+  id: '__root__' | '/' | '/og' | '/webhooks/ghost'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   OgRoute: typeof OgRoute
+  WebhooksGhostRoute: typeof WebhooksGhostRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/og': {
       id: '/og'
       path: '/og'
@@ -58,11 +75,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OgRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/webhooks/ghost': {
+      id: '/webhooks/ghost'
+      path: '/webhooks/ghost'
+      fullPath: '/webhooks/ghost'
+      preLoaderRoute: typeof WebhooksGhostRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   OgRoute: OgRoute,
+  WebhooksGhostRoute: WebhooksGhostRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
