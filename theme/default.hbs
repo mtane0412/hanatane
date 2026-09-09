@@ -3,7 +3,8 @@
 <head>
 
     {{!-- Basic meta - advanced meta is output with {{ghost_head}} below --}}
-    <title>{{meta_title page=(t " (Page %)")}}</title>
+    {{!-- <title> と記事のシェア用 og:title / twitter:title（ghost_head より前に置く必要がある） --}}
+    {{> "head-title"}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
