@@ -1,33 +1,33 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": ["config:recommended", "local>TryGhost/renovate-config:theme.json5"],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/ansible/group_vars/all\\.yml/"],
+      "managerFilePatterns": ["/infra/ansible/group_vars/all\\.yml/"],
       "matchStrings": ["ghost_image_tag:\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "ghost",
       "datasourceTemplate": "docker"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/ansible/group_vars/all\\.yml/"],
+      "managerFilePatterns": ["/infra/ansible/group_vars/all\\.yml/"],
       "matchStrings": ["caddy_image_tag:\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "caddy",
       "datasourceTemplate": "docker"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/ansible/group_vars/all\\.yml/"],
+      "managerFilePatterns": ["/infra/ansible/group_vars/all\\.yml/"],
       "matchStrings": ["traffic_analytics_image_tag:\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "ghost/traffic-analytics",
       "datasourceTemplate": "docker"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/ansible/group_vars/all\\.yml/"],
+      "managerFilePatterns": ["/infra/ansible/group_vars/all\\.yml/"],
       "matchStrings": ["activitypub_image_tag:\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "ghcr.io/tryghost/activitypub",
       "datasourceTemplate": "docker"

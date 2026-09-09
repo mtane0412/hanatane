@@ -130,11 +130,21 @@ sops exec-env ../secrets/ghost.env -- \
 
 ### 通常の DNS 変更手順
 
+origin（VPS）の IPv4/IPv6 はリポジトリを公開しているため `dns.tf` に平文で置かず、
+sops で暗号化した `tofu/origin.sops.tfvars` から `-var-file` で読み込む。
+Cloudflare Proxy で秘匿している origin アドレスを公開履歴に残さないための措置であり、
+`dns.tf` に IP を直接書いてはならない。
+
 ```bash
 cd tofu
 # dns.tf を編集
-sops exec-env ../secrets/ghost.env -- tofu plan -var='zone_id=<ZONE_ID>'
-sops exec-env ../secrets/ghost.env -- tofu apply -var='zone_id=<ZONE_ID>'
+sops exec-env ../secrets/ghost.env -- \
+  sops exec-file origin.sops.tfvars 'tofu plan -var="zone_id=<ZONE_ID>" -var-file={}'
+sops exec-env ../secrets/ghost.env -- \
+  sops exec-file origin.sops.tfvars 'tofu apply -var="zone_id=<ZONE_ID>" -var-file={}'
+
+# origin の IP を変更するとき
+sops edit origin.sops.tfvars
 ```
 
 ---

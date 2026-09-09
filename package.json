@@ -1,0 +1,11 @@
+{
+  "name": "hanatane",
+  "private": true,
+  "description": "hanatane.net（Ghost）のテーマ・OGP 画像生成・VPS 構成管理を束ねるモノレポ",
+  "packageManager": "pnpm@11.11.0",
+  "scripts": {
+    "test": "pnpm --filter ./theme test:ci && pnpm --filter ./theme test:scripts && pnpm --filter ./ogp test",
+    "test:theme": "pnpm --filter ./theme test:ci && pnpm --filter ./theme test:scripts",
+    "test:ogp": "pnpm --filter ./ogp test"
+  }
+}

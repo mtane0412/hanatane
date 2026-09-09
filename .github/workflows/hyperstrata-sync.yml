@@ -1,7 +1,7 @@
 # Hyperstrata の引用ネットワーク(References / Cited By)を成立させるため、
 # 公開済み記事の本文リンクから引用タグ(#ref-<slug>)を自動付与し、
-# 引用グラフ用の assets/graph.json を生成するワークフロー。
-# 処理内容は scripts/hyperstrata-sync.mjs を参照。
+# 引用グラフ用の theme/assets/graph.json を生成するワークフロー。
+# 処理内容は theme/scripts/hyperstrata-sync.mjs を参照。
 #
 # Ghost の Webhook は任意ヘッダーを付けられず GitHub の repository_dispatch を直接叩けないため、
 # 定期実行(cron)と手動実行(workflow_dispatch)で同期する。
@@ -50,6 +50,7 @@ jobs:
           node-version: lts/*
 
       - name: Sync citation tags and generate graph.json via Ghost Admin API
+        working-directory: theme
         env:
           GHOST_ADMIN_API_URL: ${{ secrets.GHOST_ADMIN_API_URL }}
           GHOST_ADMIN_API_KEY: ${{ secrets.GHOST_ADMIN_API_KEY }}
@@ -60,14 +61,14 @@ jobs:
         id: commit
         if: inputs.dry_run != true
         run: |
-          if git diff --quiet -- assets/graph.json; then
+          if git diff --quiet -- theme/assets/graph.json; then
             echo "graph.json に差分はありません"
             echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/graph.json
+          git add theme/assets/graph.json
           git commit -m "Update Hyperstrata graph.json"
           git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"

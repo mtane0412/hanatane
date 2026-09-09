@@ -1,3 +1,0 @@
-allowBuilds:
-  # Optional dtrace bindings for bunyan through gscan; not needed to build, zip, or scan the theme.
-  dtrace-provider: false

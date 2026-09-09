@@ -1,7 +1,13 @@
-name: Test
+# theme/ の変更に対して gscan によるテーマ検証と scripts のテストを実行する。
+name: Test theme
 
 on:
   pull_request:
+    paths:
+      - 'theme/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '.github/workflows/test-theme.yml'
 
 permissions:
   contents: read
@@ -26,9 +32,9 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm test:ci
+      - run: pnpm --filter ./theme test:ci
 
-      - run: pnpm test:scripts
+      - run: pnpm --filter ./theme test:scripts
 
   required-checks-pass:
     name: Required checks pass

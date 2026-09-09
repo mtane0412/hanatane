@@ -19,6 +19,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'theme/**'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/deploy-theme.yml'
   workflow_dispatch:
 
 permissions:
@@ -45,13 +49,13 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Validate theme (gscan)
-        run: pnpm run test:ci
+        run: pnpm --filter ./theme run test:ci
 
       - name: Build theme zip
-        run: pnpm run zip
+        run: pnpm --filter ./theme run zip
 
       - name: Rename zip (Ghost rejects a literal source.zip as an attempt to override the default theme)
-        run: mv dist/source.zip dist/mtane0412-source.zip
+        run: mv theme/dist/source.zip theme/dist/mtane0412-source.zip
 
       - name: Deploy Ghost Theme
         uses: TryGhost/action-deploy-theme@da65fcb5f545abd5e801830bf991f6becc9d6fcc # v2.0.0
@@ -59,3 +63,4 @@ jobs:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
           file: dist/mtane0412-source.zip
+          working-directory: theme

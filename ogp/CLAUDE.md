@@ -4,29 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-このプロジェクトは、TanStack Start（React Router + SSR）とCloudflare Workersを組み合わせたフルスタックReactアプリケーションです。
+このディレクトリは hanatane モノレポの `ogp/` パッケージです（依存はリポジトリルートで `pnpm install`）。TanStack Start（React Router + SSR）とCloudflare Workersを組み合わせたフルスタックReactアプリケーションです。
 
 ## 開発コマンド
 
 ### 基本コマンド
 ```bash
-npm run dev          # 開発サーバー起動（ポート3000）
-npm run build        # プロダクションビルド
-npm run preview      # プロダクションビルドのプレビュー
-npm run deploy       # Cloudflare Workersへデプロイ
+pnpm dev             # 開発サーバー起動（ポート3000）
+pnpm build           # プロダクションビルド
+pnpm preview         # プロダクションビルドのプレビュー
+pnpm deploy          # Cloudflare Workersへデプロイ
 ```
 
 ### テスト・品質管理
 ```bash
-npm run test         # Vitestでテスト実行
-npm run lint         # Biomeでリント実行
-npm run format       # Biomeでフォーマット実行
-npm run check        # Biomeでリント+フォーマットチェック
+pnpm test            # Vitestでテスト実行
+pnpm lint            # Biomeでリント実行
+pnpm format          # Biomeでフォーマット実行
+pnpm check           # Biomeでリント+フォーマットチェック
 ```
 
 ### 単一テストの実行
 ```bash
-npx vitest run <test-file-name>
+pnpm exec vitest run <test-file-name>
 ```
 
 ## アーキテクチャ
@@ -72,8 +72,8 @@ import Header from '@/components/Header'
 
 ### コード修正時の必須手順
 
-1. コード変更後は必ず `npm run lint` を実行してエラー・警告をクリアする
-2. テストが存在する場合は `npm test` を実行して全テストがパスすることを確認する
+1. コード変更後は必ず `pnpm lint` を実行してエラー・警告をクリアする
+2. テストが存在する場合は `pnpm test` を実行して全テストがパスすることを確認する
 
 ## デモファイルについて
 
@@ -95,7 +95,7 @@ Tailwind CSS v4を使用しています。Viteプラグイン（`@tailwindcss/vi
 
 ### 依存バージョンの固定理由
 
-- `satori` は **0.32.0 に固定**しています。0.33.0 以降は harfbuzzjs に依存し、Workers 上で `self.location` 参照と実行時 wasm コンパイルにより起動時に失敗します。更新する場合は `npm run build && npm run preview` で `/og` が 200 を返すことを確認してください
+- `satori` は **0.32.0 に固定**しています。0.33.0 以降は harfbuzzjs に依存し、Workers 上で `self.location` 参照と実行時 wasm コンパイルにより起動時に失敗します。更新する場合は `pnpm build && pnpm preview` で `/og` が 200 を返すことを確認してください
 - `tsconfig.json` に `baseUrl` を設定しないでください。設定すると vite-tsconfig-paths が `@resvg/...` のような bare import をプロジェクト直下の相対パスとして解決しようとし、Cloudflare プラグインの `.wasm` 解決が失敗します
 
 ### テスト
@@ -104,11 +104,11 @@ Tailwind CSS v4を使用しています。Viteプラグイン（`@tailwindcss/vi
 
 ## OGP 画像の事前生成（`scripts/sync-og-images.ts`）
 
-`/og` の実行時レンダリングは Workers 無料プランの CPU 上限（10ms）を超えるため、本番運用は事前生成方式です。GitHub Actions（`.github/workflows/sync-og-images.yml`、15 分おき + 手動）が Ghost Admin API で「公開済み・feature_image なし・og_image なし」の記事を取得し、PNG を生成して images/upload にアップロードし、記事の `og_image` に設定します。`ghost_head` は `og_image` を最優先で使うため、テーマ側の変更は不要です。
+`/og` の実行時レンダリングは Workers 無料プランの CPU 上限（10ms）を超えるため、本番運用は事前生成方式です。GitHub Actions（リポジトリルートの `.github/workflows/sync-og-images.yml`、15 分おき + 手動）が Ghost Admin API で「公開済み・feature_image なし・og_image なし」の記事を取得し、PNG を生成して images/upload にアップロードし、記事の `og_image` に設定します。`ghost_head` は `og_image` を最優先で使うため、テーマ側の変更は不要です。
 
 - 対象選定・配色決定: `src/og/sync/plan.ts`（slug の FNV-1a ハッシュでグラデーションを決定的に選ぶ）
 - Admin API クライアント: `src/og/sync/ghost-admin.ts`（JWT 生成、記事取得、画像アップロード、og_image 更新）
 - 実行フロー: `src/og/sync/run.ts`（失敗時は例外で停止し、暗黙にスキップしない）
 - Node 用資源ローダー: `src/og/resources-node.ts`
-- 必要な Secrets: `GHOST_ADMIN_API_URL`、`GHOST_ADMIN_API_KEY`（mtane0412/Source と同じ値）
-- ローカル実行: `GHOST_ADMIN_API_URL=... GHOST_ADMIN_API_KEY=... npm run sync:og -- --dry-run`
+- 必要な Secrets: `GHOST_ADMIN_API_URL`、`GHOST_ADMIN_API_KEY`（deploy-theme と共通）
+- ローカル実行: `GHOST_ADMIN_API_URL=... GHOST_ADMIN_API_KEY=... pnpm sync:og -- --dry-run`

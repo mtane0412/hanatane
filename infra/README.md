@@ -1,6 +1,8 @@
-# ghost-vps
+# infra（旧 ghost-vps）
 
-さくらのVPS上で稼働する Ghost ブログ `https://hanatane.net/` の構成管理リポジトリ。
+さくらのVPS上で稼働する Ghost ブログ `https://hanatane.net/` の構成管理。hanatane モノレポの `infra/` ディレクトリで管理する（コマンドはこのディレクトリで実行する）。
+
+リポジトリは公開のため、機密は必ず sops + age で暗号化する。origin（VPS）の IP アドレスも `tofu/origin.sops.tfvars` に暗号化して置き、`dns.tf` に平文で書かない。
 
 ## 構成
 

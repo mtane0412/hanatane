@@ -1,7 +1,9 @@
 # hanatane.net DNS レコード管理（Cloudflare provider v5）
 #
 # 全レコードは既存リソースを tofu import で取り込み済み。
-# 変更前に必ず: sops exec-env ../secrets/ghost.env -- tofu plan -var='zone_id=...'
+# 変更前に必ず（tofu/ 内で実行）:
+#   sops exec-env ../secrets/ghost.env -- sops exec-file origin.sops.tfvars 'tofu plan -var="zone_id=..." -var-file={}'
+# origin の IP は origin.sops.tfvars（sops 暗号化）に置く。平文で dns.tf に書かないこと。
 # Zone ID: f39970ba35adb2b88ce029c3f0e4d02a（docs/runbook.md にも記録）
 #
 # TXT records:
@@ -14,7 +16,7 @@ resource "cloudflare_dns_record" "apex_a" {
   zone_id = var.zone_id
   name    = "hanatane.net"
   type    = "A"
-  content = "160.16.136.36"
+  content = var.origin_ipv4
   proxied = true
   ttl     = 1
   comment = "ghostのcloudflare設定に対応"
@@ -24,7 +26,7 @@ resource "cloudflare_dns_record" "apex_aaaa" {
   zone_id = var.zone_id
   name    = "hanatane.net"
   type    = "AAAA"
-  content = "2001:e42:102:1704:160:16:136:36"
+  content = var.origin_ipv6
   proxied = true
   ttl     = 1
 }

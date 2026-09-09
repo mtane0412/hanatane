@@ -1,0 +1,11 @@
+packages:
+  - theme
+  - ogp
+  - packages/*
+
+allowBuilds:
+  # gscan 経由の bunyan が要求する任意の dtrace バインディング。テーマのビルド・検証には不要
+  dtrace-provider: false
+  # ogp の Vite / Cloudflare 開発に必要なネイティブバイナリ
+  esbuild: true
+  workerd: true
