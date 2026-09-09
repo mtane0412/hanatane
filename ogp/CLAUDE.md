@@ -115,10 +115,10 @@ Tailwind CSS v4を使用しています。Viteプラグイン（`@tailwindcss/vi
 
 ## Ghost Webhook 中継（`/webhooks/ghost`）
 
-公開直後に cron を待たず事前生成を走らせるため、Ghost の `post.published` Webhook をこの Worker で受け、GitHub の `repository_dispatch`（event_type: `ghost-post-published`）に中継します。Ghost の Webhook は任意ヘッダーを付けられないため GitHub を直接叩けず、また管理画面では署名 secret を指定できないため、送信先 URL のクエリ `token` で認証します。
+公開直後に cron を待たず事前生成を走らせるため、Ghost の `post.published` Webhook をこの Worker で受け、GitHub の `repository_dispatch`（event_type: `ghost-post-published`）に中継します。Ghost の Webhook は任意ヘッダーを付けられないため GitHub を直接叩けません。認証は Ghost の Webhook 設定の Secret 欄による署名ヘッダー `X-Ghost-Signature`（`sha256=<HMAC-SHA256(secret, 本文 + タイムスタンプ) の hex>, t=<タイムスタンプ(ms)>`）を検証します。
 
-- ルート: `src/routes/webhooks.ghost.tsx`（`POST /webhooks/ghost?token=...`）
-- 処理本体: `src/webhooks/ghost-dispatch.ts`（token を定数時間比較、`post.current` を検証、feature_image あり・未公開なら dispatch せず 200、GitHub が 204 以外なら 502）
-- 設定: `wrangler.jsonc` の vars `GITHUB_REPOSITORY`、secret `GITHUB_DISPATCH_TOKEN`（`wrangler secret put`、repository_dispatch を送れる fine-grained PAT で Contents: Read and write）、secret `GHOST_WEBHOOK_TOKEN`（任意のランダム文字列）。型は `src/env.d.ts`
-- Ghost 側: Settings > Integrations > Custom integration に Webhook を追加し、Event を `Post published`、Target URL を `https://<worker>/webhooks/ghost?token=<GHOST_WEBHOOK_TOKEN>` にする
+- ルート: `src/routes/webhooks.ghost.tsx`（`POST /webhooks/ghost`）
+- 処理本体: `src/webhooks/ghost-dispatch.ts`（生の本文で HMAC を計算して定数時間比較、タイムスタンプが 5 分以上ずれていれば拒否、`post.current` を検証、feature_image あり・未公開なら dispatch せず 200、GitHub が 204 以外なら 502）
+- 設定: `wrangler.jsonc` の vars `GITHUB_REPOSITORY`、secret `GITHUB_DISPATCH_TOKEN`（`wrangler secret put`、repository_dispatch を送れる fine-grained PAT で Contents: Read and write）、secret `GHOST_WEBHOOK_SECRET`（任意のランダム文字列、191 文字以内）。型は `src/env.d.ts`
+- Ghost 側: Settings > Integrations > Custom integration に Webhook を追加し、Event を `Post published`、Target URL を `https://<worker>/webhooks/ghost`、Secret を `GHOST_WEBHOOK_SECRET` と同じ値にする（Secret 欄のプレースホルダーは URL 形式だが、任意の文字列でよい）
 - `og_image` の書き込みは `post.published.edited` であり `post.published` は再発火しないためループしない。仮に再発火しても Admin API のフィルタで対象ゼロになる
