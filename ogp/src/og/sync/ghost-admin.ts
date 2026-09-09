@@ -2,7 +2,8 @@
  * Ghost Admin API クライアント（OGP 事前生成に必要な操作のみ）
  *
  * 認証は Admin API キー（`<id>:<secret>`）から生成する短命の JWT で行います。
- * 画像は images/upload に multipart で送り、返された URL を記事の og_image に設定します。
+ * 画像は images/upload に multipart で送り、返された URL を記事の og_image と twitter_image に設定します。
+ * Ghost は twitter_image を og_image にフォールバックしないため、両方を設定する必要があります。
  */
 
 import { createHmac } from "node:crypto";
@@ -47,12 +48,12 @@ export function createAdminToken(
 export interface GhostAdminClient {
 	/** サイト名（OGP 画像に描くサイト名として使う） */
 	getSiteTitle(): Promise<string>;
-	/** 公開済みで feature_image も og_image も無い記事を著者込みで取得する */
+	/** 公開済みで feature_image が無く、og_image か twitter_image が未設定の記事を著者込みで取得する */
 	listPostsNeedingOgImage(): Promise<GhostPost[]>;
 	/** PNG をアップロードし、公開 URL を返す */
 	uploadImage(png: Uint8Array<ArrayBuffer>, filename: string): Promise<string>;
-	/** 記事の og_image を設定する（updated_at による楽観ロック付き） */
-	setOgImage(
+	/** 記事の og_image と twitter_image に同じ画像を設定する（updated_at による楽観ロック付き） */
+	setSocialImages(
 		post: Pick<GhostPost, "id" | "updated_at">,
 		imageUrl: string,
 	): Promise<void>;
@@ -118,7 +119,8 @@ export function createGhostAdminClient({
 
 		async listPostsNeedingOgImage() {
 			const filter = encodeURIComponent(
-				"status:published+feature_image:null+og_image:null",
+				// NQL: 括弧内のカンマは OR
+				"status:published+feature_image:null+(og_image:null,twitter_image:null)",
 			);
 			const { posts } = await request<{ posts: GhostPost[] }>(
 				"GET",
@@ -141,12 +143,18 @@ export function createGhostAdminClient({
 			return images[0].url;
 		},
 
-		async setOgImage(post, imageUrl) {
+		async setSocialImages(post, imageUrl) {
 			await request(
 				"PUT",
 				`/posts/${post.id}/`,
 				JSON.stringify({
-					posts: [{ og_image: imageUrl, updated_at: post.updated_at }],
+					posts: [
+						{
+							og_image: imageUrl,
+							twitter_image: imageUrl,
+							updated_at: post.updated_at,
+						},
+					],
 				}),
 				"application/json",
 			);

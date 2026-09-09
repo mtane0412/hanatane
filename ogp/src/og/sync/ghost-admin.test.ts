@@ -64,7 +64,7 @@ describe("createGhostAdminClient", () => {
 			"https://hanatane.net/ghost/api/admin/posts/",
 		);
 		expect(url.searchParams.get("filter")).toBe(
-			"status:published+feature_image:null+og_image:null",
+			"status:published+feature_image:null+(og_image:null,twitter_image:null)",
 		);
 		expect(url.searchParams.get("include")).toBe("authors");
 		expect(url.searchParams.get("limit")).toBe("all");
@@ -123,7 +123,7 @@ describe("createGhostAdminClient", () => {
 			apiKey: APIキー,
 			fetchImpl,
 		});
-		await client.setOgImage(
+		await client.setSocialImages(
 			{ id: "p1", updated_at: "2026-09-09T10:00:00.000Z" },
 			"https://hanatane.net/content/images/og.png",
 		);
@@ -133,6 +133,7 @@ describe("createGhostAdminClient", () => {
 			posts: [
 				{
 					og_image: "https://hanatane.net/content/images/og.png",
+					twitter_image: "https://hanatane.net/content/images/og.png",
 					updated_at: "2026-09-09T10:00:00.000Z",
 				},
 			],

@@ -7,7 +7,11 @@
 
 import type { OgpRenderParams } from "@/og/params";
 import type { GhostAdminClient } from "./ghost-admin";
-import { buildRenderParams, selectPostsNeedingOgImage } from "./plan";
+import {
+	buildRenderParams,
+	existingSocialImage,
+	selectPostsNeedingOgImage,
+} from "./plan";
 
 export interface SyncOgImagesOptions {
 	client: GhostAdminClient;
@@ -52,13 +56,20 @@ export async function syncOgImages({
 		return { planned, updated: [] };
 	}
 
-	const siteTitle = await client.getSiteTitle();
+	// 全記事が生成済み画像の再利用で済む場合はサイト名の取得も不要
+	const needsRender = posts.some((post) => !existingSocialImage(post));
+	const siteTitle = needsRender ? await client.getSiteTitle() : "";
 	const updated: string[] = [];
 	for (const post of posts) {
-		const png = await render(buildRenderParams(post, siteTitle));
-		const imageUrl = await client.uploadImage(png, ogImageFilename(post.slug));
-		await client.setOgImage(post, imageUrl);
-		log(`${post.slug}: og_image を設定しました → ${imageUrl}`);
+		let imageUrl = existingSocialImage(post);
+		if (imageUrl) {
+			log(`${post.slug}: 生成済みの画像を再利用します → ${imageUrl}`);
+		} else {
+			const png = await render(buildRenderParams(post, siteTitle));
+			imageUrl = await client.uploadImage(png, ogImageFilename(post.slug));
+		}
+		await client.setSocialImages(post, imageUrl);
+		log(`${post.slug}: og_image と twitter_image を設定しました → ${imageUrl}`);
 		updated.push(post.slug);
 	}
 	return { planned, updated };
