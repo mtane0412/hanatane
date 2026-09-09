@@ -1,0 +1,11 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "hanatane-ogp",
+	"compatibility_date": "2025-09-02",
+	"compatibility_flags": ["nodejs_compat"],
+	"main": "@tanstack/react-start/server-entry",
+	// OGP 生成ルートがフォントと著者アイコンを静的アセットから読むためのバインディング
+	"assets": {
+		"binding": "ASSETS"
+	}
+}
