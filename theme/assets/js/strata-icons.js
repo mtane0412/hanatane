@@ -5,19 +5,26 @@
  * 両方から使う共通アイコン定義。<svg viewBox="0 0 24 24"> の子要素だけを文字列で持ち、
  * 色は currentColor で呼び出し側に委ねる。未知の icon(古い graph.json や将来追加分)は
  * createElement が null を返し、呼び出し側は何も描画しない。
+ *
+ * 背景色(var(--background-color))での穴あけ・白抜きは使わず、単色のシルエットだけで形を表現する。
+ * 地層に埋まった発掘物のような見た目にするための方針(白い切り抜きがあると埋蔵物らしさが薄れるため)
  */
 (function () {
     const SVG_NS = 'http://www.w3.org/2000/svg';
 
     const ICONS = {
-        cat: '<path d="M7 3 8.6 7.4 12 5.6l3.4 1.8L17 3l.9 6.1a6 6 0 1 1-11.8 0L7 3Z"/><circle cx="9.6" cy="13" r="1" style="fill:var(--background-color,#fff)"/><circle cx="14.4" cy="13" r="1" style="fill:var(--background-color,#fff)"/>',
-        house: '<path d="M12 3 21 11h-2.5v9h-13v-9H3L12 3Z"/><rect x="10" y="15" width="4" height="5" style="fill:var(--background-color,#fff)"/>',
-        hunting: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="6.2" style="fill:var(--background-color,#fff)"/><circle cx="12" cy="12" r="3.2"/>',
-        game: '<rect x="3" y="9" width="18" height="9" rx="4"/><rect x="7" y="11.5" width="4" height="1.6" style="fill:var(--background-color,#fff)"/><rect x="8.2" y="10.3" width="1.6" height="4" style="fill:var(--background-color,#fff)"/><circle cx="16" cy="12" r="1.1" style="fill:var(--background-color,#fff)"/><circle cx="18.2" cy="14.2" r="1.1" style="fill:var(--background-color,#fff)"/>',
-        tech: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+        cat: '<path d="M7 3 8.6 7.4 12 5.6l3.4 1.8L17 3l.9 6.1a6 6 0 1 1-11.8 0L7 3Z"/>',
+        house: '<path d="M12 3 21 11h-2.5v9h-13v-9H3L12 3Z"/><rect x="15.2" y="4.5" width="2" height="4"/>',
+        // ライフルのシルエット: 銃身(長い横棒)・台尻(斜めの棒)・トリガーガード(輪)を組む
+        hunting: '<rect x="8" y="9.2" width="14" height="2.2" rx="0.5"/><rect x="2" y="10.3" width="9" height="2.6" rx="0.4" transform="rotate(18 6.5 11.6)"/><rect x="10" y="13" width="1.1" height="2"/><path d="M9.4 13.6a1.6 1.6 0 1 0 3.2 0" fill="none" stroke="currentColor" stroke-width="1.3"/>',
+        game: '<rect x="3" y="8" width="18" height="8" rx="4"/><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/>',
+        // 歯車のシルエット: 中心の丸(本体)+短く太い歯(8方向)。放射状の細い線(太陽に見える)を避ける
+        tech: '<circle cx="12" cy="12" r="5.4"/><path d="M12 3.2v2.6M12 18.2v2.6M3.2 12h2.6M18.2 12h2.6M5.7 5.7l1.8 1.8M16.5 16.5l1.8 1.8M18.3 5.7l-1.8 1.8M7.5 16.5l-1.8 1.8" stroke="currentColor" stroke-width="3.4" stroke-linecap="square"/>',
         travel: '<path d="M3 13.5 21 5l-8.5 18-2-7.5L3 13.5Z"/>',
-        journal: '<rect x="4" y="3" width="16" height="18" rx="1.5"/><rect x="7" y="7" width="10" height="1.6" style="fill:var(--background-color,#fff)"/><rect x="7" y="10.7" width="10" height="1.6" style="fill:var(--background-color,#fff)"/><rect x="7" y="14.4" width="7" height="1.6" style="fill:var(--background-color,#fff)"/>',
-        event: '<rect x="6" y="2" width="2.2" height="5.5" rx="1.1"/><rect x="15.8" y="2" width="2.2" height="5.5" rx="1.1"/><rect x="3" y="5" width="18" height="16" rx="1.5"/><rect x="3" y="9" width="18" height="2" style="fill:var(--background-color,#fff)"/><circle cx="12" cy="15" r="1.6" style="fill:var(--background-color,#fff)"/>'
+        // ノート(journal)のシルエット: 本体の矩形+左側にはみ出す螺旋綴じの丸(すべて単色の実体で、穴は開けない)
+        journal: '<rect x="6" y="3" width="13" height="18" rx="1.5"/><circle cx="4" cy="7" r="1.3"/><circle cx="4" cy="12" r="1.3"/><circle cx="4" cy="17" r="1.3"/>',
+        // カレンダー(event)のシルエット: 本体の矩形+上端にはみ出す綴じ具の突起(すべて単色の実体で、穴は開けない)
+        event: '<rect x="3" y="6" width="18" height="15" rx="1.5"/><rect x="6" y="2" width="2.4" height="6" rx="1.2"/><rect x="15.6" y="2" width="2.4" height="6" rx="1.2"/>'
     };
 
     /**
