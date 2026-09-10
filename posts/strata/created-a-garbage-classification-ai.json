@@ -1,0 +1,7 @@
+{
+  "slug": "created-a-garbage-classification-ai",
+  "summary": "OpenAIのDevDayで発表されたGPTsを使い、居住自治体のゴミ分類に答えるカスタムChatGPTを作った記事。Instructionsに公式情報源の大まかなルールを転記し、PDFでしか公開されていないゴミ分類辞典をGoogle DocsとGoogle Sheetsを経由してCSV化してアップロードした。作成自体は数分で、全体約30分の大半はPDFからCSVへの変換作業だった。品目の質問、曖昧な質問、写真の解析まで回答できることを確認している。所感として、同じ仕組みはLINE botにも展開できること、今後は自治体や企業がAIの利用できる形式のデータを持つかどうかが差になると述べている。",
+  "relations": [],
+  "annotated_at": "2026-09-10T04:52:10Z",
+  "annotator": "claude-sonnet-5"
+}

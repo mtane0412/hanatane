@@ -8,6 +8,7 @@
 		"pull": "tsx scripts/pull.ts",
 		"private": "tsx scripts/private.ts",
 		"check-private": "tsx scripts/check-private.ts",
+		"strata": "tsx scripts/strata.ts",
 		"test": "vitest run",
 		"lint": "biome check",
 		"format": "biome format --write",

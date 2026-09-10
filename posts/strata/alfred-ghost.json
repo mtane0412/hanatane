@@ -1,0 +1,13 @@
+{
+  "slug": "alfred-ghost",
+  "summary": "Ghostの記事をインクリメンタルサーチして公開URLをクリップボードにコピーするAlfred Workflow「alfred-ghost」を作成した記録。ghost n（新規記事作成）、ghost o（ダッシュボードを開く）、ghost s（タイトル検索。enterでURLコピー、control+enterで記事を開く）を備え、jqが必要な形で配布している。Ghostのエディタには過去記事を参照して挿入する機能がないのが動機だった。ChatGPTにAppleScriptを書かせて数十分で完成した。生成AIは「作れる人がより簡単に作れるようになった」のが実像だという考察で締めている。",
+  "relations": [
+    {
+      "slug": "alfred-midjourney",
+      "type": "revisits",
+      "reason": "ChatGPT製AppleScriptでAlfred Workflowを作る取り組みに、記事検索という別の課題で再び取り組んだ"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

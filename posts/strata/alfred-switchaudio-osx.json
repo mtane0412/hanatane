@@ -1,0 +1,18 @@
+{
+  "slug": "alfred-switchaudio-osx",
+  "summary": "MacでBeats Fit ProなどのBluetoothイヤホンを使う際、Bluetoothマイクがオンになると音質が悪化するため、内蔵マイクへの切り替えをAlfredで行えるようにした記録。メニューバーのSoundから選ぶ操作が面倒で、H1チップで接続を切り替えるたびにマイクが変わる問題があった。switchaudio-osxを使う既存のAlfred WorkflowはPython2依存で動かなかったため、ChatGPTにAppleScriptを書いてもらって実装した。PythonやNodeに依存するWorkflowは使えなくなりがちで、AppleScriptなら長く使えるのではないかという見立てで締めている。",
+  "relations": [
+    {
+      "slug": "alfred-ghost",
+      "type": "revisits",
+      "reason": "ChatGPT製AppleScriptでAlfred Workflowを作る手法に、音声切替という別の課題で再び取り組んだ"
+    },
+    {
+      "slug": "alfred-midjourney",
+      "type": "revisits",
+      "reason": "既存Workflowの言語依存が壊れる問題を経て、AppleScriptで作る同じ手法に再び頼った"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

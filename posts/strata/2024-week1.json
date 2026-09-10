@@ -1,0 +1,18 @@
+{
+  "slug": "2024-week1",
+  "summary": "初めての週次振り返り記事。年末年始はたねハウスの浴室改装に充て、アルミテープで塞がれていた箇所をコメリで買った「くりぬくぞう」で切り取って補修し、ペンキ塗り、コーキング、旧換気口をスタイロフォームで塞ぐ作業を行った。ほかに、Windowsをゲームコンソールと割り切りThingsやFlow、Alfredを使うため家でもMacに寄せたこと、西尾氏のScrapboxをきっかけにブログのCC0化を検討していること、放送大学の教科書を裁断してBook2ScrapboxでScrapbox化したこと、Twitchのimplied nudity禁止、レーザー墨出し器やApple Watch SEの購入、4月の種延36th生誕祭の予定を記している。",
+  "relations": [
+    {
+      "slug": "reflection-2023",
+      "type": "continues",
+      "reason": "2024年の方針として宣言した週次振り返り記事の第1弾にあたる。"
+    },
+    {
+      "slug": "progress-of-tanehouse",
+      "type": "continues",
+      "reason": "課題に挙げていた浴室の塗り直しや換気口対策を実施した続報になっている。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:10Z",
+  "annotator": "claude-sonnet-5"
+}

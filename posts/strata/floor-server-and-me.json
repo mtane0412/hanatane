@@ -1,0 +1,13 @@
+{
+  "slug": "floor-server-and-me",
+  "summary": "2025年の新年のあいさつを兼ねた記事。年末年始に1階の和室を洋室化する計画だったが、寝正月で作業が進まず1月の休みに持ち越した。夜はブラックフライデーで買ったN100系ミニPCにProxmoxを入れ、Helper Scriptsで仮想環境を作り、Home Assistant、InfluxDB、Grafana、NocoDBでハウス管理をスマート化する計画を立てた。Cloudflare Tunnelにより固定IP代なしで外部から安全にアクセスできる。Proxmox VE Helper Scriptsの作者が2024年11月に亡くなっていたことに触れ、2025年はself-hostedへ回帰する。",
+  "relations": [
+    {
+      "slug": "old-house-is-development-environment",
+      "type": "continues",
+      "reason": "床を剥がして直すレディネスを獲得したという流れのまま、今度は和室の床の洋室化に取り組んでいる。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:24Z",
+  "annotator": "claude-sonnet-5"
+}

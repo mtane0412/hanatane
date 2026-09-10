@@ -1,0 +1,13 @@
+{
+  "slug": "on-air-sign",
+  "summary": "Twitch配信中かどうか住民に分かるように、配信と連動するON AIRランプを作った記事。USBと単3乾電池の両方で動くALFOTOのON AIRライトに、Bluetoothで制御できるIoT乾電池MaBeeeを入れ、Raspberry Pi 5上でHTTPサーバーを立ててMACアドレスとPWM値をPOSTで受け取る仕組みにした。配信ツールFirebotの配信開始・終了イベントからこのサーバーを呼び出し、点灯・消灯させる構成で完成した。Pi 5とMaBeeeのBluetoothは壁やWi-Fiアクセスポイントの影響で不安定になるため、母艦は近距離に置く必要があるという気づきも記している。",
+  "relations": [
+    {
+      "slug": "restart-twitch",
+      "type": "continues",
+      "reason": "再開したTwitch配信の運用を、住民との同居に合わせて設備面で拡張した次の一手になっている。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:24Z",
+  "annotator": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "proxmox-nuc-home-server-setup",
+  "summary": "NUC規格のN100系ミニPCにハイパーバイザーProxmoxを入れて自宅サーバー環境を構築した事例を、自宅サーバーを始めたい人向けに紹介する記事。メリットとして、GUIで仮想環境を気軽に作り直せること、VMにIPが割り当てられ静的DNSやCloudflare Tunnelと組み合わせやすいこと、Proxmox VE Helper-Scriptsでセルフホスト環境を一発で構築できることを挙げる。VM/LXCは15個ほどになりRAMを32GBに換装した。今後はNAS追加、ローカルLLM稼働、住民用ネットワークの分離、サーバールーム整備を予定している。",
+  "relations": [
+    {
+      "slug": "floor-server-and-me",
+      "type": "continues",
+      "reason": "年末年始に触れていたProxmoxでの自宅サーバー構築を、導入手順や利点として詳しくまとめ直した続報。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:24Z",
+  "annotator": "claude-sonnet-5"
+}

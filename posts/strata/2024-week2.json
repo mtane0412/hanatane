@@ -1,0 +1,23 @@
+{
+  "slug": "2024-week2",
+  "summary": "2024年第2週の振り返り記事。朝の室温が0度付近になる寒さの中、ゲーミング着る毛布に加えて貼るカイロを首に貼る使い方を紹介し、年末セールで買い増ししたSwitchbot製品で玄関カメラをAtom Camから置き換え、Atom Camは離れの動物観察用に回した。ニュースではCES2024の犬猫用スマート首輪Minitailz、Samsungの移動ロボットBallie、Twitchのトランスコード発表を取り上げ、面白かった記事として糸井重里と宮本茂の対談シリーズとドット絵Vtuberシステムの技術記事を挙げている。映像の世紀で見た田中角栄がマイブームであること、今週投稿したGhostとDuolingoの記事にも触れている。",
+  "relations": [
+    {
+      "slug": "2024-week1",
+      "type": "continues",
+      "reason": "週次振り返りの2週目で、先週買ったゲーミング着る毛布に加えてカイロを購入したと続報している。"
+    },
+    {
+      "slug": "embedding-in-ghost-should-not-be-abused",
+      "type": "continues",
+      "reason": "今週投稿した記事として本文中で明示的に振り返っている。"
+    },
+    {
+      "slug": "thin-vs-thing",
+      "type": "continues",
+      "reason": "今週投稿した記事として本文中で明示的に振り返っている。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:10Z",
+  "annotator": "claude-sonnet-5"
+}

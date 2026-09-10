@@ -1,0 +1,13 @@
+{
+  "slug": "ghocli",
+  "summary": "steipete が作った Google 系サービスの CLI である gog が便利だったことをきっかけに、その Ghost 版となる gho コマンドを Claude Code に作らせた記事です。gog は Agent Skill 化して /gog で呼び出し、Google Workspace の Gemini メモを開発のコンテキストとして共有しています。gho では gog のリポジトリで設計思想を調べ、cat コマンドの Unix 的な出力を踏襲し、pipeline 処理を意識して入出力を設計しました。CLI が使える環境では MCP より CLI が良く、AI エージェント時代には「ひとつのことをうまくやる」ツールが資産になるという考えで締めています。",
+  "relations": [
+    {
+      "slug": "ghost-amazon-link-generator",
+      "type": "revisits",
+      "reason": "Ghost運用を便利にする自作治具というテーマに、Tampermonkeyスクリプトの次はCLIツールという形で再び取り組んでいる。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:53:17Z",
+  "annotator": "claude-sonnet-5"
+}

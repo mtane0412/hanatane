@@ -39,6 +39,7 @@ description: hanatane.net（Ghost）の記事を posts/content/*.md で作成・
 
 - ユーザーが明示的に公開を依頼した場合のみ行う。frontmatter を `status: published` に変えて push するか、`pnpm ghst post publish <id>` を使う。
 - メール配信（`--newsletter` など）は依頼が無い限り付けない。
+- 公開したら `pnpm --filter ./posts pull --slug <slug>` で `published_at` を取り込み、`strata-annotate` スキルで Hyperstrata の注釈（要約と過去記事との関係）を書く。注釈を後回しにするときは、その旨をユーザーに伝える。
 
 ## 参照系
 

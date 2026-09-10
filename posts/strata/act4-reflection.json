@@ -1,0 +1,13 @@
+{
+  "slug": "act4-reflection",
+  "summary": "ストリートファイター6のAct4を振り返った記事。Act3終了時の目標だったMR1800にモダンケンで到達した。環境面では大型調整で豪鬼とベガが追加され、AKIやザンギエフに苦戦した。成長点として屈中Kの置き方、屈中K→立ち中Pのヒット確認、相手を見た読み合い、SA2でのリーサル、詐欺飛び、画面端の小P重ねを挙げ、改善点としてリーサル逃し、バーンアウト、インパクト警戒、キャラ対策、対戦相手へのリスペクトを含むメンタル管理を挙げた。コントローラーはOctaを試してDualSenseに戻し、Apple WatchとHypeRate.ioで心拍数を計測した。Act5の目標はMR1900とした。",
+  "relations": [
+    {
+      "slug": "act3-reflection",
+      "type": "continues",
+      "reason": "前回のAct3ふり返りに続いて書かれた次Actの振り返りで、目標MR1800到達を報告している。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:24Z",
+  "annotator": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "ghost-mailgun-setup",
+  "summary": "セルフホストしたGhostでニュースレター配信に使うMailgunの一括送信が失敗していた問題への対処メモ。Ghostは記事の一斉送信（Bulk Email）をMailgun API経由で送るが、Dockerのログを見ると作りたてのMailgunアカウントでは大量送信できず失敗していた。Ghostの設定bulkEmail__batchSizeを10にしても途中でエラーになり、Mailgunサポートに問い合わせると、アカウントが評価期間にあり1時間100メッセージまで、1メッセージあたり9人までの制限があると回答された。バッチサイズを5にして送信できるようになったが、制限は解除されず様子見となった。",
+  "relations": [
+    {
+      "slug": "ghost-migration-from-pro-to-selfhost",
+      "type": "continues",
+      "reason": "「以下の記事の補足」と明記し、セルフホスト移行時のMailgun設定不備を追って解決している"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:12Z",
+  "annotator": "claude-sonnet-5"
+}

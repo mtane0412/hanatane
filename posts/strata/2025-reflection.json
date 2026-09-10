@@ -1,0 +1,43 @@
+{
+  "slug": "2025-reflection",
+  "summary": "2025 年を月ごとに振り返った記事です。1 月に和室のフローリング化と Roo Code 導入、2 月に防草シートと大船渡林野火災、3 月に Sigma fp 購入、4 月にデジタル民主主義 2030 MeetUp、5 月に EVO Japan と Plurality Tokyo と車の廃車、6 月に Claude Code 本格導入と北海道・八戸・三内丸山遺跡、7 月に広島・大阪、8 月に青森ねぶたの跳人と大湯環状列石、9 月にハチエフ 2025、10 月に猟銃の講習、11 月に野良猫を迎え、12 月に猫の自動化を記録しています。総括では Agentic Coding による激変と災害を踏まえ、反脆弱性を取り入れる姿勢で締めています。",
+  "relations": [
+    {
+      "slug": "8f2024",
+      "type": "continues",
+      "reason": "「去年に引き続いて」と明言し、前年のハチエフ参戦を踏まえた今年のハチエフ2025参加を報告している。"
+    },
+    {
+      "slug": "hunter-license-2024",
+      "type": "continues",
+      "reason": "罠・網の狩猟免許取得の後、猟銃取得に向けた警察の講習を受けたという次のステップを報告している。"
+    },
+    {
+      "slug": "car-accident-202503",
+      "type": "updates",
+      "reason": "タイヤ脱輪事故の後、修理費がかさんだため車を廃車にしたという結末を追記している。"
+    },
+    {
+      "slug": "trip-with-sigma-fp",
+      "type": "updates",
+      "reason": "購入直後の意気込みに反し、結局あまり撮影に出かけられなかったと1年を通した実情を修正している。"
+    },
+    {
+      "slug": "welcome-cat",
+      "type": "continues",
+      "reason": "11月に迎えた猫のその後、床下に隠れた12月のハプニングや自動化の進行を続けて報告している。"
+    },
+    {
+      "slug": "kominka-cat-missing",
+      "type": "continues",
+      "reason": "12月に猫が床下に隠れた出来事を「猫がかわいい」の節で無事塞いで世話を続けていると続報している。"
+    },
+    {
+      "slug": "restart-twitch",
+      "type": "updates",
+      "reason": "配信再開を報告した記事に対し、1年後には配信頻度がどんどん減っていると状況が変わったことを述べている。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:53:17Z",
+  "annotator": "claude-sonnet-5"
+}

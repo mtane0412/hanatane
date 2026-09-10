@@ -1,0 +1,13 @@
+{
+  "slug": "ghost-amazon-link-generator",
+  "summary": "Ghost の Amazon リンク Embed が壊れて使えない問題に対し、自前で Embed 用 HTML を生成する治具を作った記事です。原因が Amazon 側にあるため Ghost 本体の修正は期待できず、Iframely などの外部サービスは無料枠では厳しいため採用しませんでした。Amazon のサイト上で情報を取得して埋め込み HTML を生成する Tampermonkey スクリプトとして GPT-5.2 に実装させ、アソシエイトツールバーに生成ボタンとプレビューを置き、アソシエイト ID にも対応させました。当初の Web アプリより Amazon サイト上で実行するほうが確実なため現在の形になりました。",
+  "relations": [
+    {
+      "slug": "ghost-migration-from-pro-to-selfhost",
+      "type": "continues",
+      "reason": "セルフホストGhostへの移行後に続く運用上の困りごと（Amazonリンク破損）への対処という続報にあたる。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:53:17Z",
+  "annotator": "claude-sonnet-5"
+}

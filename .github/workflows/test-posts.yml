@@ -40,3 +40,6 @@ jobs:
 
       # メンバー限定記事が平文でコミットされていないか（復号しないため age 鍵は不要）
       - run: pnpm --filter ./posts check-private
+
+      # Hyperstrata の注釈（posts/strata）の形式・暗号化・整合（後方参照のみ）を検査する（復号しないため age 鍵は不要）
+      - run: pnpm --filter ./posts strata check
