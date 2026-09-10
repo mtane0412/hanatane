@@ -60,7 +60,7 @@ const 記事一覧 = [
     }
 ];
 
-test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情報(icon 含む)付きで返し、summary は含めない(関連記事欄には要約を出さない)', () => {
+test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情報付きで返し、summary と icon は含めない(関連記事欄には要約も題材アイコンも出さない)', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧, 'hyperstrata');
     assert.deepEqual(Object.keys(view), ['relations']);
@@ -71,8 +71,7 @@ test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情
             slug: 'window-film',
             title: '縁側の窓に目隠しシートを貼った(猫のストレス対策)',
             url: 'https://hanatane.net/window-film/',
-            publishedAt: '2026-04-06T12:54:38.000Z',
-            icon: 'cat'
+            publishedAt: '2026-04-06T12:54:38.000Z'
         }
     ]);
 });
@@ -87,37 +86,9 @@ test('buildAnnotationView: reason が無い関係は reason: null のまま返�
             slug: 'welcome-cat',
             title: '猫を迎えた',
             url: 'https://hanatane.net/welcome-cat/',
-            publishedAt: '2026-01-01T00:00:00.000Z',
-            icon: 'cat'
+            publishedAt: '2026-01-01T00:00:00.000Z'
         }
     ]);
-});
-
-test('buildAnnotationView: 関係先の icon が無い記事(該当題材なし)は icon: null を返す', () => {
-    const {buildAnnotationView} = 読み込む();
-    const posts = [
-        {
-            slug: 'a',
-            title: 'A',
-            url: '/a/',
-            publishedAt: '2026-01-01T00:00:00.000Z',
-            refs: [],
-            inferredRefs: [{slug: 'b', type: 'continues', reason: null}],
-            summary: null,
-            icon: null
-        },
-        {
-            slug: 'b',
-            title: 'B',
-            url: '/b/',
-            publishedAt: '2025-01-01T00:00:00.000Z',
-            refs: [],
-            inferredRefs: [],
-            summary: null
-        }
-    ];
-    const view = buildAnnotationView(posts, 'a');
-    assert.equal(view.relations[0].icon, null);
 });
 
 test('buildAnnotationView: 現在記事に inferredRefs が無ければ空の関係一覧を返す(summary があっても表示対象にしない)', () => {
