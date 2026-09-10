@@ -1,6 +1,7 @@
 packages:
   - theme
   - ogp
+  - posts
   - packages/*
 
 allowBuilds:

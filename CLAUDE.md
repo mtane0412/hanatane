@@ -8,6 +8,7 @@ hanatane.net（Ghost）に関わるものを束ねるモノレポ。パッケー
 |---|---|---|
 | `theme/` | Ghost テーマ（TryGhost/Source から派生、upstream 同期は終了し独自開発） | `theme/AGENTS.md` |
 | `ogp/` | OGP 画像生成。手動作成 Web アプリ（Cloudflare Workers）と、Ghost の `og_image` への事前生成 | `ogp/CLAUDE.md` |
+| `posts/` | 記事の Markdown（frontmatter 付き）管理と、Ghost 公式 CLI `ghst` による反映。Claude Code からは `.claude/skills/ghost-posts` を使う | `posts/README.md` |
 | `infra/` | さくら VPS の構成管理（Ansible、OpenTofu、sops+age 暗号化シークレット） | `infra/README.md`, `infra/docs/runbook.md` |
 | `packages/` | 共有パッケージ（今後: Ghost Admin API クライアントの共通化） | |
 
@@ -18,6 +19,9 @@ pnpm install --frozen-lockfile
 pnpm test            # theme の gscan + scripts テスト、ogp の vitest
 pnpm test:theme
 pnpm test:ogp
+pnpm test:posts
+pnpm ghst <command>   # Ghost 公式 CLI（認証は pnpm ghst auth login --site hanatane、posts/README.md 参照）
+pnpm --filter ./posts push content/<slug>.md
 pnpm --filter ./theme dev
 pnpm --filter ./ogp dev
 ```
@@ -28,6 +32,7 @@ pnpm --filter ./ogp dev
 |---|---|---|
 | `test-theme.yml` | PR（theme/ 変更時） | gscan と scripts テスト |
 | `test-ogp.yml` | PR（ogp/ 変更時） | 型チェック、Lint、テスト、ビルド |
+| `test-posts.yml` | PR（posts/ 変更時） | 型チェック、Lint、テスト |
 | `deploy-theme.yml` | main への push（theme/ 変更時）、手動 | テーマ zip を Ghost へデプロイ |
 | `hyperstrata-sync.yml` | 15 分おき、手動 | 引用タグ付与と `theme/assets/graph.json` 更新 |
 | `sync-og-images.yml` | Ghost の `post.published` Webhook（`ogp/` の Worker が `repository_dispatch` に中継）、15 分おき、手動 | feature image の無い記事に OGP 画像を生成して `og_image` に設定 |
@@ -39,6 +44,7 @@ pnpm --filter ./ogp dev
 - 機密は sops + age で暗号化したものだけをコミットする（`infra/secrets/`、`infra/tofu/*.sops.tfvars`）。
 - VPS の origin IP は Cloudflare Proxy で秘匿しているため、平文で書かない（`infra/tofu/origin.sops.tfvars` を使う）。
 - `.tfstate` はコミットしない（`infra/tofu/.gitignore`）。
+- ghst の Staff access token はキーチェーン（`~/.config/ghst/`）にのみ保存する。`.ghst/config.json` には alias 名だけを入れる。
 
 ## Git
 
