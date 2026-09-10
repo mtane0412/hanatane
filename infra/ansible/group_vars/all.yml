@@ -4,7 +4,7 @@
 # ghost_image_tag: デプロイするGhostのDockerイメージタグ
 # Renovate が新バージョン検知時に PR を作成して自動更新する。
 
-ghost_image_tag: "6.47.0"
+ghost_image_tag: "6.63.0"
 
 # ---- ドメイン ----
 
