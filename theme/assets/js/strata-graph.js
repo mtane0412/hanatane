@@ -25,7 +25,11 @@
  *    種にマウスを乗せると HTML のツールチップでタイトルと公開日を表示する
  *
  * - ノード: 記事。クリックで記事ページへ遷移する(支援技術向けの名前は aria-label で与える)
- * - エッジ: 引用関係(引用元 → 引用先)
+ * - エッジ: 引用関係(引用元 → 引用先)。著者が本文リンクで作る人間の層(graph.json の refs、kind: 'human')と、
+ *   Hyperstrata の注釈(posts/strata/)から scripts/hyperstrata-sync.mjs が合成する機械の層
+ *   (graph.json の inferredRefs、kind: 'inferred')の 2 種類があり、CSS(is-inferred)で破線にして区別する。
+ *   機械の層は記事ペイン・タイムラインの列(col)割り当てには参加させず(幹の形は人間の引用だけで決める)、
+ *   確定した座標の上に重ねて描く。2 ホップの強調(computeEmphasis)には両方を渡す
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、グラフは描画しない
  *
  * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / buildStrataBands / strataBoundaryPath)、
@@ -44,7 +48,7 @@
      * 基本とし、隣接ノードとの間隔が minGap を下回る場合は minGap まで押し下げる
      * (同日公開の記事が重ならないようにするため)。yearMarks は年ごとの地層の上端(その年で最も新しいノードの位置)。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[]}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts
      * @param {{minGap: number, pixelsPerDay: number}} options
      * @returns {{nodes: object[], edges: object[], yearMarks: object[], height: number}}
      */
@@ -86,12 +90,28 @@
         const slugs = new Set(nodes.map(function (node) {
             return node.slug;
         }));
+        // 人間の引用(refs)と機械の推定(inferredRefs)の両方からエッジを作る。
+        // 同じ組(from, to)を両方が指す場合は、人間の引用を優先し重複エッジを作らない
+        // (人間の引用を先に処理してから機械の推定を処理する)。
         const edges = [];
+        const edgeKeys = new Set();
+        const pushEdge = function (from, to, kind) {
+            if (!slugs.has(to) || to === from) {
+                return;
+            }
+            const key = from + '|' + to;
+            if (edgeKeys.has(key)) {
+                return;
+            }
+            edgeKeys.add(key);
+            edges.push({from: from, to: to, kind: kind});
+        };
         sorted.forEach(function (post) {
             post.refs.forEach(function (ref) {
-                if (slugs.has(ref) && ref !== post.slug) {
-                    edges.push({from: post.slug, to: ref});
-                }
+                pushEdge(post.slug, ref, 'human');
+            });
+            (post.inferredRefs || []).forEach(function (relation) {
+                pushEdge(post.slug, relation.slug, 'inferred');
             });
         });
 
@@ -102,10 +122,11 @@
      * graph.json の内容を検証し、記事配列を取り出す。
      *
      * 必須項目(slug / title / url / publishedAt / refs)が欠けたデータは、描画途中で分かりにくく壊れるより
-     * ここで例外にして早期に失敗させる。
+     * ここで例外にして早期に失敗させる。inferredRefs(Hyperstrata の注釈から合成した機械の層)は
+     * 省略可能な項目として扱い、無い場合(旧形式の graph.json)でも壊れないようにする(後方互換)。
      *
      * @param {unknown} data graph.json をパースした値
-     * @returns {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[]}>}
+     * @returns {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>}
      */
     function parseGraph(data) {
         if (!data || !Array.isArray(data.posts)) {
@@ -120,6 +141,16 @@
             });
             if (!Array.isArray(post.refs)) {
                 throw new Error('graph.json の posts[' + index + '] に refs 配列がありません');
+            }
+            if (post.inferredRefs !== undefined) {
+                if (!Array.isArray(post.inferredRefs)) {
+                    throw new Error('graph.json の posts[' + index + '] の inferredRefs は配列である必要があります');
+                }
+                post.inferredRefs.forEach(function (relation, relationIndex) {
+                    if (!relation || typeof relation.slug !== 'string' || typeof relation.type !== 'string') {
+                        throw new Error('graph.json の posts[' + index + '].inferredRefs[' + relationIndex + '] に slug/type がありません');
+                    }
+                });
             }
         });
         return data.posts;
@@ -229,7 +260,7 @@
             // 引用元(新しい記事)から引用先(古い記事)へ、左に膨らむ弧を描く
             const sweep = fromY > toY ? 1 : 0;
             const path = createElement('path', {
-                class: 'gh-strata-edge',
+                class: 'gh-strata-edge' + (edge.kind === 'inferred' ? ' is-inferred' : ''),
                 d: 'M ' + options.axisX + ' ' + fromY + ' A ' + rx + ' ' + ry + ' 0 0 ' + sweep + ' ' + options.axisX + ' ' + toY,
                 'data-from': edge.from,
                 'data-to': edge.to
@@ -366,10 +397,14 @@
      * 固定ペイン用のレイアウトを計算する。新しい記事を上(row 0)に並べ、行間は一定(rowHeight)、
      * 月が変わる位置に区切り(monthMarks)を置いて monthGap ぶん余白を空ける。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[]}>} posts
+     * 列(col)の割り当て(assignColumns)は人間の引用(refs)だけで決める。Hyperstrata の注釈から
+     * 合成した推定エッジ(inferredRefs)は幹の形に影響させず、確定した行(row)の上に kind: 'inferred'
+     * として重ねて描く。
+     *
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts
      * @param {{rowHeight: number, monthGap: number, paddingTop: number, paddingBottom: number}} options
      * @returns {{nodes: object[], edges: object[], monthMarks: object[], minCol: number, maxCol: number, height: number}}
-     *   nodes は col(列番号)、edges は fromCol / toCol(両端の列番号)を持つ
+     *   nodes は col(列番号)、edges は fromCol / toCol(両端の列番号)と kind('human' | 'inferred')を持つ
      */
     function buildPaneLayout(posts, options) {
         const sorted = posts
@@ -423,12 +458,43 @@
                 }
             });
         });
+        // 列(col)は人間の引用だけで決める(幹の形が推定エッジで揺れないようにするため)
         const columns = assignColumns(nodes, rawEdges);
         nodes.forEach(function (node, index) {
             node.col = columns.cols[index];
         });
         const edges = rawEdges.map(function (edge) {
-            return Object.assign({}, edge, {fromCol: columns.cols[edge.fromRow], toCol: columns.cols[edge.toRow]});
+            return Object.assign({}, edge, {kind: 'human', fromCol: columns.cols[edge.fromRow], toCol: columns.cols[edge.toRow]});
+        });
+
+        // 推定エッジ(inferredRefs)は列の割り当てが終わったあとに、確定した行の座標の上へ重ねて追加する。
+        // 人間の引用と同じ組(from, to)を指す場合は人間の引用を優先し、inferredRefs 自体の重複も 1 本にまとめる
+        const edgeKeys = new Set(rawEdges.map(function (edge) {
+            return edge.from + '|' + edge.to;
+        }));
+        sorted.forEach(function (post) {
+            (post.inferredRefs || []).forEach(function (relation) {
+                const ref = relation.slug;
+                if (!Object.prototype.hasOwnProperty.call(rowOf, ref) || ref === post.slug) {
+                    return;
+                }
+                const key = post.slug + '|' + ref;
+                if (edgeKeys.has(key)) {
+                    return;
+                }
+                edgeKeys.add(key);
+                const fromRow = Math.min(rowOf[post.slug], rowOf[ref]);
+                const toRow = Math.max(rowOf[post.slug], rowOf[ref]);
+                edges.push({
+                    from: post.slug,
+                    to: ref,
+                    fromRow: fromRow,
+                    toRow: toRow,
+                    kind: 'inferred',
+                    fromCol: columns.cols[fromRow],
+                    toCol: columns.cols[toRow]
+                });
+            });
         });
 
         return {nodes: nodes, edges: edges, monthMarks: monthMarks, minCol: columns.minCol, maxCol: columns.maxCol, height: y + options.paddingBottom};
@@ -444,15 +510,19 @@
      * ただし assignColumns は分岐を +1(右)側から使うため、ここでは列の符号を反転して分岐を左(ガターの余白側)へ出す。
      * 幹(列 0)の右は記事カードの文字なので、根が文字に重ならないようにするため。
      * graph.json に無い行(同期前の新しい記事)は引用の無い孤立した記事として扱う。
+     * 列(col)は人間の引用(refs)だけで決め、Hyperstrata の注釈から合成した推定エッジ(inferredRefs)は
+     * 列確定後に kind: 'inferred' として重ねて追加する。offPage(ページ外への束)も人間の引用のみ数える。
      *
      * @param {Array<{slug: string, month: string, top: number, bottom: number, y: number}>} rows 表示順(新しい順)の行
-     * @param {Array<{slug: string, refs: string[]}>} posts graph.json の記事一覧
+     * @param {Array<{slug: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts graph.json の記事一覧
      * @returns {{bands: object[], nodes: object[], edges: object[], offPage: object[]}}
      */
     function buildTimelineLayout(rows, posts) {
         const refsOf = {};
+        const inferredRefsOf = {};
         posts.forEach(function (post) {
             refsOf[post.slug] = post.refs;
+            inferredRefsOf[post.slug] = post.inferredRefs || [];
         });
         const rowOf = {};
         rows.forEach(function (row, index) {
@@ -500,8 +570,33 @@
             node.col = cols[index];
         });
         const edges = rawEdges.map(function (edge) {
-            return Object.assign({}, edge, {fromCol: cols[edge.fromRow], toCol: cols[edge.toRow]});
+            return Object.assign({}, edge, {kind: 'human', fromCol: cols[edge.fromRow], toCol: cols[edge.toRow]});
         });
+
+        // 推定エッジ(inferredRefs)は列の割り当てが終わったあとに重ねて追加する。
+        // offPage(ページ外への束)は人間の引用のみを数えているため、ここでは対象外にする。
+        // 人間の引用と同じ組(from, to)を指す場合は人間の引用を優先し、inferredRefs 自体の重複も 1 本にまとめる
+        const edgeKeys = new Set(rawEdges.map(function (edge) {
+            return edge.from + '|' + edge.to;
+        }));
+        rows.forEach(function (row, index) {
+            (inferredRefsOf[row.slug] || []).forEach(function (relation) {
+                const ref = relation.slug;
+                if (ref === row.slug || !Object.prototype.hasOwnProperty.call(rowOf, ref)) {
+                    return;
+                }
+                const key = row.slug + '|' + ref;
+                if (edgeKeys.has(key)) {
+                    return;
+                }
+                edgeKeys.add(key);
+                const target = rowOf[ref];
+                const fromRow = Math.min(index, target);
+                const toRow = Math.max(index, target);
+                edges.push({from: row.slug, to: ref, fromRow: fromRow, toRow: toRow, kind: 'inferred', fromCol: cols[fromRow], toCol: cols[toRow]});
+            });
+        });
+
         return {bands: bands, nodes: nodes, edges: edges, offPage: offPage};
     }
 
@@ -778,7 +873,7 @@
             return rank(b.distance) - rank(a.distance);
         }).forEach(function (item) {
             edgeGroup.appendChild(createElement('path', {
-                class: 'gh-strata-pane-edge' + emphasisClass(item.distance),
+                class: 'gh-strata-pane-edge' + emphasisClass(item.distance) + (item.edge.kind === 'inferred' ? ' is-inferred' : ''),
                 d: paneEdgePath(item.edge, nodeY, options),
                 'data-from': item.edge.from,
                 'data-to': item.edge.to
@@ -1033,7 +1128,7 @@
         const edgeGroup = createElement('g', {class: 'gh-strata-timeline-edges'});
         layout.edges.forEach(function (edge) {
             edgeGroup.appendChild(createElement('path', {
-                class: 'gh-strata-pane-edge',
+                class: 'gh-strata-pane-edge' + (edge.kind === 'inferred' ? ' is-inferred' : ''),
                 d: paneEdgePath(edge, nodeY, laneOptions)
             }));
         });

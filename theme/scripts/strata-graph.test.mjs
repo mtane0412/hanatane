@@ -60,12 +60,12 @@ test('buildLayout: 経過日数に応じて間隔が広がる(pixelsPerDay)', ()
     assert.equal(layout.nodes[1].y - layout.nodes[0].y, 100);
 });
 
-test('buildLayout: 引用関係は「引用元 → 引用先」のエッジになる(新しい記事の順)', () => {
+test('buildLayout: 引用関係は「引用元 → 引用先」のエッジになり、人間の引用は kind: "human" を持つ', () => {
     const {buildLayout} = 読み込む();
     const layout = buildLayout(記事, {minGap: 40, pixelsPerDay: 1});
     assert.deepEqual(layout.edges, [
-        {from: 'correction', to: 'introduction'},
-        {from: 'limits', to: 'introduction'}
+        {from: 'correction', to: 'introduction', kind: 'human'},
+        {from: 'limits', to: 'introduction', kind: 'human'}
     ]);
 });
 
@@ -73,6 +73,41 @@ test('buildLayout: 一覧に存在しない slug への引用はエッジにし�
     const {buildLayout} = 読み込む();
     const layout = buildLayout(記事, {minGap: 40, pixelsPerDay: 1});
     assert.ok(layout.edges.every(edge => edge.to !== 'unknown-slug'));
+});
+
+/* ------------------------------------------------------------------
+ * Hyperstrata の注釈(機械の層)から作る推定エッジ(#12)
+ * ------------------------------------------------------------------ */
+
+const 推定を含む記事 = [
+    {slug: 'introduction', title: '紹介記事', url: '/introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'limits', title: '限界について', url: '/limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['introduction'], inferredRefs: [{slug: 'introduction', type: 'continues'}]},
+    {slug: 'correction', title: '紹介記事の訂正', url: '/correction/', publishedAt: '2026-05-20T00:00:00.000Z', refs: [], inferredRefs: [{slug: 'introduction', type: 'revisits'}, {slug: 'unknown-slug', type: 'continues'}]}
+];
+
+test('buildLayout: inferredRefs から kind: "inferred" のエッジを作る', () => {
+    const {buildLayout} = 読み込む();
+    const layout = buildLayout(推定を含む記事, {minGap: 40, pixelsPerDay: 1});
+    assert.deepEqual(layout.edges, [
+        {from: 'correction', to: 'introduction', kind: 'inferred'},
+        {from: 'limits', to: 'introduction', kind: 'human'}
+    ]);
+});
+
+test('buildLayout: 一覧に存在しない slug への inferredRefs はエッジにしない', () => {
+    const {buildLayout} = 読み込む();
+    const layout = buildLayout(推定を含む記事, {minGap: 40, pixelsPerDay: 1});
+    assert.ok(layout.edges.every(edge => edge.to !== 'unknown-slug'));
+});
+
+test('buildLayout: 同じ記事の組を人間の引用と機械の推定が両方指す場合、人間の引用を優先し重複エッジを作らない', () => {
+    const {buildLayout} = 読み込む();
+    const 重複あり記事 = [
+        {slug: 'introduction', title: '紹介記事', url: '/introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: []},
+        {slug: 'limits', title: '限界について', url: '/limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['introduction'], inferredRefs: [{slug: 'introduction', type: 'continues'}]}
+    ];
+    const layout = buildLayout(重複あり記事, {minGap: 40, pixelsPerDay: 1});
+    assert.deepEqual(layout.edges, [{from: 'limits', to: 'introduction', kind: 'human'}]);
 });
 
 test('buildLayout: 年ごとの区切り(yearMarks)は新しい年から順に、その年で最も新しいノードの位置に置く', () => {
@@ -186,6 +221,66 @@ test('buildPaneLayout: ノードは列(col)を持ち、最も新しい記事の�
 test('buildPaneLayout: 空配列でも空のレイアウトを返す', () => {
     const {buildPaneLayout} = ペインを読み込む();
     assert.deepEqual(buildPaneLayout([], ペイン設定), {nodes: [], edges: [], monthMarks: [], minCol: 0, maxCol: 0, height: 0});
+});
+
+/* ------------------------------------------------------------------
+ * Hyperstrata の注釈(機械の層)から作る推定エッジ(#12)
+ * ------------------------------------------------------------------ */
+
+/** oldest への推定関係を middle にも持たせる(人間の引用は無い組み合わせ) */
+const 推定を含むペイン記事 = [
+    {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'middle', title: '中間の記事', url: '/middle/', publishedAt: '2026-01-20T12:00:00.000Z', refs: ['oldest'], inferredRefs: []},
+    {slug: 'newest', title: '最新の記事', url: '/newest/', publishedAt: '2026-03-15T12:00:00.000Z', refs: ['oldest'], inferredRefs: [{slug: 'middle', type: 'continues'}]}
+];
+
+test('buildPaneLayout: 推定エッジ(kind: "inferred")を人間の引用に追加する', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const layout = buildPaneLayout(推定を含むペイン記事, ペイン設定);
+    const 推定エッジ = layout.edges.filter(edge => edge.kind === 'inferred');
+    assert.deepEqual(推定エッジ.map(edge => [edge.from, edge.to]), [['newest', 'middle']]);
+    const 人間エッジ = layout.edges.filter(edge => edge.kind === 'human');
+    assert.deepEqual(人間エッジ.map(edge => [edge.from, edge.to]), [['newest', 'oldest'], ['middle', 'oldest']]);
+});
+
+test('buildPaneLayout: 推定エッジを追加しても列(col)・minCol・maxCol は人間の引用のみの場合と変わらない(assignColumns に参加しない)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 人間のみ = buildPaneLayout(ペイン記事, ペイン設定);
+    const 推定あり = buildPaneLayout(推定を含むペイン記事, ペイン設定);
+    assert.deepEqual(推定あり.nodes.map(node => node.col), 人間のみ.nodes.map(node => node.col));
+    assert.equal(推定あり.minCol, 人間のみ.minCol);
+    assert.equal(推定あり.maxCol, 人間のみ.maxCol);
+});
+
+test('buildPaneLayout: 推定エッジの fromRow/toRow は上(新しい記事)から下(古い記事)へ揃える', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const layout = buildPaneLayout(推定を含むペイン記事, ペイン設定);
+    const 推定エッジ = layout.edges.find(edge => edge.kind === 'inferred');
+    assert.equal(推定エッジ.fromRow, 0); // newest
+    assert.equal(推定エッジ.toRow, 1); // middle
+});
+
+test('buildPaneLayout: 同じ記事の組を人間の引用と機械の推定が両方指す場合、人間の引用を優先し重複エッジを作らない', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 重複あり記事 = [
+        {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: [], inferredRefs: []},
+        {slug: 'newest', title: '最新の記事', url: '/newest/', publishedAt: '2026-03-15T12:00:00.000Z', refs: ['oldest'], inferredRefs: [{slug: 'oldest', type: 'continues'}]}
+    ];
+    const layout = buildPaneLayout(重複あり記事, ペイン設定);
+    assert.deepEqual(layout.edges.map(edge => [edge.from, edge.to, edge.kind]), [['newest', 'oldest', 'human']]);
+});
+
+test('buildPaneLayout: inferredRefs 自体に同じ関係先が重複していても、推定エッジは 1 本だけ作る', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 推定重複記事 = [
+        {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: [], inferredRefs: []},
+        {slug: 'newest', title: '最新の記事', url: '/newest/', publishedAt: '2026-03-15T12:00:00.000Z', refs: [], inferredRefs: [
+            {slug: 'oldest', type: 'continues'},
+            {slug: 'oldest', type: 'revisits'}
+        ]}
+    ];
+    const layout = buildPaneLayout(推定重複記事, ペイン設定);
+    assert.deepEqual(layout.edges.map(edge => [edge.from, edge.to, edge.kind]), [['newest', 'oldest', 'inferred']]);
 });
 
 /**
@@ -373,6 +468,46 @@ test('parseGraph: posts が配列でない・必須項目が欠けている場�
 });
 
 /* ------------------------------------------------------------------
+ * inferredRefs(機械の層)の検証(#12): 省略可能な項目として扱い、旧形式の graph.json でも壊れない
+ * ------------------------------------------------------------------ */
+
+test('parseGraph: inferredRefs フィールドが無い記事(旧形式の graph.json)も検証を通す', () => {
+    const parseGraph = parseGraphを読み込む();
+    const posts = parseGraph({posts: 記事}); // 記事 fixture には inferredRefs が無い
+    assert.deepEqual(posts, 記事);
+});
+
+test('parseGraph: inferredRefs がある場合は {slug, type} の配列として通す', () => {
+    const parseGraph = parseGraphを読み込む();
+    const 記事with推定 = [{
+        slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [],
+        inferredRefs: [{slug: 'b', type: 'continues'}]
+    }];
+    const posts = parseGraph({posts: 記事with推定});
+    assert.deepEqual(posts, 記事with推定);
+});
+
+test('parseGraph: inferredRefs が配列でない場合は例外を投げる', () => {
+    const parseGraph = parseGraphを読み込む();
+    assert.throws(
+        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], inferredRefs: 'not-an-array'}]}),
+        /inferredRefs/
+    );
+});
+
+test('parseGraph: inferredRefs の要素に slug または type が無い場合は例外を投げる', () => {
+    const parseGraph = parseGraphを読み込む();
+    assert.throws(
+        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], inferredRefs: [{slug: 'b'}]}]}),
+        /inferredRefs/
+    );
+    assert.throws(
+        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], inferredRefs: [{type: 'continues'}]}]}),
+        /inferredRefs/
+    );
+});
+
+/* ------------------------------------------------------------------
  * トップページの地層タイムライン(partials/strata-timeline.hbs)向けレイアウト
  * ------------------------------------------------------------------ */
 
@@ -459,6 +594,45 @@ test('buildTimelineLayout: 枝分かれした列は幹の左(負の列)に置き
 test('buildTimelineLayout: 行が無ければ空のレイアウトを返す', () => {
     const {buildTimelineLayout} = タイムラインを読み込む();
     assert.deepEqual(buildTimelineLayout([], タイムライン記事), {bands: [], nodes: [], edges: [], offPage: []});
+});
+
+/* ------------------------------------------------------------------
+ * Hyperstrata の注釈(機械の層)から作る推定エッジ(#12)
+ * ------------------------------------------------------------------ */
+
+/** oldest ではなく middle への推定関係を newest に持たせる(人間の引用は oldest のみ) */
+const 推定を含むタイムライン記事 = [
+    {slug: 'newest', title: '最新の記事', url: '/newest/', publishedAt: '2026-03-15T12:00:00.000Z', refs: ['oldest'], inferredRefs: [{slug: 'middle', type: 'continues'}, {slug: 'ancient', type: 'revisits'}]},
+    {slug: 'middle', title: '中間の記事', url: '/middle/', publishedAt: '2026-01-20T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'ancient', title: 'ページ外の古い記事', url: '/ancient/', publishedAt: '2025-06-01T12:00:00.000Z', refs: [], inferredRefs: []}
+];
+
+test('buildTimelineLayout: 推定エッジ(kind: "inferred")を人間の引用に追加する', () => {
+    const {buildTimelineLayout} = タイムラインを読み込む();
+    const layout = buildTimelineLayout(行, 推定を含むタイムライン記事);
+    const 推定エッジ = layout.edges.filter(edge => edge.kind === 'inferred');
+    assert.deepEqual(推定エッジ.map(edge => [edge.from, edge.to]), [['newest', 'middle']]);
+    const 人間エッジ = layout.edges.filter(edge => edge.kind === 'human');
+    assert.deepEqual(人間エッジ.map(edge => [edge.from, edge.to]), [['newest', 'oldest']]);
+});
+
+test('buildTimelineLayout: 表示中に無い記事への推定関係(ancient)は offPage の件数に含めない(人間の引用のみ数える)', () => {
+    const {buildTimelineLayout} = タイムラインを読み込む();
+    const layout = buildTimelineLayout(行, 推定を含むタイムライン記事);
+    // 人間の引用(oldest)のみが表示中にあり、ページ外の引用は無いので offPage は空
+    assert.deepEqual(layout.offPage, []);
+});
+
+test('buildTimelineLayout: 同じ記事の組を人間の引用と機械の推定が両方指す場合、人間の引用を優先し重複エッジを作らない', () => {
+    const {buildTimelineLayout} = タイムラインを読み込む();
+    const 重複あり記事 = [
+        {slug: 'newest', title: '最新の記事', url: '/newest/', publishedAt: '2026-03-15T12:00:00.000Z', refs: ['oldest'], inferredRefs: [{slug: 'oldest', type: 'continues'}]},
+        {slug: 'middle', title: '中間の記事', url: '/middle/', publishedAt: '2026-01-20T12:00:00.000Z', refs: [], inferredRefs: []},
+        {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: [], inferredRefs: []}
+    ];
+    const layout = buildTimelineLayout(行, 重複あり記事);
+    assert.deepEqual(layout.edges.map(edge => [edge.from, edge.to, edge.kind]), [['newest', 'oldest', 'human']]);
 });
 
 /* ------------------------------------------------------------------
