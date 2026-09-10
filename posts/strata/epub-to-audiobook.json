@@ -3,5 +3,6 @@
   "summary": "バス移動中は電子書籍を読むより聞く方が楽だという考えから、仙台への移動に備えて手元のEPUBをオーディオブックに変換した記録。素材はDRMフリーで販売されているオライリーの『LLMのプロンプトエンジニアリング』。OSSのepub_to_audiobookを使い、WebUIからgpt-4o-mini-ttsで章ごとに音声化した。日本語の読み上げは英語ほど自然ではないが聞ける水準で、1回目は音声で全体を把握し、細部をテキストで読み、NotebookLMで深掘りする方法が合っていた。音声の管理はOSSのaudiobookshelfをセルフホストする予定だとして終わる。",
   "relations": [],
   "annotated_at": "2026-09-10T04:52:12Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "tech"
 }

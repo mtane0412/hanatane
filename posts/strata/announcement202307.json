@@ -6,5 +6,6 @@
     { "slug": "i-hate-multitask", "type": "continues", "reason": "前号で触れていた退去・引っ越し準備が過熱し、その結果として休載と投稿日変更に至った続報。" }
   ],
   "annotated_at": "2026-09-10T04:51:15Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "journal"
 }

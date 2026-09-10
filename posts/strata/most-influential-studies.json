@@ -5,5 +5,6 @@
     { "slug": "went-to-special-exhibition", "type": "revisits", "reason": "前回触れた人類進化への関心を、分離脳研究という別角度の心理学トピックで再び取り上げている。" }
   ],
   "annotated_at": "2026-09-10T04:51:15Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "journal"
 }
