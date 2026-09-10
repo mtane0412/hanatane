@@ -1,0 +1,13 @@
+{
+  "slug": "2024-week4",
+  "summary": "2024年第4週の週次振り返り。今週やったこととして、Midjourneyの画像を出力するAlfred Workflowの作成、Badgrを使ったオープンバッジの試作、手持ちの本の自炊（1日1冊ペース、Book2ScrapboxでScrapbox化）を挙げている。オープンバッジについては、Blockcertsによるブロックチェーン連携やgaccoの公開講座で受けたマイクロクレデンシャルの考え方に触れ、学びを可視化する仕組みとして整理している。気になったニュースとして逆フリン効果を取り上げ、スマホと認知資源の関係を考察した。週末は友人とTOPANGAチャリティカップに出場している。",
+  "relations": [
+    {
+      "slug": "2024-week3",
+      "type": "continues",
+      "reason": "前週の振り返りに続く週次報告で、今週の出来事をまとめている"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "act3-reflection",
+  "summary": "ストリートファイター6のAct3を振り返った記事。Act1はMR1300で終え、Act2はほぼプレイせず、Act3はMR1700でフィニッシュした。良かった取り組みとして、Twitchの配信アーカイブで自分のプレイを見返すようになったこと（感情的になった試合が情報の宝庫になった）と、大会に出るようになったことを挙げている。TOPANGAチャリティのチーム戦を復帰のきっかけとし、東京メトロカップとEYO JAPANでルーザーズ7回戦まで進んだ。コンボダメージの向上と屈中Kを刺す立ち回りで読み合いが改善した。Act4はモダンケンのままMR1600〜1700の安定、MR1800到達を目標とした。",
+  "relations": [
+    {
+      "slug": "road-to-master-from-scratch",
+      "type": "continues",
+      "reason": "Act1でMR1300に達するまでの取り組みを起点として、Act3までの成長を振り返っている"
+    },
+    {
+      "slug": "topanga-13",
+      "type": "continues",
+      "reason": "スト6復帰のきっかけとして名指しされたTOPANGAチーム戦の、成果を振り返る続報"
+    },
+    {
+      "slug": "2024-week9",
+      "type": "continues",
+      "reason": "ルーザーズ7回戦まで進んだ東京メトロカップの結果を、Act全体の振り返りの中で位置づけ直した"
+    },
+    {
+      "slug": "restart-twitch",
+      "type": "continues",
+      "reason": "配信再開で始めたアーカイブ見返しの習慣を、良かった取り組みとして振り返っている"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "devenv-2026",
+  "summary": "Claude Code 開発者 Boris のポストに触発されて並列開発を始めた筆者が、2026 年 1 月時点の開発環境をまとめた記事です。Claude MAX 20x プランで Plan Mode を使い、terminal-notifier で承認待ちを通知し、Ghostty の 4 分割画面を 5 プロジェクトほどで回しています。型チェック・Lint・テストに加え、CodeRabbit CLI、Lefthook、Claude Code Actions、GitHub Copilot Pro を組み合わせ、weekly limit 到達時は opencode を使っています。並列開発で人間と agent の役割が分離し、git ログに説明が残ることで把握しやすくなったとまとめています。",
+  "relations": [
+    {
+      "slug": "2025-reflection",
+      "type": "continues",
+      "reason": "振り返りで触れたClaude Code本格導入から半年後、並列開発を含む具体的な開発体制を詳報している。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:53:17Z",
+  "annotator": "claude-sonnet-5"
+}

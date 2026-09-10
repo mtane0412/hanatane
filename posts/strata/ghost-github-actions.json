@@ -1,0 +1,13 @@
+{
+  "slug": "ghost-github-actions",
+  "summary": "フルマネージドのGhostで運営しているこのブログに有料テーマを導入し、日本語ローカライズやトップページの著者一覧セクション削除といったCode Injectionでは対応できない改変のためにカスタムテーマを作った記事。GhostにはWordPressのような子テーマ機能がないため改造テーマをGitで管理し、Ghost公式のGitHub Actionsガイドに従って自動デプロイを設定した。管理画面でCustom Integrationを作りAdmin API keyとAPI URLを取得し、GitHubのSecretsに登録し、公式のワークフローYAMLを置けば、プッシュだけでデプロイされる。",
+  "relations": [
+    {
+      "slug": "ghost-toc",
+      "type": "continues",
+      "reason": "目次追加のために始めたテーマ改造の方針を、有料テーマ導入とGit管理・自動デプロイの整備へと発展させている。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:24Z",
+  "annotator": "claude-sonnet-5"
+}

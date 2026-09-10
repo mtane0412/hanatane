@@ -1,0 +1,13 @@
+{
+  "slug": "xiaomi-pet-feeder-with-ha-n8n",
+  "summary": "Xiaomi の Smart Pet Food Feeder 2 と自動給水機を Home Assistant と n8n で制御した記事です。Xiaomi Home アプリでは食べ残し時に給餌をスキップする自動化ができないため、公式の Home Assistant 統合とセルフホストの n8n を組み合わせ、猫の食事記録を Discord に送り、ボウルの餌の量に応じて給餌スケジュールを on/off するようにしました。癖の強い MIoT でのスケジュール更新は Deep Wiki で text.set_value サービスを使う方法を見つけて解決しました。通知が多いため n8n でまとめて報告する改善を予定しています。",
+  "relations": [
+    {
+      "slug": "welcome-cat",
+      "type": "continues",
+      "reason": "お迎え記事で触れたブラックフライデー購入のXiaomi給餌器・給水器を、実際にHA/n8nで運用した続報。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:53:17Z",
+  "annotator": "claude-sonnet-5"
+}

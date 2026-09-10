@@ -1,0 +1,13 @@
+{
+  "slug": "try-umami",
+  "summary": "Google Analyticsは初心者には使いにくいという問題意識から、プライバシー重視のアクセス解析ツールUmamiをGhostのブログに導入した記録。Plausibleはクラウド版に無料プランがなく要求スペックも高いため、Umamiのクラウド版無料プランを選んだ。設定内容は、JavaScriptを<head>に置く導入、localStorageによる自分のアクセス除外、外部リンクのイベントトラッキング、CloudflareのLocationヘッダー有効化。ダッシュボードでユニークユーザーとview数、セッション単位の行動履歴、期間比較を確認できることを示し、Googleオルタナティブを検証する意義に触れて終わる。",
+  "relations": [
+    {
+      "slug": "ghost-migration-from-pro-to-selfhost",
+      "type": "continues",
+      "reason": "セルフホスト移行時に有効化したCloudflareの設定を活かし、Umamiの地域計測を追加している"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:12Z",
+  "annotator": "claude-sonnet-5"
+}

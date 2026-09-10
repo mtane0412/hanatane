@@ -1,0 +1,13 @@
+{
+  "slug": "2024-week7",
+  "summary": "2024年第7週の週次振り返り。睡眠負債が溜まっていたため活動は少なめで軽い振り返りとしている。去年申請していた認定心理士が第198回の認定委員会で認定された連絡が来たこと、大量のひじきを眺めて養殖方法を調べたこと、オフラインでスト6をプレイした際にアケコンのVictrix GambitがPS5非対応でBrookのコンバーター購入を検討したことを挙げている。CAPCOM CUP XのLCQ開始でスト6の練習を再開し始めた。気になったニュースはOpenAIのSoraの発表とCAPCOM CUP XのグループF。今週は mtane0412.me のLink in Bioの記事を投稿した。",
+  "relations": [
+    {
+      "slug": "2024-week6",
+      "type": "continues",
+      "reason": "前週に続く週次振り返りで、その週の出来事をまとめている"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "twitchdeshi-ting-zhe-gazi-rayuan-gutuwasuruchromekuo-zhang-wozuo-tuta",
+  "summary": "ChatGPTの支援でChrome拡張を作れることを示すデモとして、Twitchのチャットで視聴者が要注意ワードに自分で気付けるようにする拡張を作りChrome Web Storeに公開した記事。Twitchの初見詐欺問題を題材に、NoBackseatingなどの配信タグごとに要注意ワードを登録し、チャット入力欄が赤く警告表示され、送信時に確認ダイアログが出る仕組みである。実用性はほぼないと述べつつ、SPAへのMutationObserver対応やmacOSのIME確定時のEnter誤作動を学べたこと、今後はLLMがモデレーションし人間モデレーターがレビューする構造に可能性があるとまとめている。",
+  "relations": [
+    {
+      "slug": "created-a-garbage-classification-ai",
+      "type": "continues",
+      "reason": "ChatGPTで何がどれだけ早く作れるか試す一連のsurveyの続報として、次のデモを行っている。"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:10Z",
+  "annotator": "claude-sonnet-5"
+}

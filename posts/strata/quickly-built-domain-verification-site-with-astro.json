@@ -1,0 +1,13 @@
+{
+  "slug": "quickly-built-domain-verification-site-with-astro",
+  "summary": "分散型SNSの各アカウントが自分のものであると証明するため、パーソナルドメイン mtane0412.me を取得し、Link in bioのサイトをAstroで作った記録。以前はNostrの認証用にGitHub Pagesで作っていたが、Blueskyがカスタムドメインに対応したのを機に作り直した。Astroは直感的なJavaScript構文で書け、日本語ドキュメントも充実し、出力はゼロJSで高速だった。認証はNostrがnostr.json、Blueskyがatproto-didを.well-knownに置く方式で行い、FedibirdとMisskey.ioはrel=\"me\"のバックリンクで所有者確認した。",
+  "relations": [
+    {
+      "slug": "2024-week6",
+      "type": "continues",
+      "reason": "分散型SNSの運用整理から続く形で、各アカウントの所有を証明するサイトを作った"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

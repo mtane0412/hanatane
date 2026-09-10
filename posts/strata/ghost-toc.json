@@ -1,0 +1,13 @@
+{
+  "slug": "ghost-toc",
+  "summary": "Ghostブログの各記事に目次（Table of Contents）を付けた作業記録。Ghostには標準の目次機能がなく、Tocbotを使う公式チュートリアルに従ってテーマを改造する必要がある。Ghost Proの場合はCreator以上のプランが必要で、Tocbotのバージョンは最新にしておくとよい。できるだけシステム側をいじらない方針だったが、デフォルトでは不便なためテーマ改造に踏み切り、今後のテーマアップデートとの整合性が懸念点として残った。GhostがWordPressのようなプラグイン方式を採らず既存ライブラリを活用させることでシンプルさを担保している、という理解を述べて終わる。",
+  "relations": [
+    {
+      "slug": "alfred-ghost",
+      "type": "continues",
+      "reason": "Ghost運用を便利にする一連の取り組みの続きとして、記事検索の次に目次機能を追加した"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:51:53Z",
+  "annotator": "claude-sonnet-5"
+}

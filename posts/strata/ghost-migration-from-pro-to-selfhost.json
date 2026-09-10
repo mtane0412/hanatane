@@ -1,0 +1,13 @@
+{
+  "slug": "ghost-migration-from-pro-to-selfhost",
+  "summary": "hanatane.netのGhostを、年間300ドルのGhost Pro Creatorプランから、さくらのVPS（RAM 1GB、Debian、Docker）でのセルフホストへ移行した記録。動機は運営コストの削減と、Dockerでセルフホストが容易になったこと。手順は、Docker公式イメージでのGhost起動、Ghostサポートから取得した画像を含むコンテンツの移行、CaddyによるHTTPS化とCloudflare Proxyの有効化、Stripe接続を旧サイトで切断し新サイトで再接続してからのメンバーのインポート、Mailgunの設定、swap追加、Cloudflareのキャッシュ設定。PinturaとCloudinaryは見送った。",
+  "relations": [
+    {
+      "slug": "why-ghost",
+      "type": "updates",
+      "reason": "フルマネージドを理由にGhostを選んだwhy-ghostの判断を、運用コスト削減のためセルフホストへ切り替え覆した"
+    }
+  ],
+  "annotated_at": "2026-09-10T04:52:12Z",
+  "annotator": "claude-sonnet-5"
+}
