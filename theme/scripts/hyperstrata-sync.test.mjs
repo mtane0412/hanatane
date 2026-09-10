@@ -17,6 +17,7 @@ import {
     selectOrphanRefTags,
     buildGraph,
     serializeGraph,
+    parseAnnotation,
     GRAPH_JSON_PATH,
     REF_TAG_PREFIX
 } from './hyperstrata-sync.mjs';
@@ -184,7 +185,7 @@ const グラフ用記事 = [
     {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', published_at: '2026-03-01T00:00:00.000Z'}
 ];
 
-test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slug/title/url/publishedAt/refs だけを含める', () => {
+test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slug/title/url/publishedAt/refs/inferredRefs/summary を含める', () => {
     const referencedSlugsBySlug = new Map([
         ['hyperstrata-introduction', []],
         ['digital-garden-limits', ['hyperstrata-introduction']],
@@ -194,9 +195,9 @@ test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slu
     const graph = buildGraph({posts: [グラフ用記事[0], グラフ用記事[2], グラフ用記事[1]], referencedSlugsBySlug});
     assert.deepEqual(graph, {
         posts: [
-            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: []},
-            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: []},
-            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: []}
+            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: [], summary: null},
+            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: [], summary: null},
+            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: [], summary: null}
         ]
     });
 });
@@ -237,11 +238,11 @@ test('buildGraph: inferredRelationsBySlug を渡すと、各記事に inferredRe
     const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
     assert.deepEqual(対応表.get('hyperstrata-introduction').inferredRefs, []);
     assert.deepEqual(対応表.get('digital-garden-limits').inferredRefs, [
-        {slug: 'hyperstrata-introduction', type: 'continues'}
+        {slug: 'hyperstrata-introduction', type: 'continues', reason: null}
     ]);
     assert.deepEqual(対応表.get('correction-of-first-note').inferredRefs, [
-        {slug: 'digital-garden-limits', type: 'updates'},
-        {slug: 'hyperstrata-introduction', type: 'revisits'}
+        {slug: 'digital-garden-limits', type: 'updates', reason: null},
+        {slug: 'hyperstrata-introduction', type: 'revisits', reason: null}
     ]);
 });
 
@@ -285,5 +286,95 @@ test('buildGraph: inferredRefs のうち、posts に存在しない関係先slug
     ]);
     const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, inferredRelationsBySlug});
     const 記事 = graph.posts.find(post => post.slug === 'digital-garden-limits');
-    assert.deepEqual(記事.inferredRefs, [{slug: 'hyperstrata-introduction', type: 'continues'}]);
+    assert.deepEqual(記事.inferredRefs, [{slug: 'hyperstrata-introduction', type: 'continues', reason: null}]);
+});
+
+// ---------------------------------------------------------------------------
+// 記事末尾への注釈表示(要約・関係の理由)用のフィールド追加
+// ---------------------------------------------------------------------------
+
+test('buildGraph: summaryBySlug を渡すと各記事に summary が付き、対応が無い記事は null になる', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const summaryBySlug = new Map([
+        ['hyperstrata-introduction', 'Hyperstrata を Ghost に実装した記事の要約。']
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, summaryBySlug});
+    const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
+    assert.equal(対応表.get('hyperstrata-introduction').summary, 'Hyperstrata を Ghost に実装した記事の要約。');
+    assert.equal(対応表.get('digital-garden-limits').summary, null);
+});
+
+test('buildGraph: inferredRelationsBySlug の各関係に reason があれば inferredRefs に含め、無ければ null にする', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const inferredRelationsBySlug = new Map([
+        ['digital-garden-limits', [
+            {slug: 'hyperstrata-introduction', type: 'continues', reason: '前回の紹介記事の続報のため。'}
+        ]],
+        ['correction-of-first-note', [
+            {slug: 'hyperstrata-introduction', type: 'updates'} // reason 無し(private 注釈由来を想定)
+        ]]
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, inferredRelationsBySlug});
+    const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
+    assert.deepEqual(対応表.get('digital-garden-limits').inferredRefs, [
+        {slug: 'hyperstrata-introduction', type: 'continues', reason: '前回の紹介記事の続報のため。'}
+    ]);
+    assert.deepEqual(対応表.get('correction-of-first-note').inferredRefs, [
+        {slug: 'hyperstrata-introduction', type: 'updates', reason: null}
+    ]);
+});
+
+// ---------------------------------------------------------------------------
+// parseAnnotation: posts/strata/ の注釈から graph.json 合成用の形を取り出す
+// ---------------------------------------------------------------------------
+
+test('parseAnnotation: includeText:true では summary と relations[].reason をそのまま含める(posts/strata/ の平文注釈)', () => {
+    const annotation = {
+        slug: 'hyperstrata-introduction',
+        summary: 'Hyperstrata を Ghost に実装した記事の要約。',
+        relations: [
+            {slug: 'welcome-cat', type: 'continues', reason: '前回の記事として明言しているため。'}
+        ],
+        annotated_at: '2026-09-10T04:53:17Z',
+        annotator: 'claude-sonnet-5'
+    };
+    const result = parseAnnotation(annotation, {includeText: true});
+    assert.deepEqual(result, {
+        slug: 'hyperstrata-introduction',
+        summary: 'Hyperstrata を Ghost に実装した記事の要約。',
+        relations: [
+            {slug: 'welcome-cat', type: 'continues', reason: '前回の記事として明言しているため。'}
+        ]
+    });
+});
+
+test('parseAnnotation: includeText:false では summary と relations[].reason を null にする(posts/strata/private/ の暗号化注釈)', () => {
+    const annotation = {
+        slug: 'i-hate-multitask',
+        summary: 'ENC[AES256_GCM,data:...]', // sops による暗号文
+        relations: [
+            {slug: 'diet-declaration-2023', type: 'continues', reason: 'ENC[AES256_GCM,data:...]'}
+        ]
+    };
+    const result = parseAnnotation(annotation, {includeText: false});
+    assert.deepEqual(result, {
+        slug: 'i-hate-multitask',
+        summary: null,
+        relations: [
+            {slug: 'diet-declaration-2023', type: 'continues', reason: null}
+        ]
+    });
+});
+
+test('parseAnnotation: relations が無い注釈は空配列になる', () => {
+    const result = parseAnnotation({slug: 'lonely-post'}, {includeText: true});
+    assert.deepEqual(result, {slug: 'lonely-post', summary: null, relations: []});
 });
