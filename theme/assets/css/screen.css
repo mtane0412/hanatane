@@ -2531,6 +2531,66 @@ figcaption a {
     color: var(--color-secondary-text);
 }
 
+/* 16c. Hyperstrata annotation (記事末尾の要約・過去記事との関係)
+/* ---------------------------------------------------------- */
+
+.gh-strata-annotation {
+    margin-top: 48px;
+}
+
+.gh-strata-annotation-title {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.gh-strata-annotation-summary {
+    margin: 0 0 16px;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-annotation-summary:empty {
+    display: none;
+}
+
+.gh-strata-annotation-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gh-strata-annotation-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    padding: 10px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.gh-strata-annotation-type {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-annotation-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.gh-strata-annotation-item a:hover {
+    text-decoration: underline;
+}
+
+.gh-strata-annotation-reason {
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    color: var(--color-secondary-text);
+}
+
 /* Hyperstrata: 時系列 × 引用関係のグラフビュー(custom-strata.hbs)。
    JS が有効なら .gh-strata-graph(SVG)を挿入し、元の一覧は hidden にする */
 .gh-strata {
