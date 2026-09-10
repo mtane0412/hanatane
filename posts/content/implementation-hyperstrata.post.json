@@ -1,0 +1,252 @@
+{
+	"title": "Hyperstrataの地層を考える",
+	"slug": "implementation-hyperstrata",
+	"status": "published",
+	"visibility": "public",
+	"tags": [],
+	"featured": false,
+	"published_at": "2026-09-10T12:24:41.000Z",
+	"updated_at": "2026-09-10T12:24:41.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "前回Hyperstrataのアイデアをこのサイトに取り込んでみた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/hyperstrata/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-048a0757-1c75-49f2-b638-1198ea9c5c18.png",
+						"title": "immutableなノートを堆積する - はなしのタネ",
+						"description": "Cosenseのコミュニティで折登さんのHyperstrataというアイデアが紹介されていた。 Hyperstrata: 堆積するノートによるWebサイト形式 - 春告げ抹茶ホイップHyperstrataというWebサイトの形態を提案します。デジタルガーデンのメンテが続かない人にもおすすめのWebサイト形態です。春告げ抹茶ホイップ デジタルガーデンのように未完成の記事を気軽に書きながら、しかしブログのように記事を一度書いたらメンテナンスコストは小さい、そういうような Web サイトの更新形態はないだろうか？ この問題意識にかなり共感する。Cosenseなどのすべてがmutableなページは書き出しがとても楽だが、庭の手入れがおろそかになる。一方でブログは記事として出す以上は一応の完成ラインまで書き上げるものであり、一度書き上げたら以降の手入れはさほど必要がないが、書き始める・書き上げるエネルギーが相当求められる。 ここもCosenseという場所がありつつもブログ的な発信ができるように作ったものだが、やはり書くコストが高く更新が不定期になりがちになってしまっている。(サポートして",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/og-hyperstrata-7e970686-16d8-416d-9950-0763024bebd4.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Hyperstrataの実装は様々で、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "shivadukeさんの実装",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://blog.shivaduke28.net/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "は等高線を用いた登山に見立てていて面白い。僕はというと、strata(地層)のメタファーがかなり刺さったのでこれを素直に実装している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログのような媒体では「書くことだけに集中する」ことを目指しているが、現実には難しい。Hyperstrataはある時代の人々の活動の痕跡が地層に残されるように、目の前の活動をしていてそれが地層に堆積されていくという部分が非常に良いアイデアだと思った。この地層の仕組みをうまく作れれば書くことに集中できるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これも結局書けてなかったことだが、放送大学の面接授業で三内丸山遺跡を訪れて、研究者から地層の中の円筒式土器の年代測定法について実物を見たり触ったりしながら教わる機会があった。同じような土器に見えても縄文様のつけ方や地質年代ごとの流行、他地域との関係など地層には遺物そのものだけでなく精神的な痕跡も残されている。これらは残そうと意図して残したのではなく、ただ時とともに堆積されてきたものだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "地層に現れる遺物を分類したり関係を調べたりして整理するのは研究者の仕事である。Hyperstrataに置き換えれば、文章を書くのは人間の仕事であり、これが地層として堆積して、地層の中でどのような関係になるかはシステム側で解決する責務になる。このような分業をうまく実装すれば書くことだけに集中する環境が出来上がるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "元々のアイデアは文章の引用関係である。Ghostのエディタでは@から過去記事の索引ができるので、想起しやすいタイトルをつけていることがブログやCosenseと同様に重要だろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/09/image-1.png",
+					"width": 1604,
+					"height": 628,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "直接的な引用の他にも地層に現れる関係性が出ても良いと思った。Ghostは前の記事でも言った通り、記事の更新でビルドが走らないので、一度draft段階でClaude Codeでjsonを作らせることにした。ここでひと手間かかってしまっているのがもったいないが、このやり方がしっくりきたらもう一段階自動化を検討しても良いかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分が直接引用した引用関係は実線、他者(Claude Code)が見出した関係は破線で表現してみた。いったん仕組みとしてはできたので、あとは関係性の感度調整の問題になるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/09/image-2.png",
+					"width": 586,
+					"height": 1166,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まだ試行錯誤段階なのでわからないが、この方法がうまくいくのであれば、いわゆるブログ的なカテゴリーやタグというものは不要になるかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
