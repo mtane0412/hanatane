@@ -254,7 +254,10 @@
 
         // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
         // ノード(種)とエッジ(引用元 → 引用先の弧)は axisX の左右(axisX - maxArcWidth 〜 axisX + nodeRadius)に
-        // 描かれるため、avoid でその範囲を避ける。多すぎると目立つため帯ごとに最大 3 個までに絞る
+        // 描かれるため、avoid でその範囲を避ける。アイコンは placement.x を中心に一辺 iconSize で描かれるため、
+        // 半分(iconSize / 2)ぶん avoid を広げて、アイコンの端まで含めて重ならないようにする。
+        // 多すぎると目立つため帯ごとに最大 3 個までに絞る
+        const iconSize = 18;
         const iconNodes = layout.nodes.map(function (node) {
             return {slug: node.slug, icon: node.icon, y: nodeY[node.slug]};
         });
@@ -263,10 +266,13 @@
                 xMin: 12,
                 xMax: options.width - 12,
                 marginY: 14,
-                avoid: {min: options.axisX - options.maxArcWidth, max: options.axisX + options.nodeRadius},
+                avoid: {
+                    min: options.axisX - options.maxArcWidth - iconSize / 2,
+                    max: options.axisX + options.nodeRadius + iconSize / 2
+                },
                 maxPerBand: 3
             }),
-            18
+            iconSize
         ));
 
         // 地層の境界線(波線)と年ラベル。ラベルは時間軸のすぐ右・境界線の下(その年の帯の内側)に置く
@@ -1009,11 +1015,14 @@
 
         // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
         // 表示幅(bleed していない範囲)に収め、ペインのスクロール領域からはみ出さないようにする。
-        // ノード(種)と幹・根(エッジ)が使う列(col)の範囲は avoid で避け、多すぎると目立つため帯ごとに最大 3 個までに絞る
+        // ノード(種)と幹・根(エッジ)が使う列(col)の範囲は avoid で避ける。アイコンは placement.x を中心に
+        // 一辺 paneIconSize で描かれるため、半分(paneIconSize / 2)ぶん avoid を広げてアイコンの端まで重ならないようにする。
+        // 多すぎると目立つため帯ごとに最大 3 個までに絞る
+        const paneIconSize = 14;
         const paneColumns = columnExtent(layout.nodes);
         const paneAvoid = paneColumns && {
-            min: columnX(paneColumns.min, options) - options.nodeRadius,
-            max: columnX(paneColumns.max, options) + options.nodeRadius
+            min: columnX(paneColumns.min, options) - options.nodeRadius - paneIconSize / 2,
+            max: columnX(paneColumns.max, options) + options.nodeRadius + paneIconSize / 2
         };
         svg.appendChild(buildBandIconGroup(
             assignBandIcons(paneBands, layout.nodes, {
@@ -1023,7 +1032,7 @@
                 avoid: paneAvoid,
                 maxPerBand: 3
             }),
-            14
+            paneIconSize
         ));
 
         // 地層の境界線(緩やかな波線)とラベル。ラベルは境界線の下(その月の帯の内側)に置き、右端に寄せる
@@ -1286,13 +1295,15 @@
         // labelWidth より右(記事カードの表示領域)に収め、月ラベルに重ならないようにする。
         // compact(狭い画面)では月ラベルが帯の左上(x: 4, y: band.top + 14)に乗るため、
         // 上端の marginY を広げてその位置にアイコンが被らないようにする。
-        // ノード(種)・幹・根(エッジ)・ページ外への束が使う列(col)の範囲は avoid で避け、
-        // 多すぎると目立つため帯ごとに最大 3 個までに絞る
+        // ノード(種)・幹・根(エッジ)・ページ外への束が使う列(col)の範囲は avoid で避ける。アイコンは
+        // placement.x を中心に一辺 timelineIconSize で描かれるため、半分(timelineIconSize / 2)ぶん avoid を
+        // 広げてアイコンの端まで重ならないようにする。多すぎると目立つため帯ごとに最大 3 個までに絞る
+        const timelineIconSize = options.compact ? 14 : 16;
         const timelineColumns = columnExtent(layout.nodes);
         const timelineMinCol = timelineColumns && (layout.offPage.length > 0 ? timelineColumns.min - 1 : timelineColumns.min);
         const timelineAvoid = timelineColumns && {
-            min: columnX(timelineMinCol, laneOptions) - options.nodeRadius,
-            max: columnX(timelineColumns.max, laneOptions) + options.nodeRadius
+            min: columnX(timelineMinCol, laneOptions) - options.nodeRadius - timelineIconSize / 2,
+            max: columnX(timelineColumns.max, laneOptions) + options.nodeRadius + timelineIconSize / 2
         };
         svg.appendChild(buildBandIconGroup(
             assignBandIcons(layout.bands, layout.nodes, {
@@ -1302,7 +1313,7 @@
                 avoid: timelineAvoid,
                 maxPerBand: 3
             }),
-            options.compact ? 14 : 16
+            timelineIconSize
         ));
 
         // 月ラベル。通常は月ラベル列の右端に寄せ、狭い画面では帯の左上に小さく置く
