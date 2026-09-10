@@ -1,18 +1,20 @@
 /**
- * Hyperstrata 注釈(記事末尾の要約・過去記事との関係)ビュー
+ * Hyperstrata 注釈(記事末尾の関連記事: 過去記事との関係)ビュー
  *
- * scripts/hyperstrata-sync.mjs が assets/graph.json に合成する summary(記事の要約)と
- * inferredRefs[].reason(関係の理由)を fetch で読み取り、partials/post.hbs の gh-citations
- * (References / Cited by)の直後にある [data-strata-annotation] セクションへ描画する。
+ * scripts/hyperstrata-sync.mjs が assets/graph.json に合成する inferredRefs(関係先・種類・理由)を
+ * fetch で読み取り、post.hbs の gh-citations(References / Cited by)の直後にある
+ * [data-strata-annotation] セクションへ「Related posts」のリンク一覧として描画する。
+ * graph.json には記事の要約(summary)もあるが、関連記事欄は本文の後に置くリンク集であり
+ * 要約は冗長なため表示しない(要約はグラフビュー assets/js/strata-graph.js 側の用途)。
  * URL はテンプレートが data-strata-graph-url({{asset "graph.json"}})で渡す。
  * 本文の表示を優先するため、初期化は requestIdleCallback で遅らせ、fetch は低優先度で行う
  * (assets/js/strata-graph.js と同じ方針。graph.json は同一 URL のため 2 回目の fetch は
  * ブラウザの HTTP キャッシュから返る)。
  *
- * - posts/strata/private/(限定記事の注釈)は summary と reason が sops で暗号化されており、
- *   hyperstrata-sync.mjs は復号しないため、graph.json ではその記事の summary は null、
- *   inferredRefs[].reason も null になる。その場合はタイトル・URL だけの関係一覧として表示する
- * - summary も関係も無い記事(注釈が無い/機械の層が無い)ではセクションごと非表示のままにする
+ * - posts/strata/private/(限定記事の注釈)は reason が sops で暗号化されており、
+ *   hyperstrata-sync.mjs は復号しないため、graph.json では inferredRefs[].reason が null になる。
+ *   その場合は種類・タイトル・URL だけの関係一覧として表示する
+ * - 関係が無い記事(注釈が無い/機械の層が無い)ではセクションごと非表示のままにする
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、何も表示しない
  * - 現在記事の情報選択(buildAnnotationView)は DOM に依存しない純粋関数として
  *   window.HyperstrataAnnotation に公開し、scripts/strata-annotation.test.mjs から検証する
@@ -28,11 +30,12 @@
     };
 
     /**
-     * graph.json の記事配列から、現在記事の要約と関係先(記事情報付き)を組み立てる。
+     * graph.json の記事配列から、現在記事の関係先(記事情報付き)を組み立てる。
+     * 現在記事の summary は関連記事欄に表示しないため戻り値に含めない。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>, summary?: string|null, icon?: string|null}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>, icon?: string|null}>} posts
      * @param {string} currentSlug 現在表示中の記事の slug
-     * @returns {{summary: string|null, relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string, icon: string|null}>}}
+     * @returns {{relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string, icon: string|null}>}}
      */
     function buildAnnotationView(posts, currentSlug) {
         if (!Array.isArray(posts)) {
@@ -44,7 +47,7 @@
         });
         const current = currentSlug ? postBySlug[currentSlug] : null;
         if (!current) {
-            return {summary: null, relations: []};
+            return {relations: []};
         }
         const relations = (current.inferredRefs || [])
             .map(function (ref) {
@@ -65,7 +68,7 @@
             .filter(function (relation) {
                 return relation !== null;
             });
-        return {summary: current.summary || null, relations: relations};
+        return {relations: relations};
     }
 
     /**
@@ -143,18 +146,14 @@
     }
 
     /**
-     * [data-strata-annotation] セクションへ要約・関係一覧を描画する。中身が無ければ非表示のままにする。
+     * [data-strata-annotation] セクションへ関係一覧を描画する。関係が無ければ非表示のままにする。
      *
      * @param {HTMLElement} section
-     * @param {{summary: string|null, relations: Array<object>}} view
+     * @param {{relations: Array<object>}} view
      */
     function render(section, view) {
-        if (!view.summary && view.relations.length === 0) {
+        if (view.relations.length === 0) {
             return;
-        }
-        const summaryElement = section.querySelector('[data-strata-annotation-summary]');
-        if (view.summary && summaryElement) {
-            summaryElement.textContent = view.summary;
         }
         const list = section.querySelector('[data-strata-annotation-list]');
         if (list) {

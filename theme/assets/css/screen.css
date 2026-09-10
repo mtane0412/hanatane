@@ -2531,7 +2531,7 @@ figcaption a {
     color: var(--color-secondary-text);
 }
 
-/* 16c. Hyperstrata annotation (記事末尾の要約・過去記事との関係)
+/* 16c. Hyperstrata annotation (記事末尾の関連記事: 過去記事との関係)
 /* ---------------------------------------------------------- */
 
 .gh-strata-annotation {
@@ -2543,15 +2543,6 @@ figcaption a {
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-}
-
-.gh-strata-annotation-summary {
-    margin: 0 0 16px;
-    color: var(--color-secondary-text);
-}
-
-.gh-strata-annotation-summary:empty {
-    display: none;
 }
 
 .gh-strata-annotation-list {
