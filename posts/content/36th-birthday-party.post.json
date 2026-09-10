@@ -1,0 +1,1032 @@
+{
+	"title": "種延36th生誕祭 in Tokyo",
+	"slug": "36th-birthday-party",
+	"status": "published",
+	"tags": [
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "東京で自分の生誕祭をやった話",
+	"feature_image": "https://hanatane.net/content/images/2024/04/tanenobu_Mammals_Birthday_Party__Illustration_for_blog_header_i_3281145e-2a61-487b-978d-d867d2c57c97.png",
+	"featured": false,
+	"published_at": "2024-04-19T12:11:12.000Z",
+	"updated_at": "2024-04-19T12:11:50.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京に行く口実を作るべく、誕生祭を企画したのが2024年の1月1日。その後特になんの準備もせずに、とりあえずバスのチケットだけ取って会場も友人の協力でなんとかなったので4/13に東京に行ってきた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741765147348373678",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">歳男なので元旦の勢いでイベントだけ立てた<a href=\"https://t.co/OfwEAkbPMC\">https://t.co/OfwEAkbPMC</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741765147348373678?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741765147348373678",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">歳男なので元旦の勢いでイベントだけ立てた<a href=\"https://t.co/OfwEAkbPMC\">https://t.co/OfwEAkbPMC</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741765147348373678?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回の東京の裏目的はWorld IDの人間認証で、直近になって知った国立科学博物館の大哺乳類展という企画展示にも行こうと計画。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この記事は1日の弾丸で滅茶苦茶疲れたけど楽しかったよという備忘録。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大船渡〜池袋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京までの行き方はいくつかあるのだけど、今回はシンプルに夜行バスで行くことにした。僻地に住んでいるのでどういう手段を使ってもどこかでもう1手必要になってくるのだけど、この夜行バスは直通なので便利。昔は毎日出てたけど、コロナで本数が減って、5類感染症移行後も本数が少ないので多分このままなんだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なのだが、往復どちらとも金曜夜発→土曜日朝着と、土曜日夜発→日曜朝着しかない。なので夜行オンリーで行く場合は土曜日1日だけになる。どっちにしろ日曜日はゆっくりしたいので今日はこの弾丸旅行にすることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "夜行バスは割りと慣れていて、しかも今回は3列シートなのでなめていたのだが、行きはなぜだかうまく眠れなくて結構疲れてしまった。そして親切にも座席にUSB電源がついていたのだけど、LightningはType-Cケーブルしか持ってきていなかったので結局充電しきれなかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そんなこんなで池袋に早朝5時くらいに到着。数年ぶりの東京なので建物でっかいなーという印象。イベントの後っぽくなんかゴミが散乱していて、朝からボランティアのゴミ拾いをしていた。いつ誰だったか、田舎では自分の住んでいる町が東京とつながっているということがとても大事なのだということを言っていた気がするけど、この夜行バスがそれなのだろうなと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "小腹が空いたのでアプリで朝マック注文して即座に決めた。前に池袋マックにきたときはヤンキーが色んな人に絡んでて怖かった思い出があるのでドキドキしながら2階で食べてた。若い人がダラダラしてて、「若者がだらだらしてる！」と感動した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "四谷〜日本橋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "早朝すぎてやることがないので一旦イベント会場の下見に行った。今回の会場は友人のときさばさんが運営しているEngineMakerというシェアハウスの住民用コワーキング?をご好意で貸していただいた。本当にありがとうございます。EngineMakerは行ったことがなかったけど四谷周辺は住んでて土地勘があるので懐かしい感じがした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4845.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">謎の恐竜が目印</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4846.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">ギークのガレージという感じでよい</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "早朝から作業している住民の人がいてこんな早朝からすごいな〜！と思ったけどもしかしたら昼夜逆なのかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "午前中に銀座に用事があるので銀座周辺でだらだらしていようと移動。四谷三丁目の地下道のこの配管がめちゃくちゃ好きだ。サイバーパンク感がよい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4847.jpeg",
+					"width": 2000,
+					"height": 2667,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "銀座で電源を求めてスタバに入ったけどそっちは電源なかった。石油王から連絡があって適当にお茶飲みながら話すことになったので日本橋に移動。石油王は相変わらずやることがないらしい。最近の話とかをした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CryptoBarで人間認証",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回の旅のメイン目的はWorld IDの認証で、Orbで虹彩認証して人間であることを証明することで認証される。サム・アルトマンはどうもAGI到来後の世界のピースとしてユニバーサル・ベーシックインカムが必要であると考えているっぽくて、World IDで認証した人間に対して暗号通貨を配っている。自分の場合、なかなか人間認証にアクセスできなかったのでせっせとGrantだけ予約していた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回予約したのは銀座のCrypto Bar P2Pで、なんか怪しい路地裏の中にあった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4848.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">あまりにも怪しい。</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4849.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">路地の先にバーがあった。</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "夜運営のバーで昼間はWorld IDの認証をやってるらしい。僕の前にも人がいてなんか色々説明を受けていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お兄さんのガイドにそってスムーズに虹彩認証。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4850.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">SFっぽい外観にしたの、完全に分かってる人って感じがする</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "IDが有効化されてGrantの説明とか受けていたけど、既にかなりの数を予約していたので「やってますね〜！」と言われる。卑しい乞食です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このWorld Coinというのは日本円に変換するのはかなり面倒そうなので、使い道が限られるのだけど、Crypto Barでは決済に使えるらしい。東京に来るたびにサム・アルトマンのおごりでタダ酒が飲める。あと単純にアプリ内でお金をもらってる感覚は多幸感があるので健康に良さそうである。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サム・アルトマンが何か面白いことを仕掛けようとしているので面白がって乗っかってる感じなのだけど、個人的にムネアツ展開なのは、サム・アルトマンがめちゃくちゃ極悪人で虹彩認証した人類をいつでも爆散できるとかだとめちゃくちゃいいなーと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京はAIスタートアップにガンガン投資が入っててこれからも色々楽しいことが起こりそうなので羨ましい限り。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ついでに銀座にある岩手県のアンテナショップでときさばさんへのお土産買った。岩手から手ぶらで東京に土産ができるので便利。ちなみに奥州ポテト美味しいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4852.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "各都道府県に東京のお土産屋さん置いてくれると帰りも手ぶらで助かる。(新幹線とかはあるのかな)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "上野で大哺乳類展3",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "目的その2の国立科学博物館の大哺乳類展3に向けて、移動を開始。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "途中カレーが食いたくなったのでココイチに寄った。移動でかなり足を使うのでたくさん食べちゃえと思って米400gにしちゃったんだけど、めちゃくちゃ苦しくなって上野公園につく頃には過呼吸気味になっていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "土曜日なので上野はとんでもない数のホモ・サピエンスで溢れていてこれはやばいなーと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4853-1.jpeg",
+					"width": 1576,
+					"height": 2100,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "眼の前がアベックで博物館デートいいですね〜。カップルの横の窓口に立って、日本が生んだ悲しい独身中年モンスターが大人1枚を購入。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "外が案外空いてたので大丈夫かな〜と思ったら中は人でパンパンで終わりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/------1.jpg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "展示内容と解説は面白かったのだけど列が一向に動かないので諦めて遠目で見てサクサク進んでしまった。初っ端から表情筋の解説から入っててかなり面白かったのだけどなー。人間の当たり判定なくしたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "少し進むと目玉の哺乳類の剥製の大行列の展示があった。視覚的にすご〜ってなるし、同じ生物のグループでもここまでサイズの違いがあるのかというのをすごい迫力で実感することができる。教科書で知識として理解することと質的に違うし、生きている状態ではできない剥製ならではの見せ方だなーと関心した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4858.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あまりにもスケベすぎるシマウマのケツ。哺乳類のエロスが進化的にある程度共有されていることを配信で力説したけど全然響いてなかったですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4860.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで、展示内容が素晴らしかったのだろうけど人が多すぎて体験としてはいまいちだったかもしれない。田舎の博物館だと静かに思索できるので東京だからすべてが良いというわけではないのだなーと感じた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "萩の湯",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "上野まで歩き回ってすでに汗だくだったのでそのまま徒歩で鶯谷に出てスーパー銭湯の萩の湯へ。東京に住んでたときに新しくできたやつでコロナ後は初めて。東京は地元民のための銭湯がまだ残っててそれも素晴らしいのだけど、ここは旅行者向けの大きなロッカーとかが会ったりしてめちゃくちゃ使いやすい。東京に来るときは大体バックパック背負ってるのでここをよく使う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もはや歩き回る体力も尽きていたのでここでしばらく居眠りしてた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1779026011507868014",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">萩の湯で息切れしてるおじさんがいたら僕です</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1779026011507868014?ref_src=twsrc%5Etfw\">April 13, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1779026011507868014",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">萩の湯で息切れしてるおじさんがいたら僕です</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1779026011507868014?ref_src=twsrc%5Etfw\">April 13, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "EngineMakerで誕生祭",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "EngineMaker行ったらときさばさんがいたので色々とおしゃべりしてそのまま買い出しで車まで出してもらいました。焼き肉にするかーということでハナマサに仕入れに行き、ついでにドンキに寄って馬鹿みたいなパーティーグッズ買いました。本当はLTとかもしたかったのだけど体力尽きて居眠りしていたので今回は諦め…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4862.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "現地でなんだかんだ16名くらい集まってくれました。SNSにあんま浮上しない人にも会えて色々話せたのでよかったです。田舎で引きこもってると東京で暮らしてた日々とあんまり連続した感覚が薄れてきたのですが、確かに東京に住んでたのだなあと思いました。北印度神は僕が何か喋るたびにニヤニヤしてたので、きっと悪い男になってます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4869.jpeg",
+					"width": 2100,
+					"height": 1575,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "パーティーなのでTwitchも配信してたのですが、現地にウスダヒロ先生が来てくれました。Twitchの人とリアルで会うのは初めてだったので、画面の向こうには本当に生身の人間がいるのだなぁと感動しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先生が過去に描いてくれたアナログイラストをはじめ、色々いただけたのでめちゃくちゃ感激です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/04/IMG_4868.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "帰りのバスは疲れてたのかよく眠れて、朝起きたらいつもの低い建物と人通りのない大船渡でした。バス1本で転生してる感を得られるのでたまに東京に行くのもよいな〜と思いました。誕生祭はまたやりたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,308 @@
+{
+	"title": "Ghost Admin APIをコマンドでいい感じに叩けるCLIを作った",
+	"slug": "ghocli",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost"
+	],
+	"excerpt": "gogcliにいたく感動したのでGhost版を作った話",
+	"feature_image": "https://hanatane.net/content/images/2026/02/generation-513c6d07-ced5-4ba0-83a8-b591e94d49dc.png",
+	"featured": false,
+	"published_at": "2026-02-08T14:43:50.000Z",
+	"updated_at": "2026-02-08T14:43:50.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "gogcliが鬼のように便利",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "steipeteが作ったGoogle系ツールをCLIでいい感じに叩けるCLIのgogがめちゃくちゃよかった。steipeteはOpenClawも作っている人で、尖った物をバンバン作ってるのがすごい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/steipete/gogcli",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-14.svg",
+						"title": "GitHub - steipete/gogcli: Google Suite CLI: Gmail, GCal, GDrive, GContacts.",
+						"description": "Google Suite CLI: Gmail, GCal, GDrive, GContacts. Contribute to steipete/gogcli development by creating an account on GitHub.",
+						"author": "steipete",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/gogcli-1"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Codeは手元のCLIを使って様々なタスクをこなすのでgogのようなツールを使うことでGoogleにある情報も必要なときに参照することができるようになった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CLIの使い方をAgent Skill化しておいて、必要なときに",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "/gog",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " で使わせたりしている。仕事関係はGoogle Workspaceに情報をおいているので、例えば会議で作成されたGeminiメモを取得させてコンテクストを共有した状態で開発させるなどがスムーズにできてとても便利になった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "LLMエージェントに外部情報を取得させる時はMCPサーバーというイメージがあったが、MCPはあくまでもGUIでの連携時に使えると便利な立ち位置なのだろう。CLIを使える環境ではCLIを使ったほうが圧倒的に体験が良いし、サービスに組み込むなら最初からAPIエンドポイントでツールを書いておいたほうがよさそう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghost版gogcliを作った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでgogcliのGhost版をClaude Codeに作らせた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/mtane0412/ghocli",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-15.svg",
+						"title": "GitHub - mtane0412/ghocli: Fast, script-friendly CLI for Ghost Admin API.",
+						"description": "Fast, script-friendly CLI for Ghost Admin API. Contribute to mtane0412/ghocli development by creating an account on GitHub.",
+						"author": "mtane0412",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghocli"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ghoコマンドを使って必要な時に必要な情報を取得したり書き込んだりすることができるようになった。「ふーん、まぁ便利っちゃ便利かな」くらいで劇的な変化があったわけだはないのだけど作ってて面白かった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "gogcliのリポジトリで設計思想などを調査したり、判断に迷ったときにgogではどうしているのかといった問いを出すことで理解も爆速になった。例えばgogの各種catコマンドで内容を表示するところなどはとてもUnixっぽいのでghoでも採用した。AIエージェント時代でも写経の本質的な部分は同じで面白い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "単純なGhost Admin APIラッパーではなく、どういう文脈でコマンドを叩くのかなど結構考えなければならないことは多い。CLIなのでpipeline処理も考えて入出力をうまく設計すると使い心地があるのだとわかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "AIエージェントには「ひとつのことをうまくやる」ツールを作る",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Unix哲学というと「ひとつのことをうまくやれ」「協調して動くプログラムを作れ」という部分が有名で、これがAI時代においてもさらに重要になってくると感じた。実際、LLMにCLIを作らせる機運は高まっているように感じる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "AIエージェントは「強調して動くプログラム」の究極系のようなものなので、シンプルなひとつのことをうまくやるツールを開発していくとそれは長く使える資産になる気がする。LLMの実装力で高速で作って捨てる部分と、Unix哲学的な長く使える部分とが両極端になってきそうだなーと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,1060 @@
+{
+	"title": "非エンジニアおじさんの開発環境2026",
+	"slug": "devenv-2026",
+	"status": "published",
+	"tags": [
+		"技術の話"
+	],
+	"excerpt": "Claude Codeで並列開発している話",
+	"feature_image": "https://hanatane.net/content/images/2026/01/0632364b-cfa9-4a6a-9ab6-ba7ede33a010.png",
+	"featured": false,
+	"published_at": "2026-01-28T15:33:11.000Z",
+	"updated_at": "2026-01-28T15:33:11.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "年始にClaude Code開発者のBorisのポストに触発されて、Claude Code同時並列開発を始めた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/bcherny/status/2007179832300581177",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I&#39;m Boris and I created Claude Code. Lots of people have asked how I use Claude Code, so I wanted to show off my setup a bit.<br><br>My setup might be surprisingly vanilla! Claude Code works great out of the box, so I personally don&#39;t customize it much. There is no one correct way to…</p>&mdash; Boris Cherny (@bcherny) <a href=\"https://twitter.com/bcherny/status/2007179832300581177?ref_src=twsrc%5Etfw\">January 2, 2026</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/bcherny/status/2007179832300581177",
+						"author_name": "Boris Cherny",
+						"author_url": "https://twitter.com/bcherny",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I&#39;m Boris and I created Claude Code. Lots of people have asked how I use Claude Code, so I wanted to show off my setup a bit.<br><br>My setup might be surprisingly vanilla! Claude Code works great out of the box, so I personally don&#39;t customize it much. There is no one correct way to…</p>&mdash; Boris Cherny (@bcherny) <a href=\"https://twitter.com/bcherny/status/2007179832300581177?ref_src=twsrc%5Etfw\">January 2, 2026</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Agentic Codingを並列実行するというのは前からあるアイデアだったように思うが、人間の認知能力がボトルネックになって破綻しそうだなと思ってなんとなく自分には無理なんだろうなと勝手に思っていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ところがどっこい、実際にやってみるととんでもないフロー状態に入り、浮かんでくるプロジェクト共通の課題を開発ルールに反映させていって、凄まじい速度でひとりチームの開発体制の改善サイクルが回るようになった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今年も間違いなく目まぐるしく変化する1年になりそうなので、2026年1月段階の非エンジニアおじさんの開発体制をメモっておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Code",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude MAXの20xプランを使ってClaude Codeをぶん回している。並列開発を始めてハイになると最初の週でweekly limitに到達するのでそこからどれだけトークンを減らしていくかの戦いが始まる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "基本的にはPlan Modeで作成してcontext resetして作業に入るのがよい。Opus Plan Modeにすると、Planの時だけOpus 4.5を使って、作業はSonnet 4.5にできる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Read系のコマンドで頻度の多いものは承認なしにしているが、Write系は基本確認しながら手動でポチポチしている。面倒だが大抵作業に関する情報を踏まえて承認を求めてくるので、ぼんやりと全体把握するのに役立ってる気がしている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://code.claude.com/docs/en/model-config#opusplan-model-setting",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-9.png",
+						"title": "Model configuration - Claude Code Docs",
+						"description": "Learn about the Claude Code model configuration, including model aliases like opusplan",
+						"author": "",
+						"publisher": "Claude Code Docs",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/image"
+					},
+					"caption": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/image-5.png",
+					"width": 944,
+					"height": 400,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "terminal-notifier + Claude Code hooks",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Codeの承認待ち通知はterminal-notifierをClaude Code Hooksで呼び出すようにしている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/julienXX/terminal-notifier",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-11.svg",
+						"title": "GitHub - julienXX/terminal-notifier: Send User Notifications on macOS from the command-line.",
+						"description": "Send User Notifications on macOS from the command-line. - julienXX/terminal-notifier",
+						"author": "julienXX",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/terminal-notifier"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "適当に設定していたが、いい感じに設定してくれるシェルスクリプトを作っている人がいたので借用して使っている。(中身をそのまま使わずにClaudeにチェック&改造してもらった)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/hta218/ai-agents-notifier",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-10.svg",
+						"title": "GitHub - hta218/ai-agents-notifier: 📢 Send system notifications when your AI Coding Agents (CLI-based) requests permissions or completes tasks.",
+						"description": "📢 Send system notifications when your AI Coding Agents (CLI-based) requests permissions or completes tasks. - hta218/ai-agents-notifier",
+						"author": "hta218",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ai-agents-notifier"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostty",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ターミナルで元々人気のあったGhosttyがさらに流行り出した。デフォルト機能でsplit viewで分割できるのが便利。下記の記事の影響で4画面分割でfiletree + keifu + claude code + terminalの構成 × 5プロジェクトくらいで回している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://note.com/electrical_cat/n/n7a3b634a2b51",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-10.png",
+						"title": "GhosttyをVSCodeみたいにしよう！｜Naoki |電電猫猫",
+						"description": "English Article 最近はClaude Codeでコーディングすることが増えてきました！しかしこいつもそうだけどVSCodeもメモリをもりもり食います。大食いが5プロジェクトもあるとまあメモリもカツカツです。 そうして流行りのGhosttyに乗り換えたのが半年前なんですが、最近はGhosttyでVSCode環境をそのまま再現したい！という今の自分のGhostty環境をお見せします！ 私の環境 Ghostty環境 そして私の元々のVSCode環境です。 詳しく見ていきましょう。まずVSCodeのほうですが、簡単にはこれです。一般的な部類だと思いますが、左のサイドバーに",
+						"author": "Naoki |電電猫猫",
+						"publisher": "note（ノート）",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/rectangle_large_type_2_697b97e16636fdcb6858fb14570f3acf.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "確かにyaziやlazygitなどの全部入りの強力なTUIもあるが、基本的な操作はほとんどclaude codeにやらせてしまうので軽量シンプルは確かに良いなと感じる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "型チェック・Lint・テスト",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "型チェック・Lint・テストを実装時やcommit時やPR作成時に行うようにして早めに検知できるようにする。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "テストはt-wada式の指示が一世を風靡していたが、実際にテスト駆動開発に寄せていくのは結構難しい。一旦テストファーストになるようにルール付けしたりしているが、たまにズルしようとするとので色々試行錯誤している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://gihyo.jp/article/2024/01/automated-test-and-tdd",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-1.svg",
+						"title": "保守しやすく変化に強いソフトウェアを支える柱　自動テストとテスト駆動開発、その全体像 ～Software Design 2022年3月号「そろそろはじめるテスト駆動開発」より | gihyo.jp",
+						"description": "自動テストを、テスト対象のコードより先に書いてしまう「テストファースト」、さらにその発展形である「テスト駆動開発（TDD）」という開発手法があります。コードより先にテストを書くという一見奇妙なフローに、どのようなメリットがあるのでしょうか。ソフトウェアの設計、開発者のメンタルの面から考察します。またTDDには体験してはじめて理解できる良さもあります。百聞は一見に如かず、JavaScriptの自動テスト環境を整えてTDDを実践してみましょう。",
+						"author": "和田卓人",
+						"publisher": "gihyo.jp",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/2195_automated-test-and-tdd.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "テストカバレッジを出して80%以上をキープしたり、フロントエンド開発はE2Eも盛り込むなど、とにかく異状検知に力を入れる。スピード出すために必須。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Github Actionsにも当然仕込んでおく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CodeRabbit CLI",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "PR実行前に",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "coderabbit --prompt-only",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " でCodeRabbit CLIを実行してレビューに対応するようにルール付けしている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CodeRabbitはClaude Codeのレビューでも拾わないところを拾ってくれるのでよい。同時並行開発時の悩みはしょっちゅうRate Limitに引っかかることで、CLIのlimitは課金しても大して増えないので課金のモチベーションが湧かない。(あくまでGithub上のPRレビューがメインなのだろう)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.coderabbit.ai/ja/cli",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-27.ico",
+						"title": "CodeRabbit: AI Code Reviews",
+						"description": "CodeRabbit: AI Code Reviews",
+						"author": "",
+						"publisher": "",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/image-1"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "修正後もcoderabbitを実行するとすぐにlimitに達してしまうので一度だけ聞いて対応してそのままPRに進むようにしている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "PRスコープ外のnitpikに関してgithub issue化するようなルール付けも良いなと思ったのだが、作業量が多くなったので最近はそこまではやっていない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Lefthook",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claudeへのルール付けでたまに漏れることもあるので、大きなプロジェクトだとLefthookを使ってpre-commit hookでLintとテストが走るようにしている。huskyでもよかったが、モノレポで複数言語だったのでLefthookがちょうどよさそうだった。(dd2030で使われてたので知ってた。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/evilmartians/lefthook",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-9.svg",
+						"title": "GitHub - evilmartians/lefthook: Fast and powerful Git hooks manager for any type of projects.",
+						"description": "Fast and powerful Git hooks manager for any type of projects. - evilmartians/lefthook",
+						"author": "evilmartians",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/0bf8ef80-96c8-11e9-98c4-5c275172132d"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちなみにClaudeはこのチェックを隙あらば迂回しようとしてくるのでルールで潰す。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Code Actions",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "/install-github-app",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " でClaude CodeをGithubリポジトリに住まわせることができる。issueやPR上で@claudeで作業させられるようになるが、メインはPRのレビュー。CodeRabbitはプライベートリポジトリでは有料版が必要なのでMaxプランで動いてくれるClaudeは本当に心強い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://code.claude.com/docs/ja/github-actions",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-11.png",
+						"title": "Claude Code GitHub Actions - Claude Code Docs",
+						"description": "Claude Code GitHub Actionsを開発ワークフローに統合する方法について学びます",
+						"author": "",
+						"publisher": "Claude Code Docs",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/image-2"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結局Claudeで実行するならローカルでも良いのでは？となるが、ローカルではCodeRabbitがメインのレビュアーで、ActionsのClaudeはApprove判断を行うという役割分担になっている。5並列くらいで回していると、PR作成してGithub上で各種CIやレビューが走っている間に他のプロセスを見たりするのでちょうど良い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Github Copilot Pro",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そういえば放送大学生なのでGithub Copilot Proが無料で使えるなと思ってまたGithub Educationに再登録した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Copilot ProもPR上で細かい改善点をレビューしてくれる。Coderabbit, Copilot, Claudeの謎の多重チェック体制となっている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://docs.github.com/ja/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-1.png",
+						"title": "学生、教師、またはメンテナンス担当として GitHub Copilot Pro に無料でアクセスする - GitHub ドキュメント",
+						"description": "学生、教師、またはオープンソースのメンテナンス担当として Copilot Pro を無料で使用する方法について説明します。",
+						"author": "",
+						"publisher": "GitHub Docs",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/copilot.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Copilot Proはweekly limitに達した時とかにopen codeを使うときにも活躍してくれそう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "opencode",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Codeで同時並行で起きてる間ずっと回していたらweekly limitに達してしまった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2日間ほど強制的な絶状態を味わったのだけど、その間に触ったのがopencodeで完成度も良さそうだった。ChatGPT PlusやCopilot Proのサブスクリプションがあるのでweekly limitに達した後や、特定タスクに関してはClaude Maxの枠を使わずにこちらで対処するのもありなのかなと思っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claudeの資産をそのまま使えるのが強く、Agent Skillはそのまま使えるし、AGENTS.mdはClaude CodeのCLAUDE.mdにシンボリックリンクを貼ればOK。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/anomalyco/opencode",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-12.svg",
+						"title": "GitHub - anomalyco/opencode: The open source coding agent.",
+						"description": "The open source coding agent. Contribute to anomalyco/opencode development by creating an account on GitHub.",
+						"author": "anomalyco",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/2c2c3389-c647-405c-a499-f80e4d521277"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まとめ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "同時並行開発を実際にやってみると、想像していたことと真逆のことが起きていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "認知的にすぐパンクすると思っていたら、人間とagentの役割がより明確に分離したので人間は凄まじい過集中状態になった。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "何が起きているのかわからなくなると思っていたら、プランニングからapproveまで明確な説明がgitのログに残るようになったのでかなり把握できるようになった。分からないことはその場で聞けば詳細に調べられるし。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "知識がものすごい勢いで増えていく。検討中にClaudeとディスカッションすると新奇の概念に触れることが多く、なぜそれが今必要なのか/必要でないのかという文脈つきで入ってくるので吸収がとても良い。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "肥大化するCLAUDE.mdを定期的にリファクタリングして、ruleやskillなど再利用可能な単位になっていくのが気持ちいい。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんというか「自分はエンジニアじゃないので〜」という免罪符を振りかざす層がAgentic Codingの一番うまい蜜を啜ってる層な気がしていて、同時に事故るときに一番激しくなりそうなのでそこんとこ気をつけたいなと思っております。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

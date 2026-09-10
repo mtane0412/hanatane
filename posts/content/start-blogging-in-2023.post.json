@@ -1,0 +1,395 @@
+{
+	"title": "2023年だけどブログを始めます",
+	"slug": "start-blogging-in-2023",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"お知らせ",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "ブログをもう一度やる理由とかブログの内容について",
+	"feature_image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGNhdHxlbnwwfHx8fDE2Nzk4MTk1Njk&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-03-26T12:31:37.000Z",
+	"updated_at": "2025-03-30T14:18:57.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "うおおおブログやるぞーーーという感じになったのでブログを始めようと思います。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自己紹介",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "種延真之と言います。ゲームとインターネットが好きなおじさんです。放送大学で心理学を学んでいましたが今期卒業予定で次に何を学ぼうか模索中です。生物学も好きで、人類の進化に興味があります。プログラミングはJavaScriptメインで趣味程度でやっています。OpenAI関係で遊ぶことも増えてきていてPythonもやらないとなぁという感じです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "広島県出身で27年くらい住んだあとに、東京に2年、その後は岩手県大船渡市というところに5年くらい住んでいます。インターネットが通じていれば基本的にどこでも住めるタイプです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "仕事はずっとふらふらしてニート・フリーターを繰り返していましたが、去年から正社員で働き始めました。あわせて個人でECサイト運営の仕事をやりつつ、隔週ペースで地域の水産加工会社の手伝いで草刈りとか畑とか魚とか色々やってます。特に専門性があるわけではなく、食い扶持を稼ぐためになんでもやっているような感じです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一昔前もブログをやっていたのですが、引きこもり期に入り人との交流が減ってきたので書くモチベーションも下がって文章を書くのをやめていました。最近また人と交流する機会が増えてきて、自分の考えを自分のペースで書いて置けるスペースがまた必要になってきたなと感じたのでもう一度ブログをやってみようと思い立って今に至ります。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログの目的と想定している読者",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このブログでは自分の経験や考えを自分を知っている人に向けて書いていくつもりです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "リアルな生活で色々と話をする機会が増えてきたので、毎回口頭で話をするよりも文章の形で発信しておくほうがコミュニケーションの効率が良さそうというのが直接の動機です。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "また、東京のときの知り合いは今僕が何をしているのかを知らないだろうし、岩手県の知り合いも何者なのかイマイチわからないはずです。ネットの知り合いもリアルの自分については知らないし、その逆も然りです。なのでそれぞれの話を書いていけば、より僕について深く知ってもらえるのかなとも思います。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "知り合いにより深く知ってもらうことに加えて、まだ知らない人に知ってもらうこともできたらよいかなと思いました。少しずつゆるく弱いつながりの範囲が広がっていくと少しずつ人生が楽になっていくのではないかと考えています。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "書く内容と更新スケジュール",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "経験上「徒然なるままに…」は続けるのが結構難しいと思っています。書くのは基本的にだるい作業なので…。最初にどういう方向性で書いていくかというのを定めておきます。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "基本的には日常生活で誰かに話しそうだなーとか、誰かに話したいなーというものを記事として書いていくと思います。自分自身のこととか経験したこと、仕事の話とか調べたことや勉強したことなどになりそうです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 1,
+							"mode": "normal",
+							"style": "",
+							"text": "毎週月曜に1本記事を上げる",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というのを当面の目標にしようと考えています。また、完全に広告なしで運用していきたいので、有料のメンバーシップというものを用意しています。paid memberに向けて、プライベートなものとかディープなものを月1本上げられたらなと思います。この辺の思惑についてはまた別記事で書きます。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "モチベーション維持にご協力ください！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "文章を書くというのはなかなか大変なので、モチベーションの維持がめちゃくちゃ大事です。読んでくれている人がいるというのが何よりのモチベーションですし、ブログを始めたのを人との交流をもっとスムーズにしたいという動機でした。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Subscribeボタンを押して購読者登録してくれると記事にコメントができるようになったり、更新通知が飛ぶようになります。何よりも読者がいるということが僕の方から分かるので書くモチベーションにつながります。ということで、応援してくださる心優しい方はぜひSubscribeしてください！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログのコメント欄やSNSでシェアしてくださると反応できるので、聞いてみたい話とかあったらぜひコメントください！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "button",
+					"alignment": "center",
+					"buttonUrl": "https://hanatane.net/#/portal/signup/free",
+					"buttonText": "Subscribe"
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

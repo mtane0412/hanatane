@@ -20,6 +20,13 @@ export interface PostMeta {
 	featured?: boolean;
 }
 
+/**
+ * 本文の渡し方。Markdown は stdin、Lexical はファイルパスで ghst に渡します。
+ */
+export type ContentSource =
+	| { kind: "markdown-stdin" }
+	| { kind: "lexical-file"; path: string };
+
 export interface ParsedPostFile {
 	meta: PostMeta;
 	body: string;
@@ -28,14 +35,17 @@ export interface ParsedPostFile {
 const FRONTMATTER_PATTERN = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
 const POST_STATUSES: readonly PostStatus[] = ["draft", "published"];
 
-function isPostStatus(value: unknown): value is PostStatus {
+export function isPostStatus(value: unknown): value is PostStatus {
 	return (
 		typeof value === "string" &&
 		(POST_STATUSES as readonly string[]).includes(value)
 	);
 }
 
-function requireString(data: Record<string, unknown>, key: string): string {
+export function requireString(
+	data: Record<string, unknown>,
+	key: string,
+): string {
 	const value = data[key];
 	if (typeof value !== "string" || value.trim() === "") {
 		throw new Error(`frontmatter の ${key} は必須の文字列です`);
@@ -43,7 +53,7 @@ function requireString(data: Record<string, unknown>, key: string): string {
 	return value;
 }
 
-function optionalString(
+export function optionalString(
 	data: Record<string, unknown>,
 	key: string,
 ): string | undefined {
@@ -57,7 +67,7 @@ function optionalString(
 	return value;
 }
 
-function optionalStringList(
+export function optionalStringList(
 	data: Record<string, unknown>,
 	key: string,
 ): string[] | undefined {
@@ -74,7 +84,7 @@ function optionalStringList(
 	return value;
 }
 
-function optionalBoolean(
+export function optionalBoolean(
 	data: Record<string, unknown>,
 	key: string,
 ): boolean | undefined {
@@ -140,27 +150,52 @@ export function parsePostFile(
 }
 
 /**
- * ghst の `post create` / `post update` に渡す引数を組み立てます。本文は `--markdown-stdin` で渡す前提です。
+ * ghst の `post create` / `post update` に渡す引数を組み立てます。
  *
- * update では `--slug` が既存記事の検索キーとして使われ（ghst は patch には含めない）、
- * create では `--slug` が新規記事の slug になります。
+ * - update では `--slug` が既存記事の検索キーとして使われます（ghst は patch には含めない）。
+ * - create には `--slug` オプションが無い（ghst 0.17.1）ため、`{ "slug": ... }` を書いた JSON ファイルを
+ *   `--from-json` で渡します。ghst はこの JSON をペイロードの土台にし、他のフラグを上書きします。
  *
  * @param action - create（新規作成）または update（既存記事の更新）
- * @param meta - frontmatter から取り出したメタ情報
+ * @param meta - frontmatter や JSON ファイルから取り出したメタ情報
+ * @param source - 本文の渡し方（Markdown は stdin、Lexical はファイル）
+ * @param slugJsonPath - create のときに必須。`{ "slug": meta.slug }` を書き出したファイルのパス
  */
+export function buildGhstArgs(
+	action: "update",
+	meta: PostMeta,
+	source: ContentSource,
+): string[];
+export function buildGhstArgs(
+	action: "create",
+	meta: PostMeta,
+	source: ContentSource,
+	slugJsonPath: string,
+): string[];
 export function buildGhstArgs(
 	action: "create" | "update",
 	meta: PostMeta,
+	source: ContentSource,
+	slugJsonPath?: string,
 ): string[] {
 	const args = ["post", action];
 	if (action === "update") {
 		args.push("--slug", meta.slug);
 	}
-	args.push("--markdown-stdin", "--title", meta.title);
-	if (action === "create") {
-		args.push("--slug", meta.slug);
+	if (source.kind === "markdown-stdin") {
+		args.push("--markdown-stdin");
+	} else {
+		args.push("--lexical-file", source.path);
 	}
-	args.push("--status", meta.status);
+	if (action === "create") {
+		if (!slugJsonPath) {
+			throw new Error(
+				"create には slug を書いた JSON ファイルのパスが必要です",
+			);
+		}
+		args.push("--from-json", slugJsonPath);
+	}
+	args.push("--title", meta.title, "--status", meta.status);
 	if (meta.tags && meta.tags.length > 0) {
 		args.push("--tags", meta.tags.join(","));
 	}

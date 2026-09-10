@@ -1,0 +1,630 @@
+{
+	"title": "XiaomiのSmart Pet Food Feeder 2で遊ぶ",
+	"slug": "xiaomi-pet-feeder-with-ha-n8n",
+	"status": "published",
+	"tags": [
+		"猫の話",
+		"技術の話"
+	],
+	"excerpt": "XiaomiのSmart Pet Feeder 2をHome Assistantとn8nを使って自動化した話",
+	"feature_image": "https://hanatane.net/content/images/2025/12/photo-1655210913151-87ce369ff7d8.jpeg",
+	"featured": false,
+	"published_at": "2025-12-31T05:50:22.000Z",
+	"updated_at": "2025-12-31T06:17:16.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫のケアというのは大変なもので、自分がどれだけ餌をあげたか、猫はどれだけ食べたか・残したか、など認知的なタスクが結構多い。自分のうっかりミスで猫が空腹で過ごしてしまう事態は避けたいので、この部分はテクノロジーを使って解決しようとXiaomiの自動給餌機と自動給水機をブラックフライデーで購入した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0DB5JZ6QR/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/51M1VVKlKcL._AC_SY300_SX300_QL70_ML2_.jpg\"\n           alt=\"Amazon.co.jp: Xiaomiスマート給餌機2 5L大容量 食べ残しリアルタイム検知 自動詰まり防止システム 直径12mmのペットフード対応 3重湿気防止 ステンレススチール製給餌ボウル 大LED画面 2WAY給電 日本語対応アプリ遠隔操作 : ペット用品\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: Xiaomiスマート給餌機2 5L大容量 食べ残しリアルタイム検知 自動詰まり防止システム 直径12mmのペットフード対応 3重湿気防止 ステンレススチール製給餌ボウル 大LED画面 2WAY給電 日本語対応アプリ遠隔操作 : ペット用品\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: Xiaomiスマート給餌機2 5L大容量 食べ残しリアルタイム検知 自動詰まり防止システム 直径12mmのペットフード対応 3重湿気防止 ステンレススチール製給餌ボウル 大LED画面 2WAY給電 日本語対応アプリ遠隔操作 : ペット用品\n        </p>\n      </div>\n\n      \n      <div style=\"display: flex; align-items: center; justify-content: space-between;\">\n        <span style=\"font-size: 18px; font-weight: 700; color: #B12704;\">\n          ¥12,800\n        </span>\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0DP6MYX5Y/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/51D9R0fpxSL._AC_SX679_.jpg\"\n           alt=\"Amazon.co.jp: Xiaomi スマートペット給水機2 犬用 猫用 大容量3L ４層フィルター 充電式 コードレス 3種類の給水モード IPX7耐水 リモート操作 静音 : ペット用品\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: Xiaomi スマートペット給水機2 犬用 猫用 大容量3L ４層フィルター 充電式 コードレス 3種類の給水モード IPX7耐水 リモート操作 静音 : ペット用品\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: Xiaomi スマートペット給水機2 犬用 猫用 大容量3L ４層フィルター 充電式 コードレス 3種類の給水モード IPX7耐水 リモート操作 静音 : ペット用品\n        </p>\n      </div>\n\n      \n      <div style=\"display: flex; align-items: center; justify-content: space-between;\">\n        <span style=\"font-size: 18px; font-weight: 700; color: #B12704;\">\n          ¥5,486\n        </span>\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1992459603779678403",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">給餌機と給水機インストールした <a href=\"https://t.co/Daqm7OMwEV\">pic.twitter.com/Daqm7OMwEV</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1992459603779678403?ref_src=twsrc%5Etfw\">November 23, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1992459603779678403",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">給餌機と給水機インストールした <a href=\"https://t.co/Daqm7OMwEV\">pic.twitter.com/Daqm7OMwEV</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1992459603779678403?ref_src=twsrc%5Etfw\">November 23, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Xiaomiの製品らしく同等製品と比べると一回り安い。Xiaomi Homeアプリも、食べた量の記録・通知や自動給餌設定など最低限必要なものは揃っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この2台を導入したおかげで普段の餌やり・水やりにかかる負担はだいぶ軽くなった。予想外に遅く帰ることになったり、2~3日家を空けるなどの人間都合のイベントがあっても猫の食事に影響がないというので安心感もある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アプリの標準機能には限界がある",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しばらく使っていて気づいたのは「ボウルにまだ食べ残しがあるときは給餌をスキップする」というよくあるシーンがどうも標準機能ではできないということだった。Xiaomiアプリの自動化機能もあるが、ボウルの重さをトリガーとして使えない。データとしては存在するのに、アプリには実装されていない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Home Assistantとn8nで制御する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実はこれが購入の決め手になったのだが、Xiaomiは公式でHome Assistant統合を出している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/XiaoMi/ha_xiaomi_home",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-6.svg",
+						"title": "GitHub - XiaoMi/ha_xiaomi_home: Xiaomi Home Integration for Home Assistant",
+						"description": "Xiaomi Home Integration for Home Assistant. Contribute to XiaoMi/ha_xiaomi_home development by creating an account on GitHub.",
+						"author": "XiaoMi",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ha_xiaomi_home"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さらにHome Assistantはn8nと連携できるため、スマートホーム以外のWebサービスとも組み合わせてオートメーション構築がとてもラク。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.homeassistant/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-26.ico",
+						"title": "Home Assistant node documentation | n8n Docs",
+						"description": "Learn how to use the Home Assistant node in n8n. Follow technical documentation to integrate Home Assistant node into your workflows.",
+						"author": "",
+						"publisher": "logo",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/thumb_up.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "給餌機本体からのトリガーがないのでセルフホストn8nから定期的にポーリングして猫が餌を食べた記録をDiscordに送信したり、ボウルの餌の量に応じて自動給餌スケジュールをon/offするようにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-6.png",
+					"width": 1112,
+					"height": 982,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-7.png",
+					"width": 1158,
+					"height": 568,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "気になった時にDiscordで確認できるのは楽だし、複数人家族の時は全員が確認できるのは便利そう。n8n経由でinfluxDBに保存しておくこともできるのでと後々データ分析したい場合はそちらに全部ぶち込んでおくと良い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "現状は通知がやや多くなってしまっているので、n8nのデータテーブルに一時的に貯めておいてまとめて報告するようにしたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Xiaomiの癖のある仕様",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Xiaomi製品の制御はXiaomiのMIoT(Mi Internet of Things)プロトコルというのを通じてやりとりする必要がある。これがなかなか癖が強い。状態を取得すると色々と情報は取れる。実際には何を示しているのかはアプリを見ながら解釈していく作業が必要だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-8.png",
+					"width": 854,
+					"height": 750,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "給餌スケジュールの更新はこの給餌プログラム更新というのを何とかするのだろうとずっと試行錯誤していたが、最終的にはDeep Wikiを使ってtext.set_valueサービスを使用してtextエンティティを更新する方法を見つけてなんとか打開した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-9.png",
+					"width": 836,
+					"height": 1252,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この癖の強い仕様はコミュニティもかなり悪戦苦闘しているようで、ドキュメントが中国語であることも日本人ユーザーとして大変な部分ではあるが、LLMの助けがあるので何とかなる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫の従僕として本質に集中していく",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "導入してかなり楽になった。子供の時に猫を飼っていたときは餌やりは個々人の感覚で適当に行なっていたが、今は1日に食べてるグラム数や食べている時間帯なども把握できている。それでいて餌やり以外の世話に認知資源を回せるのでより猫とニャンニャンできるようになった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "食事・給水という部分の自動化にXiaomiを組み込むことに抵抗がある人もいるかもしれないが、実際にXiaomiが担当しているのは餌やりの部分のみで、人間は確認と管理に集中できる。確認方法もDiscord・アプリ・目視と多重化されているので、日々の世話の何かで異変に気づくチャンスはむしろ増えている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自動給餌機/給水機では乾燥剤やフィルターなどで案外ランニングコストがかかってくるが、3Dモデルを公開している人もいるのでDIYで安価に抑える方法もありそう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.thingiverse.com/thing:6896157",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-192x192.png",
+						"title": "Xiaomi Smart Pet Food Feeder Desiccant by GirayAkbay",
+						"description": "This model is designed so that the dehydration box in the “xiaomi Smart Pet Food Feeder” machine is refillable.Add pause command mid print. Carefully open the existing dehydration box, enlarge the middle of the felt to 48 mm and place it inside the print and continue printing. Preferably, glue it carefully from the edges with hotglue. (cloth or paper tovel could also work)After printing, it is necessary to cut open the filling hole.The cover of the box can be glued with a non-toxic adhesive after the dessicant is filled. When the dessicant gets humid, it can be removed from the notch on the edge to be replaced and refilled.",
+						"author": "GirayAkbay",
+						"publisher": "Thingiverse",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/featured_preview_dessicant_1.png"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.thingiverse.com/thing:6429168",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-192x192-1.png",
+						"title": "Xiaomi Pet Fountain Filter by normen",
+						"description": "Fill the smaller tray with 3mm activated carbon pellets and combine with the larger tray, then insert into fountain.OpenSCAD model might follow, I have to clean it up from dependencies. Nudge me if you need to adapt.",
+						"author": "normen",
+						"publisher": "Thingiverse",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/featured_preview_21fb28ed-6ee0-4a03-b4fe-1560b8eaf1c7.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なお、今回はXiaomiを買ってみたが、ペット周りの自動化はPetkit製品がコミュニティの統合なども多く公開されているので良さそう。使ってる人いたら教えて欲しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/Jezza34000/homeassistant_petkit",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-7.svg",
+						"title": "GitHub - Jezza34000/homeassistant_petkit: 😺🐶 Control your PetKit devices with camera support, all in Home Assistant",
+						"description": "😺🐶 Control your PetKit devices with camera support, all in Home Assistant - Jezza34000/homeassistant_petkit",
+						"author": "Jezza34000",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/homeassistant_petkit"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なお、自分で餌をあげないと本当にただ自分の周りをうろつくでかい生物としか認識されなさそうなので、適宜美味しいものを手で与えるようにしている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-10-1.png",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0DB5JZ6QR/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/51M1VVKlKcL._AC_SY300_SX300_QL70_ML2_.jpg\"\n           alt=\"Amazon.co.jp: Xiaomiスマート給餌機2 5L大容量 食べ残しリアルタイム検知 自動詰まり防止システム 直径12mmのペットフード対応 3重湿気防止 ステンレススチール製給餌ボウル 大LED画面 2WAY給電 日本語対応アプリ遠隔操作 : ペット用品\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: Xiaomiスマート給餌機2 5L大容量 食べ残しリアルタイム検知 自動詰まり防止システム 直径12mmのペットフード対応 3重湿気防止 ステンレススチール製給餌ボウル 大LED画面 2WAY給電 日本語対応アプリ遠隔操作 : ペット用品\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: Xiaomiスマート給餌機2 5L大容量 食べ残しリアルタイム検知 自動詰まり防止システム 直径12mmのペットフード対応 3重湿気防止 ステンレススチール製給餌ボウル 大LED画面 2WAY給電 日本語対応アプリ遠隔操作 : ペット用品\n        </p>\n      </div>\n\n      \n      <div style=\"display: flex; align-items: center; justify-content: space-between;\">\n        <span style=\"font-size: 18px; font-weight: 700; color: #B12704;\">\n          ¥12,800\n        </span>\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0DP6MYX5Y/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/51D9R0fpxSL._AC_SX679_.jpg\"\n           alt=\"Amazon.co.jp: Xiaomi スマートペット給水機2 犬用 猫用 大容量3L ４層フィルター 充電式 コードレス 3種類の給水モード IPX7耐水 リモート操作 静音 : ペット用品\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: Xiaomi スマートペット給水機2 犬用 猫用 大容量3L ４層フィルター 充電式 コードレス 3種類の給水モード IPX7耐水 リモート操作 静音 : ペット用品\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: Xiaomi スマートペット給水機2 犬用 猫用 大容量3L ４層フィルター 充電式 コードレス 3種類の給水モード IPX7耐水 リモート操作 静音 : ペット用品\n        </p>\n      </div>\n\n      \n      <div style=\"display: flex; align-items: center; justify-content: space-between;\">\n        <span style=\"font-size: 18px; font-weight: 700; color: #B12704;\">\n          ¥5,486\n        </span>\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

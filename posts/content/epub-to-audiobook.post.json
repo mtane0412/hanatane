@@ -1,0 +1,288 @@
+{
+	"title": "EPUBをオーディオブックに変換して耳で読む",
+	"slug": "epub-to-audiobook",
+	"status": "published",
+	"tags": [
+		"技術の話"
+	],
+	"excerpt": "生成AIを使って電子書籍をオーディオブックにして耳で読むと便利という話",
+	"feature_image": "https://hanatane.net/content/images/2025/06/photo-1594434533760-02e0f3faaa68.jpeg",
+	"featured": false,
+	"published_at": "2025-06-01T14:40:08.000Z",
+	"updated_at": "2025-06-01T14:50:20.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "遠出をするときはもっぱらPodcastを聞く。バスに乗るときはスマホで電子書籍も読んだりするのだが、車内で読むのは結構疲れるので結局Podcastに切り替えてしまう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "目で読むより耳で聞くほうが楽だ。ということで、電子書籍も耳で聞いたほうがいいだろうということで、仙台の移動に備えて手元のEPUBをオーディオブックに変換してみることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちょうど読もうと思って買っていたオライリーの『LLMのプロンプトエンジニアリング』を読み上げてもらうことにした。オライリーはプレーンテキストイズパワーを実践していてDRM Freeで販売しているので扱いやすい。今後LLM readableな形で書籍が入手できるのとそうでないところで埋められない知的格差が生まれそうだけど、日本はきっとしっかり立ち遅れるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自前でvibe codingしても良いと思ったが、こういうのは絶対誰かが作っているものだ。探してみると案の定",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "epub_to_audiobook",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://github.com/p0n1/epub_to_audiobook"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というのがあった。これを使うとWebUIが立ち上がってgpt-4o-mini-ttsを使っていい感じに章ごとに音声に変換してくれる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/image.png",
+					"width": 2940,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"type": "linebreak",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "gptのttsは現状では英語ほど自然ではないが、全然聞けるレベルという感じだ。うまく文節の区切りとかを検出しづらくて不自然な箇所はあるが、大体の流れを把握することができた。単なる音声の読み上げだけでなく、これを読んだ人のPodcastを生成するのも面白そうだ(NotebookLMにも搭載された)。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "バスに乗って聞いていると結構無限に聞いていられる。1回目は音声で雑に聞いて興味深い話をざっくりサーチしておいて、細部をテキストで読むという方法がしっくり来た。違うモーダルを使って情報を摂取しているので脳への負荷分散になっている気もする。あとはNotebookLMに入れて対話的に思考を深堀りしていくということもできる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "メディアの役割が編集から「原液を作る」という役割に変わる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://x.com/kensuu/status/1924629422327660738"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "という話はいい言語化だなと思う。ちょうど本の中にもLLMを特定のタスクにフィットさせようとすると他の性能が落ちてしまうという「アラインメント税」という話が出てきたが、人間も伝えやすいように変換する作業をさせるのではなくて、最初から全力で原液を作らせておいて、あとは受け取り側で適当に調整するほうが情報の流れは効率的になりそうだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なお、オーディオブックの管理や視聴は別で考えないといけない。これは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "audiobookshelf",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.audiobookshelf.org/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というOSSがあるのでそれをセルフホストしてみようと思う。皆さんも快適な読書ライフを。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"type": "linebreak",
+							"version": 1
+						},
+						{
+							"type": "linebreak",
+							"version": 1
+						},
+						{
+							"type": "linebreak",
+							"version": 1
+						},
+						{
+							"type": "linebreak",
+							"version": 1
+						},
+						{
+							"type": "linebreak",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

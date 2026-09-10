@@ -1,0 +1,435 @@
+{
+	"title": "Ghostの記事を検索するAlfred Workflowを作った",
+	"slug": "alfred-ghost",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost",
+		"Alfred",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "Ghostの記事をインクリメンタルサーチしてURLをクリップボードにコピーするAlfred Workflowを作りました",
+	"feature_image": "https://hanatane.net/content/images/2024/01/tanenobu_a_casper_ghost_who_wears_a_bowler_hat_with_a_purple_ri_4859c450-9397-4366-8499-83b401a937e2.png",
+	"featured": false,
+	"published_at": "2024-01-31T02:27:38.000Z",
+	"updated_at": "2024-01-31T02:38:42.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "alfred-ghost",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "タイトル通りGhostの記事をインクリメンタルサーチして公開URLをクリップボードにコピーするAlfredを作った。他にも日常周りのちょっとしたショートカットも仕込んでおいた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 16,
+									"mode": "normal",
+									"style": "",
+									"text": "ghost n",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": ": 新規記事作成",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 16,
+									"mode": "normal",
+									"style": "",
+									"text": "ghost o",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": ":ダッシュボードを開く",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 16,
+									"mode": "normal",
+									"style": "",
+									"text": "ghost s {query}",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": ": queryを含むタイトルの記事を検索。",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 16,
+									"mode": "normal",
+									"style": "",
+									"text": "enter",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "でURLコピー、",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 16,
+									"mode": "normal",
+									"style": "",
+									"text": "control+enter",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "で記事を開く",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/01/b62d42ff6588b02e575d9b358438a447-1.gif",
+					"width": 910,
+					"height": 628,
+					"title": "",
+					"alt": "alfredからインクリメンタルサーチで検索できる",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一応ダウンロードできるようにしておいた。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "jq",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://jqlang.github.io/jq/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が必要なので適宜入れてください。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/mtane0412/alfred-ghost/releases",
+					"metadata": {
+						"icon": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
+						"title": "Releases · mtane0412/alfred-ghost",
+						"description": "alfred workflow for Ghost. Contribute to mtane0412/alfred-ghost development by creating an account on GitHub.",
+						"author": "mtane0412",
+						"publisher": "GitHub",
+						"thumbnail": "https://opengraph.githubassets.com/20cc236965a011218b0e19feb3fd2e72c4e04e5e0249b5f933b667bce327189c/mtane0412/alfred-ghost"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "モチベーション",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostのエディタはdynamic menuというもので色々な埋め込みとかを簡単に追加できるようになっている。ところがどういうわけか、自分の過去の記事を参照して挿入するといった機能がありそうでない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "過去記事にリンクを張るときは毎回自分のサイトを開いて検索してURLをコピーする作業をしていたのだが、あまりにも面倒なのでAlfred workflowを作ろうと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ChatGPTでAlfred Workflow作る体験がやばい",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Alfred Workflowのプログラムを使う部分はシェルスクリプト・Apple ScriptをはじめJavaScriptやPythonなんかの言語でも記述することができる。なので、Alfyなんかを利用してNode.jsで書くのがこれまでの現実的な部分だった。Node.jsを使う場合、Alfredの実行環境としてNode.jsがインストールされている状態の方がパッケージとか必要ないので作る側としては楽なのだが、使う側は要件が増えるのであまり嬉しくないポイントになる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "AlfredはMac専用アプリなので、Apple Scriptを使えば追加の環境構築必要なしにWorkflowができるのだけど、今更AppleScriptを習得するコストをかけるのもなんかいやで及び腰だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今はChatGPTという大変優秀なプログラマに頼れるので、こいつに要件を伝えてAppleScriptを書かせるとすんなりできるんだろうなと思って相談してみた。想像通りだが、いくらかやりとりをしながら数十分でできてしまった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大してプログラム書く能力がない僕が、こうしてめちゃくちゃ生成AIの恩恵を感じているから、本職はもっとすごいんだろうなと思う。一方で、周囲を見渡してみると、今までプログラムを書けなかった人が生成AIを活用してプログラムを書けるようになってるかというと必ずしもそうではないという面もあるように感じる。実際今回のworkflowもAPIのレスポンスとかを調べてGPTに渡していたり、細かいところは自分でやったりしたので、「誰でも作れるようになった」のではなく「作れる人がめっちゃ簡単に作れるようになった」というのが実像に近い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "すべての人に開かれたインターネットが逆に断絶を深めてるみたいな皮肉が生成AIでもさらにすごい速度で展開されていくのだろうなと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

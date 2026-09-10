@@ -1,0 +1,2112 @@
+{
+	"title": "2025年の振り返り",
+	"slug": "2025-reflection",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#ref-dd2030-meetup",
+		"#ref-iwate-trip-2025",
+		"#ref-kominka-cat-missing",
+		"#ref-sapporo-hachinohe-aomori",
+		"#ref-welcome-cat",
+		"#ref-xiaomi-pet-feeder-with-ha-n8n"
+	],
+	"excerpt": "年の瀬に2025年を月ごとに振り返ります",
+	"feature_image": "https://hanatane.net/content/images/2025/12/photo-1730829807502-a36f0937d223.jpeg",
+	"featured": false,
+	"published_at": "2025-12-31T13:23:09.000Z",
+	"updated_at": "2026-01-13T08:35:33.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "和室1室をフローリング化した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1月に和室6畳を洋室化するDIYにトライした。色々な動画を見て予習しても絶対に失敗するのがDIYの面白いところ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最終的に建物の歪みなどをうまく調整する必要があるなど、中古物件DIYの難しい点などが色々確認できた。他の部屋も順次洋室化していきたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-11.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Roo Code本格導入",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Xのログを眺めてたらこの頃からRoo Codeを本格的に触り始めて僕のAgentic Codingが始まったらしい。これがたった1年間の変化だったと思うと劇的だ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1884876628301586733",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Roo CodeのようなAIエージェント、ずるずるタスクを引っ張ってるとコンテクストウィンドウがでかくなってrate limitに達して仕事のスピードが落ちるので、使いこなせるのはタスク分解能を持った人間ということになり、やはりAIは無能の銀の弾丸にはなりえない気持ちを新たにしました</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1884876628301586733?ref_src=twsrc%5Etfw\">January 30, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1884876628301586733",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Roo CodeのようなAIエージェント、ずるずるタスクを引っ張ってるとコンテクストウィンドウがでかくなってrate limitに達して仕事のスピードが落ちるので、使いこなせるのはタスク分解能を持った人間ということになり、やはりAIは無能の銀の弾丸にはなりえない気持ちを新たにしました</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1884876628301586733?ref_src=twsrc%5Etfw\">January 30, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "庭に防草シートを張った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "縁側の目の前は砂利が敷かれているが、草が毎年生えてきて大変なので2月に防草シートを張った。端からちっこいのが生えてくるのだけど激減した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-12.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この防草シートはAmazonで買った安い布のような生地のもの。破ろうと思えばすぐに破れるのだが1年経っても穴とかは空いていない。ちなみに上にかぶせる砂利が足りなくなり、知り合い経由で2トン買ったが面倒で被せてない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B09P4ZS2JK/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/81UGH4z4RZL._AC_SX679_.jpg\"\n           alt=\"Amazon | katsst【改良版】防草シート 除草シート ロール 厚手 耐用年数は5年 高密度 高透水 安全性の高 雑草防止 Uピン杭100本と黒丸100枚付き ぼうそうシート ブラック (1x50m) | 園芸用シート\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon | katsst【改良版】防草シート 除草シート ロール 厚手 耐用年数は5年 高密度 高透水 安全性の高 雑草防止 Uピン杭100本と黒丸100枚付き ぼうそうシート ブラック (1x50m) | 園芸用シート\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          katsst【改良版】防草シート 除草シート ロール 厚手 耐用年数は5年 高密度 高透水 安全性の高 雑草防止 Uピン杭100本と黒丸100枚付き ぼうそうシート ブラック (1x50m)が園芸用シートストアでいつでもお買い得。当日お急ぎ便対象商品は、当日お届け可能です。アマゾン配送商品は、通常配送無料（一部除く）。\n        </p>\n      </div>\n\n      \n      <div style=\"display: flex; align-items: center; justify-content: space-between;\">\n        <span style=\"font-size: 18px; font-weight: 700; color: #B12704;\">\n          ¥6,950\n        </span>\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "インターン生滞在",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "NPO法人経由で大学生インターンが来ていたが宿泊施設が足りないということで紹介経由でうちに泊まることになった。部屋が余ってるとこういう協力の仕方もできるので良い。大学生は断熱のない過酷な冬を経験したことを糧に頑張って欲しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大船渡林野火災",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大船渡・陸前高田に立て続けに山火事が起きた。自分が住んでいるところは避難地域にはならなかったが、向かいの山まで火は迫っていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "本格的な災害を初めて経験した。ここには311を経験した人々が住んでいるということを改めて知ることができた1ヶ月だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-13.png",
+					"width": 2128,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "3月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "溝さらいした",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "風呂に入ると駐車場の方から漏水していたので排水系を調べたら泥で埋め尽くされたので溝さらいした。とはいえ一部だけなので、一度全体をちゃんと点検しておきたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-14.png",
+					"width": 1198,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Sigma FPを買った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1901160472075801056",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">my new gear… <a href=\"https://t.co/mmOzwiiBoj\">pic.twitter.com/mmOzwiiBoj</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1901160472075801056?ref_src=twsrc%5Etfw\">March 16, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1901160472075801056",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">my new gear… <a href=\"https://t.co/mmOzwiiBoj\">pic.twitter.com/mmOzwiiBoj</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1901160472075801056?ref_src=twsrc%5Etfw\">March 16, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "衝動を抑えきれずに購入。フルサイズ・ビューファインダーなし・fp自体の癖の強さなどがあり、久々のカメラとして使うにはかなり難しい。結局あまり撮影にも出かけられてないので来年こそ色々撮りたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "4月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "山火事鎮火",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "おおよそ1ヶ月燃え続けた山火事の鎮火宣言。また復興が始まるのかーという空気だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-15.png",
+					"width": 2128,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "デジタル民主主義2030MeetUpに参加した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "誕生日に東京でデジタル民主主義2030に参加した。前々から遊んでいたブロードリスニングやほかのデジタル民主主義の技術を実際に社会実装していくという動きがとても面白くて、LLMのおかげでOSSにcontributeするという体験も初めてできた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/dd2030-meetup/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-8.png",
+						"title": "デジタル民主主義2030 Meet Upに参加した",
+						"description": "誕生日に東京で開催されたデジタル民主主義2030に参加した話。ブログを書くまでがイベントです。",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/SDIM0081-1-1-1.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "古代DNAの特別展見てきた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京いったついでに国立科学博物館でやってた特別展の「",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "古代ＤＮＡー日本人のきた道ー",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://ancientdna2025.jp/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "」を見てきた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "石垣島の旧石器人骨の最新の研究成果で最初の日本列島の人類像が変わってきているという話が目玉。個人的に面白かったのは縄文時代セクションで女性表現の土偶は腐るほど見ていたけど、男性表現の発掘物を見ることができて発見だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-16.png",
+					"width": 2128,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "花巻・一ノ関",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京の時にお世話になった人が花巻で勉強会合宿をやるというのでお邪魔させてもらった。ちょくちょくリモートで仕事はさせてもらっているのだけど、対面で会うのは実に数年ぶりだった。ここから2025年の「人と積極的に会おう運動」が始まった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/iwate-trip-2025/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-9.png",
+						"title": "中尊寺と厳美渓に行ってきた",
+						"description": "岩手に8年住んでて初めて中尊寺や厳美渓に行った話です。",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/SDIM0227-2-1.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "5月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "EVO Japanに参加した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "またまた東京に行ってEVO Japanに参加した。といっても年明けからろくにスト6をやっていなかったのですぐに負けてしまった。EVOで初めてTwitchの知り合いに会えたのが楽しかったのと、ここからスト6をまたやり始めた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-18.png",
+					"width": 2128,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Plurality Tokyo Namerakaigiに参加した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Plurality TokyoのイベントがEVOと同時期に開催されてたので参加してきた。オードリー・タンやグレン・ワイルが来日してきていて難しい話をしていた。この面々と同じ画角に自分のアイコンがあるの熱い。このイベント後に安野さんやチームみらいが正式に参院選に出馬表明をするので、面白い時に参加できた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-19.png",
+					"width": 2048,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "車を廃車にする",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ジョイントが切れたり、マフラーが落ちるなど修理費がつくようになったのでこのまま廃車にした。iPhoneより安い車生活終わり。今のところ自転車で生活しつつ、必要な時は会社の車を借りて何とか生活している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-20.png",
+					"width": 1024,
+					"height": 1024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "6月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Code本格導入",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "6月くらいからRoo CodeからClaude Code with Maxプランでぶん回し始めたようだ。Claude Codeは現在もフル稼働させている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "北海道と青森に行ってきた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "人に会おうで花巻に続いて札幌の合宿にも参加。北海道大学めちゃくちゃ広かった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そのままフェリーで八戸に行き、放送大学の面接授業で種差海岸の生態学調査をした。かなり面白い授業だったし、滞在させてもらったゲストハウスの人に八戸を色々案内してもらったりでかなり楽しかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/sapporo-hachinohe-aomori/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-10.png",
+						"title": "札幌・八戸・青森",
+						"description": "2025年 札幌〜八戸〜青森の旅の記録",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/CEE610CF-E8F2-46CC-B511-F0820E53EE8F-1-1.jpeg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "念願の三内丸山遺跡にも行った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-21.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "帰り道のニンニクの町・田子で無表情顔ハメパネルを撮るマイブームが再燃した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-22.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "7月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "広島・大阪",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "たぶん10年ぶりくらいに広島に戻ってきた。穴子飯くらいしかなかった宮島におしゃれな店がたくさんできててびっくりした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-23.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-24.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-25.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "広島のあとは大阪でまたまた勉強会に参加。大阪万博は暑そうなので見送った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-26.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この旅行で貯金が文字通り0円になったので人に会いまくる2025は一旦終わり。やっぱり人と会わなきゃいけないなとなった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1945422071191986250",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">貯金がゼロになったので人に会いまくる2025おわり <a href=\"https://t.co/vt64igGahC\">pic.twitter.com/vt64igGahC</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1945422071191986250?ref_src=twsrc%5Etfw\">July 16, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1945422071191986250",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">貯金がゼロになったので人に会いまくる2025おわり <a href=\"https://t.co/vt64igGahC\">pic.twitter.com/vt64igGahC</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1945422071191986250?ref_src=twsrc%5Etfw\">July 16, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "8月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "青森ねぶたに跳人で参加した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ねぶたに跳人で参加した。「ねぶたくるなら跳人で参加しないともったいないよ」と言われて色々お借りして参加したのだけど確かに道路脇で見るのと全然違っただろうと思った。青森の人がこの瞬間のためだけに生きているのもよくわかる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-29.png",
+					"width": 1198,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-28.png",
+					"width": 2128,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大湯環状列石を見に行った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "青森からの帰りに世界遺産に登録された秋田の大湯環状列石を見に行った。縄文時代の住居痕のない祭事遺跡で周辺の村々が多大な労力を払ってこの場所に石を運び込んだことになる。当時の人が何を考えてどう生きていたのかをこういう限られた痕跡から想像するのが縄文時代の面白いところ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-30.png",
+					"width": 2048,
+					"height": 1152,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-31.png",
+					"width": 1536,
+					"height": 2048,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "9月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ハチエフ2025に参加した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "去年に引き続いて八幡平のスト6オフ大会のハチエフに参加。年々規模が大きくなってJeniさんをはじめとする主催者・参加者みんなで盛り上げてて参加してて楽しいイベントです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東北プレイヤーは強いので上位に行こうと思ったらまだまだ格ゲー強くならないといけないですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "前日に会議してた取引先の人と会場でばったり会ったのが個人的ハイライトです。対戦相手が息子さんでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-32.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-33.png",
+					"width": 1198,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6の方は9月にメインキャラが1900行って、あとは適当にサブキャラを回して今年のスト6は終わりました。(猫が来てからやってない。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-34.png",
+					"width": 1920,
+					"height": 1080,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "10月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "畳解体した",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1月にフローリング化したスタイロ畳をずっと放置してたので解体してみた。畳はおびただしい数の紐で成り立っていることがわかった。中のスタイロは丸のこの下敷きに使える。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-35.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "銃の講習",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猟銃取得に向けて警察の講習を受けてきた。この講習から3年以内に射撃教習や身辺調査を経て猟銃を持つことができる。猟銃は長野の事件で取得がかなり厳しくなっているらしいが、今年は熊の被害がかなり目立った年になったので、風向きが変わったりするのだろうか。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なお、猟銃取得で一旦家のシェアハウス化は諦めることになりそうなので別の方向での活用を考えなければならない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-36.png",
+					"width": 768,
+					"height": 1024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "11月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫を迎えた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "11月から徐々に接触した野良猫を家に迎え入れた。ここからただの猫おじさんになる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/welcome-cat/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-11.png",
+						"title": "猫をお迎えした",
+						"description": "猫様をお迎えした2週間の振り返り",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/IMG_6752-2-1.jpeg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スポーツ心理学の面接授業を受けに行った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この授業はかなり面白くて、スト6をやっていたこともあってパフォーマンスや集中力・上達の基礎理論などに広く触れることができた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "放送大学の面接授業の価値は実は参加者の質問だったりするのだが、今回はスポーツ指導に携わっている人が多かった印象。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-37.png",
+					"width": 1198,
+					"height": 1596,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "12月",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫がかわいい",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫が床下に隠れるなどのハプニングもあったが、無事塞いで世話を続けている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/kominka-cat-missing/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-12.png",
+						"title": "古民家で猫が消えたら",
+						"description": "猫が行方知れずとなった話",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/77b85e8e8bf94fe45cbbb0995d43e06a-heic-1.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Xが謎にバズり散らかした。意図せずアテンションを奪う構造になっていて、アテンションを奪い合うプラットフォームえぐいなと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/2000601527145341246",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">恐怖映像すぎる🥲 <a href=\"https://t.co/WTCfDNZR7A\">pic.twitter.com/WTCfDNZR7A</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/2000601527145341246?ref_src=twsrc%5Etfw\">December 15, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/2000601527145341246",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">恐怖映像すぎる🥲 <a href=\"https://t.co/WTCfDNZR7A\">pic.twitter.com/WTCfDNZR7A</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/2000601527145341246?ref_src=twsrc%5Etfw\">December 15, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫関係の自動化も進めている。あとは遊べるようにキャットタワーやキャットウォークを家にどんどんデプロイしていきたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/xiaomi-pet-feeder-with-ha-n8n/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-13.png",
+						"title": "XiaomiのSmart Pet Food Feeder 2で遊ぶ",
+						"description": "XiaomiのSmart Pet Feeder 2をHome Assistantとn8nを使って自動化した話",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ogp-1767160056605-1-1.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "総括",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cline/Roo Codeから始まり、Calude Codeによって環境が激変する年でとても刺激的だった。これがここ1年の変化だということに驚いているし、来年はさらに加速していくのだろうと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大きな災害もあった。だからどうというわけでもないのだが、このような自分の力ではどうしようもないイベントが発生するわけなので、タレブの反脆弱性というのを人生にどんどん取り入れていくべきかなと感じている。猫を迎えるのは自分の意図的な環境変化だったが、これからも家や狩猟なんか興味が出たことにツバをつけて中途半端に色々触っておくのが大事かなと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このブログの更新がまた中盤滞ってしまって申し訳ないです。色々考えたことのアウトプットを安定させていきたい。Twitchの配信がどんどん減っているのでこれもどうしようかと考え中。発信はどうすべきか。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ひとまず、来年もよろしくお願いします！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "call-to-action",
+					"version": 1,
+					"layout": "minimal",
+					"alignment": "center",
+					"textValue": "<p><span style=\"white-space: pre-wrap;\">Xでも情報発信しています。良かったらフォローしてください！</span></p>",
+					"showButton": true,
+					"showDividers": true,
+					"buttonText": "Follow on X",
+					"buttonUrl": "https://x.com/mtane0412",
+					"buttonColor": "#000000",
+					"buttonTextColor": "#ffffff",
+					"hasSponsorLabel": false,
+					"sponsorLabel": "<p><span style=\"white-space: pre-wrap;\">SPONSORED</span></p>",
+					"backgroundColor": "grey",
+					"linkColor": "text",
+					"imageUrl": "https://hanatane.net/content/images/2026/01/icon512.png",
+					"imageWidth": 512,
+					"imageHeight": 512,
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

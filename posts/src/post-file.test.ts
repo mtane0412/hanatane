@@ -4,6 +4,9 @@
 import { describe, expect, it } from "vitest";
 import { buildGhstArgs, parsePostFile } from "./post-file";
 
+const MARKDOWN = { kind: "markdown-stdin" } as const;
+const SLUG_JSON = "/tmp/slug.json";
+
 const 記事本文 = `---
 title: 花の種をまく
 tags:
@@ -69,15 +72,15 @@ describe("buildGhstArgs", () => {
 		excerpt: "春先に種をまいた記録",
 	};
 
-	it("create では title・slug・tags・status・excerpt を引数にし、本文は stdin から渡す", () => {
-		expect(buildGhstArgs("create", meta)).toEqual([
+	it("create では slug を --from-json のファイルで渡し（0.17.1 の create に --slug は無い）、本文は stdin から渡す", () => {
+		expect(buildGhstArgs("create", meta, MARKDOWN, SLUG_JSON)).toEqual([
 			"post",
 			"create",
 			"--markdown-stdin",
+			"--from-json",
+			"/tmp/slug.json",
 			"--title",
 			"花の種をまく",
-			"--slug",
-			"hana-no-tane",
 			"--status",
 			"draft",
 			"--tags",
@@ -88,7 +91,7 @@ describe("buildGhstArgs", () => {
 	});
 
 	it("update では --slug を既存記事の検索キーとして先頭に置く", () => {
-		const args = buildGhstArgs("update", meta);
+		const args = buildGhstArgs("update", meta, MARKDOWN);
 		expect(args.slice(0, 5)).toEqual([
 			"post",
 			"update",
@@ -100,36 +103,66 @@ describe("buildGhstArgs", () => {
 	});
 
 	it("feature_image と featured を指定した場合は対応する引数を付ける", () => {
-		const args = buildGhstArgs("create", {
-			...meta,
-			feature_image: "https://hanatane.net/content/images/a.png",
-			featured: true,
-		});
+		const args = buildGhstArgs(
+			"create",
+			{
+				...meta,
+				feature_image: "https://hanatane.net/content/images/a.png",
+				featured: true,
+			},
+			MARKDOWN,
+			SLUG_JSON,
+		);
 		expect(args).toContain("--feature-image");
 		expect(args).toContain("https://hanatane.net/content/images/a.png");
 		expect(args).toContain("--featured");
 	});
 
+	it("lexical-file を指定した場合は --markdown-stdin の代わりに --lexical-file <path> を付ける", () => {
+		const args = buildGhstArgs("update", meta, {
+			kind: "lexical-file",
+			path: "/tmp/why-ghost.lexical.json",
+		});
+		expect(args).not.toContain("--markdown-stdin");
+		expect(args.slice(0, 6)).toEqual([
+			"post",
+			"update",
+			"--slug",
+			"hana-no-tane",
+			"--lexical-file",
+			"/tmp/why-ghost.lexical.json",
+		]);
+	});
+
 	it("update で featured を指定した場合は true / false の値付きで渡す", () => {
-		const args = buildGhstArgs("update", { ...meta, featured: false });
+		const args = buildGhstArgs(
+			"update",
+			{ ...meta, featured: false },
+			MARKDOWN,
+		);
 		const index = args.indexOf("--featured");
 		expect(args[index + 1]).toBe("false");
 	});
 
 	it("省略した項目の引数は付けない", () => {
-		const args = buildGhstArgs("create", {
-			title: "t",
-			slug: "s",
-			status: "draft",
-		});
+		const args = buildGhstArgs(
+			"create",
+			{
+				title: "t",
+				slug: "s",
+				status: "draft",
+			},
+			MARKDOWN,
+			SLUG_JSON,
+		);
 		expect(args).toEqual([
 			"post",
 			"create",
 			"--markdown-stdin",
+			"--from-json",
+			"/tmp/slug.json",
 			"--title",
 			"t",
-			"--slug",
-			"s",
 			"--status",
 			"draft",
 		]);

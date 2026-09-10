@@ -1,0 +1,418 @@
+{
+	"title": "新年の抱負は破られる前提でできている",
+	"slug": "new-years-resolution-will-be-broken",
+	"status": "published",
+	"tags": [
+		"たねのぶの話"
+	],
+	"excerpt": "新年の抱負は、達成すべき目標ではなかったのかもしれない。\n公言すると目標達成率が下がるという研究から、New Year’s Resolution の歴史、そして日本語の「抱負」の意味までを辿りながら、新年に「何を語るのが自然なのか」を考えてみる。",
+	"feature_image": "https://hanatane.net/content/images/2026/01/generation-69819ac4-0f87-4992-a2ba-6f86efa5c02f.png",
+	"featured": false,
+	"published_at": "2026-01-02T13:54:29.000Z",
+	"updated_at": "2026-01-13T08:35:19.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "新年一発目は今年の抱負でも書くこうと思ってエディタを開いたのだが、そういえば目標を他者に公言すると達成確率が下がるという話があったことを思い出した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この話は、TED Talk で紹介されている",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Gollwitzerの研究",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.researchgate.net/publication/24354628_When_Intentions_Go_Public"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "に基づくもので、目標を公言すると行動に結びつきにくくなることが、いくつかの実験で示されている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=NHopJHSlVo4",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/NHopJHSlVo4?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Keep your goals to yourself | Derek Sivers\"></iframe>",
+					"metadata": {
+						"title": "Keep your goals to yourself | Derek Sivers",
+						"author_name": "TED",
+						"author_url": "https://www.youtube.com/@TED",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/NHopJHSlVo4/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/NHopJHSlVo4?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Keep your goals to yourself | Derek Sivers\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この現象の説明は直感的で、目標＝行動意図を他者に公言するとそれだけで他者から認められ、早すぎる充足感が得られるために目標達成のための行動が逆に起きづらくなってしまうというものだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/image.png",
+					"width": 1024,
+					"height": 572,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Geminiによる要約</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このようなパフォーマンス低下を引き起こさないためには、そもそも意図を公言しないか、実行意図(IF-Thenプラン)レベルまで具体化した計画にすることだそうだ。確かにエンジニアが立てる抱負は実行可能なToDoリストの粒度になっていて、むしろパフォーマンス向上に寄与しているように見える。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Gollwitzerの研究は新年の抱負にもそのまま当てはまるだろうか。アメリカでは新年の抱負＝New Year's Resolutionの達成率の関心は高いようで、達成率は数％程度にとどまるとされることが多く、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "毎年のように話題",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.google.com/search?q=new+years+resolution+statistics"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "になる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そもそも、New Year's Resolutionは、本当に「達成すべき目標」だったのだろうか。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "面白いことに、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Merriam-Webster によれば",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.merriam-webster.com/wordplay/when-did-new-years-resolutions-start"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "、「New Year’s resolution」という表現が確認できる最初期の例である1813年のボストン新聞においても、resolution はすでに「破られるもの」として語られていたという。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このように考えると、個人がresolutionを立てるという行為が、1800年代のアメリカから見られるようになったのも頷ける。カトリック社会では、懺悔と赦しという教会の制度によって失敗は処理されてきた。一方、神と個人の直接的な関係へと移行していったプロテスタント社会では、各人が内面で振り返りと決意を繰り返す必要があった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "日本語の抱負に戻ると、抱負とは「心の中にいだき持っている計画や決意。」とある。resolutionは破ることができるが、誰かに対して誓いを立てているわけでもないので「抱負を破る」などという表現はしない。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "青空文庫上の用法をClaudeに調べさせてみる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://scrapbox.io/mtane0412/%E9%9D%92%E7%A9%BA%E6%96%87%E5%BA%AB%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%80%8C%E6%8A%B1%E8%B2%A0%E3%80%8D%E3%81%AE%E6%84%8F%E5%91%B3%E7%94%A8%E6%B3%95"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "と、「単なる個人的目標の決定ではなく、人生全体を貫く志向性や精神的理想を表現」とある。抱負は実現するかしないかはそもそも関係がない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここまでの話を総合すると、新年の抱負とは、達成すべき目標を掲げてパフォーマンスを高めるというよりも、うまくいかなかった自分を見つめ直し、一度リセットするための儀式と捉える方が、実態に近いのではないか。日々のタスク管理で十分に疲れているので、リセットの効能を期待して抱負を言うのがむしろ合理的なように思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そういうわけで、僕の今年の抱負は貯金をゼロにしないことです。このようなとっちらかった思考を今年も吐き出せていければと思います。今年もよろしくお願いします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "call-to-action",
+					"version": 1,
+					"layout": "minimal",
+					"alignment": "center",
+					"textValue": "<p><span style=\"white-space: pre-wrap;\">Xでも情報発信しています。良かったらフォローしてください！</span></p>",
+					"showButton": true,
+					"showDividers": true,
+					"buttonText": "Follow on X",
+					"buttonUrl": "https://x.com/mtane0412",
+					"buttonColor": "#000000",
+					"buttonTextColor": "#ffffff",
+					"hasSponsorLabel": false,
+					"sponsorLabel": "<p><span style=\"white-space: pre-wrap;\">SPONSORED</span></p>",
+					"backgroundColor": "grey",
+					"linkColor": "text",
+					"imageUrl": "https://hanatane.net/content/images/2026/01/icon512.png",
+					"imageWidth": 512,
+					"imageHeight": 512,
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

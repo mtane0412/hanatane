@@ -1,0 +1,344 @@
+{
+	"title": "Macのノッチ邪魔問題をIceで解決する",
+	"slug": "menubar-ice",
+	"status": "published",
+	"tags": [
+		"技術の話"
+	],
+	"excerpt": "オープンソースのMacアプリ「Ice」を使ってメニューバーを整理する",
+	"feature_image": "https://hanatane.net/content/images/2025/12/photo-1657056852174-4d0e8a3f61ac.jpeg",
+	"featured": false,
+	"published_at": "2025-12-17T15:03:49.000Z",
+	"updated_at": "2025-12-17T15:03:49.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Appleの美しいノッチが邪魔でメニューアイコンが見えない",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "MacbookにはDesigned by Apple in Californiaの美しいノッチが邪魔でメニューが見えない問題がある。Apple信者はこれを「メニューバーにアイコンを置きすぎるな」という神託と解釈すべきだろう。問題はその一等地を整理する方法が限られていることだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "帯に短し襷に長し Bartendar / Hidden Bar",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "同じような悩みは当然ほかのユーザーも抱えていて、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Bartendar",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.macbartender.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というアプリがこれを解決する定番アプリになっている。有料アプリで3000円くらいかかる。なんというか、製品の欠陥を修正するのにこちらがお金を払う感じがして遠のいていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Hidden Bar",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://github.com/dwarvesf/hidden"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "という無料のアプリをしばらく使っていた。これは表示・非表示のアイコンを細かく設定できてメニューバーのアイコンを整理できる。うまく設定すればこれで解決だったのだが、結局並び替えようとしてもノッチに隠れてアイコンが全部見えないので設定しきれない問題が出た。Hidden Barもどちらかというとアイコン一切表示したくないという望みを叶えるものだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Iceと出会う",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最近またメニューバーにイラついた時にたまたま見つけたのが",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Ice",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://github.com/jordanbaird/Ice"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "だった。これは完璧だった。表示非表示を細かく設定でき、Bartendarのようにアイコンをステータスバーの下に表示することもできる。おかげでようやくメニューバーの悩みから解放された。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Homebrewからインストールして、権限を色々設定する。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "brew install --cask jordanbaird-ice",
+					"language": "bash",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メニューバーから直接ドラッグでも移動させることができるし、設定からもまとめて設定できる。常に表示するもの、基本は隠しておくもの、常に隠しておくものといった区分けが可能。1回アクティブになったアイコンをしばらく表示してから消すなど、細かい振る舞いも設定できるようになっている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-4.png",
+					"width": 1936,
+					"height": 1386,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">メニューバーのレイアウトは設定からも管理できる</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-5.png",
+					"width": 970,
+					"height": 150,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">様々な事情で詰め込まれている非常に美しくないアイコンの墓場。普段は開かなくていいがたまに開かないといけない時がある。</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "やたら高機能でScreen Recordなどの権限も求めているのが若干気になるものの、今のところメニューバーをスッキリ整理させるのはIce一択という感じなのでMacで同様のことで困っている人はぜひ使いましょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/jordanbaird/Ice",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-5.svg",
+						"title": "GitHub - jordanbaird/Ice: Powerful menu bar manager for macOS",
+						"description": "Powerful menu bar manager for macOS. Contribute to jordanbaird/Ice development by creating an account on GitHub.",
+						"author": "jordanbaird",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/Ice"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

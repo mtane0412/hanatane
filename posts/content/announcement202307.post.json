@@ -1,0 +1,211 @@
+{
+	"title": "お知らせ",
+	"slug": "announcement202307",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"お知らせ",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "アレルギーで顔がすごいことになったので今週はお休みします！",
+	"feature_image": "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNhdHxlbnwwfHx8fDE2ODk2MTAxNzh8MA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-07-17T16:11:31.000Z",
+	"updated_at": "2025-03-30T14:19:13.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お知らせ1：今週の更新は色々考えたのですがお休みします。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "引っ越し作業で1ヶ月休みなし。",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "昨夜からアレルギー反応が出て蕁麻疹だらけになっている。（休養必要）",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "「投稿を休む」という選択肢を増やすことで継続性を上げる！",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というのを今すごい顔になりながら書いております。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お知らせ2: 投稿日の変更のお知らせ",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これまで毎週月曜投稿というのを設定していましたが、水曜日投稿に試験的に移行しようかなと思っています。現在フリーな日が日曜日のみで、必然的に日曜に予定が入ることが多いのが理由で、これまで投稿が間に合わないパターンとして日曜に予定→寝落ち→月曜夜も予定ありというのが何回かありました。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "基本的に日曜に大枠を書くという方向は変えませんが、水曜日投稿にすることでもう少し余裕を持ってブログ書いていけるのかなと思ってます。好きなときに書いてアップする！というのが理想ではありますし、もしかしたらそっちのほうがうまくworkするかもしれませんが…。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで今は休息最優先で、来週にまた投稿しようと思います！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,312 @@
+{
+	"title": "Github ActionsでGhostテーマをデプロイする",
+	"slug": "ghost-github-actions",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "Ghost公式のworkflowを用いてGithub Actionsからテーマを自動でデプロイしていきます。",
+	"feature_image": "https://hanatane.net/content/images/2024/11/tanenobu_Ghost_Casper_Black_Cat_Characters_that_are_cartoon-l_8ea990aa-aeb8-4348-b9cc-795066fb52b0_1.png",
+	"featured": false,
+	"published_at": "2024-11-29T14:46:11.000Z",
+	"updated_at": "2025-03-30T14:09:54.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このブログを更新していくテンションを上げるために",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "よさげな有料テーマ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://aspect.priority.vision/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を導入しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もともとコードではなく記事を書くことに集中したいがためにフルマネージドのGhostを選択したのですが、運営しているとどうしてもCode Injectionだけでは対応できない部分にも手を加える必要が出てきます。今回の場合だと項目の日本語のローカライズであったり、トップページの著者一覧セクションが不要だったり。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ということでカスタムテーマを作成していくわけですが、GhostはWordPressと違って子テーマ的な機能がありません。これはShopifyなんかも同じで、子テーマ機能は結局親テーマが後方互換を考えなければならなかったりと開発速度を落としてしまったりとか色々問題があるからなんでしょう。というわけで改造テーマはGitで管理していきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Gitで管理するならば、リポジトリにプッシュした段階で自動でデプロイまでやってくれると楽ちんです。Ghostは公式でGithub Actionsのガイドを公開しているのでこれに従えば簡単でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://ghost.org/integrations/github/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-3.ico",
+						"title": "Official Ghost + GitHub Integration",
+						"description": "Set up simple continuous integration of your Ghost theme to deploy directly to your Ghost website with GitHub Actions. Share code snippets with GitHub Gists 👨‍💻",
+						"author": "",
+						"publisher": "Ghost - The Professional Publishing Platform",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghost-integrations.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostの管理画面からCustom Integrationを作成してAdmin API keyとAPI URLを入手。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/11/image-3.png",
+					"width": 1398,
+					"height": 1278,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Githubの方でSettings → Secrets and variables → Actionsで、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "GHOST_ADMIN_API_URL",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " と ",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "GHOST_ADMIN_API_KEY",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " に値を設定。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/11/image-5.png",
+					"width": 2218,
+					"height": 442,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "リポジトリに公式のワークフローのYAMLを設置してプッシュ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "name: Deploy Theme\non:\n  push:\n    branches:\n      - master\n      - main\njobs:\n  deploy:\n    runs-on: ubuntu-22.04\n    steps:\n      - uses: actions/checkout@v3\n      - name: Deploy Ghost Theme\n        uses: TryGhost/action-deploy-theme@v1\n        with:\n          api-url: ${{ secrets.GHOST_ADMIN_API_URL }}\n          api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}",
+					"language": ".github/workflows/deploy-theme.yml",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとはプッシュすると自動でDeployされます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/11/image-4.png",
+					"width": 2320,
+					"height": 442,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "便利。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

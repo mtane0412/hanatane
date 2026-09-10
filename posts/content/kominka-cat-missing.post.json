@@ -1,0 +1,448 @@
+{
+	"title": "古民家で猫が消えたら",
+	"slug": "kominka-cat-missing",
+	"status": "published",
+	"tags": [
+		"猫の話",
+		"#ref-rats-war-2024"
+	],
+	"excerpt": "猫が行方知れずとなった話",
+	"feature_image": "https://hanatane.net/content/images/2025/12/77b85e8e8bf94fe45cbbb0995d43e06a-heic-1.jpg",
+	"featured": false,
+	"published_at": "2025-12-02T15:23:10.000Z",
+	"updated_at": "2025-12-02T15:28:43.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ある日気づくと猫の姿が見えなくなっていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1994673446123704594",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">また猫がいない…隠れられるところないのになぁ…</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1994673446123704594?ref_src=twsrc%5Etfw\">November 29, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1994673446123704594",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">また猫がいない…隠れられるところないのになぁ…</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1994673446123704594?ref_src=twsrc%5Etfw\">November 29, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "不可解だったのは外に通じるドア、窓はもちろん押入れ、引き出しもほとんど閉まっていて隠れるところがないということである。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こうなると何らかの方法で外に出たのではないかというのが頭をよぎった。心配だったのでその日の夜に裏の山に入ったり近所を探したりした。猫は夜間に活動するし目が反射するからむしろ見つけやすいかと思ったのだが、やはり気配を感じない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "屋外・屋内に何箇所かカメラを設置していて、姿を消した時間帯の録画を確認するもやはり姿はない。状況証拠的に屋内にいる疑いが強くなってきたので、出てくるのを待つことにした。その後、24時間経っても姿を見せることはなかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一体どこに行ったんだろうと途方に暮れながらトイレに座ったその瞬間「ニャー」とどこからか声が聞こえた。トイレの外は山に通じているので急いで外に出て探したのだが、外に出てみるとやはり気配を感じない。やはり家の中にいるのだろうという思いが強くなった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "野良時代に世話をしていたお姉さんも心配して家にかけつけてくれた。トイレに座ると声がすることを伝えて一緒に声をかけてもらうと、下から激しく泣き声がしてきた。床下にいるのがわかり床に穴を開けるか小一時間悩んでいるうちに、ふと玄関を見るとそこに猫がいた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫を確保してから玄関を調べると、下駄箱の下に猫が通れそうな床下への穴が空いているのを発見した。こんなところに穴があったとは。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここを塞ぐちょうどよいものがなくて、結局何度か床下に潜られてしまうのだが、最終的に端材でなんとか雑に閉じた。あとでシリコンとかで隙間を埋めようと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-1.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "何度か床下に戻ろうとして絶望してた。かわいい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-2.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "床下に潜った猫を確保するときに",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Switchbotの人感センサー",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/4pHfyrD"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "がまた役にたった。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ネズミの侵入時",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://hanatane.net/rats-war-2024/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "と同じく、経路上で検知するときにカメラの動体検知よりも速く察知可能で二度目以降に床下潜ったときに確保がグンと楽になった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/IMG_6877.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それにしても家の知らないところがまだまだあるんだなと思った。家の中で無限に現れるカマドウマはこの隙間から入ってきていたのかもしれないし、小動物の侵入経路にもなり得るので気づけてよかった。猫探しの最中に引き出しの中から残置物の掛け軸が出てきたりもした。家を買って1年以上たつがまだ開けていない引き出しがあったことに驚いた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1995469054618861948",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">猫探してたら出てきたんですが3億くらいしないですか？ <a href=\"https://t.co/bUgECu2XC8\">pic.twitter.com/bUgECu2XC8</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1995469054618861948?ref_src=twsrc%5Etfw\">December 1, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1995469054618861948",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">猫探してたら出てきたんですが3億くらいしないですか？ <a href=\"https://t.co/bUgECu2XC8\">pic.twitter.com/bUgECu2XC8</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1995469054618861948?ref_src=twsrc%5Etfw\">December 1, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "古民家と猫は相性が悪いと言っていいのか、猫からすれば良いと言える気もするが、人間が猫を管理しようとすると難しい部分も多いと感じる。境界が曖昧であるので移動の制限が難しく、障子は破れるし引き戸は頑張れば開けられる。そういう難しい要求が多いので、猫を暮らしにどう調和させるかという古民家DIY的な面白さがさらに出てきたようにも感じる。猫はいいな。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回は床下から外に出る経路がなかったので大事にはならなかったが、そのうち外に脱走してしまうのも時間の問題かと思われるので、何か対策を講じなくてはならないだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "call-to-action",
+					"version": 1,
+					"layout": "minimal",
+					"alignment": "left",
+					"textValue": "<p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">良ければ猫ちゃんとおっさんにご支援よろしくお願いします。</span></p>",
+					"showButton": true,
+					"showDividers": true,
+					"buttonText": "欲しいものリストで支援する",
+					"buttonUrl": "https://www.amazon.jp/hz/wishlist/ls/19Q7T4LW9YWUQ?ref_=wl_share",
+					"buttonColor": "accent",
+					"buttonTextColor": "#FFFFFF",
+					"hasSponsorLabel": true,
+					"sponsorLabel": "<p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">最後まで読んでいただいてありがとうございます。</span></p>",
+					"backgroundColor": "grey",
+					"linkColor": "text",
+					"imageUrl": "",
+					"imageWidth": null,
+					"imageHeight": null,
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

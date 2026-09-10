@@ -1,0 +1,513 @@
+{
+	"title": "今週の振り返り 2024 week7",
+	"slug": "2024-week7",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46",
+		"#ref-quickly-built-domain-verification-site-with-astro"
+	],
+	"excerpt": "今週は睡眠負債が溜まっていたのでほぼ睡眠。認定心理士に合格した話やCAPCOM CUPの話について書きました。",
+	"feature_image": "https://hanatane.net/content/images/2024/02/tanenobu_3198266169_harvesting_brown_algae_Illustration_for_blo_a705fd45-1814-436e-b30f-4cc3478479e4.png",
+	"featured": false,
+	"published_at": "2024-02-18T23:00:25.000Z",
+	"updated_at": "2025-03-30T14:18:17.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週はあんまり活動できておらず。朝4時に作業とかがあって全体的に睡眠負債が溜まっていたので素直に寝ていた一週間でした。振り返りは軽めにやっていきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週やったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "認定心理士合格",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/ea0625ef94d93822d3a207d2675e1b52.png",
+					"width": 426,
+					"height": 71,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "去年に認定心理士の書類を出してたんですが、出すのが少し遅かったおかげで第197回は間に合わず、第198回の認定委員会の方になっちゃいましたが、無事認定されたという連絡が来ました。学部程度の心理学はやってまっせというもので、特別なにかができるようになったりするわけではないのですが、こういう学習のマイルストーンがあると楽しくていいですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ひじき",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大量のひじきを眺めていた。多分一生分以上はあるんだろうなぁと思うと、日本でとんでもない量のひじきが消費されてるんだなぁと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://pbs.twimg.com/media/GGgEVi_bsAAoTaf?format=jpg&name=large",
+					"width": 2048,
+					"height": 1535,
+					"title": "",
+					"alt": "Image",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "よくよく考えたら煮物になっている以前のひじきもよく知らないんだなぁと思った。調べてみるとわかめのようにロープで養殖したりしているっぽい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "オフラインでスト6をプレイする機会があったが、使用しているVictrix GambitがPS5に対応していなくて、プレイ環境を考える必要が出てきた。VictrixはPS5用も出ているのでそれを買えばいいんだろうけど、結構高いので躊躇してしまう。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Brookのコンバーター",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/3UMTKi6"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が一応格闘ゲーマー向きをうたっているのでワンチャン購入もありかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結局オフでもPC用意したほうが楽なのだなーと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちょうど今",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "LCQ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.start.gg/tournament/capcom-cup-x-last-chance-qualifier/details"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "も開催中なのでスト6モチベも上がりつつあって少しずつ練習も再開し始めた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週気になったニュース・ポスト",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Sora",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://openai.com/sora",
+					"metadata": {
+						"icon": "https://openai.com/favicon.ico",
+						"title": "Sora: Creating video from text",
+						"description": "",
+						"author": "",
+						"publisher": "",
+						"thumbnail": "https://images.openai.com/blob/8264d3d7-922c-4343-b43d-6665e44bcb91/paper-airplanes.jpg?trim=0%2C0%2C0%2C0&width=1000&quality=80"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "OpenAIのSoraの発表、World Simulatorと謳っているだけあってめちゃくちゃすごそう。一刻も早く触りたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CAPCOM CUP X",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://sf.esports.capcom.com/ccx/jp/",
+					"metadata": {
+						"icon": "https://sf.esports.capcom.com/wp-content/themes/esports-sfl-theme/assets/img/apple-touch-icon180.png",
+						"title": "CAPCOM CUP X 公式esportsサイト",
+						"description": "シリーズ最新作『ストリートファイター6』にて世界最強を決めるカプコン公式世界大会。JP/US/EUROPE 各地域の優勝チームが争う「SFL: ワールドチャンピオンシップ 2023」も同時期に開催！",
+						"author": "",
+						"publisher": "CAPCOM CUP X",
+						"thumbnail": "https://sf.esports.capcom.com/ccx/assets/img/thumb.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いよいよLCQ開始ということで、グループ組み合わせを見たんですが、グループFがさすがにやばすぎる。日本勢頑張ってほしいな〜。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週投稿した記事",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/quickly-built-domain-verification-site-with-astro/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "ドメイン認証用のWebサイトをAstroでサクっと作った",
+						"description": "Astroで簡単に自分だけのドメイン認証サイトを作る方法、始めよう",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/02/tanenobu_6315664866_Astronaut_showing_identity_card._Illustrati_4c53404f-f4d4-43ea-9068-5b424aea1679.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Link in Bioを作りました。ドメイン認証はDiscordやOpenAIなんかでもあったので設定しておきました。デジタルアイデンティティ大事。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週は省エネですが、このへんで。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

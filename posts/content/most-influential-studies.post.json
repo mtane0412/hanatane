@@ -1,0 +1,645 @@
+{
+	"title": "自分に最も影響を与えた研究の話",
+	"slug": "most-influential-studies",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"Science",
+		"#Import 2025-03-18 13:46",
+		"#ref-went-to-special-exhibition"
+	],
+	"excerpt": "今まで見知った中で最も自分に影響を与えた研究の話をします。",
+	"feature_image": "https://images.unsplash.com/photo-1516307318288-46d4194fe79e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fHR3aW5zfGVufDB8fHx8MTY4MjQzNTY0MQ&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-04-25T22:00:30.000Z",
+	"updated_at": "2025-03-30T14:16:29.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "僕は放送大学に通っていて、今期でいよいよ卒業となりました。放送大学では心理学を学んでいて、関連して生物学に興味を持ったのでそちらは学部レベルの教科書を購入しては読み漁るということをしていました。また、",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "先日の縄文土器展のエントリ",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://hanatane.net/went-to-special-exhibition/",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "でも触れた通り、人類の進化史も非常に好きなトピックです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大体の科学の分野は人間が中心にあると思いますが、僕の興味もやはり人間です。原動力を考えると、まず単純に面白いということが挙げられます。次に、自分が人間としてうまくやっていくために、解像度を高める必要性をどこかで感じているというのも確実にあります。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "体系的な知識が重要なのはもちろんなんですが、あえて自分の中で最もインパクトのあった研究を挙げるとすれば、ガザニガの分離脳患者に対する一連の実験です。自分の理解度の低さも相まって、なかなかわかりやすくまとめるのは難しいと思いますが、今日はその話をしてみようと思います。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1人の中に2人いる",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "分離脳患者というのは、右脳と左脳をつなぐ脳梁を外科的に切断した患者のことです。脳内部では脳梁を通じて左右の情報がブリッジされているようで、分離脳患者はいわば1人の中に2つの脳がある状態です。それでも、普段の生活では入力器官は左右同時に情報が入力されているので、2つの脳は同じ情報を共有しており、特段変わったところはないと考えられていたようです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この分離脳患者の研究によって、左右の脳機能の側性化(ラテラリティ)が明らかにされました。刺激入力を片側の脳にしかいかないようにすることで、左脳は言語優位とか、右脳は空間認知やイメージといった、一般的にもよく知られている左右の脳機能の違いが明らかにされました。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "左右の脳機能の違いは実験参加者の正面のディスプレイに瞬間的に文字を提示し、何が表示されていたかを回答させるものです。このとき片方の脳にしか情報が行き渡らないようにします。このような手続きをすると、右目から入った視覚情報は左脳に入るため、実験参加者はディスプレイに表示された「顔」という回答を正しく答えることができます。そして、左目から右脳で「見た」場合、視覚情報は左脳に共有されていないので、実験参加者の「左脳」は「何も映らなかった」と回答します。ところが左手は「顔」を描くことで回答することができたのです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"src": "https://hanatane.net/content/images/2023/04/image-1.png",
+					"width": 703,
+					"height": 299,
+					"caption": "Wolman, D. The split brain: A tale of two halves. <i>Nature</i> <b>483</b>, 260–263 (2012). https://doi.org/10.1038/483260a"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これを見たときに感じたことは、普段私達が言語的に思考したり意識したりしているところの「私」というのは左脳の部分に過ぎず、脳の情報共有を断つことでもう半分の「私」というのが確かに存在するのだということです。かなり衝撃ですね。てかやばくね？",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一方で腑に落ちる部分も多いのかなと思います。なんか理屈に合わない衝動的な行動をしてしまったり、意識で決してコントロールできない部分はたしかにあるわけですから。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "左半球は事後的に解釈している",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここでガザニガはもう少し踏み込んだ実験を行っています。それは、右脳にあることをするように命じて、その結果を左脳に説明させることです。たとえば、左脳にニワトリの絵、右脳に雪原を見せて、関係のある絵を左手(右脳)に指差してもらうと、参加者はスコップを選択しました。左脳はスコップを選択した理由について「わからない」のが正解ですが、参加者(左脳)は「ニワトリ小屋を掃除するためだ」と「事実を述べているときのような」答え方をしたそうです。また、椅子に座った参加者に、左耳(右脳)を通して立ち上がってドアまで歩かせます。このときの回答は「コーラを取りに行きたかった」でした。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ガザニガは左半球のこの機能を「インタープリター」(解釈者)と呼んでいます。左半球が行っているのは事後の解釈や意味付けというわけです。普段の生活では左右の脳の情報は共有されているので、分離脳実験ほど極端な作話はないかもしれないですが、それでも大なり小なり後付の解釈の幅があるのではないかと思います。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「スポークスマン」と表現する人もおり、個人的にはこちらもかなりしっくりきます。中枢にいるものの、あくまで首脳陣が決定したことを伝える役目というポジションがうまく表現されていると思います。言い換えると、「私」というのは決して「自分」の大統領や総理大臣ではないということです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分の中の動物の部分と仲良くなる",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんでこの研究が最も印象的だったかというと、自分自身への理解度・解像度が上がったからなんですね。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以前だと強い感情の影響をモロに受けて、その結果あまりよくない結果となってしまうことが多く、自己嫌悪スパイラルに陥ってしまうことがよくありました。今だと「お、なんか自分の中の動物の部分が沸き立ってるな」くらいの一歩引いた位置に立てることも多く、理性の部分と切り離して考えるようになった気がします。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もちろん現実はそこまでスマートに振る舞えているわけでもないのですが、少なくとも自分の行動に対して感情の部分がどの程度作用していたのか等の振り返りができている気がします。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "感情と理性を象と象使いにたとえている心理学者",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%83%8A%E3%82%B5%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%88",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "がいますが、基本的に感情の方が圧倒的にパワーがあって、理性で抑えつけようとしてもどうしようもありません。象とうまくやっていけるような象使いになるには、象に逆らわず、それでいてうまく象のやりたいことと自分が象にしてほしいことを一致させる必要があります。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう1個大事なのは、この動物の部分はヒトの部分と切り離せるものでもないし、何なら切り離してはいけない部分でもあるということです。くたびれたおっさんの肉体の中、ひとつ屋根の下で暮らしていくわけなので、ちゃんと仲良くしないといけませんね。これはふわふわした話ではなくて、感情が意思決定とか記憶とかに深く関与しているという心理学の知見があります。なにかを前に進めたり、記憶として何かを自分の中に取り込もうとしたときに、感情の強いエネルギーが必要になってきます。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "またとりとめのない話をしてしまいましたが、この辺で一旦終わりにしたいと思います。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "参考",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h2",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "森津太子・向田久美子，2018，『心理学概論』放送大学教育振興会．[ISBN: 9784595318498]",
+											"type": "text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/40xC3Cs",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"value": 1,
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "ロビン・ハンソン・ケヴィン・シムラー・大槻敦子，2019，『人が自分をだます理由:自己欺瞞の進化心理学』原書房．[ISBN: 9784562056385]",
+											"type": "text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/3HdfnAw",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"value": 2,
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "山岸俊男，1999，『安心社会から信頼社会へ―日本型システムの行方』中央公論新社．[ISBN: 9784121014795]",
+											"type": "text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/3oGnPSH",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"value": 3,
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "Wolman, D. The split brain: A tale of two halves. ",
+											"type": "text",
+											"version": 1
+										},
+										{
+											"detail": 0,
+											"format": 2,
+											"mode": "normal",
+											"style": "",
+											"text": "Nature",
+											"type": "text",
+											"version": 1
+										},
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": " ",
+											"type": "text",
+											"version": 1
+										},
+										{
+											"detail": 0,
+											"format": 1,
+											"mode": "normal",
+											"style": "",
+											"text": "483",
+											"type": "text",
+											"version": 1
+										},
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": ", 260–263 (2012). https://doi.org/10.1038/483260a",
+											"type": "text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://www.nature.com/articles/483260a",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"value": 4,
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"tag": "ul",
+					"type": "list",
+					"listType": "bullet",
+					"start": 1,
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

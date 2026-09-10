@@ -1,0 +1,1789 @@
+{
+	"title": "スト6 Act4ふり返り: MケンMR1800タッチ",
+	"slug": "act4-reflection",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46",
+		"#ref-act3-reflection"
+	],
+	"excerpt": "Act4はMケンで引き続き1800タッチで終了しました。成長できたポイントや改善点についてふりかえっておきます。",
+	"feature_image": "https://hanatane.net/content/images/2024/08/tanenobu_middle_age_mans_shoryuken_Illustration_for_blog_header_6d51934a-e491-496b-b397-806267664ff1.png",
+	"featured": false,
+	"published_at": "2024-08-04T13:34:22.000Z",
+	"updated_at": "2024-08-04T16:22:59.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ストリートファイター6のAct4も終了しました。前回のAct3のふり返りに続いて今Actもふり返ろうと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/act3-reflection/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "スト6Act3ふり返り",
+						"description": "スト6 Act3でそれなりに成長を実感できたので振り返ります",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/05/tanenobu_People_who_study_fighting_game_replays._Illustration_f_b81de988-cb87-4fd2-a940-d48bf61c14d5.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結論から言うとAct3終了時の目標だったMR1800はなんとか到達することができました！いえーい！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/image.png",
+					"width": 1390,
+					"height": 727,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Act4もAct3と比べると色々とできるようなことが増えてきたと思っているので、ここいらで少し整理してAct5に向かいたいと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Act4、環境的な振り返り",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "2年目の初っ端ということで大型調整が来て色々変わった。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ケンで弱体化が入った部分は上級者に影響が大きく自分にはあんまりなかった一方で、強化部分がかなり強力で自分的には実質アッパー調整となった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "新キャラの豪鬼とベガ、ケンは結構いける組み合わせのはず。モダン対空釣る技が強力なので個人的にはかなり苦手だった。ベガは勝ち越しで豪鬼は5割切った。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "AKIの強化がかなり辛く、AKI使いも多いレート帯だったので相当苦戦した",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ザンギ元々苦手だったのが強化で相当キツくなった。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ルーク、DJ、JPが消えた(涙)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "個人的成長ポイント",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "屈中K",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "当て感は対戦相手から結構褒められることが多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "実際、屈中Kが本当に主力だった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "相手が下がるタイミング、前歩きするタイミングに狙って置くことができるようになった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "立ち回りで立ち大Pを全然振らないのが改善ポイント",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 4
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "屈中K→立ち中Pヒット確認",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "前まで立ち小Pしかしていなかった。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "立ち中P→立ち中Pで単純に火力があがったのといろいろ読み合いの幅が広がった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "逆にラッシュを見て無敵を打たれることも増えたので、意図して連ガが必要な場面も多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "屈中Kでのヒット確認→屈大Pを織り交ぜられるかが改善ポイント",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 4
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "相手の動きの観察→読み合い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "投げ抜けを見てシミー、シミーを見て屈中K、暴れを見て遅らせ打撃、対空パリィを見てすかし投げ等、こちらを押し付けるだけじゃなくて相手に対応することを覚えたActになったと思う",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "「読み合いを回すためにこれを振っておく」ということも増えた",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "SA2リーサル・SAゲージ回し",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "SA2でリーサルという場面でSA2使えるようになった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "リード時にゲージ状況みつつSA2使ったりしてゲージを回したりした(これ本当にいいかどうかはよくわからん)",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "詐欺飛びコンボ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "中アシストコンボで龍尾後の詐欺飛びがかなり刺さることが多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "攻めの幅が広がったというのもあるし読み合いもあるけど、結構被弾する人も多くて純粋に火力増になった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "画面端の小P重ね",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "画面端起き攻めでの小P重ねが強いということに気づいて1700代からかなり使った。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "起き上がりだけじゃなく、小Pガード後の小Por投げの読み合いが継続できてる感がある",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"children": [
+														{
+															"children": [
+																{
+																	"detail": 0,
+																	"format": 0,
+																	"mode": "normal",
+																	"style": "",
+																	"text": "元々画面端の柔道で最初の1点だけが読み合いになってしまっていた",
+																	"type": "extended-text",
+																	"version": 1
+																}
+															],
+															"direction": "ltr",
+															"format": "",
+															"indent": 2,
+															"type": "listitem",
+															"version": 1,
+															"value": 1
+														}
+													],
+													"direction": "ltr",
+													"format": "",
+													"indent": 0,
+													"type": "list",
+													"version": 1,
+													"listType": "bullet",
+													"start": 1,
+													"tag": "ul"
+												}
+											],
+											"direction": null,
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "中央からの運びコンボの昇竜シメのときに、高さを見て昇竜を変えられるようになった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "よく強昇竜ミスってそのまま死ぬことが多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "改善点",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "リーサルを逃さない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "立ち小K→強昇竜ができるとハネるはず",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "バーンアウトしない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "不用意なバーンアウトがまだ多い",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "画面端のインパクト警戒",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "もともとSA1で返せてたが視野が広がったこともあって逆に返せなくなってきた",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "一部モダン入力のコマンド入力化",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "中迅雷・OD迅雷はクセでモダン使ってしまう",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "暴れのSAもモダンだと大きく威力減衰してしまう",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "そろそろキャラ対策必要。5割切ってるキャラが多すぎる。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "屈中Kにかなり手痛いお仕置きをしてくる人にはなかなか勝てなかった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "立ち大Pをもっとふやしたり、差し替えし技を見れるようになる必要あり",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "メンタル面・モラル面：対戦相手へのリスペクト",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "今actは割とメンタル崩壊気味で相手が見たら嫌な気分になるだろうなと思いつつも止められなくなっていた。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "実際に表明してくれた人もいたけどきっともっとたくさんいるはず。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "その後気をつけて注意すると逆にプレイに集中できるようになった。メンタルコントロールが多分強くなるためにもかなり大事だと思う。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "対戦ゲームで真剣勝負事だと大きく感情が動くもの。フラストレーションや怒りといった感情は改善シグナルとしてこれまで活用してきたものだし、このネガティブな感情を無理に抑えると逆にプレイに支障が出るとさえ思っている。(今actは心拍計をつけてプレイしたが100未満の活動的ではない心拍となり動きも悪くなった。)大きな感情を無理に抑えず、かといってストレートに吐き出して自分だけ楽になるようなことは避けるような、上手なハンドリングを覚える。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 4
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 9
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その他",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "DualSense→Victrix→DualSenseときて、今ActはOctaを試したが、次ActはDual Senseで行く",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "Octaは軽いし安いしでかなりいいデバイスだったけど、ボタン間隔がPSコン標準よりもさらに狭く、自分の場合は技の漏れが非常にひどい状態だった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "VictrixのPS5版も検討したが、コントローラーを消耗品として考えたときに価格として微妙(Dualsense Edgeも同様)",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "入手難度・価格も考えてやはりDual Senseになれるのが最適解だと判断した",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Apple Watchを普段つけているので",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "HypeRate.io",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://www.hyperate.io/"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "を使って心拍数をモニタリングした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "OBSやFirebotと連携できて便利。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "普段配信アーカイブを使って試合を振り返るがその時の情報量が増える。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "概ね100~120くらいの状態が試合に集中している状態だと言える。100未満はリラックス時で、対戦に集中できていない可能性もある。140とかになってくると自分でもわかるくらいドキドキしている。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "視線トラッカーなども加えると情報が増えそうなので導入検討中。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 4
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "リメンバー金子さんも言っていたが、上級者達のようにカスタムで練習しあえるような強いネットワークを作るのが大事かもしれない。あまりにもボッチすぎる。。。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "逆に配信をちゃんとやっていくのが近かったりするのかもしれない。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "箇条書きで簡単にですが、こんなところです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Act5の目標は1900。既に化け物だらけですが、まだまだできていないことがたくさん見えているのでこのあたりを潰していくだけでもまだまだ伸びていくんじゃないかと思っています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それでは、また👋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

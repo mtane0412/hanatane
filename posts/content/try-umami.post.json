@@ -1,0 +1,640 @@
+{
+	"title": "Umamiを無料で導入してシンプルなインサイトを得る",
+	"slug": "try-umami",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost"
+	],
+	"excerpt": "初心者には複雑なGoogle Analyticsの代わりに、シンプルで使いやすいアクセス解析ツール「Umami」を導入。導入方法や設定のポイントをまとめました。",
+	"feature_image": "https://hanatane.net/content/images/2025/03/umami.png",
+	"featured": false,
+	"published_at": "2025-03-29T23:00:30.000Z",
+	"updated_at": "2025-03-29T23:00:30.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サイト運営をするうえでGoogle Analytics導入は決まり切ったセットアップの一つになっていますが、一方で導入したあとちゃんと「解析」できているところは少ないと思います。Google Analyticsは第一義的にはプロ用途のものであり、必ずしも初心者にとって使いやすいわけではありません。とりあえず見て「ふーん」となる情報を見るのにも、細かい設定が必要だったりします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで、シンプル&プライバシー重視な",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Umami",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://umami.is/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というアクセス解析ツールを導入しました。Google Analyticsの代替としてPlausibleと並んで有名なツールで、クラウド版とセルフホスト版があります。今回はクラウド版の無料プランで試していますが、本格運用する場合はVPSでセルフホストするか",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "pikapods",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.pikapods.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "などのマネージドサービスを利用するのが良さそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちなみに",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Plausible",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://plausible.io/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "も最初検討したのですが、クラウド版の無料プランがないことと、DBに高速処理が可能なClickHouseを採用しておりセルフホストする際の要求スペックが高くなることなどを踏まえてUmamiの方を試すことにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Umamiの設定",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostへの導入",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostへの導入はUmami Cloudへの登録時に出るJavaScriptコードを<head>内に配置するだけでOKです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-12.png",
+					"width": 2000,
+					"height": 983,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分を除外する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分のアクセスをデータから除外する設定ですが、ブラウザのlocalStorageを使用する方法で面白いなと思いました。ブラウザごと、プロファイルごとにConsoleから設定する必要​あります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://umami.is/docs/exclude-my-own-visits",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-1.png",
+						"title": "Exclude my own visits – Docs - Umami",
+						"description": "Umami is a simple, fast, privacy-friendly alternative to Google Analytics.",
+						"author": "",
+						"publisher": "Umami",
+						"thumbnail": "http://localhost:3000/opengraph-image-j8qpfc.png?5cc23a73895b1195"
+					},
+					"caption": ""
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "localStorage.setItem('umami.disabled', 1);",
+					"language": "shell",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "外部リンクを記録する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Umamiにもイベントトラッキング機能があります。細かいイベントを記録することもできますが、さしあたっては外部リンクを踏んだイベントをガイド通りに導入。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "<script type=\"text/javascript\">\n  (() => {\n    const name = 'outbound-link-click';\n    document.querySelectorAll('a').forEach(a => {\n      if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {\n        a.setAttribute('data-umami-event', name);\n        a.setAttribute('data-umami-event-url', a.href);\n      }\n    });\n  })();\n</script>",
+					"language": "html",
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://umami.is/docs/track-outbound-links",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-3.png",
+						"title": "Track outbound links – Docs - Umami",
+						"description": "Umami is a simple, fast, privacy-friendly alternative to Google Analytics.",
+						"author": "",
+						"publisher": "Umami",
+						"thumbnail": "http://localhost:3000/opengraph-image-j8qpfc.png?5cc23a73895b1195"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CloudflareのLocationヘッダーを有効化する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cloudflareを使用している場合、Location headerを有効化することでより細かい地域情報が取れるようなので設定しておきました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-13.png",
+					"width": 2000,
+					"height": 897,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://umami.is/docs/enable-cloudflare-headers",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-4.png",
+						"title": "Enable Cloudflare headers – Docs - Umami",
+						"description": "Umami is a simple, fast, privacy-friendly alternative to Google Analytics.",
+						"author": "",
+						"publisher": "Umami",
+						"thumbnail": "http://localhost:3000/opengraph-image-j8qpfc.png?5cc23a73895b1195"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Umamiを見る",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "直感的で見やすい",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Umamiのダッシュボードはユニークユーザーとview数の見分け方もシンプルで期間指定もわかりやすいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-14.png",
+					"width": 2692,
+					"height": 1462,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "セッション単位の閲覧も可能",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "セッションごとの情報と見たページなどの行動履歴も直感的で見やすくなっている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-15.png",
+					"width": 2752,
+					"height": 1364,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "詳細な比較",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "期間比較もかなり充実している印象で、想像以上に細かい部分が見れる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-16.png",
+					"width": 2660,
+					"height": 1428,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "所感",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Google Analyticsは初心者が初見で見たいデータを決して見ることはできないのに対して、Umamiはポチポチしていれば必要なデータが見れるのが良さそうです。APIを使用して定期的にレポートを送信する運用なども良さそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "PlausibleやUmamiが台頭してきているのは、Googleのアテンションエコノミーに対するカウンターの動きとしてみるべきで、EUでGoogle AnalyticsがGDPR違反となっているのも大きな契機になっています。Googleが果たす役割は依然として大きいですが、我々がGoogleに支払っているコストを認識しながらWeb運営をしていくことが大事であり、こういったGoogleオルタナティブを検証していくことは大事だなと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,1849 @@
+{
+	"title": "2024 week1",
+	"slug": "2024-week1",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "新年明けましておめでとうございます！今週はお風呂の改装作業、WindowsからMacへの移行、CC0の検討、放送大学の教科書の電子化、Twitchポリシーの変更、初売りの買い物、そして36歳の生誕祭の計画について書きました。",
+	"feature_image": "https://hanatane.net/content/images/2024/01/tanenobu_japanese_man_painting_wall_in_bath_abstract_simple_4fa7b005-f739-4b10-91c9-59626522b717.png",
+	"featured": false,
+	"published_at": "2024-01-07T23:00:51.000Z",
+	"updated_at": "2025-03-30T14:17:05.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "新年あけましておめでとうございます。今年もよろしくお願いします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、はじめての週次記事ということで、今週の出来事をざっくばらんに振り返りたいと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お風呂改装作業",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "年末年始はほとんどお風呂の改装作業をやっていました。ペンキ塗りは結構時間がかかるので連休がチャンスかと思い決行しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アルミテープで塞がれていた部分の補修",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "購入時から謎にアルミテープが貼られていた箇所を今回調べました。どうもたわんで隙間が出ているので補修していたみたいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741336621218398706/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">なるほどー🧐 <a href=\"https://t.co/8J1UUmtMXb\">pic.twitter.com/8J1UUmtMXb</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741336621218398706?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741336621218398706",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">なるほどー🧐 <a href=\"https://t.co/8J1UUmtMXb\">pic.twitter.com/8J1UUmtMXb</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741336621218398706?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "壊れている部分を切り取って補修する予定でしたが、なかなか難しい。こういうときにマキタのマルチツールがあると便利そう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741340795788288197/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今日本で一番マキタのマルチツールが欲しい <a href=\"https://t.co/AJS3fMoBsk\">pic.twitter.com/AJS3fMoBsk</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741340795788288197?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741340795788288197",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">今日本で一番マキタのマルチツールが欲しい <a href=\"https://t.co/AJS3fMoBsk\">pic.twitter.com/AJS3fMoBsk</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741340795788288197?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "コメリで買ってきたくりぬくぞうでくりぬきました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741383125740273701/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">くりぬくぞうは全てを解決する <a href=\"https://t.co/0FdXh2ICEg\">pic.twitter.com/0FdXh2ICEg</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741383125740273701?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741383125740273701",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">くりぬくぞうは全てを解決する <a href=\"https://t.co/0FdXh2ICEg\">pic.twitter.com/0FdXh2ICEg</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741383125740273701?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/3NQ7wME",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "Amazon | SK11 くりぬくぞう 穴開け+切り抜き 200mm Sサイズ | 園芸用のこぎり",
+						"description": "SK11 くりぬくぞう 穴開け+切り抜き 200mm Sサイズが園芸用のこぎりストアでいつでもお買い得。当日お急ぎ便対象商品は、当日お届け可能です。アマゾン配送商品は、通常配送無料（一部除く）。",
+						"author": null,
+						"publisher": "ブランド SK11(エスケー11)",
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:357-6295047-2859141:44T1C33MWT9DS9VKY4GP$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3D44T1C33MWT9DS9VKY4GP%26pty%3DError%26spty%3DPageNotFound%26pti%3D:1000"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741385657405317120",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">のこのこ <a href=\"https://t.co/FLQD6U8K82\">pic.twitter.com/FLQD6U8K82</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741385657405317120?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741385657405317120",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">のこのこ <a href=\"https://t.co/FLQD6U8K82\">pic.twitter.com/FLQD6U8K82</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741385657405317120?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741386579548262775/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ボンドとコーキングしてペンキ塗りでいけるか <a href=\"https://t.co/B4RhPlILCh\">pic.twitter.com/B4RhPlILCh</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741386579548262775?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741386579548262775",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ボンドとコーキングしてペンキ塗りでいけるか <a href=\"https://t.co/B4RhPlILCh\">pic.twitter.com/B4RhPlILCh</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741386579548262775?ref_src=twsrc%5Etfw\">December 31, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "木工ボンドで固めたのであとは一緒にペンキ塗ってコーキングでいけそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ペンキ塗り",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとは養生をしてひたすらペンキ塗りです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741655985469657178/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">養生何もわからない <a href=\"https://t.co/QqtxNZ05do\">pic.twitter.com/QqtxNZ05do</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741655985469657178?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741655985469657178",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">養生何もわからない <a href=\"https://t.co/QqtxNZ05do\">pic.twitter.com/QqtxNZ05do</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741655985469657178?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741691378818572447/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やるぞ！！！ <a href=\"https://t.co/3YJpZ0pIfP\">pic.twitter.com/3YJpZ0pIfP</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741691378818572447?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741691378818572447",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やるぞ！！！ <a href=\"https://t.co/3YJpZ0pIfP\">pic.twitter.com/3YJpZ0pIfP</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741691378818572447?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "はしごあればいいかと思ったけどめちゃくちゃ大変だったので伸ばし棒を先に買っておくべきでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1741714580878119021/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">天井のペンキマジでむずい。敗北感ある <a href=\"https://t.co/zgPFkxpR4G\">pic.twitter.com/zgPFkxpR4G</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741714580878119021?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1741714580878119021",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">天井のペンキマジでむずい。敗北感ある <a href=\"https://t.co/zgPFkxpR4G\">pic.twitter.com/zgPFkxpR4G</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1741714580878119021?ref_src=twsrc%5Etfw\">January 1, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742049838148284749",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やはり2度塗り必要そうなので新兵器買ってきた <a href=\"https://t.co/lDg4JfZnOI\">pic.twitter.com/lDg4JfZnOI</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742049838148284749?ref_src=twsrc%5Etfw\">January 2, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742049838148284749",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やはり2度塗り必要そうなので新兵器買ってきた <a href=\"https://t.co/lDg4JfZnOI\">pic.twitter.com/lDg4JfZnOI</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742049838148284749?ref_src=twsrc%5Etfw\">January 2, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "コーキング",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742135861741785533/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">養生撤去。結局いろんなところに飛び散ってる😇<br>隙間にコーキングして終わりだ！ <a href=\"https://t.co/jehxJDeLM4\">pic.twitter.com/jehxJDeLM4</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742135861741785533?ref_src=twsrc%5Etfw\">January 2, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742135861741785533",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">養生撤去。結局いろんなところに飛び散ってる😇<br>隙間にコーキングして終わりだ！ <a href=\"https://t.co/jehxJDeLM4\">pic.twitter.com/jehxJDeLM4</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742135861741785533?ref_src=twsrc%5Etfw\">January 2, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742375947234689024/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やるぞ！！！ <a href=\"https://t.co/DkFBDgDjXM\">pic.twitter.com/DkFBDgDjXM</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742375947234689024?ref_src=twsrc%5Etfw\">January 3, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742375947234689024",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やるぞ！！！ <a href=\"https://t.co/DkFBDgDjXM\">pic.twitter.com/DkFBDgDjXM</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742375947234689024?ref_src=twsrc%5Etfw\">January 3, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742387346128179215/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">マスキングよく考えたらいらんかったばかりか剥がす時に塗装も剥げてしまった🥲 <a href=\"https://t.co/ybfRUuK4t3\">pic.twitter.com/ybfRUuK4t3</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742387346128179215?ref_src=twsrc%5Etfw\">January 3, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742387346128179215",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">マスキングよく考えたらいらんかったばかりか剥がす時に塗装も剥げてしまった🥲 <a href=\"https://t.co/ybfRUuK4t3\">pic.twitter.com/ybfRUuK4t3</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742387346128179215?ref_src=twsrc%5Etfw\">January 3, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "剥げたところはペンキ塗り直し。コーキングは完全硬化1日ということで温泉に行きました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742409807704023172/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やっとお風呂に…😇 <a href=\"https://t.co/LITmqF4EhS\">pic.twitter.com/LITmqF4EhS</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742409807704023172?ref_src=twsrc%5Etfw\">January 3, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742409807704023172",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やっとお風呂に…😇 <a href=\"https://t.co/LITmqF4EhS\">pic.twitter.com/LITmqF4EhS</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742409807704023172?ref_src=twsrc%5Etfw\">January 3, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "旧換気口を塞ぐ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "換気扇があるのですが旧換気口が大きく開いているのでとにかく寒い！ということでスタイロフォームで塞ぎます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1743240674026443178/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">スポッ！ <a href=\"https://t.co/O3deTmWpmz\">pic.twitter.com/O3deTmWpmz</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1743240674026443178?ref_src=twsrc%5Etfw\">January 5, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1743240674026443178",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">スポッ！ <a href=\"https://t.co/O3deTmWpmz\">pic.twitter.com/O3deTmWpmz</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1743240674026443178?ref_src=twsrc%5Etfw\">January 5, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スタイロは水に強いのでこのままでもいいですが、見栄え的に蓋をしちゃってもいいかも。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんな感じでお風呂の改装をしていました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家でできるだけWindowsを使わない",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家ではWindowsデスクトップ、仕事や出先ではMacみたいな使い分けをしてましたが、家でも極力Macを使うようにしてみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結局のところ、WindowsでMacの使用体験を追求しても限界があり、スイッチングコストもかかり、自分の場合Windows起動するとゲームしたりだらだらTwitchを見る消費デバイスと化していたので、Windowsはゲームコンソールと割り切ってみることにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Macを改めて使いたいなぁと思ったのは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Things",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://culturedcode.com/things/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "や",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Flow",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://flowapp.info/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "iA Writer",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://ia.net/ja/writer"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "といった、Appleエコシステムで強力に機能するツールを試し始めたからです。URLスキームが使用できて、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Alfred",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://www.alfredapp.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "と相性がいいので、使用体験が抜群です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今のところ極めて使い心地がよいです。個別ツールの話とかこのあたりの感想はまた書きたいですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CC0",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "西尾さんがScrapboxプロジェクトをCC0にした",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://scrapbox.io/nishio/%E7%A7%81%E3%81%AE%E8%91%97%E4%BD%9C%E7%89%A9%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6CC-0%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "のを見て、そういえばCC-BYである必要性ってよく考えるとあまりないなと思い始めました。CC0はなんとなく剽窃を防ぐためのものと考えてしまっていましたが、CC0であってもまるっとそのまま自分のものであると主張することはできないんですね。共有化することによって私物化を防いでいる。そうなると、オリジナルのものをそのまま使うよりも改変する方向に人は動きそうなので、CC-BYで実現したかったような創作の連鎖の方向に動機づけられるんじゃないかと思い始めました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このブログもCC0でいいなと思いましたが、メンバーシップ限定記事とかの扱いをどうするかでもう少し検討をしているところです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "参考",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "Creative CommonsのFAQ",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": null,
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://creativecommons.jp/oa_faq/"
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "マスコットキャラクターをCC0にした事例",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": null,
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://creativecommons.jp/2015/05/01/osaki_1bantaro/"
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "本の自炊",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "放送大学の勉強で、紙の本が非効率なので電子書籍化しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以前に放送大学の教科書を自炊したときは、電子レンジを使ってノリを剥がしたのですが、やりすぎて焦げちゃったりと大変だった記憶でしたが、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "こちらの記事",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "http://ouj.6ox.org/study/denshi01/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を見ると普通に引っ張って取れそうだったのでその方式で実行。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "カッターで40ページごとに切り分けてロータリー式のペッパーカッターで裁断。(結構ズレたので20ページずつくらいのほうがよかったかも)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その後職場にあるScanSnapを借りてPDFで取り込みました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この段階で画面上で本が読めるので相当便利なのですが、今回は増井さんが提唱する",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "アクティブ読書",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://helpfeel.com/masui/%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E8%AA%AD%E6%9B%B8-5e4df132d2545a0017bad27b"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "も実践したかったのでPDFデータをScrapbox形式にすることにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Book2Scrapbox",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://github.com/masui/Book2Scrapbox"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "でPDFからScrapboxのjson形式に変換して書籍プロジェクトを作成しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集しながら読むのがなかなか良い体験ですし、書籍の内容が横断検索可能になったのが非常に便利です。効率面でも、1授業なんだかんだ1ポモドーロくらい時間をかけていたのが3/4ポモドーロくらいになったかなという感じですね。 ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/35d0f9af3f27bf8fa732f6fc20e2296f.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "Scrapboxの画面",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "読書メモ、どこからがアウトなのか厳密に考えると難しいのですが、この方式だと書籍の内容はプライベートプロジェクトの方で見えなくできているので安心です。メインの公開プロジェクトの方ではキーワードリンクだけを転記することで、メインプロジェクトのネットワークにも組み込めむのがよいかなと思います。 ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/1488a2e0d7f68557c13a04664ee6be28.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "Scrapboxの画面",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitchのimplied nudity禁止",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitchで性的ポリシーを巡って色々騒ぎが起きていますが、今週はtopless meta(上半身だけ映して裸っぽく見せる)に対して ",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Twitchはimplied nudityを禁止するようにポリシーを変更しました。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://safety.twitch.tv/s/article/An-Update-to-Our-Attire-Policy?language=en_US"
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "性的ポリシーを巡る動きは自分の場合はプラットフォームのルール運用の難しさという視点で見ています。普通にゾーニングしておしまいではなく、同時にユーザーの表現とどこまで折り合いをつけるかとか、本来白黒つけるのが難しい部分のどこに線を引くか、ルールを新設する際にどういう文脈があったかとか、素人が考えるよりもずっと複雑なのだろうなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ルール関連で言うと、これを遵守する立場にある配信者もめちゃくちゃ大変です。これまでルールを熟読しなければならない立場って、例えばアプリストアにアプリを公開する企業や開発者であったりと、必要なら専門家を立てて意思決定を下す人達だったのが、配信プラットフォームでは限りなく一般層に近い配信者達です。ルールを読むのはある程度の素養やバランス感覚(リーガルマインド)が求められるわけですが、特に日本の配信者を見ていると基本的に解釈可能なすべてのリスクを回避するように動いてるように見えて、なかなか息苦しいなと思うところです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "買った物",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "レーザー墨出し器",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "たねハウスの最大の問題が家が傾いていることで、トイレあたりは大きくずれています。このズレで扉や鍵に不具合が出ているのですが、これらを修正すると、傾きを直したときにまた修正…ということになりかねないので手が出せずにいます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "土台上げ工法でいつか傾きを修正したいと思っていますが、そのために家の傾きを調べるのに便利なのがレーザー墨出し器…で、たまたま初売りで割引されていたのでつい買ってしまいました。色々調べてみたいと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742794551637709124/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">my new gear… <a href=\"https://t.co/t8XzSBYfFZ\">pic.twitter.com/t8XzSBYfFZ</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742794551637709124?ref_src=twsrc%5Etfw\">January 4, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742794551637709124",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">my new gear… <a href=\"https://t.co/t8XzSBYfFZ\">pic.twitter.com/t8XzSBYfFZ</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742794551637709124?ref_src=twsrc%5Etfw\">January 4, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/3S9ESHV",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "Amazon | CIGMAN レーザー墨出し器 3x360°グリーンレーザー 水準器ツール 30メートル作業範囲 磁気回転スタンド リモートコントロール Type-C充電ケーブル付き(CM701) | レーザー墨出し器",
+						"description": "CIGMAN レーザー墨出し器 3x360°グリーンレーザー 水準器ツール 30メートル作業範囲 磁気回転スタンド リモートコントロール Type-C充電ケーブル付き(CM701)がレーザー墨出し器ストアでいつでもお買い得。当日お急ぎ便対象商品は、当日お届け可能です。アマゾン配送商品は、通常配送無料（一部除く）。",
+						"author": "",
+						"publisher": "<img alt=\"CIGMAN ゴルフ用距離計 800ヤード測定可能 6倍望遠 スロープモード フラグロック 振動提示 距離レーザー計測器 軽量 充電式 専用ケース 日本語取扱説明書付き CT-800Y レーザー...\" src=\"https://m.media-amazon.com/images/I/41DOBX579CL.__AC_SR166,182___.jpg\"/>",
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:358-6095118-8647900:Y5M7DT0GZAR3K0PK8RVP$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DY5M7DT0GZAR3K0PK8RVP%26pty%3D%26spty%3D%26pti%3D:1000"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Apple Watch SE",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう1個、Appleの初売りでApple Watch SEを購入しました。今使っているSeries 3もWatch OSが9以上にできなくなっているのでアップデートでの購入です。今のところ画面でかくなったな〜くらいしか違いがわかりませんが。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1742019319834480647/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">初売りでseries3がもう限界だったのでポチり… <a href=\"https://t.co/kM17MYkSYh\">pic.twitter.com/kM17MYkSYh</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742019319834480647?ref_src=twsrc%5Etfw\">January 2, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1742019319834480647",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">初売りでseries3がもう限界だったのでポチり… <a href=\"https://t.co/kM17MYkSYh\">pic.twitter.com/kM17MYkSYh</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1742019319834480647?ref_src=twsrc%5Etfw\">January 2, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ゲーミング着る毛布",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "年末年始家にいて灯油の消費が激しいので、そもそも一人なら着る毛布とかでしのげば隠者ないかと思い、こちらも初売りで値引きされてたのを購入。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1743462842576286120/",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">あったけぇ… <a href=\"https://t.co/m0xJ5iiSUx\">pic.twitter.com/m0xJ5iiSUx</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1743462842576286120?ref_src=twsrc%5Etfw\">January 6, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1743462842576286120",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">あったけぇ… <a href=\"https://t.co/m0xJ5iiSUx\">pic.twitter.com/m0xJ5iiSUx</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1743462842576286120?ref_src=twsrc%5Etfw\">January 6, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結構暖かいですが、室温15度くらいで肌寒さはまだあるので、重ね着をするといい感じに暖かいです。5度の部屋だとモンベルの膝掛けとか指だし手袋をつけるとなんとかしのげるんじゃないかな〜という感じですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/3TQKrNx",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "Amazon.co.jp: Bauhutte (バウヒュッテ) 着る毛布 ダメ着2020 ブラック Mサイズ HFD-BS-M-BK : ホーム＆キッチン",
+						"description": "Amazon.co.jp: Bauhutte (バウヒュッテ) 着る毛布 ダメ着2020 ブラック Mサイズ HFD-BS-M-BK : ホーム＆キッチン",
+						"author": "",
+						"publisher": "<img alt=\"Bauhutte ( バウヒュッテ ) ゲーミングチェア G-570-GN ファブリック ポケットコイル クッション\" src=\"https://m.media-amazon.com/images/I/419J824PPKL.__AC_SR166,182___.jpg\"/>",
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:358-2376303-5705448:PVM6G4P3R77HBK8BR5JE$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DPVM6G4P3R77HBK8BR5JE%26pty%3D%26spty%3D%26pti%3D:1000"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "種延36th生誕祭",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今年が年男なのでなんかやりたいな〜と思って",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "4月に生誕祭のイベントだけ立てておきました",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://www.facebook.com/events/765779275566759"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "。近くなると面倒くさくて結局何もやらなそうなので元旦のノリ大事です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いい場所がなければ代々木公園で飲んだくれる予定ですが、イベント会場で夜飲む方向でやりたいと思っているので、お近くの方はぜひご参加ください。なんかやりたいことあればやりましょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その他、世の中の出来事など",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "元旦に能登半島で大きな災害があってびっくりしています。同時に311の頃と比べて、色々防災を考えて実践しているんだなあと気づきもありました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "SNSの方はまた違った様相で、Xはインプレッションで金が稼げるようになってしまったので、アテンションエコノミーの次の局面に来た感じがあります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "初めての週次記事でしたが、定式化してもっと省力で書ければ良いかな〜と思います。改装作業で個別記事を書く気力がなかなか沸きませんでしたが、来週はもっと更新できればよいかなとおもいます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それではまた来週👋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": null,
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

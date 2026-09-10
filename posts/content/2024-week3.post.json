@@ -1,0 +1,666 @@
+{
+	"title": "今週の振り返り 2024 week3",
+	"slug": "2024-week3",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46",
+		"#ref-harry-potter-and-digital-twin",
+		"#ref-select-pomodoro-timer"
+	],
+	"excerpt": "今週は田中角栄の1日1ポモドーロ読書、芥川賞、格闘ゲーム選手会など。",
+	"feature_image": "https://hanatane.net/content/images/2024/01/week3.png",
+	"featured": false,
+	"published_at": "2024-01-21T22:00:45.000Z",
+	"updated_at": "2025-03-30T14:17:30.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週は放送大学の単位認定試験に追われてあまり活動できなかったですが、さきほどなんとか全試験を終えることができました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週やったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1日1ポモドーロ読書",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先週から田中角栄にすさまじくハマってしまったのでしばらくXも田中角栄でいることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/7506e2154fb5226bdd7f4a4a6057b9f1.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "Twitterの埋め込み画像",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう少し人物像をクリアにしたいので本を一冊買ってみて読書している。 ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/3Hq2zqn",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "Amazon.co.jp: 田中角栄名言集　仕事と人生の極意 (幻冬舎新書) eBook : 小林吉弥: 本",
+						"description": "Amazon.co.jp: 田中角栄名言集　仕事と人生の極意 (幻冬舎新書) eBook : 小林吉弥: 本",
+						"author": "フォロー",
+						"publisher": null,
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:355-9725787-1455957:NRC7AGQQ6Z8F950ZTV9X$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DNRC7AGQQ6Z8F950ZTV9X%26pty%3DDetail%26spty%3DGlance%26pti%3DB0BHZ4BPPN:1000"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今まで読書は章で区切っていたが、今回は1日1ポモドーロ(25分+5分)という時間で区切って進めている。章で区切ると日ごとに思ったより時間がかかったりするのだけど、この方法は毎日決まった時間だけしか使わないので安定していていい感じ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そもそものきっかけがNHKの映像の世紀バタフライエフェクトで、新潟の貧しい家に生まれた人が戦後政治に名を残す人になったのかという点に興味が沸いた。 ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.nhk.jp/p/butterfly/ts/9N81M92LXV/episode/te/6GR4N9QR23/",
+					"embedType": "rich",
+					"html": "<iframe width=\"100%\" height=\"252\" src=\"https://embed.www.nhk.jp/p/ts/9N81M92LXV/episode/te/6GR4N9QR23/\" frameborder=\"0\"></iframe>",
+					"metadata": {
+						"type": "rich",
+						"version": "1.0",
+						"html": "<iframe width=\"100%\" height=\"252\" src=\"https://embed.www.nhk.jp/p/ts/9N81M92LXV/episode/te/6GR4N9QR23/\" frameborder=\"0\"></iframe>",
+						"url": "https://embed.www.nhk.jp/p/ts/9N81M92LXV/episode/te/6GR4N9QR23/",
+						"title": "映像の世紀バタフライエフェクト - 田中角栄 列島改造の夢と転落",
+						"width": "100%",
+						"height": 252,
+						"provider_name": "NHK",
+						"provider_url": "https://www.nhk.jp",
+						"thumbnail_url": "https://www.nhk.jp/static/assets/images/tvseries/ts/9N81M92LXV/9N81M92LXV-eyecatch_94fc8020b7e74776baae64f055d9cb07.jpg",
+						"thumbnail_width": 640,
+						"thumbnail_height": 360
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "特に立法能力が異常に高い点。これに関する面白い記事を見つけたのだが、田中角栄は知識をモーターとして捉えていたらしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://gentosha-go.com/articles/-/43486?page=2",
+					"metadata": {
+						"icon": "https://ggo.ismcdn.jp/common/ggo/images/v2/apple-touch-icon.png?rd=202309051200",
+						"title": "田中角栄が「コンピュータ付きブルドーザー」になった原点 | ゴールドオンライン",
+						"description": "田中角栄が終生大事にしていたのは、少年時代に故郷の小学校の草間道之輔校長から教えられた「人間の脳とは、数多いモーターの集まりである」という言葉です。今でいえばコンピューターです。ジャーナリストの田原総一朗氏が著書『田中角栄がいま、首相だったら』（プレジデント社）で解説します。",
+						"author": "田原 総一朗",
+						"publisher": "ゴールドオンライン",
+						"thumbnail": "https://ggo.ismcdn.jp/mwimgs/8/a/572w/img_8a98bcdc986c277c5a42bfa699ef3da7357312.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もうひとつ、角栄が終生大事にしていたのは、少年時代に故郷の小学校の草間道之輔校長から教えられた「人間の脳とは、数多いモーターの集まりである」という言葉だ。今ならコンピュータというところだろう。 「普通に生きていくのなら、そのモーターの中の10個か15個かを回しておけばいいだろう。しかし、この脳中のモーターは努力しさえすれば何百個でも何千個でも回せる。それには勉強することであり、数多く暗記することだ。人間一人ひとりの脳の中には、世界的学者である野口英世になれる力があることを忘れてはならない」",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "モーターは回転機構でそれらを組み合わせて複雑な動作を作るモジュールなので、これは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "「常にダイナミックに変動していくシステム」",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://blog.copilot.jp/entry/what_is_knowledge"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とする知識の見方と合致している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "昭和を代表する人物をつぶさに見ていると、現代に通じる部分がいくつも見つかってくる部分が楽しい。まだ全部読めてないけどもう2ポモドーロくらいで全部読めそうだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週気になったニュース・ポスト",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "芥川賞のChatGPT活用小説",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.cnn.co.jp/style/arts/35214148.html",
+					"metadata": {
+						"icon": "https://www.cnn.co.jp/apple-touch-icon-180x180.png",
+						"title": "芥川賞受賞作家、執筆でのＡＩ活用認める",
+						"description": "日本の作家、九段理江氏（３３）は同国で最も栄誉ある文学賞の一つを受賞した後、普通とは異なるものの力を借りていたことを認めた。対話型人工知能（ＡＩ）「チャットＧＰＴ」だ。九段氏は、１７日に芥川賞を受賞。今後も執筆にはＡＩを活用し、自分の創造性を発揮できるようにしたいと語った。記者会見では、受賞…",
+						"author": "Christy Choi, CNN, Francesca Annio, CNN",
+						"publisher": "CNN.co.jp",
+						"thumbnail": "https://www.cnn.co.jp/storage/2024/01/20/59341112d99069934052f64c3dd7e1aa/240119070045-rie-kudan-akutagawa-prize-2024.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " ChatGPT使用作品が芥川賞とったということで、思ったより早かったな〜という感想。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ただ九段氏によるＡＩの創造的使用を巡っては、ソーシャルメディア上で関心を寄せる向きや同氏の作品への興味が高まったとする声が一部あるものの、他方でテクノロジーに頼らず作品を書いている他の作家たちに「失礼」と評する見方も出ている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "テクノロジーに頼らずに作品書いている人達って山にでも籠もってるのだろうかと気になった。小説だと文字を書くのに鉛筆と紙が必要なわけだけど、個人で作るのはかなり大変そう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "格闘ゲーム選手会と全日本男子プロテニス選手会の意見交換会",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.4gamer.net/games/999/G999905/20240115051/",
+					"metadata": {
+						"icon": "https://www.4gamer.net/favicon.ico",
+						"title": "「格闘ゲーム選手会×全日本男子プロテニス選手会意見交換会」レポート。長い歴史を持つテニス界の事例から，格闘ゲーム界が学ぶこととは",
+						"description": "2023年12月，格闘ゲーム選手会と全日本男子プロテニス選手会の意見交換会が行われた。この会合は，格闘ゲーム選手会がテニスの選手会に，意見交換という形でさまざまな事例や考え方を学び，今後の活動に生かしていくといった趣旨で実施された。本稿ではその模様をお届けしていく。",
+						"author": "ライター：大陸新秩序",
+						"publisher": "4Gamer.net",
+						"thumbnail": "https://www.4gamer.net/games/999/G999905/20240115051/SS/015.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "昨年末になんだかすごい意見公開が開かれていたようで、格闘ゲームもテニスもやってたのでなんだか親近感がある。テニスも格ゲーも個人競技で共通するポイントも多いのでこういう場が設けられたんだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "当事者による当事者のための団体で当事者達の意見を拾いにくいというのはどこも同じだな〜と思った。こういうの、結局質問紙とかいろんな方法含めてサルベージしていくしかないんだろうか。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "健康 Reliability Engineering",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://zenn.dev/miketako3/articles/0705876f451f8b",
+					"metadata": {
+						"icon": "https://static.zenn.studio/images/logo-transparent.png",
+						"title": "ヘルスケアデータをGrafanaで見たくない…？〜健康 Reliability Engineering〜",
+						"description": null,
+						"author": "miketako3",
+						"publisher": "Zenn",
+						"thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--vKmLf3sh--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%E3%83%98%E3%83%AB%E3%82%B9%E3%82%B1%E3%82%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92Grafana%E3%81%A7%E8%A6%8B%E3%81%9F%E3%81%8F%E3%81%AA%E3%81%84%E2%80%A6%EF%BC%9F%E3%80%9C%E5%81%A5%E5%BA%B7%20Reliability%20Engineering%E3%80%9C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:miketako3%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzc2Nzg4NTAyZWQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Honoを使ったアプリの実装を物色している最中に見つけた。 iOSのヘルスケアデータを最終的にGrafanaで見れるようにするやつ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というかHealth Auto Exportがまさか存在するとは思ってなかったかなりの神機能なので絶対に使いたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週投稿した記事",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/select-pomodoro-timer/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "ポモドーロタイマーを選ぶ",
+						"description": "挫折に挫折し続けてきたポモドーロ・テクニックですが、自分なりによいやり方が見えてきました。",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/pomodoro.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ポモドーロタイマーのFlowを使い始めた記事です。シンプルなインターフェースで使いやすい。今も使いながら書いております。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/harry-potter-and-digital-twin/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "ハリーポッターとデジタルツイン",
+						"description": "ハリー・ポッターの世界の喋る写真、あれデジタルツインだったんだという気づきです",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/tanenobu_Twin_Old_guys_Illustration_for_blog_header_image_simpl_e50bf07d-e231-4b33-af1a-7cd00c61de8b.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "デジタルツインに関する話を見たときに、「あ、これハリー・ポッターで見たやつ」だとなって書いた怪文書です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ではまた来週👋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": null,
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

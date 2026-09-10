@@ -1,0 +1,1295 @@
+{
+	"title": "Twitchで視聴者が自ら猿ぐつわするChrome拡張を作った",
+	"slug": "twitchdeshi-ting-zhe-gazi-rayuan-gutuwasuruchromekuo-zhang-wozuo-tuta",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"#Import 2025-03-18 13:46"
+	],
+	"feature_image": "https://hanatane.net/content/images/2023/12/52886f6b-7bdc-437b-8284-458c3a826555.webp",
+	"featured": false,
+	"published_at": "2023-12-03T23:00:04.000Z",
+	"updated_at": "2023-12-04T01:13:52.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ChatGPTでプログラミングの恩恵にかつてないレベルでアクセスできているはずだと考えているので、最近はそういうsurveyを繰り返し行っています。Tampermonkeyはフィジカル空間で交流する人とかには眼の前でデモンストレーションとかもやったりするのですが、というかこれChrome拡張も作れるなと思ったので作ってみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "目的",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ChatGPTアシストのもとでChrome拡張を作れることのデモンストレーション",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Twitchのチャットで視聴者側が要注意ワードに気づけるようにする",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "number",
+					"start": 1,
+					"tag": "ol"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2について、拡張を作る上でなにかネタはないかなと思っていてXのTLを眺めていたらちょうどTwitchの初見詐欺に関するお気持ちが流れてきたのでこれに関連する拡張を作ってみようと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "初見詐欺問題は簡単に言うと初見じゃないにも関わらず初見ですと挨拶するような行為を指していて、どの配信でも一人はやっているのを見かけるくらいのネタなのですが、これを猛烈に嫌う配信者もいる感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "初見詐欺のように嫌われがちな行動はいくつかありますが、問題は配信者は十人十色で、それぞれの配信でなんとなく許されている行動や即BANレベルで禁止されている行為まで多種多様です。なので配信者が気持ちよく配信できるように双方協力してコミュニケーションしていくというのは結構大変なことなのです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "コミュニケーションの問題の多くは配信側でモデレーションを行っていくほかないと思いますが、初見詐欺については「初見」という単語がほぼ使われることが特徴です。なのでWataxさんの記事にあるように特定ワードで数秒タイムアウトというのは一定の効果が見込めるかと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://note.com/wataxxx/n/nb7dd808ac799",
+					"metadata": {
+						"icon": "https://assets.st-note.com/poc-image/manual/note-common-images/production/icons/apple-touch-icon.png",
+						"title": "初見詐欺にどう向き合うか？｜wataxxx",
+						"description": "こんにちはWataxxxです 皆さんは”初見詐欺”という言葉を聞いたことがあるのでしょうか？ ユーザー生放送においてその番組が初見でないにもかかわらず初見であるとコメントすること。 主に故意に初見だと名乗る場合のことを言う。 たまにその番組に来たことあるのにそのことを忘れ初見だと言ってしまう人もいるようである。 ニコニコ大百科、初見詐欺より X（旧Twitter）でもTLに定期的なお気持ちが流れてくるのですが、初見詐欺を何故行うのか？どう向き合うのか？について書いてみたいと思います 初見詐欺は何故おきる？ 初見ではないのに初見を名乗る事によって認識してもらいたいという承認欲",
+						"author": "wataxxx",
+						"publisher": "note（ノート）",
+						"thumbnail": "https://assets.st-note.com/production/uploads/images/119516484/rectangle_large_type_2_61330219585cba023fd863bc75298964.png?fit=bounds&quality=85&width=1280"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、配信者側でモデレーションを行っていくのが正攻法である一方で、同じことを視聴者側のモデレーションとして実装できないかな？というのが今回のアイデアの発端です。実用性は後述するようにあんまりないです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "できたもの",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://chromewebstore.google.com/detail/twitch-chat-self-moderato/jcbhcgdilhchpnadjnaffbkfficlnfcb?hl=ja",
+					"metadata": {
+						"icon": "https://ssl.gstatic.com/chrome/webstore/images/icon_144px.png",
+						"title": "Twitch Chat Self Moderator",
+						"description": "Manage forbidden words in Twitch chat based on streamer tags.",
+						"author": "",
+						"publisher": "Chrome Web Store",
+						"thumbnail": "https://lh3.googleusercontent.com/VvDaY28Rgl6JAMsquDuTtN_tAZ0kIEIenb1YwgKeX61Ze8EibRevooFza7umeZIaKTujF7AA9y-CKl0UyTxhLxRf=w128-h128-e365-rj-sc0x00ffffff"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitchの配信タグベースで要注意ワードを設定して、チャット送信前に気付けるようにする拡張です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "要注意ワードを",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 1,
+									"mode": "normal",
+									"style": "",
+									"text": "特定の配信タグ",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "に基づいて設定できる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "すべての配信についても設定できる",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "チャット入力で要注意ワードが含まれたら赤い警告色になる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "その状態でチャットを送信しようとすると、確認ダイアログが出る",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "確認をした上で送信する",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "その他",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "登録ワード削除機能(タグごと一括)",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1727693426966315123",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Twitch視聴者が自分で要注意ワードを猿ぐつわできるChrome拡張作った。GPTでまじで敷居下がってる <a href=\"https://t.co/uZApEy6Y2k\">pic.twitter.com/uZApEy6Y2k</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1727693426966315123?ref_src=twsrc%5Etfw\">November 23, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1727693426966315123",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Twitch視聴者が自分で要注意ワードを猿ぐつわできるChrome拡張作った。GPTでまじで敷居下がってる <a href=\"https://t.co/uZApEy6Y2k\">pic.twitter.com/uZApEy6Y2k</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1727693426966315123?ref_src=twsrc%5Etfw\">November 23, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "細かい部分",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "拡張のアイコンもChatGPT作",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ある程度機能ができて登録する段になったときに拡張機能のアイコンもChatGPT作に作ってもらった。便利。(おかげでプロンプト全体をシェアできなくなってしまったが…)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/2f9c48a9f96b8f99a4bdbd6840b62673.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Chrome Web Storeの公開も強力",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Chrome Web Storeに公開するにあたって色々と記入しなければなりませんが、一緒に開発してきたChatGPTは拡張の内容も熟知しているのでかなり的確に書いてくれます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/d955412ea5e7f50c52f6a8ac1546c5c1.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なぜタグベースか",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitchは配信者が自由に設定できるタグがあり、その中でもNoBackseating(指示禁止)やNoSpoilers(ネタバレ禁止)があったり、BackseatingAllowed(指示OK)といったタグが使われています。拡張でこれらのタグを認識した上で特定のルールを適用できるようにしたら楽です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "逆に配信者ベースで設定できないようにしているのは、まず視聴者の行動様式をある程度抽象化したほうがよいだろうなという思想が入っています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なぜチャット送信できるようにしているか",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ワードベースの機械的なフィルタは限界があるので、要注意ワードが含まれている場合でも確認ダイアログで「はい」を選べば送信できるようにしました。(たとえば「初見」で設定すると「最初見たとき」も引っかかっちゃいます。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実用性",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ほぼないです。初見詐欺はわかりやすいかもですが、特定単語をフィルタすれば防げることはそんなにないはずです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "仮にこれが効果的にworkしたとしても、本当に必要な人はこれを入れないという問題があります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Chrome拡張開発 with ChatGPT",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "総評: Chrome拡張作れるようになった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Chrome拡張は以前ネタで作ったことがありますが、今回全て忘れた状態で公開するところまで半日もかからずにいけたのはChatGPTのパワーを感じました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://mtane0412.com/chrome-extension-to-grow-school-idols/",
+					"metadata": {
+						"icon": "https://mtane0412.com/icons/icon-192x192.png?v=fd789631a690ce071bfe2b320715f642",
+						"title": "スクールアイドルが生えてくるChrome拡張を作った | 初歩からの無職",
+						"description": "ラブライブ！ Advent Calendar 2018 9日目",
+						"author": "mtane0412",
+						"publisher": "mtane0412",
+						"thumbnail": "https://images.ctfassets.net/73t6m5k7x51e/2r0RFBdY1yQCOJLykEsUqj/9f0f1c2cd2e879f959c660b453900852/movie1-1024x576.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「ChatGPTを使えば誰でも楽に作れる」と言いたいところでしたが、今回TwitchはSPAを使っている都合上、ストレートにコードが動かなかったので確かに大変な部分もあったのですが、そこもChatGPTと相談しながらコードを修正していくことができたのでやはり強力です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Tampermonkeyによって改善できる範囲が自分や知り合いくらいだとすれば、Chrome拡張としてリリースすることができればもっと広い範囲にcontributeできる可能性があります。ちょっとワクワクするのでアイデアを考えてしまいますね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "効率的な学習になった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回ChatGPTと一緒にコードを書くだけでかなりのことを学べました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Chrome拡張の仕様",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "popupとcontentまでは以前触ったことがあったがbackgroundのややこしい当たりはChatGPT様々だった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "SPAに対する対処法",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "ページ遷移をしているようでしていないのでMutationObserver使うなど",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "TwitchのSlateの仕様",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "たまに入力がおかしくなるときの状態がわかった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "MacのChromeとSafariではkeydownでEnterを取るとIMEの変換の確定でEnterが誤作動してしまう",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "これがGhostのエディタやDiscordのフォーラムでの挙動の原因だった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今後: AIモデレーターのモデレーションを人間モデレーターがレビューする",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この拡張自体は使い物にならないですが、ChatGPTを使ったモデレーションには非常に可能性を感じています。LLMによって機械的なルールでは実現できないモデレーションが可能になるのと、事前に与える情報によって精度がかなり上がりそうです。上では抽象化が求められますが、こっちでは具体的であればあるほどよいのが強いポイントだと思います。親しい人に「こういうことがあって嫌だったんだよね…」と話すのに似てますね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1726568276417773766",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">AIが素晴らしいの、具体例を入力すればするほど出力がよくなるので、「これやめて」の積み重ねが財産になる <a href=\"https://t.co/f786nG9bkd\">https://t.co/f786nG9bkd</a> <a href=\"https://t.co/jG525ULv25\">pic.twitter.com/jG525ULv25</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1726568276417773766?ref_src=twsrc%5Etfw\">November 20, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1726568276417773766",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">AIが素晴らしいの、具体例を入力すればするほど出力がよくなるので、「これやめて」の積み重ねが財産になる <a href=\"https://t.co/f786nG9bkd\">https://t.co/f786nG9bkd</a> <a href=\"https://t.co/jG525ULv25\">pic.twitter.com/jG525ULv25</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1726568276417773766?ref_src=twsrc%5Etfw\">November 20, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ネックはトークン単位の課金となるのでここに工夫が求められる点です。Llama2のような無料のLLMを使えばなんとかなりそうですが、日本語的にはいまいちで、日本語を追加学習したELYZAあたりを試してみたいかもです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "どうしてもGPT4相当の性能を求める場合は、視聴者に対して信頼度のようなパラメータを降ってチャンネルでの行動に対して一定の信頼度を獲得した人についてはモデレーションをオフにしたりとかでできるんじゃないかなと考えました。果たしてそういうモデレーション方式がうまくいくのかということと、大手の配信だと結局APIコールが巨大なままになりそうなのでこれも色々難しいポイントがありそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このあたり、Twitch公式が何らかの形で実装してくるんじゃないかな～とも思ってます。人間のモデレーターが配信者に変わってモデレーションをするというのはどちらもTwitch上で活動する人間である以上思ったよりも難しい場面も多いので、モデレーションをAIがやって人間モデレーターがレビューして配信者を助けるような構造がうまくworkするのではないかなあと思います。​色々楽しみですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

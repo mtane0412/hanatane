@@ -1,0 +1,264 @@
+{
+	"title": "狩猟免許(罠・網)を取った",
+	"slug": "hunter-license-2024",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"狩猟",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "狩猟免許を取った話と今後何をやりたいか",
+	"feature_image": "https://hanatane.net/content/images/2024/10/tanenobu_Deer_in_forest_Illustration_for_blog_header_image_so_bf6dfd61-c1db-4f7a-9069-c7c81b111e41_2.png",
+	"featured": false,
+	"published_at": "2024-10-09T10:29:08.000Z",
+	"updated_at": "2024-10-09T10:29:08.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "狩猟免許の罠と網を取った。銃も興味はあるのだけど、費用面や手続き面のハードルが前者2種と桁違いに高いと感じたので、本気でやりたくなったときにお預けすることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家に鹿が毎日のようにやってくるし、知り合いの畑もよく荒らされている。去年くらいから本格的にイノシシが進出してきており、さつまいもとかの被害も甚大らしい。農地や自宅は規制緩和で小型の箱罠が設置できるようになったが、大型獣のくくり罠は免許が必要なので、取っておくと狩猟する機会もありそうなので取ることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1703199673086063017",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"zxx\" dir=\"ltr\">… <a href=\"https://t.co/XIPdx7Gj0y\">pic.twitter.com/XIPdx7Gj0y</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703199673086063017?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1703199673086063017",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"zxx\" dir=\"ltr\">… <a href=\"https://t.co/XIPdx7Gj0y\">pic.twitter.com/XIPdx7Gj0y</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703199673086063017?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/10/IMG_5108.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">玄関前にいる鹿</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "狩猟免許試験を受けるときに、試験の直前の猟友会の予備講習会というのにも同時に申し込むことになる。これは全力で全員を合格させるための仕組みで、事実上参加必須となっている。おおよそ１週間前ということで、逆に言えば勉強時間1週間で取得できるような試験設計がなされているということになる。電気工事士試験におけるホーザンのような試験サイトがあまりないのもそのためで、とにかく予備講習会に出れば試験の要点を教えてもらえる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/10/IMG_5227.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "本試験の方はどちらかというと受験者よりも試験運営側のほうがものすごく大変そうに見えた。知識問題をまず一斉に行い、その次の適性検査を行っている最中に知識問題の採点をし、午後に知識問題をパスした受験者で3種(今回第2種猟銃はなし)の実技課題をそれぞれ回していく。常にトランシーバーで連絡を取り合いながら臨機応変に試験を回していて、とても忙しそうだなと思った。実技がある以上こういう運用にならざるを得ないのだけど、ハンターが減ってる昨今だとこの試験コストの高さは課題に思える。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そんなこんなで無事、罠と網の狩猟免許を取ることができた。網は正直おまけ程度の感覚で、実技のむそう網を見て「こんなの絶対使えんでしょ」と思っていたのだが、Youtubeでカモを一網打尽にする動画を見てめちゃくちゃ楽しそうに思えた。いつかトライしてみたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=onutRr9aJtY",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/onutRr9aJtY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"【狩猟】Vol.27 鴨の飛来から無双網で捕獲する瞬間を撮影！ 今宵も鴨の群れをむそう網で一網打尽に！ 【鴨】【網猟】\"></iframe>",
+					"metadata": {
+						"title": "【狩猟】Vol.27 鴨の飛来から無双網で捕獲する瞬間を撮影！ 今宵も鴨の群れをむそう網で一網打尽に！ 【鴨】【網猟】",
+						"author_name": "鬼嫁と哀れな旦那の夫婦で釣りと狩猟",
+						"author_url": "https://www.youtube.com/@%E9%AC%BC%E5%AB%81%E3%81%A8%E5%93%80%E3%82%8C%E3%81%AA%E6%97%A6%E9%82%A3",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/onutRr9aJtY/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/onutRr9aJtY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"【狩猟】Vol.27 鴨の飛来から無双網で捕獲する瞬間を撮影！ 今宵も鴨の群れをむそう網で一網打尽に！ 【鴨】【網猟】\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今後やりたいこととしては、家にいる鹿を捕獲して解体して食べるまでやりたい。これは許可捕獲・有害鳥獣・あるいは狩猟のどの区分でやれるのかとかはまだ詳しく調べていないのと、解体設備をある程度整える必要があるのでもうちょっと先になりそうではある。(このあたり知見随時募集です。)あとは手伝っている畑で捕獲もやってみたいところ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "止めさしに銃が使えないので方法を考える必要がある。知り合いの猟師はバットでいいと言っていたが絶対にうまくできる自身がないので槍で電気流すやつができないか検討中。いずれにしても先輩猟師のレクチャーが必要になると思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ある程度慣れてきたら猟具にマイコンつけたりして色々遊んでみたいと思っている。ここも家の山であれば山中で頑張って通信するためにSigfoxとかを使わなくても家から頑張ってWifiを伸ばせばいいので、色々実験する環境として今の家は恵まれているのかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とりあえず狩猟免許取ったという報告でした。実際に捕まえた報告ができるのはいつになるのかわかりませんが、これから猟期なので機会があれば体験しておきたいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

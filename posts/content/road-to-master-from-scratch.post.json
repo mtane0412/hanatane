@@ -1,0 +1,1539 @@
+{
+	"title": "格ゲー初心者がスト6マスターになるまでにやったこと",
+	"slug": "road-to-master-from-scratch",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "スト6でマスターに到達するまで意識したことや取り組み方とかを書きました",
+	"feature_image": "https://hanatane.net/content/images/2023/09/377464223_6944665658879506_7189314813556409922_n.jpg",
+	"featured": false,
+	"published_at": "2023-09-18T14:58:29.000Z",
+	"updated_at": "2024-07-07T05:30:15.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1700770446151749789",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">とうとうマスター到達！！！😭<br>スト6から格ゲー始めてワールドツアーで楽しみながら始めてモダンで読み合いに集中して…カプコンの決断によって格ゲーの世界に入れてすごく嬉しかったー！！<br>まだまだよわっちいのでもっともっと練習したいと思います！ <a href=\"https://t.co/VB5RlCalsz\">pic.twitter.com/VB5RlCalsz</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1700770446151749789?ref_src=twsrc%5Etfw\">September 10, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1700770446151749789",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">とうとうマスター到達！！！😭<br>スト6から格ゲー始めてワールドツアーで楽しみながら始めてモダンで読み合いに集中して…カプコンの決断によって格ゲーの世界に入れてすごく嬉しかったー！！<br>まだまだよわっちいのでもっともっと練習したいと思います！ <a href=\"https://t.co/VB5RlCalsz\">pic.twitter.com/VB5RlCalsz</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1700770446151749789?ref_src=twsrc%5Etfw\">September 10, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでストリートファイター6でMasterに到達したので、一旦振り返りしておこうと思います。Master到達でいったん文章を書く人も多いですが、ほとんどが具体的なキャラの使い方だったり戦術の解説で、この記事はどちらかというと取り組み方とか考え方の話になると思います。ケンの使い方は腐る程あるでしょうし。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "レベル感を前置きしておくと、ゲームセンスのない初心者が、格ゲーマー達と対戦できるレベルに到達するまでの取り組みです。このまま上級者たちに食い込めると楽しいなと思いますが、まだまだ道のりは遠いところです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "超優秀なチュートリアルのワールドツアー",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6で格ゲーを始めたわけですが、格ゲーコミュニティはすごい好きで、コロナ禍のほとんどの可処分時間はMildomで格ゲーマーの格ゲー以外のゲーム配信をよく見ていました。格ゲーコミュニティが面白いなーと思って、何ならスト5も購入はしてみたのですが、やっぱりゲームを楽しむための最初の壁が格闘ゲームは分厚い感じがして続かなかったです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そんな中モダン入力があるスト6が登場していよいよ格ゲーデビューか！？となったわけですが、それでも購入はしばらくできませんでした。格ゲーシーンを見てるだけで十分楽しめている上に、続くかどうかわからないゲームに8000円のフルプライス購入はやっぱり覚悟を要します。この辺を上手く突破したのがワールドツアーモードだと思っていて、モダンだけでなく初心者が手を付けやすいストーリーモードを添えたところがスト6のスタートダッシュ成功の要因なんだろうなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ワールドツアーが実に丁寧に格ゲーの基礎を学べるようになっていてチュートリアルとして非常に優秀でした。特にストーリー最終盤のザコ敵の一人である本田スタイルのゴラ・ンジャイは本田の頭突きとかカウンター技に対する対策を考えないと倒せない強敵で、対人に向けた最初の壁だった気がします。（試合中にドリンク飲めるとか、装備強化とか知らなかったので本当にきつかった。）ありがとう、ゴラ・ンジャイ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1669350445641527297",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">こいつほんまきつかったよ！！！ <a href=\"https://t.co/5iTuShpi6X\">pic.twitter.com/5iTuShpi6X</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1669350445641527297?ref_src=twsrc%5Etfw\">June 15, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1669350445641527297",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">こいつほんまきつかったよ！！！ <a href=\"https://t.co/5iTuShpi6X\">pic.twitter.com/5iTuShpi6X</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1669350445641527297?ref_src=twsrc%5Etfw\">June 15, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "やらないことを明確にしてやることを絞る",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ワールドツアーを終えていよいよモダンケンで対人の準備を始めました。最初は道着キャラと決めていたことと、ワールドツアーで使っていて気持ちよかったという理由ですが、やることが明確な強キャラなので今振り返ってもたまたまいい選択をしたと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最初はとにかく「やらないこと」を明確にすることから始めました。初心者は「やること」を詰め込みがちなのですが、ゲーム知識がないので情報の取捨選択や優先順位付けが出来ないので、たいてい情報がオーバーフローして資源配分が上手く行かないことのほうが多いように思います。クラシックではなくモダンなのもこれが多く、複雑なコマンド入力をスキップすることで意識に余裕が生まれるので、もっと他の格ゲーの上達要素に集中できることになります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "やることやらないことの選別のためにゲームのルールを理解する必要があります。格闘ゲームは「相手の体力を先にゼロにしたほうが勝つ」ので、どうやってダメージを与えるかを考えることになります。ワールドツアー中に手に入れた限られた武器をもとに相手に勝つ最短経路を考えます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この場合、やはり最初はモダンのアシストコンボは活用すべきだと考えました。ケンの場合、中アシストコンボが非常に強力なのでこれを軸にして戦います。ケンの中アシストコンボがなんで強いかと言うと、最後をOD昇竜やSAで〆ることができる点にあります。このゲームでは体力以外にもドライブゲージやSAゲージというパラメータがあり、これらはダメージに変換できるリソースなので「体力をゼロにするゲーム」をやる上では最優先の要素です。このあたりはAge of Empires3(あるいはLoL)で「資源を余らせる」ことの不利を強く学習していた経験が大きいのかなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ケンの中アシストコンボは立ち中Pの射程が短いので何らかの攻めの起点が必要ですが、そこでドライブインパクトを当てることです。Dインパクトを当てて中アシストコンボという2本の槍です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このダメージを与える要素以外は最初はやることから外しました。コンボのバリエーションや最大コンボ、状況に応じた選択肢、立ち回り、キャラ対、フレームとかの細かい話はそのうちどうせ壁にぶちあたるのでそのときに考えることにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1日1つだけにフォーカスする",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "偉そうに書きましたが、あまりにもできることが少ないのでやっぱりカジュアルマッチ回してもあんまり勝てないわけです。もう少し万全な準備をしてからランクマ…と考えていたわけですが、カジュアルマッチだとほぼクラシックしかマッチしないことに気づいて、初心者モダン勢はさっさとランクマ行ってるのでは？ということに気づいてランクマを回すことにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここで悲劇が起きますが、最初の10戦で完全に上振れしてしまいシルバー、ゴールドと倒していって最初に配属されたのがプラチナ2でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1672615995628765185",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ドキドキの対人2日目でランクのプレイスメントしたらなぜかプラチナスタートに…😭 <a href=\"https://t.co/TABBilrEIC\">https://t.co/TABBilrEIC</a> <a href=\"https://t.co/8OHKODREKH\">pic.twitter.com/8OHKODREKH</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1672615995628765185?ref_src=twsrc%5Etfw\">June 24, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1672615995628765185",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ドキドキの対人2日目でランクのプレイスメントしたらなぜかプラチナスタートに…😭 <a href=\"https://t.co/TABBilrEIC\">https://t.co/TABBilrEIC</a> <a href=\"https://t.co/8OHKODREKH\">pic.twitter.com/8OHKODREKH</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1672615995628765185?ref_src=twsrc%5Etfw\">June 24, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6のプレイスメントは10戦の結果よりも少し上に来るので、実力のはるか彼方に配置されてしまったわけです。これが何を意味するかと言うと、しばらく一方的にボコられるということです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これはかなり精神的にタフなスタートですが、今回スト6をやるにあたってウメハラさんの「1日ひとつだけ、強くなる」を実践しようと思っていたので、単純な勝敗に固執しないという姿勢が構造的に保証されている(最初は何やっても負けるので)ということでもあります。実際、負けの中から意味を抽出することでなんとかメンタル面も保ち、ゴールド5くらいで勝敗が拮抗しはじめました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実際、「1日ひとつだけ」というフレーズは非常に重要で、それこそ改善点を見つけようとすれば無限に出てくるわけです。ひとつだけとすることで「たくさん出た中で、今日なにか一つ挙げるとすれば何か」という優先付けの評価が必然的に行われます。人間が同時に複数の改善策に意識配分をしても絶対に足りないので、ちゃんとフォーカスするのが肝要だと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "感情駆動の改善",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://images.unsplash.com/photo-1539287753756-11055c31a3c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGNoaW1wYW56ZWUlMjBlbW90aW9ufGVufDB8fHx8MTY5NTA0ODYxMXww&ixlib=rb-4.0.3&q=80&w=2000",
+					"width": 2000,
+					"height": 1333,
+					"title": "",
+					"alt": "grayscale photo of monkey",
+					"caption": "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@eltoncraigoliver\"><span style=\"white-space: pre-wrap;\">Elton Oliver</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "改善の優先付けで最重要なのが感情で、要は対戦でムカついて温まってきたら、その熱量をもってしてムカついた部分を分析して改善するということです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "感情の機能については様々な議論がありますが、一つは安定した状態を崩したり(怒り等)、崩された安定状態を回復したり(喜び等)ということが言われています。怒りは特に緊急事態への対応を可能にするような感情で、心理的に特定の行動を促す他、生理的にも心拍数上昇や筋肉の緊張など急激な運動への備えが生まれます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "要はゲームで何かに対してイラついたときに、目の前に解決しなければならない緊急の課題に直面しており、大脳辺縁系がそれに対してアラートを発している状態というわけです。なのでサルの仲間たる社会に生きる我々はときには相手に対して攻撃をしたり、あるいは口汚く罵ったりして名誉を下げるなどをして群れの中の地位を守る行動をドライブしているわけですが、そんなことをしても格ゲーの世界ではあまり意味がないので、大脳新皮質の領域を使ってもう少しメタに考える必要があります。ただ無の状態から考えるのではなく、感情による強力なエンジンを持った行動であることがポイントです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここで感情を起点とすることのメリットは、 ①行動を促すための感情を利用するので行動に移しやすいこと、②記憶は感情と同じく大脳辺縁系が強く関与しているので、感情と紐づいた学習は想起しやすい記憶＝改善が定着しやすいということです。僕の場合、これを最初に意識したのはエドモンド本田という初心者に立ちふさがる理不尽なスモウレスラーです。本田の顔を思い浮かべながらこの話を聞くと腑に落ちると思うのですが、ただ何もない状態から本田対策動画を見て学ぶことと、実際に頭突きと百貫でめちゃくちゃにされて怒り狂った状態で絶対に八つ裂きにしてやる気持ちで調べた対策、どちらが再び本田と相まみえたときに実践しやすいかという話です。そう、大切なことはすべて本田が教えてくれました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ストリートファイターは格ゲーの基本的な要素から、各キャラクターの細かいフレームまで情報量が非常に膨大です。単純にそれらを知識として入れてもそれは不活性な状態で実戦ではすぐに使えません。活性化された知識として体に叩き込むフローを繰り返すのが上達の近道だと感じています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メモは感情のログ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メモを取る上で、上達に適したメモとそうでないメモというものがあると思います。個人的にはメモが思い出すツールで止まってるならあまり効果的ではなく、もう一歩進んでメモが考えるツールになっていることが重要だと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メモが正しい情報の置き場になっているとイマイチかなと思っていて、わかったことよりもわからないことや思ったことや感情などを残している方が好ましいと考えています。上級者は必然正しい情報が増えるはずですが、初心者は比率的には1:9くらいで不確実でよくわからん個人の感想が多数を占めているだろうし、そうあるべきだと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というのも、メモにある正しい情報の羅列のうち、本当に理解して体に染み付いているものはどれか、というのがメモを見るだけだとわからないからです。(見た瞬間に想起されるので本当にメモを見る前から覚えていたのか、それとも今見たから思い出しているだけなのか峻別しづらい)。一方で、自分が理解した情報は頭の中にあるので、頭から引き出せた情報は少なくとも自分の中にあることがわかります。この場合、メモ側には自分が立てた問いが残っており、メモを見たときにその問いに対して明確な答えを持っているか、という対話がメモ活用の本来の姿に近いと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "前段の通り、このときの問いに感情をフックに仕掛けておくのは非常に有用です。なので、いいメモは他人から読みづらく、まとまっておらず、わからないことや疑問だらけのメモです。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "これが僕のメモ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://scrapbox.io/mtane0412/%E3%81%9F%E3%81%AD%E3%81%AE%E3%81%B6%E3%81%AE1%E6%97%A5%E3%81%B2%E3%81%A8%E3%81%A4%E3%81%A0%E3%81%91%E5%BC%B7%E3%81%8F%E3%81%AA%E3%82%8B%E3%82%B9%E3%83%886"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ですが、微妙ですよね。ただ僕にとっては非常に意味のある情報のまとまりになっています。自分の経験・感情とリンクしているので脳内の情報とうまく結びついています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このメモを自分が何度も何度も見返して考えることで自分の理解を深めてくれるし、新たなアイデアも生まれてきます。これは過去の自分と話しながら格ゲーについて考えているようなもので、例えばプラチナのときの自分の疑問に対してマスターの自分が回答するようなものです。過去の自分に対してうまく回答が用意できているものもあれば、未だに全然分からないものもあって、それは未来の自分に後回しにしちゃったりしています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "上級者からの言語的なアドバイス",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "知り合いの格ゲー経験者からのアドバイスも非常に有用ですが、あまり受けすぎないようにしました。上に書いている通り、初心者なので情報の優先付けができる状態ではなく、すぐにオーバーフローしてしまうので、むやみにアドバイスを受けまくっているとあまり効果的ではない気がします。ゲームが上手いことと教えるのがうまいことはまた別の次元の話なので、これもまた難しい問題です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "上級者にアドバイスをもらったときは、すぐに消化できなくても、後々に意味を取り出せるようにメモをとっておくことかなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "格ゲーをはじめたきっかけである",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Researchat.fm",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://researchat.fm/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "のたまきさんに動きを見てもらうきっかけがあり、10先をしてから要点をまとめてもらいました。格ゲーをはじめたのも",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "スト5でダイアモンドに到達したときのアプローチを話したエピソード",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://researchat.fm/episode/85"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "にとても感銘を受けた影響が大きいです。研究者の方なので言語化のレベルが非常に高くて、ピンポイントでアドバイスをもらえて上達がかなり加速したと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "他にも、野良でマッチしたときや偶に対戦する機会に相手にアドバイスを貰ってそれを書き留めておくこと、それをすぐに評価しようとせずに、意味を考え続けることが重要かなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "バトルハブで非言語的な潜在学習",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6のもう一つの新要素であるバーチャルゲーセンモードのバトルハブを実は活用していました。やっていたことは、非常に迷惑なことに、ダイアやマスターなど格上の台に座ってひたすらボコってもらうことです。相手にとってはあまり得ではないにも関わらず、意外と多くの人が長期戦に付き合ってくれました。きっと初心者を鍛えてくれてたんだと思います。本当にありがとうございます。自分もそうありたい…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ランクマの最初にボコられ続けたことが実は意外な効果を産んでいそうだと感じていて、要は格上にボコられた後に適正か下のランクの同キャラと戦うと、2つの差分を強く感じることができます。これは必ずしも言語化できておらず、例えば「なんかこの辺の距離で嫌なことをされたけどこの人にはされないな…」とかそういう理解が曖昧だけど肌感覚としてははっきり感じる情報が自分の中で顕在化してきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://images.unsplash.com/photo-1542326689136-d926f99423e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGJhYnklMjBwaG9uZXxlbnwwfHx8fDE2OTUwNDg3MjZ8MA&ixlib=rb-4.0.3&q=80&w=2000",
+					"width": 2000,
+					"height": 2667,
+					"title": "",
+					"alt": "boy holding smartphone while sitting on the chair",
+					"caption": "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@elpolox\"><span style=\"white-space: pre-wrap;\">PoloX Hernandez</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "心理学的には学習意図のある顕在学習(explicit learning)に対して、学習意図のない潜在学習(implicit learning)という分け方をすることがあります。要は特に教えることを意図していないけど繰り返し何かに触れることで勝手に覚えているもの、特に何かをきっかけにその蓄積された学習が顕在化するものを言います。言語学習アプリのDuolingoは、学習の中で文法や単語の意味を教えることをほとんど行っておらず、この潜在学習を上手く活用している例です。これは言語自体が潜在学習だからですね。ヒトの子もある日を境に突然語彙爆発することが知られています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "言語処理と非言語処理、意識の処理と無意識の処理の違いの特徴を端的に言うなら、前者は遅くて少ない、後者は速くて多いということが言えます。今こうして言葉を使って思考しているのは言語・意識の領域ですが、非言語・無意識の領域ではこれらを遥かに超える情報が処理されています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "意識領域だけ、つまり言葉や動画だけで対策を積み重ねてもスピードと量はたかが知れているので、こういう非言語的なインプットを織り交ぜることで学習を加速させるのが効果的です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この膨大な潜在的知識の一部が言語化可能で明示的知識として人々の間で交換されるようになります。言語化できると実際に経験することなく知識を他人に伝えることができるようになり、人類はこの点で生物界においてかなりOPな存在なのですが、言うまでもなく明示的知識を内面化して潜在的知識として定着させるよりも、最初から潜在的知識を獲得してから言語化するほうが情報運用効率は高いので、バトルハブのような上級者へのアクセスが用意されているのが環境として非常に恵まれていると感じました。毎日ランクマを回してから寝る前にマスターにボコられて寝る日々で上達が加速したように思います。なるほど、CAPCOMは格ゲーの上達にゲーセンという空間が必要であることを認識していたのだろうなと思うとすげえなと思います（小並感）",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "長く険しいマスターリーグのはじまり…",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "雑に取り組み方についてまとめてみましたが、基本的には最初のボコられ以降、基本的にはランクが大きく乱高下することなく、ほどよく壁にぶち当たっては数日後に破りを繰り返し、ランクを上げていくことができました。数日前には手も足も出なかったレート帯が数日後には高確率で勝ちを拾える相手に変わるわけで、着実な成長を感じられて格ゲーにもどんどんのめり込んでいったように思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "振り返ってみると、スト6からの新要素であるモダン入力・ワールドツアー・バトルハブが全て上達のキーになっており、カプコンは新規獲得にかなり力を入れたんだろうなあと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6のレートシステムはPokemon Uniteと似ており、勝率50%を割っても基本的には上昇します。実際僕の勝率も47%くらいで、キャラによっては20%台のキャラもいました。よりシビアなスト5に近いレートシステムはマスターリーグからで、こちらは勝率51%を目指す必要がありそうです。レートシステムについても色々議論がありますが、初心者的には着実に目の前の壁をクリアすればレートが上昇する今のシステムはプレイしていて気持ちがいいですし、より競技的な物を求める人にはマスターリーグが用意されているので、かなりいいバランスだと感じています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これまではある程度塗装されたハイウェイを走っていた感じすが、これからはシビアな上達なしには上には上がれない領域だと思うので、自分にはどうしようもない壁とかが出てくるんだろうなぁとか不安やらワクワクやらでいっぱいです。まだまだ改善点だらけですが、これまでどおり目の前のひとつひとつに集中してより楽しくプレイできるように出来たらなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "正直ここまで格ゲーにハマるとは思っていなかったので、本当にスト6の完成度は高いんだと思います。一番の収穫はストリートファイターリーグをより楽しめるようになったことかもしれません。カプコンの思惑通り格ゲーにハマった人間が一人いることが伝われば嬉しいなぁ。あとスト6のモチベーションとかで悩んでる人のヒントにでもなれば幸いです。対戦ありがとうございました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong style=\"white-space: pre-wrap;\">感想</strong></b><span style=\"white-space: pre-wrap;\">: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "signup",
+					"version": 1,
+					"alignment": "left",
+					"backgroundColor": "#F0F0F0",
+					"backgroundImageSrc": "",
+					"backgroundSize": "cover",
+					"textColor": "#000000",
+					"buttonColor": "accent",
+					"buttonTextColor": "#FFFFFF",
+					"buttonText": "購読する",
+					"disclaimer": "<span style=\"white-space: pre-wrap;\">※スパム等は一切ないのでご安心ください。いつでも購読解除可能です。</span>",
+					"header": "<span style=\"white-space: pre-wrap;\">「はなしのタネ」を購読する</span>",
+					"labels": [],
+					"layout": "wide",
+					"subheader": "<span style=\"white-space: pre-wrap;\">ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！</span>",
+					"successMessage": "Email sent! Check your inbox to complete your signup.",
+					"swapped": false
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "引き続き更新が安定せずすみません！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "たねハウスは引き続き整備中。なかなか進捗しませんが少しずつ改善していってます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お隣さんの親戚の方から立派なタンスを譲っていただきました。親切～～～！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1698132321550143621",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">お隣さんの親戚の方からタンスを譲っていただいた！😆あったけぇ… <a href=\"https://t.co/fKQR3NblkX\">pic.twitter.com/fKQR3NblkX</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698132321550143621?ref_src=twsrc%5Etfw\">September 3, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1698132321550143621",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">お隣さんの親戚の方からタンスを譲っていただいた！😆あったけぇ… <a href=\"https://t.co/fKQR3NblkX\">pic.twitter.com/fKQR3NblkX</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698132321550143621?ref_src=twsrc%5Etfw\">September 3, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "台所の棚に使われていた板がだいぶ汚かったので差し替えることに。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1698218124502573373",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">スーツと合板買った <a href=\"https://t.co/p47KeinGPN\">pic.twitter.com/p47KeinGPN</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698218124502573373?ref_src=twsrc%5Etfw\">September 3, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1698218124502573373",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">スーツと合板買った <a href=\"https://t.co/p47KeinGPN\">pic.twitter.com/p47KeinGPN</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698218124502573373?ref_src=twsrc%5Etfw\">September 3, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ぴったりサイズで頼んじゃったので少しギコギコ…",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1703284258796929082",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">もともとあった板が汚かったので新しいのにした。カットしてもらったのがギリギリすぎたので結局自分でギコギコ…😇 <a href=\"https://t.co/ZipWm4XZTs\">pic.twitter.com/ZipWm4XZTs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703284258796929082?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1703284258796929082",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">もともとあった板が汚かったので新しいのにした。カットしてもらったのがギリギリすぎたので結局自分でギコギコ…😇 <a href=\"https://t.co/ZipWm4XZTs\">pic.twitter.com/ZipWm4XZTs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703284258796929082?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いい感じになったのでマット敷いて完成。少しスペースにゆとりができました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1703691721111196046",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">防水マット敷いた✅ <a href=\"https://t.co/YgfpVtB9vo\">pic.twitter.com/YgfpVtB9vo</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703691721111196046?ref_src=twsrc%5Etfw\">September 18, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1703691721111196046",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">防水マット敷いた✅ <a href=\"https://t.co/YgfpVtB9vo\">pic.twitter.com/YgfpVtB9vo</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703691721111196046?ref_src=twsrc%5Etfw\">September 18, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "井戸は蛇口も交換して完全に稼働！冷たくて気持ちいいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1698230595321840121",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">井戸修理完了✅ <a href=\"https://t.co/c8Ml2eH1to\">pic.twitter.com/c8Ml2eH1to</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698230595321840121?ref_src=twsrc%5Etfw\">September 3, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1698230595321840121",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">井戸修理完了✅ <a href=\"https://t.co/c8Ml2eH1to\">pic.twitter.com/c8Ml2eH1to</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698230595321840121?ref_src=twsrc%5Etfw\">September 3, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちょくちょく知り合いが泊まりに来たり遊びに来てくれたりしています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1698647629171753145",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">コミティアからうちに泊まりに来てくれたゲストの戦利品🥰 <a href=\"https://t.co/voTi1hjoOG\">pic.twitter.com/voTi1hjoOG</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698647629171753145?ref_src=twsrc%5Etfw\">September 4, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1698647629171753145",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">コミティアからうちに泊まりに来てくれたゲストの戦利品🥰 <a href=\"https://t.co/voTi1hjoOG\">pic.twitter.com/voTi1hjoOG</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1698647629171753145?ref_src=twsrc%5Etfw\">September 4, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1703381530046050421",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">東京に行った時にお世話になった人が奥さんと一緒に近くを通ったのでご飯！！最近はオープンソースのライブラリ開発してるなーと遠くから見てたらなんかtiktokにも使われてるらしくてすごい! <a href=\"https://t.co/3n7juLCbDY\">pic.twitter.com/3n7juLCbDY</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703381530046050421?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1703381530046050421",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">東京に行った時にお世話になった人が奥さんと一緒に近くを通ったのでご飯！！最近はオープンソースのライブラリ開発してるなーと遠くから見てたらなんかtiktokにも使われてるらしくてすごい! <a href=\"https://t.co/3n7juLCbDY\">pic.twitter.com/3n7juLCbDY</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703381530046050421?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "珍しいお客さんも…",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1703199673086063017",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"zxx\" dir=\"ltr\">… <a href=\"https://t.co/XIPdx7Gj0y\">pic.twitter.com/XIPdx7Gj0y</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703199673086063017?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1703199673086063017",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"zxx\" dir=\"ltr\">… <a href=\"https://t.co/XIPdx7Gj0y\">pic.twitter.com/XIPdx7Gj0y</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1703199673086063017?ref_src=twsrc%5Etfw\">September 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんな感じです！今月はもう少し忙しいかもしれませんが、もう少し軽めの記事とかで更新していきたいと思います！ではでは～",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
