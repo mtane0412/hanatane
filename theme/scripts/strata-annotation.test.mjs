@@ -60,10 +60,10 @@ const 記事一覧 = [
     }
 ];
 
-test('buildAnnotationView: 現在記事の summary と inferredRefs を、関係先の記事情報(icon 含む)付きで返す', () => {
+test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情報(icon 含む)付きで返し、summary は含めない(関連記事欄には要約を出さない)', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧, 'hyperstrata');
-    assert.equal(view.summary, 'Hyperstrata を Ghost に実装した記事の要約。');
+    assert.deepEqual(Object.keys(view), ['relations']);
     assert.deepEqual(view.relations, [
         {
             type: 'continues',
@@ -80,7 +80,6 @@ test('buildAnnotationView: 現在記事の summary と inferredRefs を、関係
 test('buildAnnotationView: reason が無い関係は reason: null のまま返す(posts/strata/private/ 由来を想定)', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧, 'window-film');
-    assert.equal(view.summary, null);
     assert.deepEqual(view.relations, [
         {
             type: 'continues',
@@ -121,17 +120,16 @@ test('buildAnnotationView: 関係先の icon が無い記事(該当題材なし)
     assert.equal(view.relations[0].icon, null);
 });
 
-test('buildAnnotationView: 現在記事に inferredRefs も summary も無ければ空の関係一覧と null を返す', () => {
+test('buildAnnotationView: 現在記事に inferredRefs が無ければ空の関係一覧を返す(summary があっても表示対象にしない)', () => {
     const {buildAnnotationView} = 読み込む();
-    const view = buildAnnotationView(記事一覧, 'welcome-cat');
-    assert.equal(view.summary, null);
-    assert.deepEqual(view.relations, []);
+    const view = buildAnnotationView(記事一覧.map(post => (post.slug === 'welcome-cat' ? {...post, summary: '猫を迎えた記事の要約。'} : post)), 'welcome-cat');
+    assert.deepEqual(view, {relations: []});
 });
 
-test('buildAnnotationView: currentSlug が posts に無い(空文字含む)場合は summary: null, relations: [] を返す', () => {
+test('buildAnnotationView: currentSlug が posts に無い(空文字含む)場合は relations: [] を返す', () => {
     const {buildAnnotationView} = 読み込む();
-    assert.deepEqual(buildAnnotationView(記事一覧, ''), {summary: null, relations: []});
-    assert.deepEqual(buildAnnotationView(記事一覧, 'not-found'), {summary: null, relations: []});
+    assert.deepEqual(buildAnnotationView(記事一覧, ''), {relations: []});
+    assert.deepEqual(buildAnnotationView(記事一覧, 'not-found'), {relations: []});
 });
 
 test('buildAnnotationView: 関係先slugが posts に存在しない場合(古いキャッシュ等)は無視する', () => {
@@ -147,7 +145,7 @@ test('buildAnnotationView: 関係先slugが posts に存在しない場合(古�
             summary: null
         }
     ];
-    assert.deepEqual(buildAnnotationView(posts, 'a'), {summary: null, relations: []});
+    assert.deepEqual(buildAnnotationView(posts, 'a'), {relations: []});
 });
 
 test('buildAnnotationView: posts が配列でない場合は例外を投げる', () => {

@@ -92,15 +92,15 @@
         </div>
     </section>
 
-    {{!-- Hyperstrata: Claude Code が posts/strata/ に書いた注釈(要約・過去記事との関係)。
-          scripts/hyperstrata-sync.mjs が graph.json に合成する summary / inferredRefs(type・reason)を
-          assets/js/strata-annotation.js が fetch して描画する。JavaScript 無効時や注釈がまだ無い記事
-          (strata pending)では section を hidden のままにする。
+    {{!-- Hyperstrata: Claude Code が posts/strata/ に書いた注釈のうち、過去記事との関係(inferredRefs)を
+          関連記事のリンク一覧として出す。scripts/hyperstrata-sync.mjs が graph.json に合成する
+          inferredRefs(type・reason)を assets/js/strata-annotation.js が fetch して描画する。
+          注釈の要約(summary)はここには出さない(リンク集としては冗長なため)。
+          JavaScript 無効時や注釈がまだ無い記事(strata pending)では section を hidden のままにする。
           見出しは References / Cited by と同じ「関連記事へのリンク集」のレベルに揃え、関係の種類
           (続報/再訪/更新)は一覧見出しではなく各項目のバッジ(data-label-*)として表示する --}}
     <section class="gh-strata-annotation gh-canvas" data-strata-annotation data-current-slug="{{slug}}" data-strata-graph-url="{{asset "graph.json"}}" hidden>
         <h2 class="gh-strata-annotation-title">{{t "Related posts"}}</h2>
-        <p class="gh-strata-annotation-summary" data-strata-annotation-summary></p>
         <ul class="gh-strata-annotation-list" data-strata-annotation-list
             data-label-continues="{{t "Continues"}}"
             data-label-revisits="{{t "Revisits"}}"
