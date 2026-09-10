@@ -134,6 +134,31 @@ describe("parseStrataAnnotation", () => {
 		).toThrow("annotated_at");
 	});
 
+	it("icon が無い注釈は icon が null になる", () => {
+		const annotation = parseStrataAnnotation(
+			JSON.stringify(正しい注釈),
+			"hyperstrata.json",
+		);
+		expect(annotation.icon).toBeNull();
+	});
+
+	it("icon が既知の種別なら読み込める", () => {
+		const annotation = parseStrataAnnotation(
+			JSON.stringify({ ...正しい注釈, icon: "tech" }),
+			"hyperstrata.json",
+		);
+		expect(annotation.icon).toBe("tech");
+	});
+
+	it("未知の icon はエラーになる", () => {
+		expect(() =>
+			parseStrataAnnotation(
+				JSON.stringify({ ...正しい注釈, icon: "dog" }),
+				"hyperstrata.json",
+			),
+		).toThrow("icon");
+	});
+
 	it("JSON でない内容はエラーになる", () => {
 		expect(() => parseStrataAnnotation("{", "hyperstrata.json")).toThrow(
 			"JSON",

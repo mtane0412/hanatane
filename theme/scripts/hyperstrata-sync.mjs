@@ -190,9 +190,10 @@ export function selectOrphanRefTags(tags) {
  * @param {Map<string, string[]>} params.referencedSlugsBySlug 記事 slug → 引用先 slug の対応表
  * @param {Map<string, Array<{slug: string, type: string, reason?: string}>>} [params.inferredRelationsBySlug] 記事 slug → Hyperstrata 注釈の関係先の対応表
  * @param {Map<string, string>} [params.summaryBySlug] 記事 slug → Hyperstrata 注釈の要約の対応表
- * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string, reason: string|null}>, summary: string|null}>}}
+ * @param {Map<string, string>} [params.iconBySlug] 記事 slug → Hyperstrata 注釈の題材アイコン種別の対応表
+ * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string, reason: string|null}>, summary: string|null, icon: string|null}>}}
  */
-export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map(), summaryBySlug = new Map()}) {
+export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map(), summaryBySlug = new Map(), iconBySlug = new Map()}) {
     const publishedSlugs = new Set(posts.map((post) => post.slug));
     const nodes = posts.map((post) => {
         const refs = referencedSlugsBySlug.get(post.slug);
@@ -209,7 +210,8 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
             publishedAt: post.published_at,
             refs,
             inferredRefs,
-            summary: summaryBySlug.get(post.slug) ?? null
+            summary: summaryBySlug.get(post.slug) ?? null,
+            icon: iconBySlug.get(post.slug) ?? null
         };
     });
     nodes.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
@@ -221,12 +223,12 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
  *
  * `posts/strata/private/` の注釈は summary と relations[].reason が sops(`posts/.sops.yaml`)で暗号化されており、
  * このスクリプトは復号しない。`includeText: false` を渡すと、暗号文を graph.json(公開アセット)に
- * そのまま書き出してしまわないよう summary と reason を null にする。関係先の slug と type は
+ * そのまま書き出してしまわないよう summary と reason を null にする。関係先の slug と type、icon(題材アイコン種別)は
  * private でも暗号化されないため、includeText に関わらずそのまま含める。
  *
- * @param {{slug: string, summary?: string, relations?: Array<{slug: string, type: string, reason?: string}>}} annotation
+ * @param {{slug: string, summary?: string, relations?: Array<{slug: string, type: string, reason?: string}>, icon?: string}} annotation
  * @param {{includeText: boolean}} params
- * @returns {{slug: string, summary: string|null, relations: Array<{slug: string, type: string, reason: string|null}>}}
+ * @returns {{slug: string, summary: string|null, relations: Array<{slug: string, type: string, reason: string|null}>, icon: string|null}}
  */
 export function parseAnnotation(annotation, {includeText}) {
     const relations = (annotation.relations ?? []).map((relation) => ({
@@ -237,7 +239,8 @@ export function parseAnnotation(annotation, {includeText}) {
     return {
         slug: annotation.slug,
         summary: includeText ? (annotation.summary ?? null) : null,
-        relations
+        relations,
+        icon: annotation.icon ?? null
     };
 }
 
@@ -249,7 +252,7 @@ export function parseAnnotation(annotation, {includeText}) {
  * 復号しないため、parseAnnotation の includeText: false で null にする(relations[].slug/type は
  * 暗号化対象に含まれず平文のためそのまま使う)。ディレクトリが存在しない場合はそのディレクトリ分を空とする。
  *
- * @returns {Promise<{inferredRelationsBySlug: Map<string, Array<{slug: string, type: string, reason: string|null}>>, summaryBySlug: Map<string, string>}>}
+ * @returns {Promise<{inferredRelationsBySlug: Map<string, Array<{slug: string, type: string, reason: string|null}>>, summaryBySlug: Map<string, string>, iconBySlug: Map<string, string>}>}
  */
 async function readInferredRelations() {
     const dirs = [
@@ -258,6 +261,7 @@ async function readInferredRelations() {
     ];
     const inferredRelationsBySlug = new Map();
     const summaryBySlug = new Map();
+    const iconBySlug = new Map();
     for (const {url: dir, includeText} of dirs) {
         let fileNames;
         try {
@@ -282,9 +286,12 @@ async function readInferredRelations() {
             if (parsed.summary !== null) {
                 summaryBySlug.set(parsed.slug, parsed.summary);
             }
+            if (parsed.icon !== null) {
+                iconBySlug.set(parsed.slug, parsed.icon);
+            }
         }
     }
-    return {inferredRelationsBySlug, summaryBySlug};
+    return {inferredRelationsBySlug, summaryBySlug, iconBySlug};
 }
 
 /**
@@ -435,8 +442,8 @@ async function main() {
     const refTags = await client.getRefTags();
     await ensureRefTagDescriptions(client, refTags, dryRun);
     const prunedCount = await pruneOrphanRefTags(client, refTags, dryRun);
-    const {inferredRelationsBySlug, summaryBySlug} = await readInferredRelations();
-    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug}), dryRun);
+    const {inferredRelationsBySlug, summaryBySlug, iconBySlug} = await readInferredRelations();
+    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug, iconBySlug}), dryRun);
     console.log(`完了: ${updatedCount} 件の記事を更新、${prunedCount} 件の引用タグを削除${dryRun ? '予定' : ''}、graph.json は${graphChanged ? '更新' : '変更なし'}`);
 }
 

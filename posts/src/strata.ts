@@ -10,14 +10,15 @@
  *     "summary": "<記事の要約（200〜300 字程度）>",
  *     "relations": [{ "slug": "<過去記事 slug>", "type": "continues" | "revisits" | "updates", "reason": "<一行の理由>" }],
  *     "annotated_at": "<ISO 8601>",
- *     "annotator": "<注釈を書いたモデル名>"
+ *     "annotator": "<注釈を書いたモデル名>",
+ *     "icon": "<TOPIC_ICONS のいずれか、該当なしなら省略>"
  *   }
  *
  * ルール:
  *   - 注釈は公開済みの記事にだけ付け、関係は自分より前に公開された記事だけを指す（後方参照のみ、DAG を保つ）
  *   - 一度書いた注釈は書き換えない（解釈も地層として積む）
  *   - 限定記事（visibility が members / paid）の注釈は strata/private/ に置き、summary と reason を sops で暗号化する
- *     （関係の存在と種類は title と同じく公開情報として平文で残す）
+ *     （関係の存在と種類、icon は title と同じく公開情報として平文で残す）
  *
  * このモジュールは純粋関数だけを持ち、ファイル入出力と sops の実行は scripts/strata.ts が担当します。
  */
@@ -41,6 +42,30 @@ export const PLAIN_STRATA_SUFFIX = ".plain.json";
 export const RELATION_TYPES = ["continues", "revisits", "updates"] as const;
 export type RelationType = (typeof RELATION_TYPES)[number];
 
+/**
+ * 記事の題材を表すアイコン種別（地層の可視化で使う）
+ *   - cat: 猫
+ *   - house: 古民家・DIY・住まい
+ *   - hunting: 狩猟
+ *   - game: 格ゲー・ゲーム
+ *   - tech: 開発・Ghost運用・ツール
+ *   - travel: 旅行・遠征
+ *   - journal: 週報・振り返り・エッセイ的な考え
+ *   - event: 勉強会・登壇・交流イベント
+ * どれにも当てはまらない記事は icon を付けない（null）。
+ */
+export const TOPIC_ICONS = [
+	"cat",
+	"house",
+	"hunting",
+	"game",
+	"tech",
+	"travel",
+	"journal",
+	"event",
+] as const;
+export type TopicIcon = (typeof TOPIC_ICONS)[number];
+
 export interface StrataRelation {
 	slug: string;
 	type: RelationType;
@@ -53,6 +78,8 @@ export interface StrataAnnotation {
 	relations: StrataRelation[];
 	annotated_at: string;
 	annotator: string;
+	/** 該当する題材が無ければ null */
+	icon: TopicIcon | null;
 }
 
 /** 注釈の対象になる記事のメタ情報（`.post.json` の平文部分から取る） */
@@ -85,6 +112,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function isRelationType(value: unknown): value is RelationType {
 	return (RELATION_TYPES as readonly unknown[]).includes(value);
+}
+
+function isTopicIcon(value: unknown): value is TopicIcon {
+	return (TOPIC_ICONS as readonly unknown[]).includes(value);
 }
 
 function requireNonEmptyString(
@@ -153,12 +184,18 @@ export function parseStrataAnnotation(
 			`${fileName}: annotated_at は ISO 8601 形式にしてください: ${annotatedAt}`,
 		);
 	}
+	if (data.icon !== undefined && !isTopicIcon(data.icon)) {
+		throw new Error(
+			`${fileName}: icon は ${TOPIC_ICONS.join(" / ")} のいずれかにしてください: ${String(data.icon)}`,
+		);
+	}
 	return {
 		slug,
 		summary,
 		relations,
 		annotated_at: annotatedAt,
 		annotator: requireNonEmptyString(data, "annotator", fileName),
+		icon: data.icon ?? null,
 	};
 }
 

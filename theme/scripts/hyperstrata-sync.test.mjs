@@ -195,9 +195,9 @@ test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slu
     const graph = buildGraph({posts: [グラフ用記事[0], グラフ用記事[2], グラフ用記事[1]], referencedSlugsBySlug});
     assert.deepEqual(graph, {
         posts: [
-            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: [], summary: null},
-            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: [], summary: null},
-            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: [], summary: null}
+            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: [], summary: null, icon: null},
+            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: [], summary: null, icon: null},
+            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: [], summary: null, icon: null}
         ]
     });
 });
@@ -352,7 +352,8 @@ test('parseAnnotation: includeText:true では summary と relations[].reason �
         summary: 'Hyperstrata を Ghost に実装した記事の要約。',
         relations: [
             {slug: 'welcome-cat', type: 'continues', reason: '前回の記事として明言しているため。'}
-        ]
+        ],
+        icon: null
     });
 });
 
@@ -370,11 +371,55 @@ test('parseAnnotation: includeText:false では summary と relations[].reason �
         summary: null,
         relations: [
             {slug: 'diet-declaration-2023', type: 'continues', reason: null}
-        ]
+        ],
+        icon: null
     });
 });
 
 test('parseAnnotation: relations が無い注釈は空配列になる', () => {
     const result = parseAnnotation({slug: 'lonely-post'}, {includeText: true});
-    assert.deepEqual(result, {slug: 'lonely-post', summary: null, relations: []});
+    assert.deepEqual(result, {slug: 'lonely-post', summary: null, relations: [], icon: null});
+});
+
+// ---------------------------------------------------------------------------
+// 題材アイコン(icon)の合成
+// ---------------------------------------------------------------------------
+
+test('parseAnnotation: icon はそのまま含める(private 由来の暗号化 summary/reason とは異なり暗号化されないため includeText に関わらず通す)', () => {
+    const 平文注釈 = parseAnnotation({slug: 'welcome-cat', icon: 'cat'}, {includeText: true});
+    assert.equal(平文注釈.icon, 'cat');
+    const private注釈 = parseAnnotation({slug: 'welcome-cat', icon: 'cat'}, {includeText: false});
+    assert.equal(private注釈.icon, 'cat');
+});
+
+test('parseAnnotation: icon が無い注釈は icon が null になる', () => {
+    const result = parseAnnotation({slug: 'lonely-post'}, {includeText: true});
+    assert.equal(result.icon, null);
+});
+
+test('buildGraph: iconBySlug を渡すと各記事に icon が付き、対応が無い記事は null になる', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const iconBySlug = new Map([
+        ['hyperstrata-introduction', 'tech']
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, iconBySlug});
+    const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
+    assert.equal(対応表.get('hyperstrata-introduction').icon, 'tech');
+    assert.equal(対応表.get('digital-garden-limits').icon, null);
+});
+
+test('buildGraph: iconBySlug を渡さない場合も、既存の呼び出し方のまま動作する(後方互換)', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug});
+    graph.posts.forEach(post => {
+        assert.equal(post.icon, null);
+    });
 });

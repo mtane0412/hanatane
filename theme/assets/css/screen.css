@@ -2569,6 +2569,14 @@ figcaption a {
     border-top: 1px solid var(--color-border);
 }
 
+.gh-strata-annotation-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    align-self: center;
+    color: var(--color-secondary-text);
+}
+
 .gh-strata-annotation-type {
     flex-shrink: 0;
     font-size: 1.2rem;
