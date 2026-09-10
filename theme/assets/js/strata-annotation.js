@@ -18,8 +18,8 @@
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、何も表示しない
  * - 現在記事の情報選択(buildAnnotationView)は DOM に依存しない純粋関数として
  *   window.HyperstrataAnnotation に公開し、scripts/strata-annotation.test.mjs から検証する
- * - 関係先の題材アイコンは assets/js/strata-icons.js(window.HyperstrataIcons)を使う。
- *   gulp が assets/js/*.js を連結するため読み込み順を気にする必要はない(参照は描画時にのみ発生する)
+ * - graph.json の題材アイコン(icon)は地層グラフ(assets/js/strata-graph.js)に埋める遊びの
+ *   イラストであり、関連記事欄はリンク集なので表示しない
  */
 (function () {
     /** 関係の種類(posts/strata/ の type)の表示ラベル。既知の種類以外は type をそのまま表示する */
@@ -31,11 +31,11 @@
 
     /**
      * graph.json の記事配列から、現在記事の関係先(記事情報付き)を組み立てる。
-     * 現在記事の summary は関連記事欄に表示しないため戻り値に含めない。
+     * 現在記事の summary と関係先の icon は関連記事欄に表示しないため戻り値に含めない。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>, icon?: string|null}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>}>} posts
      * @param {string} currentSlug 現在表示中の記事の slug
-     * @returns {{relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string, icon: string|null}>}}
+     * @returns {{relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>}}
      */
     function buildAnnotationView(posts, currentSlug) {
         if (!Array.isArray(posts)) {
@@ -61,8 +61,7 @@
                     slug: target.slug,
                     title: target.title,
                     url: target.url,
-                    publishedAt: target.publishedAt,
-                    icon: target.icon || null
+                    publishedAt: target.publishedAt
                 };
             })
             .filter(function (relation) {
@@ -95,33 +94,14 @@
     }
 
     /**
-     * 題材アイコン(strata-icons.js の window.HyperstrataIcons)を <svg> 要素として作る。
-     * 未知の icon や null なら null を返す。
-     *
-     * @param {string|null} icon
-     * @returns {SVGSVGElement|null}
-     */
-    function createIconElement(icon) {
-        return window.HyperstrataIcons.createElement(icon, {
-            'aria-hidden': 'true',
-            class: 'gh-strata-annotation-icon'
-        });
-    }
-
-    /**
      * 関係一覧の1件を <li> として描画する。
      *
-     * @param {{type: string, reason: string|null, slug: string, title: string, url: string, icon: string|null}} relation
+     * @param {{type: string, reason: string|null, slug: string, title: string, url: string}} relation
      * @param {HTMLUListElement} list
      */
     function renderRelation(relation, list) {
         const item = document.createElement('li');
         item.className = 'gh-strata-annotation-item';
-
-        const icon = createIconElement(relation.icon);
-        if (icon) {
-            item.appendChild(icon);
-        }
 
         const typeLabel = document.createElement('span');
         typeLabel.className = 'gh-strata-annotation-type';
