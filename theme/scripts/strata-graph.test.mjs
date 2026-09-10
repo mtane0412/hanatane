@@ -167,7 +167,8 @@ function ペインを読み込む() {
         computeEmphasis: (nodes, edges, slug, hops) => 正規化(api.computeEmphasis(nodes, edges, slug, hops)),
         buildStrataBands: (marks, height) => 正規化(api.buildStrataBands(marks, height)),
         strataBoundaryPath: (y, width, options) => api.strataBoundaryPath(y, width, options),
-        assignBandIcons: (bands, nodes, options) => 正規化(api.assignBandIcons(bands, nodes, options))
+        assignBandIcons: (bands, nodes, options) => 正規化(api.assignBandIcons(bands, nodes, options)),
+        columnExtent: nodes => 正規化(api.columnExtent(nodes))
     };
 }
 
@@ -520,6 +521,105 @@ test('assignBandIcons: slug が違えば(y が同じでも)配置が変わる(�
     ];
     const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10});
     assert.notDeepEqual([placements[0].x, placements[0].y], [placements[1].x, placements[1].y]);
+});
+
+test('assignBandIcons: options.avoid(ノード・エッジの描画領域)を渡すと、その範囲を避けて配置する', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    // 多数のノードを用意し、avoid の範囲(80〜160)に x が落ちないことを網羅的に確認する
+    const nodes = Array.from({length: 50}, (_, index) => ({slug: `post-${index}`, y: 40, icon: 'cat'}));
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10, avoid: {min: 80, max: 160}});
+    placements.forEach(p => {
+        assert.ok(p.x < 80 || p.x > 160, `x=${p.x} は avoid 範囲(80〜160)の外側であるべき`);
+        assert.ok(p.x >= 0 && p.x <= 200, 'x は xMin〜xMax の範囲内');
+    });
+});
+
+test('assignBandIcons: avoid が xMin〜xMax をほぼ覆っていても、残った隙間(xMin 側)に収まる', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [{slug: 'squeezed', y: 40, icon: 'cat'}];
+    // avoid が右側(40〜200)を覆うので、残るのは xMin(0)〜40 の隙間だけ
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10, avoid: {min: 40, max: 200}});
+    assert.equal(placements.length, 1);
+    assert.ok(placements[0].x >= 0 && placements[0].x <= 40, `x=${placements[0].x} は残った隙間(0〜40)の内側であるべき`);
+});
+
+test('assignBandIcons: avoid を渡さない場合は従来どおり xMin〜xMax 全体から配置する(後方互換)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [{slug: 'stable-position', y: 40, icon: 'cat'}];
+    const options = {xMin: 0, xMax: 200, marginY: 10};
+    assert.deepEqual(assignBandIcons(帯, nodes, options), assignBandIcons(帯, nodes, Object.assign({}, options, {avoid: null})));
+});
+
+test('assignBandIcons: options.maxPerBand を渡すと、1つの帯に配置するアイコン数をその上限までに絞る', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    // 帯[0](top:0〜bottom:100)に icon 付きノードを 6 件用意する
+    const nodes = Array.from({length: 6}, (_, index) => ({slug: `dense-post-${index}`, y: 10 + index, icon: 'cat'}));
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10, maxPerBand: 3});
+    assert.equal(placements.length, 3);
+});
+
+test('assignBandIcons: maxPerBand による絞り込みは決定的(同じ入力なら常に同じ3件を選ぶ)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = Array.from({length: 6}, (_, index) => ({slug: `dense-post-${index}`, y: 10 + index, icon: 'cat'}));
+    const options = {xMin: 0, xMax: 200, marginY: 10, maxPerBand: 3};
+    const 一回目 = assignBandIcons(帯, nodes, options).map(p => p.slug).sort();
+    const 二回目 = assignBandIcons(帯, nodes, options).map(p => p.slug).sort();
+    assert.deepEqual(一回目, 二回目);
+});
+
+test('assignBandIcons: maxPerBand は帯ごとに独立して適用する(帯をまたいで数えない)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    // 帯[0]に4件、帯[1]に4件(帯[1]は top:100〜bottom:300 の範囲)
+    const nodes = [
+        ...Array.from({length: 4}, (_, index) => ({slug: `band0-${index}`, y: 10 + index, icon: 'cat'})),
+        ...Array.from({length: 4}, (_, index) => ({slug: `band1-${index}`, y: 110 + index, icon: 'cat'}))
+    ];
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10, maxPerBand: 3});
+    const 帯0の件数 = placements.filter(p => p.slug.startsWith('band0')).length;
+    const 帯1の件数 = placements.filter(p => p.slug.startsWith('band1')).length;
+    assert.equal(帯0の件数, 3);
+    assert.equal(帯1の件数, 3);
+});
+
+test('assignBandIcons: maxPerBand を渡さない場合は従来どおり件数を絞らない(後方互換)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = Array.from({length: 6}, (_, index) => ({slug: `dense-post-${index}`, y: 10 + index, icon: 'cat'}));
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10});
+    assert.equal(placements.length, 6);
+});
+
+test('assignBandIcons: 各配置は angle(回転角度)を持ち、-30〜30度の範囲に収まる(埋蔵物のように傾ける)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [{slug: 'tilted', y: 40, icon: 'cat'}];
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10});
+    assert.equal(placements.length, 1);
+    assert.ok(typeof placements[0].angle === 'number', 'angle は数値であるべき');
+    assert.ok(placements[0].angle >= -30 && placements[0].angle <= 30, `angle=${placements[0].angle} は -30〜30 の範囲内であるべき`);
+});
+
+test('assignBandIcons: slug が違えば angle も変わる(全部同じ向きに揃わない)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [
+        {slug: 'angle-a', y: 40, icon: 'cat'},
+        {slug: 'angle-b', y: 40, icon: 'cat'}
+    ];
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10});
+    assert.notEqual(placements[0].angle, placements[1].angle);
+});
+
+// ---------------------------------------------------------------------------
+// columnExtent: ノード配列が使っている列(col)の最小値・最大値
+// ---------------------------------------------------------------------------
+
+test('columnExtent: ノードが使っている列の最小値・最大値を返す', () => {
+    const {columnExtent} = ペインを読み込む();
+    const nodes = [{slug: 'a', col: 0}, {slug: 'b', col: 2}, {slug: 'c', col: -1}];
+    assert.deepEqual(columnExtent(nodes), {min: -1, max: 2});
+});
+
+test('columnExtent: ノードが空配列なら null を返す', () => {
+    const {columnExtent} = ペインを読み込む();
+    assert.equal(columnExtent([]), null);
 });
 
 // ---------------------------------------------------------------------------

@@ -192,7 +192,7 @@
      * 装飾のため aria-hidden にし、クリック等を奪わないよう pointer-events は CSS(.gh-strata-band-icons)で消す。
      * window.HyperstrataIcons(assets/js/strata-icons.js)が未知の icon には null を返すため、その場合は何も足さない。
      *
-     * @param {Array<{icon: string, x: number, y: number}>} placements
+     * @param {Array<{icon: string, x: number, y: number, angle: number}>} placements
      * @param {number} size アイコンの一辺(px)
      * @returns {SVGGElement}
      */
@@ -203,7 +203,8 @@
                 x: placement.x - size / 2,
                 y: placement.y - size / 2,
                 width: size,
-                height: size
+                height: size,
+                transform: 'rotate(' + placement.angle + ' ' + placement.x + ' ' + placement.y + ')'
             });
             if (icon) {
                 group.appendChild(icon);
@@ -251,12 +252,20 @@
         });
         svg.appendChild(bandGroup);
 
-        // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)
+        // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
+        // ノード(種)とエッジ(引用元 → 引用先の弧)は axisX の左右(axisX - maxArcWidth 〜 axisX + nodeRadius)に
+        // 描かれるため、avoid でその範囲を避ける。多すぎると目立つため帯ごとに最大 3 個までに絞る
         const iconNodes = layout.nodes.map(function (node) {
             return {slug: node.slug, icon: node.icon, y: nodeY[node.slug]};
         });
         svg.appendChild(buildBandIconGroup(
-            assignBandIcons(bands, iconNodes, {xMin: 12, xMax: options.width - 12, marginY: 14}),
+            assignBandIcons(bands, iconNodes, {
+                xMin: 12,
+                xMax: options.width - 12,
+                marginY: 14,
+                avoid: {min: options.axisX - options.maxArcWidth, max: options.axisX + options.nodeRadius},
+                maxPerBand: 3
+            }),
             18
         ));
 
@@ -810,42 +819,99 @@
         };
     }
 
+    /** アイコンの回転角度の範囲(度)。埋蔵物のように傾ける。真逆さまにはしない */
+    const ICON_ANGLE_RANGE = 30;
+
     /**
-     * 帯(地層)ごとに、icon(題材アイコン)を持つノードをその帯の中のランダムな位置に散らして配置する。
+     * [xMin, xMax] の中から avoid(ノード・エッジの描画領域)を避けて x 座標を 1 つ選ぶ。
+     * avoid が範囲の片側・両側に隙間を残す場合はその隙間だけから選び、隙間が無ければ諦めて全体から選ぶ。
+     *
+     * @param {() => number} random 0以上1未満の決定的な乱数生成関数
+     * @param {number} xMin
+     * @param {number} xMax
+     * @param {{min: number, max: number}|null|undefined} avoid
+     * @returns {number}
+     */
+    function pickIconX(random, xMin, xMax, avoid) {
+        const width = Math.max(0, xMax - xMin);
+        if (!avoid) {
+            return xMin + random() * width;
+        }
+        const leftEdge = Math.max(xMin, Math.min(avoid.min, xMax));
+        const leftWidth = Math.max(0, leftEdge - xMin);
+        const rightEdge = Math.min(xMax, Math.max(avoid.max, xMin));
+        const rightWidth = Math.max(0, xMax - rightEdge);
+        const total = leftWidth + rightWidth;
+        if (total <= 0) {
+            return xMin + random() * width;
+        }
+        const picked = random() * total;
+        return picked < leftWidth ? xMin + picked : rightEdge + (picked - leftWidth);
+    }
+
+    /**
+     * 帯(地層)ごとに、icon(題材アイコン)を持つノードをその帯の中のランダムな位置・角度に散らして配置する。
      * 「地層の中に埋まっている」見た目にするための飾りで、ノード自身の座標(種の位置)とは無関係に置く。
      *
-     * 位置は slug から決定的に計算する(Math.random は使わない)ため、無限スクロールや画面リサイズで
-     * 描き直しても同じ記事のアイコンは同じ位置のまま跳ねない。
+     * 位置・角度は slug から決定的に計算する(Math.random は使わない)ため、無限スクロールや画面リサイズで
+     * 描き直しても同じ記事のアイコンは同じ位置・角度のまま跳ねない。
      *
      * @param {Array<{top: number, bottom: number}>} bands 上から順に並んだ帯(重ならない前提。最後の帯だけ bottom を含む)
      * @param {Array<{slug: string, y: number, icon?: string|null}>} nodes
-     * @param {{xMin: number, xMax: number, marginY: number}} options x は [xMin, xMax] の範囲、y は帯の上下から marginY を除いた範囲に収める
-     * @returns {Array<{slug: string, icon: string, x: number, y: number}>}
+     * @param {{xMin: number, xMax: number, marginY: number, avoid?: {min: number, max: number}|null, maxPerBand?: number}} options
+     *   x は [xMin, xMax] の範囲(avoid を渡すとその内側を避ける)、y は帯の上下から marginY を除いた範囲に収める。
+     *   maxPerBand を渡すと、1つの帯に置くアイコン数をその上限までに絞る(多すぎて目立つのを防ぐ)。
+     *   絞り込みは候補ノードそれぞれの slug から決定的に計算した値で選ぶため、他の候補の有無に左右されない
+     * @returns {Array<{slug: string, icon: string, x: number, y: number, angle: number}>}
      */
     function assignBandIcons(bands, nodes, options) {
         const placements = [];
         bands.forEach(function (band, index) {
             const isLast = index === bands.length - 1;
-            nodes.filter(function (node) {
+            let candidates = nodes.filter(function (node) {
                 if (!node.icon) {
                     return false;
                 }
                 return isLast ?
                     (node.y >= band.top && node.y <= band.bottom) :
                     (node.y >= band.top && node.y < band.bottom);
-            }).forEach(function (node) {
+            });
+            if (typeof options.maxPerBand === 'number' && candidates.length > options.maxPerBand) {
+                candidates = candidates.slice().sort(function (a, b) {
+                    // slug から決定的に計算した優先度で並べ替え、上位だけを残す
+                    return mulberry32(hashSeed(a.slug))() - mulberry32(hashSeed(b.slug))();
+                }).slice(0, options.maxPerBand);
+            }
+            candidates.forEach(function (node) {
                 const random = mulberry32(hashSeed(node.slug));
                 const minY = band.top + options.marginY;
                 const maxY = Math.max(minY, band.bottom - options.marginY);
                 placements.push({
                     slug: node.slug,
                     icon: node.icon,
-                    x: options.xMin + random() * Math.max(0, options.xMax - options.xMin),
-                    y: minY + random() * (maxY - minY)
+                    x: pickIconX(random, options.xMin, options.xMax, options.avoid),
+                    y: minY + random() * (maxY - minY),
+                    angle: -ICON_ANGLE_RANGE + random() * ICON_ANGLE_RANGE * 2
                 });
             });
         });
         return placements;
+    }
+
+    /**
+     * ノード配列が使っている列(col)の最小値・最大値を返す。
+     * assignBandIcons の avoid にノード・エッジの占有範囲を渡すために使う。
+     *
+     * @param {Array<{col: number}>} nodes
+     * @returns {{min: number, max: number}|null} ノードが無ければ null
+     */
+    function columnExtent(nodes) {
+        if (nodes.length === 0) {
+            return null;
+        }
+        return nodes.reduce(function (range, node) {
+            return {min: Math.min(range.min, node.col), max: Math.max(range.max, node.col)};
+        }, {min: nodes[0].col, max: nodes[0].col});
     }
 
     /**
@@ -942,9 +1008,21 @@
         svg.appendChild(bandGroup);
 
         // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
-        // 表示幅(bleed していない範囲)に収め、ペインのスクロール領域からはみ出さないようにする
+        // 表示幅(bleed していない範囲)に収め、ペインのスクロール領域からはみ出さないようにする。
+        // ノード(種)と幹・根(エッジ)が使う列(col)の範囲は avoid で避け、多すぎると目立つため帯ごとに最大 3 個までに絞る
+        const paneColumns = columnExtent(layout.nodes);
+        const paneAvoid = paneColumns && {
+            min: columnX(paneColumns.min, options) - options.nodeRadius,
+            max: columnX(paneColumns.max, options) + options.nodeRadius
+        };
         svg.appendChild(buildBandIconGroup(
-            assignBandIcons(paneBands, layout.nodes, {xMin: 12, xMax: options.width - 12, marginY: 10}),
+            assignBandIcons(paneBands, layout.nodes, {
+                xMin: 12,
+                xMax: options.width - 12,
+                marginY: 10,
+                avoid: paneAvoid,
+                maxPerBand: 3
+            }),
             14
         ));
 
@@ -1202,15 +1280,27 @@
         });
         svg.appendChild(bandGroup);
 
+        const laneOptions = {axisX: options.axisX, laneWidth: options.laneWidth, rowHeight: options.bend};
+
         // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
         // labelWidth より右(記事カードの表示領域)に収め、月ラベルに重ならないようにする。
         // compact(狭い画面)では月ラベルが帯の左上(x: 4, y: band.top + 14)に乗るため、
-        // 上端の marginY を広げてその位置にアイコンが被らないようにする
+        // 上端の marginY を広げてその位置にアイコンが被らないようにする。
+        // ノード(種)・幹・根(エッジ)・ページ外への束が使う列(col)の範囲は avoid で避け、
+        // 多すぎると目立つため帯ごとに最大 3 個までに絞る
+        const timelineColumns = columnExtent(layout.nodes);
+        const timelineMinCol = timelineColumns && (layout.offPage.length > 0 ? timelineColumns.min - 1 : timelineColumns.min);
+        const timelineAvoid = timelineColumns && {
+            min: columnX(timelineMinCol, laneOptions) - options.nodeRadius,
+            max: columnX(timelineColumns.max, laneOptions) + options.nodeRadius
+        };
         svg.appendChild(buildBandIconGroup(
             assignBandIcons(layout.bands, layout.nodes, {
                 xMin: options.labelWidth + 8,
                 xMax: options.width - 8,
-                marginY: options.compact ? 26 : 10
+                marginY: options.compact ? 26 : 10,
+                avoid: timelineAvoid,
+                maxPerBand: 3
             }),
             options.compact ? 14 : 16
         ));
@@ -1230,7 +1320,6 @@
         layout.nodes.forEach(function (node) {
             nodeY[node.slug] = node.y;
         });
-        const laneOptions = {axisX: options.axisX, laneWidth: options.laneWidth, rowHeight: options.bend};
 
         // 主軸(列 0)。最初の種から最後の種まで薄い線で結ぶ
         if (layout.nodes.length > 0) {
@@ -1533,6 +1622,7 @@
         buildStrataBands: buildStrataBands,
         strataBoundaryPath: strataBoundaryPath,
         assignBandIcons: assignBandIcons,
+        columnExtent: columnExtent,
         parseGraph: parseGraph
     };
 
