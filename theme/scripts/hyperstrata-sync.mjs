@@ -13,6 +13,10 @@
  * - 公開記事の一覧と引用関係を Hyperstrata グラフ用の `assets/graph.json` に書き出す
  *   (テーマの assets/js/strata-graph.js が fetch して描画する。`{{#get}}` の 100 件上限と
  *   全ページへの一覧埋め込みを避けるため、テーマ側ではなく本スクリプトで生成する)
+ * - `posts/strata/`(Claude Code のセッションが書く Hyperstrata の注釈。`.claude/skills/strata-annotate`)
+ *   を読み、著者が本文リンクで作る引用(人間の層・`refs`)とは別に、機械が判定した推定関係
+ *   (`inferredRefs`)として graph.json に合成する。Ghost Admin API へのアクセスは不要で、
+ *   リポジトリ内のファイルを読むだけ
  * - `--dry-run` を付けると更新・削除内容と graph.json の差分有無の表示のみ行う
  *
  * 必要な環境変数(既存の deploy-theme.yml と同じ Secrets):
@@ -23,7 +27,7 @@
  *   GHOST_ADMIN_API_URL=... GHOST_ADMIN_API_KEY=... node scripts/hyperstrata-sync.mjs --dry-run
  */
 import {createHmac} from 'node:crypto';
-import {readFile, writeFile} from 'node:fs/promises';
+import {readFile, writeFile, readdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 
 /** 引用タグ名の接頭辞。`#` 始まりのため Ghost では内部タグとして扱われる */
@@ -173,21 +177,70 @@ export function selectOrphanRefTags(tags) {
  * 安定した出力にする(差分の有無で更新要否を判定するため)。引用先は引用タグではなく
  * 本文から抽出した slug をそのまま使う(公開済み記事へのリンクだけが含まれる)。
  *
+ * `inferredRelationsBySlug` を渡すと、`posts/strata/` の注釈(機械の層)から `inferredRefs` を
+ * 合成する。`refs`(人間の引用)と異なり、注釈がまだ無い記事(strata pending)を例外にはせず
+ * 空配列にする。関係先が公開記事一覧に無い場合(下書き・削除済みを指している)と自己参照は除外する。
+ *
  * @param {object} params
  * @param {Array<{slug: string, title: string, url: string, published_at: string}>} params.posts 公開済み記事
  * @param {Map<string, string[]>} params.referencedSlugsBySlug 記事 slug → 引用先 slug の対応表
- * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[]}>}}
+ * @param {Map<string, Array<{slug: string, type: string}>>} [params.inferredRelationsBySlug] 記事 slug → Hyperstrata 注釈の関係先の対応表
+ * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string}>}>}}
  */
-export function buildGraph({posts, referencedSlugsBySlug}) {
+export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map()}) {
+    const publishedSlugs = new Set(posts.map((post) => post.slug));
     const nodes = posts.map((post) => {
         const refs = referencedSlugsBySlug.get(post.slug);
         if (!refs) {
             throw new Error(`記事 ${post.slug} の引用先が対応表にありません`);
         }
-        return {slug: post.slug, title: post.title, url: post.url, publishedAt: post.published_at, refs};
+        const inferredRefs = (inferredRelationsBySlug.get(post.slug) ?? [])
+            .filter((relation) => relation.slug !== post.slug && publishedSlugs.has(relation.slug));
+        return {slug: post.slug, title: post.title, url: post.url, publishedAt: post.published_at, refs, inferredRefs};
     });
     nodes.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
     return {posts: nodes};
+}
+
+/**
+ * `posts/strata/`(公開記事の注釈)と `posts/strata/private/`(限定記事の注釈)を読み、
+ * 記事 slug → Hyperstrata の関係先(`{slug, type}[]`)の対応表を作る。
+ *
+ * `relations[].slug` と `relations[].type` は sops の暗号化対象(`summary` / `reason`)に
+ * 含まれず平文のため、復号は不要。ディレクトリが存在しない場合は空の対応表を返す。
+ *
+ * @returns {Promise<Map<string, Array<{slug: string, type: string}>>>}
+ */
+async function readInferredRelations() {
+    const dirs = [
+        new URL('../../posts/strata/', import.meta.url),
+        new URL('../../posts/strata/private/', import.meta.url)
+    ];
+    const inferredRelationsBySlug = new Map();
+    for (const dir of dirs) {
+        let fileNames;
+        try {
+            fileNames = await readdir(dir);
+        } catch (error) {
+            if (error.code === 'ENOENT') {
+                continue;
+            }
+            throw error;
+        }
+        for (const fileName of fileNames.filter((name) => name.endsWith('.json'))) {
+            const fileUrl = new URL(fileName, dir);
+            const content = await readFile(fileUrl, 'utf8');
+            let annotation;
+            try {
+                annotation = JSON.parse(content);
+            } catch (error) {
+                throw new Error(`Hyperstrata 注釈のJSONを解釈できません: ${fileUrl.pathname}(${error.message})`);
+            }
+            const relations = (annotation.relations ?? []).map((relation) => ({slug: relation.slug, type: relation.type}));
+            inferredRelationsBySlug.set(annotation.slug, relations);
+        }
+    }
+    return inferredRelationsBySlug;
 }
 
 /**
@@ -338,7 +391,8 @@ async function main() {
     const refTags = await client.getRefTags();
     await ensureRefTagDescriptions(client, refTags, dryRun);
     const prunedCount = await pruneOrphanRefTags(client, refTags, dryRun);
-    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug}), dryRun);
+    const inferredRelationsBySlug = await readInferredRelations();
+    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug}), dryRun);
     console.log(`完了: ${updatedCount} 件の記事を更新、${prunedCount} 件の引用タグを削除${dryRun ? '予定' : ''}、graph.json は${graphChanged ? '更新' : '変更なし'}`);
 }
 

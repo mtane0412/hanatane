@@ -194,9 +194,9 @@ test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slu
     const graph = buildGraph({posts: [グラフ用記事[0], グラフ用記事[2], グラフ用記事[1]], referencedSlugsBySlug});
     assert.deepEqual(graph, {
         posts: [
-            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction']},
-            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction']},
-            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: []}
+            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: []},
+            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: []},
+            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: []}
         ]
     });
 });
@@ -214,4 +214,76 @@ test('serializeGraph: 2 スペースインデントの JSON に末尾改行を�
 
 test('GRAPH_JSON_PATH: テーマの assets 配下に置く(テーマ zip に同梱され {{asset}} で配信できる位置)', () => {
     assert.equal(GRAPH_JSON_PATH, 'assets/graph.json');
+});
+
+// ---------------------------------------------------------------------------
+// 機械の層(posts/strata/)の合成(#12)
+// ---------------------------------------------------------------------------
+
+test('buildGraph: inferredRelationsBySlug を渡すと、各記事に inferredRefs({slug,type}[]) が付く', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const inferredRelationsBySlug = new Map([
+        ['digital-garden-limits', [{slug: 'hyperstrata-introduction', type: 'continues'}]],
+        ['correction-of-first-note', [
+            {slug: 'digital-garden-limits', type: 'updates'},
+            {slug: 'hyperstrata-introduction', type: 'revisits'}
+        ]]
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, inferredRelationsBySlug});
+    const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
+    assert.deepEqual(対応表.get('hyperstrata-introduction').inferredRefs, []);
+    assert.deepEqual(対応表.get('digital-garden-limits').inferredRefs, [
+        {slug: 'hyperstrata-introduction', type: 'continues'}
+    ]);
+    assert.deepEqual(対応表.get('correction-of-first-note').inferredRefs, [
+        {slug: 'digital-garden-limits', type: 'updates'},
+        {slug: 'hyperstrata-introduction', type: 'revisits'}
+    ]);
+});
+
+test('buildGraph: inferredRelationsBySlug に対応が無い記事は inferredRefs が空配列になる(refs と異なり例外にしない)', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const inferredRelationsBySlug = new Map();
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, inferredRelationsBySlug});
+    graph.posts.forEach(post => {
+        assert.deepEqual(post.inferredRefs, []);
+    });
+});
+
+test('buildGraph: inferredRelationsBySlug を渡さない場合も、既存の呼び出し方のまま動作する(後方互換)', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', ['hyperstrata-introduction']],
+        ['correction-of-first-note', []]
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug});
+    graph.posts.forEach(post => {
+        assert.deepEqual(post.inferredRefs, []);
+    });
+});
+
+test('buildGraph: inferredRefs のうち、posts に存在しない関係先slugと自己参照は除外する', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const inferredRelationsBySlug = new Map([
+        ['digital-garden-limits', [
+            {slug: 'digital-garden-limits', type: 'continues'}, // 自己参照
+            {slug: 'not-published-yet', type: 'continues'}, // posts に無い(下書きや削除済みを指している)
+            {slug: 'hyperstrata-introduction', type: 'continues'}
+        ]]
+    ]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, inferredRelationsBySlug});
+    const 記事 = graph.posts.find(post => post.slug === 'digital-garden-limits');
+    assert.deepEqual(記事.inferredRefs, [{slug: 'hyperstrata-introduction', type: 'continues'}]);
 });

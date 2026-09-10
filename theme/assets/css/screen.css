@@ -2616,6 +2616,13 @@ figcaption a {
     opacity: 1;
 }
 
+/* Hyperstrata の注釈(posts/strata/)から合成した機械の推定関係は、著者が書いた引用(実線)と
+   区別できるよう破線で薄く描く */
+.gh-strata-edge.is-inferred {
+    stroke-dasharray: 3 3;
+    opacity: 0.6;
+}
+
 .gh-strata-node {
     cursor: pointer;
 }
@@ -2770,6 +2777,12 @@ figcaption a {
 
 .gh-strata-pane-edge.is-dim {
     stroke: var(--strata-root-dim);
+}
+
+/* Hyperstrata の注釈(posts/strata/)から合成した機械の推定関係は、著者が書いた引用(実線)と
+   区別できるよう破線にする。色は is-level-1/is-level-2/is-dim にまかせる */
+.gh-strata-pane-edge.is-inferred {
+    stroke-dasharray: 2.5 2.5;
 }
 
 .gh-strata-pane-node {
