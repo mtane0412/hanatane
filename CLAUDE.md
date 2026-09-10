@@ -41,6 +41,8 @@ pnpm --filter ./ogp dev
 
 必要な Secrets: `GHOST_ADMIN_API_URL`、`GHOST_ADMIN_API_KEY`（すべての workflow で共通）。
 
+`hyperstrata-sync.yml` の 15 分おき cron は GitHub Actions が高頻度 cron を高負荷時に間引く仕様のため、実際には数時間おきにしか走らないことがある。記事を公開した後や `strata-annotate` の PR をマージした後、反映を急ぐときは `gh workflow run hyperstrata-sync.yml --repo mtane0412/hanatane` で手動実行する（cron は保険として残す）。
+
 ## 公開リポジトリとしての約束
 
 - 機密は sops + age で暗号化したものだけをコミットする（`infra/secrets/`、`infra/tofu/*.sops.tfvars`、`posts/content/private/*.post.json`）。
