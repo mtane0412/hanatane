@@ -1,0 +1,1614 @@
+{
+	"title": "Ghostをセルフホスト版に移行した",
+	"slug": "ghost-migration-from-pro-to-selfhost",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost",
+		"#ref-ghost-mailgun-setup"
+	],
+	"excerpt": "Ghost Pro(マネージド)からさくらのVPS(1GB)上のセルフホスト版に移行したメモ",
+	"feature_image": "https://hanatane.net/content/images/2025/03/c451f66e-de7a-4701-aa94-ecd8af8cf06e.webp",
+	"featured": false,
+	"published_at": "2025-03-23T08:52:57.000Z",
+	"updated_at": "2025-04-08T15:02:28.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このブログで使っているGhostを有料のマネージド版から自分でVPSサーバーを借りてセルフホスト版に移行したので、移行手順等を含めて記録しておきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "モチベーション",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "短く言うと、自分に発破をかける意図でマネージドプランをやったけどどうにもうまくいってないので、一旦運営コストを下げるために移行しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それまでStarterプラン(年間108ドル)だったのが、APIさえも使えずかなり不便だったため、意を決してCreatorプラン(年間300ドル)に2024/3/25に移行していました。運用コストをかけることでしっかり回収するように自分を誘導したかったのですが、この1年を振り返るとなかなか継続的なアウトプットには繋がらなかったという感じで申し訳ないです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ありがたいことに支援してくださっている方のおかげで300ドルはペイすることができました。2年目、気を引き締め直して継続するかどうかを悩んだのですが、プランの維持でいっぱいいっぱいよりも別のことに使えた方がベターだと考え、収支バランスを見直すことにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう1点、マネージドにすることでメンテナンスを省力化することができるというものがあったのですが、昨今はDockerのようなコンテナ技術によってセルフホストも格段に楽になったのも大きな理由の一つです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "VPSサーバー選定",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自宅サーバーを色々いじっているので自宅でも良いかと思ったのですが、Stripeなどの決済が絡むので可用性の低い状態で運用するのは望ましくないと考えたのでサーバーを借りることにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "AWSやGCPなどのIaaSも検討しましたが、サービス規模的にはVPSで十分です。Ghostの場合はRAM1GBで借りている人が多かった印象なので、TokyoリージョンのあるVPSを中心に検討しましたが、どこも価格的には大きく違いはなく5ドルです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Linodeはスペック面でも色々と魅力的だったのですが、なんとなくさくらインターネットの田中さんをタイムラインで見る機会が最近多いのでさくらのVPSにしようと思いました。2018年まで使っていたみたいなので7年ぶりです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "移行手順",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さくらのVPSにdebian+docker環境でGhostをインストール",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自宅サーバーで使っているProxmoxがdebianがデフォ、RasbianもdebianベースなのでVPSもdebianにして統一しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "OSインストール時にGithubの公開鍵をインポートしてくれる機能があって、細かいところで便利じゃーんって思ったけどログインしたら鍵がなかった。一体どういうことだったんだろう…(いつものようにshellで入れた)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-4.png",
+					"width": 1784,
+					"height": 826,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "標準的なセットアップなので詳細は割愛。なお、さくらのVPSにはパケットフィルターのような機能が提供されているが、無効にしてOSレベルで設定しておいたほうがよいらしい。Dockerはこれを見ればOK。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://docs.docker.com/engine/install/debian/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/docs@2x.ico",
+						"title": "Debian",
+						"description": "Learn how to install Docker Engine on Debian. These instructions cover the different installation methods, how to uninstall, and next steps.",
+						"author": "",
+						"publisher": "Docker Documentation",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/thumbnail.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとはDocker HubからGhostの公式イメージを入れる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "https://hub.docker.com/_/ghost",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://hub.docker.com/_/ghost"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "services:\n\n  ghost:\n    image: ghost:latest\n    restart: always\n    ports:\n      - 8080:2368\n    environment:\n      # see https://ghost.org/docs/config/#configuration-options\n      database__client: mysql\n      database__connection__host: db\n      database__connection__user: root\n      database__connection__password: example\n      database__connection__database: ghost\n      # this url value is just an example, and is likely wrong for your environment!\n      url: http://localhost:8080\n      # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)\n      #NODE_ENV: development\n    volumes:\n      - ghost:/var/lib/ghost/content\n\n  db:\n    image: mysql:8.0\n    restart: always\n    environment:\n      MYSQL_ROOT_PASSWORD: example\n    volumes:\n      - db:/var/lib/mysql\n\nvolumes:\n  ghost:\n  db:",
+					"language": "yml",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "imageをlatestにして、credentialsを適当に変えて ",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "docker compose up -d",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で立ち上がる。楽ちん。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "多分手順的にはこの段階でHTTPS化しておいたほうがよい。(後述)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostの環境ができたらmigration作業に入ります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "member以外のマイグレーション",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以下のガイドはセルフホストGhostからGhost Pro(マネージド)への移行ですが参考になります。Ghostの管理画面からダウンロードできるものがほとんどですが、images/とmedia/の中の画像ファイルだけはGhostサポート経由じゃないといけないのでghost.ioのサイトアドレスを添えてサポートにメールを出せばOK(全部入りのバックアップzipがもらえます)。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://ghost.org/docs/migration/ghost/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-9.ico",
+						"title": "How to migrate data from Ghost to Ghost",
+						"description": "Everything you need to know about working with the Ghost professional publishing platform.",
+						"author": "",
+						"publisher": "Ghost - The Professional Publishing Platform",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghost-docs.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "リモート先のdockerの中にファイルを送るのよく理解していなかったので調べながらやりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "scp images.zip {さくらのVPS}:~/ghost/images.zip\nscp media.zip {さくらのVPS}:~/ghost/media.zip",
+					"language": "zsh",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "vpsにsshして",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "cd ghost\n\n# 解凍\nunzip '*.zip'\ndocker ps # コンテナ名確認 ここではghost-ghost-1\n\n# Dockerに転送\ndocker cp images/ ghost-ghost-1:/var/lib/ghost/content/\ndocker cp media/ ghost-ghost-1:/var/lib/ghost/content/\n\n# パーミッション変更\ndocker exec ghost-ghost-1 chown -R node:node /var/lib/ghost/content/images\ndocker exec ghost-ghost-1 chown -R node:node /var/lib/ghost/content/media",
+					"language": "bash",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここまでやると画像がちゃんと表示されるはず。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-5.png",
+					"width": 2000,
+					"height": 1053,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ドメイン切り替え & HTTPS化",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "memberのマイグレーションにはStripeの再接続が絡んでくるので、この段階でドメインを移行してHTTPS化しておくことにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cloudflareのドメインを使っているのですが、Ghost ProのときはProxyを使えなかったのが、セルフホストだと使用できるようです。といっても、モードはフル(Cloudflareとオリジンサーバーの間もTLS保護が必要)が必要なので、どちらにせよVPS上で証明書をいい感じにしないといけません。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一昔前ならCertbotを使ってLet's Encryptの自動更新設定などをしていたわけですが、今はOSSのCaddyを使って短いファイルをかけば終わりです。インストールもdocker-compose.ymlにCaddyを追加するだけ。楽ですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Caddyfileにはシンプルにwwwありとなしに設定。こう書いてしまうと証明書が２つ発行されてしまうようなのですが、Cloudflareでwwwからネイキッドドメインの方に転送をかけているからか、Caddyでもリダイレクトかけたらなんか挙動が怪しかったのでまぁいいかという感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "hanatane.net, www.hanatane.net {\n    reverse_proxy localhost:8080\n}",
+					"language": "plain",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "memberの移行",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、memberの移行はStripeと接続しているメンバーがいる場合はちょっと難しいので手順を確認。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://ghost.org/docs/reinstall/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-10.ico",
+						"title": "How to reinstall Ghost",
+						"description": "Find out how to get access to new features by reinstalling Ghost so you can update to the latest major version.",
+						"author": "",
+						"publisher": "Ghost - The Professional Publishing Platform",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghost-docs-1.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まずはmemberをexportしておく。このままimportしようとしてもStripeと接続されているユーザーはimportできないので注意。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まず、旧サイトの方からStripeの接続を切る必要がある。接続を切るには有料メンバーを削除する必要がある。ドキュメントにあるようにstatusがpaidやcomplimentaryのメンバーを削除するとStripeから切断できるようになる。Stripeと切断してもStripeのサブスクリプションは継続される。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "旧サイトの",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "webhook",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://dashboard.stripe.com/webhooks"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が残っているので忘れずに切断しておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "旧サイトとStripeが切断できたので、管理UIの方で新サイトの方でStripeに再接続する。接続先は旧サイトと同じものを使う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "新サイトと接続ができたらmemberをimportする正常に有料メンバーもimportできていることを確認。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Mailgunの設定",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ニュースレター機能のために",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Mailgun",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.mailgun.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を設定します。Mailgunは無料で1日100通までなのでこれ以上の規模の場合は有料を検討します。現在の環境で大量送信するメールを到達させるにはMailgunのようなサービスを使うのが必要です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Add payment info nowのチェックを外してユーザー登録すると無料で登録できます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ドメインを1つ接続します。Mailgun用の適当のサブドメインを設定。DKIM keyを自動設定するオプションができていたので利用しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-6.png",
+					"width": 1572,
+					"height": 1118,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">追記: Mailgunはスパム対策のため新規作成直後はbatch sizeを設定して徐々にウォームアップしておくのが良さそうです。以下の記事を参照。</span></p>",
+					"calloutEmoji": "📝",
+					"backgroundColor": "green"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/ghost-mailgun-setup/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-4.png",
+						"title": "セルフホストGhostでMailgun一括送信のbatch sizeを設定する",
+						"description": "GhostをセルフホストしてMailgunでニュースレター配信を試みたが、Mailgunの評価期間の制限で一括送信に失敗。Ghost側でbatchSizeの設定変更と、Mailgunサポート対応を含めた対策をまとめました。",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/mailgun-setup.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "DNS設定が色々表示されるのでCloudflareの方に設定しておきます。しばらくするとCheckが押せるようになります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghost側の設定は送信用のアドレスをMailgunのSMTPで作成しているものと一致させるのとdocker-compose.ymlに設定を追加しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://qiita.com/yukigandhi/items/4b46cb8f3e62a25cbb0d",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-ec5ba42a24ae923f16825592efdc356f.png",
+						"title": "Dockerで動かすGhostに Mailgunを使って mailの設定をする - Qiita",
+						"description": "Ghost では mail の設定が必須です。後回しにしていてとても後悔したので、手順を書いておきます。Ghost での mail 設定について、公式では Maiilgunの使用が推奨されています。…",
+						"author": "yukigandhi",
+						"publisher": "Qiita",
+						"thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%3A%2F%2Fcdn.qiita.com%2Fassets%2Fpublic%2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMjI1NzExJTJGcHJvZmlsZS1pbWFnZXMlMkYxNTEzOTMwNzQzP2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZmbT1wbmczMiZzPTE2OWIxYzg3MDMzZWE3ZDk2Yjg3ODE1ZjI0ZTNjODUw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D4522966dc65ca30310f4be71598c4d40?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9RG9ja2VyJUUzJTgxJUE3JUU1JThCJTk1JUUzJTgxJThCJUUzJTgxJTk5R2hvc3QlRTMlODElQUIlMjBNYWlsZ3VuJUUzJTgyJTkyJUU0JUJEJUJGJUUzJTgxJUEzJUUzJTgxJUE2JTIwbWFpbCVFMyU4MSVBRSVFOCVBOCVBRCVFNSVBRSU5QSVFMyU4MiU5MiVFMyU4MSU5OSVFMyU4MiU4QiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTEyZTNhZjU0ZDA4OWEwMzBiYzEwNGIwYzZjNjYyZGY2&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpZ2FuZGhpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9Y2RlZjg4ZDY3YjljMTEyMGJjODRkZDBkMjIwZDg2Nzg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=44b5120ecc5c08dd05d1b44d5db6399f"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "swapを追加",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここにきて動作がかなり不安定でCPU timeもかなり発生していたのでメモリ不足を疑った。調べてみるとGhost, MySQL, Caddyで1GBをいっぱいいっぱいで使用している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-8.png",
+					"width": 1306,
+					"height": 138,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "RAM1GBでGhostを動かしているユーザーはほとんどSwapを使っていて、さくらのVPSでは初期設定でSwapが有効化されていないのでこれを有効化した。これはさくらのVPSのマニュアル通りでOKでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://manual.sakura.ad.jp/vps/os-packages/add-swapfile.html?gad_source=1&gclid=Cj0KCQjw4v6-BhDuARIsALprm321PN9XU1YqOTj8rTxnlxj0cQNXquAkPRjg__AO8glOLthVGV8Xq1QaAgOLEALw_wcB",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon.png",
+						"title": "swapfileの追加",
+						"description": "目次: 対象の標準OS, swapfileの追加- スワップが存在しない事を確認, スワップファイルを作成, スワップファイルの有効化.. 「さくらのVPS」の標準OSで swapfile を利…",
+						"author": "",
+						"publisher": "さくらの VPS マニュアル",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ogp_vps.png"
+					},
+					"caption": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-10.png",
+					"width": 1318,
+					"height": 142,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Swap領域を作ってからは安定した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-7.png",
+					"width": 806,
+					"height": 422,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cloudflareのキャッシュ設定",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cloudflareのドメインを使っているので、Cloudflare周りをうまく設定するとパフォーマンスを無料で上げることができる。Ghost Proの方はこの辺のCDN設定も含まれているので、せっかくなのでできることはやっておこう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CloudflareのDNS設定でProxyをオン、TLSのEncryptionモードはFull(Strict)にすることで、Cloudflareの恩恵をフルに受けつつGhostを正常に表示できる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "加えてキャッシュルールを以下の通りに従って設定する。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.techweirdo.net/optimize-cloudflare-caching-for-blazing-fast-ghost-blog/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/Gemini_Generated_Image_dmypwxdmypwxdmyp.jpeg",
+						"title": "How to Optimize Cloudflare Caching for Blazing Fast Ghost Blog",
+						"description": "Updated guide to get the best performance possible for your ghost blog with Cloudflare.",
+						"author": "Dr. Shounak Pal",
+						"publisher": "The TechWeirdo",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/Add-a-heading_20240507_012342_0000.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サイト変更時のWebhookでキャシュを削除するCloudflare Workersも設定しておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.techweirdo.net/autopurge-cdn-cache-for-ghost-blogs/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/Gemini_Generated_Image_dmypwxdmypwxdmyp-1.jpeg",
+						"title": "Autopurge CDN cache for Ghost blogs (Cloudflare / Bunny CDN)",
+						"description": "In this post, we automate cache purging from CDNs for ghost blogs.",
+						"author": "Dr. Shounak Pal",
+						"publisher": "The TechWeirdo",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/Automatically-Purge-CDN-cache-for-Ghost-Blogs.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "うまくエコシステムを活用できるなぁと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回採用しなかったもの",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Pintura",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghost Proの方ではPinturaという画像エディタを使っていますが、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Ghost用のライフタイムプラン",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://pqina.nl/pintura/ghost/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が用意されています。ライフタイムといっても1年間のアップデートに限られているので何回か購入し直すような形になるでしょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "iPhoneから直接アップロードして適当に切り抜いてと便利ではあるのですが、今回は一旦見送りました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cloudinary",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostはAdminからメディアをアップロードしたときに自動で圧縮するわけではなく、テーマからの呼び出しに応じて必要なファイルを作成する方式のようです。よくiPhoneからUniversal Clipboard経由で画像をペーストするので、2MB以上のファイルがかなりあって、少ないSSD容量を圧迫していく恐れがあります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostはCloudinaryのAdapterがあって、内部ストレージを使用せずにCloudinaryにアップロードできるようになります。色々な便利機能を差し置いても、単純にストレージ容量の節約になるのは良さそうだと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ただGhostの公式Dockerイメージをそのまま使えなくなるので更新周りの作業が重くなりそうだなと思って今回は見送りました。Cloudinaryを使う場合はGhost CLIを使うのが良さそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://ghost.org/integrations/cloudinary/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-11.ico",
+						"title": "Official Ghost + Cloudinary Integration",
+						"description": "Use Cloudinary in tandem with Ghost either on-the-fly or with a full media library. Automate processing and optimisation of images & video. Find out how 👉",
+						"author": "",
+						"publisher": "Ghost - The Professional Publishing Platform",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghost-integrations-1.png"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/eexit/ghost-storage-cloudinary",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40.svg",
+						"title": "GitHub - eexit/ghost-storage-cloudinary: :rocket: A fully-featured and deeply tested Cloudinary Ghost storage adapter",
+						"description": ":rocket: A fully-featured and deeply tested Cloudinary Ghost storage adapter - eexit/ghost-storage-cloudinary",
+						"author": "eexit",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghost-storage-cloudinary"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "感想",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Dockerでめちゃくちゃ楽になった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Cloudflare以外を使う理由がないくらいに便利",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "サーバーをいじるのはやはり麻薬",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "支出の改善だけで終わらず、この1年は思ったようなアウトプットができなかったのをしっかり反省して次の1年にもっとうまく運用したいと思います。皆さん支援ありがとうございました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

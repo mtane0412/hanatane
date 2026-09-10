@@ -1,0 +1,285 @@
+{
+	"title": "世界の霧を晴らしている",
+	"slug": "fog-of-world",
+	"status": "published",
+	"tags": [
+		"たねのぶの話"
+	],
+	"excerpt": "世界の霧というアプリがドチャクソ楽しいという話です。",
+	"feature_image": "https://hanatane.net/content/images/2025/05/photo-1485236715568-ddc5ee6ca227.jpeg",
+	"featured": false,
+	"published_at": "2025-05-31T12:32:57.000Z",
+	"updated_at": "2025-05-31T12:32:57.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "周囲でやっている人が多かった",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "世界の霧",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://fogofworld.app/ja/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というアプリを購入した。これはマップ上のすべてが霧に包まれていて、自分が通ったところの霧が晴れていくという、ただそれだけのシンプルなアプリなのだが、これがなかなか面白い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/05/image-1-1.png",
+					"width": 1206,
+					"height": 1206,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アプリを使い始めてまず気づくことは、小さな街のほとんどが霧に包まれており、決まり切ったほんの小さな特定のルートだけが自分の日常世界のすべてということだ。広大なオープンワールドに住んでいるはずなのに、ものすごく陳腐な一本道ゲームをやっているような感覚に近い。普段通らない道はほとんど霧に包まれていて、そこに何があるのか全くわからない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いっちょ霧を晴らしに行くかと思い、普段通っていない道に入ってみると新しい発見が色々ある。知らない店があったり、親子が遊んでいたり、猫が住んでいたり、見えない部分もちゃんと世界がレンダリングされていて感心する。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分の世界に霧があることを認識すると、霧を晴らしたくなってくる。帰り道は常に霧を晴らすルートを選択して、毎日少しずつ霧が晴れる。岩手で遠出をするときにいつも最短ルートを通っていたが、霧を晴らすために普段立ち寄らない人里を通るようにした。もちろん、道に迷って峠道に入ったりするのだが、わらび峠というなんだかめちゃくちゃ山菜フリーク達が集まりそうな名前の峠を発見したりする。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/05/image-2-1.png",
+					"width": 1206,
+					"height": 1206,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Google Mapsで迷わずに目的地にたどり着くことができるようになったが、Google Mapsに従っていると、ある目的地に対して晴らすことのない霧が生まれる。迷わずに目的地に向かう限り、おそらくこの霧は晴れることがない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "世界の認識の仕方もおそらく違っている。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "場所法",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A2%E3%83%BC%E3%83%8B%E3%83%87%E3%83%BC%E3%82%B9"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "という記憶法があるくらいだが、人類は海馬の場所ニューロンを使って視空間情報を記憶するのが得意だ。これは狩猟採集社会の適応としては特に不自然ではない。一方で、スマホ地図を使っているときは、視空間のランドマーク的な手がかりを使うのではなく、スマホからの指示に従っている関係で",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "フィードバック処理を司る尾状核が増大するらしい",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://pubmed.ncbi.nlm.nih.gov/23430962/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "つまり、世界の霧というアプリ上だけでなく、実際に私達の世界の認識には霧がかかっているということだ。世界の霧はこの霧を見えるようにするアプリというわけである。霧を晴らすには、ナビゲーションへの応答ではなく、視空間的な注意を世界に対して払うしかない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この霧が見えるようになるアプリはなんと買い切り3000円。君も近所をウロウロ徘徊する不審者になろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

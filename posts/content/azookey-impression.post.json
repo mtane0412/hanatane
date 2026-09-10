@@ -1,0 +1,419 @@
+{
+	"title": "azooKeyに乗り換えた",
+	"slug": "azookey-impression",
+	"status": "published",
+	"tags": [
+		"技術の話"
+	],
+	"excerpt": "azooKeyの妥協のない設計思想にアンラーニングを余儀なくされるおじさんの物語",
+	"feature_image": "https://hanatane.net/content/images/2025/12/photo-1613758235402-745466bb7efe.jpeg",
+	"featured": false,
+	"published_at": "2025-12-10T15:10:51.000Z",
+	"updated_at": "2025-12-10T15:10:51.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "文字を生成する魔法のような技術の勃興期に、なぜ僕らは漢字の変換候補をちまちま探してるのか。azooKeyというIMEがこの地獄から救ってくれそうなので紹介したい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんか凄そうだぞazooKey",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "MacでもWindowsでもIMEはGoogle日本語入力を何年も使っていたのだが、azooKeyというIMEを使い始めた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/azooKey/azooKey",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-2.svg",
+						"title": "GitHub - azooKey/azooKey: azooKey is an open-source Japanese keyboard for iPhone and iPad, written in Swift and powered by its own kana-kanji conversion engine. It provides live conversion, flexible key layouts, and a clean SwiftUI interface for a smooth typing experience.",
+						"description": "azooKey is an open-source Japanese keyboard for iPhone and iPad, written in Swift and powered by its own kana-kanji conversion engine. It provides live conversion, flexible key layouts, and a clean…",
+						"author": "azooKey",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/azooKey"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "未踏のプロジェクトという点で、若い天才が心血注いでるプロジェクトは期待がデカくなる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.ipa.go.jp/jinzai/mitou/koubo/career/2024/2024-supercreator-09.html",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-21.ico",
+						"title": "スーパークリエータ 三輪 敬太 | 未踏事業 | IPA 独立行政法人 情報処理推進機構",
+						"description": "突出したIT人材を発掘・育成する「未踏事業」の事業終了時点で特に優秀であると認められたクリエータをスーパークリエータとして認定しています。",
+						"author": "",
+						"publisher": "未踏事業 | IPA 独立行政法人 情報処理推進機構",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ogp_thumb2024-09.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ニューラルかな漢字変換システムを中核にした日本語入力体験が核で、このあたりの話はさくらの記事がわかりやすい。ちょうど放送大学で増井さんが担当するユーザインタフェースの授業で日本語入力周りの話も出ていたので面白く読めた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://knowledge.sakura.ad.jp/42901/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/cropped-sakura-internet-logomark-dark-270x270.png",
+						"title": "ニューラルかな漢字変換システム「Zenzai」の開発 | さくらのナレッジ",
+						"description": "こんにちは、東京大学の三輪敬太です。私は2024年度に未踏IT人材発掘・育成事業として「ニューラル言語モデルによる個人最適な日本語入力システムの開発」というテーマで採択され、早稲田大学の高橋直希さんとともにmacOS上の […]",
+						"author": "三輪敬太",
+						"publisher": "SAKURA internet",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/zenzai_cover-1200x630.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Zennのほうの記事ではもう少し突っ込んだ話が書かれてあって、gpt-4oがゼロショットで最高成績を出してるあたりも面白い。Transformerの汎用的な能力が専門的なタスクで好成績を出したというのはgpt3頃からの有名な話なのですが最前線で体験されている感じ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://zenn.dev/azookey/articles/ea15bacf81521e",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/logo-transparent-1.png",
+						"title": "ニューラルかな漢字変換エンジン「Zenzai」をazooKey on macOSに搭載します",
+						"description": "",
+						"author": "Miwa",
+						"publisher": "Zenn",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/og-base-w1200-v2-1.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このZenzai以外で入力体験を支えているのがTunerというモジュールらしく、macのアクセシビリティ経由でコンテキストを取得しているようだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/azooKey/Tuner",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-3.svg",
+						"title": "GitHub - azooKey/Tuner",
+						"description": "Contribute to azooKey/Tuner development by creating an account on GitHub.",
+						"author": "azooKey",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/Tuner"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これらの技術を組みわせると何かワクワクするIMEが出来上がる。以下のポストのデモがとてもわかりやすい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/miwa_ensan/status/1818545939134791903",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">AI変換の新機能！ <a href=\"https://t.co/88xwMyAqkX\">pic.twitter.com/88xwMyAqkX</a></p>&mdash; Miwa - azooKeyの開発者 (@miwa_ensan) <a href=\"https://twitter.com/miwa_ensan/status/1818545939134791903?ref_src=twsrc%5Etfw\">July 31, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/miwa_ensan/status/1818545939134791903",
+						"author_name": "Miwa - azooKeyの開発者",
+						"author_url": "https://twitter.com/miwa_ensan",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">AI変換の新機能！ <a href=\"https://t.co/88xwMyAqkX\">pic.twitter.com/88xwMyAqkX</a></p>&mdash; Miwa - azooKeyの開発者 (@miwa_ensan) <a href=\"https://twitter.com/miwa_ensan/status/1818545939134791903?ref_src=twsrc%5Etfw\">July 31, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この変換精度は素晴らしく、mac標準のライブ変換は使いたくなかったレベルだったが、azooKeyのライブ変換はついに実用レベルに達したと感じた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最高の入力体験を作るために慣用的な機能でも削る",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "azooKey導入者で結構戸惑う人が多いのが、mac標準やGoogle日本語入力とは違う挙動をするところだと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "例えば日本語入力の時にShiftキーを押しながらアルファベットの大文字を入力したら、その入力セッション中は英字モードのように振る舞う機能。設定で見当たらなかったのでおそらく誰かissue立ててるだろうなと思ったらやはり立っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/azooKey/azooKey-Desktop/issues/211",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-4.svg",
+						"title": "[Feature] シフトを押しながら入力したときに英字モードに切り替え · Issue #211 · azooKey/azooKey-Desktop",
+						"description": "macOS標準の日本語入力のように、シフトキーを押した際に、「英字モードに入る」を実装していただけるとありがたいです。",
+						"author": "blupoles",
+						"publisher": "GitHub",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/211"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここでの議論は開発者のmiwaさんの主張もissueの起票者の主張も双方正しいところがとても重要で、確かにSHIFTの入力モードの挙動は機能的な一貫性で考えると不思議な挙動ではある。が、実際に日本語入力中にアルファベットの大文字を入力した場合は続く文字を小文字を入力したい場面が圧倒的に多く、だからこそこれまでのIMEはそのニーズに応える形でこの機能を実装していたのだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "開発者は議論の末にこの機能は採用しない決断をしている。この一時的に英字入力にする機能は確かにworkする場面は多いのかもしれないが、日本語入力中に突然\"work\"のようにかしこぶって小文字だけ入力するときは確かに自分も無意識に事前にモードを切り替えている。入力スタイルの振る舞いの一貫性を破ってアドホックな機能追加が必要なほどそれは重要な体験向上かと言われると微妙で、やはりユーザー側が矯正して入力の振る舞いを統一するほうがより良い方向性のように感じる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "新しいIMEを試すときに今までのIMEにある慣用的な機能の有無が大きい問題に感じてしまうが、大事なのは入力体験を向上させることであり、理想の入力体験い寄与しない機能はアプリケーションからも手続き記憶からも削ぎ落としたほうが良いということだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この辺の開発者の妥協のなさがプロダクトにさらに期待する部分なので、これからも応援しつつ便利に使わせてもらおうと思っている。おっさんなので慣れるの大変そうだけど。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

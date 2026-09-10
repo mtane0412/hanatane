@@ -1,0 +1,157 @@
+{
+	"title": "床とサーバーと私",
+	"slug": "floor-server-and-me",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "新年あけましておめでとうございます。床を直したりサーバーを立てたりしながら餅を死ぬほど食っていました。",
+	"feature_image": "https://hanatane.net/content/images/2025/01/tanenobu_The_latest_AI_and_IoT_are_working_in_an_old_Japanese_d4207e99-b26a-41f3-8627-d0f74ba4c8bf_1.png",
+	"featured": false,
+	"published_at": "2025-01-05T15:54:07.000Z",
+	"updated_at": "2025-01-05T15:54:07.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あけましておめでとうございます。今年もよろしくお願いします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "年末年始は1階の和室を洋室化することを計画していたのですが、完全に寝正月で昼から起きて短時間作業を繰り返した結果、年始の休みでは間に合わなかったので1月の休みを使ってのんびりやっていこうかと思います。断熱性能の向上に期待していたものの、もともとスタイロ畳を使っていたのでそんなにあったかくならないかも。ハードいじりはホームセンターとの往復だったり自分の体力の範囲内でしか活動できなかったりと、ソフトウェアの世界と比べてかなり制約が多いのですがやはり楽しいです。時間と金が無限にほしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/01/image.png",
+					"width": 2048,
+					"height": 1536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "日が暮れてからはブラックフライデーで買ったN100系のミニPCにProxmoxを入れて自宅サーバー環境を色々といじっておりました。helper scriptsで一発で欲しい仮想環境が作られるのでかなり嬉しいです。Home Assistant, influxDB, Grafana, NocoDBあたりを入れてハウス管理をもうちょいスマートにやろうかなと思います。最近はCloudflare Tunnelという便利なものもあって、これのおかげで固定IPアドレス代年間13000円程度が浮かせた状態で家の外からでもセキュアにアクセス可能です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/01/image-1.png",
+					"width": 1196,
+					"height": 402,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">a</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで年末年始はProxmoxやHome Assistantの活発なオープンソースコミュニティに触れる良い機会となりました。便利なSaaSに溢れた世の中ですが、手元でコントロール可能なself-hostedに回帰していく2025年になりそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちなみに魔法のように便利なProxmox VE Helper Scriptsの大元の作者が癌で2024年の11月に亡くなっていたそうで、顔も知らないどこかの誰かのcontributionが僕の快適な生活を支えてくれていることに思いを馳せるなどしていました。オープンソースに幸あれ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで2024年、あまり活発に活動できなかったのですが、2025年は色々と動けるとよいなと思います。当面は床との格闘をしていこうと思います。本年もよろしくお願いいたします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

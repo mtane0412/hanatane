@@ -1,0 +1,611 @@
+{
+	"title": "セルフホストGhostでMailgun一括送信のbatch sizeを設定する",
+	"slug": "ghost-mailgun-setup",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost",
+		"#ref-ghost-migration-from-pro-to-selfhost"
+	],
+	"excerpt": "GhostをセルフホストしてMailgunでニュースレター配信を試みたが、Mailgunの評価期間の制限で一括送信に失敗。Ghost側でbatchSizeの設定変更と、Mailgunサポート対応を含めた対策をまとめました。",
+	"feature_image": "https://hanatane.net/content/images/2025/04/mailgun-setup.png",
+	"featured": false,
+	"published_at": "2025-04-06T22:00:39.000Z",
+	"updated_at": "2025-04-07T02:24:44.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以下の記事の補足でニュースレターの配信に使用しているMailgunの設定がうまくいっていませんでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/ghost-migration-from-pro-to-selfhost/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-3.png",
+						"title": "Ghostをセルフホスト版に移行した",
+						"description": "Ghost Pro(マネージド)からさくらのVPS(1GB)上のセルフホスト版に移行したメモ",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/c451f66e-de7a-4701-aa94-ecd8af8cf06e.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結論から言うと、Mailgun作りたての場合はbatch sizeを設定して少しずつ送信するようにするのが正解GhostをセルフホストしてMailgunでニュースレター配信を試みたが、評価期間の制限で一括送信に失敗。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "bulkEmail__batchSize",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "の設定変更と、Mailgunサポート対応を含めた対策をまとめた技術メモ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "セルフホストするときに結構同じ轍を踏む人が多そうなのでメモしておきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostのMailgunの送信方式",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostはデフォルトではメール配信サービスのMailgunを使用してメールを送っています。TransactionalとBulk Emailの二種類で、前者は登録確認など1人への送信に使われるものでSMTPを使用し、後者は記事配信で一斉送信に使用するのでMailgun API経由で配信します。昨今スパム判定がかなり厳しくなってきているので、ニュースレターのような多人数に確実に届けたい場合はMailgunのような外部サービスを使用する必要があります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/04/image.png",
+					"width": 1318,
+					"height": 1202,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://ghost.org/docs/faq/mailgun-newsletters/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-17.ico",
+						"title": "Why do I have to set up Mailgun for newsletters?",
+						"description": "Sending bulk email to many recipients using SMTP is not supported. In order to send newsletters from Ghost you’ll need to setup Bulk Mail with Mailgun.",
+						"author": "",
+						"publisher": "Ghost - The Professional Publishing Platform",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/ghost-docs-2.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "記事の一括送信ができない",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "問題は設定したと思っていた一斉送信が実はうまくいっていなかったことでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Dockerのログを確認してみます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "INFO \"GET /ghost/api/admin/emails/xxxx\n[2025-03-23 10:01:15] ERROR status code 420\n[2025-03-23 10:01:15] ERROR [BULK_EMAIL_DB_RETRY] Sending email batch xxxxx  - Failed (2th try)\n\n[BULK_EMAIL_DB_RETRY] Sending email batch xxxxx  - Failed (2th try)\n\n\"Mailgun Error 420: Domain mg.hanatane.net is not allowed to send: recipient limit exceeded, try again after Sun, 23 Mar 2025 10:01:34 UTC\"\n\"https://ghost.org/docs/newsletters/#bulk-email-configuration\"",
+					"language": "bash",
+					"caption": ""
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "[2025-03-23 11:02:55] INFO Sending email to 16 recipients\n[2025-03-23 11:02:55] INFO \"GET /ghost/api/admin/emails/xxxxx/\" 200 27ms\n[2025-03-23 11:02:56] ERROR Forbidden\n[2025-03-23 11:02:56] ERROR [BULK_EMAIL_DB_RETRY] Sending email batch xxxxx  - Failed (2th try)\n\n[BULK_EMAIL_DB_RETRY] Sending email batch xxxxx  - Failed (2th try)\n\n\"Mailgun Error 403: Domain mg.hanatane.net is not allowed to send large batches yet\"\n\"https://ghost.org/docs/newsletters/#bulk-email-configuration\"",
+					"language": "bash",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "どうもアカウント作りたての場合は一度に大量に送れないようです。誰でもボコスカ送れるとそれはスパムやりたい放題なのでここは納得です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一括送信のバッチサイズを設定する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "対策を調べるとGhost側ではメール送信のバッチサイズを設定できるオプションがあるらしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://forum.ghost.org/t/mailgun-story-again/39665/16",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/f381b3b952df5ad42fe691a8b14aa7f0c96c461a_2_180x180.png",
+						"title": "Mailgun story, again",
+						"description": "If you’re self-hosting you can set the batch size in config to get within your Mailgun limits whilst warming up your account. config.production.json { ... “bulkEmail”: { “batchSize”: 10 } } Just be sure to increase it over time as your account limits are raised (default and max is 1000) to keep your sending and database tables efficient.",
+						"author": "Kevin",
+						"publisher": "Ghost Forum",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/8d4e1be1543b3ed506f105953a0d062b84797e42.png"
+					},
+					"caption": ""
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "bulkEmail__batchSize: 10",
+					"language": "yaml",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "バッチサイズを10にすると、一応送信は可能になったものの、全部送信される前にエラーで中段されている模様。エラーログを見るとやっぱりまだバッチがでかすぎるみたいなことを言われているようでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Mailgunの評価期間の制限",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "フォーラムの他の情報を見ても解決策はサポートに連絡することとあったのでサポートに連絡すると以下のことが返ってきました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "スパム対策が作動してアカウントが評価期間[1]に入っている",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "この期間中は以下の制限がある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "1時間100メッセージまで",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "送信はメッセージごとに9人まで",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "メール検証の無効化",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "解除を検討するからビジネス情報とか利用規約とか色々送れ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "特にメッセージごとに9人という制限が重要で、フォーラムのサンプル値だった10ですら引っかかることになります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一旦バッチサイズを5に設定するとなんとか送信されるようになりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": " bulkEmail__batchSize: 5",
+					"language": "yaml",
+					"caption": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/04/image-1.png",
+					"width": 1092,
+					"height": 640,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Mailgunのサポートとはその後もやりとりしたのですが、まだ運用が短いので解除せず継続になったとのことでしばらく様子見が必要そうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">2025/4/7 追記: 5日後にサポートから連絡がきて運用確認後、制限が解除されたとの連絡がきました。やったね！</span></p>",
+					"calloutEmoji": "📝",
+					"backgroundColor": "green"
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

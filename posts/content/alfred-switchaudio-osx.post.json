@@ -1,0 +1,205 @@
+{
+	"title": "AlfredでMacの音声を切り替える",
+	"slug": "alfred-switchaudio-osx",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Alfred",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "AlfredでMacの音声を切り替えるAlfred Workflowを作った",
+	"feature_image": "https://hanatane.net/content/images/2024/02/tanenobu_a_man_who_wears_a_bowler_hat_with_a_purple_ribbon_is_l_91d58dce-418a-4635-bc4c-d7ecdd75edb3.png",
+	"featured": false,
+	"published_at": "2024-02-06T13:27:40.000Z",
+	"updated_at": "2024-02-06T13:27:40.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "BeatsFitProを使ってるのですが、BluetoothイヤホンをMacで使っているときにうっかりBluetoothマイクがオンになるとレイテンシー重視のコーデックに切り替わって音質がめちゃくちゃ悪くなります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なのでマイクを使う前にMacbookの内蔵マイクに切り替えるのですが、毎回メニューバー→Soundをoption+クリック→マイクを選択というのがとても面倒です。さらにH1の強みを活かして頻繁に接続を切り替えるので、切り替わる度にマイクが変わってしまいます。デフォルトで内蔵マイクを使うように設定できればいいのですが…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで回避策はないかと調べたら",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "switchaudio-osx",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://github.com/deweller/switchaudio-osx"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というコマンドラインツールがありました。あとはこれをAlfredで実行するだけでいいじゃんということで、誰かやってないかと思ったやっぱりありました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/alexlafroscia/alfred-switch-audio-source",
+					"metadata": {
+						"icon": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
+						"title": "GitHub - alexlafroscia/alfred-switch-audio-source: Alfred workflow to switch audio device",
+						"description": "Alfred workflow to switch audio device. Contribute to alexlafroscia/alfred-switch-audio-source development by creating an account on GitHub.",
+						"author": "alexlafroscia",
+						"publisher": "GitHub",
+						"thumbnail": "https://opengraph.githubassets.com/8a85c221ae047f618f11238b21371a56bf10ee540e845e3494290ead7f7828b8/alexlafroscia/alfred-switch-audio-source"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しかしうまく動きません。どうも内部的にPython2を使っているのが原因っぽいです。workaroundもいくつかありそうでしたが、やりたいことはシンプルなので例のごとくChatGPTにApple Scriptを書いてもらって実装しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/mtane0412/alfred-switch-audio-osx",
+					"metadata": {
+						"icon": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
+						"title": "GitHub - mtane0412/alfred-switch-audio-osx: Alfredでswitchaudio-osxを使うworkflow",
+						"description": "Alfredでswitchaudio-osxを使うworkflow. Contribute to mtane0412/alfred-switch-audio-osx development by creating an account on GitHub.",
+						"author": "mtane0412",
+						"publisher": "GitHub",
+						"thumbnail": "https://opengraph.githubassets.com/3da736257ddd40205cbb46c93fe0668c9878f0ad12e92c9661819b0fd1fbc9eb/mtane0412/alfred-switch-audio-osx"
+					},
+					"caption": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/02/3697a11d444ba6663dad7321e1afdda3-1.gif",
+					"width": 1000,
+					"height": 626,
+					"title": "",
+					"alt": "動作している様子",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "個人的にめちゃくちゃ便利になりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Alfredは開発のしやすさでPythonとかNodeを中身で使うことがありますが、それぞれの言語のバージョンで次第に使えなくなるworkflowが多い印象です。Apple ScriptはApple謹製なのでそれらに比べると長く使えるんじゃないかなーという思うのですが、実際のところどうなんでしょうね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

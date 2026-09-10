@@ -1,0 +1,409 @@
+{
+	"title": "今週の振り返り 2024 week9",
+	"slug": "2024-week9",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "ストリートファイター6の大会である東京メトロカップに出場しました",
+	"feature_image": "https://hanatane.net/content/images/2024/03/tanenobu_Fighting_Game_Tournament_Illustration_for_blog_header__9a46b8d7-b43a-4e16-bac1-f966d09ae7bc.png",
+	"featured": false,
+	"published_at": "2024-03-04T11:33:34.000Z",
+	"updated_at": "2025-03-30T14:18:38.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週はスト6な週です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CAPCOM CUP X終了",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ストリートファイター6のCAPCOM CUPの優勝は台湾のUMAで、台湾のホロリスがジュリを使って優勝ということで話題になりましたね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=_DbJcZXq-qo",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/_DbJcZXq-qo?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Uma (Juri) vs. Chris Wong (Luke) - Grand Final - Capcom Cup X\"></iframe>",
+					"metadata": {
+						"title": "Uma (Juri) vs. Chris Wong (Luke) - Grand Final - Capcom Cup X",
+						"author_name": "Capcom Fighters",
+						"author_url": "https://www.youtube.com/@CapcomFighters",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/_DbJcZXq-qo/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/_DbJcZXq-qo?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Uma (Juri) vs. Chris Wong (Luke) - Grand Final - Capcom Cup X\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "日本勢もルーザーズでふ〜ど選手がMenaRDを破るなど奮闘してました。Menaって本当に倒せるんだ…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=3iSNjcJ43CY",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/3iSNjcJ43CY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Fuudo (Dee Jay) vs. MenaRD (Blanka) - Top 16 - Capcom Cup X\"></iframe>",
+					"metadata": {
+						"title": "Fuudo (Dee Jay) vs. MenaRD (Blanka) - Top 16 - Capcom Cup X",
+						"author_name": "Capcom Fighters",
+						"author_url": "https://www.youtube.com/@CapcomFighters",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/3iSNjcJ43CY/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/3iSNjcJ43CY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Fuudo (Dee Jay) vs. MenaRD (Blanka) - Top 16 - Capcom Cup X\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "SF Leagueもそうだけど、見る専からプレイヤーになったことで細かいプレイの解像度が若干上がっていて、プロシーンの観戦が以前よりも楽しくなってていいですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京メトロカップ出場",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先週エントリーしていた東京メトロカップですが、抽選の0回戦をまず突破できるかが問題だったのですが、運営の計らいで全員参加となり無事出場できました。個人での大会出場は初めてなのでドキドキです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://tokyometro-cup.jp/",
+					"metadata": {
+						"icon": "https://tokyometro-cup.jp/img/favicon.ico",
+						"title": "TOKYO METRO CUP STREET FIGHTER 6",
+						"description": "本大会は、東京メトロが主催するStreet Fighter 6のeスポーツ大会で、学生部門１２８名、一般部門２５６名が参加するものです。予選はオンラインで開催し、決勝大会は豊洲の会場（JCG豊洲スタジオ）に選手を招待して実施します。また、決勝大会当日は大会の様子をLIVE配信し、白熱する選手の姿と有名ゲーム配信者等による実況解説をお楽しみいただけます。",
+						"author": "東京メトロ",
+						"publisher": "東京メトロ",
+						"thumbnail": "https://tokyometro-cup.jp/img/og-image.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "トーナメント表の割当は",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "一般部門D",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://challonge.com/ja/TMC_240303_tournamentD/groups"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "のグループHということで、かなり人数の参加があったんだなーという感じです。2回戦からスタートでMR1500帯の比較的近い人達とマッチアップできたのか、なんとか勝てた感じです。このあたり大会本番の緊張環境だとモダンケンだとMR+100くらいされてる感があります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "3回戦でモダンラシードでAct2レジェンドのぽてぽてキリンさんと当たって何もできず敗北。モダンでここまで強くなれるんだなーというのを教えてもらいました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/59fab7720c9f2663a59cdbd1051fb10e.png",
+					"width": 933,
+					"height": 536,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ルーザーズはMR1500台のモダン本田と対戦。最初はコマ投げかなり食らって本田ペースでしたが、頭突きと百貫はモダンだと昇竜で対処できるので、しっかりケンを押し付けてなんとか勝利。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ルーザーズラウンド7でMR1900のルークでまたも何もできず終了…。さすがに分厚い壁です。もっと強くなりたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/6b4aadecce256963c38267b24cb504ab.png",
+					"width": 755,
+					"height": 391,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "予選は公式配信はなかったんですが、同じグループにいたニシキンさんの配信にずっとお邪魔してて大会の空気感を味わえたのもよかったです。ニシキンさんは本戦出場を決めてました！おめでとうございます！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.twitch.tv/nishikin0209",
+					"metadata": {
+						"icon": "https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png",
+						"title": "Twitch",
+						"description": "Twitch is the world’s leading video platform and community for gamers.",
+						"author": "",
+						"publisher": "Twitch",
+						"thumbnail": "https://static-cdn.jtvnw.net/ttv-static-metadata/twitch_logo3.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで初めてのソロ大会は思ったよりも長く戦えてとても楽しく終わりました。同ランク帯が多く参加していたということでもあり、スト6はプロも一般プレイヤーも同じ大会に参戦して戦える場があるのがすごく良いですね。一戦一戦は短時間で終えられるのが大きいんだと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しばらくスト6をまともに触れていなかったのですが、そろそろ上達に向けて取り組んでいきたいな〜と思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

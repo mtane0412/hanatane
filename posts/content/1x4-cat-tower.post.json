@@ -1,0 +1,580 @@
+{
+	"title": "1x4材と麻紐でキャットタワーを作る",
+	"slug": "1x4-cat-tower",
+	"status": "published",
+	"tags": [
+		"猫の話",
+		"DIY"
+	],
+	"excerpt": "1x4材と麻ロープで猫が登りやすいキャットタワーを作る",
+	"feature_image": "https://hanatane.net/content/images/2026/01/generation-9014bb68-b5fc-45b8-90c2-4c096c521db1.png",
+	"featured": false,
+	"published_at": "2026-01-15T14:45:35.000Z",
+	"updated_at": "2026-01-15T14:57:25.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猫も家に慣れてきて、色々なところに登り始めました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/IMG_7166-1.jpeg",
+					"width": 2000,
+					"height": 1125,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "徐々に柱や建具がダメージを負いつつあるので、猫のためにも家のためにも猫が遊べる空間を少しずつ作っていこうと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで最初は爪とぎ&キャットタワーを作ります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "参考にした動画",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=S1ZKtr4Xm2M",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/S1ZKtr4Xm2M?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"【DIY】キャットタワー作ったら…猫が「うんしょ！うんしょ！」人みたいな登り方した｜登り方にも個性あり｜6匹の違いご覧ください\"></iframe>",
+					"metadata": {
+						"title": "【DIY】キャットタワー作ったら…猫が「うんしょ！うんしょ！」人みたいな登り方した｜登り方にも個性あり｜6匹の違いご覧ください",
+						"author_name": "無重力猫ミルコのお家",
+						"author_url": "https://www.youtube.com/@ccchisa76",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/S1ZKtr4Xm2M/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/S1ZKtr4Xm2M?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"【DIY】キャットタワー作ったら…猫が「うんしょ！うんしょ！」人みたいな登り方した｜登り方にも個性あり｜6匹の違いご覧ください\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2種類のキャットタワーを作っていて、塩ビ管ベースのものは面白いと思いました。板で作ったやつも登りやすそうだし、サムネの登り方もかわいい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ホームセンターで材料探し",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "近所のホームセンターで材料探しです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "動画にあった塩ビ管は太さも考えると1500~3000円位で思ったよりコストがかかりそう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一方で1x4材は1820mmで高さも十分で1本500円。加工もしやすいので1x4材を基本に色々作ることにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "麻ロープもホームセンターだとメートル売してるのですが、必要分を購入しようと思ったら予想よりも3倍くらい高くついたのでAmazonの格安の麻紐を購入しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0DK8HTQM1/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/81TClNTZjbL._AC_SX679_.jpg\"\n           alt=\"Amazon.co.jp: BValley 6mm 麻縄 太い麻ロープ 麻紐 天然繊維 ジュート 麻ひも リペアロープ 猫タワー 爪研ぎ スクラッチャー 手作りDIY 手芸 園芸 梱包 アウトドア用 (茶色-120M) : ペット用品\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: BValley 6mm 麻縄 太い麻ロープ 麻紐 天然繊維 ジュート 麻ひも リペアロープ 猫タワー 爪研ぎ スクラッチャー 手作りDIY 手芸 園芸 梱包 アウトドア用 (茶色-120M) : ペット用品\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: BValley 6mm 麻縄 太い麻ロープ 麻紐 天然繊維 ジュート 麻ひも リペアロープ 猫タワー 爪研ぎ スクラッチャー 手作りDIY 手芸 園芸 梱包 アウトドア用 (茶色-120M) : ペット用品\n        </p>\n      </div>\n\n      \n      <div style=\"display: flex; align-items: center; justify-content: space-between;\">\n        <span style=\"font-size: 18px; font-weight: 700; color: #B12704;\">\n          ¥2,499\n        </span>\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "設置場所選定",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "設置第1号は猫の爪とぎ被害の大きいトイレ横に決定。ここの柱を登るのも大好き。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/IMG_7074.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちょうど洗面所と廊下を区切るアルミドアを撤去したので、元々ある鴨居の溝にはめ込むことしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/IMG_7200.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "鴨居のサイズを測って削ったつもりがこうなりました。私はバカです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "仕方がないので溝をずらします。固定力は十分そう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/IMG_7201.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "麻ロープを巻いていきます。適当な場所から始めてひたすらまきまき。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最初と終わりは動画に倣ってビスを打ち込んでます。1x4材なら穴を開けてロープを通してコブを作るのも良さそうですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "完成",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/IMG_7202.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いい感じになりました。元ドア枠部分なのであまり工夫せずにパワーでねじ込んで固定しています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このキャットタワーを使って上までの登ったらキャットウォークを追加でつけていって上の空間を活かす予定。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最初はこの動画みたいに猫じゃらしで誘導してあげたら好んで爪とぎしてくれるようになりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/2007731976481190307",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">かわいい🥰 <a href=\"https://t.co/L7xwOSCFL5\">pic.twitter.com/L7xwOSCFL5</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/2007731976481190307?ref_src=twsrc%5Etfw\">January 4, 2026</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/2007731976481190307",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">かわいい🥰 <a href=\"https://t.co/L7xwOSCFL5\">pic.twitter.com/L7xwOSCFL5</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/2007731976481190307?ref_src=twsrc%5Etfw\">January 4, 2026</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "格安で作れて賃貸でも設置しやすいのでお試しあれ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "call-to-action",
+					"version": 1,
+					"layout": "minimal",
+					"alignment": "center",
+					"textValue": "<p><span style=\"white-space: pre-wrap;\">Xでも情報発信しています。良かったらフォローしてください！</span></p>",
+					"showButton": true,
+					"showDividers": true,
+					"buttonText": "Follow on X",
+					"buttonUrl": "https://x.com/mtane0412",
+					"buttonColor": "#000000",
+					"buttonTextColor": "#ffffff",
+					"hasSponsorLabel": false,
+					"sponsorLabel": "<p><span style=\"white-space: pre-wrap;\">SPONSORED</span></p>",
+					"backgroundColor": "grey",
+					"linkColor": "text",
+					"imageUrl": "https://hanatane.net/content/images/2026/01/icon512.png",
+					"imageWidth": 512,
+					"imageHeight": 512,
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

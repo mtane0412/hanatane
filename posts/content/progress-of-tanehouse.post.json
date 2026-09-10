@@ -1,0 +1,841 @@
+{
+	"title": "たねハウス進捗",
+	"slug": "progress-of-tanehouse",
+	"status": "published",
+	"tags": [
+		"たねハウスの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "新居祝いのお礼と色々物を揃えながら、たねハウスで手を入れる場所を計画しています。",
+	"feature_image": "https://images.unsplash.com/photo-1595814433015-e6f5ce69614e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGRpeXxlbnwwfHx8fDE2OTMzNTkyNTF8MA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-08-30T01:34:24.000Z",
+	"updated_at": "2023-08-30T01:34:24.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "たねハウス(仮)ですが、皆さんからたくさんお祝いをいただいて着々と住めるようになってきております。改めて、皆様本当にありがとうございます！家購入ってやっぱり不安が大きいので、支えてもらってるのをひしひしと感じられて、新居祝い・引っ越し祝いの機能的意義をひしひしと感じました。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1692115387805229426",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">引っ越し祝い届いております！ありがとうございます！！<br>あとで個別にメッセージしますね🥰 <a href=\"https://t.co/cACBfoKxjs\">pic.twitter.com/cACBfoKxjs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692115387805229426?ref_src=twsrc%5Etfw\">August 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1692115387805229426",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">引っ越し祝い届いております！ありがとうございます！！<br>あとで個別にメッセージしますね🥰 <a href=\"https://t.co/cACBfoKxjs\">pic.twitter.com/cACBfoKxjs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692115387805229426?ref_src=twsrc%5Etfw\">August 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1692124054105530561",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">無事に謎のでかい根を絶対許さんマンになれました！ありがとう！ <a href=\"https://t.co/5KNqJZPVUC\">pic.twitter.com/5KNqJZPVUC</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692124054105530561?ref_src=twsrc%5Etfw\">August 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1692124054105530561",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">無事に謎のでかい根を絶対許さんマンになれました！ありがとう！ <a href=\"https://t.co/5KNqJZPVUC\">pic.twitter.com/5KNqJZPVUC</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692124054105530561?ref_src=twsrc%5Etfw\">August 17, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1692489150761779336",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">うおー！帰ってお祝い届いてると頑張りの気持ちが出てきます！ありがとうございます😭<br>個別にお礼送りますー！ <a href=\"https://t.co/pLMsS80Z0S\">pic.twitter.com/pLMsS80Z0S</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692489150761779336?ref_src=twsrc%5Etfw\">August 18, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1692489150761779336",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">うおー！帰ってお祝い届いてると頑張りの気持ちが出てきます！ありがとうございます😭<br>個別にお礼送りますー！ <a href=\"https://t.co/pLMsS80Z0S\">pic.twitter.com/pLMsS80Z0S</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692489150761779336?ref_src=twsrc%5Etfw\">August 18, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1692720180424802317",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">うおおおー！みんな本当にありがとうございます！！😭<br>いい家にするぞい！ <a href=\"https://t.co/E0218BIx2O\">pic.twitter.com/E0218BIx2O</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692720180424802317?ref_src=twsrc%5Etfw\">August 19, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1692720180424802317",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">うおおおー！みんな本当にありがとうございます！！😭<br>いい家にするぞい！ <a href=\"https://t.co/E0218BIx2O\">pic.twitter.com/E0218BIx2O</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692720180424802317?ref_src=twsrc%5Etfw\">August 19, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとは友人が東京から来て魚捌き体験会に行ったり",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1692806455903268970",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">魚捌き練習会に来た <a href=\"https://t.co/rBpoH9dqLH\">pic.twitter.com/rBpoH9dqLH</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692806455903268970?ref_src=twsrc%5Etfw\">August 19, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1692806455903268970",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">魚捌き練習会に来た <a href=\"https://t.co/rBpoH9dqLH\">pic.twitter.com/rBpoH9dqLH</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1692806455903268970?ref_src=twsrc%5Etfw\">August 19, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お手伝いさせてもらってる社長から立派な食器棚をいただいたりしてました。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1695348413796405338",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">食器棚もらった！早くキッチンのフロアシート交換しないと… <a href=\"https://t.co/dzXdPTjevj\">pic.twitter.com/dzXdPTjevj</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695348413796405338?ref_src=twsrc%5Etfw\">August 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1695348413796405338",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">食器棚もらった！早くキッチンのフロアシート交換しないと… <a href=\"https://t.co/dzXdPTjevj\">pic.twitter.com/dzXdPTjevj</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695348413796405338?ref_src=twsrc%5Etfw\">August 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "色々と頂いたので自分でも色々必要なものを徐々に揃えています。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1695408753594831302",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">これでやっと色々作業できる！ <a href=\"https://t.co/8SlHixKWpV\">pic.twitter.com/8SlHixKWpV</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695408753594831302?ref_src=twsrc%5Etfw\">August 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1695408753594831302",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">これでやっと色々作業できる！ <a href=\"https://t.co/8SlHixKWpV\">pic.twitter.com/8SlHixKWpV</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695408753594831302?ref_src=twsrc%5Etfw\">August 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "電球をつけたり、表札を外すのに微妙に高さが必要なのでAmazonでポチり。あとお風呂の換気扇壊れてるのかなーって思ったら裏にコンセントがあってそこも高いところにあったのでやはり一家に一つは必要です。屋内用の少し小さいやつもほしい。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "product",
+					"version": 1,
+					"productImageSrc": "https://hanatane.net/content/images/2023/08/51xktF-vSmS._AC_SY300_SX300_.jpg",
+					"productImageWidth": 160,
+					"productImageHeight": 300,
+					"productTitle": "<span>長谷川工業(Hasegawa) はしご兼用脚立 (軽量・定番) RC2.0-15(1.40m) (16322)</span>",
+					"productDescription": "<p dir=\"ltr\"><span>￥9,009&nbsp;税込</span></p>",
+					"productRatingEnabled": false,
+					"productStarRating": 5,
+					"productButtonEnabled": true,
+					"productButton": "Amazonで見る",
+					"productUrl": "https://amzn.to/45sqAY1"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1695031737078964249",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ゴルフを愛する全て人の想いを乗せて、雑草を倒します <a href=\"https://t.co/q2Xh4nKglT\">pic.twitter.com/q2Xh4nKglT</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695031737078964249?ref_src=twsrc%5Etfw\">August 25, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1695031737078964249",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ゴルフを愛する全て人の想いを乗せて、雑草を倒します <a href=\"https://t.co/q2Xh4nKglT\">pic.twitter.com/q2Xh4nKglT</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695031737078964249?ref_src=twsrc%5Etfw\">August 25, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "某中古車販売業者御用達の除草剤が人気らしいのでポチってみた。そのまま散布できる手軽さが売りっぽいけど、コメリで薄めて使うやつのほうが割安なのかなー。噴霧器はギフトで頂いたので活用していきたい。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "product",
+					"version": 1,
+					"productImageSrc": "https://hanatane.net/content/images/2023/08/91Os2Pyx-GL._AC_SX522_.jpg",
+					"productImageWidth": 522,
+					"productImageHeight": 522,
+					"productTitle": "<span>フマキラー フマキラー カダン 除草剤 液体 強力 ストレート ザッソージエース 5L</span>",
+					"productDescription": "<p dir=\"ltr\"><span>￥2,039&nbsp;税込</span></p>",
+					"productRatingEnabled": false,
+					"productStarRating": 5,
+					"productButtonEnabled": true,
+					"productButton": "Amazonで見る",
+					"productUrl": "https://amzn.to/45JqISE"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1695409780997914921",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">うおっ、まぶし😖 <a href=\"https://t.co/l8CIappdnm\">pic.twitter.com/l8CIappdnm</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695409780997914921?ref_src=twsrc%5Etfw\">August 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1695409780997914921",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">うおっ、まぶし😖 <a href=\"https://t.co/l8CIappdnm\">pic.twitter.com/l8CIappdnm</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695409780997914921?ref_src=twsrc%5Etfw\">August 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "階段前の電気を脚立使って取り付け。予想以上に明るい。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "product",
+					"version": 1,
+					"productImageSrc": "https://hanatane.net/content/images/2023/08/61VhPpmN-UL._AC_SX679_.jpg",
+					"productImageWidth": 679,
+					"productImageHeight": 946,
+					"productTitle": "<span>szbritelight ペンダントライト</span>",
+					"productDescription": "<p dir=\"ltr\"><span>￥1,980&nbsp;税込</span></p>",
+					"productRatingEnabled": false,
+					"productStarRating": 5,
+					"productButtonEnabled": true,
+					"productButton": "Amazonで見る",
+					"productUrl": "https://amzn.to/3OWxq0X"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとは少しずつスマートホーム化を進めるべく、Switchbotで色々と注文。今3部屋くらい電気がついてない部屋があるんだけどそこはSwitchbotのシーリングライトを設置する予定。屋外カメラとかも設置して野生生物観察したい。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "product",
+					"version": 1,
+					"productImageSrc": "https://hanatane.net/content/images/2023/08/71GyEQX4pFL._AC_SX522_.jpg",
+					"productImageWidth": 522,
+					"productImageHeight": 556,
+					"productTitle": "<span>SwitchBot LEDシーリングライト 6畳W2612230</span>",
+					"productDescription": "<p dir=\"ltr\"><span>￥5,980&nbsp;税込</span></p>",
+					"productRatingEnabled": false,
+					"productStarRating": 5,
+					"productButtonEnabled": true,
+					"productButton": "Amazonで見る",
+					"productUrl": "https://amzn.to/44q9oBe"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、ものを買ってもそこからインストールが必要なのですが、まずキッチンを最初に手を付けないといけないなと思っています。食器棚と屋外に一旦置いてるのもキッチンにまだ入れられないからでした。段取り大変だ…。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://lh3.googleusercontent.com/pw/AIL4fc9BsIKEJZ26S-EQJvJ-25WtAST6LBDfDwM6oYmgqyY9vz1HvIBHRMkLFnPTgOqMd8h2O-WwHE82bpexOCny1r5HiDGA-DbJcPbwSQvNgZumLK6b_6WfnMKtlMkeSi-qnnuBLZux9sJ3JQzq4_F8yum92_NvLJJjU9B5nP60iUh2w0C1PFfGSoJmaw3FceJyCrGp3WrO0MmyfNXBENPiUuQb1WbgnXTmpdJ5-XWZEIC-loFPK6L2HBXuufJcXhOfpUQdE_XFlCNqId_5_xCpQq1YczSWvQVPM50QgQSXUR-PQmqGniYzPTJT26Hao-4CpScpb7i3nhCawTuWlDV_mrzCG0nKZt8Ed14jIis5nYrdFdOt-rscwFFpxbYGlfaRZyuvp-U6ZqrGd0U_7alCBu-O2rYqpNpi3jUinzkYU0yn6TTVT0AmktFYqP1mq1CQi0CnlNsiYOS2tnLlphKw5WXg7w5WaiqQ59-Dq_J4ewyqPrg3RsHytFNXR8AsK2H19YH8pixuAJlq6gG3SZO3AwLLaX7HNnRtVz5CtT06WNuOQYC3kfo-BPo6bx4W8EwP26Je6FoCwb3zudbiYigS3M41z_IU045CXL6MtcdNqHcCF7obLxwhaWsmSHi4Ajvaq3EZtzGgnMG18DC9mQtYPkp93ZkzuOLhAXMXWVSY0mp-CDHNfX6Tlw98lCkxcZk6493xhK_hEpvJE1NO-9RgZwaTu_mVA76TZEzc0Cz-EV2BEqjROjlIo4Qn_5nIQ0mVwQISC8k86cJpVcJWH9HUnX3ntzxfO3IKkLbW2ia_JisOAOvAlhJQC_Yuncr8X9idQjsHiVlaiDTB6h5ipYErXWP2pfu3tq_q9luFIf2w9xQiSOa-11UvAuP4yuS11sK-QbqYq0NooVMDDydOQCoG-iE=w676-h901-s-no?authuser=0",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんな感じで前に設置されてた電気温水器のところとかあったり、後はフロアシート自体が結構汚れているのでまるごと取り替えないといけないなと思います。なのでフロアシート物色中…。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://lh3.googleusercontent.com/pw/AIL4fc8jUdBBWl__srYEIGYILTbHiy0N_REzEt89T4v1Ydx0qn3ejtq5-CAQzeBe27dWZR8G7iyPhH6wDRnSzApkmihR7tE-Bpg0BVv3BmH-68qXS_6cKbLrb4iS0VSy_nRHPcSpULzkjQdVXPtH-I2dTac8LQO0EeaVyYR0yJsZncyoCMVcoYZl-e4AE7LvoUp_f-pLZFXwTcz1CYIQPqxr6H6VX2Z4Wt7GbO2uMH2magdJzuSzA7DT6vzWym49XqGSqtVj1wkOBrbtZr4Z0LW9lCjZWIsD5Uttup_MluaE3nvqu8hTzDgcfCxz_HNz-DBCSSBDRhGvNU4FDhygS3bf6bpqybM1q3kFVyDUmk0oCHprzXa21jsrKWgyhlOe-VoRNCJYffOzG7l0PYWbpGedIYCgOUHHumv9UlW5yJpzynwykU9q-4UeB1LmKLJ3lL32vsgfM06v1g47_ab6SXq_rjy4aLuqDkSmpWUV_PzL6P0t0-8iYHCplKehokzkfybpK50CGsERRbcI4p0uv_gXztFtAKS0yI1B1tS54pu5slWBcS9-OG21pmkvMWtJ9_KtQiNWFVbVGzKG7D1WAjr544xcRVO9Unj4DO_TSz3PaF5fygqqa-8EXsqAQoU-fo4wKpMmvzmNNMXUk37_qINYemJdWndENKa8dueQRwA-TncFkT2ncjjMOEK-qK8IuT28A_F-v0pFKVI4n2X_qh_sVAQrpuZA4QIF6wHpVVHSHXW7ifFKngoAxoJywTgdt7QTV-Zko_A1B4h21kZ-aEBd5kgb1seEKO2N3VfDh7VbKOpfgzjwD5mfvnixaEmFVScBFSWYeRtila-0IIJ50fqOWbNwZcFr2zL1jDL4FDyJZEY2-HfzfmUrdQFvEsM9uFKhezcQ1AVkXm0qNAVfWqSoBbM=w676-h901-s-no?authuser=0",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "脚立が入ったのでやっとお風呂の換気扇稼働。ここも掃除しなきゃなー。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://lh3.googleusercontent.com/pw/AIL4fc_8RN2_7Z57KValHMXQKw_-3CsMqVJqMdQnv3116yt8dcCVpQfvD2xtEnHL4iRSCiZCw1EjfwLJw_VqLrctO7kMelTcRXTTM-g4nyphBB0ja64y3LvzZY9XWD-BDMiWbj9K4Ohl-_q2wfIfT0h6Uj0WhurUsQaOm2_-agSKN5tD7LJn-CjbDop0odafmkXWqc56VV7Fszxfby_kcQ2VCEwK9hkcRKp3Sl98absieczHMdgNGA1VQ7hgL9Rc-OZtnhKbNEIu6nsTFuakhY4xArjmXv_se3L1uz6IgnRhMrx7BezQA8nBe_gtfiHpXJtj-w9HVA7oEBI0KlgbODTaBQLa8E6TVb2l7qyVkXVLW0N52RCFj2VbQNRyibQAR4EVxCQ2XCPnp-t6FhZ7boNgj8SkeFUxaTfGoFI3TWP6z71JPSj_7qQ6QYUXjRbjPiK-rMNGTJYhOJCYLThT2SGscsAyr0hSb57k3_kblkAx0QoVJnlebgMJALGH4K9yFLvSLwh6n4JU791UowFWqCC0TqURhSl2a3UXihfUWMOGSuh8LXN02t3MGVG8aKb_AwsxmABnbtW91KM2tTlcKLA4x5OMmrFct1LRVOvL5dAzA7tjj4wz-IIbGh1h7AHoAib3s16tMGcNZhnv7-zst6g-lFZyOPsqQHzMxRvZmbHMA2kzVsyOdZD6A2RrGwb8RAJ3Bsc_tdkiz5czH-ikXWw5cBNpW6R91oamWly608hX5gT835EZEknuAiq2gLc_8GcWX7zayxqr4QiVbz8itTwwRotbZJvVTiGXWtsnzJTMswJ-3izOxd52w8tShpYkMCtKuvZtGemZXKY46aFMbNc88nL3r2fraYdxGQdU5s8iCEjvTQpVhSm4a4p1a3SW5txbToiewz_5-xzk2sNMqz1U-3M=w676-h901-s-no?authuser=0",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "お風呂はペンキ？が剥がれてるのでここも塗り直さないといけない。あと床もなんか張り替えてみたい。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://lh3.googleusercontent.com/pw/AIL4fc9z72xw8SHbX4iNBVYglu_FYka347DDEgrgl8L2kMoCVy2Fs3ilkxLfgwHrtu3MeVfvU-erhX3aVMibYxQ8hMeSAe5a1udWlkzMCYKMv61IJw2KsJNfWmF5IY6mASbOKeeyTigPND8lt_ZA-Y31Ksk7dKMZI1t6Yz_nnBQDHaFc5SI0hYhgLiyxA74qhChXEfcPAI2KsA6zh0fwzPpRhYb-XNy9cZyn6pjvVsEubQs8xj2F4hsX5ehrWGhQgS8ggRyqgB32gTOP_nmVWVCLR6xOTMqkyALXKLBzfqwxcTLi4NqrwS1HKhJ4gTQMZgVFAHZB-C034iZisgpyGZ0C8LirE3wn0dyo8RXdvfxr6vPATfe2v2q-O9M8ANuup5CeNefUgZXWLsRXSfU_GGSMezvQUNpCrgLbL7bDp4R_MNSVzZQDcVNlD17CulGDznKjxwWKq5cQ5rSwx67uVyFF2M23sOZwgjmGVerfm4FBkccL3m-x3-tgYW-43STA4pR0wkk4oRjp6KXOsM-K-ATiVo2bN3LxbC2f6xOn3zZkLB9lq6LuiyrwiY-J8jN9GbX0ytN8eWhPCyyPZ5EuB0hJXaEWZM3Z5OJr1gUs2VbyKO55xy_DLPAU0Cb-mpBRfVjEiQeYWO2Gr2LG3sHG4Vc6iE6U1Bo_oeJNy6wHjELEQTebkwhCdv2bVlM_8a3ZScq8jjTonX_ORJfHuDa3RdrxZ0X5wedtsMz33udARsGYsJ37TQJpidOmtZQcCTfQrxMjGH3c50pbzDbiZvotkIssw7gcsx9j1AK4gUsuXFFMAK31jTlod22xvuttMiHkFJ1OMHWluBOP8gCd0y6wThsbswBaGwGhq09JZ9TtGyH4oeWRVgo6xg4bZkHnp-66xZ6m1O1rH5lY4IJUrXGWoWVfbG0=w676-h901-s-no?authuser=0",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "玄関は雑草がひたすら生えてくるので草むしりが必要なのですが…。こういう感じで抜いた後に砂利を敷き直して地面を露出させないほうが良さそうです。幸いなことに前の所有者さんの砂利がまだ駐車場に残っているのでそれを使うことができます。しかし、せっせと駐車場から玄関まで運んでるのですが、この往復が結構きつい。猫車を使いたいところですが、段差があって階段しかないのでなんとかしてスロープを作れないかなと画策中。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あと家の中で圧倒的に足りないものがテーブルです。キッチンとPC用はあるのですがほかがまだないのでなんとかしたい。買ってもいいけど作ってみるのも面白いかも。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1693108712771399936",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">どんこ汁作ってテーブルがまだないのでひもじい食べ方してる😇 <a href=\"https://t.co/kUNpvtctGi\">pic.twitter.com/kUNpvtctGi</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1693108712771399936?ref_src=twsrc%5Etfw\">August 20, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1693108712771399936",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">どんこ汁作ってテーブルがまだないのでひもじい食べ方してる😇 <a href=\"https://t.co/kUNpvtctGi\">pic.twitter.com/kUNpvtctGi</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1693108712771399936?ref_src=twsrc%5Etfw\">August 20, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家のやることを考えると途方にくれてしまいがちなんですが、ブログネタとして使うぞ！というマインドで少しずつ進めていきます。あと家とかDIYとか詳しい人はめちゃくちゃ助けてほしいです！よろしくお願いします。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>感想</strong></b><span>: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "signup",
+					"version": 1,
+					"alignment": "left",
+					"backgroundColor": "#F0F0F0",
+					"backgroundImageSrc": "",
+					"backgroundSize": "cover",
+					"textColor": "#000000",
+					"buttonColor": "accent",
+					"buttonTextColor": "#FFFFFF",
+					"buttonText": "購読する",
+					"disclaimer": "<span>※スパム等は一切ないのでご安心ください。いつでも購読解除可能です。</span>",
+					"header": "<span>「はなしのタネ」を購読する</span>",
+					"labels": [],
+					"layout": "wide",
+					"subheader": "<span>ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！</span>",
+					"successMessage": "Email sent! Check your inbox to complete your signup.",
+					"swapped": false
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "更新が…滞っているのである！！ということで仕事の方は市役所のIT人材育成業務が今年も始まって来年の2月くらいまで毎週水曜は夜まで仕事になりました。今年は出勤を少し送らせるので代わりに朝作業ができるので、ちょうどブログや家の作業にいいかもしれません。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "DiscordサーバーはもともとTwitch配信用に作っていたものをそのまま使う予定ですので、よかったら入ってみてください。",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"type": "linebreak",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "https://discord.gg/F76ervs3sw",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://discord.gg/F76ervs3sw"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回Amazonアソシエイトのリンクを挿入してみたのですが、AmazonはOGP設定がクソでそのままのリンクだとfetchできてないっぽいし、Ghostにも標準で作成する機能がないのでProductという商品表示用のスニペットを使ってみました。一個くらいならOKだけど気軽にたくさんペタペタできないのでないですね。こういうのがあると、やはりプランアップして自分で実装したさが出てきます。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ストリートファイター6、本当にいいゲームでいまダイア3まできました。本当にマスターが見えてきています。初心者からここまで走れるのは本当にカプコンの設計が素晴らしいですね。まだまだ改善できるポイントが色々見えているのでこのまま突っ走ります。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1695061023286309206",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ダイア3到達！もうみんな強いけどたまたま拾える勝ちにすがりついている🥲 <a href=\"https://t.co/2NspkpSSjf\">pic.twitter.com/2NspkpSSjf</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695061023286309206?ref_src=twsrc%5Etfw\">August 25, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1695061023286309206",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ダイア3到達！もうみんな強いけどたまたま拾える勝ちにすがりついている🥲 <a href=\"https://t.co/2NspkpSSjf\">pic.twitter.com/2NspkpSSjf</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1695061023286309206?ref_src=twsrc%5Etfw\">August 25, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "では、また次の記事で！👋",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,368 @@
+{
+	"title": "ダイエットします2023",
+	"slug": "diet-declaration-2023",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "ダイエットやっていき宣言2023",
+	"feature_image": "https://images.unsplash.com/photo-1529565214304-a882ebc5a8e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGZhdHxlbnwwfHx8fDE2ODY1MDUxNTB8MA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-06-11T22:00:42.000Z",
+	"updated_at": "2023-06-12T00:19:52.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ダイエットをはじめたのでせっかくなのでここでも宣言しておきます。ちなみに過去のダイエット方法について最初書こうと思ったのだけど、ダイエットに饒舌なデブ状態になったので、それは別記事にしようと思います。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実は2021年頃に劇的に体重を減らすことに成功したのですが、体重が2年の間にじわじわと戻り続け、最近の暴食によっていよいよ79kgで大台目前ということでそろそろ痩せねばと思い、ダイエットを再開し始めました。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "前回と同じくカロリー制限にしますが、自転車生活していた過去とは運動量が違うので、その状態でどれくらい減量できるかが今回のテーマでもあります。目標は1ヶ月3kg減ペースですが、計算上はわずかに下回る(2.7~2.9kg?)のと月2でチートデイ的なカロリーオーバーな日があるのでもう少し鈍化するかもしれません。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2023/06/IMG_9A90312161BE-1.jpeg",
+					"width": 750,
+					"height": 681,
+					"title": "",
+					"alt": "",
+					"caption": "<span>過去の体重推移。手動入力なので取ってない期間がある。</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ペースが遅くなるかもしれないですが、落とすのはおそらく簡単だと思います。カロリー制限によって食が逆に豊かになる現象があるので、食事準備ができないほど疲れてない限りはいけるはず…。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "運動の方は少し不安なので、なんとか日常に運動を取り戻さねばと思い、これまた久々にRingFit Adventureを起動しました。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">久々に <a href=\"https://twitter.com/hashtag/RingFitAdventure?src=hash&amp;ref_src=twsrc%5Etfw\">#RingFitAdventure</a> <a href=\"https://twitter.com/hashtag/NintendoSwitch?src=hash&amp;ref_src=twsrc%5Etfw\">#NintendoSwitch</a> <a href=\"https://t.co/49ADMFPZHs\">pic.twitter.com/49ADMFPZHs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1667496883995164672?ref_src=twsrc%5Etfw\">June 10, 2023</a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "減量前から減量成功する見込みで語るのなんだかフラグっぽいですが、減量後の維持について考える必要もありそうです。というのも20kg減量したあとに「簡単に落とせることがわかったので安心して太れる」という肥満の鏡のようなメンタリティを有しており、それは今でも変わっていないからです。(だからこそ80kg近くなってきたので落とすかという気持ちになった)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "健全な人々であればよりきれいになりたいとか痩せてモテたいなどのモチベーションがまだ活かせそうなのですが、いかんせんダイエットの結果生まれるのが何のために痩せたのかもよくわからない標準体重の寂しい中年男性という悲しいモンスターなので、思ったよりも深刻な問題です。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結石や痛風ホルダーなので健康のためという大義はあるものの、健康のために痩せているわけでもないんですよね。単純にシステマティックに痩せる過程に執着した結果みるみる体重が落ちていったのが過去のダイエットだったので。虚無です。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "理想的には一生涯、自分の口に入れるもののカロリーバランスを取り続けることなのですが、少し現実的ではないですね。前回の戦略も「n kg超えたらプチダイエットする」だったのですが、なんだかんだダイエットを始める認知コストは高く、今に至ります。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一つの方向は、自分の食事に興味関心がなく、「適当に半額シールのついたものでおいしく腹を満たす」という行為をやめることかもしれません。実際、カロリー制限中は、カロリー制限前よりも食事内容への注意があがって、いろんな食品会社のいろんな商品を試すので、食卓が豊かになります。というわけで、人生で食べることを楽しみにするというのが目標になってくるかもしれません。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "てなわけで本日は宣言でした！ダイエット方法は今月末のパトロン向け記事になるかもしれない…。ダイエット進捗はメンバー向けに公開するので、監視員してくれる人はよかったら購読してくださいませ",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>感想</strong></b><span>: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>購読</strong></b><span>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！ </span><a href=\"https://www.hanatane.net/#/portal/signup\"><span>購読はこちら</span></a></p>",
+					"calloutEmoji": "♥️",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "有料のパトロンの方が増えてきたので、GhostのプランをCreatorプランに引き上げることを計画中です。これでようやく細部をいじれたり、色々プログラマブルに扱えるようになるので、合わせてDiscordとかも展開していこうかななどと考え中です。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ダイエットの進捗はメンバー向けエリアに書いていくので引き続き監視よろしくお願いします😇",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それでは👋",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,502 @@
+{
+	"title": "格ゲーマーとあたま",
+	"slug": "fighting-gamer-and-mind",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Science",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "練習効率について、ウメハラの「ちょっと馬鹿なところがあったほうがいい」という考え方が寺田寅彦の『科学者とあたま』に通じている",
+	"feature_image": "https://hanatane.net/content/images/2024/07/tanenobu_Two_fighting_gamers_are_having_a_heated_game_in_a_vide_0106fb35-ce8c-42ec-a929-1eebce16f9d8.png",
+	"featured": false,
+	"published_at": "2024-07-07T05:26:33.000Z",
+	"updated_at": "2024-07-07T05:26:33.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "プロゲーマーのウメハラさんがりゅうせいさんに対して練習効率についての考え方を話している一昔前の切り抜きをYoutubeが流れてきた。色々連想したのでメモがてら書いておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=JFEAGyAMJaI",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/JFEAGyAMJaI?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ウメハラ　りゅうせいの練習方法とは逆のやり方を進める　切り抜き\"></iframe>",
+					"metadata": {
+						"title": "ウメハラ　りゅうせいの練習方法とは逆のやり方を進める　切り抜き",
+						"author_name": "格ゲー界の未来は明るい 【切り抜き】",
+						"author_url": "https://www.youtube.com/@user-yt1lg2sj4r",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/JFEAGyAMJaI/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/JFEAGyAMJaI?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ウメハラ　りゅうせいの練習方法とは逆のやり方を進める　切り抜き\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "内容は、まずやり込みまくるよりも効率のいい練習をしたほうがよいという一般的な考え方に対して、ウメハラさんは逆に先ずやりこみまくってその後に効率を求め始める方が良いという考え方で、要点をかいつまむと以下のような具合だ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "先に効率を考えるというのは、究極的には諦める効率が高くなってしまうということがありえる。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "理屈の前に絶対負けたくないという強い気持ち、ボーボー燃えている火がある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "頭が良ければその火がなくても効率の良い練習は思いついてしまう。しかし人間は完璧ではないから理屈だけでは補えない日が来てしまう。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ちょっと馬鹿なところがあったほうがいい。効率を求めるということは損をしないにするということ。頭の良い人がぱっと見で諦めるものでも、続けていたら解決できる可能性がある。みんなが出せなかった結論を出せるのはバカにしかない。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ウメハラさん自身のキャリアがまさにこの話の最たる例になっていて、りゅうせいさんが腑に落ちたのも多分ここだろう。効率を考えたらプロゲーマーも配信も何も存在していない当時に、人生の効率を考えるのであればすべてをゲームに注ぎ込むなんて絶対にやるべきではない。ウメハラさんが今のポジションにいるのは効率的なムーブの対局にあるということだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このウメハラさんの話を聞いて真っ先に思ったのは、物理学者の寺田寅彦と同じ結論に達しているということだ。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "『科学者とあたま』",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.aozora.gr.jp/cards/000042/files/2359_13797.html"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で寺田は「科学者になるには『あたま』がよくなくてはいけない」と同時に「科学者はあたまが悪くなくてはいけない」ということを言っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "寺田が言う頭のいい人は「言わば足の早い旅人のようなもの」で、人より先に未踏の地に到達することができる一方で、「途中の道ばたあるいはちょっとしたわき道にある肝心なものを見落とす恐れがある」としている。また「見通しがきくだけに、あらゆる道筋の前途の難関が見渡される」としている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "対して頭の悪い人は「ずっとあとからおくれて来てわけもなく頭のいい人が見落としたものを拾って行く場合がある」「頭の悪い人は前途に霧がかかっているためにかえって楽観的である」「頭のいい人が考えて、はじめからだめにきまっているような試みを、一生懸命につづけている」ついには「大小方円の見さかいもつかないほどに頭が悪いおかげで大胆な実験をし大胆な理論を公にしその結果として百の間違いの内に一つ二つの真を見つけ出して学界に何がしかの貢献をしまた誤って大家の名を博する事さえある」としている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "考えてみれば、現在活躍してるプロゲーマーは「頭がよい」と同時に「頭がわるい」を体現しているように見える。例えば秀才の極みのようなときどさんはどうだろうか？著書を読むとときどさんは「頭のわるさ」を取り入れることでさらに強くなっていったことがわかる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この戦い方はしかし、極めることで一定の効果を上げた。とりわけ、ゲームを始めてから80点のレベルに達するまでの速度は、誰よりも速かったはずだ。公式とはそもそも「問題をラクに、早く解くためのもの」なのだから、上達が早いのは当然なのだ。僕は公式を素早く導き出すことにかけて、他を圧倒していた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "だが、このやり方には落とし穴があった。それは単純な穴で、「公式とは勉強すれば誰にも身に付けられるものである」ということ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そこで思い至るのである。セオリーからは生まれない、だから真似もしにくい、あの「面白い戦い方」こそが「強い」、という可能性はないのだろうか。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "僕は、80点を85点にする努力を怠ってきたのだと思う。３年かけて１００点をとるより、最速で80点にするほうが合理的だ、と考えていたからだ。その中間がなかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "合理性や効率を極めた僕だからこそ、合理性や効率だけでは勝つことができないことを身をもって学ぶことができた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/4byjALt",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "東大卒プロゲーマー 論理は結局、情熱にかなわない (PHP新書) | ときど |本 | 通販 | Amazon",
+						"description": "Amazonでときどの東大卒プロゲーマー 論理は結局、情熱にかなわない (PHP新書)。アマゾンならポイント還元本が多数。ときど作品ほか、お急ぎ便対象商品は当日お届けも可能。また東大卒プロゲーマー 論理は結局、情熱にかなわない (PHP新書)もアマゾン配送商品なら通常配送無料。",
+						"author": "フォロー",
+						"publisher": "Amazon",
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:358-2258540-4937928:KP6385PC65VE2ZHZ45VK$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DKP6385PC65VE2ZHZ45VK:0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「頭がいい」「頭がわるい」はどうも響きが悪く、柘植俊一の",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "『反秀才論』",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/4cS6gCG"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "の言い換えが適当かもしれない。つまり「頭がいい」とは「秀才」＝「頭がはやい」、「頭がわるい」とは「反秀才」＝「頭が強い」ということだ。スピーディに習得するなら前者が優れているが、より時間がかかっても新しいものを生み出すためには後者の強さが求められる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんな感じで、ウメハラさんの格ゲーへの取り組み方に対する考え方は寺田が科学者の科学との向き合い方に見出したそれと同じところに到達しているように見える。少なくともゲーマーはウメハラさんや寺田の言っていることをなんとなく体感しているんじゃないかと思う。身近で非ゲーム世代が頭の良い方法で取り組もうとして失敗している例をよく見るのだが、実はゲームをする機会のあるなしが大きな格差になっていたりするのかもしれないと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/4cS6gCG",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "Amazon.co.jp: 反秀才論 (岩波現代文庫 社会 15) : 柘植 俊一: 本",
+						"description": "Amazon.co.jp: 反秀才論 (岩波現代文庫 社会 15) : 柘植 俊一: 本",
+						"author": "フォロー",
+						"publisher": "",
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:358-8833482-5867115:Z96JWT78C4T4BWS73D8P$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DZ96JWT78C4T4BWS73D8P:0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://amzn.to/45RWE8V",
+					"metadata": {
+						"icon": "https://amzn.to/favicon.ico",
+						"title": "Amazon.co.jp: １日ひとつだけ、強くなる。 eBook : 梅原 大吾: Kindleストア",
+						"description": "Amazon.co.jp: １日ひとつだけ、強くなる。 eBook : 梅原 大吾: Kindleストア",
+						"author": "フォロー",
+						"publisher": "",
+						"thumbnail": "https://fls-fe.amazon.co.jp/1/batch/1/OP/A1VC38T7YXB528:358-6426434-1792051:JTNPARKJ1VS4P9R1DDB0$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DJTNPARKJ1VS4P9R1DDB0:0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

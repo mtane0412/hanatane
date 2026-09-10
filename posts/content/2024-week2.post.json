@@ -1,0 +1,759 @@
+{
+	"title": "今週の振り返り 2024 week2",
+	"slug": "2024-week2",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46",
+		"#ref-embedding-in-ghost-should-not-be-abused",
+		"#ref-thin-vs-thing"
+	],
+	"excerpt": "今週はCES2024、糸井重里と宮本茂対談、貼るカイロ、ドット絵Vtuber、田中角栄という感じでした。",
+	"feature_image": "https://hanatane.net/content/images/2024/01/tanenobu_Tanaka_Kakuei_Japanese_Politician_communicating_with_H_c7d7b243-ee42-4bc8-8f96-10532594d1ef.png",
+	"featured": false,
+	"published_at": "2024-01-14T23:30:38.000Z",
+	"updated_at": "2025-03-30T14:17:17.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1週間が早いですね。寒さ本番という感じで朝0度付近というのが普通になってきました。室温ですよ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週は映像の世紀で見た田中角栄がマイブームです。と思ったら5日前くらいに目白御殿が全焼したみたいで悲しい…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週やったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "貼るカイロを買った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/01/GDevyWTbcAAZa6w.jpeg",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先週買ったゲーミング着る毛布に加えて、ウェアラブルヒーターこと貼るカイロを買ってみました。キンチョールのレクチャー通り首に貼ると全身がポカポカになっていい感じです。しかも貼ったことを忘れるくらい存在感がないので素晴らしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.kincho.co.jp/seihin/housewares/kairo/kairo_mechanism/index.html",
+					"metadata": {
+						"icon": "https://www.kincho.co.jp/icon/kincho.ico",
+						"title": "KINCHO 使い捨てカイロ 温まる仕組み / 貼る場所による効果的な使い方",
+						"description": "使い捨てカイロの温まる仕組みや貼る場所による効果的な使い方をご紹介します。",
+						"author": null,
+						"publisher": "KINCHO 大日本除虫菊株式会社",
+						"thumbnail": "http://www.kincho.co.jp/seihin/housewares/kairo/kairo_mechanism/img/thumb.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "1枚20円くらいなのでリーズナブル。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/41Wdamk"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": " バッテリー式とかはバッテリー管理の認知負荷が高そうなので使い捨てカイロが強いと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Switchbot製品買い増し",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Switchbotを年末セールで買い増ししたので色々追加中。玄関はAtom CamからSwitchbotカメラにリプレースしたので、Atomは離れの方で動物観察用に置いてみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/01/GDupFEebgAAIF0d.jpeg",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "温度計も買い増ししたので家のデータが増えてきました。あまりにも過酷。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/01/output.jpg",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週気になったニュース",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CES2024",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "テクノロジーの祭典CESということで色々な製品の発表がありました。まとめを適当に眺めているだけですが楽しいですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "個人的に惹かれたのは犬猫のスマート首輪の",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Minitailz",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://petcare.invoxia.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ですね。位置情報からヘルスケアの情報が取れるっぽくて、猫飼ったら是非つけてみたい。APIで情報取れるとさらに夢が広がるんですが…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Samsungの移動するAIロボットのBallieも未来感やばいです。スペースダンディのQTとかああいう人間味のあるロボットが大好きで、こういうのが早く家庭に普及してほしいですね。 何よりプロジェクター搭載しているのが熱い。適当に家を走って松岡修造流してほしい…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=MfLdhzc2oWw",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/MfLdhzc2oWw?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Samsung Has a Ballie: AI Robot Helps Around the House\"></iframe>",
+					"metadata": {
+						"title": "Samsung Has a Ballie: AI Robot Helps Around the House",
+						"author_name": "CNET",
+						"author_url": "https://www.youtube.com/@CNET",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/MfLdhzc2oWw/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/MfLdhzc2oWw?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Samsung Has a Ballie: AI Robot Helps Around the House\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Twitchは視聴環境に合わせてエンコードするトランスコード",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://blog.twitch.tv/ja-jp/2024/01/08/introducing-the-enhanced-broadcasting-beta/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を発表してますね。配信者側であれこれやらなくても勝手にいい感じにしてくれる機能は若干気になります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "面白かった記事",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "糸井重里と宮本茂の対談シリーズ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "糸井重里と宮本茂の対談シリーズかなり面白いんですが新しいのが出てました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.1101.com/n/s/miyamoto_shigeru2024/2024-01-08.html",
+					"metadata": {
+						"icon": "https://www.1101.com/favicon.ico",
+						"title": "第８回 ピクミンというアイディア | なにもできないからプロデューサーになった | ほぼ日刊イトイ新聞",
+						"description": "チームのみんなでアイディアを出していくというけど、いったいどうやって？ ピクミンを例にして、あのキャラクターができる過程を宮本さんに語っていただきます。",
+						"author": null,
+						"publisher": "ほぼ日刊イトイ新聞",
+						"thumbnail": "https://www.1101.com/n/s/wp-content/uploads/2023/12/og_miyamoto_shigeru2023.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "糸井 あの、たとえば頭のいい人が集まって、ロジックだけで仕様を固めていったら、どこのチームもだいたいみんな同じ答えになりがちじゃないですか。そこにマーケティングのデータを入れて、いまの人たちはこういうのを求めてますよという要素を加えたりしたら、どんどん似た答えになっていくわけだけど、任天堂は、それを求めてないんですよね。 宮本 そうですね。もしもそういう答えが出たとしたら、「そこに任天堂はあるのか」みたいな話になるでしょうね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ピクミンのデザインの話でわからないからスタートしてあのデザインに到達したのが面白いですね。実際の生物の観察みたいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.1101.com/n/s/miyamoto_shigeru2024/2024-01-09.html",
+					"metadata": {
+						"icon": "https://www.1101.com/favicon.ico",
+						"title": "第９回 マリオをつくるときは | なにもできないからプロデューサーになった | ほぼ日刊イトイ新聞",
+						"description": "宮本さんがマリオについて決めていること。それは、新しい技術ができたらマリオをつくる。映画もＵＳＪも、あたらしい技術があるからマリオだった。",
+						"author": null,
+						"publisher": "ほぼ日刊イトイ新聞",
+						"thumbnail": "https://www.1101.com/n/s/wp-content/uploads/2023/12/og_miyamoto_shigeru2023.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "宮本 マリオについては、あるときから、「新しい技術ができたらマリオをつくる」 て決めたことで、すごくわかりやすくなりました。逆にいうと、新しい技術が出なかったら、マリオはつくらないって決めたんです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ああ、確かに…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ドット絵Vtuberシステムをつくる",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://note.com/ruccho/n/n213ab84cb2fa",
+					"metadata": {
+						"icon": "https://assets.st-note.com/poc-image/manual/note-common-images/production/icons/apple-touch-icon.png",
+						"title": "ドット絵VTuberシステムを作る｜るっちょ",
+						"description": "はこさんがやってるの見て自分も作りたくなっちゃった pic.twitter.com/l5qJI7jkTD — るっちょ(開発) (@ruccho_dev) January 6, 2024 hako 生活さんがフェイシャルトラッキングでドット絵を動かすやつをやっていて、楽しそうだったので自分も作ってみました。 冬休みの自由研究 in Unity pic.twitter.com/dtcYj992Ih — hako 生活 (@clrfnd) January 7, 2024 Xで結構たくさんの反応があったのもあり、せっかくなので今回作ったシステムでどんなことをやってるかを軽",
+						"author": "るっちょ",
+						"publisher": "note（ノート）",
+						"thumbnail": "https://assets.st-note.com/production/uploads/images/127009320/rectangle_large_type_2_57489e7b6f1caaa06dc3f5a70180bc33.png?fit=bounds&quality=85&width=1280"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "フェイシャルトラッキングでドット絵アバターを動かす技術記事。ドット絵アバター相当イケてるし、実装方法も相当詳しく書かれてるので有益。しかし再現するの大変そうですが…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週投稿した記事",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このブログに使っているGhostの気づき記事です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/embedding-in-ghost-should-not-be-abused/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "Ghostで埋め込みを乱用すべきではない",
+						"description": "ニュースレターなのでメール配信を想定した記事作りが必要という話",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/18898959-564f-49b9-9960-8b6b2c8f46ef.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Duolingoのラスボスの話です。ググったら他の人も発狂してるみたいで安心。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/thin-vs-thing/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "Thin vs Thing",
+						"description": "英語をやりたいという80代のおばあちゃんに触発されて去年から僕もDuolingoを再開して続けている。1600日の連続記録が途切れてからずっとやってなかったが、久々に見ると大幅にアップデートされているのでもう一度全部コンプを目指して毎日ちびちびとやっている。 スマホ版に新しく追加されたのが発音問題で、2つの発音をランダムでピックして選ぶ問題がスキマ時間にスピーディにできて良い感じ。選ばれる発音によってすごい簡単な問題からめちゃくちゃ難しい問題まで難易度が様々で面白い。 なかでもThinとThingが不可能なレベルに難しい。Thinは/θɪn/で、Thingは/θɪŋ/で違いがnがngか。おまけにDuolingoに収録されている音声は「グ」が省略されている発音なので、空気の通り方の絶妙な違いを聞き分けるしかない。非常に難しい。 こんなんネイティブでも聞き取れんやろ！！って思って文字起こしとかを通すとしっかり聞き分けられているのでびっくりする。 英語の発音を日本語で学ぶ時はあいおうえおフォニックスがかなり充実しているのでおすすめ。 あとは「Thin vs Thing」とかでググっ",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/tanenobu_a_green_owl_is_attacking_a_japanese_guy_who_is_crying_482eaf46-bfa2-439e-bc93-8875c2b0727d.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ではまた来週👋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": null,
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

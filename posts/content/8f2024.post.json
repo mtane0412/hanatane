@@ -1,0 +1,1520 @@
+{
+	"title": "ハチエフ参戦記",
+	"slug": "8f2024",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "八幡平安比で開催されたハチエフ2024参戦振り返り",
+	"feature_image": "https://hanatane.net/content/images/2024/09/------------.png",
+	"featured": false,
+	"published_at": "2024-09-26T11:27:33.000Z",
+	"updated_at": "2025-03-30T14:14:31.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2024年9月14日〜9月15日の2日間に八幡平安比高原で開催されたストリートファイター6のオフライン大会の",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ハチエフ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://8f.gg/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "に参加してきました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "めちゃくちゃ遅筆なので今更感もありますが、はじめてのオフ大会ということもあり、振り返りを書いておこうと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なお、ハチエフがどんなイベントかはePARAの加藤さんのnoteを読むのがいいと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://note.com/daiki_koken/n/n46182715aa00",
+					"metadata": {
+						"icon": "https://assets.st-note.com/poc-image/manual/note-common-images/production/icons/apple-touch-icon.png",
+						"title": "#ハチエフ24 で味わった嫉妬の感情、自分の役割｜加藤 大貴（ePARA代表・NPO市民後見支援協会理事）",
+						"description": "このnoteは、岩手県に住む青年・Jeniに向けた私信のような、自分に向けた覚書のような文章と、仲間募集の呼びかけのメッセージです Jeniとの1on1面談の思い出 埼玉県の自宅から岩手県八幡平市のeスポーツイベント会場に向かう途中、２年前のePARA社員Jeniとの1on1面談のときの会話を思い出しました ハチエフ | 東北最大級の格闘ゲームイベント 8f.gg 当時（そして今もですが）、超零細ベンチャー企業の経営者として、どうすれば会社を存続させることができるか、社員の給料を払えるか汲々とする日々。 そんなある日、岩手県の社員Jeniと1on1面",
+						"author": "加藤 大貴（ePARA代表・NPO市民後見支援協会理事）",
+						"publisher": "note（ノート）",
+						"thumbnail": "https://assets.st-note.com/production/uploads/images/154483929/rectangle_large_type_2_035102f9ee3808759cf4d5b4a10684ba.jpeg?fit=bounds&quality=85&width=1280"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "書いている人",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "max MR1800のモダンケンです。会場でもモダンケン珍しいですねと言われたんですが、スト6から始めて特にクラシック移行することなくモダンで使い続けています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "知り合いとオフで対戦したりはしたことはあるものの、本格的なオフイベントに参加するのはハチエフが初でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大会を知ったきっかけ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "昨年の",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "HACHIMANTAI 8 FIGHTERS",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://hachimantai8fights.epara.co.jp/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "はニュースで知っていたものの、参加には至りませんでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そんな中、仕事の関係で知り合った大船渡の人から岩手に",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Jeniさん",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://x.com/jenixo0"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "という有名プレイヤーがいることを教えてもらって、ここで初めてJeniさんがニュースの人から県内のスト6コミュニティの人なんだと認知が変化した気がします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今年はハチエフと名前を変えて、大会として開催されるニュースを見たときは、自分の中でオフライン大会に参加したいという思いはかなり強くなっていました。この1年、オンライン大会に参加してスト6のモチベーションがあがってどんどん上手くなっていったと思っていましたし、EVO Japanに悩んだ挙げ句エントリーを見送ったことなどが大きかったと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "参加したかったがエントリーはなかなかできなかった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ほぼほぼ参加は決めていたのですが、なかなかエントリーはできませんでした。ハチエフは2日間開催されるイベントで、1日目が2 on 2、2日目が1 on 1という構成で、エントリーは両日もしくは2日目で受け付けていました。開催場所が自宅から150km離れた安比ということで、日帰りよりも両日参加したい、両日参加するなら2 on 2も参加したい、でも友達がいない…のループにはまってしばらくエントリーができませんでした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大会時期が近づいたときに斡旋エントリーが始まったので、無事エントリーすることができました。このあたりはTornamelが大会単位でのトーナメント管理が若干やりづらいのかなと思ったので、カヤックがいい感じに改善してくれると良いなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "150kmの旅",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大船渡からは盛岡をさらに超えて八幡平なので総延長150kmのロングドライブでの参加になりました。岩手県沿岸に住んでると用事があって100km移動することがよく起こるのですが、他県だとなかなかレアなのかもしれません。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/image-7.png",
+					"width": 918,
+					"height": 1082,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "開場は9時からですが、午前中は野試合とトークショーなどのイベントだったので、このあたりは遠方参加者としては参加しやすくて良かったです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "会場で迷った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "細かいところは現地行けばわかるやろと思ってハチエフの公式サイトのGoogle Mapsから経路を作って到着したのだけど、マップがホテルを指していて最初ホテルの方に入ってしまいました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/image-8.png",
+					"width": 2248,
+					"height": 674,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ホテルに入ると2Fがプラザとの表示があったので、とりあえずエレベーターに乗ってみたのだがやはりホテルでした。エレベーターから帰ろうとしたら別のハチエフ参加者がまたエレベーターから上がってきたので多分同じ轍を踏んでいるんだろうなと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ハチエフ公式からも安比リゾートのサイトでも、いまいち構内の構造でプラザが何を指しているのかを同定するのが結構大変だったので、Google Mapsで安比プラザのピン指していたら助かったかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一緒に間違えた人を追いかけてなんとかたどり着きました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1834761926007832952",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">なんとかついた！ <a href=\"https://t.co/Sdop4xmaTU\">pic.twitter.com/Sdop4xmaTU</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834761926007832952?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1834761926007832952",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">なんとかついた！ <a href=\"https://t.co/Sdop4xmaTU\">pic.twitter.com/Sdop4xmaTU</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834761926007832952?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ホテル隣接の施設で行う格闘ゲームイベントはEVOと同じらしいです。フードコートも1店舗運営していたのでご飯にも困ることはありませんでした。住んでるところのBMXレース・イベントとかだと、地元の企業が屋台出店していて賑やかなので、そういうのもできたらいいのかも。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "画面の向こうにいる人たちが歩いている空間",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "会場についたら大須晶さんがおっきいカメラをぶら下げて会場を撮影していたり、霊媒師の石井プロがそのへんを歩いていたりして、なんだか脳がバグった感覚になりました。少し遅れて道着姿のハンサムさんも現れた。有名人が同じ空間にいるときってむやみに話しかけると迷惑なのかなと思ったけど、そもそも話しかけるのにすごい勇気がいるんだなとわかりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1834787780003831912",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">大須さんや石井プロが普通に歩いてる空間すごい</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834787780003831912?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1834787780003831912",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">大須さんや石井プロが普通に歩いてる空間すごい</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834787780003831912?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ゲストの一人の布団ちゃんはXで流れてきたバニーガーデンプレイ動画くらいしか知識がなかったのだけど、トークが面白い上にエキシビションの2on2でハンサムさんと石井プロを倒していて普通にスト6もうまくてかなりビックリ。大手ストリーマーの人達はトークだけじゃなくてゲームもめちゃうまいんですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "野試合チュートリアル",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最初会場についたときにPCで自由にトレモや対戦をしていていいですということだったのだけど、結構空いていたので一人でトレモしながら時間を潰していました。するとスタッフの方が声をかけてくれて対戦することができました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こういう感じでスタッフがファシリテートしてくれるのもとても丁寧なイベントだなと思いました。ちなみに相手はあおもドローという大会を主催している",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "でおさん",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://x.com/deosan00"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "という方で鬼のように強くてボコボコにされました。涙。おかげさまで次からは自分から声をかけて対戦できるようになりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2on2は予選第2ステージまでいけた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "斡旋で組んだのは日本一周中のリュウ使いの",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "翼さん",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://x.com/t___b___s"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "でした。野試合で少し練習したのですが、max MRは同じですというのが恥ずかしいくらいしっかりしていたので、全てこの方に任せようと試合に臨むことができました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "チーム戦は早稲田式トーナメントで、1-1で引き分けたときは両チームの勝者同士で対戦するルールです。なので実質一人が強ければ勝てるというルールで、そのあたりもあってあまり緊張はしなかったのかもしれません。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "予選第1は勝ったり負けたりでかなり危うかったのですが、なんとか予選第2に進出することができました。予選第2はハンサム折笠チームやMマノンのふうらいぼうさんのいるプールでさすがに強豪ぞろい。プールの点呼時にハンサムチーム不在で「あっちで酒飲んでましたよ」との情報の通り、すっかりできあがったハンサムペアのおかげで多分いちばん賑やかなプールになりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結果は全敗で、ぽれさんガイルめちゃ強かった…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1834865997351993466",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">予選第二、ハンサムさんとふうらいぼうさんのプールに入った😂 <a href=\"https://t.co/HCkrHfOMDj\">pic.twitter.com/HCkrHfOMDj</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834865997351993466?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1834865997351993466",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">予選第二、ハンサムさんとふうらいぼうさんのプールに入った😂 <a href=\"https://t.co/HCkrHfOMDj\">pic.twitter.com/HCkrHfOMDj</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834865997351993466?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "トークショー & KBDさんの生ライブ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "夜はハチエフゲスト達となぜか会場にいたDJ Shigeさんも加わってトークショーが始まりました。布団ちゃんは12年間作業療法士もされていたようで、今回のイベントに対する熱い気持ちも聞くことができてすっかりファンになってしました。なお、この後に盛岡のメンエスに行ったみたいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1834889330692968600",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/%E3%83%8F%E3%83%81%E3%82%A8%E3%83%95?src=hash&amp;ref_src=twsrc%5Etfw\">#ハチエフ</a> トークショー始まった！yogiboでくつろぐおじたちからしか得られない栄養 <a href=\"https://t.co/1mfObZIqvp\">pic.twitter.com/1mfObZIqvp</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834889330692968600?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1834889330692968600",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/%E3%83%8F%E3%83%81%E3%82%A8%E3%83%95?src=hash&amp;ref_src=twsrc%5Etfw\">#ハチエフ</a> トークショー始まった！yogiboでくつろぐおじたちからしか得られない栄養 <a href=\"https://t.co/1mfObZIqvp\">pic.twitter.com/1mfObZIqvp</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834889330692968600?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "トークショー終了後そろそろ終わるかなーと思っていたら急遽KBDさんの生ライブが始まることに。スタッフに促されて前の方に行って、ノリ方も慣れてないのでなんかくねくねするおじさんになってましたが、オフの盛り上がりを最高の形で感じられてとてもよかったです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "少し離れたところのビジホで1泊",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回の大会参加のもう一つの壁が宿泊の確保でした。安比はリゾート地なので、軒並みリゾート価格の宿泊施設だらけ。値段の安いペンションもありますが、車できてるので少し離れたところのビジネスホテルに泊まりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1834935169364770941",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">1日目おわり <a href=\"https://t.co/Vic3tvgFXb\">pic.twitter.com/Vic3tvgFXb</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834935169364770941?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1834935169364770941",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">1日目おわり <a href=\"https://t.co/Vic3tvgFXb\">pic.twitter.com/Vic3tvgFXb</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1834935169364770941?ref_src=twsrc%5Etfw\">September 14, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "夕食もなにか食べたいところだったのですが、八幡平はとにかく店が閉まるのが早くて、飲み屋くらいだったので普通にマックスバリュで済ませました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2日目、1on1はベスト16までいけた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2日目はJeniさんのEVO参戦振り返りイベントと1on1トーナメントでした。前日、リュックを背負って移動していたのですが肩が痛くなったので荷物は最小限に。パッドの利点ですね。ペットボトル入れられるトートバッグくらいがちょうどいいかもしれません。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1835135110246703175",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">２日目、肩が死んだので荷物を最小化した <a href=\"https://t.co/GgI0WyjRlV\">pic.twitter.com/GgI0WyjRlV</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835135110246703175?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1835135110246703175",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">２日目、肩が死んだので荷物を最小化した <a href=\"https://t.co/GgI0WyjRlV\">pic.twitter.com/GgI0WyjRlV</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835135110246703175?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "JeniさんのEVO参戦が動画でまとまっていて、そこで初めてJeniホンダを見たのですが普通にいやらしいホンダでした。ボタンのセッティングの難しさとか、技術的な裏話が自分的にはかなり興味深かったです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1on1トーナメントはベスト16まではシングルエリミネーションで1回負けたら終わりなのでめちゃくちゃ緊張しました。逆にこういう緊張感のある本番ではモダンは結構動けるので有利なのかなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1835170306484572487",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">初戦突破！シングルエリミ超緊張する😂 <a href=\"https://t.co/tZHEy10Fpm\">pic.twitter.com/tZHEy10Fpm</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835170306484572487?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1835170306484572487",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">初戦突破！シングルエリミ超緊張する😂 <a href=\"https://t.co/tZHEy10Fpm\">pic.twitter.com/tZHEy10Fpm</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835170306484572487?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1835174561765376041",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2回戦も突破！ <a href=\"https://t.co/9JKy1ZL3OU\">pic.twitter.com/9JKy1ZL3OU</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835174561765376041?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1835174561765376041",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">2回戦も突破！ <a href=\"https://t.co/9JKy1ZL3OU\">pic.twitter.com/9JKy1ZL3OU</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835174561765376041?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1835179884752085351",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">3回戦突破！次配信台らしい！ <a href=\"https://t.co/xCKsDe4CJP\">pic.twitter.com/xCKsDe4CJP</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835179884752085351?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1835179884752085351",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">3回戦突破！次配信台らしい！ <a href=\"https://t.co/xCKsDe4CJP\">pic.twitter.com/xCKsDe4CJP</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835179884752085351?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "4回戦目は配信台で試合することができました。オンオフ合わせて初めて実況してもらいながらの試合なのでめちゃくちゃ嬉しかったです。相手はかなり強いキンバリーで試合はしっかり負けました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://youtu.be/ph8dPFl1peY",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/ph8dPFl1peY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ハチエフ配信台\"></iframe>",
+					"metadata": {
+						"title": "ハチエフ配信台",
+						"author_name": "たねのぶ",
+						"author_url": "https://www.youtube.com/@mtane0412",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/ph8dPFl1peY/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/ph8dPFl1peY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ハチエフ配信台\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この段階で終わったーと思ったらスタッフの方から「次はルーザーズで試合お願いします」と言われてすでにベスト16以内だったみたいです。よしこっからルーザーズ泳ぐぞ〜！と意気込んでいたのですが、めっちゃ強いベガに何も起こらず轢き殺されました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1835199522122715606",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ベガに粉砕されて僕の <a href=\"https://twitter.com/hashtag/%E3%83%8F%E3%83%81%E3%82%A8%E3%83%95?src=hash&amp;ref_src=twsrc%5Etfw\">#ハチエフ</a> が終わりました😇<br>でもこれだけ猛者だらけでベスト16は奇跡すぎる！楽しかった〜 <a href=\"https://t.co/bN7H7O281B\">pic.twitter.com/bN7H7O281B</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835199522122715606?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1835199522122715606",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ベガに粉砕されて僕の <a href=\"https://twitter.com/hashtag/%E3%83%8F%E3%83%81%E3%82%A8%E3%83%95?src=hash&amp;ref_src=twsrc%5Etfw\">#ハチエフ</a> が終わりました😇<br>でもこれだけ猛者だらけでベスト16は奇跡すぎる！楽しかった〜 <a href=\"https://t.co/bN7H7O281B\">pic.twitter.com/bN7H7O281B</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835199522122715606?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "猛者が相当参加している中で勝てる試合でしっかり勝ってベスト16なので満足できる成績でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1日目、2日目ともに、北上の対戦会に参加しているメンバーや関係者が優勝したらしく、岩手で活動している人たちがしっかり結果を残した形となりました。岩手や東北にこれだけ強い人達がいるのにも驚きですし、自分もそこで勝負できるくらい上手くなりたいなという気持ちが一層強くなりました。モチベ爆上がり。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その他",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Jeniさんに挨拶できた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ハンサムさんに勇気を出して挨拶。古民家DIYの話とか少しできた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "バリアフリーeSports大会というコンセプトで、どんな状態でもプレイできるようにかなりこだわって設計されていた。設備もかなり充実していた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "スタッフ参加した人も大会に参加できるように配慮されていた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Twitchを見てくれた人が話しかけてくれた。嬉しい。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "対戦会場はすごい熱気なのだけど、少し外に出たらめちゃくちゃ涼しいゲレンデに出れて気持ちよかった。安比最高。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "1つの大会で100人規模のトーナメントを複数管理する関係で、tornamelをエクストリームな使い方をせざるを得なかった感じがあった。tornamel側がいい感じに大会管理できるような仕組みになったほうがいいと思った。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで初めてのオフ大会は最高の経験になりました。運営の方々、対戦してくださった方々ありがとうございました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1835222857263333408",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/%E3%83%8F%E3%83%81%E3%82%A8%E3%83%95?src=hash&amp;ref_src=twsrc%5Etfw\">#ハチエフ</a> 終わった！初めてのオフで東北にこんなに化け物たちがいてびっくりだしめちゃくちゃ楽しかった！<br>Jeniさんはじめ運営の皆様素敵な大会をありがとうございました！<br>帰り際に安比に美しい虹がかかっていたし、なんかすげぇデケェ蜘蛛もいて思い出に刻まれました！<br>また来年！！ <a href=\"https://t.co/0d8jwLxUCs\">pic.twitter.com/0d8jwLxUCs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835222857263333408?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1835222857263333408",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\"><a href=\"https://twitter.com/hashtag/%E3%83%8F%E3%83%81%E3%82%A8%E3%83%95?src=hash&amp;ref_src=twsrc%5Etfw\">#ハチエフ</a> 終わった！初めてのオフで東北にこんなに化け物たちがいてびっくりだしめちゃくちゃ楽しかった！<br>Jeniさんはじめ運営の皆様素敵な大会をありがとうございました！<br>帰り際に安比に美しい虹がかかっていたし、なんかすげぇデケェ蜘蛛もいて思い出に刻まれました！<br>また来年！！ <a href=\"https://t.co/0d8jwLxUCs\">pic.twitter.com/0d8jwLxUCs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1835222857263333408?ref_src=twsrc%5Etfw\">September 15, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

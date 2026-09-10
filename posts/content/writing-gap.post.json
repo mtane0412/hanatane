@@ -1,0 +1,289 @@
+{
+	"title": "書きたいことと書くことのギャップ",
+	"slug": "writing-gap",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "ブログ2ヶ月目、「書きたい」と「書く」について少し解像度が上がってきたので、少し備忘録的がてらメモです。",
+	"feature_image": "https://images.unsplash.com/photo-1493406300581-484b937cdc41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ3fHxjYXR8ZW58MHx8fHwxNjg1ODk5MTM5fDA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-06-04T22:00:44.000Z",
+	"updated_at": "2025-03-30T14:12:20.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "6月になりました。2ヶ月の運用を過ぎ、登録者10人、有料購読者5人となり、GhostのStarterプランの年額料金を賄えるようになりました。ありがとうございます。今後も発信の継続に力を入れるとともに、一気に機能が増えるCreatorプランを目標に更新を頑張ります。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今後の目標ついでに、今日はもっとブログをいい感じに更新できるようになりたいという話をする。現在は毎週月曜日更新というスケジュールで更新しているのだが、この2ヶ月でこの定期更新を公言しておくのが結構大事だということに気づいた。「書きたいときに書く」というスタイルは考えなしにやるとおそらく破綻するし、「書きたいとき」をどうやって作り出すかというところに工夫が必要である。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんとなく随筆的なものは「書きたいときに書きたいことを書く」ことが大事で、そういう過程を経ないと良い文章は生まれてこないものだと考えていた。実際これはそんなに外していないと思っていて、「書かなきゃいけないから仕方なく書いた文章」で面白いものに仕上げるのはそれこそプロの所業なんだと思っている。問題は、「書きたいときに書きたいことを書く」と聞くと、日常生活をしていて突然「書きたい」というのがどこからともなく湧き上がってきて、書きたい気持ちに従って書く、というような状態をイメージしてしまうことだ。これが一種の幻想だった。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これは「話す」ことが「書く」ことのイメージに近いからなんだと思う。どんな人でも普段から物事を考えていて、自分の考えを誰かに話したいというはとても自然で、だからこそみんな折を見てよく話す。文章も同じように考えてしまいがちだけど、文章は話し言葉よりもずっとコストがかかる。言語を話すことはヒューマンユニバーサルだけど、文章についてはそもそも文字を持たない文化もある。「話したい」は話し相手を捕まえられれば比較的簡単に実行できるけど、「書きたい」はなかなか大変だ。なにせ日々の生活は「食べたい」「寝たい」「ゲームしたい」が溢れているので、「書きたい」という行動に費やすコストをなかなか割けない。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitterがインターネットの文字文化を大きく変えたのも140文字の制限が大きかったように思う。書くことのコストに制限をかかり、話すように書くようにデザインされている。思えば、短歌や俳句もあの非常に短いフォーマットだったからこそ文化に花が開いたのだろう。あれらがもしルール無用のポエムバトルだったら、そもそも参戦者も作品もずっと少なかったのではないか。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログは文字数制限以外で「書きたい」をなんとか作り出す必要がある。ここで作家や漫画家のステレオタイプ的なイメージを想像してみる。編集者が締切前に作家の家に押しかけたり、原稿を仕上げるまで旅館に缶詰したりしている。文豪にこういうエピソードが多いように、実際に素晴らしい作品の背景にある種強制的な環境で書き上げたというものは少なくないように思う。僕らが考えるナイーブな「書きたい」像とは程遠いかもしれないけど、これは人為的に「書きたい」環境を作り出しているのだと思う。おそらくこれは他の「～したい」欲求に制限をかけたり、あるいはそれらを実行することのコストを上げたりすることで実現している。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実際に僕がここ2ヶ月どういう感じでブログを書いてきたかを書いてみる。毎日生活しながら「書きたいネタ」が見つかるのでメモをする。月曜更新という約束があるので、ネタを見つける目になっていてこれはいい感じだと思う。ネタ探しと並行して本当は1週間かけて少しずつ記事を作り上げられればいいのだが、大体着手するのが日曜日の夜になる。この段階であれだけ書きたいと思っていたネタが、日曜夜のその瞬間ではそこまで熱がなくて、結局何を書くかを悩むのにかなりの時間を割いてしまう。文字通り「書きたい」を見失っている状態で、ここが一番苦しい。ところが一旦ネタが定まると、不思議なことにネタに関連して「書きたい」ことが色々と湧き上がってくる。日付が変わって2時くらいまでになんとか仕上げて、予約投稿をセットして寝る。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここからわかるのは「書きたい」は日常に溢れているけど、その「書きたい」をキャッチして実際に「書く」という行為の間には大きなギャップがあるということだ。僕は日々生活していて書きたいことなんかいくらでもあるのでネタには困らないだろうと思っていたのだけど、実際には書きたいことをメモしていても、書きたいという気持ちまでは残っておらず、書きたい気持ちがないとやはり書けないのである。「となりのトトロ」でメイがまっくろくろすけを捕まえたのだけど、捕まえた瞬間にただのススになってたシーンを思い出す。なので、実際書く段になって、「書きたい」の残骸を手がかりに再び「書きたい」を呼び起こそうとしている。ギャップの正体はおそらく感情で、筆が乗るには感情を乗せる必要がある。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このギャップをうまくブリッジするうまい仕組みを考えていく必要があると思った。文章を書いている人たちはおそらくここがとてもうまいのだろう。なんかもっとうまいやり方があるんだろうなぁとは思っていて、「月曜日に投稿する」のではなく「水曜日までにネタ決定、土曜日に原稿感性、日曜日に校正入れて、月曜に公開」みたいに1週間のタスクの粒度をあげるとか、「書きたい」が浮かんだときにネタとしてストックするだけではなく実際書き始めてみるとか、読者になってくれた人を積極的に巻き込むとか。物書きの人の知見とか色々読み込むと新しい発見があるかもしれない。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ともかく1年後の姿として、「書きたいときに書」けているように見えるくらい上手に文章と付き合えるようになっていたらよいなぁと思いました。今週はこの辺で。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "callout",
+					"calloutEmoji": "🚀",
+					"calloutText": "<strong>シェア</strong>: この記事が面白かったらぜひTwitter, Facebookなどで記事の感想を書いてください",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"calloutEmoji": "♥️",
+					"calloutText": "<strong>購読</strong>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！&nbsp;<a href=\"https://hanatane.net/#/portal/signup\">購読はこちら</a>",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h3",
+					"version": 1
+				},
+				{
+					"type": "paywall"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "部屋にゴキブリが出たと思ったらクワガタでした。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"src": "https://hanatane.net/content/images/2023/06/image.png",
+					"width": 675,
+					"height": 900
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "三陸はウニシーズン入りました。産地と消費地のギャップが一番でかいのがウニで、ミョウバンを使わない生雲丹は本当にウニ観変わりますね。週末に手伝ってる水産加工場でもウニ発送するので、欲しい方いたらご連絡ください。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

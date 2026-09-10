@@ -1,0 +1,741 @@
+{
+	"title": "ランクマ日記",
+	"slug": "ranked-match-diary",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "スト6、Ranked Matchの振り返り。",
+	"feature_image": "https://hanatane.net/content/images/2023/07/F1oRWRLaMAASQpP.jpeg",
+	"featured": false,
+	"published_at": "2023-07-25T23:26:59.000Z",
+	"updated_at": "2023-07-25T23:27:10.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6はモダンケンでRanked Matchを始めたが、最初の10戦でシルバーやゴールドの人を倒してしまい、プラチナ2からスタートになってしまった。そこから苦難の道が始まった…。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ゲーム詳しくない人に説明すると、対人ゲームだとカジュアルに対戦する以外にも試合の結果でレートが上下するリーグみたいな対戦モードを用意しているものが多く、スト6もそういうシステムを持っている。勝負の結果ポイントが上下し、ポイントに応じて上からMaster,  Diamond, Platinum, Gold... というようにリーグに所属できる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1672615995628765185",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ドキドキの対人2日目でランクのプレイスメントしたらなぜかプラチナスタートに…😭 <a href=\"https://t.co/TABBilrEIC\">https://t.co/TABBilrEIC</a> <a href=\"https://t.co/8OHKODREKH\">pic.twitter.com/8OHKODREKH</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1672615995628765185?ref_src=twsrc%5Etfw\">June 24, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1672615995628765185",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">ドキドキの対人2日目でランクのプレイスメントしたらなぜかプラチナスタートに…😭 <a href=\"https://t.co/TABBilrEIC\">https://t.co/TABBilrEIC</a> <a href=\"https://t.co/8OHKODREKH\">pic.twitter.com/8OHKODREKH</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1672615995628765185?ref_src=twsrc%5Etfw\">June 24, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "上振れした結果、実力よりも相当上に配置されてしまったので少しまずいと思った。というのも、今後適正ランクに落ちるまで一方的にボコられることが確定しているからである。レートは気にしないというのが対人を楽しむコツでもあるのだが、レート云々ではなく試合にならないレベルでボコられ続けるのでモチベーション管理がとても大変になるだろうなとは思っていた。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結論から言うと、ボコられつつもそれぞれの試合から要素を拾い続けることを意識して、それなりに精神に疲労はたまりつつもなんとか続いた。この病み感情がのりにのったツイートを見てくださいよ。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1673357551084371968",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">僕の場合プレイスメントでいきなり無茶な配置食らって一方的にボコられるのが100試合以上控えててもそこからなんとか要素を拾おうとしてるけど、普通の人が同じ状況になったら多分ゲームやめるんだろうな</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1673357551084371968?ref_src=twsrc%5Etfw\">June 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1673357551084371968",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">僕の場合プレイスメントでいきなり無茶な配置食らって一方的にボコられるのが100試合以上控えててもそこからなんとか要素を拾おうとしてるけど、普通の人が同じ状況になったら多分ゲームやめるんだろうな</p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1673357551084371968?ref_src=twsrc%5Etfw\">June 26, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分より上のレベルの人と試合するのは、仮に一方的にボコられても得られるものは多かったので、結果的にいいトレーニングにはなったのだと思う。ゴールド5で拮抗したので、そこからは勝ち負けを楽しむ文字通りの勝負をしながら遊べるようになった。逆に接戦になったときの勝った負けたは大きなやらかしとかワンミスとかに感情を奪われがちで、もっと大きな改善点に目が行かないことも多いので注意が必要だと思った。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そして着々と勝ちを重ねて、スタート地点のプラチナ2まで戻って、さらにプラチナ3まで上がってきたのが今週。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1678361520709976065",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">プラチナ帰ってきたからテスト勉強だ！！！ <a href=\"https://t.co/m7CZ5bwZJs\">pic.twitter.com/m7CZ5bwZJs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1678361520709976065?ref_src=twsrc%5Etfw\">July 10, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1678361520709976065",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">プラチナ帰ってきたからテスト勉強だ！！！ <a href=\"https://t.co/m7CZ5bwZJs\">pic.twitter.com/m7CZ5bwZJs</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1678361520709976065?ref_src=twsrc%5Etfw\">July 10, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1682676602495467520",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">10戦でプラチナ2に配置されてから一方的にボコボコにされ続けたけどめげずに続けて戻ってきた <a href=\"https://t.co/PutKGsrkml\">pic.twitter.com/PutKGsrkml</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1682676602495467520?ref_src=twsrc%5Etfw\">July 22, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1682676602495467520",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">10戦でプラチナ2に配置されてから一方的にボコボコにされ続けたけどめげずに続けて戻ってきた <a href=\"https://t.co/PutKGsrkml\">pic.twitter.com/PutKGsrkml</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1682676602495467520?ref_src=twsrc%5Etfw\">July 22, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1683445848762449920",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">プラチナ3まできた。そろそろ次の壁がくる… <a href=\"https://t.co/RGrf8hnGTE\">https://t.co/RGrf8hnGTE</a> <a href=\"https://t.co/SZLTxvDD5b\">pic.twitter.com/SZLTxvDD5b</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1683445848762449920?ref_src=twsrc%5Etfw\">July 24, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1683445848762449920",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">プラチナ3まできた。そろそろ次の壁がくる… <a href=\"https://t.co/RGrf8hnGTE\">https://t.co/RGrf8hnGTE</a> <a href=\"https://t.co/SZLTxvDD5b\">pic.twitter.com/SZLTxvDD5b</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1683445848762449920?ref_src=twsrc%5Etfw\">July 24, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "意識の変化も辿ってみる。ランクマを始めたときは、本当に何もわからない状態だったので、とにかく自分がダメージを出せる行動を相手に押し付けることだけを意識してみた。スト6はモダンやドライブのシステムがあるのでそれが可能で、要は相手の攻撃に合わせてドライブインパクトを打ってカウンターしてからアシストコンボを確定に入れるというので初心者でも簡単にダメージを積み重ねることができる。これがたまたま刺さってしまって上振れてしまったわけだが、たしかにゴールド帯までとプラチナ帯ではインパクトに対する反応感度にかなり差があると感じた。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "プラチナでは一切これが通用しなくなったので、フレームだったり重ねだったりと色々な格ゲー概念をボコられながら学んでいった。ゴールド5に落ちる頃には、ケンの基本戦略の柔道がなんとなく理解できて勝率が上がっていた。ケンの最大の強みは運びで、要はいかにして相手を画面端に運んでそこからひたすらじゃんけんをするかというところにかかっている(という理解)。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あと改めて上手い人から直接アドバイスをもらうと学習が加速するのを体験できた。スト5配信を見まくるきっかけになった",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Researchat.fm",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://researchat.fm/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "のタマキさんに色々と見てもらってアドバイスをもらった。通話なしの10先でかなり詳細なアドバイスをもらって一つずつ消化していっているところだけど、全体としてケンの強い行動をもっと振るべきなんだなというのがわかった。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これまで画面端に追い込んでからの柔道で明確にじゃんけんを意識できていたけど、格ゲープレイヤーにはもはや試合中のすべての動きが択に見えるらしい。確かに、龍尾脚はガードさせてじゃんけんを強いることができるが、龍尾脚を通すのにもじゃんけんがあり、さらにその前にも…という感じなのはわかる。自分には見えていない択があって、パーとチョキしか出せないので最大でもあいこで狩られ続けるというのがよく発生していたように思う。格ゲーが上達するというのはこういう択が見えるようになることなんだろう。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "択を意識して、見えない択が存在するのかどうか、という視点で毎試合を振り返ると色々と改善点が見えてきて次第に勝率があがってきた。タマキさんから対空を意識するように強く言われたが、たしかに飛びが弱い択になると相手の取れる行動が一気に狭まって有利になる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "トナミ先輩",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://www.twitch.tv/tonami_games"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "にも​ガッツリ揉んでもらった。不思議なもので、何をやっても一切通じない強い人とやった後のランクマはすごい勝てるようになる。大部分はたまたまなんだけど、多少なり",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "implicit learning",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://scrapbox.io/mtane0412/%E6%BD%9C%E5%9C%A8%E5%AD%A6%E7%BF%92"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "している部分もあるのだと思う。なので最近はBattle Hubに行って格上の筐体を見つけたら乱入してボコられるようにしている。こうなると実はランクマ最初でボコられスタートも案外悪くないのかもしれない。(モチベ管理さえうまくできれば)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今後は、使用率上位のキャラ対策を詰めるのと、生ラッシュや中足キャンセルラッシュをうまく組み入れることなのかなと今は思っている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "全体を通して、ゲームは今やかなり恵まれた趣味になっているなと感じた。自分の場合、ゲームが趣味であることを否定され続けた人生だったが、ゲームが好きな人を見ると非常に能力の高い人が多い。少なくともPC操作程度はできるのだから。Twitchを見てると苦手だと言ってる人も多いけど世間一般のレベルはそれよりも遥かに下にある。ゲームは常に最先端技術が詰め込まれる遊びの領域にあって、プレイヤーには常に問題解決が与えられるので、ゲームをしてくるといくらかそうしたコンピテンスが身についているものなのだけど、ゲームをしていない人はゲーム以外にそれを求めなくてはならない。それってけっこう大変だ。加えて、ネットとも相性がいいので、オンラインでいろんな人と遊べるし、何より競技性のあるゲームはトッププロのプレイを観察できるばかりか、直接質問ができる。テニスをはじめた初心者が錦織圭に質問ができる(回答を得るにはいい質問であることが必要だが)ようなもの。そういうことが起きている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでみんなスト6をやりましょう！という日記でした。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>感想</strong></b><span>: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>購読</strong></b><span>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！ </span><a href=\"https://www.hanatane.net/#/portal/signup\"><span>購読はこちら</span></a></p>",
+					"calloutEmoji": "♥️",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ころとろさん",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://twitter.com/korotoro"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が2週間ほど大船渡に滞在してました！3日目くらいですでに僕よりも顔が広くなっててすごい。外からまったくの異分子が入ってきたときに、色々面白い化学反応が起きているのを見るのがとても面白くて完全にこれになってた。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://gyazo.com/e9772c92ca4068caf5ac8acd0f4d3a8b/max_size/1000",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "昔一緒に住んでた",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "しもじさん",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://twitter.com/shimyuta12"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "も大船渡に来てくれた。テンションが常に一定でマイペースで相変わらずいい人だった。みんなから好かれるのがわかる。しもじさんは準備中のたねハウス(仮)に宿泊してもらったのでお客さん第1号になりました。まだ何もないハウスですみません。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで送別会。またきてください！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1682401096550219776",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">送別会してた！ <a href=\"https://t.co/fvgcqMevhI\">pic.twitter.com/fvgcqMevhI</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1682401096550219776?ref_src=twsrc%5Etfw\">July 21, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1682401096550219776",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">送別会してた！ <a href=\"https://t.co/fvgcqMevhI\">pic.twitter.com/fvgcqMevhI</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1682401096550219776?ref_src=twsrc%5Etfw\">July 21, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こういう感じで色々人が来たときに宿泊できるようにするつもりなので、みなさんも来たいときはご一報ください。ではでは👋",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,506 @@
+{
+	"title": "第1号住民が入居したので家を色々直してる",
+	"slug": "first-residents-and-house-diy",
+	"status": "published",
+	"tags": [
+		"たねハウスの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "最初の住民が住み始めたのでたねハウスを色々改善してる話",
+	"feature_image": "https://hanatane.net/content/images/2024/06/tanenobu_Man_fixing_the_floor_of_his_house_with_DIY_Illustratio_70222024-3036-48ef-a2e4-7323d4868b02.png",
+	"featured": false,
+	"published_at": "2024-06-04T12:32:54.000Z",
+	"updated_at": "2024-06-05T06:34:30.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最近たねハウスに住民が一人住み始めたので、ずっと後回しにしてた家のタスクをちびちびと進めている。「シェアハウスやるぞ！」と意気込んでもやはり一人だとダラダラして先延ばししてしまっていたのだけど、住民がいると自分ごとでは済まないので事が進む。やっぱりシェアハウスをやると生活にハリが出るものだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "平日仕事で週末は家修繕の肉体労働で疲れ切ってる日が続いているのだけど、ここ最近進めてたものを書いておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "網戸徐々に設置",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "購入したときに網戸がない窓が多いままだったので、まずは住民用の寝室に使う2階の網戸を購入することにした。なんか規格とか合わせるの面倒なのかなーと思ったけど、網戸で所定の方法で寸法を測って、あとは対応するフリーサイズ網戸を購入すればよい感じだった。ホームセンターでだいたい7000円前後。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4919.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2階の階段の部分の小窓は横長で、この規格はホームセンターで取り扱っていなかったのでネットで注文した。サイズは合っていたのだけどこっちは建物の歪みがあって調整しても完全に閉まらないので対処が必要っぽい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4953.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メッシュWifi導入",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Wifiも家全域に届いていなかったのでメッシュWifiを導入することにした。TP−Linkの",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Deco BE 65",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/4bIlFVX"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "がちょうど発売開始予定だったので2個入を導入(今見たら1万くらい下がってて血の涙)。ONUとYAMAHAルーターがあるリビングが家の端っこでWifiカバレッジ的に微妙になってしまうので、もともとWifiアクセスポイントを置こうと思っていた中央の大部屋の神棚までLANケーブルを配線することにした。宅内LAN配線を敷きたいところだけど、一旦ホールソーでリビングの壁から神棚まで直通の穴をぶち開けることにした。賃貸住みにはできないこういう雑なパワープレイができるのが持ち家のいいところである。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4929.jpeg",
+					"width": 2000,
+					"height": 2667,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4931.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "母屋は100Mbpsだったのが200Mbpsが出てまずまずの速度。iPhone SE2なのでWifi6すら対応してないからWifi6eとか7対応のやつだとさらに速くなる。光クロスが田舎にも来れば言う事無し。2Fにも配置してこれで母屋全域はカバーした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://pbs.twimg.com/media/GN6dfXVbcAA5Qbu?format=jpg&name=medium",
+					"width": 750,
+					"height": 1126,
+					"title": "",
+					"alt": "Image",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2Fから電波が飛んでるせいか、離れの作業小屋もWifiのキャッチが良く、100Mbpsくらい出ていて嬉しい誤算。敷地内でそこそこWifiが途切れない環境が出来上がった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "仏間の床修繕",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4885-1.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "目下作業中なのがもともと仏壇があったようなスペースの床の張替えである。かなり状態が悪くて床がぶよぶよというだけでなくて、足を踏み入れたら割れてしまったほどだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここを今作業してるのは、最終的にリビングを広くしたいというのがゴールにあるからだ。リビングにPCデスクをおいてしまっているせいで実質リビングを専有してしまっているので、ちょうどいい感じの凹んだスペースのここにPCスペースを移そうという計画である。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "開けてみると根太掛けが腐って外れてて、根太自体もボロボロになっているものが何本か。床がふかふかなのって自分にはどうしようもないどこか高度なトラブルのように思っていたけど、文字通り蓋を開けてみるととこういうシンプルな構造の欠陥なのだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最初は根太掛けと根太を補修して終わりにしようと思ったけど、ゲーミングPC置くなら防音室も起きたいな～とか言ってたらさすがにすぐに抜けそうなので大引を置くことにした。基礎ブロックがちょうどいいのがなくて大きいの買ったり、鋼鉄柄が長すぎたので買い直したりと、かなりシンプルな構造なのにもかかわらず想定外のことがたくさん起きて勉強になる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4964.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そういえば…と前に余らせてたスタイロフォームでついでに断熱もすることにした。スタイロのカットもまっすぐやるのが不可能すぎていい方法を探りたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4970.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "色々段取りとか間違えたし本職が見たら絶叫しながら気絶するレベルになっているけど、ともかく床を剥がして色々いじるレジリエンスを獲得できたのでこれからDIYが捗りそう。キッチンの床がぶかぶかで冬は床冷えが凄まじいのでお盆にでも一気にやってしまおうか。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "住民募集中です",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「正式オープン！」というのを目指していたけど、結局準備段階から住民が位たほうが色々事が進むのが速いということを実感した。実際住民がいると、家賃を修繕費に回すことができるので、お金を出す心理的な抵抗がかなり下がるのを感じた。シェアハウスもアジャイルで進めるほうがよいのだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで、募集サイトもまだできてないけど興味のある人は種延までご連絡ください。何らかのSNSで。ではでは。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

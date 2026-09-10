@@ -1,0 +1,524 @@
+{
+	"title": "メルカリで生うにを売っている話",
+	"slug": "selling-fresh-sea-urchins-on-mercari",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "メルカリで生うにの注文を受け付けたら結構買ってもらえて嬉しいという話です。",
+	"feature_image": "https://images.unsplash.com/photo-1598903664688-edfc6f3db09e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ0fHxmaXNoZXJtYW58ZW58MHx8fHwxNjg4MzM0OTUzfDA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-07-02T22:00:18.000Z",
+	"updated_at": "2023-07-03T00:57:31.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いつも草刈りとか手伝っている海産物の加工販売を行っている工場が、実はメルカリで色々と売っていて、最近は生うにの注文を受け付けている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://mercari-shops.com/shops/MfrAnntzcKTosWiwhN7BLD",
+					"metadata": {
+						"icon": "https://mercari-shops.com/_next/static/media/32x32.67a7367b.png",
+						"title": "産直グループ有限会社 - メルカリShops",
+						"description": "ご覧いただきありがとうございます。\n三陸海岸に面する岩手県大船渡市で新鮮な魚を仕入れ加工販売しています。\n三陸の新鮮な海の幸をお届する産地直送の会社です。 【店舗情報】\n営業時間）月曜から土曜日8:00~17:00\n定休日）　日曜日・祝日は定休日となっております。 【会社概要】\n所在地）〒022-0007　岩手県大",
+						"author": null,
+						"publisher": "メルカリShops",
+						"thumbnail": "https://assets.mercari-shops-static.com/-/large/plain/674ghpriXrqYCKxKaX4SQA.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メルカリユーザーは知らない人も多いけど、メルカリはメルカリshopsというネットショップ機能を昨年くらいからはじめている。売り手は個人事業主や会社などで、手数料が送料込みの販売価格に対して10%かかってしまうのでそれなりにかかってしまうんだけど、メルカリポイントなりメルカリ便なんかの物流が使えるのが強い。田舎で商売している人がネット通販に進出しようと思ったときに、楽天なんかの高い出店料が必要なモールタイプや、それなりの費用を払って自社ECサイトを構築することを考えると、とりあえず無料で置けて売れたら10%持っていかれるメルカリというのは多分めちゃくちゃ刺さるんだろう。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とは言っても、基本的に中古マーケットのメルカリで新鮮な海の幸というのはどうなんだろうなぁ…と思ったのだが、ヤマトの配達員から話を聞いたIT何もわからない社長がメルカリやるぞと言い出したので、メルカリをやることになった。この行動力が経営者たる所以なんだろうなぁ。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "普通のメルカリアカウントとメルカリshopsの違いは、会社の組織認証がしっかりしているところで、特に食品関係だと保健所関係の証明書を添付したりする必要があった。個人と比べて色々と規制が厳しい分、商品の在庫機能があったり、メルカリクール便が利用可能になったりという具合に、shops限定の便利な機能があるという感じである。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "社長は当初、三陸の特産品である",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "湯通し塩蔵わかめ",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noopener",
+							"target": null,
+							"title": null,
+							"url": "https://mercari-shops.com/products/2rWVs93pxR2LM8wceASKbF?source=shop_page_for_seller"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を売ろうとしていたのだが、メルカリでは個人アカウントで常温でネコポスを使った超格安配送が横行していて、shops基準のクール便発送だと値段で太刀打ちできないことがわかった。一応並べてはいるものの多分売れない。残念。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そんな中でうにの季節がきて、生うにを売るぞという話になったのが去年。「メルカリで生うにを買う人なんているだろうか…」と頭をよぎったのだが、なんと数個売れた。メルカリで生うに買う人いたよ！しかも、おいしかったので今年も買いたいという連絡が来た。(メルカリ上でのリピーター獲得は少しもったいないが)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "昨年はメルカリのシステム的に設定できる配送予定が最長7日程度しかなかったはずだが、今年は90日までというのが新たに追加された。特に海産物みたいな仕入れ時期不定の予約注文が必要な商品の要望が多かったのだと思う。これで大手を振って宣伝もできるようになったので、Facebookで友人たちに向けてちょこっと宣伝してみた。作業中の写真は基本なかったのだけど、前に漁協が実験してた蓄養うにの殻むきは新聞に取材されてたのでそのときの様子を添えた。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://tohkaishimpo.com/2022/01/21/351503/",
+					"metadata": {
+						"icon": "https://tohkaishimpo.com/favicon.ico",
+						"title": "Web東海新報｜畜養ウニ 通年出荷実現へ期待膨らむ　県内初の１月出荷に成功　県の綾里漁協委託事業　ＬＥＤライト用い〝旬〟早める",
+						"description": "大船渡市三陸町の綾里漁協（和田豊太郎代表理事組合長）は20日、県の委託を受けて綾里漁港で行っているウニの畜養調査で、県によると県内で初めてとなるウニの１月出荷に成功した。夜間もＬＥＤ（発行ダイオード）ライトを用いて人工的に日の長い環境をつ…",
+						"author": null,
+						"publisher": "Web東海新報",
+						"thumbnail": "https://tohkaishimpo.com/wp-content/uploads/post/202201/1d608e88116760d139ccc58dc62ae9dc.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ありがたいことにFacebookの友人経由での注文が増えた。注文が入るととても嬉しいのと同時に、出荷時期が不確かで痛みやすい無添加の生うにということもあって、無事届くまで結構ドキドキすることがわかった。これが食品を取り扱う人の気持ち…！(食品メーカー勤務経験あるはずなのだが...。)さらにありがたいことに届いた友人がFacebookで感想を投稿してくれた。ほっと一安心するのと同時に、それをみた友人の友人が買ってくれるというソーシャルの力が発揮されていて、ネットはここが強いのだよなぁとあらためて思った。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メルカリでの販売は、今のところ店で売っているものをそのまま上げているが、本当はメルカリの購買層向けに色々と工夫が必要な部分ではあるが、今はコミットできる時間が限られているのが歯がゆいところでもある。生うにのリピーター注文でも、プラットフォームで新規顧客を獲得して、以降は自社のお客さんになってもらうという建付けにしたほうがいいとひしひしと感じる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メルカリの大きな特徴としては、カートという概念がないことが挙げられる。基本的に単一商品につき単一決済である。メルカリは売る側も買う側も徹底して迷うことがないUXにしていて、そこがいいところでもあり、売る側にとっても工夫が必要な部分でもある。色々な海産物を選択して決済、という通常の買い物のメンタルモデルがメルカリでは使えない。だから、あらかじめ客が必要なものをこちらで準備する必要がある。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この点で、ウニは単価が高くて単一販売のモデルがそのまま使えるのでうまくマッチしてるのだと思う。特に、ウニの産地で行っている生うに販売は、朝とれたウニを昼までにむき身にして漁協に納品、セリが始まってその日のうちに出荷、というスピード勝負の流れになる。ウニは日持ちしないので、大手流通に乗せるにはミョウバンを使うのだが、これでウニの味がかなり落ちてしまう。生うに本来の味を乗せるには、採れたてのものを流通を介さずに直接届けるしかない。そういうわけで、販売者と消費者が直接取引できて、なおかつクール便との連携もとれるメルカリは、意外と合っていた。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ネットショップ作れとも言われているのだけど、なかなか時間が取れないことを言い訳に着手できてなかったが、うにの販売を通じて色々自分で展開できるようになってくると多分面白くなってくるんだろうなと感じた。もしオープンすることになったらぜひご贔屓にお願いします。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "生うにはまだまだシーズンですのでご注文受け付けてます！ミョウバンを使用しない生うには本当に絶品なので、是非試してみてほしいです。メルカリのキャンペーンとかも使えばポイントバックされることもあるので是非チェックを。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://mercari-shops.com/shops/MfrAnntzcKTosWiwhN7BLD",
+					"metadata": {
+						"icon": "https://mercari-shops.com/_next/static/media/32x32.67a7367b.png",
+						"title": "産直グループ有限会社 - メルカリShops",
+						"description": "ご覧いただきありがとうございます。\n三陸海岸に面する岩手県大船渡市で新鮮な魚を仕入れ加工販売しています。\n三陸の新鮮な海の幸をお届する産地直送の会社です。 【店舗情報】\n営業時間）月曜から土曜日8:00~17:00\n定休日）　日曜日・祝日は定休日となっております。 【会社概要】\n所在地）〒022-0007　岩手県大",
+						"author": null,
+						"publisher": "メルカリShops",
+						"thumbnail": "https://assets.mercari-shops-static.com/-/large/plain/674ghpriXrqYCKxKaX4SQA.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>感想</strong></b><span>: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>購読</strong></b><span>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！ </span><a href=\"https://www.hanatane.net/#/portal/signup\"><span>購読はこちら</span></a></p>",
+					"calloutEmoji": "♥️",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "6月の頭くらいからダイエットを始めて約5kg減少。運動レベルが前回のダイエットのときと比べて低いけど、やはり計算通りに減っていくことがわかった。カロリー制限は楽。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1674779101138407435",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">6月は4.8kg減りました <a href=\"https://t.co/DcFkls1t52\">pic.twitter.com/DcFkls1t52</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1674779101138407435?ref_src=twsrc%5Etfw\">June 30, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1674779101138407435",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">6月は4.8kg減りました <a href=\"https://t.co/DcFkls1t52\">pic.twitter.com/DcFkls1t52</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1674779101138407435?ref_src=twsrc%5Etfw\">June 30, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "生うにを食べていく友人たちを見ながら、自分はうにのような豆腐を食べている。ぶっちゃけ全然うにじゃないんだけど、結構うまい。カカオのプランテーションで働くチョコを食べたことのない子どもみたいになってる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://sagamiya-kk.co.jp/products/beyond_uni.html",
+					"metadata": {
+						"icon": "https://sagamiya-kk.co.jp/favicon.ico",
+						"title": "うにのようなビヨンドとうふ｜商品紹介｜相模屋食料株式会社｜とうふは相模屋",
+						"description": "おとうふをいちばんに考え、日々おいしいおとうふづくりを追求し続けている相模屋食料です。ナチュラルとうふやひとり鍋シリーズなどの新商品情報、おとうふレシピなどをご紹介しています。",
+						"author": null,
+						"publisher": "ブランドページへ",
+						"thumbnail": "https://sagamiya-kk.co.jp/images/products/beyond_uni_l.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "でも先日お昼に生うにもらいました！やったね！(全然ダイエットメニューに見えないけどいつもこの5倍くらい出てくる)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1674982140977577986",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">お昼ダイエットメニューにしてもらった😋 <a href=\"https://t.co/evIfOq2Y3H\">pic.twitter.com/evIfOq2Y3H</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1674982140977577986?ref_src=twsrc%5Etfw\">July 1, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1674982140977577986",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">お昼ダイエットメニューにしてもらった😋 <a href=\"https://t.co/evIfOq2Y3H\">pic.twitter.com/evIfOq2Y3H</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1674982140977577986?ref_src=twsrc%5Etfw\">July 1, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

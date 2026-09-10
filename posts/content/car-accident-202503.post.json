@@ -1,0 +1,758 @@
+{
+	"title": "車の運転中に突然タイヤが外れて制御不能になった話",
+	"slug": "car-accident-202503",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "走行中に突然、タイヤが根元から外れた。そんな信じられないようなアクシデントに遭遇した話。",
+	"feature_image": "https://hanatane.net/content/images/2025/03/image-1-1-1.png",
+	"featured": false,
+	"published_at": "2025-03-13T12:23:21.000Z",
+	"updated_at": "2025-03-13T12:23:47.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "走行中に突然、タイヤが根元から外れた。そんな信じられないようなアクシデントに遭遇した話。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "左折してたら車が動かなくなった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大船渡に来てからずっと車のない生活をしていたのだけど、いい加減車を買えという圧力もあり、15万というiPhoneよりも安い値段で車を入手してはや数年。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "いつもの通勤路。いつものように踏切を渡った直後の急角度の左折を行っているときに大きな音と衝撃とともに車が動かなくなった。この瞬間、タイヤがバーストしたのだと思って、とにかく少しでも端に寄せようと動かそうとしたが一切動かない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "外に出てみるとタイヤが根元から外れてしまっている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-3.png",
+					"width": 750,
+					"height": 422,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-1-1.png",
+					"width": 750,
+					"height": 422,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "車は道路の真ん中だったが幸いにも車1台は通り抜け可能だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/03/image-2.png",
+					"width": 1532,
+					"height": 1252,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "各所に連絡〜レッカー回収",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "若干パニック気味になりながらもWeb検索経由で保険のロードサービスを手配、同時に近所の人が心配で駆けつけてくれて警察に電話してくれた。こういうときに声をかけてくれるの本当に助かる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "車に興味がなさすぎて仕組みを全然理解していなかったのだが、ロードサービスはレッカー移動をするが、どこに運ぶかは自分で決めなければならない。そのため、あらかじめ修理をお願いする車屋さんに連絡する必要がある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回の場合、事故ではなく故障だったので警察を呼ぶべきなのかが真っ先にはわからなかったが、現場に駆けつけるのは警察が一番早く、交通整理などを行ってくれたので、とにもかくにも警察を真っ先に呼ぶのが正解のようだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "警察に確認がてら色々聞かれたが、おそらく本当に本人の車かどうかの確認のためか、車検証を見せた後に何年前に車検を受けたかを聞かれた。車検を受けたことは覚えているが、具体的な時期はすっかり頭から抜けているので「1年か2年前ですかね？」と当たり前な返答をしてしまった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "通りかかる人が車をとめて声をかけてくれて親切な人が多いなと感じる。実際、当事者はパニック状態で複数の連絡先に連絡しないといけないので、警察や病院などへの電話を誰かがやってくれるととても助かるのだとわかった。自分もこういう場面を見たら声をかけて手伝えることがないか聞こうと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "40分ほどでレッカー車が到着して車を回収していってくれた。ロードサービス付きの保険に入っていたので費用は発生せず、警察の方も事故ではないので交通整理が終わって撤収していった。ありがとうございました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "原因はロアアームのボールジョイント抜け",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "保険屋、レッカー、車屋さんにどういう状況か聞かれてうまく故障状態を伝えることができなかった。「タイヤが外れた」というとボルトが外れてタイヤが抜けていったことをまず想像するようで、「なんか根元が取れたんだか折れたんだかで、ボルトがついた状態でタイヤが外れている」みたいな伝え方になった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとはレッカーを待つばかりとなったのでXにポストしたら、大体なんでも経験しているフルやんさんがやっぱり知ってた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/furuyannoyabou/status/1899641841747980455",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">同じ症状で峠で止まっていた車を助けて事有ります！<br>事故にならなくて良かったです</p>&mdash; フルやん@水中ドローンで夢を追う者。 (@furuyannoyabou) <a href=\"https://twitter.com/furuyannoyabou/status/1899641841747980455?ref_src=twsrc%5Etfw\">March 12, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/furuyannoyabou/status/1899641841747980455",
+						"author_name": "フルやん@水中ドローンで夢を追う者。",
+						"author_url": "https://twitter.com/furuyannoyabou",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">同じ症状で峠で止まっていた車を助けて事有ります！<br>事故にならなくて良かったです</p>&mdash; フルやん@水中ドローンで夢を追う者。 (@furuyannoyabou) <a href=\"https://twitter.com/furuyannoyabou/status/1899641841747980455?ref_src=twsrc%5Etfw\">March 12, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/furuyannoyabou/status/1899644942722687394",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">東北で活動していた時に出会いました。多分、道が悪くて外れたんだと思います(´;ω;｀)ロアアームの交換になります。</p>&mdash; フルやん@水中ドローンで夢を追う者。 (@furuyannoyabou) <a href=\"https://twitter.com/furuyannoyabou/status/1899644942722687394?ref_src=twsrc%5Etfw\">March 12, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/furuyannoyabou/status/1899644942722687394",
+						"author_name": "フルやん@水中ドローンで夢を追う者。",
+						"author_url": "https://twitter.com/furuyannoyabou",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">東北で活動していた時に出会いました。多分、道が悪くて外れたんだと思います(´;ω;｀)ロアアームの交換になります。</p>&mdash; フルやん@水中ドローンで夢を追う者。 (@furuyannoyabou) <a href=\"https://twitter.com/furuyannoyabou/status/1899644942722687394?ref_src=twsrc%5Etfw\">March 12, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ロアアームでググるとまさに自分が見た謎のパーツの画像があった。ロアアームは、車の足回りの一部で、サスペンションを支える重要なパーツで、これが外れるとタイヤが制御不能になるとのことで、まさしく今回の原因だと思われる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://magazine.cartune.me/articles/2194",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon.png",
+						"title": "ロアアームってどんなパーツ？役割や交換工賃についても解説！ | CARTUNEマガジン",
+						"description": "足回りで非常に重要な役割を持ちながら、あまりスポットライトが当たらないのがロアアーム。車体剛性や乗り心地、ハンドリングに至るまで、縁の下の力持ちのごとく大きな役割を果たすロアアームについて解説します。",
+						"author": "CARTUNE MAGAZINE 編集部",
+						"publisher": "Michael Inc.",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/gIC_eEeIm6GlatxOxeK50i9CcWeL9A3v34xB_M01UtctL0Eb5ID8MiblpkqTY9P1LoVyk7Cut5FKZAg9fr9jAmnaZRSK-s640"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://goodstandard.hida-ch.com/e1113883.html",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-8.ico",
+						"title": "ロアアーム　ボールジョイント抜け",
+						"description": "↓下の画像を見てもらってタイヤがありえない方向に向いて、ドライブシャフトもミッション側から抜けて、…",
+						"author": "",
+						"publisher": "BILLYS BLOG",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/-E3-83-9C-E3-83-BC-E3-83-AB-E3-82-B8-E3-83-A7-E3-82-A4-E3-83-B3-E3-83-881.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "全メーカーを取り扱う立場ですので、公平に今回の件が多いと思うのはスズキ・日産車です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回まさにスズキのMRワゴンだった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "前兆として「ゴトッ」と大きな音がするらしい。もしかしたらしてたのかもしれないが、記憶にない(なにか石をふんだとか、そういう認識で記憶されていないかもしれない)。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このボールジョイントが抜ける故障は走行中でも起こり得るらしく、そうなった場合操作不能なので重大事故につながる可能性があるようだった。今回はスピードが出ていない状況だったので本当に不幸中の幸いだったのだなとあとになって理解した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "かなり怖い故障なのでDeep Researchを使って軽く調べてみたけど、国内での重大事故事例自体はそんなに多くないようだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://chatgpt.com/share/67d12b7a-b76c-8013-9820-60985680d45a",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-180x180-od45eci6.webp",
+						"title": "ChatGPT - ロアアーム ボールジョイント 事故",
+						"description": "Shared via ChatGPT",
+						"author": "",
+						"publisher": "ChatGPT",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/chatgpt-share-og-u7j5uyao.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "重要パーツなので当然整備の最重要チェックポイントで、そもそもかなりの低確率のアクシデントを踏んでしまったということなのだと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "思うに、普通の人が売る前提で中古車を買って定期的に買い替えるのは、こういう事故リスクを少しでも下げるためなんだなと理解した。そういう人が買わなくなった超ボロ車を低価格で僕のような貧乏人が手にするというわけだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "逆に言うと超低価格車は2年ごとの車検だけでなく、もっと短いスパンでの定期点検を実施したほうがよいのだと思う。そうなってくるとリセール前提でそこそこの車を乗ったほうが安いかもしれず、やはり通常の購入スタイルに落ち着くのだろうなと想像した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "正直2年毎の車検さえ通っていれば、このレベルの事故につながる故障はなかなか発生しないだろうと思っていたので認識が甘かったのだと思う。詳しい原因は修理が終わってからまた説明があるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回学んだことは",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "道路上のトラブルでは警察を真っ先に呼ぶ。助けてくれそうな人がいれば警察への連絡を頼む(自分しか連絡できない先に連絡する)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ロードサービス付きの保険は入っておいた方が良い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "走行距離に応じた点検スケジュールを組む必要がある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "低価格帯の車を運用するのであれば、車への理解度を高める必要がある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実はたねハウスを購入してから移動範囲が一気に狭まったので、このまま車を所有しつづけるかどうか、車のグレードをあげるかどうかなどは考えておかないといけない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最後に助けてくれたすべての人に感謝します。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

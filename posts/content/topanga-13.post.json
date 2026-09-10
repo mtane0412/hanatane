@@ -1,0 +1,210 @@
+{
+	"title": "第13回TOPANGAチャリティカップに出ました",
+	"slug": "topanga-13",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "たねのぶトパチャリ参戦記",
+	"feature_image": "https://hanatane.net/content/images/2024/01/tanenobu_9554907016_five_game_controllers_in_a_circle_Illustrat_2ef67fed-58ae-4a36-ab99-b656a4dc6b48.png",
+	"featured": false,
+	"published_at": "2024-01-28T14:48:27.000Z",
+	"updated_at": "2024-01-28T14:48:27.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "第13回TOPANGAチャリティーカップ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://topanga.co.jp/charitycup13/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "に友達に誘われたので出てました。種目はストリートファイター6の5on5。ポゴレジェとほぼレジェで挑みました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/e66776c21a607361c044b539f3d00364.png",
+					"width": 585,
+					"height": 391,
+					"title": "",
+					"alt": "チームポゴ",
+					"caption": "<span style=\"white-space: pre-wrap;\">チームポゴ</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "格闘ゲームの大会は初めてで、何ならゲームの大会ってAge of Empires3以来かも？見る専だった大会にとうとう自分も参加する側に回って感慨深いものがあります。大会自体も総勢3000名を超えるかなり大規模なもので、途中Tonamelの不具合などもあり運営も大変だったと思います。皆様お疲れ様でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しかしここのところ仕事に試験にでまったくスト6できていないかったのでチームメンバーにはかなり申し訳なかった…。僕は10秒でバーンアウトするケンに戻っていました😂",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "チームメイトはTwitchの知り合いですが、直接の知り合いも喋るのは初めて、直接交流するのが初めてのメンバーも多いという感じでした。ただTwitchのコミュニティの中でお互いうっすら知ってるので打ち解けるのも早くて、あらためてTwitchは面白いコミュニティだなと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "試合の方はWinners2からはじまりましたが、初戦が平均MR1700のめちゃくちゃ強いチームで僕はいいところなしで終了。チームが頑張ったのですがルーザーズへ…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/8290ec3e58c2fded977f38b1944e1210.png",
+					"width": 274,
+					"height": 139,
+					"title": "",
+					"alt": "W2強かった",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/a52497d7bd33631d7df40041ac1c4449.png",
+					"width": 810,
+					"height": 112,
+					"title": "",
+					"alt": "ルーザーズ3回戦で終了",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ルーザーズ1は先鋒をもらってなんと5タテできて仕事した感を出すことができました。その後もチームみんながそれぞれの試合で仕事をして思ったよりだいぶ試合ができました。結果はルーザーズ3回戦で終了。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "他の知り合いも大会に出たりして、大会の空気感もすごく面白くてよかったです。みんなモチベあがっててやっぱりスト6はいいゲームだなーと思いました。次は活躍できるように練習したいです！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

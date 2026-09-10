@@ -1,0 +1,1984 @@
+{
+	"title": "なぜブログプラットフォームにGhostを選んだか",
+	"slug": "why-ghost",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "Ghostを選定した理由として、最も重視したポイントや検討したサービスについて話します。",
+	"feature_image": "https://images.unsplash.com/photo-1515002246390-7bf7e8f87b54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDcyfHxjYXQlMjB8ZW58MHx8fHwxNjgwNDQ4NDc4&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-04-02T22:00:08.000Z",
+	"updated_at": "2024-01-08T09:47:24.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんにちは。2本目の記事です！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回話したいのはこのブログのブログプラットフォームの選定の話です。このブログは、色々考えた末にGhostというサービスを使うことにしました。2023年現在、文章を発信するためのサービスは以前よりもずっと多種多様になっていて、自分も最後まで悩みました。調べていくうちに、同じ視点でまとまった情報源があまりなかったため、誰かの役に立てばよいなという思いもあり、今回のトピックにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最も重視したポイント",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "使いやすいエディタとかデータのポータビリティなど細かい要件もありますが、今回は最も重視したポイントをあげます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "書くことに集中できること",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログプラットフォームの選定において、最も重要な条件は「書くに集中できること」です。コードの操作ができると、ブログの構築や管理を自分で行いがちです。これは個人のプロジェクトにおいて、最新技術を試すために非常に有効な方法です。しかし、一般的な失敗パターンとして、最初は楽しみながらやっていたものの、やがて保守に手間取り、更新ができなくなってしまうということがあります。自分はこれまでに何度も同じ轍を踏んできたので、今回は避けたいと考えました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "したがって、システムの最優先条件は",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 1,
+							"mode": "normal",
+							"style": "",
+							"text": "フルマネージド",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "であることです。自分が行うのは執筆のみであり、最小限の操作しか行いません。熱が冷めたとしても、常に執筆ができる状態を目指したいと思っています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "広告フリーな運用ができること",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "文章を書くことは本当に大変なので、しっかりベネフィットを取ることが大事だと思っています。文章を書くこと自体のベネフィットも非常に大きいのですが、これはすぐに効果として現れないことも多いです。なのでブログからお金が発生するようにしておくことは、モチベーションをダイレクトに上げてくれる即時フィードバックとして有用だと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログではGoogle広告のようなターゲティング広告を表示するのが主流でした。ですが今回はブログにこのような広告を載せたくないと考えています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一番の理由は、ターゲティング広告で実際に収益を上げるためには様々な最適化が必要で、それらを突き詰めていくといわゆるアフィブログのような状態になってしまうリスクがあることです。ビュー数をある程度確保する必要があり、なおかつ広告単価の高いものが表示されるようなターゲティングをメディアの方でも行う必要があります。今回はそういうことがやりたいわけではなく、画面上の不要な要素もできるだけ削りたいので、広告なしでやりたいという思いがあります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最近のトレンドとして、広告モデルに代わるメンバーシップモデルがあります。メンバーシップについては自分の中ではTwitch配信での経験が大きいです。配信者としては見てくれること、コメントで交流してもらうことが一番大きいのは確かですが、月間の有料サブスクリプションや投げ銭での支援は視聴者にどうやったら還元できるかどうかを考えさせる力があるので、ポジティブな改善が回る仕組みだと思っています。視聴者側からすると、支援したい人を直接サポートできるという喜びがあります。メンバーシップモデルはこんな具合でコミュニティの形成につながる優れたモデルだと思います。今回のブログでは、文章を書く場所でメンバーシップって果たして可能なのかどうかということをチャレンジする場でもあります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "検討した候補",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以下、ブログを始めるにあたって検討したサービスを簡潔にまとめていきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "note",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://note.com/"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "要件を満たすものとしてnoteは最後まで候補にありました。実際に他人に文章書くならとりあえずnoteでいいんじゃない？とおすすめしているサービスでもあります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "noteの良さそうなポイントは以下のとおりです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "書くことに集中するというコンセプト",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "note上に日本人ユーザーが多く、プラットフォーム上からの流入も見込める",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "記事単位の販売やマガジン、メンバーシップなど収益化手段が多い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一方で以下の点で悩んでいました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "トップページの、大量に並べられた記事のUIが好みではない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "エクスポート機能が最近までなかった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "自分自身があまりnoteを見ていない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結局note上で自分が好きな記事を発見できているわけではないという体験によって、note上の日本人ユーザーの多さという一番のメリットが実感できていないということに気づきました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Medium",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://medium.com/"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "日本人に対しては海外版noteと言ったほうがわかりやすいかもしれませんが、実際は日本版Mediumがnoteというのが正確だと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Mediumの良さそうなポイントは以下のような部分です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "「書くことに集中する」というコンセプトを最初期に提示したサービス",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "デザインが洗練されている",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "海外ユーザーが多い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "Mastodonインスタンスを立ち上げた。",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": null,
+									"target": null,
+									"title": null,
+									"url": "https://blog.medium.com/medium-embraces-mastodon-19dcb873eb11"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Fediverse環境に適応していく方向性を示している",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Mediumのイマイチポイントは以下のような感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "日本人ユーザーがほとんどいない(日本から撤退した)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Googleのランキングアルゴリズムのアップデートで一気にアクセスが減ったという出来事がある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "英語UI",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "個人的にはnoteよりもMediumのほうが好きですし、Web上の執筆カルチャーを牽引してきたのは間違いなくMediumです。ただ、日本人向けのメディアを作るには不向きなのかなという印象で、候補から下ろすことになりました。日本語がんばってほしいな～。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Substack",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://substack.com/"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "海外では絶大なインパクトを持っているニュースレターサービスです。TwitterやFacebookのようなBig TechもSubstack対抗を余儀なくされ後追いしましたが、いずれもあまりうまくいっていないようです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Substackの良さそうなポイントは以下のとおりです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "読者をプラットフォームに囲まれない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "無料で運用可能",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "記事をメールで届けられる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Substackに感じたイマイチポイントはMediumと似ています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "日本でSubstackがあまり知られていない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ニュースレター文化がない(かつてメルマガ文化があったのに…)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "英語UI",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Substackにベットするためには、日本にニュースレター文化が普及するかどうかを読む必要があると思いました。",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Rebuild.fm",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://rebuild.fm/287/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "でのニュースレターに対する反応やcatnoseさんのツイートが日本人のメール文化の現在を捉えているのではないかと感じています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/catnose99/status/1580757811742416896",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">英語圏で今爆発的に流行ってるSubstackみたいなニュースレターサービスが日本では流行らないの、大手サービスが一方的にメルマガを送りつけて人々を苦しめてきた過去が大きい気がしてる… <a href=\"https://t.co/0rBFHjnst6\">https://t.co/0rBFHjnst6</a></p>&mdash; catnose (@catnose99) <a href=\"https://twitter.com/catnose99/status/1580757811742416896?ref_src=twsrc%5Etfw\">October 14, 2022</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/catnose99/status/1580757811742416896",
+						"author_name": "catnose",
+						"author_url": "https://twitter.com/catnose99",
+						"width": 550,
+						"height": null,
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "http://www.twitter.com/",
+						"version": "1.0",
+						"tweet_data": {
+							"possibly_sensitive": false,
+							"public_metrics": {
+								"retweet_count": 9,
+								"reply_count": 1,
+								"like_count": 98,
+								"quote_count": 3,
+								"impression_count": 0
+							},
+							"referenced_tweets": [
+								{
+									"type": "quoted",
+									"id": "1580732472433967104"
+								}
+							],
+							"entities": {
+								"urls": [
+									{
+										"start": 92,
+										"end": 115,
+										"url": "https://t.co/0rBFHjnst6",
+										"expanded_url": "https://twitter.com/fushiroyama/status/1580732472433967104",
+										"display_url": "twitter.com/fushiroyama/st…"
+									}
+								],
+								"annotations": [
+									{
+										"start": 38,
+										"end": 39,
+										"probability": 0.7922,
+										"type": "Place",
+										"normalized_text": "日本"
+									}
+								]
+							},
+							"id": "1580757811742416896",
+							"author_id": "2202495276",
+							"context_annotations": [
+								{
+									"domain": {
+										"id": "45",
+										"name": "Brand Vertical",
+										"description": "Top level entities that describe a Brands industry"
+									},
+									"entity": {
+										"id": "781974596706635776",
+										"name": "Retail industry"
+									}
+								},
+								{
+									"domain": {
+										"id": "30",
+										"name": "Entities [Entity Service]",
+										"description": "Entity Service top level domain, every item that is in Entity Service should be in this domain"
+									},
+									"entity": {
+										"id": "783335558466506752",
+										"name": "Online - Retail"
+									}
+								},
+								{
+									"domain": {
+										"id": "47",
+										"name": "Brand",
+										"description": "Brands and Companies"
+									},
+									"entity": {
+										"id": "1038145750419435520",
+										"name": "Rakuten",
+										"description": "Rakuten (楽天)"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "1038145750419435520",
+										"name": "Rakuten",
+										"description": "Rakuten (楽天)"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "1407811550987972617",
+										"name": "Industries"
+									}
+								},
+								{
+									"domain": {
+										"id": "165",
+										"name": "Technology",
+										"description": "for individual and types of technology, e.g., food technology, 3D printing"
+									},
+									"entity": {
+										"id": "1407812892909473795",
+										"name": "eCommerce industry"
+									}
+								},
+								{
+									"domain": {
+										"id": "30",
+										"name": "Entities [Entity Service]",
+										"description": "Entity Service top level domain, every item that is in Entity Service should be in this domain"
+									},
+									"entity": {
+										"id": "781974596752842752",
+										"name": "Services"
+									}
+								},
+								{
+									"domain": {
+										"id": "47",
+										"name": "Brand",
+										"description": "Brands and Companies"
+									},
+									"entity": {
+										"id": "10027474933",
+										"name": "Yahoo!"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "10027474933",
+										"name": "Yahoo!"
+									}
+								}
+							],
+							"created_at": "2022-10-14T03:10:06.000Z",
+							"reply_settings": "everyone",
+							"text": "英語圏で今爆発的に流行ってるSubstackみたいなニュースレターサービスが日本では流行らないの、大手サービスが一方的にメルマガを送りつけて人々を苦しめてきた過去が大きい気がしてる… https://t.co/0rBFHjnst6",
+							"lang": "ja",
+							"edit_history_tweet_ids": [
+								"1580757811742416896"
+							],
+							"conversation_id": "1580757811742416896",
+							"includes": {
+								"users": [
+									{
+										"created_at": "2013-11-19T04:47:38.000Z",
+										"public_metrics": {
+											"followers_count": 20217,
+											"following_count": 351,
+											"tweet_count": 5820,
+											"listed_count": 214
+										},
+										"url": "https://t.co/sZSdiMXAwM",
+										"entities": {
+											"url": {
+												"urls": [
+													{
+														"start": 0,
+														"end": 23,
+														"url": "https://t.co/sZSdiMXAwM",
+														"expanded_url": "https://catnose.me",
+														"display_url": "catnose.me"
+													}
+												]
+											}
+										},
+										"protected": false,
+										"description": "デザインが好きなソフトウェアエンジニア。いろいろ好きなもの作って生きてる。🐶🐱👶のパパ",
+										"profile_image_url": "https://pbs.twimg.com/profile_images/962920362320121857/u62EkIGv_normal.jpg",
+										"id": "2202495276",
+										"verified": false,
+										"name": "catnose",
+										"pinned_tweet_id": "1575696217228484608",
+										"username": "catnose99"
+									},
+									{
+										"created_at": "2016-06-07T05:17:20.000Z",
+										"public_metrics": {
+											"followers_count": 30372,
+											"following_count": 779,
+											"tweet_count": 57466,
+											"listed_count": 248
+										},
+										"url": "https://t.co/9WXnS1Vi7c",
+										"entities": {
+											"url": {
+												"urls": [
+													{
+														"start": 0,
+														"end": 23,
+														"url": "https://t.co/9WXnS1Vi7c",
+														"expanded_url": "https://note.com/fushiroyama/",
+														"display_url": "note.com/fushiroyama/"
+													}
+												]
+											},
+											"description": {
+												"mentions": [
+													{
+														"start": 28,
+														"end": 38,
+														"username": "microsoft"
+													},
+													{
+														"start": 49,
+														"end": 56,
+														"username": "amazon"
+													}
+												]
+											}
+										},
+										"protected": false,
+										"description": "お父さん、博士課程\nSoftware Engineer @microsoft 👨🏻‍💻 / ex-@amazon\nAll opinions are my own.",
+										"profile_image_url": "https://pbs.twimg.com/profile_images/911275663721611265/0RwPpnuP_normal.jpg",
+										"location": "japaneast",
+										"id": "740049981311045632",
+										"verified": false,
+										"name": "父",
+										"pinned_tweet_id": "1580291372804091904",
+										"username": "fushiroyama"
+									}
+								],
+								"tweets": [
+									{
+										"possibly_sensitive": false,
+										"public_metrics": {
+											"retweet_count": 2,
+											"reply_count": 0,
+											"like_count": 64,
+											"quote_count": 1,
+											"impression_count": 0
+										},
+										"id": "1580732472433967104",
+										"author_id": "740049981311045632",
+										"context_annotations": [
+											{
+												"domain": {
+													"id": "45",
+													"name": "Brand Vertical",
+													"description": "Top level entities that describe a Brands industry"
+												},
+												"entity": {
+													"id": "781974596706635776",
+													"name": "Retail industry"
+												}
+											},
+											{
+												"domain": {
+													"id": "30",
+													"name": "Entities [Entity Service]",
+													"description": "Entity Service top level domain, every item that is in Entity Service should be in this domain"
+												},
+												"entity": {
+													"id": "783335558466506752",
+													"name": "Online - Retail"
+												}
+											},
+											{
+												"domain": {
+													"id": "47",
+													"name": "Brand",
+													"description": "Brands and Companies"
+												},
+												"entity": {
+													"id": "1038145750419435520",
+													"name": "Rakuten",
+													"description": "Rakuten (楽天)"
+												}
+											},
+											{
+												"domain": {
+													"id": "131",
+													"name": "Unified Twitter Taxonomy",
+													"description": "A taxonomy of user interests. "
+												},
+												"entity": {
+													"id": "1038145750419435520",
+													"name": "Rakuten",
+													"description": "Rakuten (楽天)"
+												}
+											},
+											{
+												"domain": {
+													"id": "131",
+													"name": "Unified Twitter Taxonomy",
+													"description": "A taxonomy of user interests. "
+												},
+												"entity": {
+													"id": "1407811550987972617",
+													"name": "Industries"
+												}
+											},
+											{
+												"domain": {
+													"id": "165",
+													"name": "Technology",
+													"description": "for individual and types of technology, e.g., food technology, 3D printing"
+												},
+												"entity": {
+													"id": "1407812892909473795",
+													"name": "eCommerce industry"
+												}
+											},
+											{
+												"domain": {
+													"id": "30",
+													"name": "Entities [Entity Service]",
+													"description": "Entity Service top level domain, every item that is in Entity Service should be in this domain"
+												},
+												"entity": {
+													"id": "781974596752842752",
+													"name": "Services"
+												}
+											},
+											{
+												"domain": {
+													"id": "47",
+													"name": "Brand",
+													"description": "Brands and Companies"
+												},
+												"entity": {
+													"id": "10027474933",
+													"name": "Yahoo!"
+												}
+											},
+											{
+												"domain": {
+													"id": "131",
+													"name": "Unified Twitter Taxonomy",
+													"description": "A taxonomy of user interests. "
+												},
+												"entity": {
+													"id": "10027474933",
+													"name": "Yahoo!"
+												}
+											}
+										],
+										"entities": {
+											"annotations": [
+												{
+													"start": 0,
+													"end": 10,
+													"probability": 0.5334,
+													"type": "Organization",
+													"normalized_text": "Unsubscribe"
+												},
+												{
+													"start": 14,
+													"end": 24,
+													"probability": 0.5544,
+													"type": "Organization",
+													"normalized_text": "Unsubscribe"
+												},
+												{
+													"start": 28,
+													"end": 30,
+													"probability": 0.6946,
+													"type": "Organization",
+													"normalized_text": "ヤフー"
+												},
+												{
+													"start": 66,
+													"end": 67,
+													"probability": 0.5074,
+													"type": "Organization",
+													"normalized_text": "楽天"
+												}
+											]
+										},
+										"created_at": "2022-10-14T01:29:24.000Z",
+										"reply_settings": "everyone",
+										"text": "UnsubscribeしてもUnsubscribeしてもヤフーおよび傘下企業のメルマガが送られてくる…何100個あるんだ…10年前の楽天より余程ひどいです…😵",
+										"lang": "ja",
+										"edit_history_tweet_ids": [
+											"1580732472433967104"
+										],
+										"conversation_id": "1580732472433967104"
+									}
+								]
+							}
+						}
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Ghost",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://ghost.org/"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostはNode.js製のオープンソースのブログエンジンです。セルフホストが可能ですが、Ghost Proという公式のマネージドホスティングが有料で利用可能です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最終的にGhostを選択したのですが、良かったポイントは以下のとおりです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "デザインが優れている",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "エディタの使い心地が良い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "個人サイトとして運用できる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "セルフホストにも移行可能、データのポータビリティが良い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "メンバーシップの仕組みも準備されている",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "収益に対してGhostは手数料を取らない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一方で悩んだポイントは次のような感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "無料運用不可、月額利用料がかなり高め(最安のStarterで$9/月)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "最安プランでできることはかなり限られている",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "個人サイトなので流入は自分で作る必要がある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostに決める上で、デメリットとして挙げた点が逆にうまく機能するのではないかという考えに変わりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "例えば、月額利用料はメンバーシップの最初の目標にちょうどよいと思いました。Starterであれば月額5ドルのpaid memberを2人確保すればペイできますし、もし5人集まればより多機能なCreatorプランにアップグレードすることができます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "また、Starterで機能がかなり制限されていることは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 1,
+							"mode": "normal",
+							"style": "",
+							"text": "小さく始める",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というプラクティスにもうまく作用します。例えば、ブログを始めて何人かメンバー登録もしていただいたので、早速メンバー登録されたらスプレッドシートに転記しておくプログラムを書いてしまいそうになったのですが、Webhookを利用するにはCreatorプランが必要なのでできませんでした。考えてみれば今やるべきことは現在特に困っていない作業を自動化することではなく「書くこと」です。これ以外にもデザインであったり、UIの日本語化であったり、実際に運用を始めると様々なところに手を入れたくなるものなのですが、最初のプランでできることが限られていることはデメリットではないのではないかと思うようになりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "noteのようなプラットフォーム上からの流入が見込めないことですが、仮にnoteを使ったとしても今回誰に向けて書いているかといえば僕の周囲の人達なので、結局主な流入経路はSNSになると思います。なので、プラットフォームに依存しない方向で運用していくのも悪くない筋なのかなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "よかったら購読お願いします",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以上のようなことを考えてGhostというシステムを採用しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実は先週の記事公開後に早速メンバー登録してくださった方がいるばかりか、有料メンバーシップに登録していただいた方もいます。本当にありがとうございます！今日の記事も月曜に公開しなければ…という強い力になってこの記事を書いているので、ブログ選定時に考えていたことがある程度実現できているのかなと思っています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "質問・感想等があればコメント欄やSNSで聞いてもらえると助かります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回のようなテイストで、自分の考えをシェアしていくのでよかったらSubscribeボタンで購読していただけると非常にモチベーションになります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "では、また来週！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

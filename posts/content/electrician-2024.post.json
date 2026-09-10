@@ -1,0 +1,836 @@
+{
+	"title": "対策不足の中ギリギリで第二種電気工事士をとった",
+	"slug": "electrician-2024",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"たねハウスの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "ADHDが発動して第二種電気工事士試験を学科2週間前、技能1週間前に泣きながら対策しつつ、なんとかギリギリで合格した記録。",
+	"feature_image": "https://hanatane.net/content/images/2024/08/tanenobu_Electrician_replaces_lights_Illustration_for_blog_head_23958901-c7d2-484b-b0e0-c467a01e60f8.png",
+	"featured": false,
+	"published_at": "2024-08-21T14:28:05.000Z",
+	"updated_at": "2024-08-21T14:49:02.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2024年上期試験で第二種電気工事士を取りました。無計画の後回し癖が爆発したおかげで色々とかなりギリギリになったのですが、ズボラな人間ほど「2週間で学科は通るか」「1週間で技能は通るか」という不安に耐えきれずに少ない勉強時間でパスできた事例を探してしまいがちだったので、未来の同類に向けて備忘録を残しておきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "(追記)お試しでNoLangでこの記事の要約を生成してみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "video",
+					"version": 1,
+					"src": "https://hanatane.net/content/media/2024/08/736613e0-fdb1-46ff-99ac-a9d4598ece8d.mp4",
+					"caption": "",
+					"fileName": "736613e0-fdb1-46ff-99ac-a9d4598ece8d.mp4",
+					"mimeType": "video/mp4",
+					"width": 1280,
+					"height": 720,
+					"duration": 65.56,
+					"thumbnailSrc": "https://hanatane.net/content/media/2024/08/736613e0-fdb1-46ff-99ac-a9d4598ece8d_thumb.jpg",
+					"customThumbnailSrc": "",
+					"thumbnailWidth": 1280,
+					"thumbnailHeight": 720,
+					"cardWidth": "regular",
+					"loop": false
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "モチベーション",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "おうちハックをする人は既定路線といっていいほど第二種電気工事士の資格を取るのですが、自分の場合もシェアハウスの電気工事をある程度自分で行えるようにするために取得しようと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "築60年の家に住んでいると色々と電源周りで苦労することが多く、例えば2階にSwitchbotのシーリングライトを取り付けようと思ったら引っ掛けシーリングが旧型のもので取り付けることができませんでした。引っ掛けシーリングを交換するだけなのですが、これも電気工事士資格が必要です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとは築60年だとそもそもコンセントの数や配置が圧倒的に足りてないことが多く、家の中が延長コードだらけになって配線で苦労したりするのですが、必要な箇所に自分でコンセント増設できると便利そうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "少ない勉強時間で行ったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "電気工事士については取りたいなぁとぼんやり思っていたものの、常にストリートファイター6に時間を追われていてなかなか着手できていなかったので、自分を追い込むために試験申し込みだけ済ませました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "電気工事士試験は学科と技能の2つの試験から成るのですが、先延ばし癖が発動してしまい、結局学科は2週間前、技能は1週間前から試験対策を始めることになりました。終わってますね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "どちらもパスできましたが、運が悪ければ落ちていたかもしれないほど、対策は不足していました。万全で1発で通したいならやっぱり1ヶ月くらいは余裕をもって準備したい試験だと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "試験対策ですが、一応AmazonでKindle書籍も購入したものの、全く使わずに",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ホーザンの虎サイト",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.hozan.co.jp/corp/denko2/pc/020/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ですべて対策しました。電工はホーザンを信じればOKです。技能試験用の工具も",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ホーザンのもの",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/4dQVhKj"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を買っておきましょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "学科は時間が限られていることもあって、とりあえず配線図記号だけでも完璧にしておこうと",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Anki",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://apps.ankiweb.net/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を利用して試験に出る記号をすべて覚えました。Shared Deckに電気工事士用のデッキがあるので検索してみてください。(なんとなく直リンクは避けておく)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "配線図記号を完璧にしつつ、ホーザンの学科試験対策をすべてやります。解説動画があるので要点を押さえながらかなり効率よく学習できます。2週間でもかなりの部分がカバーできたのですが、電気関係の公式などある程度暗記を要する部分がどうしても時間が足りなかった印象です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "学科で反省して技能はちゃんとやるぞと思いつつ、こちらは実際に着手したのは1週間前。実際に対策するまで知らなかったのですが、電気工事士の技能試験は事前に候補問題として公表されたものから出題されるものだったので、とりあえずすべての候補問題の複線図は完璧に書けるようにして、単位作業対策をしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "技能試験ではホームセンターでVVFケーブルやコンセント・スイッチ等を練習用で購入しました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "面倒なランプレセプタクルは試験で使われる正確な型のものが手に入らなかったため、代わりに似たようなものを購入。単位作業の中でも芯線をクルっとさせる必要があって時短が重要なのでこれは絶対購入して練習したほうがいいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5066.jpeg",
+					"width": 2000,
+					"height": 2667,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">このクルン！ってのがめちゃむずい</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "リングスリーブと差し込み型コネクタも安いのでもちろん購入。差込形は芯線被覆のストリップのサイズさえ間違えなければ特に難しいことはないです。問題はリングスリーブですが、サイズの対応は暗記するとして、2本で試して簡単じゃーんで満足してたのですが4本以上で圧着するのを練習すべきでした。本番でズレにズレてめちゃくちゃ焦ることに…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5069.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "試験本番で芯線をまとめるためのホーザンの合格クリップを使いたかったのですが、購入するのを忘れていたので100均のクリップで代用しました。なんとか使えるレベル。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "学科&技能試験受験と合格確認",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "学科試験は岩手県滝沢市にある岩手県立大学、技能試験は盛岡の岩手大学で行いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "滝沢は今回初めて行ったのですが完全に山です。高校生がかなり多かったのが印象的でした。帰りに馬っこパークというのを見かけたので馬を眺めてました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_4958.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">帰りに馬っこパークに寄って馬を眺めました</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "技能試験は放送大学でいつも通ってる岩手大学なのでよかったです。複線図対策や単位作業対策はしていたものの、通しで全部やるのはぶっつけ本番だったので、特に時間配分がどんなものかは未知数だったので結構緊張していました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実際の試験ではやはり作業が遅れ気味で、最後の芯線の接続段階でクリップをはめてる余裕がないと判断してその場で接続していきました。差込型コネクタは簡単だったのですが、リングスリーブの圧着が意外と難しく、芯線がズレまくって大変だったのでやはりクリップで止めたりして悪戦苦闘。4本の中で圧着する部分にいたっては完全にきれいに揃えるのが不可能だなーと思いつつ、なんとか時間内に決着！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "終わったと思って改めて自分の施工を見ると、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 1,
+							"mode": "normal",
+							"style": "",
+							"text": "なにやら1本余った芯線",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が……。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そうなんです、焦って4本で圧着するところを3本でやってしまいました…。ここで完全にパニックになって12:00段階で12:10終了なのになぜか12:05終了だと考えて残り5分で修正するしかない！とあわてて切断して再圧着。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "パニックになりながらもなんとか終了、今度はリングスリーブの下から露出している芯線の長さがどれくらいで欠格になるのかが思い出せず、かなり不安な状態に…。残り5分もない段階で果たしてまた修正作業をしていいものか悩んでいましたが、意を決して挙手して予備のリングスリーブをもらい、本当に終了ギリギリで圧着完了。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんとか間に合ったと思ったものの、出来上がりを確認してみるとリングスリーブ下と芯線被覆があまりにもギリギリでした。これは芯線被覆を噛んでいると判定されたら欠格なのでは…とかなり不安になりながら退室。昼飯を食べながら欠格条件を確認したのですが、やはり最初の露出程度であれば大丈夫だったのでかなり落ち込んでいました。とはいえ、被覆を噛んでいるかといえばそうではなかったと思うのであとは神に祈るのみ…。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その後、お盆前に熱で寝込んで体力が尽きたお盆にWebで確認。なんと奇跡的に受かっていました。やったね！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/image-1.png",
+					"width": 922,
+					"height": 356,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今後やること",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とりあえず合格していて一安心なので、紙の合格通知が届いたら免状交付手続きを済ませると晴れて第二種電気工事士です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "業務として電気工事はできないのですが、これで自宅内の電気工事が色々とできるようになります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今の自宅の引き込みは単相2線式の古いもので、家電同時使用によって電圧降下でゲーミングPCがシャットダウンしている疑いが強いので、単相3線式に交換後にアンペアも上げたいところです。なおこの部分に関しては今回の資格ではいじれないので、電気屋さんに依頼することになります。200Vが使えるようになれば大きい部屋のエアコン設置の道も出てきます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とりあえず古いスイッチやコンセント類の交換から始めてみて、電源を追加してみたりしたいと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで皆さんはこんなギリギリで勝負せずに余裕を持って対策しましょう。すでに1~2週間前になった方も諦めずにできることをやればなんとかなることもあります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "電工試験は正直下期に技能再試験を覚悟していたのですが無事合格できたので、2024年度下期は狩猟免許にトライしてみようかと思います。狩猟免許はちゃんと余裕をもって対策したいです。(フラグ)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

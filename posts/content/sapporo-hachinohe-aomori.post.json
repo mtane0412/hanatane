@@ -1,0 +1,1056 @@
+{
+	"title": "札幌・八戸・青森",
+	"slug": "sapporo-hachinohe-aomori",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"Sigma fp",
+		"#ref-iwate-trip-2025"
+	],
+	"excerpt": "2025年 札幌〜八戸〜青森の旅の記録",
+	"feature_image": "https://hanatane.net/content/images/2025/06/CEE610CF-E8F2-46CC-B511-F0820E53EE8F-1-1.jpeg",
+	"featured": false,
+	"published_at": "2025-06-23T23:00:06.000Z",
+	"updated_at": "2025-06-23T23:00:06.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先週のことだが休みをだいぶとって北海道・八戸・青森を回っていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "仙台前乗り",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "当初は車で行く旅程を立てていたが、急遽車を廃車にしたので仙台からLCCで行くことに。前乗り1泊する必要があるけど、中心地に安いゲストハウスがあるので花巻空港から行くよりもだいぶ安上がりになる。前にも利用したことのある",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "宿や萩",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "http://sendai-miyagi-guesthouse.justhpbs.jp/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さん。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6032.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "札幌",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "前回の花巻合宿",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://hanatane.net/iwate-trip-2025/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で生成AIが盛り上がったので今度は生成AIをテーマに札幌で勉強会。空港についたら80人くらい待ちのあった回転寿司屋さんへ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6035.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "会場は北海道大学。札幌駅からかなり近いところに広大なキャンパスがあり、北の土地の余裕を感じる。植物がいちいちデカくて、学生が木の下で本を読んでいるのがとてもよかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6040.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "大志を抱け感があまりないクラーク先生。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6042.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6043.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "うまいものをたらふく食べ、もくもく作業した3日間でした。普段はガチエンジニアかガチアナログ人間しか触れ合う機会がないので、デジタル技術をかなり突っ込んで色々お金稼いでいる人たちと話を聞くのが面白かった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "僕の方からはソフトウェアの世界のAgentic Codingの現状を踏まえて、多分そのうちあらゆる領域にAIエージェントが降ってくるので今のうちに彼らと上手にコラボできるようにしましょうというのをお土産話として持っていこうと思っていました。まぁ少しふわっとした話になるよなーと思っていたのですが、なぜかハードウェアスタートアップの経営者との夜通しのGitの使い方講座に発展して、コードベースのバージョンをAIエージェントが追えるようになる意義みたいなかなり突っ込んだ話になりました。非エンジニアの経営者がAIと仕事するためにGitに触れるのも熱いし、顔も知らない他人とのコラボレーションを実現したGitという技術はめちゃくちゃ熱いなぁと改めて認識することができました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "八戸",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そのまま飛行機組みとはお別れして、苫小牧にバスで向かってフェリーで八戸へ。下調べで乗船後すぐにお風呂に入ることで混雑を回避。船内でアイス買ったり、手洗い場がたくさんあってちょっとした船上シェアハウスみたいで案外楽しかった。仙台〜名古屋の長時間船旅も案外楽しいのかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6088.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "八戸上陸後にレンタカーで種差海岸で放送大学の生態学の面接授業に向かう。三陸海岸正直どこも一緒だろうなと思ったけど、「天然」芝生が広がっていて、海からの風が冷たくて気持ちよくてかなり最高だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/CEE610CF-E8F2-46CC-B511-F0820E53EE8F.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/4252493B-E9DF-4044-89DD-0B57B064F6F0.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "種差海岸では高山植物のニッコウキスゲが海岸に自生している。初日は種差海岸でニッコウキスゲをはじめとした花をスマホで撮影して、あとで全員の写真をGPSデータで地図に落とし込むという作業を行った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この授業は今年で8回目らしいが、毎年この調査を授業で行っているので、受講する学生にとっては1度きりの授業となることの多い面接授業が定点観測的なデータを集める研究の一部になっている。こういう作りも学生のやる気を引き出していてよく考えられてるなーと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6156.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">ニッコウキスゲ。撮影: iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2日目は種差の潮間帯(潮の干満により干上がったり海の中になったりする場所)の現地調査。干潮の時間になると海岸の地形的に段々畑のようになり、それぞれの段階で生物群が異なっている。このように海岸から陸地に至るまで、環境傾度がギュっと圧縮されているのが種差海岸の特徴で、このために生態学の調査に有用なのだそうだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6250.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ある特定の生物が優先・集中しているということは、そこがその生物にとっての最適な環境で、結果的にそれらが層のようになっている。ここまでは教科書的な内容で十分理解ができるが、現地ではそこからはみ出した生物がどのようになっているかを観察することができたのが面白かった。葉緑体の抜けた海草・藻類や、乾燥したり外敵の標的になりやすい貝など、生存をかけた戦いが行われているまさにフロンティアだった。例えば海面がこのまま上昇すると、この賭けに勝って繁栄する群も現れるのだろうなと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6251.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "授業の最後に海岸で採集した生物を使った標本作りがあったので、僕は同定がめちゃくちゃ楽だけど標本にするのがめちゃくちゃ難しそうなワカメを選んだ。全然収まらないし、葉っぱをできるだけ重ならないようにひたすらスタイリストみたいな作業をしていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6261.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "八戸は滞在したゲストハウスのトセノイエも面白かった。ホストの人が色々八戸スポットを案内してくれた。ギャラリーでALTの先生たちがいたので頑張って英語を話したら褒められた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6215.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そのまま八戸の飲み屋街へ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6213.jpeg",
+					"width": 5712,
+					"height": 4284,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "コンブハイという謎のお酒があったので注文。意外と美味しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6214.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そのまま立ち飲み屋で会った若いお兄さんとハシゴしたりした。全員初対面なのにこんなことあるんだなー。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あと朝市もちゃんと行った。来るたびに思うけど毎週この規模の朝イチやってんのやばい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6218.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "青森",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そのまま帰る予定だったけど会社の社長に回収してもらって、そのまま青森の社長の実家に一泊させてもらうことに。話には聞いてたけど料理がめちゃくちゃ美味しかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そして念願の三内丸山遺跡に。竪穴住居がめっちゃある！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/5106FDF6-A6FD-4665-B69B-9C9DEBBEE9CA.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "地元の小学生たちが作ったものらしい。大船渡でも是非作りたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/F542A5DC-D80E-4CAC-B933-A01560ACE122.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "結構いろんなタイプがあって、日差しは結構強くても中に入ると案外涼しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/21ED56D2-10A1-4A9C-A487-F19703AA69CC.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/C0D73517-66D8-4A65-921A-A29093648D98.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "三内丸山の巨大建築は屋根の部分が諸説あって作られていないけど、期間ごとにいろんな説の屋根つけてくれたら面白そう。予算的に無理か。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "物見櫓という説もあるけど、普通にフロアをブチあげるステージだったんじゃないかなぁと思った。かなり太い柱なので集落の労働力を相当使う必要があるだろうし、実用性重視の物見だったらもう少しコンパクトに作れたんじゃないかなぁと思うなど。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/D97E6717-1FFA-41B1-BF06-4F9E84552A03.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "帰りは八甲田山ルートを通った。そこら中から温泉が出ている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/5C8B9BDB-2F45-4275-89BF-151EB28A9803.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "十和田湖。でっかい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/F98B30FD-F7CB-4C16-A1BB-D3005887CFE8.jpeg",
+					"width": 6000,
+					"height": 4000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">Sigma fp 45mm F2.8 DG DN | Contemporary 019</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "秘境を抜けて田子という街に出た。にんにくの生産が日本一らしい。こういう町が定期的に現れるので東北めぐりも楽しそうでバイクとかが欲しくなった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/06/IMG_6334.jpeg",
+					"width": 4284,
+					"height": 5712,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">iPhone 16 Pro</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まとめ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "北海道〜北東北で色々詰め込んだ旅になったけど、自分的には結構共通するテーマがあったように思う。生態学でみられるような生物学の視点で自分は結構物事を見ている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "三内丸山遺跡は最終氷期の終わりであるとか二度の噴火で作られた地形とか様々な条件下で花開いた文化であるし、生成AIはこれまでの前提を色々ひっくり返してしまう人類史的なイベントになることは間違いない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "種差の授業で日本でそれなりに植物とうまくやっているコイが、オーストラリアでは現地の植物に壊滅的な影響を与える侵略的外来種で、なにがその違いを生んでいるのかと問われた。オーストラリアでは現地の水性植物とコイが共進化するスキマがなかったというのが一応の回答になるらしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "共進化でよくみられる共生関係は様々で、例えば宿主とウイルスのような対抗でも起こり得るのだから、凄まじいディスラプトを伴う生成AIとヒトの関係のヒントになりそうだ。激変する環境変化が実際に起っていて、境界を超えてリスクを取っている個体の適応度が高くなるということがどんどん観測されるんだろうなと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "何はともあれとても楽しかった。終わり！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

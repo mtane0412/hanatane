@@ -1,0 +1,437 @@
+{
+	"title": "YAMAHAルーターをClaude Codeと管理する",
+	"slug": "yamaha-router-with-claude-code",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"たねハウスの話"
+	],
+	"excerpt": "Claude Codeを使ってYAMAHAルーターをメンテするためのコマンドリファレンスとGit管理体制を作る。",
+	"feature_image": "https://hanatane.net/content/images/2025/12/photo-1702541667327-2ff5ef089586.jpeg",
+	"featured": false,
+	"published_at": "2025-12-15T15:26:23.000Z",
+	"updated_at": "2025-12-15T15:26:23.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "TL;DR",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "YAMAHA RTXシリーズのHTMLドキュメントをLLM friendlyなコマンドリファレンスに変換し、configとともに管理するリポジトリ運用に切り替えた",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Claude Codeと一緒に苦しみを共有しながらネットワークをメンテできるようになった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "LLMはYAMAHAをよく知らない",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "我が家のルーターはどのご家庭にもあるYAMAHA RTX830。DNSサーバーはpi-holeを使用しているのだが、帰宅直後にMacを開くと1分くらいインターネットに繋がらなくなる問題があった。どうやらpi-hole以外のDNSサーバーを参照しようとしてタイムアウトし、その後pi-holeに向かっているらしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "YAMAHAルーターの良いところは、ドキュメントが充実していることだ。よくある家庭用ルーターは調子が悪くなったら再起動するくらいしか手がない。YAMAHAは設定こそ難しいが、どこかに必ず解決策がある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ただ、LLMの時代になってネットワークの問題解決の敷居は下がったものの、LLMはYAMAHAのコマンドをほとんど理解していない。国内サービスであるのでredditやstack overflowといった情報源も使えない。GPTよりも個人ブログや5chに本質的な情報が転がっている。YAMAHAの設定をいじるときは、今でもGoogle検索が頼りだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "マニュアルHTMLからコマンドリファレンスを作る",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ドキュメントは充実しているので、まず考えたのは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "llms.txt",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://llmstxt.org/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "などの仕組みを使うことだ。YAMAHAは公式には用意していないが、ドキュメントから作成するのはそう難しくないように思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サイトの構造を見てみると、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "マニュアルがHTMLでダウンロードできる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.rtpro.yamaha.co.jp/RT/manual.html"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ようになっている。こうなってくると自分用llms.txtを作成してメンテするよりも、HTMLを直接変換したほうが簡単だ。そもそもリポジトリ上でClaude Codeと作業すればよいのである。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでHTMLからサクっとMarkdownに変換してもらい、CLAUDE.mdを整備してYAMAHAのコマンドを参照できるようにした。実際に運用してみるとgrepでコマンドを探していたので、コマンドのindexも追加で作成した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このコマンドリファレンスに、元々Git管理していたconfigファイルとルーターと同期を取るシェルスクリプトを追加してClaude Codeと協調してネットワーク作業ができるリポジトリが完成した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "変換部分のみをGithubで公開するのが面倒で割愛するが、YAMAHAのマニュアルをダウンロードしてClaude Codeに指示すればすぐに作れる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.rtpro.yamaha.co.jp/RT/manual.html",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-22.ico",
+						"title": "manual release for RT Series",
+						"description": "",
+						"author": "",
+						"publisher": "",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/get_adobe_reader.gif"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Claude Codeとうまくいく方法を探す体制",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CLAUDE.mdにコマンド関連に言及するときはコマンドを参照するように指示をするとドキュメントに沿った回答を得られるようになって満足。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/12/image-3.png",
+					"width": 2258,
+					"height": 1432,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一方で、ドキュメントを参照せずに突っ走ってしまうこともあるので、適宜CLAUDE.mdやドキュメントをメンテして運用を工夫する必要がある。Claude Codeと一緒にどうやったらうまくいくかを模索していく感じだ。このような運用なのでドキュメントの元データと変換後のリファレンスと設定ファイルを同じリポジトリで扱う構成で走るのが効率的に感じた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "YAMAHAのマニュアルのライセンスがよくわからないのでClaude Skillなどにはしづらかったが、YAMAHAが公式にLLM周りを整備して、ルーター本体にLocal LLMが乗ったりする未来が来たら楽しそうだなと思った。(めっちゃ攻撃の標的にされそう。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

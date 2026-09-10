@@ -1,0 +1,942 @@
+{
+	"title": "配信に連動するON AIRランプを作った",
+	"slug": "on-air-sign",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "MaBeee + Raspberry Pi 5 + Firebotを使った配信に連動するON AIRランプを作った話",
+	"feature_image": "https://hanatane.net/content/images/2024/09/tanenobu_Neon_sign_on_the_wall_with_the_words_ON_AIR_Illustra_e66722bc-c85f-44c0-a2ae-e7a525fc31ef_3.png",
+	"featured": false,
+	"published_at": "2024-09-01T22:00:48.000Z",
+	"updated_at": "2024-09-03T14:15:19.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "配信してるかどうか分かりづらい問題",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今は住民一人だけなこともあり、以前と変わらずTwitch配信を続けています。そん中、住民から「デスクトップPCの前にいるときに配信しているのかしていないのかわからないから、用があっても声を掛けづらいことがある」との声が挙がりました。声をかけられると困る配信(というのもあまりないだろうけど)のときは事前に伝えるつもりなので、基本的にいつでも声をかけてもらってもいいというスタイルなのだけど、確かに分かりづらいし、なんとなく話しかけたいけど配信中だったら後でいいみたいな微妙な塩梅のときもありそうです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで、配信中か否かがわかる仕組みを導入することにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ON AIRランプをMaBeee + Raspberry Piで操作する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こういうとき真っ先に思い浮かぶのは、テレビとかラジオとかにありそうなON AIRランプですね。調べるとAmazonで数千円で入手できるっぽい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/image.png",
+					"width": 1157,
+					"height": 533,
+					"title": "",
+					"alt": "",
+					"caption": "<a href=\"https://amzn.to/3z51uDN\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">今回購入したやつ</span></a>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回購入したのは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ALFOTOというところのやつ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/3Mr5zW3"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で、ポイントは電源がUSBと乾電池(単3×3本)に両対応しているところ。特にスマート化しなくても乾電池動作なら配線とかを考えなくて済むのでこれだけで結構便利そう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "オンエアランプを何らか制御しようと思ったときに1番に思いつくのは電源にスマートプラグを用いるものですが、色々調べるうちに下の記事を見つけました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://qiita.com/ooharabucyou/items/ec4f8efd9a11c8b84e2c",
+					"metadata": {
+						"icon": "https://cdn.qiita.com/assets/favicons/public/apple-touch-icon-ec5ba42a24ae923f16825592efdc356f.png",
+						"title": "家庭内でビデオ通話中を知らせる仕組みを作る - Qiita",
+						"description": "動機テレワーク時代。夫婦揃ってそれぞれの仕事においてビデオ通話なんてことをやっている日々ではあるが、こんなことは無いだろうか?ビデオ通話中なのに近くで声を出してしまった。ドア閉めて部屋に入って…",
+						"author": "ooharabucyou",
+						"publisher": "Qiita",
+						"thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fcdn.qiita.com%2Fassets%2Fpublic%2Farticle-ogp-background-412672c5f0600ab9a64263b751f1bc81.png?ixlib=rb-4.0.0&w=1200&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk3MiZoPTM3OCZ0eHQ9JUU1JUFFJUI2JUU1JUJBJUFEJUU1JTg2JTg1JUUzJTgxJUE3JUUzJTgzJTkzJUUzJTgzJTg3JUUzJTgyJUFBJUU5JTgwJTlBJUU4JUE5JUIxJUU0JUI4JUFEJUUzJTgyJTkyJUU3JTlGJUE1JUUzJTgyJTg5JUUzJTgxJTlCJUUzJTgyJThCJUU0JUJCJTk1JUU3JUI1JTg0JUUzJTgxJUJGJUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmcz1hYzY3MjE0ZWJjNDk2OWJiNjk1ZDNiM2NiNzAyZGZiNw&mark-x=142&mark-y=57&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZoPTc2Jnc9NzcwJnR4dD0lNDBvb2hhcmFidWN5b3UmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZzPTgxN2E3NmRiMzg0MTBkY2YzNTU0MWU0NzAxMzc0ZDhk&blend-x=142&blend-y=436&blend-mode=normal&txt64=aW4g44Kz44OH44Ki44Or5qCq5byP5Lya56S-&txt-width=770&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=36&txt-x=156&txt-y=536&s=cc67fa41bc8b861c078c679024449e35"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この記事で乾電池動作できるランプとBluetooth制御できる",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "MaBeee",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/3XqLuW5"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というIoT乾電池を知りました。乾電池を制御できるとなると色々応用ができそうなので、今回ぜひ試してみたくなりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このMaBeeeは元々プログラミング教育用の教材として展開されているようなのですが、公式が提供しているSDKがiOSとAndroidのみで、さらに開発者が趣味で開発したMacAppがあるのみという状況です。Linuxで動作すれば手持ちのRaspberry Pi 5でとりあえず試せるので非常に助かるんだけどなーと思いながらググったら先人のコードが見つかりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/sunaga-lab/mabeee-python",
+					"metadata": {
+						"icon": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
+						"title": "GitHub - sunaga-lab/mabeee-python: MaBeeeをLinux+Python3から使用するサンプル",
+						"description": "MaBeeeをLinux+Python3から使用するサンプル. Contribute to sunaga-lab/mabeee-python development by creating an account on GitHub.",
+						"author": "sunaga-lab",
+						"publisher": "GitHub",
+						"thumbnail": "https://opengraph.githubassets.com/10c09fde40c8cc7a642c41b87e49eff96b0bbc78d1d4699fd4c1314df6a6d8b5/sunaga-lab/mabeee-python"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実際に試したらうまく動作しました。ありがたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/mtane0412/status/1828084717708804121",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">pi5からオンエアランプ制御でけた。<br>あとはFirebotあたりに仕込めばOK <a href=\"https://t.co/meCCIUpMwO\">pic.twitter.com/meCCIUpMwO</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1828084717708804121?ref_src=twsrc%5Etfw\">August 26, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1828084717708804121",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">pi5からオンエアランプ制御でけた。<br>あとはFirebotあたりに仕込めばOK <a href=\"https://t.co/meCCIUpMwO\">pic.twitter.com/meCCIUpMwO</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1828084717708804121?ref_src=twsrc%5Etfw\">August 26, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "他のプログラムから制御できるようにしたいのでHTTPサーバーでリクエストを受けるようにしました。このあたりは今はChatGPTがサクっと書いてくれるので非常に助かります。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "工夫しどころとして、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 16,
+							"mode": "normal",
+							"style": "",
+							"text": "http://pi5のローカルアドレス:5000/control",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "にMaBeeeのMacアドレスとPWMの値をペイロードにしてPOSTリクエストをして任意のMaBeeを操作できるように少し汎用性を持たせてあります。あとはBluetooth通信が不安定なときのために何回かリトライもさせるようにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "import time\nfrom flask import Flask, request, jsonify\nfrom bluepy import btle\n\napp = Flask(__name__)\n\ndef connect(mac_addr, retries=3, delay=5):\n    for attempt in range(retries):\n        try:\n            peripheral = btle.Peripheral()\n            peripheral.connect(mac_addr, btle.ADDR_TYPE_RANDOM)\n            return peripheral\n        except Exception as e:\n            if attempt < retries - 1:\n                time.sleep(delay)\n            else:\n                raise e\n\ndef write_pwm(peripheral, value):\n    PWM_HANDLE = 17\n    PWM_INDEX = 1\n    data = bytearray(peripheral.readCharacteristic(PWM_HANDLE))\n    data[PWM_INDEX] = value\n    peripheral.writeCharacteristic(17, bytes(data), True)\n\n@app.route('/control', methods=['POST'])\ndef control_device():\n    data = request.json\n    if 'mac_addr' not in data or 'pwm_value' not in data:\n        return jsonify({'error': 'Invalid input'}), 400\n\n    mac_addr = data['mac_addr']\n    pwm_value = int(data['pwm_value'])\n\n    if not (0 <= pwm_value <= 100):\n        return jsonify({'error': 'PWM value must be between 0 and 100'}), 400\n\n    try:\n        peripheral = connect(mac_addr)\n        write_pwm(peripheral, pwm_value)\n        peripheral.disconnect()\n        return jsonify({'status': 'success'}), 200\n    except Exception as e:\n        return jsonify({'error': str(e)}), 500\n\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', port=5000)",
+					"language": "python",
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "FirebotからPi5経由でオンオフさせる",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、今回の全体構成は以下のような感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/------subscribe.png",
+					"width": 1280,
+					"height": 720,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、Pi5から直接Twitchの配信状況を取得するという方法もありますが、結局のところ僕は配信中には",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Firebot",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://firebot.app/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を使用しているので、Firebotで配信開始/終了のイベントをサブスクライブする構成にしました。Firebotは他の有名どころのTwitch Chatbotと比べると明らかにノーコードツール寄りで基本何でもできて便利です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回の目的はPC前にいるときの配信状況の可視化なのでこれでいいですが、例えば出先で配信しているときも光らせたいみたいな状況であれば、Pi5で制御したほうがいいと思います。(Firebotを常時起動しているような環境を除く)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Firebotの方でも使いまわししやすいようにPreset Effect ListでMaBeee操作のEffectを作っておきます。引数にMacアドレスとPWMをもたせるようにすることでFirebotからも呼び出しやすくなります。pi5のIPアドレスは固定化しておきましょう。(加えて僕はルーターの静的DNSでローカルドメインを割り振りました。便利〜。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/image-5.png",
+					"width": 551,
+					"height": 674,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">mac_addrとpwm_valueを引数に持つPreset Effect Listを作成。</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/image-6.png",
+					"width": 583,
+					"height": 754,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとは好きなタイミングでMaBeeeの操作を呼び出します。今回は配信開始時に点灯、配信終了時に消灯という設定です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/image-3.png",
+					"width": 623,
+					"height": 866,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">mac_addrはMaBeeeのMacアドレス</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんな感じで配信に連動したON AIRランプが出来上がりました。1番難しいプログラム部分もChatGPTに書かせてるのでかなりハードル低くなってるように感じます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "気づき",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "MaBeeeは単3の中に単4電池を入れて動作するが、規格の違う電池を直列で使用すると液漏れのリスクが高まるらしいので",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "スペーサー",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/3T8QNqw"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "を導入して単4で統一させた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Pi5内蔵のBluetoothおよびMaBeeeのBluetoothも相当弱く、機器の影響をモロに受ける。壁を挟んだり、MaBeeeとPi5の間にWifiアクセスポイントがあるだけでほぼ繋がらなくなった。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "これを改善するためにLinux動作したというレビューのある",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "外付けBluetoothアダプタ",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/3XbKeF3"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "を試してみたが、これもかなり不安定。",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "どうやら最新カーネルでPi5のときにだけ非常に不安定になるバグがあるらしい",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://github.com/raspberrypi/linux/issues/6141"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "。今回は面倒なので内蔵BTでやることにした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "上記のような状況なので、MaBeeを使う場合は現実的には近距離にMaBeee操作の母艦マシンを置くことになる。今回は稼働中のPi5でやったが、Raspberry Pi Zero 2 Wだったり安価なマイコンとかでいい気がする。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "配線に問題がなければスマートプラグのほうが安定かつ安価にできるはず。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回使ったもの",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "MaBeee",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/3XqLuW5"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "ALFOTO ON AIR ライト",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/3Mr5zW3"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "BLUE LOTUS 電池スペーサー BL-224-ZU (10本)",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://amzn.to/47e2q5w"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

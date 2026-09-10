@@ -1,0 +1,192 @@
+{
+	"title": "アスファルト張りを手伝った",
+	"slug": "asphalt-pavement",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "BMXコースのアスファルトの舗装工事を手伝った話",
+	"feature_image": "https://hanatane.net/content/images/2024/09/tanenobu_BMX_berm_asphalt_lining__Illustration_for_blog_header__94197200-a6fa-407d-99d8-14a0acd7223b.png",
+	"featured": false,
+	"published_at": "2024-09-12T23:00:19.000Z",
+	"updated_at": "2024-09-12T23:00:18.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "土日に三陸BMXスタジアムのアスファルト化のお手伝いにお呼ばれした。アスファルトは通りすがりの道路工事を一瞬見るくらいでまじまじと見れることもなかったので快諾。こういう舗装系でプロや経験者の作業を見てシェアハウスのDIYに活かせれば美味しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "工事する部分はBMXコースのバーム(コースの中のすり鉢状のカーブ)と呼ばれる部分で、平地・平面ではなくカーブの曲面ということでかなり難しい部類っぽい。全工程を業者に頼むととんでもない金額になるので、アスファルトの敷均しまでプロに手伝ってもらってあとは自分たちで転圧をかけて仕上げていくという感じらしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/IMG_5154.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/IMG_5155-1.jpeg",
+					"width": 2000,
+					"height": 1000,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アスファルトは現地の会社から100度以上の状態で次々と運ばれてくる。舗装作業をいろいろな県の人が瞬時に連携を取りながら作業を進めているのがなにげにすごいことだなと思った。昔道路の保守はできるけどデジタルの保守ができないのは技官がいないからと小飼弾が言っていたことを思い出す。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/dankogai/status/1358213162919550978",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">道路の保守は曲がりなりにもできているのになぜソフトウェアで出来ないかと言ったらやはり発注側たる政府に目利きがいないからとしか思えない。土木も医療も技官いるけど情報工学は? <a href=\"https://t.co/9zaBJmb2np\">https://t.co/9zaBJmb2np</a></p>&mdash; Dan Kogai (小飼 弾) (@dankogai) <a href=\"https://twitter.com/dankogai/status/1358213162919550978?ref_src=twsrc%5Etfw\">February 7, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/dankogai/status/1358213162919550978",
+						"author_name": "Dan Kogai (小飼 弾)",
+						"author_url": "https://twitter.com/dankogai",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">道路の保守は曲がりなりにもできているのになぜソフトウェアで出来ないかと言ったらやはり発注側たる政府に目利きがいないからとしか思えない。土木も医療も技官いるけど情報工学は? <a href=\"https://t.co/9zaBJmb2np\">https://t.co/9zaBJmb2np</a></p>&mdash; Dan Kogai (小飼 弾) (@dankogai) <a href=\"https://twitter.com/dankogai/status/1358213162919550978?ref_src=twsrc%5Etfw\">February 7, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "熱々の状態のアスファルトを間近で感じたのもよかった。上からくる太陽と下からのアスファルトの熱の感覚は記憶に残りそうだ。粘着性があるので重機やレーキに軽油をつけたり、転圧プレートに水をかけたりした。プロがレーキでアスファルトを敷き均ししていくのは間近でYoutubeを見ている感覚だった。プロフェッショナルの仕事は見ていて気持ちが良かった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こんな感じで3日の作業日程のうち土日だけ参加だったけど無事全工程終了したようで嬉しい。体が全然活動できる状態ではないのでもう少し健康な生活を心がけたいなと思った。(と言いつつこれを書いている日はカツ丼を食べている。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/IMG_5160.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/09/IMG_5164.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
