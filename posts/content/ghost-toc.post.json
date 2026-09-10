@@ -1,0 +1,282 @@
+{
+	"title": "Ghostに目次をつける",
+	"slug": "ghost-toc",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "Ghostに目次(ToC)をつける",
+	"feature_image": "https://hanatane.net/content/images/2024/02/tanenobu_8411002113_a_casper_ghost_is_writing_table_of_contents_34bab1e0-de6c-42cc-8dfb-412322a16c6b.png",
+	"featured": false,
+	"published_at": "2024-02-03T12:55:30.000Z",
+	"updated_at": "2024-02-03T12:55:30.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "少し前から各記事に目次をつけるようにしてみた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "やり方",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Ghostは標準で目次(Table of Contents)を作る機能はなく、テーマに追加するしかない。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "Tocbot",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://tscanlin.github.io/tocbot/"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "を使うものが紹介されている",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "テーマをいじる必要があるのでGhost Proの場合はCreator以上のプランが必要",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "作り方は公式のチュートリアル通りでOK(Tocbotのバージョンだけ最新にしとこう)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://ghost.org/tutorials/adding-table-of-contents/",
+					"metadata": {
+						"icon": "https://ghost.org/favicon.ico",
+						"title": "How to add a table of contents to your Ghost site",
+						"description": "Let your readers know what to expect in your posts and give them quick links to navigate content quickly by adding a table of contents with the Tocbot library.",
+						"author": "Team Ghost",
+						"publisher": "Tutorials",
+						"thumbnail": "https://ghost.org/tutorials/content/images/size/w1200/2022/05/toc.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "感想",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "できるだけシステム側をいじらないという方針だったが、デフォルトだと不便な部分もあるのでテーマを改造する必要が出てきた。テーマをいじれるのはやはりいいのだけど、今後のテーマアップデートがあったときにカスタムテーマと整合性を取ることを考えると少し億劫になる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こうした公式のチュートリアルがいくつかあるのでそれに従って機能追加するとよい。Casperだと特に何も考えずにインストール可能。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostはWordPressに対するエンジニアの怒りが形になったものなので、安易なプラグインとして実装せずにこうした既存のライブラリを活用する形になっているのだと読んでいる。SaaS型のサービスとして提供しつつ、エンジニアの責任領域にユーザーを立ち入らせない工夫でGhostのシンプルさが担保されているのだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

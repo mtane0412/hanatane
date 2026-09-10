@@ -1,0 +1,764 @@
+{
+	"title": "今週の振り返り 2024 week5",
+	"slug": "2024-week5",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46",
+		"#ref-alfred-ghost",
+		"#ref-ghost-toc",
+		"#ref-refuel-kerosene-with-ease"
+	],
+	"excerpt": "今週のトピックは、投資を始めた、ギークハウス新潟解散、あらゆる悪意が匿名で自由に発表できる夢のシステム、痛いの痛いの飛んでけの神経基盤など",
+	"feature_image": "https://hanatane.net/content/images/2024/02/tanenobu_8506014656_dog_licking_face_Illustration_for_blog_head_5a4b0f66-efef-4c37-9ff1-5a550bc76e4f.png",
+	"featured": false,
+	"published_at": "2024-02-04T22:00:49.000Z",
+	"updated_at": "2025-03-30T14:17:52.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週やったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "blogのdescriptionを変えた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://gyazo.com/0f0bc1dd9aaef8795e8ab83c4e76aba1/max_size/1000",
+					"width": 433,
+					"height": 268,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これがトップページにでかでかと出ていたのだが結構適当で、しかも実態と離れていたので、",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://gyazo.com/36bb69a08fe4f0a34a25fad5cb5cd348/max_size/1000",
+					"width": 712,
+					"height": 254,
+					"title": "",
+					"alt": "Gyazo",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これに変更した。特にテーマを決めているわけではないのでdescriptionを決めるというのも大変である。名前とかもそうだけど、究極的にはどうでもいいものを決めるのはめちゃくちゃ難しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ということでChatGPTにサイトを見てもらってdescriptionを考えてもらった。おそらく使われているタグからまとめてくれたのだが、「日々の小さな発見」とかはいい言葉だなぁと思ってそのまま使わせてもらった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もっといいのあったらぜひ教えてください。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "投資開始2024",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "宵越しの金はもたねぇというニート人生だったが、家買って金を色々上手に回すと面白いこと色々できそうだなぁということで、数少ないお金を少しでも投資に回してみることにした。できる範囲ということでiDeCoとNISAを始めた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以下のテキストを参考にした",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hayatoito.github.io/2020/investing/",
+					"metadata": {
+						"icon": "https://hayatoito.github.io/favicon.png",
+						"title": "普通の人が資産運用で 99 点をとる方法とその考え方 - hayato",
+						"description": "hayato",
+						"author": "Hayato Ito",
+						"publisher": "hayato",
+						"thumbnail": "https://hayatoito.github.io/favicon.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ロジックが明快で僕でも理解できそうな部分が多そうだった。そうそう、資産運用といっても市場を読む力はないので細かい株運用とかはとてもできそうにない。一方で世界の株式市場は成長し続けているし、今後も成長するだろうという方向に僕はbetできるなぁと思った。僕は靴磨きの少年なので、この後世界恐慌が起こるかもしれないが、いろんな技術が世界に生まれているのを見ているので少なくとも人類はもっと豊かになってってくれるでしょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう一つは最近亡くなってしまった山崎元さんの記事。これもわかりやすいレベルに落としてくれているので読みやすい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://media.rakuten-sec.net/articles/-/42961",
+					"metadata": {
+						"icon": "https://media.rakuten-sec.net/common/images/chrome-icon.png",
+						"title": "一コマで、一生役立つマネーリテラシー講座 | トウシル 楽天証券の投資情報メディア",
+						"description": "筆者は友人のある大学の先生に頼まれた。「ヤマチャン、うちの学生に一コマだけお金の授業をして欲しい。一生役に立つようなマネーリテラシーにつながる話がありがたい。難しい話はダメだよ。分かりやすい話で頼むよ」。　大学の一コマは、昨今90分ない…",
+						"author": "山崎 元",
+						"publisher": "トウシル 楽天証券の投資情報メディア",
+						"thumbnail": "https://media.rakuten-sec.net/mwimgs/3/8/-/img_38470c34d18031e35dd048469457181733276.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "全世界株式のインデックスファンドにするのが丸いという理解。ほったらかし投資法も合わせて読んでおいたほうがよさそう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あとは血の涙を流しながら毎月少しずつ積み立てていく人生です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週気になったニュース・ポスト",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ギークハウス新潟解散",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://megalodon.jp/2024-0131-1800-41/www.geek-niigata.com/?p=2843",
+					"metadata": {
+						"icon": "https://megalodon.jp/favicon.ico",
+						"title": "【魚拓】ギークハウス新潟解散エントリとニートが生活保護を受けずに暮らす方法 | ギークハウス新潟 – 新潟市のネット系シェアハウス",
+						"description": "http://www.geek-niigata.com/?p=2843 - 2024年1月31日 18:00 - ウェブ魚拓",
+						"author": "",
+						"publisher": "ウェブ魚拓",
+						"thumbnail": "https://megalodon.jp/og/2024-0131-1800-41/www.geek-niigata.com/?p=2843"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ドメインごと消えるそうなので魚拓のリンクで。ギークハウス新潟がクローズすることになったそうで、まずはお疲れ様でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ギークハウス新潟は無限カレーをやっているときにEV車で東京の面々と1回だけ遊びに行ったことがあります。そのときにオーナーの川辺さんにも会えたのですが、エントリを見て分かる通り経験に裏打ちされた実践知の塊のような人です。ギークハウスオーナーは基本的に変な人がやるんですが、まさにそういう感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "川辺さんがやっていい仕事は3つしかなくて、スキルになる仕事、楽な仕事、カネになる仕事、どれにも該当しなかったら1週間以内にやめろということを言っていて、これにはかなり影響を受けました。常に上昇志向だとスキルになる仕事をやれないと閉塞感で死が近づく感じがあるのですが、浮き沈みの激しい人間は後者2つの選択肢をしっかり認識することが大事だと思います。僕もここ数年はずっと楽な仕事だけを選択してきました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京に出てそれなりに人生が変わったんですよ、ということを軽く言っているが、具体的にはこうした変な人達にたくさん会ったことが変化の中身なのだろうなあと思います。お疲れ様でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あらゆる悪意が匿名で自由に発表できる夢のシステム",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/itoi_shigesato/status/1752006782522941538",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">これは「あらゆる悪意が匿名で自由に発表できる夢のシステム」でもある。<br>すべての壁という壁にどんな落書きをしてもいい、そういう街に生きている。これは、とてもきつい。</p>&mdash; 糸井 重里 (@itoi_shigesato) <a href=\"https://twitter.com/itoi_shigesato/status/1752006782522941538?ref_src=twsrc%5Etfw\">January 29, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/itoi_shigesato/status/1752006782522941538",
+						"author_name": "糸井 重里",
+						"author_url": "https://twitter.com/itoi_shigesato",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">これは「あらゆる悪意が匿名で自由に発表できる夢のシステム」でもある。<br>すべての壁という壁にどんな落書きをしてもいい、そういう街に生きている。これは、とてもきつい。</p>&mdash; 糸井 重里 (@itoi_shigesato) <a href=\"https://twitter.com/itoi_shigesato/status/1752006782522941538?ref_src=twsrc%5Etfw\">January 29, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "糸井重里さんのXのポスト。「夢のシステム」であることと、壁が街にまで膨張していることに考える部分があった。これは単独ポストでまた掘り下げたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それにしても糸井重里の言葉の作り方は毎度すごいなぁ。こっちはすごいなぁしか言えない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「痛いの痛いの飛んでいけ」の神経基盤",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.natureasia.com/ja-jp/nature/highlights/124925",
+					"metadata": {
+						"icon": "https://www.natureasia.com/static/common/img/favicon.ico",
+						"title": "「痛いの痛いの飛んでいけ」の神経基盤",
+						"description": "今回W Hongたちは、マウスで、痛がっている他者への援助行動の神経基盤を示している。",
+						"author": "著者／投稿",
+						"publisher": "Nature Portfolio",
+						"thumbnail": "https://www.natureasia.com/common/img/logos/journals/nature-logo-sq.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "社会性のある哺乳類が仲間をなめるのをallolickingというのを初めて知った。特に傷口を舐めるのがよく使われているらしい。神経基盤として挙げられた前帯状皮質は、痛みとか情動、社会的認知とかに関わる部位でなるほど〜となる。手元のメモだとボール回しで仲間はずれにされたときに痛みの部位がこの前帯状皮質だった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "絆創膏のおかげで出番がないけど人間でも「唾つけとけ」とかあるので案外近代まで残ってたりしてたのだろうか。とにかく舐めまくってくる犬も親密な個体であるというアピールなのだろうなぁとか考えたりした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここからなんとかEarlicking ASMRという現象につなげられないか考えたけどきっと難しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週投稿した記事",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/alfred-ghost/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "Ghostの記事を検索するAlfred Workflowを作った",
+						"description": "Ghostの記事をインクリメンタルサーチしてURLをクリップボードにコピーするAlfred Workflowを作りました",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/tanenobu_a_casper_ghost_who_wears_a_bowler_hat_with_a_purple_ri_4859c450-9397-4366-8499-83b401a937e2.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "引き続きAlfred Workflowを作成。自分の身の回りを便利にしていくことができてとても良い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/ghost-toc/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "Ghostに目次をつける",
+						"description": "Ghostに目次(ToC)をつける",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/02/tanenobu_8411002113_a_casper_ghost_is_writing_table_of_contents_34bab1e0-de6c-42cc-8dfb-412322a16c6b.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ただチュートリアルどおりにやっただけなので技術メモ未満の作業記録。Ghostは日本語情報が少ないので些細なことでもメモを投稿しておいたほうがよい気がする。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/refuel-kerosene-with-ease/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "灯油を楽に給油したい",
+						"description": "灯油の給湯環境を改善している",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/02/tanenobu_7807804202_Snow_Country_Girl_Illustration_for_blog_hea_418de3bc-5023-4211-a9ed-d5a7b626a8fa.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "灯油給湯環境を少し改善した。もっといい方法きっとあるんだろうなと思いつつ、ホームセンターでソリューションを考えるのは楽しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "小さな記事を投稿しつつ、週次で振り返る体制にも慣れてきました。もっと掘り下げたいネタにも気づけたので来週とかに書けるといいなぁ。(あるいはでかい記事を書こうとすると更新滞ったりするかな？)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでまた来週です👋",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

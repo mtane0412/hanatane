@@ -1,0 +1,163 @@
+{
+	"title": "古民家は開発環境",
+	"slug": "old-house-is-development-environment",
+	"status": "published",
+	"tags": [
+		"たねハウスの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "好きにいじれる古民家はプログラミングの開発環境のようなものだなーと思った話です。",
+	"feature_image": "https://hanatane.net/content/images/2024/06/tanenobu_An_old_house_is_like_a_programming_development_environ_437099e4-62e3-4df5-90fe-7449668029b8-1.png",
+	"featured": false,
+	"published_at": "2024-06-16T11:47:49.000Z",
+	"updated_at": "2024-06-16T11:47:49.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "仏間の補修が終わってPCデスクをリビングから仏間に移動させた。頭の中ではできるだろうと思っても実際にやってみると色々想定外のことが起きたり段取りを間違えたりと、やはり実際に手を動かすといろいろと知見を得られるものだ。おかげで床を剥がして張り替えるということに対するレディネスを獲得できたと思う。古い家で床がブヨブヨだと絶望してしまっていたが、もうそれは自分で修正可能な不具合の一つになった。あとは修繕を繰り返していけば不器用な自分でもそれなりにうまくなっていくだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/06/IMG_4982.jpeg",
+					"width": 2000,
+					"height": 1500,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "中古の家を色々と補修しているうちに古民家はプログラミングの開発環境のようなものだなーと思った。今やDIYの情報もYoutubeに溢れていて知識がかなり得やすい状態になっている。一方で、情報をなぞっているだけでは絶対に自分が自由に扱える知識になることはない。なので汎用的なコンピュータ一台あれば自由に弄れるプログラミングはめちゃくちゃ学習しやすいのに対して、家のDIYとかのハードスキルはとても敷居が高い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "中古で家を買うことを決めたときに自分の好きなようにいじれることも大きな魅力だった。賃貸と比べてなんやかんや色々出費はかかったり心配事も増えるのだけど、とにかく雑に壁に穴を開けたり床をひっぺがえしたりできる。これは持ち家でも新築だと不動産価値が下がるのでなかなかやりづらいだろうから、やはり築年数がそれなりにある不動産価値の目減りした古民家あたりがちょうどいい感じになる。心理的にもなんでもしていいとなると、あんなことができるなとか色々想像が広がってくる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今どの地方も空き家がすごい問題になっていて、都心部でマンションの価格がめちゃくちゃ上がっている一方で、地方は人がどんどんいなくなるので必然空き家もものすごい増えている。基本的にはリフォームして不動産価値をあげたり解体したりという方向で空き家対策が進んでいるのだけど、もう一つの路線としてDIYの開発環境として家を買って古いまま直しながら住むというのも面白いと思う。自治体の空き家対策は基本的に空き家バンクで古民家を購入してリフォームに対して補助を出す仕組みのものがほとんどだけど、自分で直したい人向けのメニューがあっても面白いかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "プログラミングと違うなーと思うのは、肉体的な限界があることだ。ちょっとした作業でも色々な体勢で力作業をしたりしていると年のせいかすぐに動けなくなってしまう。このあたりは慣れや色々工具や材料段階で工夫したりもできそうだけど、じゃあ運搬楽になるから軽トラ買うかーとかは簡単にはいかないし、どれだけ機材があっても単純に二人いないとすごく効率が悪いものもたくさんある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このあたりをシェアハウスでDIY好きな人とかが入ってくると面白いかもなぁと思っている。ときさばさんのENGINE MAKERでは沼津の物件をDIYしまくってるらしくて羨ましい。あまり他人の力に期待しすぎるのも田舎シェアハウスのよくある失敗なのだけど、単純に人が入ると住民のために色々整備しなきゃいけないからハリがでるし、家賃共益費が入ってくるのでとにかく金がかかる家の修繕の助けになるので、自分が主体的に家と向き合えているうちは案外workするんじゃないかなと思っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今は家の中で手一杯だけど、庭に畑を作ったり、傾斜地にウッドデッキ作ったり、やってくる鹿を捉えて解体したりしたいな〜となんとなく思って、今日もPCデスクを移してもう動けないのでこれをちびちびと書いている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

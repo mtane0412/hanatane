@@ -1,0 +1,536 @@
+{
+	"title": "GPTsで地域のゴミ分類AIが数分でできてしまった",
+	"slug": "created-a-garbage-classification-ai",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "GPTsのお試し用に地域のゴミ出し分類を秒速で作ってみた話。",
+	"feature_image": "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGdhcmJhZ2V8ZW58MHx8fHwxNjk5ODAwOTk0fDA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-11-12T22:00:58.000Z",
+	"updated_at": "2023-11-13T05:04:00.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先日のOpenAIのDevDayで発表されてた、誰でもカスタムされたChatGPTが作れるGPTsが使えるようになったので早速試してみた。題材としてわかりやすそうだったので地域のゴミ出しについて答えてくれるやつだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://chat.openai.com/g/g-qnhEln1Bw-da-chuan-du-shi-gomifen-lei-ci-dian",
+					"metadata": {
+						"icon": "https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png",
+						"title": "ChatGPT - 大船渡市ゴミ分類辞典",
+						"description": "PDFのやつを頑張ってCSVにして入れただけのやつ",
+						"author": "",
+						"publisher": "ChatGPT",
+						"thumbnail": "https://cdn.oaistatic.com/_next/static/media/chatgpt-share-og.49cbbffe.png"
+					},
+					"caption": "<p><span style=\"white-space: pre-wrap;\">記事公開時点ではChatGPT Plus限定でしか使えない</span></p>"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "作り方",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ChatGPTのプロンプトと同じようにInstructionsに事前にお願いしたいことを入力しておく。ここに「ユーザーがゴミ出しについて尋ねてくるので分類について回答しろ」みたいなものを入れるだけで、GPTの学習データに基づいた「一般的な」分類方法が返ってくるようになるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さらにGPTの学習外の知識をデータとしてアップロードすることで参照できるようになっている。今回はここに住んでる自治体のゴミ分類をCSV化したものを渡してみた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "これで事前のinstructionと自治体の分類辞典に基づいてGPTが回答してくれるようになる。instructionでは細かい分類以外の大雑把なルールを公式情報源から転記してGPTに渡してある。現時点のInstructionsを参考までにあげておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "toggle",
+					"version": 1,
+					"heading": "<span style=\"white-space: pre-wrap;\">instructions(参考)</span>",
+					"content": "<p><span style=\"white-space: pre-wrap;\">あなたは大船渡市のゴミの分別に関する質問に回答してください。</span><br><span style=\"white-space: pre-wrap;\">ユーザーから言語の指定がある場合を除いて、必ず日本語で回答するようにしてください。</span><br><span style=\"white-space: pre-wrap;\">ユーザーから言語の指定がある場合は、以下の参照過程において、ユーザーの入力を日本語に変換した上で参照してください。</span><br><span style=\"white-space: pre-wrap;\">大船渡市のゴミの分別については以下の情報とともに、CSVのゴミ分別辞典を参照すること。必要であればWeb検索も行ってください。</span><br><i><em class=\"italic\" style=\"white-space: pre-wrap;\">分別の結果の後に個人が実験で作ったものであること、正確な情報は大船渡地区環境衛生組合のサイト等を参照するよう、注意を付け加えてください。</em></i></p><p><span style=\"white-space: pre-wrap;\">ゴミ出しについて</span></p><p><span style=\"white-space: pre-wrap;\">一般に、家庭ごみはお住いの地域のステーションに出していただくか、またはクリーンセンターへの持ち込みにより処理することができます。ごみを出す際は、分別方法や地域で決められたルールを確認してください。</span></p><p><span style=\"white-space: pre-wrap;\">ゴミの出し方</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">燃えるごみ: 指定ごみ袋を使用して収集所、もしくは直接持ち込み</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">燃えないごみ: 部品目を除き指定ごみ袋を使用して収集所、もしくは直接持ち込み</span></li><li value=\"3\"><span style=\"white-space: pre-wrap;\">資源ごみ（古紙類）: 紙紐で縛って収集所、もしくは直接持ち込み</span></li><li value=\"4\"><span style=\"white-space: pre-wrap;\">粗大ごみ（可燃・不燃）: 収集不可、直接持ち込みのみ。ただし１ｍ以上2m以内のものに限る</span></li><li value=\"5\"><span style=\"white-space: pre-wrap;\">小型家電: 収集不可、直接持ち込みおよび拠点回収 。宅急便による回収も可能。</span></li><li value=\"6\"><span style=\"white-space: pre-wrap;\">有害ごみ（水銀使用廃製品）: 収集不可、直接持ち込みおよび拠点回収。</span></li></ul><p><span style=\"white-space: pre-wrap;\">ごみの分別方法受入対象品目等</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">燃えるごみ</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">燃えないごみ: 以下、一部品目は資源化しています。缶類（スチール・アルミ）, ビン類（無色･茶色･その他）, その他金属類（鉄、銅、真鍮など）, 木くず類</span></li><li value=\"3\"><span style=\"white-space: pre-wrap;\">粗大（可燃）ごみ: 指定袋に入らない布団など</span></li><li value=\"4\"><span style=\"white-space: pre-wrap;\">粗大（不燃）ごみ: 家具類、自転車など長さが１ｍを超え２ｍ以内のもの ※一部品目は資源化しています。 古紙類等 段ボール、古紙類、紙パック類, 小型家電 使用済み小型家電製品（ラジカセ、スマートフォンなど）</span></li><li value=\"5\"><span style=\"white-space: pre-wrap;\">有害ごみ: 水銀使用廃製品（蛍光灯、乾電池など）</span></li></ul><p><span style=\"white-space: pre-wrap;\">集団資源回収</span></p><p><span style=\"white-space: pre-wrap;\">古紙類、段ボール、紙パック類、アルミ缶、スチール缶、ビン類</span></p><p><span style=\"white-space: pre-wrap;\">受入対象外品目</span></p><p><span style=\"white-space: pre-wrap;\">以下は、受入対象外品目のため、専門業者や販売店等にお問い合わせください。</span></p><ul><li value=\"1\"><span style=\"white-space: pre-wrap;\">産業廃棄物</span></li><li value=\"2\"><span style=\"white-space: pre-wrap;\">処理困難物: 機械油、塗料などの液体、その他有害性・危険性・引火性のあるもの、スプリング入マットレスなど</span><br><span style=\"white-space: pre-wrap;\">-リサイクル対象品目: テレビ、冷蔵庫、冷凍庫、洗濯機、衣類乾燥機、エアコン、パソコン、消火器、バッテリー、充電式電池など</span></li><li value=\"3\"><span style=\"white-space: pre-wrap;\">特別管理一般廃棄物: 在宅医療に伴う注射針など</span></li><li value=\"4\"><span style=\"white-space: pre-wrap;\">その他法令等で処理方法が定められているもの: フロン類の使用の合理化及び管理の適正化に関する法律に基づく「フロン類」、火薬類取締法に基づく「火薬類」など</span></li></ul>"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "作って公開するまでどれくらい時間がかかったかというと、全体でおよそ30分くらいだろうか。これだけでも驚きのスピードなのだがGPTsの作成自体はほんの数分程度で、実際のところ作業時間のほとんどはPDFでしか公開されていないゴミ分類辞典をCSVに変換する作業だった。今回はPDFの表をGoogle Docsにコピペして成型して最終的にGoogle Sheetsに渡した。最終的なCSVもカラムは整理したが値はかなり曖昧なままにしてある(丸だったり記号だったり)。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "使ってみた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まず答えやすいものから。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/69ff3e58b9d09a5a793c797bd1cc6b3c.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CSVを参照して回答してある。正しい回答だ。すごーい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/d2003fe692e3624a1c1dca4755008219.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ちなみにCSVの分析に失敗することもたまにある。このケースではエラーを検知してGPT自体がもう一度頑張って分析してくれていてすごい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/c3b1ab421e3036b673eab4579419b69d.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この質問では外部知識を参照せず、事前のinstructionだけで回答できている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/8b7a02dd2be0340e20f26c21363236a9.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こういうちょっと込み入ったものも要約して教えてくれる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/fd38e71944bba05a0bdb1bc1f0a24995.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "曖昧な質問に対しても回答可能。ここをもう少し厳密にしたければinstructionsで追加質問を飛ばすようにすればよいだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/a8a8fb60ea683acb80e54e2843327460.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/50477700222207f231376f3687bf513e.png",
+					"width": null,
+					"height": null,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "写真をあげても解析して回答してくれる。うーん、優秀。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "所感",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このゴミ出し分類もとにかくCSVを雑に読ませているだけなので、ちゃんとやればもっとよくなるだろう。回収以外にも資源に持ち込むと現金化できるものがあったり、ゴミ以外の処分方法も学習させるとよさげ。同じ仕組みはGPTsではなくとも提供できるのでLINE botとかにすると利用してくれる人はいそうな気もする。もっとも、こういう正答を引き出すために使われそうなアプリはきちんと設計しないといけないと思う。これに限らず生成AIが一番パワーが出せるのは正しい答えを引き出すような使い方ではなく、人間の思考・発想を膨らませていくような使い方なので、外部知識を取り入れたうえで誰でも提供できるようになったのがでかい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もともとゴミ分類自体は適当にOpenAIのAPI使うだけでこれだけのもんは作れますよというデモンストレーションで使う予定だったのだけど、GPTsが発表されて思い立った次の瞬間にはもうできてしまっていたような感じである。OpenAIの発表の通り、自然言語によって記述できるのがすさまじいインパクトで、誰でもそれぞれのニーズを満たすAIを作る時代になるんだろうなと思った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自治体や企業の人に伝えたいことは、情報公開の質の差が今後はさらに大きくなるということだ。誰かが利用しやすい状態、利用可能性の高さというのが一つのキーワードになると思っていて、誰かとは今までは主にデベロッパーやプログラムだったのが、これからは生成AIも加わっていく。今までは単に不便だよねくらい済んでいた(実はそうでもなく、次々とディスラプターに破壊されているのだが)が、今後は利用可能な形式の情報はAIに用いられる活性化された知識となる。今回一番時間がかかったのが、人間に対して印刷するために作られたデータを計算可能な形式に変換する作業だったように、どれだけAIに食わせることのできるデータや、有用なプロンプトを持っているかが今後埋めようのない差となって出てくるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "カスタムされたGPTs達を見ていると",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ImageCast",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://listen.style/p/imagecast"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "のあずまさんの",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "生活治具",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://twitter.com/hashtag/%E7%94%9F%E6%B4%BB%E6%B2%BB%E5%85%B7?src=hashtag_click"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "みたいだなと思った。それぞれのGPTが超具体的なニーズの具現化されたものであり、相互に刺激しあって今後爆発的にいろんなものが作られていくんだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

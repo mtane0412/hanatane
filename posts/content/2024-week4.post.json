@@ -1,0 +1,672 @@
+{
+	"title": "今週の振り返り 2024 week4",
+	"slug": "2024-week4",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46",
+		"#ref-alfred-midjourney",
+		"#ref-topanga-13"
+	],
+	"excerpt": "今週は、オープンバッジを作ってみた話、逆フリン効果、後天性ADHD、自炊などについて",
+	"feature_image": "https://hanatane.net/content/images/2024/01/tanenobu_6373950188_Old_man_forging_a_badge_Illustration_for_bl_a8501040-3764-4542-9c16-f4a494dcc194.png",
+	"featured": false,
+	"published_at": "2024-01-28T23:00:16.000Z",
+	"updated_at": "2025-03-30T14:17:41.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週やったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Midjourneyの画像を出力するAlfred Workflowを作った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "下の今週投稿した記事を参照",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "オープンバッジを作ってみた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "オープンバッジ関係でお話を聞く機会があって、改めて面白いなと思ったので自分でも少し調べて作ってみた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.openbadge-global.com/api/v1.0/openBadge/v2/Wallet/Public/GetAssertionShare/RVl0SGZ0MCswSWZJMTJ5U1BXekpwdz09",
+					"metadata": {
+						"icon": "",
+						"title": "オープンバッジについて調べた",
+						"description": "オープンバッジについて調べた",
+						"author": "",
+						"publisher": "",
+						"thumbnail": "https://nlp.netlearning.co.jp/api/v1.0/openbadge/v2/Assertion/Host/RVl0SGZ0MCswSWZJMTJ5U1BXekpwdz09/Image"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "オープンバッジ自体はデジタル証明の規格であって、これ自体は中央集権的な認証で比較的簡単にできる。無料でサクッと作れそうなので",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Badgr",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://badgr.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で作ってみたけど、自分でも実装できる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最近注目されているのはオープンバッジにブロックチェーンで信頼性を担保するというもの。これもBlockcertsの",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "cert issuer",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://github.com/blockchain-certificates/cert-issuer"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で作れそうだったが、ガス代がどれだけかかるのか怖いのでまだ試していない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.digital.go.jp/policies/digital_promotion_staff_openbadge",
+					"metadata": {
+						"icon": "https://www.digital.go.jp/themes/custom/gov_theme_da_2023/favicon.ico",
+						"title": "オープンバッジについて｜デジタル庁",
+						"description": "デジタル庁は、デジタル社会形成の司令塔として、未来志向のDX（デジタル・トランスフォーメーション）を大胆に推進し、デジタル時代の官民のインフラを一気呵成に作り上げることを目指します。",
+						"author": "デジタル庁",
+						"publisher": "デジタル庁",
+						"thumbnail": "https://www.digital.go.jp/themes/custom/gov_theme_da/assets/images/ogp.png"
+					},
+					"caption": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.openbadge.or.jp/about-ob/",
+					"metadata": {
+						"icon": "https://www.openbadge.or.jp/common/img/favicon.ico",
+						"title": "一般財団法人オープンバッジ・ネットワーク",
+						"description": "オープンバッジとは？　ナレッジやスキルを証明する世界標準規格のデジタル証明/認証です。ブロックチェーン技術を取り入れることで、偽造・改ざんが困難で信頼のおける学習・資格証明書として教育研修分野に新たな価値をもたらしています。",
+						"author": "",
+						"publisher": "【公式HP】オープンバッジ・ネットワーク",
+						"thumbnail": "https://www.openbadge.or.jp/common/img/ogp.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "国際教養大学のgaccoの公開講座で、国内初の修了証をオープンバッジで配るものがあったので受けたことがあったが、そういったマイクロクレデンシャルという考え方が個人的には面白そうに感じる。今の制度だと○○大学卒といったかなり解像度の荒い情報で、大学で何を学んだかという部分は履修証明の一覧表を見るくらいしか情報を得ることができないわけで、その1コマ1コマも文科省に定められた90分×15コマという単位のみ。一方でもっと細分化された有用な学びは外から見えにくい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "オープンバッジは何を学んだかを可視化するのに面白い仕組みだと思う。というか、ゲームの実績そのものなので絶対楽しいはず。イベントは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "MintRally",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.mintrally.xyz/ja"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんかもあるので、学びに限らずいろんな場面で実績みたいなのを作って遊びまくるのも楽しそう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "手持ちの本自炊中",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1日1冊ペースで進めている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/01/IMG_4663.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "自炊作業",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自炊した本は",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Book2Scrapbox",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://github.com/masui/Book2Scrapbox"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "でScrapbox化している。手持ちの本の内容を横断検索できるだけで相当嬉しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週気になったニュース・ポスト",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "逆フリン効果",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "逆フリン効果という言葉を知った。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/tweet_taiki/status/1748845359064084550",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">欧米で逆フリン効果（reverse Flynn effect,世代ごとにIQが上昇していたのがここ２０年は逆転して低下している現象　Dworakら2023）がスマホ普及によるのではという論考　3D回転テスト成績はここ20年でもビデオゲーム普及により上昇しているのに推論成績が低下している事から<a href=\"https://t.co/axorM00HEF\">https://t.co/axorM00HEF</a></p>&mdash; 高橋泰城（たかはしたいき） (@tweet_taiki) <a href=\"https://twitter.com/tweet_taiki/status/1748845359064084550?ref_src=twsrc%5Etfw\">January 20, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/tweet_taiki/status/1748845359064084550",
+						"author_name": "高橋泰城（たかはしたいき）",
+						"author_url": "https://twitter.com/tweet_taiki",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">欧米で逆フリン効果（reverse Flynn effect,世代ごとにIQが上昇していたのがここ２０年は逆転して低下している現象　Dworakら2023）がスマホ普及によるのではという論考　3D回転テスト成績はここ20年でもビデオゲーム普及により上昇しているのに推論成績が低下している事から<a href=\"https://t.co/axorM00HEF\">https://t.co/axorM00HEF</a></p>&mdash; 高橋泰城（たかはしたいき） (@tweet_taiki) <a href=\"https://twitter.com/tweet_taiki/status/1748845359064084550?ref_src=twsrc%5Etfw\">January 20, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この世代ごとにIQが上昇している現象は結構有名だが、それをフリン効果というのを知らなかった。さらにここ20年では低下しているみたいだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ポストでも触れられてるスマホ普及の可能性について、スマホ自体が認知資源をかなり食うデバイスであることも結構考えなきゃいけない部分かもしれない。ADHDの増加因にもスマホが上げられていたのを連想した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://natgeo.nikkeibp.co.jp/atcl/news/24/011000016/",
+					"metadata": {
+						"icon": "https://natgeo.nikkeibp.co.jp/favicon.ico",
+						"title": "増える大人のADHD、ネットのやりすぎによる「後天性」の恐れ",
+						"description": "大人のADHDの割合が、過去20年間で急増している。研究者らはその一因として、絶え間ないデジタルメディアの利用があるのではないかと考えている。",
+						"author": "文＝DARYL AUSTIN／訳＝北村京子",
+						"publisher": "ナショナルジオグラフィック日本版",
+						"thumbnail": "https://natgeo.nikkeibp.co.jp/atcl/news/24/011000016/ph_thumb.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一時、デスクワークのしすぎで視力が低下してめがねをしていた時期があったのだけど、デスクワークから離れたら視力が回復したことがあった。(0.3→1.5に戻ったので、健康診断で本人か疑われた。)それと同じような感じで、常に現代人は情報の飽和状態なので、ある程度デトックスさせるとかの実験手続きした上で調べると推論成績があがったりしたりするのかなぁと想像した。本当のところは何なのか今後に期待です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週投稿した記事",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/alfred-midjourney/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "AlfredからMidjourneyで画像生成する",
+						"description": "AlfredからMidjourneyのNode.jsクライアントを利用してDiscord上で画像生成ができるようにしました",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/tanenobu_4407456978_a_man_who_wears_a_bowler_hat_with_a_purple__8a269a16-a6eb-4e2e-9a94-3303708f103f.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログの扉絵をmidjourneyで出力するワークフローをちょっとだけ簡略化するやつ。Alfredはマジで便利だし、Macを使う最大の理由でもある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/topanga-13/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "第13回TOPANGAチャリティカップに出ました",
+						"description": "たねのぶトパチャリ参戦記",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2024/01/tanenobu_9554907016_five_game_controllers_in_a_circle_Illustrat_2ef67fed-58ae-4a36-ab99-b656a4dc6b48.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "土曜日は友達とトパチャリに出てました。やっぱゲーム大会はワイワイできていいですね〜。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "では、また来週！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

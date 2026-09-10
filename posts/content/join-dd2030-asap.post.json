@@ -1,0 +1,513 @@
+{
+	"title": "デジタル民主主義2030が面白い",
+	"slug": "join-dd2030-asap",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"#ref-dd2030-meetup"
+	],
+	"excerpt": "デジタル民主主義2030に広聴AIの開発で参加していま感じていることを書いておきます",
+	"feature_image": "https://hanatane.net/content/images/2025/05/image_fx.jpg",
+	"featured": false,
+	"published_at": "2025-05-06T12:03:21.000Z",
+	"updated_at": "2025-05-25T23:55:40.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "デジタル民主主義2030の東京Meet Up",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://hanatane.net/dd2030-meetup/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "に参加してから、広聴AIの開発にcontributeしはじめたが、スト6をやるのを忘れるくらいとにかく楽しい。まだプロジェクト初期段階ではあると思うので、ここで一参加者として何が面白いのかを言葉にしておく。以下、デジタル民主主義2030は長いのでdd2030とする。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "dd2030は人とAIエージェントが協働でOSSを開発している。今やLLMを使っていないプロジェクトはないのだろうが、自律型AIエージェントの",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Devin",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://devin.ai/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "がいるという前提の開発環境に「いま」アクセスできるのは企業のプロジェクトでもほんの一部なんじゃないだろうか。ましてや岩手の片隅で草刈りとかわかめの芯抜きをしながらこのようなcutting edgeに触れられることはそうない。dd2030がOSSだからこそ誰でも少し先の未来を体験できる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "個人開発のディスラプトは僕の場合はCline/Roo Code一足先に来ていた。思えばRoo Codeを使い始めたのも安野さんが使っているのを西尾さん経由で知って使い始めたのだった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/takahiroanno/status/1876298961369350414",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Clineって書きましたが私もroo cline使ってます！</p>&mdash; 安野貴博 @ 新刊『はじめる力』『1％の革命』発売中！ (@takahiroanno) <a href=\"https://twitter.com/takahiroanno/status/1876298961369350414?ref_src=twsrc%5Etfw\">January 6, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/takahiroanno/status/1876298961369350414",
+						"author_name": "安野貴博 @ 新刊『はじめる力』『1％の革命』発売中！",
+						"author_url": "https://twitter.com/takahiroanno",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">Clineって書きましたが私もroo cline使ってます！</p>&mdash; 安野貴博 @ 新刊『はじめる力』『1％の革命』発売中！ (@takahiroanno) <a href=\"https://twitter.com/takahiroanno/status/1876298961369350414?ref_src=twsrc%5Etfw\">January 6, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自律型のAIエージェントが開発に入ることで、個人開発が複数人体制になった。最も重要なのは実装の方針を決めることで、実装作業中に出たエラーを潰したり、最終的な出力を評価したりするのが人間の役割になった。人間の判断が必要な部分で他のLLMとも相談するので少なくとも開発が3人体制になった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2025/05/image.png",
+					"width": 424,
+					"height": 459,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ほどなくしてソフトウェア開発の第一線の人たちがClineを鬼のように研究しはじめた。莫大な研究資源が投下されて国内のVibe Codingが一気に勃興したように感じる。これはストリートファイター6でも見られる光景で、本当に強い人達が研究資源を投下したキャラがシーンで強くなっていく。(キャミィの弱体化でジュリに流れてジュリが強くなったみたいなことがあった。)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://zenn.dev/mizchi/articles/all-in-on-cline",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/logo-transparent.png",
+						"title": "CLINEに全部賭けろ",
+						"description": "",
+						"author": "mizchi",
+						"publisher": "Zenn",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/og-base-w1200-v2.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このような個人開発レベルの変化はどのように複数人環境で進むのか、そういうのを間近で見れるのがdd2030の面白いところだと思っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "dd2030のユーザーは2030年までに民主主義のあり方を変えるという明確なゴールがある。想定するユーザーは政治家や自治体で、何よりもモノを作って実際に価値を届ける必要がある。今は何よりも",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "3つのプロダクト",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://dd2030.org/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を形にすることに全力が注がれており、開発スピードが重要なフェーズにある。広聴AIに関しては多少壊れることは承知でスピードに倒している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "AIエージェントを使っての開発爆速化はいくつかスピードにリミットがかかることになる。指示された範囲内での局所最適的な実装が蓄積されていくので、気づくと1000行以上のコードができたりする。Rooの場合、行数が多いと探索を繰り返すようになり目に見えてコスト効率が悪くなっていく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このあたりは責務の分離を徹底するなどして1ファイルあたりのコード量を少なくするのがよい。そうすると自ずとReactのベストプラクティスに沿った設計になってくる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "となると定期的なリファクタリングが肝要になってきそうである。Rooに膨れ上がったコードのリファクタリングを任せたところ、本当に機能が壊れてしまったことがある。原因はコンポーネント内で状態を持ってしまっていたことだった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "AIが高速で壊してしまうとそれはそれでスピードが落ちてしまうので、AIエージェントが入るプロジェクトにおいてテストはこれまで以上に重要になる。以下のようなリスクテイク寄りのスピード重視の開発はdd2030で実際に起きていることである。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/nishio/status/1916666642475745540",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">AIエージェント時代のテストドリブン、すべてのテストが成功することを期待する従来の概念から、確率的識別器の束をアンサンブルしてより強い識別器にしていくって感じで、if文によるルールベースから機械学習へのパラダイムシフトに相当するシフトがありそうな気がする <a href=\"https://t.co/xyo7MRGx3d\">https://t.co/xyo7MRGx3d</a></p>&mdash; NISHIO Hirokazu (@nishio) <a href=\"https://twitter.com/nishio/status/1916666642475745540?ref_src=twsrc%5Etfw\">April 28, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/nishio/status/1916666642475745540",
+						"author_name": "NISHIO Hirokazu",
+						"author_url": "https://twitter.com/nishio",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">AIエージェント時代のテストドリブン、すべてのテストが成功することを期待する従来の概念から、確率的識別器の束をアンサンブルしてより強い識別器にしていくって感じで、if文によるルールベースから機械学習へのパラダイムシフトに相当するシフトがありそうな気がする <a href=\"https://t.co/xyo7MRGx3d\">https://t.co/xyo7MRGx3d</a></p>&mdash; NISHIO Hirokazu (@nishio) <a href=\"https://twitter.com/nishio/status/1916666642475745540?ref_src=twsrc%5Etfw\">April 28, 2025</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "開発手法だけでなく、人間から専門知がもたらされると開発が一気に進むことも感じた。例えば昨今のパブリックコメントの大量投稿問題は広聴AIで解決したいことの一つであるが、ここも機械学習に強い",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "tokoroten",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://x.com/tokoroten"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さんが入って一気に議論が進んだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://scrapbox.io/mtane0412/%E5%BA%83%E8%81%B4AI%E3%81%AE%E3%83%91%E3%83%96%E3%82%B3%E3%83%A1DDoS%E6%94%BB%E6%92%83%E5%AF%BE%E7%AD%96%E3%81%AE%E8%AD%B0%E8%AB%96",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/apple-touch-icon-180-1.png",
+						"title": "広聴AIのパブコメDDoS攻撃対策の議論 - mtane0412",
+						"description": "広聴AIのパブコメDDoS攻撃対策の議論 #dd2030 3行まとめ by ChatGPT 攻撃レベル1〜4を定義し、まず「テンプレの一部変更」（レベル2）を編集距離やembeddingでフィルタするクイックウィンデモを作成する方針 tokorotenがSentence Transformer＋コサイン類似度で重複排除実装を共有し、閾値調整やDBSCAN／AgglomerativeClusteri",
+						"author": "",
+						"publisher": "mtane0412",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/1000-1"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "LLMが社会に浸透するにつれて人間に要求されることのレベルが上がって割としんどくなりそうというよくある話があるが、dd2030でまさにそれを感じているところだ。自分自身は確かにLLMを使うが、チームメンバーやプロジェクト全体でLLMをフル活用して速を出すという環境は岩手の片隅ではなかなか得ることが難しいので、このことがdd2030で得ている大きな価値になっていると思う",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Manusのような汎用エージェントも現れているので、じきにテクノロジー業界以外にもAIとの協働が降ってくると思われる。dd2030はそうした次の社会に何が起こり得るかを一足先に肌で感じられる場所になっていて本当に面白いので一度覗きに来てほしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "デジタル民主主義2030のSlackはこちらから。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://join.slack.com/t/w1740803485-clv347541/shared_invite/zt-32haul96s-Iopa_ET_YcqXWlpzpqABRA"
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

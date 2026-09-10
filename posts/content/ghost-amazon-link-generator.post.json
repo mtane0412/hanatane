@@ -1,0 +1,337 @@
+{
+	"title": "GhostのAmazon Embed Linkを作成する治具を作る",
+	"slug": "ghost-amazon-link-generator",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Ghost"
+	],
+	"excerpt": "GhostのAmazon Embed LinkのHTMLを出力するTampermonkey Scriptを作りました",
+	"feature_image": "https://hanatane.net/content/images/2026/01/generation-3840deae-9a82-4cfa-9ced-c8a03bb9ad10.png",
+	"featured": false,
+	"published_at": "2026-01-04T11:40:36.000Z",
+	"updated_at": "2026-01-13T08:35:01.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostのAmazonリンクが壊れている問題",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostでは様々なサイトのリンクのEmbedを生成できるが、Amazonのリンクはほとんど壊れていて使い物にならない。これに関する議論はすでにあるが根本的な原因がAmazon側にあるのでGhost本体に修正が組み込まれるのはあまり望めない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://forum.ghost.org/t/images-not-visible-in-amazon-link-cards/25994",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/f381b3b952df5ad42fe691a8b14aa7f0c96c461a_2_180x180-1.png",
+						"title": "Images not visible in amazon link cards",
+						"description": "naturanovit.net I use ghost pro, so assuming it’s the latest version Using the casper theme 4.1.1 I’m trying to include third party links in my post, including some amazon affiliate links. Here it is: Site unavailable (amazon link on the bottom) I just copied and pasted the links in the editor. For most non-amazon sites, you can see that the links auto-formatted to look quite nice, including an image. Their height is capped, etc. However, the amazon links look terrible. No image, and som…",
+						"author": "sonarforte",
+						"publisher": "Ghost Forum",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/844e7f365aa20e9681a5fa9fdf1cc8b6dfeaef4d.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "作ったもの",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このような事情があるので、自前でEmbed用のHTMLを作成してHTMLコンポーネントで挿入するというworkaroundを作成することにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Iframelyのような外部サービスを利用する方法もあるが、無料の枠内で行うのがかなり厳しかったので今回は採用しない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "フォーラムでも議論されているとおり、Amazonのメタ情報は混沌を極めているのでAmazonサイト上空直接情報を取得して埋込HTMLを生成するTampermonkeyスクリプトの形で作成した。LLM時代はこのような治具をサクっと作るのがかなり便利になった。以下のGistのScriptを追加したら動くはず。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://gist.github.com/mtane0412/6c1436c403ebed380dcfc0aeead61466",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/pinned-octocat-093da3e6fa40-8.svg",
+						"title": "AmazonのHTML埋め込みリンクを作成するTamperMonkey Script",
+						"description": "AmazonのHTML埋め込みリンクを作成するTamperMonkey Script. GitHub Gist: instantly share code, notes, and snippets.",
+						"author": "262588213843476",
+						"publisher": "Gist",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/gist-og-image-54fd7dc0713e.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "既存のアソシエイトツールバー(なければ右下)にHTML生成用のボタンを配置し、プレビューも表示するようにした。アソシエイトIDにも対応させた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/image-1.png",
+					"width": 1500,
+					"height": 1324,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "所感",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "今回はGPT5.2に書かせたがUIもかなりこなれてきて、手戻りもかなり少なかった。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "最初はURLからHTMLを生成するWebアプリケーションを作っていたのだが、不安定なスクレイピングを行うよりも、作業工程上必ず開くAmazonサイト上で実行した方がシンプルで確実なので現在の実装になった。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Amazonは従来のPA-APIからCreators APIというのを最近出してきているので、この辺の混沌がもしかしたら解決されるかもしれないし、されないかもしれない。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "非エンジニアのLLM活用でChrome拡張機能を作成する話がよくあるが、Tampermonkeyの方が便利で簡単だと思うのでその話もそのうち書きたい",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"type": "call-to-action",
+					"version": 1,
+					"layout": "minimal",
+					"alignment": "center",
+					"textValue": "<p><span style=\"white-space: pre-wrap;\">Xでも情報発信しています。良かったらフォローしてください！</span></p>",
+					"showButton": true,
+					"showDividers": true,
+					"buttonText": "Follow on X",
+					"buttonUrl": "https://x.com/mtane0412",
+					"buttonColor": "#000000",
+					"buttonTextColor": "#ffffff",
+					"hasSponsorLabel": false,
+					"sponsorLabel": "<p><span style=\"white-space: pre-wrap;\">SPONSORED</span></p>",
+					"backgroundColor": "grey",
+					"linkColor": "text",
+					"imageUrl": "https://hanatane.net/content/images/2026/01/icon512.png",
+					"imageWidth": 512,
+					"imageHeight": 512,
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

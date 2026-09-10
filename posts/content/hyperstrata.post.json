@@ -1,0 +1,232 @@
+{
+	"title": "immutableなノートを堆積する",
+	"slug": "hyperstrata",
+	"status": "published",
+	"tags": [
+		"#ref-window-film"
+	],
+	"featured": false,
+	"published_at": "2026-09-09T11:00:41.000Z",
+	"updated_at": "2026-09-09T16:01:02.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Cosenseのコミュニティで折登さんのHyperstrataというアイデアが紹介されていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://strata.orito-itsuki.graphics/introduction-to-hyperstrata/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-46febdf4-0d1a-4ae9-a96a-69081a63863b.svg",
+						"title": "Hyperstrata: 堆積するノートによるWebサイト形式 - 春告げ抹茶ホイップ",
+						"description": "HyperstrataというWebサイトの形態を提案します。デジタルガーデンのメンテが続かない人にもおすすめのWebサイト形態です。",
+						"author": "",
+						"publisher": "春告げ抹茶ホイップ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/introduction-to-hyperstrata-2cccab31-060c-4002-b902-d14f0a83b43a.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "デジタルガーデンのように未完成の記事を気軽に書きながら、しかしブログのように記事を一度書いたらメンテナンスコストは小さい、そういうような Web サイトの更新形態はないだろうか？",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この問題意識にかなり共感する。Cosenseなどのすべてがmutableなページは書き出しがとても楽だが、庭の手入れがおろそかになる。一方でブログは記事として出す以上は一応の完成ラインまで書き上げるものであり、一度書き上げたら以降の手入れはさほど必要がないが、書き始める・書き上げるエネルギーが相当求められる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここもCosenseという場所がありつつもブログ的な発信ができるように作ったものだが、やはり書くコストが高く更新が不定期になりがちになってしまっている。(サポートしてくれている人もいるのに...ごめんなさい)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Hyperstrataはimmutableなページが引用関係でネットワークを作りながら時の流れとともに地層のように堆積していくノートということらしい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "すべてのページがimmutableであるということは「いまここ」に意識を向けることに集中することを構造的に保証している。ページがmutableなのであれば調和のために過去記事を編集したくなることが起こりうるが、そのようなエネルギーは自分にはない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "地層への積み重なり方が引用関係のネットワークとなる点も面白い。ブログは全ての記事は独立している前提で、このブログも技術・ゲーム・DIY・猫・縄文などバラバラなことを書いている。トピックの距離でなんとなくカテゴリー分けをしているが、本来はそれらは自分の中で繋がっている話のはずである。地層に現れる情報で重要なのは過去時点と現在時点でそれらがどう繋がっているかであり、それは地層の位置関係となるはずだ。なので前回の記事は数ヶ月前の猫のストレス対策だが、その後に現れたのがこの話ということになる。(三内丸山に行った話や避妊手術をした話など書けなかった話がこの間にたくさんある)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/window-film/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-70cf0ccd-b796-482e-88f0-a5827facc61b.png",
+						"title": "縁側の窓に目隠しシートを貼った(猫のストレス対策)",
+						"description": "窓にフィルムを貼っただけで、夜泣きもスプレーもほぼ止まった。まさかこんなに効くとは思っていなかった。",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/generation-41b6822d-c398-48e8-9b80-88e4872e7fe2-8de32819-e079-40f9-a41c-5823804cac7c.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アイデアとして面白いので無理やりGhostで実装した。セルフサーブGhostでは記事を出すときにビルドを挟まないので定期的に記事の更新を見てグラフを更新するようにしている。「はなしのタネ」なので地中に種が埋まってる感じにしてみた。直近の記事は引用関係がないので孤立した点となっている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/09/image.png",
+					"width": 592,
+					"height": 1100,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しばらくこの方式でやってみて書く敷居が下がるが検証したい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

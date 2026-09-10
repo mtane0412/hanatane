@@ -18,9 +18,24 @@ hanatane.net の記事を Markdown（frontmatter 付き）で管理し、Ghost �
 
 CI などで対話ログインできない場合は環境変数 `GHOST_URL` と `GHOST_STAFF_ACCESS_TOKEN`（`{id}:{secret}`）で代用できます。
 
-## 記事ファイルの書き方
+## 記事ファイルの 2 つの形式
 
-`posts/content/<slug>.md` に 1 記事 1 ファイルで置きます。ファイル名（拡張子を除いたもの）が Ghost の slug になります。
+`posts/content/` に 1 記事 1 ファイルで置きます。ファイル名（拡張子を除いたもの）が Ghost の slug になります。
+
+| 形式 | ファイル名 | 用途 |
+|---|---|---|
+| Markdown（frontmatter 付き） | `<slug>.md` | 新規に書く記事 |
+| Lexical JSON | `<slug>.post.json` | `pull` で Ghost から取り込んだ既存記事。ブックマーク・埋め込みなどの Ghost カードを無損失で往復できる |
+
+### Lexical JSON（`<slug>.post.json`）
+
+`pnpm --filter ./posts pull` が生成します。先頭にメタ情報（`title`、`slug`、`status`、`tags`、`excerpt`、`feature_image`、`featured`）、参考情報として `published_at` と `updated_at`、末尾に `lexical`（Ghost エディタの内部形式）が入ります。
+
+- `lexical` を編集するときは、既存ノードの構造（`type`、`version`、`children`）に合わせてください。テキストの修正は `text` フィールドを書き換えるだけで済みます。
+- `published_at` と `updated_at` は push では送りません。
+- 4 記事（`hometown-tour-on-google-maps`、`how-to-deal-with-weeds`、`gw2023`、`reflaction202304`）は旧 mobiledoc 形式で `lexical` が無いため pull で取り込めません。Ghost エディタで一度開いて保存すると Lexical に変換され、次回の pull で取り込めます。
+
+### Markdown（`<slug>.md`）
 
 ```markdown
 ---
@@ -41,14 +56,26 @@ featured: false             # 省略可
 - 生 HTML は本文中にそのまま書けます（`html: true`）。
 - 画像は `pnpm ghst image upload <ファイル>` でアップロードし、返ってきた URL を本文や `feature_image` に書きます。
 
-## 反映
+## Ghost から取り込む（pull）
 
 ```bash
-pnpm --filter ./posts push content/<slug>.md --dry-run   # 実行予定のコマンドを表示するだけ
-pnpm --filter ./posts push content/<slug>.md             # slug が存在すれば更新、無ければ作成
+pnpm --filter ./posts pull                 # 全記事を content/<slug>.post.json に書き出す
+pnpm --filter ./posts pull --slug <slug>   # 1 記事だけ
 ```
 
-`push` は `ghst post update --slug <slug>` を試み、記事が無い（終了コード 5）ときだけ `ghst post create` にフォールバックします。frontmatter の `status` をそのまま送るため、`status: published` にして push すると公開されます。
+- 既存の `.post.json` は上書きします。ローカルの編集はコミットしてから実行してください。
+- 同じ slug の `<slug>.md` がある記事は Markdown 側を正とみなしてスキップします。
+- `tags` は push でファイルの内容に置き換わります。`hyperstrata-sync` workflow が付ける `#ref-*` タグなど Ghost 側で後から付いたタグを落とさないよう、**編集前に pull** してください。
+
+## Ghost に反映する（push）
+
+```bash
+pnpm --filter ./posts push content/<slug>.md --dry-run         # 実行予定のコマンドを表示するだけ
+pnpm --filter ./posts push content/<slug>.md                   # slug が存在すれば更新、無ければ作成
+pnpm --filter ./posts push content/<slug>.post.json            # Lexical JSON も同じ
+```
+
+`push` は `ghst post update --slug <slug>` を試み、記事が無い（終了コード 5）ときだけ `ghst post create` にフォールバックします。`status` をそのまま送るため、`status: published` にして push すると公開されます。create 時の slug は ghst 0.17.1 の `post create` に `--slug` が無いため、`{ "slug": ... }` を書いた一時ファイルを `--from-json` で渡しています。
 
 公開・予約・削除など push が扱わない操作は ghst を直接使います。
 
@@ -62,8 +89,9 @@ pnpm ghst --enable-destructive-actions post delete <id>
 
 ## 制約
 
-- Ghost 側で編集した内容をこのリポジトリに戻す（pull）機能はありません。Ghost の本文は Lexical 形式で保存されるため、Markdown への逆変換は行っていません。このリポジトリを正とし、Ghost エディタでは本文を編集しない運用を前提にしています。
+- Lexical から Markdown への逆変換は行いません。既存記事は `.post.json` のまま編集します。
 - `status` は `draft` と `published` のみ受け付けます。予約公開は `ghst post schedule` を使ってください。
+- ghst は stdout がパイプのとき 64KB 付近で出力が途切れる（書き込み完了前に終了する）ため、`pull` は ghst の stdout を一時ファイルに書かせてから読んでいます。`pnpm ghst post list --json | jq` のような使い方では途切れることがあるので、大きな出力はファイルにリダイレクトしてください。
 
 ## 開発
 

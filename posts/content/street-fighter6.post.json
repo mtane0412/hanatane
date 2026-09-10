@@ -1,0 +1,540 @@
+{
+	"title": "スト6たのしい",
+	"slug": "street-fighter6",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "格ゲー初心者が最近スト6を遊んでいるよという話",
+	"feature_image": "https://hanatane.net/content/images/2023/06/Fyq5XAUacAEeArS.jpg",
+	"featured": false,
+	"published_at": "2023-06-18T22:00:37.000Z",
+	"updated_at": "2023-06-18T22:00:36.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分は格闘ゲームはプレイしないのだけど、ストリートファイターを見るのは大好きで、格ゲー勢がmildomにいた一時期は可処分時間のほとんどをmildomに奪われていたような人間である。色々なゲームがある中で、格ゲーは歴史がダントツに長く、ゲーセン時代から脈々と続くコミュニティとか人間模様がとにかく面白い。これだけ見てるのにも関わらず、格ゲー自体はとても難しいので自分では全然プレイしてこなかった。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最近、ストリートファイタ－6が発売されてたので自分もSteamでポチって色々遊んでいる。今作から新規を取り込むための様々な工夫があって、格ゲー一切やってこなかった自分でもかなり楽しめる作りになっている。CAPCOMの力の入れようをひしひしと感じる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一つはモダンタイプという操作方法で、要はスマブラみたいに必殺技が出せるようになる。対空を出すときに相手が飛んだのを見て623Pというのが「→＋必殺技ボタン」みたいなので出るようになるので、めちゃくちゃ敷居が下がる。また、モダンにはアシストコンボというのも用意されていてR2を押しながら攻撃ボタンを連打すると気持ちいいコンボを勝手に繋げてくれる。コンボ練だけで心が折れてたのでモダン入力で、格ゲーしてる感をすぐに感じられるのがとても良く出来てるなぁと思った。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう一つの目玉がワールドツアーで、自分のアバターで龍が如くみたいなオープンワールドで遊べるストーリーモードのようなものが用意されている。このモードがよくできていて、名物キャラクター達が登場して彼らの弟子になるので、さながら史上最強の弟子ケンイチのような楽しさがある。色々なミッションで操作やシステムを覚えられるようになっていて、敵もどんどん強くなっていくので、自然とより強い戦い方を模索するようになっている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1667507458695368705",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">再現度高い！！ <a href=\"https://t.co/zJut0i3ery\">pic.twitter.com/zJut0i3ery</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1667507458695368705?ref_src=twsrc%5Etfw\">June 10, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1667507458695368705",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">再現度高い！！ <a href=\"https://t.co/zJut0i3ery\">pic.twitter.com/zJut0i3ery</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1667507458695368705?ref_src=twsrc%5Etfw\">June 10, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アタリの創業者は優れたゲームとは",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Easy to learn, hard to master",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noopener",
+							"target": null,
+							"title": null,
+							"url": "https://en.wikipedia.org/wiki/Bushnell's_Law"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "であるみたいなことを言っているらしい。Pogostuckのような操作方法は単純だが難しい登山ゲームはまさにこの法則が当てはまるように見える。一方で格ゲーはどうか。 弱中強をはじめ様々なボタンがあり、それらを正確に入力して出す複雑なコマンドを身に着けて、ようやく読み合いとか戦術とかのレベルにたどり着けるイメージがある。hard to learn, hard to masterだ。(こんな感じでブッシュネルの法則は全てのゲームに当てはまるわけではない。)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "操作方法が難しいゲームは、プレイしていて気持ちがいい状態になるまでのレジリエンスのようなものが求められる気がする。MOBAやFPSとかバトルロイヤル系が比較的カジュアル層にも浸透してきたのはこの辺の工夫があると思っていて、ようは一人あたりにかかる責任をチームに分散することで対戦の敷居が一気に下がったのが大きいとはよく言われている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "普通のスポーツもまずはフォーム固めとかからやるみたいに、気持ちのいいプレイをする前の忍耐が必要な時期がある。スポーツでそういう地味な基礎練に耐えられるのは、その先の気持ちのいいプレイができる状態をイメージできているからだ。Pogoがやたらと難しいと言われるのはこの忍耐の時間が数十時間に及ぶからだが、一方で上手い人のプレイを見ていると気持ちのいいプレイの状態は結構想像しやすいことに気づく。格ゲーはというと、体力ゲージがあって人が殴り合っているという一見めちゃくちゃわかりやすい構図なのだが、その実そこで発生している読み合いとかゲーム性というのは初心者には見えない。だから実は気持ちのいい状態を想像し難いし、先の見えない状態でコマンド練習とかをしていても絶望してしまうだけのように思う。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この辺の、格ゲーの参入障壁の根本になっている部分をうまく今作は解消しているように見える。物語というわかりやすい構造が与えられるので、プレイヤーがやることは物語を先に進めることである。先に進めるためには強くなるしかない。いやー、わかりやすい。Enjoy to learnというわけだ。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "マルチメディア学習の原理に「ガイドされた発見」というのがある。ヒントやフィードバックを与えて、学習者が問題解決できるようにせよという原則だが、キャラのセリフやミッションや敵の特徴的な戦術によってうまく発見がガイドされているように感じた。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1669350445641527297",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">こいつほんまきつかったよ！！！ <a href=\"https://t.co/5iTuShpi6X\">pic.twitter.com/5iTuShpi6X</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1669350445641527297?ref_src=twsrc%5Etfw\">June 15, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1669350445641527297",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">こいつほんまきつかったよ！！！ <a href=\"https://t.co/5iTuShpi6X\">pic.twitter.com/5iTuShpi6X</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1669350445641527297?ref_src=twsrc%5Etfw\">June 15, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "例えばこいつは本田スタイルで突っ込んでくる敵で、物語も終盤だったので相手に攻撃を許せば一気に3割以上減る、こちらの攻撃は1割も減らない、こちらの攻撃で容赦なくカウンターをぶつけてくるとか、嫌になるくらい苦戦したのだけど。ある一定距離で頭突きしてくる頻度が上がるので、その距離で頭突きを見てからドライブインパクトのカウンターを当てるとか、細かいハメ技を駆使するとかをしてなんとか倒すことができた。本田許せねぇ～～！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1669711487001321472",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">中年男性「強さって何だ…？」 <a href=\"https://t.co/nFaw8caNUW\">pic.twitter.com/nFaw8caNUW</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1669711487001321472?ref_src=twsrc%5Etfw\">June 16, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1669711487001321472",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">中年男性「強さって何だ…？」 <a href=\"https://t.co/nFaw8caNUW\">pic.twitter.com/nFaw8caNUW</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1669711487001321472?ref_src=twsrc%5Etfw\">June 16, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでワールドツアーで一応ストーリーの最後まで来たので、今は対戦キャラ選んで対人デビューのためにしこしこ練習している。長い目で見ればクラシックを練習すべきなのかもしれないけど、相変わらず技が出なすぎてつらいので、モダンでいけるところまで行ってみたい。というわけで、上手い人は教えてください！まだの人は買ってね！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://store.steampowered.com/app/1364780/Street_Fighter_6/?l=japanese",
+					"metadata": {
+						"icon": "https://store.steampowered.com/favicon.ico",
+						"title": "Steam：Street Fighter 6",
+						"description": "シリーズ最新作『ストリートファイター6』が2023年6月2日に発売決定！ RE ENGINEで開発された本作は、大型モード「ワールドツアー」や「ファイティンググラウンド」、「バトルハブ」で構成され、新たな「ストリートファイター」はこれまでのシリーズにはない全く新しい体験が待ち受けている。",
+						"author": "",
+						"publisher": "STEAM",
+						"thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1364780/capsule_616x353.jpg?t=1686291121"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>感想</strong></b><span>: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>購読</strong></b><span>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！ </span><a href=\"https://www.hanatane.net/#/portal/signup\"><span>購読はこちら</span></a></p>",
+					"calloutEmoji": "♥️",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1500kcal制限で体重は減少トレンド。完全に減らすモードに入っているので実は食べ物の誘惑とかはあまり感じない。隔週で手伝いに行ってるところで無料で昼ごはんを大量にいただいているので、そこだけはカロリーオーバーしてしまうと思う。まぁチートデーということで。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2023/06/image-1.png",
+					"width": 750,
+					"height": 604,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GhostでTwitterの展開ができなかったので、一応サポートに問い合わせたらやっぱりTwitter側の問題だった。「大規模な障害が発生していて運営がそれを認知してるならアナウンスしてくれるといいけど、多分今のTwitterの状況でそれはできないよね～」ってサポートの人と話した。海外のサポートはカジュアルでとてもいい。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "もぐお",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noopener",
+							"target": null,
+							"title": null,
+							"url": "https://www.twitch.tv/moguo37"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さんに自キャラのポゴちゃんを描いてもらった。最高にかわいい！",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mog_o37/status/1666827529515323392",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">たねのぶさん(<a href=\"https://twitter.com/mtane0412?ref_src=twsrc%5Etfw\">@mtane0412</a> )　のぽごちゃん描きました！発色よくてかわいい！<br>チャネポお絵かきはこれにて終了ですがお絵描き配信はこれからも続きますのでよろぴく💪 <a href=\"https://t.co/4GZMdcih9n\">https://t.co/4GZMdcih9n</a> <a href=\"https://t.co/ij4YZfj1y1\">pic.twitter.com/ij4YZfj1y1</a></p>&mdash; もぐお (@mog_o37) <a href=\"https://twitter.com/mog_o37/status/1666827529515323392?ref_src=twsrc%5Etfw\">June 8, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mog_o37/status/1666827529515323392",
+						"author_name": "もぐお",
+						"author_url": "https://twitter.com/mog_o37",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">たねのぶさん(<a href=\"https://twitter.com/mtane0412?ref_src=twsrc%5Etfw\">@mtane0412</a> )　のぽごちゃん描きました！発色よくてかわいい！<br>チャネポお絵かきはこれにて終了ですがお絵描き配信はこれからも続きますのでよろぴく💪 <a href=\"https://t.co/4GZMdcih9n\">https://t.co/4GZMdcih9n</a> <a href=\"https://t.co/ij4YZfj1y1\">pic.twitter.com/ij4YZfj1y1</a></p>&mdash; もぐお (@mog_o37) <a href=\"https://twitter.com/mog_o37/status/1666827529515323392?ref_src=twsrc%5Etfw\">June 8, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

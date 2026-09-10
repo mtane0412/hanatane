@@ -1,0 +1,892 @@
+{
+	"title": "脳を食べるホヤと老い",
+	"slug": "sea-squirt-and-getting-old",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"Science",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "成体になると足と脳を失うホヤと、人の学びと老いと、ときどきサイヤ人。",
+	"feature_image": "https://hanatane.net/content/images/2023/05/SeaSquirt.jpeg",
+	"featured": false,
+	"published_at": "2023-05-14T22:00:01.000Z",
+	"updated_at": "2025-03-30T14:16:12.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "西の人間なので三陸沿岸にいるといろいろなところで異世界感を感じることができるのだけど、スーパーに並ぶホヤもその一つ。産地なのであの見た目がスーパーで豪快に積まれている。さながらアニメとかでよく見るファンタジー世界の謎のフルーツのような見た目で、ホヤを食べる文化がなかったので結構衝撃的な風景だった。味もすごい特徴的で最初は苦手だったのだけど、ホヤ養殖をしている人からもらっているうちに食べられるようになった。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ホヤといえば生物学のモデル生物の一つとして有名で、幼生と成体の劇的な変化をする生活環が特徴的な生物らしい。幼生は移動のための足や脳があるが、成体になるとそれらの器官は取り込まれて岩などに固着して移動せずに過ごす生物となる。安定した環境を見つけさえすれば不要な移動と考える脳を失ってもいいということに関して、大学のテニュアトラックに例えた、だいぶ辛さマシマシな本もあるらしい。(本はまだ読んでない。)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"url": "https://twitter.com/amiamiamiamiima/status/1631228308418625536",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">例える人もいるんだね <a href=\"https://t.co/IeIsOS2X6w\">pic.twitter.com/IeIsOS2X6w</a></p>&mdash; ami (@amiamiamiamiima) <a href=\"https://twitter.com/amiamiamiamiima/status/1631228308418625536?ref_src=twsrc%5Etfw\">March 2, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/amiamiamiamiima/status/1631228308418625536",
+						"author_name": "ami",
+						"author_url": "https://twitter.com/amiamiamiamiima",
+						"width": 550,
+						"height": null,
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0",
+						"tweet_data": {
+							"author_id": "883286153511682048",
+							"conversation_id": "1631228308418625536",
+							"text": "例える人もいるんだね https://t.co/IeIsOS2X6w",
+							"edit_history_tweet_ids": [
+								"1631228308418625536"
+							],
+							"created_at": "2023-03-02T09:41:50.000Z",
+							"attachments": {
+								"media_keys": [
+									"3_1631228297953832960"
+								]
+							},
+							"entities": {
+								"urls": [
+									{
+										"start": 11,
+										"end": 34,
+										"url": "https://t.co/IeIsOS2X6w",
+										"expanded_url": "https://twitter.com/amiamiamiamiima/status/1631228308418625536/photo/1",
+										"display_url": "pic.twitter.com/IeIsOS2X6w",
+										"media_key": "3_1631228297953832960"
+									}
+								]
+							},
+							"lang": "ja",
+							"id": "1631228308418625536",
+							"public_metrics": {
+								"retweet_count": 3008,
+								"reply_count": 3,
+								"like_count": 13490,
+								"quote_count": 96,
+								"impression_count": 781585
+							},
+							"reply_settings": "everyone",
+							"possibly_sensitive": false,
+							"includes": {
+								"media": [
+									{
+										"url": "https://pbs.twimg.com/media/FqNJfo8acAAOiZY.jpg",
+										"height": 2048,
+										"type": "photo",
+										"media_key": "3_1631228297953832960",
+										"width": 666
+									}
+								],
+								"users": [
+									{
+										"verified": false,
+										"id": "883286153511682048",
+										"protected": false,
+										"profile_image_url": "https://pbs.twimg.com/profile_images/1163237976270262272/jNwlf36C_normal.jpg",
+										"url": "https://t.co/yhoFYRYjit",
+										"description": "生活/言語/行為",
+										"entities": {
+											"url": {
+												"urls": [
+													{
+														"start": 0,
+														"end": 23,
+														"url": "https://t.co/yhoFYRYjit",
+														"expanded_url": "https://bookmeter.com/users/635084",
+														"display_url": "bookmeter.com/users/635084"
+													}
+												]
+											}
+										},
+										"created_at": "2017-07-07T11:26:44.000Z",
+										"name": "ami",
+										"username": "amiamiamiamiima",
+										"public_metrics": {
+											"followers_count": 1163,
+											"following_count": 581,
+											"tweet_count": 28447,
+											"listed_count": 12
+										},
+										"pinned_tweet_id": "1172431491436969986",
+										"location": "戸山公園"
+									}
+								]
+							}
+						}
+					},
+					"embedType": "twitter"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実際、脳は人間では全体重の2%の脳が全代謝エネルギーの20％を消費する、身体の器官の中でも飛び抜けてコスパの悪い器官として知られている。これほどまでに贅沢な器官が進化の過程で増大してきたのは、その燃費の悪さを補ってあまりあるメリットがあったからで、それが霊長類の社会環境への適応だというのが社会脳仮説というやつである。関連して、ヒトが脳増大にエネルギーを回すことができたのは消化管に回していたエネルギーを脳に回すことができたというのが高価な組織仮説と呼ばれるもので、肉食や火の使用がそのような消化の余剰を生む進化的なイベントとして考えられている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ともかく、固着する生活に移行するなら足だけでなく脳も減らしてしまうというのは至極全うな戦略で見事な適応だと言わざるをえない。生物は楽しいですね、という気持ちにさせてくれる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "このことを考えているときに、ふと「人は学習を辞めたとき老いる」というヘンリー・フォードが言ったとされる言葉を連想した。20代でも老いた人がいるし、80代でも若い人がいるということで、身の回りを見渡すと具体的な人を思い浮かべたりもできるんじゃないだろうか。この一節は「人生で一番大切なことは、若い精神を持ち続けることだ。」と続くが、この価値観をわざわざ20世紀の巨塔の名言としてしばしば引用されているということは、学び続けることがそれほど一般的ではなかったということなんだろう。生涯学習やリカレント教育とかが叫ばれるのもそういう文脈として理解できる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ホヤがモデル生物なのは、ヒトと同じ脊索動物のホヤを通して人間の理解度が深まっていくことが期待されるからである。先程の本ほどシニカルではないにせよ、まず安定した環境を得るための必要な足と脳があり、不要な足と脳を吸収して繁殖に特化していくというホヤの生活史からどういうことが考えられるだろう。探索行動は不確実な環境の変化がつきもので、そのような状況に対応するような神経系が必要だというのはありそうだ。定着後は比較的安定した環境で一生を過ごすわけだから、それらが不要になる。ホヤほど極端ではないけど、なるほど人間の生活史にも通じそうな話だ。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここで単純に学ばなくなる、老いるということが必ずしも悪いことではないということが言えると思う。ホヤの場合はそのような劇的な適応戦略が進化している。ヒトの狩猟採集社会ではどうだろう。Wikipediaなんかない環境で、知識や知恵を有している年長者に求められるのはリスクテイキングな探索ではなく、安定の方向にありそうである。脱線かもだが、learnの語源はtrackやtraceを意味するゲルマン祖語にあるのも、なんだか狩猟環境をイメージさせて関係していそうだ。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "となると、20世紀以降の社会が人に学び続けることを求めるようになったということは、ずっと若くいる必要があると読み替えることができる。それは不確実な環境で探索し続けなければならないということで、老いることが許されなくなったと捉えることもできる。ビジネスの文脈では全てを巻き込むデジタル環境の破壊的な変化を",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "渦で例えている",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://www.cisco.com/c/dam/m/ja_jp/offers/164/never-better/core-networking/digital_vortex.pdf",
+							"version": 1
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "が、まさに強烈な渦潮のせいで固着できずに幼体でそのへんをうろつくほかないわけだ。この辺りは戦い続けなければならなくて若さが失われないサイヤ人を思い起こさせる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"url": "https://twitter.com/DB_official_jp/status/1459795503198126083",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">「サイヤ人は戦闘民族だ<br>　闘うために若い時代がながいんだ」<a href=\"https://twitter.com/hashtag/%E3%82%A2%E3%83%B3%E3%83%81%E3%82%A8%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%E3%81%AE%E6%97%A5?src=hash&amp;ref_src=twsrc%5Etfw\">#アンチエイジングの日</a> <a href=\"https://t.co/g9ln1in3ep\">pic.twitter.com/g9ln1in3ep</a></p>&mdash; ドラゴンボールオフィシャル (@DB_official_jp) <a href=\"https://twitter.com/DB_official_jp/status/1459795503198126083?ref_src=twsrc%5Etfw\">November 14, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/DB_official_jp/status/1459795503198126083",
+						"author_name": "ドラゴンボールオフィシャル",
+						"author_url": "https://twitter.com/DB_official_jp",
+						"width": 550,
+						"height": null,
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0",
+						"tweet_data": {
+							"created_at": "2021-11-14T08:09:04.000Z",
+							"entities": {
+								"hashtags": [
+									{
+										"start": 31,
+										"end": 42,
+										"tag": "アンチエイジングの日"
+									}
+								],
+								"urls": [
+									{
+										"start": 43,
+										"end": 66,
+										"url": "https://t.co/g9ln1in3ep",
+										"expanded_url": "https://twitter.com/DB_official_jp/status/1459795503198126083/photo/1",
+										"display_url": "pic.twitter.com/g9ln1in3ep",
+										"media_key": "3_1459795500060839936"
+									}
+								]
+							},
+							"edit_history_tweet_ids": [
+								"1459795503198126083"
+							],
+							"conversation_id": "1459795503198126083",
+							"context_annotations": [
+								{
+									"domain": {
+										"id": "130",
+										"name": "Multimedia Franchise",
+										"description": "Franchises which span multiple forms of media like 'Harry Potter'"
+									},
+									"entity": {
+										"id": "1026525069474902017",
+										"name": "Dragon Ball",
+										"description": "Dragon Ball"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "839543165002506240",
+										"name": "Anime"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "839544274442051584",
+										"name": "Entertainment"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "1026525069474902017",
+										"name": "Dragon Ball",
+										"description": "Dragon Ball"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "1074757527995277313",
+										"name": "Entertainment franchises"
+									}
+								},
+								{
+									"domain": {
+										"id": "131",
+										"name": "Unified Twitter Taxonomy",
+										"description": "A taxonomy of user interests. "
+									},
+									"entity": {
+										"id": "1402287578343088130",
+										"name": "Days of celebration"
+									}
+								}
+							],
+							"text": "「サイヤ人は戦闘民族だ\n　闘うために若い時代がながいんだ」\n\n#アンチエイジングの日 https://t.co/g9ln1in3ep",
+							"attachments": {
+								"media_keys": [
+									"3_1459795500060839936"
+								]
+							},
+							"lang": "ja",
+							"author_id": "2816443333",
+							"public_metrics": {
+								"retweet_count": 141,
+								"reply_count": 10,
+								"like_count": 946,
+								"quote_count": 8,
+								"impression_count": 0
+							},
+							"reply_settings": "everyone",
+							"id": "1459795503198126083",
+							"possibly_sensitive": false,
+							"includes": {
+								"media": [
+									{
+										"type": "photo",
+										"media_key": "3_1459795500060839936",
+										"height": 1002,
+										"url": "https://pbs.twimg.com/media/FEI8ReHXEAA43V7.jpg",
+										"width": 1878
+									}
+								],
+								"users": [
+									{
+										"pinned_tweet_id": "1655829962618814465",
+										"username": "DB_official_jp",
+										"entities": {
+											"url": {
+												"urls": [
+													{
+														"start": 0,
+														"end": 23,
+														"url": "https://t.co/MHjcRtQJ5d",
+														"expanded_url": "https://dragon-ball-official.com/",
+														"display_url": "dragon-ball-official.com"
+													}
+												]
+											}
+										},
+										"location": "東の都",
+										"verified": false,
+										"public_metrics": {
+											"followers_count": 555486,
+											"following_count": 81,
+											"tweet_count": 99728,
+											"listed_count": 796
+										},
+										"url": "https://t.co/MHjcRtQJ5d",
+										"name": "ドラゴンボールオフィシャル",
+										"description": "ドラゴンボールの公式Twitter。最新の更新情報をどんどんつぶやいていくぞ。",
+										"protected": false,
+										"id": "2816443333",
+										"created_at": "2014-09-18T05:24:45.000Z",
+										"profile_image_url": "https://pbs.twimg.com/profile_images/1645301831156011009/gahpxSH1_normal.jpg"
+									}
+								]
+							}
+						}
+					},
+					"embedType": "twitter"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サイヤ人が実際に好戦的なように、好奇心旺盛な人にとって学び続ける人生というのも存外悪くないのかもしれない。自分も学ぶのは好きな方なんだけど、それは「頑張っている」わけではなくて単に学びを得たときの快感に中毒になっているただの麻薬中毒患者みたいな状態だからである。ヒトの赤ちゃんを見てると生来何かを学ぶように動機づけられていることがありありと伝わってくるし、どこかで学びが嫌になるようなことがあれば、それはその環境に問題があるんじゃなかろうか。(というのも学習する組織論の中で議論があった。)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "老いることが許されないのはなかなか大変そうだけど、一方で若さを追い求めるのも人なわけで、最近、人が学ぶというシーンに関わる事が増えてきたので、ホヤのことを思い浮かべて走り書きしてみました。学ぶのが気持ちよすぎて好きなんですが、そろそろ中年の危機とかきたりするのかなぁと色々と思索する日々です。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "callout",
+					"calloutEmoji": "🚀",
+					"calloutText": "<strong>シェア</strong>: この記事が面白かったらぜひTwitter, Facebookなどで記事の感想を書いてください",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"calloutEmoji": "♥️",
+					"calloutText": "<strong>購読</strong>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！&nbsp;<a href=\"https://hanatane.net/#/portal/signup\">購読はこちら</a>",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記(メンバー限定)",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"tag": "h3",
+					"version": 1
+				},
+				{
+					"type": "paywall"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今週末は畝を立てたり堆肥を運んだりで筋肉痛でした。畑仕事はやったことが即時フィードバックされ、仕事した感が得られてなかなかよいです。マイクラの整地とか好きな人は多分ハマる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"url": "https://twitter.com/mtane0412/status/1657224487736340480",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">堆肥ぶち込みマン <a href=\"https://t.co/3c1Ttl1Jqi\">pic.twitter.com/3c1Ttl1Jqi</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1657224487736340480?ref_src=twsrc%5Etfw\">May 13, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1657224487736340480",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"width": 550,
+						"height": null,
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0",
+						"tweet_data": {
+							"text": "堆肥ぶち込みマン https://t.co/3c1Ttl1Jqi",
+							"possibly_sensitive": false,
+							"author_id": "1215234889",
+							"attachments": {
+								"media_keys": [
+									"3_1657224482317295617"
+								]
+							},
+							"created_at": "2023-05-13T03:21:22.000Z",
+							"reply_settings": "everyone",
+							"id": "1657224487736340480",
+							"lang": "ja",
+							"edit_history_tweet_ids": [
+								"1657224487736340480"
+							],
+							"conversation_id": "1657224487736340480",
+							"entities": {
+								"urls": [
+									{
+										"start": 9,
+										"end": 32,
+										"url": "https://t.co/3c1Ttl1Jqi",
+										"expanded_url": "https://twitter.com/mtane0412/status/1657224487736340480/photo/1",
+										"display_url": "pic.twitter.com/3c1Ttl1Jqi",
+										"media_key": "3_1657224482317295617"
+									}
+								]
+							},
+							"public_metrics": {
+								"retweet_count": 0,
+								"reply_count": 2,
+								"like_count": 23,
+								"quote_count": 0,
+								"impression_count": 418
+							},
+							"includes": {
+								"media": [
+									{
+										"url": "https://pbs.twimg.com/media/Fv-k4uWaYAE_SS7.jpg",
+										"height": 2048,
+										"media_key": "3_1657224482317295617",
+										"type": "photo",
+										"width": 1536
+									}
+								],
+								"users": [
+									{
+										"entities": {
+											"url": {
+												"urls": [
+													{
+														"start": 0,
+														"end": 23,
+														"url": "https://t.co/cmYHXcA3ct",
+														"expanded_url": "https://mtane0412.github.io/",
+														"display_url": "mtane0412.github.io"
+													}
+												]
+											},
+											"description": {
+												"urls": [
+													{
+														"start": 136,
+														"end": 159,
+														"url": "https://t.co/8EoyRS3cW8",
+														"expanded_url": "http://scrapbox.io/mtane0412/",
+														"display_url": "scrapbox.io/mtane0412/"
+													}
+												],
+												"mentions": [
+													{
+														"start": 85,
+														"end": 97,
+														"username": "cocorinn007"
+													},
+													{
+														"start": 111,
+														"end": 125,
+														"username": "doctor_inoran"
+													}
+												]
+											}
+										},
+										"profile_image_url": "https://pbs.twimg.com/profile_images/1551144894642630657/Eu_xE6pZ_normal.jpg",
+										"username": "mtane0412",
+										"url": "https://t.co/cmYHXcA3ct",
+										"public_metrics": {
+											"followers_count": 1094,
+											"following_count": 1595,
+											"tweet_count": 40566,
+											"listed_count": 27
+										},
+										"protected": false,
+										"verified": true,
+										"location": "Japan",
+										"pinned_tweet_id": "1639970652378759169",
+										"id": "1215234889",
+										"created_at": "2013-02-24T11:28:02.000Z",
+										"description": "最近はTwitchで配信している種ドラゴンです / たまに開発(Nodejs, Javascript) / 放送大学 (心理) / 英語のお勉強中\nアイコンはここりん君 @cocorinn007\nキャラデザはイノラン博士 @doctor_inoran\nScrapbox: https://t.co/8EoyRS3cW8",
+										"name": "たねのぶ"
+									}
+								]
+							}
+						}
+					},
+					"embedType": "twitter"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Pogostuckの方は全モードで開発者のスコアを抜くというのをチャレンジ中ですが、いよいよ大変なやつをやっつけたので、残り1つで終わりそうです。ノーミスなら余裕でいけるはずですが、ノーミスにするのがむずい。この辺りの集中力とかワーキングメモリとか確率の話とかもいつかまとめたいところ。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"url": "https://twitter.com/mtane0412/status/1657570119676231680",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">やっとルートbullyできた・・・！！あとはMap2のみ！ <a href=\"https://t.co/7vXqo6wzi2\">pic.twitter.com/7vXqo6wzi2</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1657570119676231680?ref_src=twsrc%5Etfw\">May 14, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1657570119676231680",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"width": 550,
+						"height": null,
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0",
+						"tweet_data": {
+							"possibly_sensitive": false,
+							"edit_history_tweet_ids": [
+								"1657570119676231680"
+							],
+							"text": "やっとルートbullyできた・・・！！あとはMap2のみ！ https://t.co/7vXqo6wzi2",
+							"attachments": {
+								"media_keys": [
+									"3_1657569992613969922",
+									"3_1657570015502290944"
+								]
+							},
+							"public_metrics": {
+								"retweet_count": 0,
+								"reply_count": 0,
+								"like_count": 9,
+								"quote_count": 0,
+								"impression_count": 251
+							},
+							"created_at": "2023-05-14T02:14:47.000Z",
+							"reply_settings": "everyone",
+							"context_annotations": [
+								{
+									"domain": {
+										"id": "46",
+										"name": "Business Taxonomy",
+										"description": "Categories within Brand Verticals that narrow down the scope of Brands"
+									},
+									"entity": {
+										"id": "1557696940178935808",
+										"name": "Gaming Business",
+										"description": "Brands, companies, advertisers and every non-person handle with the profit intent related to offline and online games such as gaming consoles, tabletop games, video game publishers"
+									}
+								}
+							],
+							"id": "1657570119676231680",
+							"entities": {
+								"urls": [
+									{
+										"start": 30,
+										"end": 53,
+										"url": "https://t.co/7vXqo6wzi2",
+										"expanded_url": "https://twitter.com/mtane0412/status/1657570119676231680/photo/1",
+										"display_url": "pic.twitter.com/7vXqo6wzi2",
+										"media_key": "3_1657569992613969922"
+									},
+									{
+										"start": 30,
+										"end": 53,
+										"url": "https://t.co/7vXqo6wzi2",
+										"expanded_url": "https://twitter.com/mtane0412/status/1657570119676231680/photo/1",
+										"display_url": "pic.twitter.com/7vXqo6wzi2",
+										"media_key": "3_1657570015502290944"
+									}
+								]
+							},
+							"conversation_id": "1657570119676231680",
+							"lang": "ja",
+							"author_id": "1215234889",
+							"includes": {
+								"media": [
+									{
+										"height": 1080,
+										"width": 2560,
+										"type": "photo",
+										"url": "https://pbs.twimg.com/media/FwDfIEgaQAID0fF.jpg",
+										"media_key": "3_1657569992613969922"
+									},
+									{
+										"height": 1081,
+										"width": 2561,
+										"type": "photo",
+										"url": "https://pbs.twimg.com/media/FwDfJZxaUAAq3_7.jpg",
+										"media_key": "3_1657570015502290944"
+									}
+								],
+								"users": [
+									{
+										"protected": false,
+										"entities": {
+											"url": {
+												"urls": [
+													{
+														"start": 0,
+														"end": 23,
+														"url": "https://t.co/cmYHXcA3ct",
+														"expanded_url": "https://mtane0412.github.io/",
+														"display_url": "mtane0412.github.io"
+													}
+												]
+											},
+											"description": {
+												"urls": [
+													{
+														"start": 136,
+														"end": 159,
+														"url": "https://t.co/8EoyRS3cW8",
+														"expanded_url": "http://scrapbox.io/mtane0412/",
+														"display_url": "scrapbox.io/mtane0412/"
+													}
+												],
+												"mentions": [
+													{
+														"start": 85,
+														"end": 97,
+														"username": "cocorinn007"
+													},
+													{
+														"start": 111,
+														"end": 125,
+														"username": "doctor_inoran"
+													}
+												]
+											}
+										},
+										"name": "たねのぶ",
+										"url": "https://t.co/cmYHXcA3ct",
+										"location": "Japan",
+										"username": "mtane0412",
+										"profile_image_url": "https://pbs.twimg.com/profile_images/1551144894642630657/Eu_xE6pZ_normal.jpg",
+										"created_at": "2013-02-24T11:28:02.000Z",
+										"id": "1215234889",
+										"description": "最近はTwitchで配信している種ドラゴンです / たまに開発(Nodejs, Javascript) / 放送大学 (心理) / 英語のお勉強中\nアイコンはここりん君 @cocorinn007\nキャラデザはイノラン博士 @doctor_inoran\nScrapbox: https://t.co/8EoyRS3cW8",
+										"pinned_tweet_id": "1639970652378759169",
+										"verified": true,
+										"public_metrics": {
+											"followers_count": 1094,
+											"following_count": 1595,
+											"tweet_count": 40566,
+											"listed_count": 27
+										}
+									}
+								]
+							}
+						}
+					},
+					"embedType": "twitter"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "また来週〜！👋",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "追記: 誤字脱字修正、一部加筆。次から投稿前にChatGPTさんに校正してもらいます😇",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,381 @@
+{
+	"title": "今週の振り返り 2024 week8",
+	"slug": "2024-week8",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#week review",
+		"#Import 2025-03-18 13:46",
+		"#ref-2024-week7"
+	],
+	"excerpt": "ひじきを煮物にしたり、CAPCOM CUP Xを観戦したり実家の太さについて考えるなどしていました。",
+	"feature_image": "https://hanatane.net/content/images/2024/02/tanenobu_Charles_Darwin_at_home_Illustration_for_blog_header_im_11c756b4-ee68-48a3-93f4-2c56e4197f55.png",
+	"featured": false,
+	"published_at": "2024-02-25T23:00:41.000Z",
+	"updated_at": "2025-03-30T14:18:27.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "先週に引き続き今週も活動量低いです。春並みの気温だったのが一気に下がって雪も振りました。寒い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ひじきの煮物",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "先週もらった大量のひじき",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://hanatane.net/2024-week7/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で煮物に挑戦した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://pbs.twimg.com/media/GGsc2ZnbYAAYk1e?format=jpg&name=large",
+					"width": 2048,
+					"height": 1152,
+					"title": "",
+					"alt": "Image",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://pbs.twimg.com/media/GGsiRM3aIAAK1RZ?format=jpg&name=large",
+					"width": 2048,
+					"height": 1152,
+					"title": "",
+					"alt": "Image",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.sirogohan.com/recipe/hijiki/",
+					"metadata": {
+						"icon": "https://www.sirogohan.com/sp/common/img/apple-touch-icon.png",
+						"title": "ひじきの煮物のレシピ/作り方：白ごはん.com",
+						"description": "白ごはん.comの『ひじきの煮物の作り方』のレシピページです。惣菜の定番でもあるひじきの煮物、ごはんが進むような味付けで、美味しく作るためのコツをまとめています。ひじきは長ひじきでも芽ひじきでもどちらでもあるもので。写真付きで「ひじきの煮物」の作り方を詳しく紹介しています。",
+						"author": null,
+						"publisher": "白ごはん.com：おもてなしから基本まで いちばん丁寧な和食レシピサイト",
+						"thumbnail": "https://www.sirogohan.com/_files/recipe/images/hijiki/hijiki8455.JPG"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なんかひじきの原型がすごい残ってて合ってるのか不安だけどとりあえずうまい。煮物というより炒め物になってしまった感じ。好んで食べてなかったけど自分で料理するとなんでも美味しく思ってしまう。量が多いので冷凍した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "CAPCOM CUP X",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "時間帯的になかなか見れなかったけど",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "CAPCOM CUP X",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://sf.esports.capcom.com/ccx/jp/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を観戦。予選グループFが優勝候補が潰し合う地獄で一戦一戦が決勝戦で凄まじかった。ブランカとルーク使いだったMenaRDがガイル対策のJPを披露したのだけど、出した相手が同チーム同郷でJP対策に付き合ったCabaというのが心にくるものがあった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Street Fighter Leagueのワールドチャンピオンシップもちょうど目覚めたら最後の最後のりゅうせいvsMenaRDという場面で、Menaが勝利して優勝という場面だった。めちゃくちゃ惜しいのだけど最後に勝ちを通してくるMenaは本当に強いと感じるし、あの大舞台で優勝がかかった局面で世界最強を相手にしたりゅうせい選手も今後さらに強くなっていくのかなーと思うなどした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "実家の太さを世界に還元する",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/jiro6663/status/1759585530206150727",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">実家が太い人がその太さを世に還元する手段として芸術に資本を投下してるともいえます。太い人たちの資本投下がなければ生まれなかった芸術作品がたくさんあります。<a href=\"https://twitter.com/hashtag/querie_jiro6663?src=hash&amp;ref_src=twsrc%5Etfw\">#querie_jiro6663</a><a href=\"https://t.co/qFa5P8741K\">https://t.co/qFa5P8741K</a></p>&mdash; ジロウ (@jiro6663) <a href=\"https://twitter.com/jiro6663/status/1759585530206150727?ref_src=twsrc%5Etfw\">February 19, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://twitter.com/jiro6663/status/1759585530206150727",
+						"author_name": "ジロウ",
+						"author_url": "https://twitter.com/jiro6663",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">実家が太い人がその太さを世に還元する手段として芸術に資本を投下してるともいえます。太い人たちの資本投下がなければ生まれなかった芸術作品がたくさんあります。<a href=\"https://twitter.com/hashtag/querie_jiro6663?src=hash&amp;ref_src=twsrc%5Etfw\">#querie_jiro6663</a><a href=\"https://t.co/qFa5P8741K\">https://t.co/qFa5P8741K</a></p>&mdash; ジロウ (@jiro6663) <a href=\"https://twitter.com/jiro6663/status/1759585530206150727?ref_src=twsrc%5Etfw\">February 19, 2024</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「実家が太い」と表現するときは、社会的に成功した人のセルフサービングバイアスを揶揄するような意図がある。僕も面白がってたまに使ったりしてるし、本当に病んでてパブリック・エネミーであろうとしたときは害意をもって使ったことがあるかもしれないけど、最近そこまでこじれた見方をしていない(と自分で思い込んでいる)のは、実家の太さTier最上位のチャールズ・ダーウィンのおかげかもしれない。ダーウィンは尋常ではない実家の太さを何倍にもして人類に還元している。一時期生物学にどっぷりハマったおかげでこの感覚が身にしみているのだと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ポストを見て、そうか芸術もかーとなって、色々な太い実家から作り出された豊かさが巡り巡って自分まで来ているのかも知れないなーと思った。感謝です。それぞれが自分の実家の厚みに応じたものを還元できているかを考えると鬱になりそうなので誤魔化して生きていきましょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "TOKYO METRO CUPにエントリーした",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://tokyometro-cup.jp/",
+					"metadata": {
+						"icon": "https://tokyometro-cup.jp/img/favicon.ico",
+						"title": "TOKYO METRO CUP STREET FIGHTER 6",
+						"description": "本大会は、東京メトロが主催するStreet Fighter 6のeスポーツ大会で、学生部門１２８名、一般部門２５６名が参加するものです。予選はオンラインで開催し、決勝大会は豊洲の会場（JCG豊洲スタジオ）に選手を招待して実施します。また、決勝大会当日は大会の様子をLIVE配信し、白熱する選手の姿と有名ゲーム配信者等による実況解説をお楽しみいただけます。",
+						"author": "東京メトロ",
+						"publisher": "東京メトロ",
+						"thumbnail": "https://tokyometro-cup.jp/img/og-image.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "東京メトロがスト6の大会を開くので一般部門にエントリーしてみた。できるだけ多く戦えれば良いなーというのと、プロと当たると嬉しいなーという気持ちです。来週の日曜日！",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

@@ -1,0 +1,1746 @@
+{
+	"title": "スト6Act5振り返り",
+	"slug": "act5-reflection",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"Street Fighter 6",
+		"#Import 2025-03-18 13:46",
+		"#ref-8f2024"
+	],
+	"excerpt": "ストリートファイター6のAct5のRankマッチ振り返りです。Mケンで1800ステイ、色々課題がみえました。",
+	"feature_image": "https://hanatane.net/content/images/2024/11/GZdC9vDXAAILSyf-1.jpeg",
+	"featured": false,
+	"published_at": "2024-11-10T11:59:33.000Z",
+	"updated_at": "2025-03-30T14:14:38.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "もう1週間位経ってしまったのですが、恒例のストリートファイター6のActごとの振り返りです。MR目標の1900には到達できなかったものの、純粋な成長度合いでは前actよりもあったと思っています。裏を返せばそれだけでは勝てない段階になってきたということで、ここからの取り組み方を色々工夫してくる必要があると思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Act5全体",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Act4が1963戦に対して、1253戦であまりランクマできていなかった(もっとやってるもんだと思ってた…)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "メモを見るとたしかに本格的にランクマを開始したのが9/30だったので実質1ヶ月くらいしかやってない",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Act単位の成長度合いでいうとかなり出来たと思うが、MR的には1800台で安定することが難しく、1900タッチできず。1800には戻れるようになっていたので確実に成長はできていると思う",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "マックス1860くらい？",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "できることよりもできていない部分のほうが重要になってきたのかも",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ランクがそこそこ落ち着いてきた頃でも1700近辺でなかなか勝てずにスタックしてた期間があった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "リプレイでプレイヤー操作機能が実装されて振り返りしやすくなった",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "リーサル確認がしやすくなった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "初のオフ大会の",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "ハチエフにいった",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://hanatane.net/8f2024/"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ことでモチベ爆上がりした",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "成長ポイント",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "リーサルが見えているときにDゲージいっぱい走る癖ができた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "これがかなりでかい。今までで一番成長できたと感じる。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "ぶっちゃけリーサルが見えていなくてもとりあえず走ってるうちにリーサルが見え始めることが多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "キャンセルラッシュ時に立ち大P始動に切り替えるようになった。(なんでやってなかったんだろう)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "立ち大Pの強さに気づいた",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "ガード-2だが迅雷の択があるのでわりとブンブン振るだけで強い",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "マッチ数上位キャラ達に安定して勝てるようになってきた",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "道着キャラ苦手だったのが徐々に慣れてきている",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "豪鬼が低かったのが課題だったが5割なんとか超えた",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "キャミィ・エドは依然として超苦手意識があるがstatsでは勝率6割超えていた",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/11/image.png",
+					"width": 1196,
+					"height": 840,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "改善ポイント",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "投げ抜け癖がついてしまって相手にめちゃくちゃ狩られた",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "Act5で一番ダメージもらってそう",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "入力をきれいにする",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "OD昇竜がOD迅雷になることが多すぎる",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "連打癖で相手が連ガを選択したときにOD昇竜が漏れることが多い",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "基本動作の精度をあげる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "単純な重ねミス・コンボミスが多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "屈中Kヒット確認をサボらない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "立ち中Pにしているが、屈大P or 小Pにしたほうが期待値高い",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "小技始動のコンボ精度をあげる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "立ち小K→強昇竜までつなげたい",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ジャンプヒット時にキャンセルラッシュできていない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "走れてればリーサルの場面が多かった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "キャラ対知識",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "キンバリーのドロンが立ち小Pで両対応できることを知ってかなり楽になった",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "マノンに困ってたらリスナーさんから色々教えてもらってAct5全体では安定した",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "こんな感じで各キャラ知識の有無でしんどさがかなり変わるので座学もやっていきたい",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "細かい悪い癖を直す",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "中段でシミー間に合わないのに後ろ歩きしてしまう(ヒットしたのに投げられたりしてる",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 9
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "コントローラーの持ち方",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 9
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "インパクトが返せないのが際立った",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "パッドの利点はすべてのボタンに指をおけることらしいが、LRに関しては4つのボタンを左右の人指し指だけで操作している。中指を使うべきなのだろうが、なかなか安定しない。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "矯正を考えているがかなり長い道のりになりそう。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 3
+										},
+										{
+											"children": [
+												{
+													"children": [
+														{
+															"children": [
+																{
+																	"detail": 0,
+																	"format": 0,
+																	"mode": "normal",
+																	"style": "",
+																	"text": "それよりも奮迅L2とアシストR2を入れ替えるほうがいいかもしれない",
+																	"type": "extended-text",
+																	"version": 1
+																}
+															],
+															"direction": "ltr",
+															"format": "",
+															"indent": 2,
+															"type": "listitem",
+															"version": 1,
+															"value": 1
+														}
+													],
+													"direction": "ltr",
+													"format": "",
+													"indent": 0,
+													"type": "list",
+													"version": 1,
+													"listType": "bullet",
+													"start": 1,
+													"tag": "ul"
+												}
+											],
+											"direction": null,
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 4
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 10
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Act6に向けて",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "事前にリーサル判断を済ませるようにしたい",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "入力をきれいにする",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "座学解禁して色々整理したい",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "独立したCosenseで整理してもよい頃合いか",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "コントローラー設定見直し",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "インパクト返せるようにする",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "いろんなキャラをさわってみる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "これを書いている時点でザンギをマスターにしてみた。使う側に回ると色々しんどい点とかも見えてくる。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "スト6の友達をいっぱい作る",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "モチベや情報のチャンネル的に",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										},
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "ポゴスト6勢で最近交流しているがやりとりがかなり有益なことが多い",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 2
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "MR目標としては1900タッチを目指す",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "1800安定して戦えるようになればかなり強くなってると思う",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": "ltr",
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

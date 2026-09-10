@@ -1,0 +1,578 @@
+{
+	"title": "GTDの原典読んだ",
+	"slug": "read-gtd",
+	"status": "published",
+	"tags": [
+		"読んだ"
+	],
+	"excerpt": "タスク管理のGTDの原典を読みました。色々誤解していたポイントなど色々腑に落ちました。",
+	"feature_image": "https://hanatane.net/content/images/2026/01/generation-18459263-c8d1-447e-81bf-02aed4a21e71.png",
+	"featured": false,
+	"published_at": "2026-01-08T15:50:47.000Z",
+	"updated_at": "2026-01-13T08:34:29.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "原典を読もうと思ったきっかけ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "GTD(Getting Things Done)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://ja.wikipedia.org/wiki/Getting_Things_Done"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "はタスク管理の考え方の中でもかなりメジャーなもので、有名どころのタスク管理アプリがこの思想に沿って設計されている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あまりにも有名なので、ネット上にはGTDの解説や実例が無数にある。そのせいで自分も原典を読まないまま、「GTDっぽいこと」を断片的につまみ食いしてきた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その結果、最初はうまくいった気がするが、いつの間にか破綻して使わなくなる、ということを何度も繰り返していた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "よく入り浸っているコミュニティで、GTDにしてもポモドーロ・テクニックにしても、広く知られるようになった知的生産法は様々なバリアントが発生して、原典に書かれていないことも流布されているという話を見た。（例：",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ポモドーロテクニックの休憩は5分ではない",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://scrapbox.io/villagepump/%E3%83%9D%E3%83%A2%E3%83%89%E3%83%BC%E3%83%AD%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%E3%81%AE%E4%BC%91%E6%86%A9%E3%81%AF5%E5%88%86%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "）このようなこともあり、一度原典に触れて自分なりに咀嚼したほうがよいのだろうと感じていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "それでも面倒なのでなかなか手が伸びなかったのだが、2025年に新装版が新しく出たことを知ったので、これを機に読んでみることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0FQB574SS/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/61C-GXHr6gL._SY522_.jpg\"\n           alt=\"Amazon.co.jp: 新装版 はじめてのGTD ストレスフリーの整理術 eBook : デビッド・アレン, 田口 元: 本\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: 新装版 はじめてのGTD ストレスフリーの整理術 eBook : デビッド・アレン, 田口 元: 本\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: 新装版 はじめてのGTD ストレスフリーの整理術 eBook : デビッド・アレン, 田口 元: 本\n        </p>\n      </div>\n\n      \n      <div style=\"text-align: right;\">\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GTDを誤解していた2つのポイント",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "効率化ではなく「水のような心」が目的",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GTDの具体的な方法は、思いついたことを全て「インボックス」に入れ、定期的にレビューして「後でやる」「いつかやる」「連絡待ち」「カレンダー」に分けてインボックスを空にするというものだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分の最大の認識違いは、この分類が「効率化のための仕組み」だと思い込んでいたことだ。実際にはこの分類を行う整理のワークフローはとても厳格に定められている。例えばタスクを整理する段階で「2分以内に終えられるか？」という問いを考え、yesならばその場でタスクを終わらせてしまうなど。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "不明瞭な基準での分類を行ってしまうと、とにかく全てを書き出すというGTDの性質上、手をつけられていない大量のタスクが積み上がることになる。この状態になるととても苦痛を感じてしまう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しかし、GTDの究極の目的は、自分が様々なタスクを大量に抱えていても、不安を感じない「水のような心」に至ることだ。つまり、タスク処理の効率化は副産物であって本来の目的ではない。分類が曖昧なままだと、リストは「安心を生む装置」ではなく、「未処理の不安を可視化する装置」になってしまう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なぜ不安を感じないかというと、GTDを使うことによって脳が担っていた処理がGTDのリストに外部化されるから。自分の考えていることはGTDのリスト上に全て存在しており、自分の脳のリソースを使わなくてもGTDのリストに従えば自然に次にやるアクションが定まる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「状況」による分類が鍵だった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここで次のアクションが自ずと定まるのは、「後でやる」などの時間的な分類だけでなく、「状況」によるラベル付けが機能するからだ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "人がある一定の状態のまま、何の邪魔も入らずに作業に集中できるということはほとんどなく、たいてい1日のうちにコロコロ状況は変わってしまう。そうなると状況ごとにできることややるべきことも変わってしまうが、そのようなスイッチングコストを私たちの脳が支払っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "例えば、疲れて帰宅した夜に「重い思考が必要なタスク」がリストの上位にあると、それだけでリストを見るのが嫌になる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "しかし「@自宅」「@頭を使わない」といった状況で切られていれば、その時の自分にできることだけが自然に目に入る。GTDが見ているのは「いつやるか」ではなく、「今の自分に何ができるか」だ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GTDの思想を意識したタスク管理アプリのmacOSやiOS用の",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Things",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://culturedcode.com/things/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を最近また使い始めているが、状況による分類を意識して以前よりもうまく管理できるようになった。まだAreaやProjectの仕訳が甘い部分もあるが、使いながら改善できるだろう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/01/image-4.png",
+					"width": 1680,
+					"height": 938,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "まとめ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "有名なメソッドほど、二次情報だけで分かった気になりがちだ。だが原典を読むと、「なぜそれがそう設計されているのか」が見えてくる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "GTDは効率化の道具ではなく、不安を外部化するための思想だった。他にも引っかかりを感じているメソッドがいくつかあるので、今年は原典を当たる年にしてみようと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "html",
+					"version": 1,
+					"html": "<div class=\"amazon-link-card\" style=\"\n  max-width: 600px;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  display: flex;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  margin: 20px auto;\n\">\n  <a href=\"https://www.amazon.co.jp/dp/B0FQB574SS/ref=nosim?tag=mtane0412-22\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\"\n     style=\"text-decoration: none; color: inherit; display: flex; flex-direction: row;\">\n\n    <div style=\"flex: 0 0 180px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; padding: 16px;\">\n      <img src=\"https://m.media-amazon.com/images/I/61C-GXHr6gL._SY522_.jpg\"\n           alt=\"Amazon.co.jp: 新装版 はじめてのGTD ストレスフリーの整理術 eBook : デビッド・アレン, 田口 元: 本\"\n           style=\"max-width: 100%; max-height: 200px; object-fit: contain;\">\n    </div>\n\n    <div style=\"flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;\">\n      <div>\n        <div style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: 600; line-height: 1.4; color: #111;\">\n          Amazon.co.jp: 新装版 はじめてのGTD ストレスフリーの整理術 eBook : デビッド・アレン, 田口 元: 本\n        </div>\n        <p style=\"margin: 0 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;\">\n          Amazon.co.jp: 新装版 はじめてのGTD ストレスフリーの整理術 eBook : デビッド・アレン, 田口 元: 本\n        </p>\n      </div>\n\n      \n      <div style=\"text-align: right;\">\n        <span style=\"font-size: 12px; color: #0066c0; font-weight: 500;\">\n          Amazonで見る →\n        </span>\n      </div>\n      \n    </div>\n  </a>\n</div>\n\n<style>\n@media (max-width: 600px) {\n  .amazon-link-card a {\n    flex-direction: column !important;\n  }\n  .amazon-link-card a > div:first-child {\n    flex: 0 0 auto !important;\n    padding: 20px !important;\n  }\n}\n</style>",
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				},
+				{
+					"type": "call-to-action",
+					"version": 1,
+					"layout": "minimal",
+					"alignment": "center",
+					"textValue": "<p><span style=\"white-space: pre-wrap;\">Xでも情報発信しています。良かったらフォローしてください！</span></p>",
+					"showButton": true,
+					"showDividers": true,
+					"buttonText": "Follow on X",
+					"buttonUrl": "https://x.com/mtane0412",
+					"buttonColor": "#000000",
+					"buttonTextColor": "#ffffff",
+					"hasSponsorLabel": false,
+					"sponsorLabel": "<p><span style=\"white-space: pre-wrap;\">SPONSORED</span></p>",
+					"backgroundColor": "grey",
+					"linkColor": "text",
+					"imageUrl": "https://hanatane.net/content/images/2026/01/icon512.png",
+					"imageWidth": 512,
+					"imageHeight": 512,
+					"visibility": {
+						"web": {
+							"nonMember": true,
+							"memberSegment": "status:free,status:-free"
+						},
+						"email": {
+							"memberSegment": "status:free,status:-free"
+						}
+					}
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

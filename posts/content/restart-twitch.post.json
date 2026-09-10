@@ -1,0 +1,186 @@
+{
+	"title": "Twitchの配信を始めた",
+	"slug": "restart-twitch",
+	"status": "published",
+	"tags": [
+		"ゲームの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "最近またTwitchで配信はじめた話",
+	"feature_image": "https://hanatane.net/content/images/2024/03/tanenobu_Twitch_Illustration_for_blog_header_image_soft_touch_c_78cccae4-ac71-4811-bf7d-997bba0e7713.png",
+	"featured": false,
+	"published_at": "2024-03-24T11:59:10.000Z",
+	"updated_at": "2024-03-24T11:59:10.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6の大会に出てやる気が出てきたので、最近はスト6に時間を使うようになった。おかげでMR1650タッチくらいまで伸びて、その後1500~1600を行ったり来たりという感じに。1500維持の人たち相当強いな〜と思いつつ、なんとか食らいついている状況。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "だいぶ前からドライブゲージ吐き放題で無理やり押しつぶしていたのが通用していなかったので、最近は徐々にドライブゲージにも注意を割いている。あと単純にコンボの火力をあげたり…。その辺が作用してるのかよくわからないけど、Act1のときよりは勝てている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その流れで1年くらい配信してなかった",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Twitch",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.twitch.tv/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で配信を再開した。「なんで配信しないの？」とかも聞かれたりしたのだけど、「配信しなきゃ」から一度降りて「配信したい」になったときに配信ボタンを押そうとすると、案外配信しなくても大丈夫だったという感じが近いかもしれない。配信してると色々考えないといけないところが多かったり、配信していると他の人の配信が見れなかったりと、理由を挙げればいくらでも挙げられるのだけど。うっすら「配信したい」と思っても、実際には配信開始を押すのは重くて、例えばOBSのアップデートだったりPC環境の変化とかがあって色々整理が必要だったのもある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6をそこそこやり込んでいくなら、配信するのはいい選択肢だな〜と思ったのでとりあえずOBSのボタンを押すことにした。前の設定が残ってたので設定をすべて消して、少しずつ戻すことにした。前の配信設定戻そうとしたら多分再開できなかったなと思う。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "配信しててよいのはアーカイブで自分のプレイが通しで見られるのが最高で、スト6上でリプレイだと一つ一つ選択して見ないといけないので数をそんなに見れない気がする。アーカイブだとコマンド入力とかの情報は欠損しているのだけど、そのときの自分の感情状態があるのでこっちのほうが価値が高いように思える。自分がイラついてるときは眼の前の結果を十分に理解できていないときなので、そこを掘っていくとどんどん学びが出てくる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitchは猛者がウロウロしているので色々吸収できるとよいなーと思いました。大体夜に配信してるのでよかったら来て気軽にコメントください。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.twitch.tv/tanenob",
+					"metadata": {
+						"icon": "https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png",
+						"title": "たねのぶ - Twitch",
+						"description": "スト6やっていきます",
+						"author": "",
+						"publisher": "Twitch",
+						"thumbnail": "https://static-cdn.jtvnw.net/jtv_user_pictures/56e1fb47-8df7-4ed8-b691-2f7f5850c96b-profile_image-300x300.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

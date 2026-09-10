@@ -1,0 +1,643 @@
+{
+	"title": "2023年の振り返り",
+	"slug": "reflection-2023",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46",
+		"#ref-start-blogging-in-2023",
+		"#ref-tanehouse-2023"
+	],
+	"excerpt": "2023年の振り返り: ブログ開始、家の購入などを振り返りました。",
+	"feature_image": "https://hanatane.net/content/images/2023/12/rabbit2.png",
+	"featured": false,
+	"published_at": "2023-12-31T14:37:22.000Z",
+	"updated_at": "2023-12-31T14:37:22.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ドッタンバッタン過ごしてたら気づいたら年の瀬ですね。色々と書きたいものがありつつ書けず、ギリギリに振り返り記事を投稿して今年を締めたいと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログを書き始めた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h1"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2023年3月にこのブログを始めてみました。何かしらアウトプットしていかないとなーという気持ちがあって、動画や配信やPodcastの時代にあってあえて文字での発信にもう一度トライしてみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/start-blogging-in-2023/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "2023年だけどブログを始めます",
+						"description": "ブログをもう一度やる理由とかブログの内容について",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGNhdHxlbnwwfHx8fDE2Nzk4MTk1Njk&ixlib=rb-4.0.3&q=80&w=2000content/images/size/w1200"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "良かった点: サポートしてくれる人やリアクションでモチベになった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以前ブログを書いていたときも感じますが、書いてると思いがけずリアクションをもらったりすることもあって楽しいです。今も日常生活の中で学びになることはScrapboxにメモをしてますが、「これは誰かに伝えると面白いかもしれない」というフレームも新たに加わった1年でした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "反省点: 思うように更新できなかった",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ニュースレター機能のあるGhostを選択して毎週更新を目標にしていたのですが、途中から思うように更新ができなくなったのが反省点です。これはニュースレターということで、更新が購読者にメール通知される以上、それなりにちゃんした文章を書かないといけないなという意識で発信の敷居があがってしまったのが原因かなと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "機能的にはメール通知せず、通常のブログのように更新という方法もあったのですが、サブスクライブしていただいている方へのrewardをどうすべきかというのも悩むポイントでした。限定公開記事は最初プライベートなものをと考えてみたものの、基本的にプライベートを隠してるわけではないので、あまり限定感がありません。有料の限定記事というと価値の高い情報を書くわけですが、価値の高い情報ほどみんなに見てほしいもので、そこもどこで線引するのかという部分で思考がブロックされていました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "記事ネタを考えてはメモに加えていったものの、実際に記事化しようという頃にはその熱が下がって書けないというのをかなり繰り返していました。鉄は熱いうちに打てだなーと痛感しています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "来年は更新体制にもうひと工夫入れてみます",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2024年はもっと気軽に更新できるように以下のような体制で更新していこうと思います。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "思いついたら記事をポストする(購読者への通知なし)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "週次レビュー記事を購読者に向けて毎週配信",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "ポストした記事や今週の出来事とか気になったものを簡単にまとめたいと思います",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": null,
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": null,
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "有料購読者にはブログ以外の部分でのrewardを設定",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"children": [
+										{
+											"children": [
+												{
+													"detail": 0,
+													"format": 0,
+													"mode": "normal",
+													"style": "",
+													"text": "Discordのサブスクライバーチャンネルのアクセス権とか抽選でなんか送ったりとか色々考え中です また、アウトプットの敷居を下げるということでPodcastで音声だとどうなるのかも実験してみたいところです。",
+													"type": "extended-text",
+													"version": 1
+												}
+											],
+											"direction": null,
+											"format": "",
+											"indent": 1,
+											"type": "listitem",
+											"version": 1,
+											"value": 1
+										}
+									],
+									"direction": null,
+									"format": "",
+									"indent": 0,
+									"type": "list",
+									"version": 1,
+									"listType": "bullet",
+									"start": 1,
+									"tag": "ul"
+								}
+							],
+							"direction": null,
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家を買った",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h1"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "こちらも3月頃にライトニングトークで少し喋ったのが発端です。 ",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://docs.google.com/presentation/d/191eEgT5j9fzXgpIxUEJMnaqPq4YsxQrtkrxne24P_Jg/edit?usp=sharing",
+					"metadata": {
+						"icon": "https://ssl.gstatic.com/docs/presentations/images/favicon-2023q4.ico",
+						"title": "家を買いたい",
+						"description": "家買いたい 知の縁側第5回 種延 真之",
+						"author": null,
+						"publisher": "Google Docs",
+						"thumbnail": "https://lh7-us.googleusercontent.com/docs/AHkbwyI-RRB0DYSI0B6KqO5hUJIGRuDrcsKymZp4odtj8MCPDYt8IKhD0pqkp7lRQoGoYwu0ahjny_ZkaWH8-QGX0lct4UZlSN4zUkrJ7liI2FTuig=w1200-h630-p"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "路上生活に移行したときもそうなのですが、脳内シミュレーションで「いける！」と思ったら行動しちゃうのが自分なので、Facebookグループを立ち上げて集合知をお借りしつつ、手続き完了・移住が6月、完全に引っ越しが完了したのが8月で、そこからちびちびと手直ししながらシェアハウス化に向けて準備中です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/tanehouse-2023/",
+					"metadata": {
+						"icon": "https://www.hanatane.net/content/images/size/w256h256/2023/03/icon512.png",
+						"title": "種延、家を買った2023",
+						"description": "種延、家を買いました！！！",
+						"author": "Masayuki Tanenobu",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://www.hanatane.net/content/images/size/w1200/2023/08/IMG_4063-1.jpeg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "良かった点: 新しいライフワークが増えた",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "築60年の中古住宅なので色々と手直しが必要な部分が住んでると見えてきます。基本的にDIYで解決していこうと思っているので、少しずつ家の構造であったり道具であったり方法の解像度が上がってきています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ハードウェア面も面白いですが、スマートホーム化も合わせて進めており、これは現実空間に開発環境を作っているような感覚で面白いです。Switchbot等の既製品のソリューションを活用しつつ、電子工作の技術も上げていきたいです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "反省点: シェアハウス年内オープンできず",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "年内にオープンできたらいいなーと思っていたシェアハウスですが結局できませんでした。なまじ一人で生活できてしまっているので、シェアハウス化に向けた作業は遅々として進んでいない状況です。一人だと張りがないので、さっさと人を入れてしまったほうが良いのだろうなと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "来年はシェアハウスオープンしたい",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "来年は不完全でもいいので住民募集を開始してシェアハウスを作るサイクルを回していきたいです。また、家関連でいうと電気工事士の資格はなんとしても取りたいなと思っています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "2024年もよろしくお願いします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h1"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "その他、放送大学を卒業したり、格闘ゲームを始めたりと、色々とチャレンジや変化の多い1年でもありました。来年もよろしくお願いします。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": null,
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": null,
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

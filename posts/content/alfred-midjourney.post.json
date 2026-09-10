@@ -1,0 +1,481 @@
+{
+	"title": "AlfredからMidjourneyで画像生成する",
+	"slug": "alfred-midjourney",
+	"status": "published",
+	"tags": [
+		"技術の話",
+		"Alfred",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "AlfredからMidjourneyのNode.jsクライアントを利用してDiscord上で画像生成ができるようにしました",
+	"feature_image": "https://hanatane.net/content/images/2024/01/tanenobu_4407456978_a_man_who_wears_a_bowler_hat_with_a_purple__8a269a16-a6eb-4e2e-9a94-3303708f103f.png",
+	"featured": false,
+	"published_at": "2024-01-23T14:00:20.000Z",
+	"updated_at": "2024-01-31T02:29:28.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ここ最近のブログ記事のfeature imageは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Midjourney",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.midjourney.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "で出力してみている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostは",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Unsplash",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://unsplash.com/ja"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "がネイティブ統合されてるので高品質な写真を選ぶことができるのだけど色々と困る部分も増えてきた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "写真のみ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "割と被ってきてGhost感のようなものが出てくる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Unsplashは解像度が統一されているわけではないのでバラバラになる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "写真も微妙にテイストの統一が難しい",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "記事のテーマにあった画像を探すのに時間がかかる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "publishの障壁を少しでも減らしたいという想いがあり、その点でUnsplashが統合されているのは魅力の一つだったのだが、それでもまだ減らしたいという感じ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "一方Midjourneyは解像度指定が可能であるし、promptを研究していけばある程度絵柄も統一できそうなのでしばらく模索している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なかなかいい感じだが、記事を書いている最中にDiscordを起動→自分のDiscordサーバーを選択→midjourneyチャンネルを選択→promptを入力(細かいパラメーター)という手順も煩雑に感じてきた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで、",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Alfred",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://www.alfredapp.com/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "からMidjourneyのpromptを入力できるようにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "MidjourneyにはAPIが公開されていないので、有志が作っているNode.jsクライアントを利用する。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://github.com/erictik/midjourney-api",
+					"metadata": {
+						"icon": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
+						"title": "GitHub - erictik/midjourney-api: MidJourney client. Unofficial Node.js client",
+						"description": "MidJourney client. Unofficial Node.js client. Contribute to erictik/midjourney-api development by creating an account on GitHub.",
+						"author": "erictik",
+						"publisher": "GitHub",
+						"thumbnail": "https://opengraph.githubassets.com/548f30a732387d755c44d80b62e01bd97a37c4ceef734f993ab519bed63a2aef/erictik/midjourney-api"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "JavaScriptでMidjourneyにpromptを渡すことができるので、あとはこれをAlfredからシェルスクリプトで実行してしまえばよい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://i.gyazo.com/e6928e7fa311e44e378bf8002222492c.png",
+					"width": 840,
+					"height": 430,
+					"title": "",
+					"alt": "Alfred Workflowの図",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Midjourneyの出力には結構時間がかかるので、実行時に生成開始のプッシュ通知、終了時にDiscordのMidjourneyチャンネルを開いた上でプッシュ通知を飛ばすようにしてみた。(下では録画中なので通知が見えていない & 長いので中間カットしてある)",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "video",
+					"version": 1,
+					"src": "https://hanatane.net/content/media/2024/01/Untitled-1.mp4",
+					"caption": "",
+					"fileName": "Untitled.mp4",
+					"mimeType": "video/mp4",
+					"width": 1454,
+					"height": 946,
+					"duration": 15.638583,
+					"thumbnailSrc": "https://hanatane.net/content/media/2024/01/Untitled-1_thumb.jpg",
+					"customThumbnailSrc": "",
+					"thumbnailWidth": 1454,
+					"thumbnailHeight": 946,
+					"cardWidth": "regular",
+					"loop": false
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "すごい雑実装だけどやりたいことができていて今のところいい感じ。画面を移して所定の手順を踏むという手続きをスキップできているので脳の負荷が減っているのを感じる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "参考までにシェルスクリプトとTypeScriptのコードを置いておく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "#!/bin/bash\n\n# 引数を変数に格納\nquery=$1\n\n# 指定されたディレクトリに移動\ncd /Users/hoge/fuga/midjourney-client/\n\n# npx tsx cli.ts を引数付きで実行\nnpx tsx cli.ts $query",
+					"language": "bash",
+					"caption": "<p><span style=\"white-space: pre-wrap;\">Run Script</span></p>"
+				},
+				{
+					"type": "codeblock",
+					"version": 1,
+					"code": "import \"dotenv/config\";\nimport { Midjourney } from './src';\n/**\n *\n * a simple example of how to use the imagine command\n * ```\n * npx tsx example/imagine.ts\n * ```\n */\nasync function main() {\n  const client = new Midjourney({\n    ServerId: <string>process.env.SERVER_ID,\n    ChannelId: <string>process.env.CHANNEL_ID,\n    SalaiToken: <string>process.env.SALAI_TOKEN,\n    Debug: true,\n    Ws: false,\n  });\n\n  // シェルスクリプトの引数を取得\n  const args = process.argv.slice(2);\n  // 引数を文字列に変換\n  const prompt = args.join(\" \");\n\n  console.log('prompt: ' + prompt);\n\n\n  const msg = await client.Imagine(\n  // とりあえずハードコードしちゃっている。\n    `${prompt}, Illustration for blog header image, soft touch, colorful, simple backgrounds, --ar 16:9 --v 6.0`,\n    (uri: string, progress: string) => {\n      console.log(\"loading\", uri, \"progress\", progress);\n    }\n  );\n  console.log(JSON.stringify(msg));\n}\nmain().catch((err) => {\n  console.error(err);\n  process.exit(1);\n});\n",
+					"language": "typescript",
+					"caption": "<p><span style=\"white-space: pre-wrap;\">cli.ts</span></p>"
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

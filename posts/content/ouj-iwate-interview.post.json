@@ -1,0 +1,160 @@
+{
+	"title": "放送大学の卒業生インタビューを受けた",
+	"slug": "ouj-iwate-interview",
+	"status": "published",
+	"tags": [
+		"たねのぶの話"
+	],
+	"excerpt": "放送大学の卒業生インタビュー",
+	"feature_image": "https://hanatane.net/content/images/2025/03/53ddc6ca2a52e80306addc128d592ed9.jpg",
+	"featured": false,
+	"published_at": "2025-03-25T10:00:08.000Z",
+	"updated_at": "2025-03-25T10:00:08.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "1月くらいに受けた放送大学岩手学習センターの卒業生インタビューが公開された。放送大学は10年くらいかけてだらだらと勉強しながら心理を卒業して、現在は情報コースに再入学している。インタビューを受けに行ったとき、中間を出し忘れて期末を受けられなくなっていたので非常に気まずかった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=JLKuFZH8sKw",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/JLKuFZH8sKw?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"《File-7》放送大学岩手学習センター学生インタビュー\"></iframe>",
+					"metadata": {
+						"title": "《File-7》放送大学岩手学習センター学生インタビュー",
+						"author_name": "放送大学岩手学習センター",
+						"author_url": "https://www.youtube.com/@%E6%94%BE%E9%80%81%E5%A4%A7%E5%AD%A6%E5%B2%A9%E6%89%8B%E5%AD%A6%E7%BF%92%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/JLKuFZH8sKw/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/JLKuFZH8sKw?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"《File-7》放送大学岩手学習センター学生インタビュー\"></iframe>"
+					},
+					"caption": "<p dir=\"ltr\"><span style=\"white-space: pre-wrap;\">a</span></p>"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ポゴパーカーを着て何らかの媒体に出るのが人生の目標のだったのであとは余生をゆっくり過ごすだけとなった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://suzuri.jp/nokirg/12348677/hoodie/s/black",
+					"embedType": "rich",
+					"html": "<iframe height=\"162\" width=\"375\" src=\"https://suzuri.jp/nokirg/12348677/hoodie/s/black/embed\"></iframe>",
+					"metadata": {
+						"type": "rich",
+						"version": "1.0",
+						"html": "<iframe height=\"162\" width=\"375\" src=\"https://suzuri.jp/nokirg/12348677/hoodie/s/black/embed\"></iframe>",
+						"title": "ワタシハ ポゴ チョット デキル。 パーカー",
+						"width": 375,
+						"height": 162,
+						"author_name": "nokirg",
+						"author_url": "https://suzuri.jp/nokirg",
+						"provider_name": "SUZURI",
+						"provider_url": "https://suzuri.jp",
+						"thumbnail_url": "https://d1q9av5b648rmv.cloudfront.net/v3/500x500/hoodie/s/black/front/12348677/1665489555-3753x1551.png.0.7833-0.0117+0.1214.jpg?h=615ab2e40d3a727b31dcde30cadeec30c04c3d62&printed=true",
+						"thumbnail_width": 500,
+						"thumbnail_height": 500
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "コスパ・タイパみたいな言葉をあえて使ったのだけど、自分を言語モデルとしたときの学習効率を考えると大学が最短かなと思う。大学は学費が壁になっているのだけど、放送大学が質の高い授業をあの学費で出しているのは大きな意味があると感じている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "じゃあ目的意識がはっきりした勤勉な学生かというと実態は麻薬中毒者に近い。新しい知識が統合されるときの得も言われぬ快感がある。実際のところコスパとかタイパとか短絡的なものの見方はなんか違う気もしているのだけど、結局大学でキメている方が色んなことの近道になっているなとは感じている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "インタビューを見返して、色んなことを考えながらそれっぽいことを喋ろうとするとすごいくねくねする自分を見て気持ち悪いなと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

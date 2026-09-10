@@ -5,6 +5,7 @@
   "description": "hanatane.net の記事を Markdown（frontmatter 付き）で管理し、ghst 経由で Ghost に反映する",
   "scripts": {
     "push": "tsx scripts/push.ts",
+    "pull": "tsx scripts/pull.ts",
     "test": "vitest run",
     "lint": "biome check",
     "format": "biome format --write",

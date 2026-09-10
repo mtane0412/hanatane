@@ -1,0 +1,441 @@
+{
+	"title": "暑いし色々抱えてるし",
+	"slug": "i-hate-multitask",
+	"status": "published",
+	"tags": [
+		"たねのぶの話",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "7月はなんか忙しくなってるという話",
+	"feature_image": "https://images.unsplash.com/photo-1491929007750-dce8ba76e610?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxzdW1tZXJ8ZW58MHx8fHwxNjg4OTQyNzM1fDA&ixlib=rb-4.0.3&q=80&w=2000",
+	"featured": false,
+	"published_at": "2023-07-09T22:46:52.000Z",
+	"updated_at": "2023-07-10T00:33:28.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "気づけば7月。すっかり暑い季節で、今は冷房施設のないところで寝ているので油断すると熱中症になりそうだったり、なんだかんだ海風が入ってきて体冷えてしまったりと、体調管理がなかなか難しい。今年は体感なんだか暑い気がする。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「忙しい」とか「時間がない」っていうのは自分の時間管理への注意だったり解像度が低いのだと思うけど、なんだか最近忙しい。主に3つ仕事をやっていてそれぞれで複数プロジェクトあったり、放送大学のテスト準備だったり、退去&引っ越し準備だったり。家に関しては引っ越し完了でまとめて発表しようと思っていたものの、引っ越しまでがなかなか遠い。草を刈ったり、知り合いから家具とかをもらいにまわったりして、日曜日もなんだかんだ稼働している。加えて、スト6に知的リソースをかなり投下している。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1675310483925241856",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">草との戦い😥 <a href=\"https://t.co/xmJIw1tZ7s\">pic.twitter.com/xmJIw1tZ7s</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1675310483925241856?ref_src=twsrc%5Etfw\">July 2, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1675310483925241856",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">草との戦い😥 <a href=\"https://t.co/xmJIw1tZ7s\">pic.twitter.com/xmJIw1tZ7s</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1675310483925241856?ref_src=twsrc%5Etfw\">July 2, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://twitter.com/mtane0412/status/1677941492600696832",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">もらった布団を搬送して少し草刈り。蚊にめったざしにされたので泣きながら撤退 <a href=\"https://t.co/voDftbQe1X\">pic.twitter.com/voDftbQe1X</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1677941492600696832?ref_src=twsrc%5Etfw\">July 9, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"metadata": {
+						"url": "https://twitter.com/mtane0412/status/1677941492600696832",
+						"author_name": "たねのぶ",
+						"author_url": "https://twitter.com/mtane0412",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">もらった布団を搬送して少し草刈り。蚊にめったざしにされたので泣きながら撤退 <a href=\"https://t.co/voDftbQe1X\">pic.twitter.com/voDftbQe1X</a></p>&mdash; たねのぶ (@mtane0412) <a href=\"https://twitter.com/mtane0412/status/1677941492600696832?ref_src=twsrc%5Etfw\">July 9, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "Twitter",
+						"provider_url": "https://twitter.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「マルチタスク脳」のような結構根強く信じられている神話があるけど、人間の脳は人間が行うマルチタスクを効率よく処理できるようにはなっていない。どれもシングルタスクを逐次的に処理しているだけだし、マルチタスクによる弊害は産業分野の関心の集まるところなので知見も蓄積している。2つの課題を同時に与えると、1つの課題を与えた場合よりもスピードも精度も下がってしまうのは直感的にわかるだろうし、たとえば仕事を順々に切り替えていってもしっかりと能率は落ちている。切り替わりのたびに実はきっちりスイッチングコストを支払っている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.infoq.com/jp/articles/multitasking-problems/",
+					"metadata": {
+						"icon": "https://cdn.infoq.com/statics_s1_20230627075357/apple-touch-icon.png",
+						"title": "マルチタスクで仕事は遅くなる",
+						"description": "個人がマルチタスクで仕事をした場合、非効率で遅くなることは今ではよく知られている。アジャイル/スクラムチームであれば、実行しなければならないプロジェクトの数が鍵となる。アジャイルはチームは一度に一つのチームに従事するべきで、そうでなければ破たんする、と示している。Roger Browns氏はなぜこのようなことが起こるのか、掘り下げて解説している。",
+						"author": "Roger Brown",
+						"publisher": "InfoQ",
+						"thumbnail": "https://res.infoq.com/articles/multitasking-problems/ja/smallimage/JugglingBalls+-+small.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とはいえ現実には複数の物事を抱えるのが常なので、なんとかこれに対処していかなくちゃいけない。人間は大変ですね。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "対処法の一つは上のリンク先でも述べられているように範囲を狭めるというものだ。なんとか工夫して必要になるときまで脳が情報を持たないようにする。具体的にはタスクを分解して優先順位付けして、優先度の低いものを物理的に目に見えないようにしたりとか、そもそもやらないようにするといったことが必要になる。要は「やらないこと」や「今やらないこと」の洗い出しが大本命となっている。例えばAsanaでは今日やること以外のタスクを非表示にしたりするといったことができる。脳に必要な情報だけをジャストインタイムで渡す。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "とはいえ現実には(2回目)、すべてが上手にマネジメントされるわけでもなく、やっぱりどうしてもマルチタスクを抱えてしまう場面が多くなる。元がニートなので理想通りに事が進まないと凄まじいストレスを感じてしまうのだが、最近は割り込みタスクが生じた時点で「じゃあ60点くらい出せればいいかな」といったマインドがようやく身についてきた。これは90以上を狙いたい本丸のために認知資源を残すのに決定的に重要な気がする。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "複数の仕事を抱えざるを得ない状況では、非同期的に処理していくのが大事になってくるんだと思うのだけど、ここで前述のマネジメントの視点を持っているかいないか、デジタルツールにアクセスできるかできないかでかなりの差ができてしまっているのを感じる。2023年の今でも仕事上のコミュニケーション手段がリアルタイムの発話しかないという人がいるし、何ならそれが一番効率がいいと信じているフシがある。これは単純に認知資源という概念を知らなかったりするだけじゃなくて、タスクを抱えている状態はストレスで、一刻も早くタスク(ストレス)を自分から他人に移したいという動機づけがされると考えるとすごく理解できる。同期的な働き方で仕事を高速に処理していこうとすると自然とそうなるんだろうなと最近感じている。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ということで、",
+							"type": "text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ニトリが社員のほとんどにITパスポートを取得させる",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://www.nikkei.com/article/DGXZQOUC208S50Q3A420C2000000/"
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "動き",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": null,
+							"target": null,
+							"title": null,
+							"url": "https://www.nikkei.com/article/DGXZQOUC208S50Q3A420C2000000/"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "はとてもいいなと思った。底に合わせてシステムが作られている以上、底上げするしかないし、社内デジタル介護が減るだけでもかなり助かりそう。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで7月になんかやたら色々やることが増えてつらいというお話でした😭",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "サポートのお願い",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>感想</strong></b><span>: この記事の感想などありましたらぜひSNSなどでお願いします。とても励みになります。</span></p>",
+					"calloutEmoji": "🚀",
+					"backgroundColor": "grey"
+				},
+				{
+					"type": "callout",
+					"version": 1,
+					"calloutText": "<p><b><strong>購読</strong></b><span>: ブログを購読するとメンバー限定コンテンツにアクセスできます。読んでくださっている方々が可視化されてとてもモチベーションになるので是非ご購読をお願いします！ </span><a href=\"https://www.hanatane.net/#/portal/signup\"><span>購読はこちら</span></a></p>",
+					"calloutEmoji": "♥️",
+					"backgroundColor": "grey"
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "編集後記",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "heading",
+					"version": 1,
+					"tag": "h3"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "メンバー限定のあとがきコーナーです。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "paywall",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ダイエット進捗。減少トレンド継続中。標準まで難なく減らせるなという感触です。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2023/07/image.png",
+					"width": 750,
+					"height": 1016,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "スト6はなぜかプラチナスタートにされてからボコボコにされて下がり続けたものの、12000台くらいで勝負になってきて、今はもう一度プラチナに上がれるか上がれないかというところ。少し力不足も感じているけど、1日1つだけ強くなるを続けられているので楽しい。地方でITスキル学びたいという人を見るたびにうるせえまずはゲームをやれという気持ちになる。",
+							"type": "text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://scrapbox.io/mtane0412/%E3%81%9F%E3%81%AD%E3%81%AE%E3%81%B6%E3%81%AE1%E6%97%A5%E3%81%B2%E3%81%A8%E3%81%A4%E3%81%A0%E3%81%91%E5%BC%B7%E3%81%8F%E3%81%AA%E3%82%8B%E3%82%B9%E3%83%886",
+					"metadata": {
+						"icon": "https://scrapbox.io/assets/img/favicon/apple-touch-icon-180.png",
+						"title": "たねのぶの1日ひとつだけ強くなるスト6 - mtane0412",
+						"description": "格ゲー歴ないプレイヤーがスト6をやる記録 スト5のプロを見るのは大好きだった スト6購入してワールドツアーをたんまり楽しんだのでいよいよ対人をやる せっかくなので1日ひとつだけ、強くなるをやりたい 2023/6/23 されると嫌なことを体で体験できた たまたま配信でアイレンさんがリスナーと遊んでたので初めての対人はアイレンさん ケンでいきたかったけど予め選択されたキャラだったらしいのでルークになっ",
+						"author": "",
+						"publisher": "mtane0412",
+						"thumbnail": "https://pbs.twimg.com/media/FzZTYh7WcAMo8hd.png"
+					},
+					"caption": ""
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}

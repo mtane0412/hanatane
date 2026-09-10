@@ -1,0 +1,786 @@
+{
+	"title": "Switchbot S10導入と水道管接続奮闘記",
+	"slug": "install-switchbot-s10",
+	"status": "published",
+	"tags": [
+		"たねハウスの話",
+		"Switchbotのある暮らし",
+		"#Import 2025-03-18 13:46"
+	],
+	"excerpt": "ロボット掃除機を我が家に迎えるためにしたこと",
+	"feature_image": "https://hanatane.net/content/images/2024/08/tanenobu_White_robot_vacuum_cleaner_cleaning_a_wooden_house.__a7cef445-7529-4c93-8928-0abfff9e3947_3.png",
+	"featured": false,
+	"published_at": "2024-08-25T23:00:26.000Z",
+	"updated_at": "2024-11-29T14:57:04.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "少し前になるのですがAmazonのPrimeデーでロボット掃除機の",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Switchbot S10",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://px.a8.net/svt/ejp?a8mat=3YYH75+2LH3IY+4W9U+BW0YB&a8ejpredirect=https%3A%2F%2Fwww.switchbot.jp%2Fproducts%2Fswitchbot-robot-vacuum-cleaner-s10"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "をゲットしました。広い家はとても一人では掃除しきれないのでロボット掃除機の導入はマストだと考えていました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.switchbot.jp/jxinqw",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon_32x32-3.png",
+						"title": "SwitchBot お掃除ロボット S10",
+						"description": "SwitchBot お掃除ロボットS10は、世界初（※1）の小型水交換ステーションを完備！4ステップで水道管に直接繋いで、洗濯機同様に給水・排水・洗浄液の投入を全自動で行います。また、本体にはリアルタイムでモップを洗浄する「RinseSyncテクノロジー（※2）」を搭載。吸引・モップ掛けをはじめ、モップの洗浄・乾燥、ゴミ収集までワンステップで行ない、本当の意味での全自動を実現しました。",
+						"author": "匿名",
+						"publisher": "SwitchBot (スイッチボット)",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/1_5728fb95-0845-4bd7-8cf8-5d34058056a3_1200x1200-2.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回の機種を選んだ理由は",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "すでにスマートホーム化でSwitchbotをかなり導入している(オートメーション組みやすい)",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ステーションでゴミも回収してくれる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "モップもかけてくれる",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "それなりに安い",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "モップのための水道管直結型の給水・排水用の水交換ステーションがある",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "という感じです。特に最後の水道直結型の水交換ステーションは今のところSwitchbotだけのユニークな機能です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "購入自体は結構前なのですがロボット掃除機を稼働させるために必要な下準備を色々と進めていて、一通り終わったので一旦書いておこうと思った次第です。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "段差解消スロープの設置",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "たねハウスは築60年の家なので、それぞれの部屋の敷居が高くロボット掃除機が超えられないので段差を解消するスロープを設置する必要があります。木材を使ってDIYできないか考えたのですが、斜めにきれいにカットするためには木工機材が必要で今回はパスしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回は母屋の1F部分に以下のような感じで設置してみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/------.png",
+					"width": 1200,
+					"height": 1200,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "充電ステーションはコンセントがありなおかつそれなりにスペースがあるということでとりあえず玄関に配置しました。そのうち中央の和室に移動させるかも。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5098-1.jpeg",
+					"width": 2000,
+					"height": 2000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">コードを噛むのであとで上部で固定しました。カメラも床置きしてたのでとりあえず上に(天井設置予定)</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "段差解消スロープですが、設置予定の箇所を調べてみると2.5cm~4cmとかなりばらつきがあることがわかりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今回は主にホームセンター等で入手できる発泡剤で作られた",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "痛クナイゾ",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/4dXLlPf"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "を購入。カッターでカットできるので調整もしやすかったです。仕上がりは汚いけどまあヨシ。両面テープ方式なのでカーペットと相性悪いのですが剥がすの面倒かったのでとりあえずそのまま設置。ずれたら釘とかで固定しようかと思ってます。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5105.jpeg",
+					"width": 1024,
+					"height": 767,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5119.jpeg",
+					"width": 3024,
+					"height": 4032,
+					"title": "",
+					"alt": "",
+					"caption": "<a href=\"https://amzn.to/3AFUUEg\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">痛クナイゾ(サイズ様々)</span></a>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "中央の和室2部屋は現在はふすまを除いて大きな1部屋として使っています。中央の和室から広縁への段差は",
+							"type": "extended-text",
+							"version": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "PVC材質の別のもの",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "link",
+							"version": 1,
+							"rel": "noreferrer",
+							"target": null,
+							"title": null,
+							"url": "https://amzn.to/3AMFvlm"
+						},
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "をAmazonで注文してみました。こちらはしっかりしていてかなりいい感じです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5118-1.jpeg",
+					"width": 2000,
+					"height": 1000,
+					"title": "",
+					"alt": "",
+					"caption": "<a href=\"https://amzn.to/4dHCRfp\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">LIEKUMM 段差スロープ</span></a>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ロボット掃除機を使わない脱衣場・風呂・トイレを除くと、あとはリビングだけなのですがここはかなり段差が高いので検討中です。畳がかなり厚いものを使っているので部屋全体が高いので洋室化が必要かもしれません。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ともかくこれで1Fの殆どの部分をロボットが行き来できるようになりました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "水交換ステーションの設置",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "S10の水交換ステーションですが、水道管を直結させて掃除機に給水、さらに掃除で生じた汚水を排水管に接続して自動で排水してくれるすぐれものです。S10にはいろいろな部分に接続するためのアタッチメントがついています。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "最も多いケースは洗濯機だそうですが、洗濯機を設置している場所はかなり狭く、ステーション設置にはかなり不便になるので見送りました。今回はトイレの前にある洗面台の給排水を利用することにしました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5100-1.jpeg",
+					"width": 2000,
+					"height": 1000,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">水道管と排水がありそれなりにスペースがある場所</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "さて、水道管から給水するためには分岐チーズ(T字がなんかなまってチーズって呼ばれてるらしい。おいしそう)を挟む必要があります。洗面台を見てみると家を購入するときに前の家主が設置していたTOTOの電気温水器がもともと接続されており、そこの給水部分から頂いてしまえばいいのではと思い、元々水道管と接続されていた給水口エルボと電気温水器の間に分岐チーズを噛ませてみました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5101.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "<span style=\"white-space: pre-wrap;\">最初の設置例(失敗)。</span>",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "排水は排水の方に管を突っ込んでやればいいのでこちらは楽です。よかったよかったと安心したのもつかの間、S10が掃除する際には給水エラーが出てどうもうまく給水できていない様子。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "色々調べてみると、電気温水器の使用圧力が0.05~0.75MPa, Switchbotが求める圧力が0.1~0.6MPaで水圧が足りていない可能性が出てきました。さらに電気温水器の施工説明書をネットで調べてみると給水口エルボには減圧機構が備わっているのでエルボ以降にチーズを挟むと水圧は低くなるようです。水道屋だと常識なんでしょうがこういうのは経験ですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけで、横着せずに元々の止水栓に接続することを試みました。が、今度は分岐チーズを間に挟む分、高さが出てしまいどうにもうまく接続できません。元々電気温水器用の逆止弁もあるので高さがカツカツだったようです。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5116.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "というわけでフレキパイプというグニャグニャに曲げられるやつを見つけたのでパワープレイでなんとかつなぎました。おそらく本職が見たら絶叫するのでしょう。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2024/08/IMG_5117.jpeg",
+					"width": 4032,
+					"height": 3024,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "水漏れもとりあえずなしなのでうまくいってそうです。同梱されてる接続アタッチメントも豊富ですし、ホームセンターに行けばなんとかなるので、賃貸でも水交換ステーションは結構設置可能なんじゃないかと思いました。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "なお、備忘録なので簡潔に書いてますが、電気温水器を水抜きせずに外したせいで床が水浸しになったり、最初はモロ水漏れしてたり、ホームセンター往復したりと、かなり消耗しております。DIYは体力勝負ですね。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.switchbot.jp/jxinqw",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon_32x32-4.png",
+						"title": "SwitchBot お掃除ロボット S10",
+						"description": "SwitchBot お掃除ロボットS10は、世界初（※1）の小型水交換ステーションを完備！4ステップで水道管に直接繋いで、洗濯機同様に給水・排水・洗浄液の投入を全自動で行います。また、本体にはリアルタイムでモップを洗浄する「RinseSyncテクノロジー（※2）」を搭載。吸引・モップ掛けをはじめ、モップの洗浄・乾燥、ゴミ収集までワンステップで行ない、本当の意味での全自動を実現しました。",
+						"author": "匿名",
+						"publisher": "SwitchBot (スイッチボット)",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/1_5728fb95-0845-4bd7-8cf8-5d34058056a3_1200x1200-3.webp"
+					},
+					"caption": ""
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
