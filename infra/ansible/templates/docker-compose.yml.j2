@@ -42,6 +42,10 @@ services:
       mail__options__auth__pass: ${MAIL_AUTH_PASS}
       # Mailgun ウォームアップ用（徐々に上げる必要あり）
       bulkEmail__batchSize: 5
+      # メンバー登録スパム対策: Portal が /members/api/integrity-token/ で取得した
+      # トークンを send-magic-link に添付し、トークン無し・不正なリクエストを 400 で拒否する。
+      # Ghost 6.53.0 以降は既定で有効だが、意図を明示するため設定として固定する。
+      verifyRequestIntegrity: 'true'
 {% if ghost_analytics_enabled %}
       # Tinybird Web Analytics 設定
       # tinybird-login/sync/deploy ブートストラップ完了後に有効化される
