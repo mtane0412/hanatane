@@ -8,7 +8,7 @@ hanatane.net（Ghost）に関わるものを束ねるモノレポ。パッケー
 |---|---|---|
 | `theme/` | Ghost テーマ（TryGhost/Source から派生、upstream 同期は終了し独自開発） | `theme/AGENTS.md` |
 | `ogp/` | OGP 画像生成。手動作成 Web アプリ（Cloudflare Workers）と、Ghost の `og_image` への事前生成 | `ogp/CLAUDE.md` |
-| `posts/` | 記事の管理（新規は Markdown、既存は `pull` で取り込んだ Lexical JSON）と、Ghost 公式 CLI `ghst` による反映。Claude Code からは `.claude/skills/ghost-posts` を使う | `posts/README.md` |
+| `posts/` | 記事の管理（新規は Markdown、既存は `pull` で取り込んだ Lexical JSON）と、Ghost 公式 CLI `ghst` による反映。メンバー限定記事は `posts/content/private/` に sops+age で暗号化して置く。Claude Code からは `.claude/skills/ghost-posts` を使う | `posts/README.md` |
 | `infra/` | さくら VPS の構成管理（Ansible、OpenTofu、sops+age 暗号化シークレット） | `infra/README.md`, `infra/docs/runbook.md` |
 | `packages/` | 共有パッケージ（今後: Ghost Admin API クライアントの共通化） | |
 
@@ -42,7 +42,8 @@ pnpm --filter ./ogp dev
 
 ## 公開リポジトリとしての約束
 
-- 機密は sops + age で暗号化したものだけをコミットする（`infra/secrets/`、`infra/tofu/*.sops.tfvars`）。
+- 機密は sops + age で暗号化したものだけをコミットする（`infra/secrets/`、`infra/tofu/*.sops.tfvars`、`posts/content/private/*.post.json`）。
+- メンバー限定記事（Ghost の `visibility` が `members` / `paid`）の本文を平文でコミットしない。`posts/content/private/` に暗号化して置き、`pnpm --filter ./posts check-private`（pre-commit hook と CI で自動実行）で検査する。
 - VPS の origin IP は Cloudflare Proxy で秘匿しているため、平文で書かない（`infra/tofu/origin.sops.tfvars` を使う）。
 - `.tfstate` はコミットしない（`infra/tofu/.gitignore`）。
 - ghst の Staff access token はキーチェーン（`~/.config/ghst/`）にのみ保存する。`.ghst/config.json` には alias 名だけを入れる。

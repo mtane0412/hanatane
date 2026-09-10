@@ -2,6 +2,7 @@
 	"title": "AlfredでMacの音声を切り替える",
 	"slug": "alfred-switchaudio-osx",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Alfred",

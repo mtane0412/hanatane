@@ -2,6 +2,7 @@
 	"title": "Github ActionsでGhostテーマをデプロイする",
 	"slug": "ghost-github-actions",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost",

@@ -11,6 +11,7 @@ description: hanatane.net（Ghost）の記事を posts/content/*.md で作成・
 
 - 新規記事: `posts/content/<slug>.md`（frontmatter 付き Markdown）。slug は英小文字とハイフンのみ。必須項目は `title`、`status` は省略すると `draft`。段落内で改行すると `<br>` になるため、1 段落は 1 行で書く。
 - 既存記事: `posts/content/<slug>.post.json`（`pull` で取り込んだ Lexical JSON）。本文は `lexical` の中で、テキスト修正は該当ノードの `text` を書き換える。ノードの構造（`type`、`version`、`children`）は既存に合わせる。
+- メンバー限定記事（`visibility` が `members` / `paid`）: `posts/content/private/<slug>.post.json`（sops 暗号化済み）。扱い方は後述の「メンバー限定記事」に従う。**`content/` 直下に `visibility: members` / `paid` のファイルを作ってはいけない**（push と pre-commit hook がエラーにする）。
 
 ## 新規記事を書く
 
@@ -23,6 +24,16 @@ description: hanatane.net（Ghost）の記事を posts/content/*.md で作成・
 1. **編集前に必ず** `pnpm --filter ./posts pull --slug <slug>` を実行し、Ghost 側の最新（`#ref-*` タグなど）を取り込む。`git diff` で差分が出たら、Ghost 側で編集されていたことをユーザーに伝える。
 2. `posts/content/<slug>.post.json` を編集する。
 3. `pnpm --filter ./posts push content/<slug>.post.json` で反映し、上記と同じく結果を確認して報告する。
+
+## メンバー限定記事（visibility が members / paid）
+
+公開リポジトリなので、限定記事の本文を平文で `posts/content/` に置いたりコミットしたりしない。詳細は `posts/README.md` の「メンバー限定記事」を参照。
+
+- 既存の限定記事を編集する: `pnpm --filter ./posts pull --slug <slug>` → `pnpm --filter ./posts private decrypt <slug>` → `posts/content/private/<slug>.plain.post.json` を編集 → `pnpm --filter ./posts private encrypt <slug>`（平文は自動で削除される）→ `pnpm --filter ./posts push content/private/<slug>.post.json`。
+- 限定記事を新規に書く: `posts/content/private/<slug>.md`（frontmatter に `visibility: members` または `paid`。`.gitignore` 対象）を作って push し、その `.md` を削除してから `pull --slug <slug>` で暗号化済み `.post.json` を作る。
+- 暗号化済みの `.post.json` を直接編集しない（sops の MAC 検証に失敗する）。
+- 限定記事を public に変更する push は `--allow-public` が必要。ユーザーが明示的に「公開範囲を public にして」と依頼した場合だけ付け、依頼が無ければ付けない。
+- 作業を終えるとき `posts/content/private/` に `.plain.post.json` や `.md` を残さない。
 
 ## 公開する
 

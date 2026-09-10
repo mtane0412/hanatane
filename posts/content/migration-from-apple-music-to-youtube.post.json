@@ -2,6 +2,7 @@
 	"title": "Apple MusicからYoutube Musicにプレイリストを移行する",
 	"slug": "migration-from-apple-music-to-youtube",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話"
 	],

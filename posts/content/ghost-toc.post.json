@@ -2,6 +2,7 @@
 	"title": "Ghostに目次をつける",
 	"slug": "ghost-toc",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost",

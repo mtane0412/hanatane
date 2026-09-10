@@ -2,6 +2,7 @@
 	"title": "Ghostで埋め込みを乱用すべきではない",
 	"slug": "embedding-in-ghost-should-not-be-abused",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"Ghost",
 		"技術の話",

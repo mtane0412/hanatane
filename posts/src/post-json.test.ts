@@ -9,6 +9,7 @@ const Ghostの記事 = {
 	slug: "why-ghost",
 	title: "なぜブログプラットフォームにGhostを選んだか",
 	status: "published",
+	visibility: "public",
 	custom_excerpt: "Ghostを選定した理由を話します。",
 	feature_image: "https://example.com/cat.jpg",
 	featured: false,
@@ -28,6 +29,7 @@ describe("toPostJson", () => {
 			title: "なぜブログプラットフォームにGhostを選んだか",
 			slug: "why-ghost",
 			status: "published",
+			visibility: "public",
 			tags: ["技術の話", "#Import 2025-03-18"],
 			excerpt: "Ghostを選定した理由を話します。",
 			feature_image: "https://example.com/cat.jpg",
@@ -55,6 +57,24 @@ describe("toPostJson", () => {
 			/lexical/,
 		);
 	});
+
+	it("メンバー限定（members / paid）の visibility をそのまま保持する", () => {
+		expect(
+			toPostJson({ ...Ghostの記事, visibility: "members" }).visibility,
+		).toBe("members");
+		expect(toPostJson({ ...Ghostの記事, visibility: "paid" }).visibility).toBe(
+			"paid",
+		);
+	});
+
+	it("visibility が無い、または tiers のように未対応の記事はエラーになる", () => {
+		expect(() => toPostJson({ ...Ghostの記事, visibility: undefined })).toThrow(
+			/visibility/,
+		);
+		expect(() => toPostJson({ ...Ghostの記事, visibility: "tiers" })).toThrow(
+			/visibility/,
+		);
+	});
 });
 
 describe("parsePostJson", () => {
@@ -66,6 +86,7 @@ describe("parsePostJson", () => {
 			title: "なぜブログプラットフォームにGhostを選んだか",
 			slug: "why-ghost",
 			status: "published",
+			visibility: "public",
 			tags: ["技術の話", "#Import 2025-03-18"],
 			excerpt: "Ghostを選定した理由を話します。",
 			feature_image: "https://example.com/cat.jpg",
@@ -80,6 +101,24 @@ describe("parsePostJson", () => {
 		const content = JSON.stringify({ title: "t", lexical: { root: {} } });
 		expect(parsePostJson(content, "from-file.post.json").meta.slug).toBe(
 			"from-file",
+		);
+	});
+
+	it("visibility を省略した場合は public になる（visibility を記録する前に pull した既存ファイル向け）", () => {
+		const content = JSON.stringify({ title: "t", lexical: { root: {} } });
+		expect(parsePostJson(content, "a.post.json").meta.visibility).toBe(
+			"public",
+		);
+	});
+
+	it("visibility が members の場合はそのまま meta に入る", () => {
+		const content = JSON.stringify({
+			title: "t",
+			visibility: "members",
+			lexical: { root: {} },
+		});
+		expect(parsePostJson(content, "a.post.json").meta.visibility).toBe(
+			"members",
 		);
 	});
 

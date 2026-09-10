@@ -2,6 +2,7 @@
 	"title": "猫をお迎えした",
 	"slug": "welcome-cat",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"猫の話"
 	],

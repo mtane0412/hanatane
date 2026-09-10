@@ -2,6 +2,7 @@
 	"title": "AlfredからMidjourneyで画像生成する",
 	"slug": "alfred-midjourney",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Alfred",

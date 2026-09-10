@@ -37,3 +37,6 @@ jobs:
       - run: pnpm --filter ./posts lint
 
       - run: pnpm --filter ./posts test
+
+      # メンバー限定記事が平文でコミットされていないか（復号しないため age 鍵は不要）
+      - run: pnpm --filter ./posts check-private
