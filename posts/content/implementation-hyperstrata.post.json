@@ -1,11 +1,12 @@
 {
 	"title": "Hyperstrataの地層を考える",
 	"slug": "implementation-hyperstrata",
-	"status": "draft",
+	"status": "published",
 	"visibility": "public",
 	"tags": [],
 	"featured": false,
-	"updated_at": "2026-09-10T12:19:24.000Z",
+	"published_at": "2026-09-10T12:24:41.000Z",
+	"updated_at": "2026-09-10T12:24:41.000Z",
 	"lexical": {
 		"root": {
 			"children": [
