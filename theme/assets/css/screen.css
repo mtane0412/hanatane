@@ -2646,6 +2646,15 @@ figcaption a {
     fill: rgb(var(--strata-soil) / 0.28);
 }
 
+/* 帯の中に埋まった題材アイコン(記事の icon)。装飾のためクリック等を奪わないようにする */
+.gh-strata-band-icons {
+    pointer-events: none;
+}
+
+.gh-strata-band-icons svg {
+    color: rgb(var(--strata-soil) / 0.55);
+}
+
 /* 地層の境界線(波線) */
 .gh-strata-year-line {
     fill: none;
