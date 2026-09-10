@@ -20,6 +20,7 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
 9. 限定記事なら `pnpm --filter ./posts strata encrypt <slug>` で暗号化する（検証も同時に行われる）。
 10. `pnpm --filter ./posts strata check` で検査する。
 11. feature ブランチでコミットし、PR にする（main 直接コミット禁止）。
+12. PR がマージされたら、`gh workflow run hyperstrata-sync.yml --repo mtane0412/hanatane` で `theme/assets/graph.json` への反映を手動実行する。`hyperstrata-sync.yml` は 15 分おきの cron も持つが、GitHub Actions が高頻度 cron を高負荷時に間引く仕様のため数時間かかることがある（cron は保険として残る）。
 
 ## 判定の基準（変えない。変えるときはこのファイルを更新し、既存の注釈は書き換えない）
 
