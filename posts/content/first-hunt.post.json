@@ -2,6 +2,7 @@
 	"title": "初猟の記録: 鹿を罠で捕まえた",
 	"slug": "first-hunt",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"狩猟"
 	],

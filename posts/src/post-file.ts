@@ -9,11 +9,22 @@ import { parse as parseYaml } from "yaml";
 /** 記事の公開状態。scheduled は ghst の `post schedule` で扱うため、ここでは対象外にしています。 */
 export type PostStatus = "draft" | "published";
 
+/**
+ * 記事の閲覧範囲。Ghost の visibility のうち public / members / paid だけを扱い、
+ * tiers（特定ティア限定）は未対応としてエラーにします。
+ */
+export type PostVisibility = "public" | "members" | "paid";
+
 /** frontmatter で指定できる記事のメタ情報 */
 export interface PostMeta {
 	title: string;
 	slug: string;
 	status: PostStatus;
+	/**
+	 * 省略不可。push では常に `--visibility` を明示して送り、
+	 * create が Ghost の既定値（public）に落ちて限定記事が公開されるのを防ぎます。
+	 */
+	visibility: PostVisibility;
 	tags?: string[];
 	excerpt?: string;
 	feature_image?: string;
@@ -34,12 +45,43 @@ export interface ParsedPostFile {
 
 const FRONTMATTER_PATTERN = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
 const POST_STATUSES: readonly PostStatus[] = ["draft", "published"];
+export const POST_VISIBILITIES: readonly PostVisibility[] = [
+	"public",
+	"members",
+	"paid",
+];
 
 export function isPostStatus(value: unknown): value is PostStatus {
 	return (
 		typeof value === "string" &&
 		(POST_STATUSES as readonly string[]).includes(value)
 	);
+}
+
+export function isPostVisibility(value: unknown): value is PostVisibility {
+	return (
+		typeof value === "string" &&
+		(POST_VISIBILITIES as readonly string[]).includes(value)
+	);
+}
+
+/**
+ * ファイルの `visibility` を検証します。省略時は public です。
+ *
+ * @param record - frontmatter または JSON のオブジェクト
+ * @param fileName - エラーメッセージに使うファイル名
+ */
+export function parseVisibility(
+	record: Record<string, unknown>,
+	fileName: string,
+): PostVisibility {
+	const visibility = record.visibility ?? "public";
+	if (!isPostVisibility(visibility)) {
+		throw new Error(
+			`${fileName}: visibility は ${POST_VISIBILITIES.join(" / ")} のいずれかにしてください`,
+		);
+	}
+	return visibility;
 }
 
 export function requireString(
@@ -133,6 +175,7 @@ export function parsePostFile(
 		title: requireString(record, "title"),
 		slug: optionalString(record, "slug") ?? fileName.replace(/\.md$/, ""),
 		status,
+		visibility: parseVisibility(record, fileName),
 	};
 	const tags = optionalStringList(record, "tags");
 	if (tags) meta.tags = tags;
@@ -195,7 +238,14 @@ export function buildGhstArgs(
 		}
 		args.push("--from-json", slugJsonPath);
 	}
-	args.push("--title", meta.title, "--status", meta.status);
+	args.push(
+		"--title",
+		meta.title,
+		"--status",
+		meta.status,
+		"--visibility",
+		meta.visibility,
+	);
 	if (meta.tags && meta.tags.length > 0) {
 		args.push("--tags", meta.tags.join(","));
 	}

@@ -1,16 +1,17 @@
 {
-  "name": "hanatane",
-  "private": true,
-  "description": "hanatane.net（Ghost）のテーマ・OGP 画像生成・VPS 構成管理を束ねるモノレポ",
-  "packageManager": "pnpm@11.11.0",
-  "scripts": {
-    "test": "pnpm --filter ./theme test:ci && pnpm --filter ./theme test:scripts && pnpm --filter ./ogp test && pnpm --filter ./posts test",
-    "test:theme": "pnpm --filter ./theme test:ci && pnpm --filter ./theme test:scripts",
-    "test:ogp": "pnpm --filter ./ogp test",
-    "ghst": "ghst",
-    "test:posts": "pnpm --filter ./posts test"
-  },
-  "devDependencies": {
-    "@tryghost/ghst": "0.17.1"
-  }
+	"name": "hanatane",
+	"private": true,
+	"description": "hanatane.net（Ghost）のテーマ・OGP 画像生成・VPS 構成管理を束ねるモノレポ",
+	"packageManager": "pnpm@11.11.0",
+	"scripts": {
+		"test": "pnpm --filter ./theme test:ci && pnpm --filter ./theme test:scripts && pnpm --filter ./ogp test && pnpm --filter ./posts test",
+		"test:theme": "pnpm --filter ./theme test:ci && pnpm --filter ./theme test:scripts",
+		"test:ogp": "pnpm --filter ./ogp test",
+		"ghst": "ghst",
+		"test:posts": "pnpm --filter ./posts test",
+		"prepare": "git config core.hooksPath .githooks"
+	},
+	"devDependencies": {
+		"@tryghost/ghst": "0.17.1"
+	}
 }

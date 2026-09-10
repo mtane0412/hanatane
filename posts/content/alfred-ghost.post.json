@@ -2,6 +2,7 @@
 	"title": "Ghostの記事を検索するAlfred Workflowを作った",
 	"slug": "alfred-ghost",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost",

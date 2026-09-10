@@ -2,6 +2,7 @@
 	"title": "immutableなノートを堆積する",
 	"slug": "hyperstrata",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"#ref-window-film"
 	],

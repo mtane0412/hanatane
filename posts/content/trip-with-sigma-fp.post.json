@@ -2,6 +2,7 @@
 	"title": "Sigma fpでトリップする",
 	"slug": "trip-with-sigma-fp",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"たねのぶの話",
 		"Sigma fp"

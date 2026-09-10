@@ -2,6 +2,7 @@
 	"title": "EPUBをオーディオブックに変換して耳で読む",
 	"slug": "epub-to-audiobook",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話"
 	],

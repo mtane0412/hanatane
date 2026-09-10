@@ -1,0 +1,10 @@
+#!/bin/sh
+# コミット前に、限定記事（visibility が members / paid）が平文で posts/content にステージされていないかを検査する。
+# ルート package.json の prepare スクリプト（pnpm install 時）が core.hooksPath をこのディレクトリに設定する。
+# 検査内容は posts/scripts/check-private.ts を参照。
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+if git diff --cached --quiet -- posts/content; then
+	exit 0
+fi
+exec pnpm --filter ./posts --silent check-private --staged

@@ -2,6 +2,7 @@
 	"title": "なぜブログプラットフォームにGhostを選んだか",
 	"slug": "why-ghost",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost",

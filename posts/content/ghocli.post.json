@@ -2,6 +2,7 @@
 	"title": "Ghost Admin APIをコマンドでいい感じに叩けるCLIを作った",
 	"slug": "ghocli",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost"

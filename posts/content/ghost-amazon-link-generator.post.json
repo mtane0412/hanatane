@@ -2,6 +2,7 @@
 	"title": "GhostのAmazon Embed Linkを作成する治具を作る",
 	"slug": "ghost-amazon-link-generator",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost"

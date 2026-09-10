@@ -8,10 +8,13 @@
  */
 import {
 	isPostStatus,
+	isPostVisibility,
 	optionalBoolean,
 	optionalString,
 	optionalStringList,
+	POST_VISIBILITIES,
 	type PostMeta,
+	parseVisibility,
 	requireString,
 } from "./post-file";
 
@@ -45,6 +48,12 @@ export function toPostJson(post: Record<string, unknown>): PostJson {
 			`${String(post.slug)}: 未対応の status です: ${String(status)}`,
 		);
 	}
+	const visibility = post.visibility;
+	if (!isPostVisibility(visibility)) {
+		throw new Error(
+			`${String(post.slug)}: 未対応の visibility です（${POST_VISIBILITIES.join(" / ")} のみ扱えます）: ${String(visibility)}`,
+		);
+	}
 	const tags = Array.isArray(post.tags)
 		? post.tags.map((tag) => String((tag as Record<string, unknown>).name))
 		: [];
@@ -53,6 +62,7 @@ export function toPostJson(post: Record<string, unknown>): PostJson {
 		title: requireString(post, "title"),
 		slug: requireString(post, "slug"),
 		status,
+		visibility,
 		tags,
 		lexical: JSON.parse(post.lexical) as Record<string, unknown>,
 	};
@@ -104,6 +114,7 @@ export function parsePostJson(
 		slug:
 			optionalString(record, "slug") ?? fileName.replace(/\.post\.json$/, ""),
 		status,
+		visibility: parseVisibility(record, fileName),
 	};
 	const tags = optionalStringList(record, "tags");
 	if (tags) meta.tags = tags;

@@ -29,6 +29,7 @@ describe("parsePostFile", () => {
 			slug: "hana-no-tane",
 			tags: ["日記", "園芸"],
 			status: "draft",
+			visibility: "public",
 			excerpt: "春先に種をまいた記録",
 		});
 		expect(result.body).toBe("## はじめに\n\n今日は種をまきました。\n");
@@ -61,6 +62,28 @@ describe("parsePostFile", () => {
 			parsePostFile("---\ntitle: t\nstatus: scheduled\n---\n本文\n", "a.md"),
 		).toThrow(/status/);
 	});
+
+	it("visibility を省略した場合は public になる", () => {
+		const content = "---\ntitle: 題名\n---\n本文\n";
+		expect(parsePostFile(content, "a.md").meta.visibility).toBe("public");
+	});
+
+	it("visibility に members / paid を指定できる", () => {
+		expect(
+			parsePostFile("---\ntitle: t\nvisibility: members\n---\n本文\n", "a.md")
+				.meta.visibility,
+		).toBe("members");
+		expect(
+			parsePostFile("---\ntitle: t\nvisibility: paid\n---\n本文\n", "a.md").meta
+				.visibility,
+		).toBe("paid");
+	});
+
+	it("visibility が public / members / paid 以外（tiers など）の場合はエラーになる", () => {
+		expect(() =>
+			parsePostFile("---\ntitle: t\nvisibility: tiers\n---\n本文\n", "a.md"),
+		).toThrow(/visibility/);
+	});
 });
 
 describe("buildGhstArgs", () => {
@@ -69,6 +92,7 @@ describe("buildGhstArgs", () => {
 		slug: "hana-no-tane",
 		tags: ["日記", "園芸"],
 		status: "draft" as const,
+		visibility: "public" as const,
 		excerpt: "春先に種をまいた記録",
 	};
 
@@ -83,6 +107,8 @@ describe("buildGhstArgs", () => {
 			"花の種をまく",
 			"--status",
 			"draft",
+			"--visibility",
+			"public",
 			"--tags",
 			"日記,園芸",
 			"--excerpt",
@@ -151,6 +177,7 @@ describe("buildGhstArgs", () => {
 				title: "t",
 				slug: "s",
 				status: "draft",
+				visibility: "public",
 			},
 			MARKDOWN,
 			SLUG_JSON,
@@ -165,6 +192,19 @@ describe("buildGhstArgs", () => {
 			"t",
 			"--status",
 			"draft",
+			"--visibility",
+			"public",
 		]);
+	});
+
+	it("visibility は省略できず、members の記事は --visibility members を必ず付ける（create が public に落ちるのを防ぐ）", () => {
+		const args = buildGhstArgs(
+			"create",
+			{ ...meta, visibility: "members" },
+			MARKDOWN,
+			SLUG_JSON,
+		);
+		const index = args.indexOf("--visibility");
+		expect(args[index + 1]).toBe("members");
 	});
 });

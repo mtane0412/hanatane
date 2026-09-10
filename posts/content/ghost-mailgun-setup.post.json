@@ -2,6 +2,7 @@
 	"title": "セルフホストGhostでMailgun一括送信のbatch sizeを設定する",
 	"slug": "ghost-mailgun-setup",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost",

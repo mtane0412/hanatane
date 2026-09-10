@@ -2,6 +2,7 @@
 	"title": "Umamiを無料で導入してシンプルなインサイトを得る",
 	"slug": "try-umami",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"Ghost"

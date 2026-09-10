@@ -8,11 +8,15 @@
  * 処理内容:
  *   1. `ghst post list --limit all --json`（または `post get --slug`）で記事を取得する
  *   2. src/post-json.ts で push に必要な項目と lexical だけに絞り、content/<slug>.post.json に書き出す
- *   3. 同じ slug の Markdown（content/<slug>.md）がある記事は、Markdown 側を正とみなしてスキップする
+ *   3. 同じ slug の Markdown（content/<slug>.md、content/private/<slug>.md）がある記事は、Markdown 側を正とみなしてスキップする
  *   4. lexical を持たない記事（旧 mobiledoc 形式）は取り込めないため、slug を表示してスキップする
+ *   5. visibility が members / paid の限定記事は content/private/<slug>.post.json に sops で暗号化して書く
+ *      （src/private-post.ts、src/sops.ts）。平文は一切ディスクに残さない
+ *   6. visibility が変わった記事は反対側に残った古い .post.json を削除する
  *
  * 注意:
  *   - 既存の .post.json は上書きする。ローカルで編集中の内容がある場合は先にコミットしておくこと
+ *   - 限定記事を復号したまま（<slug>.plain.post.json が残ったまま）だとエラーで止まる
  *   - ghst は stdout がパイプだと 64KB 付近で出力が途切れる（書き込み完了前に終了する）ため、
  *     stdout は一時ファイルに書かせてから読み込む
  */
@@ -29,9 +33,18 @@ import {
 } from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { POST_JSON_SUFFIX, toPostJson } from "../src/post-json";
+import { toPostJson } from "../src/post-json";
+import {
+	contentRelativePath,
+	isPrivateVisibility,
+	PLAIN_POST_JSON_SUFFIX,
+	PRIVATE_DIR,
+	staleContentPaths,
+} from "../src/private-post";
+import { decryptPostJson, encryptPostJson } from "../src/sops";
 
 const CONTENT_DIR = path.resolve(import.meta.dirname, "../content");
+const PRIVATE_CONTENT_DIR = path.join(CONTENT_DIR, PRIVATE_DIR);
 
 function fetchPosts(slug: string | undefined): Record<string, unknown>[] {
 	const args = slug
@@ -77,6 +90,7 @@ function main(): void {
 	mkdirSync(CONTENT_DIR, { recursive: true });
 	const posts = fetchPosts(slug);
 	let written = 0;
+	let unchanged = 0;
 	let skipped = 0;
 	for (const post of posts) {
 		if (typeof post.lexical !== "string") {
@@ -87,24 +101,64 @@ function main(): void {
 			continue;
 		}
 		const postJson = toPostJson(post);
-		if (existsSync(path.join(CONTENT_DIR, `${postJson.slug}.md`))) {
-			console.log(`スキップ（Markdown 管理）: ${postJson.slug}`);
+		const { slug: postSlug, visibility } = postJson;
+		if (
+			existsSync(path.join(CONTENT_DIR, `${postSlug}.md`)) ||
+			existsSync(path.join(PRIVATE_CONTENT_DIR, `${postSlug}.md`))
+		) {
+			console.log(`スキップ（Markdown 管理）: ${postSlug}`);
 			skipped += 1;
 			continue;
 		}
-		const filePath = path.join(
-			CONTENT_DIR,
-			`${postJson.slug}${POST_JSON_SUFFIX}`,
+		// 復号したまま編集中の平文があれば、上書きで編集内容を失わないよう止める
+		const plainPath = path.join(
+			PRIVATE_CONTENT_DIR,
+			`${postSlug}${PLAIN_POST_JSON_SUFFIX}`,
 		);
-		writeFileSync(
-			filePath,
-			`${JSON.stringify(postJson, null, "\t")}\n`,
-			"utf8",
-		);
-		written += 1;
+		if (existsSync(plainPath)) {
+			throw new Error(
+				`編集中の平文ファイルがあります。\`pnpm private encrypt ${postSlug}\` で戻すか削除してから pull してください: ${plainPath}`,
+			);
+		}
+
+		const relativePath = contentRelativePath(postSlug, visibility);
+		const filePath = path.join(CONTENT_DIR, relativePath);
+		const plainJson = `${JSON.stringify(postJson, null, "\t")}\n`;
+		if (isPrivateVisibility(visibility)) {
+			// 限定記事は平文をディスクに残さず、sops で暗号化した内容だけを書く。
+			// sops は毎回異なる暗号文を出すため、内容が変わっていなければ書き換えない（無駄な diff を避ける）
+			mkdirSync(PRIVATE_CONTENT_DIR, { recursive: true });
+			if (
+				existsSync(filePath) &&
+				JSON.stringify(JSON.parse(decryptPostJson(filePath))) ===
+					JSON.stringify(postJson)
+			) {
+				unchanged += 1;
+			} else {
+				writeFileSync(
+					filePath,
+					encryptPostJson(plainJson, relativePath),
+					"utf8",
+				);
+				written += 1;
+			}
+		} else {
+			writeFileSync(filePath, plainJson, "utf8");
+			written += 1;
+		}
+		// visibility が変わった記事は、反対側（公開 ⇔ 限定）に残った古いファイルを消して二重管理を防ぐ
+		for (const stale of staleContentPaths(postSlug, visibility)) {
+			const stalePath = path.join(CONTENT_DIR, stale);
+			if (existsSync(stalePath)) {
+				rmSync(stalePath);
+				console.log(
+					`削除（visibility が ${visibility} に変わったため）: ${stale}`,
+				);
+			}
+		}
 	}
 	console.log(
-		`完了: 取得 ${posts.length} 件、書き出し ${written} 件、スキップ ${skipped} 件`,
+		`完了: 取得 ${posts.length} 件、書き出し ${written} 件、変更なし（限定記事）${unchanged} 件、スキップ ${skipped} 件`,
 	);
 }
 

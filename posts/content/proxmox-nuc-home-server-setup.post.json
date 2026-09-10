@@ -2,6 +2,7 @@
 	"title": "NUCにProxmoxを入れて快適自宅サーバー環境を作る",
 	"slug": "proxmox-nuc-home-server-setup",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"selfhosted",

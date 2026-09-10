@@ -2,6 +2,7 @@
 	"title": "ハリーポッターとデジタルツイン",
 	"slug": "harry-potter-and-digital-twin",
 	"status": "published",
+	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"たねのぶの話",
