@@ -22,7 +22,8 @@ function 読み込む() {
     vm.runInNewContext(スクリプト, {window});
     const api = window.HyperstrataGraph;
     return {
-        buildLayout: (posts, options) => JSON.parse(JSON.stringify(api.buildLayout(posts, options)))
+        buildLayout: (posts, options) => JSON.parse(JSON.stringify(api.buildLayout(posts, options))),
+        assignBandIcons: (bands, nodes, options) => JSON.parse(JSON.stringify(api.assignBandIcons(bands, nodes, options)))
     };
 }
 
@@ -124,6 +125,18 @@ test('buildLayout: 年ごとの区切り(yearMarks)は新しい年から順に�
     assert.equal(layout.yearMarks[1].y, layout.nodes[2].y);
 });
 
+test('buildLayout: ノードは記事の icon をそのまま持ち、無ければ null になる', () => {
+    const {buildLayout} = 読み込む();
+    const 記事一覧 = [
+        Object.assign({}, 記事[0], {icon: 'cat'}),
+        Object.assign({}, 記事[1])
+    ];
+    const layout = buildLayout(記事一覧, {minGap: 40, pixelsPerDay: 1});
+    const icons = Object.fromEntries(layout.nodes.map(node => [node.slug, node.icon]));
+    assert.equal(icons.introduction, 'cat');
+    assert.equal(icons.limits, null);
+});
+
 test('buildLayout: 空配列でもノード・エッジ・年ラベルが空の結果を返す', () => {
     const {buildLayout} = 読み込む();
     const layout = buildLayout([], {minGap: 40, pixelsPerDay: 1});
@@ -153,7 +166,8 @@ function ペインを読み込む() {
         assignColumns: (nodes, edges) => 正規化(api.assignColumns(nodes, edges)),
         computeEmphasis: (nodes, edges, slug, hops) => 正規化(api.computeEmphasis(nodes, edges, slug, hops)),
         buildStrataBands: (marks, height) => 正規化(api.buildStrataBands(marks, height)),
-        strataBoundaryPath: (y, width, options) => api.strataBoundaryPath(y, width, options)
+        strataBoundaryPath: (y, width, options) => api.strataBoundaryPath(y, width, options),
+        assignBandIcons: (bands, nodes, options) => 正規化(api.assignBandIcons(bands, nodes, options))
     };
 }
 
@@ -216,6 +230,19 @@ test('buildPaneLayout: ノードは列(col)を持ち、最も新しい記事の�
     assert.notEqual(列.middle, 0);
     assert.equal(layout.minCol, Math.min(列.newest, 列.middle, 列.oldest));
     assert.equal(layout.maxCol, Math.max(列.newest, 列.middle, 列.oldest));
+});
+
+test('buildPaneLayout: ノードは記事の icon をそのまま持ち、無ければ null になる', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 記事一覧 = [
+        Object.assign({}, ペイン記事[0], {icon: 'house'}),
+        ペイン記事[1],
+        ペイン記事[2]
+    ];
+    const layout = buildPaneLayout(記事一覧, ペイン設定);
+    const icons = Object.fromEntries(layout.nodes.map(node => [node.slug, node.icon]));
+    assert.equal(icons.oldest, 'house');
+    assert.equal(icons.middle, null);
 });
 
 test('buildPaneLayout: 空配列でも空のレイアウトを返す', () => {
@@ -443,6 +470,59 @@ test('strataBoundaryPath: 波線は指定した y から始まり、右端(width
 });
 
 // ---------------------------------------------------------------------------
+// assignBandIcons: 帯(地層)の中に題材アイコンをランダムに散らす
+// ---------------------------------------------------------------------------
+
+const 帯 = [
+    {label: '2026-03', top: 0, bottom: 100, depth: 0},
+    {label: '2026-01', top: 100, bottom: 300, depth: 1}
+];
+
+test('assignBandIcons: icon を持つノードだけを配置し、所属する帯(top <= y < bottom)の中に置く', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [
+        {slug: 'newest', y: 40, icon: 'cat'},
+        {slug: 'no-icon', y: 60, icon: null},
+        {slug: 'middle', y: 140, icon: 'tech'}
+    ];
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10});
+    assert.deepEqual(placements.map(p => p.slug), ['newest', 'middle']);
+    const 種別 = Object.fromEntries(placements.map(p => [p.slug, p.icon]));
+    assert.equal(種別.newest, 'cat');
+    assert.equal(種別.middle, 'tech');
+    placements.forEach(p => {
+        assert.ok(p.x >= 0 && p.x <= 200, 'x は xMin〜xMax の範囲内');
+    });
+    const newest = placements.find(p => p.slug === 'newest');
+    assert.ok(newest.y >= 帯[0].top + 10 && newest.y <= 帯[0].bottom - 10, 'y は所属する帯の marginY を除いた範囲内');
+});
+
+test('assignBandIcons: どの帯にも属さない y のノード(範囲外)は配置しない', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [{slug: 'out-of-range', y: 500, icon: 'cat'}];
+    assert.deepEqual(assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10}), []);
+});
+
+test('assignBandIcons: 同じ入力なら常に同じ位置を返す(決定的。再描画で種の位置が跳ねないため)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [{slug: 'stable-position', y: 40, icon: 'cat'}];
+    const options = {xMin: 0, xMax: 200, marginY: 10};
+    const 一回目 = assignBandIcons(帯, nodes, options);
+    const 二回目 = assignBandIcons(帯, nodes, options);
+    assert.deepEqual(一回目, 二回目);
+});
+
+test('assignBandIcons: slug が違えば(y が同じでも)配置が変わる(全部同じ位置に重ならない)', () => {
+    const {assignBandIcons} = ペインを読み込む();
+    const nodes = [
+        {slug: 'a', y: 40, icon: 'cat'},
+        {slug: 'b', y: 40, icon: 'cat'}
+    ];
+    const placements = assignBandIcons(帯, nodes, {xMin: 0, xMax: 200, marginY: 10});
+    assert.notDeepEqual([placements[0].x, placements[0].y], [placements[1].x, placements[1].y]);
+});
+
+// ---------------------------------------------------------------------------
 // graph.json の読み取り(#25)
 // ---------------------------------------------------------------------------
 
@@ -550,6 +630,17 @@ test('buildTimelineLayout: ノードは行の順に並び、行番号・種の y
     const layout = buildTimelineLayout(行, タイムライン記事);
     assert.deepEqual(layout.nodes.map(node => [node.slug, node.row, node.y]), [['newest', 0, 40], ['middle', 1, 140], ['oldest', 2, 240]]);
     layout.nodes.forEach(node => assert.equal(typeof node.col, 'number'));
+});
+
+test('buildTimelineLayout: ノードは posts の icon をそのまま持ち、graph.json に無い行(icon 未取得)は null になる', () => {
+    const {buildTimelineLayout} = タイムラインを読み込む();
+    const 記事一覧 = タイムライン記事.map(post => post.slug === 'oldest' ? Object.assign({}, post, {icon: 'travel'}) : post);
+    const 行一覧 = 行.concat([{slug: 'not-synced', month: '2025-12', top: 300, bottom: 400, y: 340}]);
+    const layout = buildTimelineLayout(行一覧, 記事一覧);
+    const icons = Object.fromEntries(layout.nodes.map(node => [node.slug, node.icon]));
+    assert.equal(icons.oldest, 'travel');
+    assert.equal(icons.newest, null);
+    assert.equal(icons['not-synced'], null);
 });
 
 test('buildTimelineLayout: エッジは表示中の行どうしの引用だけを持ち、上(fromRow)から下(toRow)へ向く', () => {

@@ -48,7 +48,7 @@
      * 基本とし、隣接ノードとの間隔が minGap を下回る場合は minGap まで押し下げる
      * (同日公開の記事が重ならないようにするため)。yearMarks は年ごとの地層の上端(その年で最も新しいノードの位置)。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts
      * @param {{minGap: number, pixelsPerDay: number}} options
      * @returns {{nodes: object[], edges: object[], yearMarks: object[], height: number}}
      */
@@ -83,7 +83,7 @@
                 yearMarks.push({year: year, y: y});
                 previousYear = year;
             }
-            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, y: y});
+            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, y: y, icon: post.icon || null});
             previousY = y;
         });
 
@@ -188,6 +188,31 @@
     }
 
     /**
+     * assignBandIcons の配置結果を、地層に埋まった題材アイコンの層として <g> にまとめる。
+     * 装飾のため aria-hidden にし、クリック等を奪わないよう pointer-events は CSS(.gh-strata-band-icons)で消す。
+     * window.HyperstrataIcons(assets/js/strata-icons.js)が未知の icon には null を返すため、その場合は何も足さない。
+     *
+     * @param {Array<{icon: string, x: number, y: number}>} placements
+     * @param {number} size アイコンの一辺(px)
+     * @returns {SVGGElement}
+     */
+    function buildBandIconGroup(placements, size) {
+        const group = createElement('g', {class: 'gh-strata-band-icons', 'aria-hidden': 'true'});
+        placements.forEach(function (placement) {
+            const icon = window.HyperstrataIcons.createElement(placement.icon, {
+                x: placement.x - size / 2,
+                y: placement.y - size / 2,
+                width: size,
+                height: size
+            });
+            if (icon) {
+                group.appendChild(icon);
+            }
+        });
+        return group;
+    }
+
+    /**
      * レイアウトを SVG として描画する。
      *
      * @param {ReturnType<typeof buildLayout>} layout
@@ -215,8 +240,9 @@
         const yearMarks = layout.yearMarks.map(function (mark) {
             return {label: String(mark.year), y: mark.y + options.paddingTop - options.yearGap};
         });
+        const bands = buildStrataBands(yearMarks, height);
         const bandGroup = createElement('g', {class: 'gh-strata-strata'});
-        buildStrataBands(yearMarks, height).forEach(function (band) {
+        bands.forEach(function (band) {
             bandGroup.appendChild(createElement('rect', {
                 class: 'gh-strata-stratum',
                 x: 0, y: band.top, width: options.width, height: band.bottom - band.top,
@@ -224,6 +250,15 @@
             }));
         });
         svg.appendChild(bandGroup);
+
+        // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)
+        const iconNodes = layout.nodes.map(function (node) {
+            return {slug: node.slug, icon: node.icon, y: nodeY[node.slug]};
+        });
+        svg.appendChild(buildBandIconGroup(
+            assignBandIcons(bands, iconNodes, {xMin: 12, xMax: options.width - 12, marginY: 14}),
+            18
+        ));
 
         // 地層の境界線(波線)と年ラベル。ラベルは時間軸のすぐ右・境界線の下(その年の帯の内側)に置く
         // (右端に寄せると狭い画面で横スクロールしないと見えなくなるため)
@@ -401,7 +436,7 @@
      * 合成した推定エッジ(inferredRefs)は幹の形に影響させず、確定した行(row)の上に kind: 'inferred'
      * として重ねて描く。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts
      * @param {{rowHeight: number, monthGap: number, paddingTop: number, paddingBottom: number}} options
      * @returns {{nodes: object[], edges: object[], monthMarks: object[], minCol: number, maxCol: number, height: number}}
      *   nodes は col(列番号)、edges は fromCol / toCol(両端の列番号)と kind('human' | 'inferred')を持つ
@@ -438,7 +473,7 @@
                 previousMonth = month;
             }
             y += row === 0 ? 0 : options.rowHeight;
-            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, row: row, y: y});
+            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, row: row, y: y, icon: post.icon || null});
             rowOf[post.slug] = row;
         });
 
@@ -514,15 +549,17 @@
      * 列確定後に kind: 'inferred' として重ねて追加する。offPage(ページ外への束)も人間の引用のみ数える。
      *
      * @param {Array<{slug: string, month: string, top: number, bottom: number, y: number}>} rows 表示順(新しい順)の行
-     * @param {Array<{slug: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts graph.json の記事一覧
+     * @param {Array<{slug: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts graph.json の記事一覧
      * @returns {{bands: object[], nodes: object[], edges: object[], offPage: object[]}}
      */
     function buildTimelineLayout(rows, posts) {
         const refsOf = {};
         const inferredRefsOf = {};
+        const iconOf = {};
         posts.forEach(function (post) {
             refsOf[post.slug] = post.refs;
             inferredRefsOf[post.slug] = post.inferredRefs || [];
+            iconOf[post.slug] = post.icon || null;
         });
         const rowOf = {};
         rows.forEach(function (row, index) {
@@ -540,7 +577,7 @@
         });
 
         const nodes = rows.map(function (row, index) {
-            return {slug: row.slug, row: index, y: row.y};
+            return {slug: row.slug, row: index, y: row.y, icon: iconOf[row.slug] || null};
         });
         const rawEdges = [];
         const offPage = [];
@@ -752,6 +789,65 @@
         });
     }
 
+    /** 文字列から 32bit の決定的なハッシュ値を作る(FNV-1a)。slug ごとの乱数の種にする */
+    function hashSeed(text) {
+        let hash = 2166136261;
+        for (let i = 0; i < text.length; i += 1) {
+            hash ^= text.charCodeAt(i);
+            hash = Math.imul(hash, 16777619);
+        }
+        return hash >>> 0;
+    }
+
+    /** 決定的な疑似乱数生成器(mulberry32)。同じ seed からは常に同じ数列を返す */
+    function mulberry32(seed) {
+        let state = seed >>> 0;
+        return function () {
+            state = (state + 0x6D2B79F5) | 0;
+            let t = Math.imul(state ^ (state >>> 15), 1 | state);
+            t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
+
+    /**
+     * 帯(地層)ごとに、icon(題材アイコン)を持つノードをその帯の中のランダムな位置に散らして配置する。
+     * 「地層の中に埋まっている」見た目にするための飾りで、ノード自身の座標(種の位置)とは無関係に置く。
+     *
+     * 位置は slug から決定的に計算する(Math.random は使わない)ため、無限スクロールや画面リサイズで
+     * 描き直しても同じ記事のアイコンは同じ位置のまま跳ねない。
+     *
+     * @param {Array<{top: number, bottom: number}>} bands 上から順に並んだ帯(重ならない前提。最後の帯だけ bottom を含む)
+     * @param {Array<{slug: string, y: number, icon?: string|null}>} nodes
+     * @param {{xMin: number, xMax: number, marginY: number}} options x は [xMin, xMax] の範囲、y は帯の上下から marginY を除いた範囲に収める
+     * @returns {Array<{slug: string, icon: string, x: number, y: number}>}
+     */
+    function assignBandIcons(bands, nodes, options) {
+        const placements = [];
+        bands.forEach(function (band, index) {
+            const isLast = index === bands.length - 1;
+            nodes.filter(function (node) {
+                if (!node.icon) {
+                    return false;
+                }
+                return isLast ?
+                    (node.y >= band.top && node.y <= band.bottom) :
+                    (node.y >= band.top && node.y < band.bottom);
+            }).forEach(function (node) {
+                const random = mulberry32(hashSeed(node.slug));
+                const minY = band.top + options.marginY;
+                const maxY = Math.max(minY, band.bottom - options.marginY);
+                placements.push({
+                    slug: node.slug,
+                    icon: node.icon,
+                    x: options.xMin + random() * Math.max(0, options.xMax - options.xMin),
+                    y: minY + random() * (maxY - minY)
+                });
+            });
+        });
+        return placements;
+    }
+
     /**
      * 地層の境界線を、まっすぐな直線ではなく緩やかにうねる波線のパスとして作る。
      * 二次ベジェ曲線を wavelength ごとに上下交互に膨らませて繋ぐ。
@@ -834,8 +930,9 @@
         // SVG はペイン中央に置かれるため、帯と境界線は bleed ぶん左右にはみ出させてペインの端まで届かせる
         // (SVG は overflow: visible、ペインのスクロール領域が overflow-x: hidden で切り取る)
         const bleedWidth = options.width + options.bleed * 2;
+        const paneBands = buildStrataBands(layout.monthMarks, layout.height);
         const bandGroup = createElement('g', {class: 'gh-strata-pane-strata', transform: 'translate(' + (-options.bleed) + ' 0)'});
-        buildStrataBands(layout.monthMarks, layout.height).forEach(function (band) {
+        paneBands.forEach(function (band) {
             bandGroup.appendChild(createElement('rect', {
                 class: 'gh-strata-pane-stratum',
                 x: 0, y: band.top, width: bleedWidth, height: band.bottom - band.top,
@@ -843,6 +940,13 @@
             }));
         });
         svg.appendChild(bandGroup);
+
+        // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
+        // 表示幅(bleed していない範囲)に収め、ペインのスクロール領域からはみ出さないようにする
+        svg.appendChild(buildBandIconGroup(
+            assignBandIcons(paneBands, layout.nodes, {xMin: 12, xMax: options.width - 12, marginY: 10}),
+            14
+        ));
 
         // 地層の境界線(緩やかな波線)とラベル。ラベルは境界線の下(その月の帯の内側)に置き、右端に寄せる
         const monthGroup = createElement('g', {class: 'gh-strata-pane-months'});
@@ -1097,6 +1201,19 @@
             }));
         });
         svg.appendChild(bandGroup);
+
+        // 帯の中に埋まった題材アイコン(記事の icon)をランダムな位置に散らす(#26)。
+        // labelWidth より右(記事カードの表示領域)に収め、月ラベルに重ならないようにする。
+        // compact(狭い画面)では月ラベルが帯の左上(x: 4, y: band.top + 14)に乗るため、
+        // 上端の marginY を広げてその位置にアイコンが被らないようにする
+        svg.appendChild(buildBandIconGroup(
+            assignBandIcons(layout.bands, layout.nodes, {
+                xMin: options.labelWidth + 8,
+                xMax: options.width - 8,
+                marginY: options.compact ? 26 : 10
+            }),
+            options.compact ? 14 : 16
+        ));
 
         // 月ラベル。通常は月ラベル列の右端に寄せ、狭い画面では帯の左上に小さく置く
         const labelGroup = createElement('g', {class: 'gh-strata-timeline-months'});
@@ -1415,6 +1532,7 @@
         computeEmphasis: computeEmphasis,
         buildStrataBands: buildStrataBands,
         strataBoundaryPath: strataBoundaryPath,
+        assignBandIcons: assignBandIcons,
         parseGraph: parseGraph
     };
 

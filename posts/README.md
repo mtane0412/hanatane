@@ -166,7 +166,8 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
     { "slug": "window-film", "type": "continues", "reason": "一行の理由" }
   ],
   "annotated_at": "2026-09-10T03:00:00.000Z",
-  "annotator": "claude-fable-5-1"
+  "annotator": "claude-fable-5-1",
+  "icon": "tech"
 }
 ```
 
@@ -176,11 +177,24 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 | `revisits` | 再訪。同じテーマに別の角度や時期から戻った |
 | `updates` | 更新。過去記事の内容や考えを改める意図がある（思考の変遷） |
 
+`icon`（省略可）は記事の題材を表す種別で、地層の可視化（テーマ側の Hyperstrata グラフ）でアイコン表示に使う。該当する題材が無ければ省略する。
+
+| `icon` | 題材 |
+|---|---|
+| `cat` | 猫 |
+| `house` | 古民家・DIY・住まい |
+| `hunting` | 狩猟 |
+| `game` | 格ゲー・ゲーム |
+| `tech` | 開発・Ghost運用・ツール |
+| `travel` | 旅行・遠征 |
+| `journal` | 週報・振り返り・エッセイ的な考え |
+| `event` | 勉強会・登壇・交流イベント |
+
 ルール（`pnpm --filter ./posts strata check` が検査します。CI と pre-commit hook でも実行）:
 
 - 注釈は公開済みの記事にだけ付けます。関係は自分より前に公開された記事だけを指します（後方参照のみ。有向非巡回グラフを保つ）。
 - 一度書いた注釈は書き換えません。解釈を改めたいときは新しい注釈を積みます（現状は 1 記事 1 ファイルで、追記の形式は未定）。
-- 限定記事（`visibility` が `members` / `paid`）の注釈は `strata/private/<slug>.json` に置き、`summary` と `reason` を sops で暗号化します。関係先の slug と `type` は title と同じく公開情報として平文で残します。
+- 限定記事（`visibility` が `members` / `paid`）の注釈は `strata/private/<slug>.json` に置き、`summary` と `reason` を sops で暗号化します。関係先の slug と `type`、`icon` は title と同じく公開情報として平文で残します。
 
 ### コマンド
 

@@ -35,7 +35,8 @@ const 記事一覧 = [
         publishedAt: '2026-09-09T11:00:41.000Z',
         refs: ['window-film'],
         inferredRefs: [{slug: 'window-film', type: 'continues', reason: '前回の記事として明言しているため。'}],
-        summary: 'Hyperstrata を Ghost に実装した記事の要約。'
+        summary: 'Hyperstrata を Ghost に実装した記事の要約。',
+        icon: 'tech'
     },
     {
         slug: 'window-film',
@@ -44,7 +45,8 @@ const 記事一覧 = [
         publishedAt: '2026-04-06T12:54:38.000Z',
         refs: [],
         inferredRefs: [{slug: 'welcome-cat', type: 'continues', reason: null}],
-        summary: null
+        summary: null,
+        icon: 'cat'
     },
     {
         slug: 'welcome-cat',
@@ -53,11 +55,12 @@ const 記事一覧 = [
         publishedAt: '2026-01-01T00:00:00.000Z',
         refs: [],
         inferredRefs: [],
-        summary: null
+        summary: null,
+        icon: 'cat'
     }
 ];
 
-test('buildAnnotationView: 現在記事の summary と inferredRefs を、関係先の記事情報付きで返す', () => {
+test('buildAnnotationView: 現在記事の summary と inferredRefs を、関係先の記事情報(icon 含む)付きで返す', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧, 'hyperstrata');
     assert.equal(view.summary, 'Hyperstrata を Ghost に実装した記事の要約。');
@@ -68,7 +71,8 @@ test('buildAnnotationView: 現在記事の summary と inferredRefs を、関係
             slug: 'window-film',
             title: '縁側の窓に目隠しシートを貼った(猫のストレス対策)',
             url: 'https://hanatane.net/window-film/',
-            publishedAt: '2026-04-06T12:54:38.000Z'
+            publishedAt: '2026-04-06T12:54:38.000Z',
+            icon: 'cat'
         }
     ]);
 });
@@ -84,9 +88,37 @@ test('buildAnnotationView: reason が無い関係は reason: null のまま返�
             slug: 'welcome-cat',
             title: '猫を迎えた',
             url: 'https://hanatane.net/welcome-cat/',
-            publishedAt: '2026-01-01T00:00:00.000Z'
+            publishedAt: '2026-01-01T00:00:00.000Z',
+            icon: 'cat'
         }
     ]);
+});
+
+test('buildAnnotationView: 関係先の icon が無い記事(該当題材なし)は icon: null を返す', () => {
+    const {buildAnnotationView} = 読み込む();
+    const posts = [
+        {
+            slug: 'a',
+            title: 'A',
+            url: '/a/',
+            publishedAt: '2026-01-01T00:00:00.000Z',
+            refs: [],
+            inferredRefs: [{slug: 'b', type: 'continues', reason: null}],
+            summary: null,
+            icon: null
+        },
+        {
+            slug: 'b',
+            title: 'B',
+            url: '/b/',
+            publishedAt: '2025-01-01T00:00:00.000Z',
+            refs: [],
+            inferredRefs: [],
+            summary: null
+        }
+    ];
+    const view = buildAnnotationView(posts, 'a');
+    assert.equal(view.relations[0].icon, null);
 });
 
 test('buildAnnotationView: 現在記事に inferredRefs も summary も無ければ空の関係一覧と null を返す', () => {
