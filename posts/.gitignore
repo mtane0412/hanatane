@@ -1,3 +1,5 @@
 # 限定記事の平文作業ファイル（ローカル専用）。コミットしてよいのは sops で暗号化した content/private/*.post.json だけ
 content/private/*.md
 content/private/*.plain.post.json
+# 限定記事の Hyperstrata 注釈の平文作業ファイル（ローカル専用）。コミットしてよいのは sops で暗号化した strata/private/*.json だけ
+strata/private/*.plain.json

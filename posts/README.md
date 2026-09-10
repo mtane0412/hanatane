@@ -145,6 +145,56 @@ pnpm --filter ./posts push content/private/<slug>.post.json
 - `visibility` は `public` / `members` / `paid` のみ受け付けます。特定ティア限定（`tiers`）は未対応で、pull も push もエラーになります。
 - ghst は stdout がパイプのとき 64KB 付近で出力が途切れる（書き込み完了前に終了する）ため、`pull` は ghst の stdout を一時ファイルに書かせてから読んでいます。`pnpm ghst post list --json | jq` のような使い方では途切れることがあるので、大きな出力はファイルにリダイレクトしてください。
 
+## Hyperstrata の注釈（strata/）
+
+hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction-to-hyperstrata/) の考え方（記事を書き換えず堆積させ、層の中にネットワークを張る）で運用しています。ネットワークは 2 層あります。
+
+| 層 | 作る人 | 置き場所 | 内容 |
+|---|---|---|---|
+| 引用（人間の層） | 著者。本文に過去記事へのリンクを書く | Ghost の `#ref-<slug>` タグ（`hyperstrata-sync` workflow が付ける） | 著者が意識的に参照した関係 |
+| 注釈（機械の層） | Claude Code のセッション（`.claude/skills/strata-annotate`） | `posts/strata/<slug>.json` | 要約と、過去記事との関係の推定 |
+
+注釈は本文には手を入れず、記事ごとに 1 ファイルで積みます。人間はタグやカテゴリを付けず、書くことに集中します。
+
+### 注釈ファイルの形式
+
+```json
+{
+  "slug": "hyperstrata",
+  "summary": "記事の要約（200〜300 字程度）",
+  "relations": [
+    { "slug": "window-film", "type": "continues", "reason": "一行の理由" }
+  ],
+  "annotated_at": "2026-09-10T03:00:00.000Z",
+  "annotator": "claude-fable-5-1"
+}
+```
+
+| `type` | 意味 |
+|---|---|
+| `continues` | 続報。同じ出来事・プロジェクトの次の報告（たねハウスの進捗、週報など） |
+| `revisits` | 再訪。同じテーマに別の角度や時期から戻った |
+| `updates` | 更新。過去記事の内容や考えを改める意図がある（思考の変遷） |
+
+ルール（`pnpm --filter ./posts strata check` が検査します。CI と pre-commit hook でも実行）:
+
+- 注釈は公開済みの記事にだけ付けます。関係は自分より前に公開された記事だけを指します（後方参照のみ。有向非巡回グラフを保つ）。
+- 一度書いた注釈は書き換えません。解釈を改めたいときは新しい注釈を積みます（現状は 1 記事 1 ファイルで、追記の形式は未定）。
+- 限定記事（`visibility` が `members` / `paid`）の注釈は `strata/private/<slug>.json` に置き、`summary` と `reason` を sops で暗号化します。関係先の slug と `type` は title と同じく公開情報として平文で残します。
+
+### コマンド
+
+```bash
+pnpm --filter ./posts strata pending          # 公開済みでまだ注釈が無い記事を、公開日の古い順に一覧する
+pnpm --filter ./posts strata catalog <slug>   # <slug> より前に公開された記事の一覧（要約付き）を JSON で出す（限定記事の要約は復号する）
+pnpm --filter ./posts strata text <slug>      # <slug> の本文をプレーンテキストで出す（限定記事は復号する）
+pnpm --filter ./posts strata check            # すべての注釈の形式・置き場所・暗号化・整合を検査する
+pnpm --filter ./posts strata decrypt <slug>   # strata/private/<slug>.json を復号して <slug>.plain.json（.gitignore 対象）を作る
+pnpm --filter ./posts strata encrypt <slug>   # <slug>.plain.json を検証・暗号化して strata/private/<slug>.json に書き、平文を削除する
+```
+
+記事一覧は `content/**/*.post.json` の平文メタ情報から作るため、注釈を付ける前に `pull` で最新にしてください。注釈を付ける手順は `.claude/skills/strata-annotate/SKILL.md` にまとめています。
+
 ## 開発
 
 ```bash
@@ -152,4 +202,5 @@ pnpm --filter ./posts test
 pnpm --filter ./posts lint
 pnpm --filter ./posts type-check
 pnpm --filter ./posts check-private            # 限定記事が平文でコミットされていないか（CI と pre-commit hook でも実行）
+pnpm --filter ./posts strata check             # Hyperstrata の注釈の形式・暗号化・整合（CI と pre-commit hook でも実行）
 ```

@@ -1,8 +1,9 @@
 /**
- * 限定記事の `.post.json` を sops + age で暗号化・復号する薄いラッパー
+ * 限定記事の `.post.json` と、その Hyperstrata 注釈（strata/private/*.json）を sops + age で暗号化・復号する薄いラッパー
  *
  * 設定は posts/.sops.yaml にあり、`content/private/*.post.json` に対して
- * `encrypted_regex: ^lexical$` で本文（lexical）だけを暗号化します。
+ * `encrypted_regex: ^lexical$` で本文（lexical）だけを、`strata/private/*.json` に対して
+ * 要約（summary）と関係の理由（reason）だけを暗号化します。
  * メタ情報（title、slug、status、visibility、tags など）は平文のまま残るため、
  * git の diff で何が変わったかは追えます。
  *
@@ -42,14 +43,14 @@ function runSops(args: string[]): string {
 }
 
 /**
- * 平文の `.post.json` の内容を暗号化した JSON 文字列にして返します。
+ * 平文の JSON 文字列を、posts からの相対パスに対応する creation_rule で暗号化して返します。
  *
  * @param plainJson - 平文の JSON 文字列
- * @param contentRelativePath - content ディレクトリからの相対パス（.sops.yaml の creation_rules に突き合わせる）
+ * @param postsRelativePath - posts ディレクトリからの相対パス（.sops.yaml の creation_rules に突き合わせる）
  */
-export function encryptPostJson(
+export function encryptJson(
 	plainJson: string,
-	contentRelativePath: string,
+	postsRelativePath: string,
 ): string {
 	// 一時ファイルは所有者のみ読める権限で作り、暗号化後に必ず消す
 	const tempDir = mkdtempSync(path.join(os.tmpdir(), "hanatane-posts-sops-"));
@@ -59,7 +60,7 @@ export function encryptPostJson(
 		return runSops([
 			"--encrypt",
 			"--filename-override",
-			path.join("content", contentRelativePath),
+			postsRelativePath,
 			plainPath,
 		]);
 	} finally {
@@ -68,7 +69,20 @@ export function encryptPostJson(
 }
 
 /**
- * 暗号化済みの `.post.json` を復号し、平文の JSON 文字列を返します。
+ * 平文の `.post.json` の内容を暗号化した JSON 文字列にして返します。
+ *
+ * @param plainJson - 平文の JSON 文字列
+ * @param contentRelativePath - content ディレクトリからの相対パス（.sops.yaml の creation_rules に突き合わせる）
+ */
+export function encryptPostJson(
+	plainJson: string,
+	contentRelativePath: string,
+): string {
+	return encryptJson(plainJson, path.join("content", contentRelativePath));
+}
+
+/**
+ * 暗号化済みの JSON ファイル（`.post.json` や strata の注釈）を復号し、平文の JSON 文字列を返します。
  *
  * @param encryptedPath - 暗号化済みファイルの絶対パス
  */

@@ -1,10 +1,13 @@
 #!/bin/sh
-# コミット前に、限定記事（visibility が members / paid）が平文で posts/content にステージされていないかを検査する。
+# コミット前に、限定記事（visibility が members / paid）が平文で posts/content にステージされていないかと、
+# Hyperstrata の注釈（posts/strata）の形式・暗号化・整合を検査する。
 # ルート package.json の prepare スクリプト（pnpm install 時）が core.hooksPath をこのディレクトリに設定する。
-# 検査内容は posts/scripts/check-private.ts を参照。
+# 検査内容は posts/scripts/check-private.ts と posts/scripts/strata.ts を参照。
 set -eu
 cd "$(git rev-parse --show-toplevel)"
-if git diff --cached --quiet -- posts/content; then
-	exit 0
+if ! git diff --cached --quiet -- posts/content; then
+	pnpm --filter ./posts --silent check-private --staged
 fi
-exec pnpm --filter ./posts --silent check-private --staged
+if ! git diff --cached --quiet -- posts/strata; then
+	pnpm --filter ./posts --silent strata check
+fi
