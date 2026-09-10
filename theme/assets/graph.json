@@ -11,9 +11,12 @@
       "inferredRefs": [
         {
           "slug": "window-film",
-          "type": "continues"
+          "type": "continues",
+          "reason": "本文中で「前回の記事は数ヶ月前の猫のストレス対策」と明言し、直前の公開記事として位置づけている。"
         }
-      ]
+      ],
+      "summary": "Cosense のコミュニティで紹介された折登さんの Hyperstrata というアイデアを、このブログに Ghost で実装した記事です。Hyperstrata は immutable なページが引用関係でネットワークを作りながら地層のように堆積していくノートの形態で、mutable な Cosense は手入れが疎かになり、ブログは書き上げるエネルギーが要るという問題意識に応えるものです。immutable であることで「いまここ」に集中でき、引用関係が記事同士の繋がりを表すと整理しています。ビルド工程のない Ghost 向けに定期的にグラフを更新する仕組みにし、「はなしのタネ」にちなんで地中に種が埋まる表現にしました。書く敷居が下がるかを検証するとしています。",
+      "icon": "tech"
     },
     {
       "slug": "window-film",
@@ -24,9 +27,12 @@
       "inferredRefs": [
         {
           "slug": "welcome-cat",
-          "type": "continues"
+          "type": "continues",
+          "reason": "お迎え記事で今後の課題としていた避妊手術待ちの間の、猫のストレス対策という続報にあたる。"
         }
-      ]
+      ],
+      "summary": "近所の猫との視線のやり取りで夜泣きやスプレー行動が増えた飼い猫ミケのストレス対策として、縁側の窓に曇りガラスシートを貼った記事です。避妊手術は 4 月中旬まで待つ必要があるため、先に窓の下 60cm ほどを目隠しすることにしました。寿チャンネル DIY の動画を参考に、窓幅に合わせて大まかにカットし、洗剤入りの霧吹きで貼り付け、真っ直ぐな辺を基準に空気を抜いてから右側を窓枠に合わせてカットする手順に落ち着きました。ガラス幅 53cm が 4 枚、78cm が 8 枚で、シートが足りず追加注文しています。音は筒抜けなので効果は限定的と予想していましたが、スプレー行動も夜泣きも激減しました。",
+      "icon": "cat"
     },
     {
       "slug": "first-hunt",
@@ -37,13 +43,17 @@
       "inferredRefs": [
         {
           "slug": "hunter-license-2024",
-          "type": "continues"
+          "type": "continues",
+          "reason": "罠・網の狩猟免許取得後、狩猟者登録から罠設置・捕獲・解体までを実践した続報にあたる。"
         },
         {
           "slug": "2025-reflection",
-          "type": "continues"
+          "type": "continues",
+          "reason": "振り返り記事10月の節で触れた銃の講習を経て、初めての捕獲・解体に至った経緯を詳報している。"
         }
-      ]
+      ],
+      "summary": "今季の猟期に、狩猟者登録から罠の設置、ニホンジカの捕獲、解体までを経験した記録です。知り合ったハンター経由で猟友会の会長に繋いでもらい狩猟者登録を済ませ、岩手県の規制に合わせて罠径 12cm 以下のくくり罠をイノホイで購入し、猟具標識と注意標識を Canva で作ってラミネートしました。獣道と固定用の木がある場所に罠を設置し、3 日後に雄鹿がかかっているのを発見しました。雄のため知り合いのハンターに銃で止め刺ししてもらい、血抜きと解体を見せてもらっています。鹿を対象にするなら自分で銃を持つほうが良いこと、IoT 的な罠検知システムを電子工作で試作したいことを今後の課題としています。",
+      "icon": "hunting"
     },
     {
       "slug": "ghocli",
@@ -54,9 +64,12 @@
       "inferredRefs": [
         {
           "slug": "ghost-amazon-link-generator",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "Ghost運用を便利にする自作治具というテーマに、Tampermonkeyスクリプトの次はCLIツールという形で再び取り組んでいる。"
         }
-      ]
+      ],
+      "summary": "steipete が作った Google 系サービスの CLI である gog が便利だったことをきっかけに、その Ghost 版となる gho コマンドを Claude Code に作らせた記事です。gog は Agent Skill 化して /gog で呼び出し、Google Workspace の Gemini メモを開発のコンテキストとして共有しています。gho では gog のリポジトリで設計思想を調べ、cat コマンドの Unix 的な出力を踏襲し、pipeline 処理を意識して入出力を設計しました。CLI が使える環境では MCP より CLI が良く、AI エージェント時代には「ひとつのことをうまくやる」ツールが資産になるという考えで締めています。",
+      "icon": "tech"
     },
     {
       "slug": "devenv-2026",
@@ -67,9 +80,12 @@
       "inferredRefs": [
         {
           "slug": "2025-reflection",
-          "type": "continues"
+          "type": "continues",
+          "reason": "振り返りで触れたClaude Code本格導入から半年後、並列開発を含む具体的な開発体制を詳報している。"
         }
-      ]
+      ],
+      "summary": "Claude Code 開発者 Boris のポストに触発されて並列開発を始めた筆者が、2026 年 1 月時点の開発環境をまとめた記事です。Claude MAX 20x プランで Plan Mode を使い、terminal-notifier で承認待ちを通知し、Ghostty の 4 分割画面を 5 プロジェクトほどで回しています。型チェック・Lint・テストに加え、CodeRabbit CLI、Lefthook、Claude Code Actions、GitHub Copilot Pro を組み合わせ、weekly limit 到達時は opencode を使っています。並列開発で人間と agent の役割が分離し、git ログに説明が残ることで把握しやすくなったとまとめています。",
+      "icon": "tech"
     },
     {
       "slug": "1x4-cat-tower",
@@ -80,13 +96,17 @@
       "inferredRefs": [
         {
           "slug": "2025-reflection",
-          "type": "continues"
+          "type": "continues",
+          "reason": "振り返り記事で述べた「キャットタワーをデプロイしていきたい」という計画を実行に移した続報。"
         },
         {
           "slug": "welcome-cat",
-          "type": "continues"
+          "type": "continues",
+          "reason": "お迎えした猫が家に慣れて柱や建具を傷つけ始めたことを受けた、その後の飼育環境整備の続報。"
         }
-      ]
+      ],
+      "summary": "1x4 材と麻紐で猫の爪とぎ兼キャットタワーを自作した記事です。猫が柱や建具を傷つけ始めたため、参考動画にあった塩ビ管ではなく、1820mm で 1 本 500 円の 1x4 材をホームセンターで購入し、麻紐は Amazon の格安品を使いました。設置場所は爪とぎ被害の大きいトイレ横で、撤去したアルミドアの鴨居の溝にはめ込む方式にしましたが、寸法を削り間違えたため溝をずらして固定しています。麻ロープを巻き、最初と終わりはビスで留めました。完成後は猫じゃらしで誘導すると爪とぎに使うようになり、今後はキャットウォークを追加して上の空間を活かす予定です。格安で賃貸でも設置しやすいと締めています。",
+      "icon": "cat"
     },
     {
       "slug": "read-gtd",
@@ -97,9 +117,12 @@
       "inferredRefs": [
         {
           "slug": "i-hate-multitask",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "マルチタスクの切り替えコストと状況によるタスク管理という同じ課題に、GTD原典を読んで改めて向き合っている。"
         }
-      ]
+      ],
+      "summary": "GTD（Getting Things Done）の原典を、2025 年の新装版をきっかけに読んだ記事です。二次情報のつまみ食いで破綻を繰り返した経験から原典に当たりました。誤解していた点として、インボックスを空にする分類は効率化ではなく、脳の処理をリストに外部化して不安を感じない「水のような心」に至るための厳格なワークフローであること、時間的分類だけでなく「@自宅」「@頭を使わない」といった状況による分類が次のアクションを定める鍵であることの 2 つを挙げています。macOS・iOS の Things を再び使い始めて管理が改善し、今年は他のメソッドも原典を当たる年にするとしています。",
+      "icon": "journal"
     },
     {
       "slug": "ghost-amazon-link-generator",
@@ -110,9 +133,12 @@
       "inferredRefs": [
         {
           "slug": "ghost-migration-from-pro-to-selfhost",
-          "type": "continues"
+          "type": "continues",
+          "reason": "セルフホストGhostへの移行後に続く運用上の困りごと（Amazonリンク破損）への対処という続報にあたる。"
         }
-      ]
+      ],
+      "summary": "Ghost の Amazon リンク Embed が壊れて使えない問題に対し、自前で Embed 用 HTML を生成する治具を作った記事です。原因が Amazon 側にあるため Ghost 本体の修正は期待できず、Iframely などの外部サービスは無料枠では厳しいため採用しませんでした。Amazon のサイト上で情報を取得して埋め込み HTML を生成する Tampermonkey スクリプトとして GPT-5.2 に実装させ、アソシエイトツールバーに生成ボタンとプレビューを置き、アソシエイト ID にも対応させました。当初の Web アプリより Amazon サイト上で実行するほうが確実なため現在の形になりました。",
+      "icon": "tech"
     },
     {
       "slug": "xiaomi-redmi-buds-6-play",
@@ -120,7 +146,9 @@
       "url": "https://hanatane.net/xiaomi-redmi-buds-6-play/",
       "publishedAt": "2026-01-04T10:38:05.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "寝ながら使うイヤホンとして Xiaomi Redmi Buds 6 Play を紹介した記事です。古い iPad mini 4 を枕元に置き、2ch 洒落怖の朗読を聞きながら寝る用途で 1 年ほど使い、洗濯機で壊して買い直しています。寝イヤホンの要件として、ケーブルが絡まない完全分離型であること、耳の痛みや外耳道炎を防ぐため寝ているうちに外れること、安さの 3 点を挙げています。Redmi Buds 6 Play は 1000 円台で、朝には両耳から外れていることがほとんどで要件を満たしています。Xiaomi Earbuds アプリで長押しの Siri 起動をオフにする設定を必須としています。",
+      "icon": "tech"
     },
     {
       "slug": "new-years-resolution-will-be-broken",
@@ -131,9 +159,12 @@
       "inferredRefs": [
         {
           "slug": "2025-reflection",
-          "type": "continues"
+          "type": "continues",
+          "reason": "2025年の振り返りで触れた「旅行で貯金が0円になった」事実を踏まえ、今年の抱負を貯金ゼロ回避に定めている。"
         }
-      ]
+      ],
+      "summary": "新年の抱負を書こうとして、目標を公言すると達成確率が下がるという Gollwitzer の研究を思い出したところから考察した記事です。公言で早すぎる充足感が生まれるという説明と、実行意図（IF-Then プラン）まで具体化する対策を紹介しています。Merriam-Webster によれば 1813 年のボストン新聞の時点で New Year's Resolution は「破られるもの」として語られていました。日本語の「抱負」は実現の可否と関係ない志向性を表すと整理し、新年の抱負はリセットの儀式と捉えるのが実態に近いと結論づけ、今年の抱負は貯金をゼロにしないことだとしています。",
+      "icon": "journal"
     },
     {
       "slug": "2025-reflection",
@@ -151,33 +182,42 @@
       "inferredRefs": [
         {
           "slug": "8f2024",
-          "type": "continues"
+          "type": "continues",
+          "reason": "「去年に引き続いて」と明言し、前年のハチエフ参戦を踏まえた今年のハチエフ2025参加を報告している。"
         },
         {
           "slug": "hunter-license-2024",
-          "type": "continues"
+          "type": "continues",
+          "reason": "罠・網の狩猟免許取得の後、猟銃取得に向けた警察の講習を受けたという次のステップを報告している。"
         },
         {
           "slug": "car-accident-202503",
-          "type": "updates"
+          "type": "updates",
+          "reason": "タイヤ脱輪事故の後、修理費がかさんだため車を廃車にしたという結末を追記している。"
         },
         {
           "slug": "trip-with-sigma-fp",
-          "type": "updates"
+          "type": "updates",
+          "reason": "購入直後の意気込みに反し、結局あまり撮影に出かけられなかったと1年を通した実情を修正している。"
         },
         {
           "slug": "welcome-cat",
-          "type": "continues"
+          "type": "continues",
+          "reason": "11月に迎えた猫のその後、床下に隠れた12月のハプニングや自動化の進行を続けて報告している。"
         },
         {
           "slug": "kominka-cat-missing",
-          "type": "continues"
+          "type": "continues",
+          "reason": "12月に猫が床下に隠れた出来事を「猫がかわいい」の節で無事塞いで世話を続けていると続報している。"
         },
         {
           "slug": "restart-twitch",
-          "type": "updates"
+          "type": "updates",
+          "reason": "配信再開を報告した記事に対し、1年後には配信頻度がどんどん減っていると状況が変わったことを述べている。"
         }
-      ]
+      ],
+      "summary": "2025 年を月ごとに振り返った記事です。1 月に和室のフローリング化と Roo Code 導入、2 月に防草シートと大船渡林野火災、3 月に Sigma fp 購入、4 月にデジタル民主主義 2030 MeetUp、5 月に EVO Japan と Plurality Tokyo と車の廃車、6 月に Claude Code 本格導入と北海道・八戸・三内丸山遺跡、7 月に広島・大阪、8 月に青森ねぶたの跳人と大湯環状列石、9 月にハチエフ 2025、10 月に猟銃の講習、11 月に野良猫を迎え、12 月に猫の自動化を記録しています。総括では Agentic Coding による激変と災害を踏まえ、反脆弱性を取り入れる姿勢で締めています。",
+      "icon": "journal"
     },
     {
       "slug": "xiaomi-pet-feeder-with-ha-n8n",
@@ -188,9 +228,12 @@
       "inferredRefs": [
         {
           "slug": "welcome-cat",
-          "type": "continues"
+          "type": "continues",
+          "reason": "お迎え記事で触れたブラックフライデー購入のXiaomi給餌器・給水器を、実際にHA/n8nで運用した続報。"
         }
-      ]
+      ],
+      "summary": "Xiaomi の Smart Pet Food Feeder 2 と自動給水機を Home Assistant と n8n で制御した記事です。Xiaomi Home アプリでは食べ残し時に給餌をスキップする自動化ができないため、公式の Home Assistant 統合とセルフホストの n8n を組み合わせ、猫の食事記録を Discord に送り、ボウルの餌の量に応じて給餌スケジュールを on/off するようにしました。癖の強い MIoT でのスケジュール更新は Deep Wiki で text.set_value サービスを使う方法を見つけて解決しました。通知が多いため n8n でまとめて報告する改善を予定しています。",
+      "icon": "tech"
     },
     {
       "slug": "menubar-ice",
@@ -198,7 +241,9 @@
       "url": "https://hanatane.net/menubar-ice/",
       "publishedAt": "2025-12-17T15:03:49.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "MacBook のノッチに隠れてメニューバーのアイコンが見えない問題を、Ice というアプリで解決した記事です。定番の Bartender は 3000 円ほどの有料で敬遠し、無料の Hidden Bar は並び替え時にノッチでアイコンが見えず設定しきれませんでした。Ice は Homebrew でインストールでき、常に表示・基本は隠す・常に隠すの区分けや、アクティブになったアイコンをしばらく表示してから消す振る舞いを設定でき、アイコンをステータスバーの下に表示することもできます。Screen Record などの権限を求める点はあるものの、メニューバー整理には Ice を使うという結論です。",
+      "icon": "tech"
     },
     {
       "slug": "yamaha-router-with-claude-code",
@@ -206,7 +251,9 @@
       "url": "https://hanatane.net/yamaha-router-with-claude-code/",
       "publishedAt": "2025-12-15T15:26:23.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "自宅の YAMAHA RTX830 の DNS 問題をきっかけに、LLM が YAMAHA のコマンドをほとんど知らない課題に対処した記事です。YAMAHA の HTML マニュアルを Claude Code で Markdown に変換し、コマンドの index と CLAUDE.md を整備してコマンドリファレンスを作成しました。これに Git 管理していた config とルーター同期用シェルスクリプトを加え、Claude Code と協調してネットワーク作業ができるリポジトリを構築しました。ドキュメントを参照せず進むこともあるため、CLAUDE.md を継続的にメンテする運用に落ち着いています。",
+      "icon": "tech"
     },
     {
       "slug": "azookey-impression",
@@ -214,7 +261,9 @@
       "url": "https://hanatane.net/azookey-impression/",
       "publishedAt": "2025-12-10T15:10:51.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "長年使った Google 日本語入力から、未踏プロジェクト発の IME である azooKey に乗り換えた記事です。ニューラルかな漢字変換 Zenzai と、macOS のアクセシビリティ経由でコンテキストを取得する Tuner により、ライブ変換が実用レベルに達したと述べています。日本語入力中に Shift で大文字を打つと英字モードになる慣用機能が azooKey には無く、開発者の miwa さんが議論の末に採用しない決断をした経緯を紹介し、入力体験に寄与しない機能は削ぎ落とすほうが良いという考えに至っています。今後も azooKey を使い続けるとしています。",
+      "icon": "tech"
     },
     {
       "slug": "kominka-cat-missing",
@@ -227,13 +276,17 @@
       "inferredRefs": [
         {
           "slug": "welcome-cat",
-          "type": "continues"
+          "type": "continues",
+          "reason": "welcome-catでお迎えした同じ猫が床下に迷い込んだ出来事の続報"
         },
         {
           "slug": "rats-war-2024",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "ねずみ侵入対策で使ったSwitchbot人感センサーを、猫の床下捜索という別の場面で再利用している"
         }
-      ]
+      ],
+      "summary": "古民家で飼っている猫がある日姿を消した出来事の記録。外へ通じるドアや窓は閉まっており、夜に裏山や近所を探し、屋内外のカメラの録画も確認したが見つからず、24時間以上経過した。トイレに座ったときに鳴き声が聞こえ、野良時代に世話をしていたお姉さんと一緒に声をかけると床下から鳴き声がした。床に穴を開けるか悩んでいるうちに猫は玄関に現れ、下駄箱の下に床下へ通じる穴があるのを発見した。穴は端材でふさぎ、後でシリコンで隙間を埋める予定。再度潜った際の確保にはSwitchBotの人感センサーが役立った。境界が曖昧な古民家で猫を管理する難しさに触れ、外への脱走対策が必要だと述べて終わる。",
+      "icon": "cat"
     },
     {
       "slug": "welcome-cat",
@@ -241,7 +294,9 @@
       "url": "https://hanatane.net/welcome-cat/",
       "publishedAt": "2025-11-24T13:58:54.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "知り合いから野良猫を飼わないかという連絡を受け、数日通って膝に乗るようになった猫を自宅にお迎えした記録。初日は押し入れや2階に立てこもり、3日目までは距離を保ち、4日目にチュールで距離を縮めて和解した。先にケージで安全地帯を作る定石を踏まなかったため、後から設置したAmazonベーシックのケージはトイレ以外あまり使われていない。放送大学の面接授業で家を空けるためトイレを増設し、ブラックフライデーでXiaomiのスマート給餌器2と給水器2、自動トイレのPetSnowyを購入した。名前が決まっていないこと、避妊手術のため動物病院に相談する必要があることを今後の課題として終わる。",
+      "icon": "cat"
     },
     {
       "slug": "sapporo-hachinohe-aomori",
@@ -254,13 +309,17 @@
       "inferredRefs": [
         {
           "slug": "car-accident-202503",
-          "type": "updates"
+          "type": "updates",
+          "reason": "車を持ち続けるか検討課題としていたのを受け、車を廃車にしたという結論を報告している"
         },
         {
           "slug": "iwate-trip-2025",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前回の花巻合宿の流れを受け、同じ生成AIテーマで今度は札幌の勉強会に参加した続報"
         }
-      ]
+      ],
+      "summary": "休みを取って仙台、札幌、八戸、青森を回った旅の記録。車を廃車にしたため仙台に前乗りしてLCCで札幌へ。北海道大学を会場に生成AIをテーマとした勉強会に3日間参加し、ハードウェアスタートアップの経営者と夜通しGitの使い方を話した。苫小牧からフェリーで八戸に渡り、種差海岸で放送大学の生態学の面接授業を受講、ニッコウキスゲの撮影とGPSでの地図化、潮間帯の現地調査、ワカメの標本作りを行った。ゲストハウスのトセノイエに滞在し、朝市も訪れた。その後、会社の社長の青森の実家に泊まり、三内丸山遺跡を見学して、八甲田山、十和田湖、田子を通って帰った。共進化の視点を生成AIと人の関係に重ねて締めくくる。",
+      "icon": "travel"
     },
     {
       "slug": "epub-to-audiobook",
@@ -268,7 +327,9 @@
       "url": "https://hanatane.net/epub-to-audiobook/",
       "publishedAt": "2025-06-01T14:40:08.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "バス移動中は電子書籍を読むより聞く方が楽だという考えから、仙台への移動に備えて手元のEPUBをオーディオブックに変換した記録。素材はDRMフリーで販売されているオライリーの『LLMのプロンプトエンジニアリング』。OSSのepub_to_audiobookを使い、WebUIからgpt-4o-mini-ttsで章ごとに音声化した。日本語の読み上げは英語ほど自然ではないが聞ける水準で、1回目は音声で全体を把握し、細部をテキストで読み、NotebookLMで深掘りする方法が合っていた。音声の管理はOSSのaudiobookshelfをセルフホストする予定だとして終わる。",
+      "icon": "tech"
     },
     {
       "slug": "fog-of-world",
@@ -276,7 +337,9 @@
       "url": "https://hanatane.net/fog-of-world/",
       "publishedAt": "2025-05-31T12:32:57.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "周囲で利用者が多かったアプリ「世界の霧」（買い切り3000円）を購入した記録。地図全体が霧に覆われ、自分が通った場所だけ霧が晴れるアプリで、使い始めると、住んでいる小さな街の大半が霧のままで、日常が決まった細いルートだけで構成されていることに気づく。普段通らない道に入ると知らない店や猫などの発見があり、帰り道や岩手での遠出でも霧を晴らすルートを選ぶようになり、わらび峠を見つけた。Google Mapsに従う限り晴れない霧が残ること、スマホナビ利用時は海馬ではなく尾状核が使われるという知見を挙げ、世界の認識にかかる霧を可視化するアプリだと位置づけて、近所を歩き回ることを勧めて終わる。",
+      "icon": null
     },
     {
       "slug": "join-dd2030-asap",
@@ -289,9 +352,12 @@
       "inferredRefs": [
         {
           "slug": "dd2030-meetup",
-          "type": "continues"
+          "type": "continues",
+          "reason": "ミートアップ参加をきっかけに広聴AI開発へcontributeし始めた経緯をそのまま引き継いで書いている"
         }
-      ]
+      ],
+      "summary": "デジタル民主主義2030（dd2030）の東京Meet Up参加後、広聴AIの開発に貢献し始めた著者が、一参加者として何が面白いのかを言葉にした記事。dd2030では人とAIエージェント（Devin）が協働でOSSを開発しており、岩手の片隅からでも最先端の開発環境に触れられる。個人開発ではCline/Roo Codeで先に変化を経験し、実装方針の決定と評価が人間の役割になった。一方でコードが肥大化し、Rooに任せたリファクタリングで機能が壊れた例から、責務の分離とテストの重要性を指摘する。tokorotenさんの参加で議論が進んだように専門知の流入も速い。Slackへの参加を呼びかけて終わる。",
+      "icon": "event"
     },
     {
       "slug": "iwate-trip-2025",
@@ -302,9 +368,12 @@
       "inferredRefs": [
         {
           "slug": "trip-with-sigma-fp",
-          "type": "continues"
+          "type": "continues",
+          "reason": "直前に入手したSigma fpを持って旅行に出かけ、実際の撮影やバッテリー切れを報告している"
         }
-      ]
+      ],
+      "summary": "2025年4月25日〜26日、東京時代の知人が花巻で開く勉強会合宿に参加し、最終日に岩手県内の名所を案内してもらった記録。花巻では満州にらラーメンを食べた。中尊寺では月見坂の急な表参道を上り、桜が散って新緑が出る時期の境内や峯薬師堂を見て、撮影禁止の金色堂や資料館をじっくり見学した。一関の厳美渓では、対岸からロープで団子が届く名物の郭公だんごを食べ、団子屋向かいの寂れた一角に入ったところでSigma fpのバッテリーが切れた。岩手在住8年目で初めて県内の名所を見て回った旅となり、同行したほりゑさんが機敏に旅の記録を撮り続けていたことが最も印象に残ったとして終わる。",
+      "icon": "travel"
     },
     {
       "slug": "dd2030-meetup",
@@ -312,7 +381,9 @@
       "url": "https://hanatane.net/dd2030-meetup/",
       "publishedAt": "2025-04-15T12:44:37.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "誕生日に東京で開催されたデジタル民主主義2030（安野貴博さんを中心に、テクノロジーで民主主義をよりよくするプロジェクト）のミートアップに岩手から参加した記録。きっかけはCosenseプロジェクト井戸端で西尾さんやBluemoさんと交流していたこと。会場で西尾さん、takkerさんと対面し、ハッカソンでは広聴AIをWindowsで動かす支援チームに入り、改行コードやOpenAIのTierの問題を洗い出した。他班ではpolimoneyチームがGemini 2.5 Proで政治資金収支報告書をJSON化していた。最後に安野さんと会場から誕生日を祝われ、大船渡でも広聴AIへの貢献を続ける意向を示して終わる。",
+      "icon": "event"
     },
     {
       "slug": "trip-with-sigma-fp",
@@ -320,7 +391,9 @@
       "url": "https://hanatane.net/trip-with-sigma-fp/",
       "publishedAt": "2025-04-08T23:00:47.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "数年来欲しかったカメラSigma fpを、Sigma BFの発表を機に入手し、自宅周辺で試し撮りした記録。カラーモード「パウダーブルー」の撮って出しJPGで、庭の植物、90mmレンズで寄った木に付く植物、鹿の獣道、椿などを撮影した。ファインダーのないfpはピント合わせが難しい。CinemaDNGでのRAW撮影もできるが、脱Adobe中でLightroomが使えず、Sigma Photo Proやdarktableはまだ使いこなせていないため、撮って出しのみで使う運用も考えている。Canon Kiss X4からiPhoneに移って撮らなくなった経緯を書き、購入から1ヶ月ほど家にいる状態で終わる。",
+      "icon": null
     },
     {
       "slug": "ghost-mailgun-setup",
@@ -333,9 +406,12 @@
       "inferredRefs": [
         {
           "slug": "ghost-migration-from-pro-to-selfhost",
-          "type": "continues"
+          "type": "continues",
+          "reason": "「以下の記事の補足」と明記し、セルフホスト移行時のMailgun設定不備を追って解決している"
         }
-      ]
+      ],
+      "summary": "セルフホストしたGhostでニュースレター配信に使うMailgunの一括送信が失敗していた問題への対処メモ。Ghostは記事の一斉送信（Bulk Email）をMailgun API経由で送るが、Dockerのログを見ると作りたてのMailgunアカウントでは大量送信できず失敗していた。Ghostの設定bulkEmail__batchSizeを10にしても途中でエラーになり、Mailgunサポートに問い合わせると、アカウントが評価期間にあり1時間100メッセージまで、1メッセージあたり9人までの制限があると回答された。バッチサイズを5にして送信できるようになったが、制限は解除されず様子見となった。",
+      "icon": "tech"
     },
     {
       "slug": "migration-from-apple-music-to-youtube",
@@ -343,7 +419,9 @@
       "url": "https://hanatane.net/migration-from-apple-music-to-youtube/",
       "publishedAt": "2025-03-30T23:00:54.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "Apple Musicの1ヶ月無料体験を得た機会に、Apple MusicのプレイリストをYouTube Musicへ移行した手順の記録。放送大学の学割で使っていたApple Musicの期限が切れてYouTubeに一本化したが、移行にはApple MusicかiTunes Matchの有効なサブスクリプションが必要なため無料体験中に作業した。手順はprivacy.apple.comの「データのコピーを転送」からプレイリストを選び、GoogleアカウントのOAuth認証を経てエクスポートを確認するもので、Chromeではエラーが出たためSafariで進めた。YouTube Music側で移行を確認し、Appleの無料サブスクリプションを解除して終えた。",
+      "icon": "tech"
     },
     {
       "slug": "try-umami",
@@ -354,9 +432,12 @@
       "inferredRefs": [
         {
           "slug": "ghost-migration-from-pro-to-selfhost",
-          "type": "continues"
+          "type": "continues",
+          "reason": "セルフホスト移行時に有効化したCloudflareの設定を活かし、Umamiの地域計測を追加している"
         }
-      ]
+      ],
+      "summary": "Google Analyticsは初心者には使いにくいという問題意識から、プライバシー重視のアクセス解析ツールUmamiをGhostのブログに導入した記録。Plausibleはクラウド版に無料プランがなく要求スペックも高いため、Umamiのクラウド版無料プランを選んだ。設定内容は、JavaScriptを<head>に置く導入、localStorageによる自分のアクセス除外、外部リンクのイベントトラッキング、CloudflareのLocationヘッダー有効化。ダッシュボードでユニークユーザーとview数、セッション単位の行動履歴、期間比較を確認できることを示し、Googleオルタナティブを検証する意義に触れて終わる。",
+      "icon": "tech"
     },
     {
       "slug": "ouj-iwate-interview",
@@ -367,9 +448,12 @@
       "inferredRefs": [
         {
           "slug": "most-influential-studies",
-          "type": "continues"
+          "type": "continues",
+          "reason": "「今期で卒業」と述べていた放送大学生活の後日談として、卒業と情報コース再入学を報告している"
         }
-      ]
+      ],
+      "summary": "放送大学岩手学習センターの卒業生インタビューを1月ごろに受け、その内容が公開された。著者は約10年かけて放送大学の心理のコースを卒業し、現在は情報コースに再入学している。インタビューを受けに行った時点では中間課題を出し忘れて期末試験を受けられなくなっていた。インタビューではコスパ・タイパという言葉をあえて使い、自分を言語モデルとみなした場合の学習効率を考えると大学が最短であること、質の高い授業を低い学費で提供する放送大学の意義について語った。ポゴパーカーを着て媒体に出るという目標も達成した。公開された映像を見返し、話しながら体がくねくね動く自分の姿を確認したところで終わる。",
+      "icon": "journal"
     },
     {
       "slug": "ghost-migration-from-pro-to-selfhost",
@@ -382,9 +466,12 @@
       "inferredRefs": [
         {
           "slug": "why-ghost",
-          "type": "updates"
+          "type": "updates",
+          "reason": "フルマネージドを理由にGhostを選んだwhy-ghostの判断を、運用コスト削減のためセルフホストへ切り替え覆した"
         }
-      ]
+      ],
+      "summary": "hanatane.netのGhostを、年間300ドルのGhost Pro Creatorプランから、さくらのVPS（RAM 1GB、Debian、Docker）でのセルフホストへ移行した記録。動機は運営コストの削減と、Dockerでセルフホストが容易になったこと。手順は、Docker公式イメージでのGhost起動、Ghostサポートから取得した画像を含むコンテンツの移行、CaddyによるHTTPS化とCloudflare Proxyの有効化、Stripe接続を旧サイトで切断し新サイトで再接続してからのメンバーのインポート、Mailgunの設定、swap追加、Cloudflareのキャッシュ設定。PinturaとCloudinaryは見送った。",
+      "icon": "tech"
     },
     {
       "slug": "car-accident-202503",
@@ -392,7 +479,9 @@
       "url": "https://hanatane.net/car-accident-202503/",
       "publishedAt": "2025-03-13T12:23:21.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "大船渡で通勤に使っていた中古のスズキMRワゴンが、踏切直後の左折中に大きな音と衝撃とともに動かなくなり、降りて見るとタイヤが根元から外れていた。保険のロードサービスと、駆けつけた近所の人が呼んだ警察に対応してもらい、約40分後にレッカーで車屋へ運ばれた。原因はサスペンションを支えるロアアームのボールジョイント抜けで、走行中に起きれば重大事故につながる故障だった。道路上のトラブルではまず警察を呼ぶこと、ロードサービス付き保険に入ること、低価格の中古車は車検より短い間隔で点検することを教訓とし、今後車を持ち続けるかどうかも検討課題として終わる。",
+      "icon": null
     },
     {
       "slug": "proxmox-nuc-home-server-setup",
@@ -403,9 +492,12 @@
       "inferredRefs": [
         {
           "slug": "floor-server-and-me",
-          "type": "continues"
+          "type": "continues",
+          "reason": "年末年始に触れていたProxmoxでの自宅サーバー構築を、導入手順や利点として詳しくまとめ直した続報。"
         }
-      ]
+      ],
+      "summary": "NUC規格のN100系ミニPCにハイパーバイザーProxmoxを入れて自宅サーバー環境を構築した事例を、自宅サーバーを始めたい人向けに紹介する記事。メリットとして、GUIで仮想環境を気軽に作り直せること、VMにIPが割り当てられ静的DNSやCloudflare Tunnelと組み合わせやすいこと、Proxmox VE Helper-Scriptsでセルフホスト環境を一発で構築できることを挙げる。VM/LXCは15個ほどになりRAMを32GBに換装した。今後はNAS追加、ローカルLLM稼働、住民用ネットワークの分離、サーバールーム整備を予定している。",
+      "icon": "tech"
     },
     {
       "slug": "floor-server-and-me",
@@ -416,9 +508,12 @@
       "inferredRefs": [
         {
           "slug": "old-house-is-development-environment",
-          "type": "continues"
+          "type": "continues",
+          "reason": "床を剥がして直すレディネスを獲得したという流れのまま、今度は和室の床の洋室化に取り組んでいる。"
         }
-      ]
+      ],
+      "summary": "2025年の新年のあいさつを兼ねた記事。年末年始に1階の和室を洋室化する計画だったが、寝正月で作業が進まず1月の休みに持ち越した。夜はブラックフライデーで買ったN100系ミニPCにProxmoxを入れ、Helper Scriptsで仮想環境を作り、Home Assistant、InfluxDB、Grafana、NocoDBでハウス管理をスマート化する計画を立てた。Cloudflare Tunnelにより固定IP代なしで外部から安全にアクセスできる。Proxmox VE Helper Scriptsの作者が2024年11月に亡くなっていたことに触れ、2025年はself-hostedへ回帰する。",
+      "icon": "house"
     },
     {
       "slug": "ghost-github-actions",
@@ -429,9 +524,12 @@
       "inferredRefs": [
         {
           "slug": "ghost-toc",
-          "type": "continues"
+          "type": "continues",
+          "reason": "目次追加のために始めたテーマ改造の方針を、有料テーマ導入とGit管理・自動デプロイの整備へと発展させている。"
         }
-      ]
+      ],
+      "summary": "フルマネージドのGhostで運営しているこのブログに有料テーマを導入し、日本語ローカライズやトップページの著者一覧セクション削除といったCode Injectionでは対応できない改変のためにカスタムテーマを作った記事。GhostにはWordPressのような子テーマ機能がないため改造テーマをGitで管理し、Ghost公式のGitHub Actionsガイドに従って自動デプロイを設定した。管理画面でCustom Integrationを作りAdmin API keyとAPI URLを取得し、GitHubのSecretsに登録し、公式のワークフローYAMLを置けば、プッシュだけでデプロイされる。",
+      "icon": "tech"
     },
     {
       "slug": "rats-war-2024",
@@ -442,9 +540,12 @@
       "inferredRefs": [
         {
           "slug": "install-switchbot-s10",
-          "type": "continues"
+          "type": "continues",
+          "reason": "スマートホーム化で導入していたSwitchbotの人感センサーを、ねずみの侵入検知という新用途に転用して活用している。"
         }
-      ]
+      ],
+      "summary": "2024年11月にたねハウスで起きたねずみとの戦いの記録。キッチンのプロテインと小麦粉が食い破られたことから侵入を確信してAtomCam 2を設置し、旧電気温水器の排水用塩ビ管まわりの穴を侵入経路と特定した。粘着シートはねずみに警戒されて失敗し、Amazonで買った罠は小さすぎたため、餌のカルビーのフルグラで慣れさせつつSwitchbotの人感センサーで侵入を検知する体制にした。11月22日にホームセンターで買った箱罠を設置すると、Twitch配信中に約20分で捕獲し、溺死させて終結した。人感センサーとカメラの組み合わせやフルグラの有効性を振り返り、猫を飼いたいという思いで締めている。",
+      "icon": "house"
     },
     {
       "slug": "act5-reflection",
@@ -457,9 +558,12 @@
       "inferredRefs": [
         {
           "slug": "act4-reflection",
-          "type": "continues"
+          "type": "continues",
+          "reason": "Act4ふり返りで掲げたMR1900目標に対する次Actの結果報告として続けて書かれている。"
         }
-      ]
+      ],
+      "summary": "ストリートファイター6のAct5を振り返った記事。MR1900の目標には届かず最高1860程度だったが、1800には戻れるようになり成長は前Actより大きかった。ランクマは1253戦で、本格開始は9月30日からだった。成長点はリーサルが見えたらDゲージを使い切って走る癖、キャンセルラッシュの立ち大P始動、豪鬼の勝率5割超え。改善点は投げ抜け癖、OD昇竜がOD迅雷に化ける入力、重ねやコンボの精度、キャラ対策知識、インパクト返し。初のオフ大会ハチエフでモチベーションが上がり、Act6は座学やコントローラー設定の見直し、ザンギエフなど他キャラを触ることを掲げ、目標は引き続きMR1900とした。",
+      "icon": "game"
     },
     {
       "slug": "hunter-license-2024",
@@ -470,9 +574,12 @@
       "inferredRefs": [
         {
           "slug": "electrician-2024",
-          "type": "continues"
+          "type": "continues",
+          "reason": "電気工事士の記事末尾で下期に狩猟免許へ挑戦すると予告していた通りに実行した続報になっている。"
         }
-      ]
+      ],
+      "summary": "狩猟免許の罠と網を取得した報告。銃は費用と手続きのハードルが高いため見送った。家に鹿が毎日来ることや周辺の畑でイノシシの被害が広がっていることから、大型獣のくくり罠に必要な免許を取ることにした。試験の1週間前に猟友会の予備講習会があり、そこで要点を教わる設計になっている。本試験は知識問題、適性検査、実技を運営側がトランシーバーで連携しながら回していた。網は実技のむそう網を見て使えないと思っていたが、カモ猟の動画で興味を持った。今後は家に来る鹿の捕獲から解体して食べるまでを目標にし、止めさしの方法や猟具へのマイコン搭載を検討している。",
+      "icon": "hunting"
     },
     {
       "slug": "8f2024",
@@ -483,9 +590,12 @@
       "inferredRefs": [
         {
           "slug": "topanga-13",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "オンラインのチーム大会だったTOPANGAとは別に、初めてオフラインの大会参加という形で大会出場のテーマに戻っている。"
         }
-      ]
+      ],
+      "summary": "2024年9月14日〜15日に八幡平安比高原で開催されたストリートファイター6のオフライン大会ハチエフに、モダンケン（max MR1800）で初参加した記録。大船渡から150kmを運転して向かい、安比プラザの場所で迷った後に到着した。1日目の2on2は斡旋で組んだリュウ使いの翼さんと予選第2ステージまで進んで全敗し、夜はトークショーとKBDさんの生ライブがあった。2日目の1on1はベスト16で敗退し、配信台での試合も経験した。Jeniさんやハンサムさんにあいさつでき、バリアフリーeSports大会として設備が整っていたことにも触れ、モチベーションが高まった大会として締めている。",
+      "icon": "game"
     },
     {
       "slug": "asphalt-pavement",
@@ -493,7 +603,9 @@
       "url": "https://hanatane.net/asphalt-pavement/",
       "publishedAt": "2024-09-12T23:00:19.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "三陸BMXスタジアムのバーム（すり鉢状のカーブ）をアスファルト舗装する作業を土日に手伝った記録。アスファルトの敷き均しまでをプロに依頼し、転圧や仕上げは自分たちで行う進め方で、100度以上のアスファルトが現地の会社から次々運ばれ、複数の県から集まった人が連携して作業を進めた。粘着性への対策として重機やレーキに軽油を付け、転圧プレートに水をかけるといった手順を間近で見て、シェアハウスのDIYに活かしたいとしている。3日の日程のうち土日2日間の参加だったが、全工程は無事終了した。",
+      "icon": null
     },
     {
       "slug": "on-air-sign",
@@ -504,9 +616,12 @@
       "inferredRefs": [
         {
           "slug": "restart-twitch",
-          "type": "continues"
+          "type": "continues",
+          "reason": "再開したTwitch配信の運用を、住民との同居に合わせて設備面で拡張した次の一手になっている。"
         }
-      ]
+      ],
+      "summary": "Twitch配信中かどうか住民に分かるように、配信と連動するON AIRランプを作った記事。USBと単3乾電池の両方で動くALFOTOのON AIRライトに、Bluetoothで制御できるIoT乾電池MaBeeeを入れ、Raspberry Pi 5上でHTTPサーバーを立ててMACアドレスとPWM値をPOSTで受け取る仕組みにした。配信ツールFirebotの配信開始・終了イベントからこのサーバーを呼び出し、点灯・消灯させる構成で完成した。Pi 5とMaBeeeのBluetoothは壁やWi-Fiアクセスポイントの影響で不安定になるため、母艦は近距離に置く必要があるという気づきも記している。",
+      "icon": "tech"
     },
     {
       "slug": "install-switchbot-s10",
@@ -517,9 +632,12 @@
       "inferredRefs": [
         {
           "slug": "progress-of-tanehouse",
-          "type": "continues"
+          "type": "continues",
+          "reason": "当時導入し始めたSwitchbot機器のスマートホーム化を、ロボット掃除機S10導入という形で拡張している。"
         }
-      ]
+      ],
+      "summary": "AmazonのPrimeデーで購入したロボット掃除機Switchbot S10を築60年のたねハウスで稼働させるまでの記録。各部屋の敷居を越えられるよう、発泡材の痛クナイゾやPVC製スロープで2.5〜4cmの段差を解消し、母屋1階のリビング以外を走行可能にした。水道直結の水交換ステーションは洗面台の給排水に接続したが、TOTO電気温水器の給水口エルボ以降に分岐チーズを挟んだため減圧で給水エラーが発生。元の止水栓側に付け替える際は高さが足りず、フレキパイプで接続してようやく水漏れなく動作した。水抜き忘れで床が水浸しになるなどの苦労にも触れている。",
+      "icon": "house"
     },
     {
       "slug": "electrician-2024",
@@ -530,9 +648,12 @@
       "inferredRefs": [
         {
           "slug": "old-house-is-development-environment",
-          "type": "continues"
+          "type": "continues",
+          "reason": "古民家を自分でいじり続けるという構想の次の一手として、電源周りを自力で直すための資格取得に進んだ。"
         }
-      ]
+      ],
+      "summary": "2024年上期試験で第二種電気工事士に合格した記録。築60年のシェアハウスで引っ掛けシーリング交換やコンセント増設を自分で行うために受験した。学科は2週間前、技能は1週間前から対策を始め、ホーザンの学習サイトとAnkiの配線図記号デッキで学科を、候補問題の複線図と単位作業の練習で技能を準備した。学科は岩手県立大学、技能は岩手大学で受験し、技能ではリングスリーブを4本のところ3本で圧着したミスに気づき終了直前に再圧着するなど混乱したが、お盆に合格を確認した。今後は古いスイッチやコンセントの交換から始め、下期は狩猟免許に挑戦するとしている。",
+      "icon": "house"
     },
     {
       "slug": "act4-reflection",
@@ -545,9 +666,12 @@
       "inferredRefs": [
         {
           "slug": "act3-reflection",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前回のAct3ふり返りに続いて書かれた次Actの振り返りで、目標MR1800到達を報告している。"
         }
-      ]
+      ],
+      "summary": "ストリートファイター6のAct4を振り返った記事。Act3終了時の目標だったMR1800にモダンケンで到達した。環境面では大型調整で豪鬼とベガが追加され、AKIやザンギエフに苦戦した。成長点として屈中Kの置き方、屈中K→立ち中Pのヒット確認、相手を見た読み合い、SA2でのリーサル、詐欺飛び、画面端の小P重ねを挙げ、改善点としてリーサル逃し、バーンアウト、インパクト警戒、キャラ対策、対戦相手へのリスペクトを含むメンタル管理を挙げた。コントローラーはOctaを試してDualSenseに戻し、Apple WatchとHypeRate.ioで心拍数を計測した。Act5の目標はMR1900とした。",
+      "icon": "game"
     },
     {
       "slug": "fighting-gamer-and-mind",
@@ -558,9 +682,12 @@
       "inferredRefs": [
         {
           "slug": "road-to-master-from-scratch",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "以前まとめた上達論を、効率重視とやり込み重視の対比という新しい角度から改めて論じ直している。"
         }
-      ]
+      ],
+      "summary": "プロゲーマーのウメハラがりゅうせいに語った「効率を考える前にまずやり込む」という練習観を出発点に、寺田寅彦『科学者とあたま』の「科学者は頭が良くなくてはいけないと同時に頭が悪くなくてはいけない」という主張と重ね合わせた記事。頭のいい人は先を見通して諦めやすく、頭の悪い人は見落とされたものを拾い大胆な試みをするという寺田の対比を引き、ときどの著書にある「効率だけでは勝てない」という述懐や、柘植俊一『反秀才論』の「頭がはやい／頭が強い」という言い換えも参照する。格ゲーマーはこの感覚を体感しており、ゲーム経験の有無が取り組み方の格差になり得るという考察で終わる。",
+      "icon": "game"
     },
     {
       "slug": "old-house-is-development-environment",
@@ -571,9 +698,12 @@
       "inferredRefs": [
         {
           "slug": "first-residents-and-house-diy",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前記事で作業中だった仏間の床修繕が完了し、PCデスクを移したという直接の続報になっている。"
         }
-      ]
+      ],
+      "summary": "仏間の床補修を終えてPCデスクをリビングから移した後、古民家の修繕はプログラミングの開発環境に似ているという考えを書いた記事。YouTubeにDIY情報は豊富でも実際に手を動かさないと使える知識にならないこと、不動産価値の目減りした古民家なら壁に穴を開けたり床を剥がしたりを気兼ねなくできることを挙げ、地方の空き家対策として自分で直しながら住む路線の可能性に触れる。一方で肉体的な限界や一人では非効率な作業があるため、DIY好きが入るシェアハウスに期待し、庭の畑やウッドデッキ、鹿の解体といった今後の構想で締めている。",
+      "icon": "house"
     },
     {
       "slug": "first-residents-and-house-diy",
@@ -584,9 +714,12 @@
       "inferredRefs": [
         {
           "slug": "progress-of-tanehouse",
-          "type": "continues"
+          "type": "continues",
+          "reason": "たねハウス整備の進捗報告の続きで、住民入居を機に後回しにしていた修繕を再開した内容。"
         }
-      ]
+      ],
+      "summary": "たねハウスに第1号住民が入居したのを機に、後回しにしていた家の修繕を進めた記録。住民の寝室がある2階にフリーサイズ網戸を設置し、TP-LinkのDeco BE 65でメッシュWi-Fiを導入。リビングから神棚までホールソーで穴を開けてLANケーブルを通し、母屋全域と離れの作業小屋までカバーした。仏間の床は根太掛けと根太が腐っていたため大引を入れて張り替え、スタイロフォームで断熱も行い、リビングのPCデスクを移す計画とした。住民がいると家賃を修繕費に回せて作業が進むと分かり、引き続き住民を募集している。",
+      "icon": "house"
     },
     {
       "slug": "act3-reflection",
@@ -597,21 +730,27 @@
       "inferredRefs": [
         {
           "slug": "road-to-master-from-scratch",
-          "type": "continues"
+          "type": "continues",
+          "reason": "Act1でMR1300に達するまでの取り組みを起点として、Act3までの成長を振り返っている"
         },
         {
           "slug": "topanga-13",
-          "type": "continues"
+          "type": "continues",
+          "reason": "スト6復帰のきっかけとして名指しされたTOPANGAチーム戦の、成果を振り返る続報"
         },
         {
           "slug": "2024-week9",
-          "type": "continues"
+          "type": "continues",
+          "reason": "ルーザーズ7回戦まで進んだ東京メトロカップの結果を、Act全体の振り返りの中で位置づけ直した"
         },
         {
           "slug": "restart-twitch",
-          "type": "continues"
+          "type": "continues",
+          "reason": "配信再開で始めたアーカイブ見返しの習慣を、良かった取り組みとして振り返っている"
         }
-      ]
+      ],
+      "summary": "ストリートファイター6のAct3を振り返った記事。Act1はMR1300で終え、Act2はほぼプレイせず、Act3はMR1700でフィニッシュした。良かった取り組みとして、Twitchの配信アーカイブで自分のプレイを見返すようになったこと（感情的になった試合が情報の宝庫になった）と、大会に出るようになったことを挙げている。TOPANGAチャリティのチーム戦を復帰のきっかけとし、東京メトロカップとEYO JAPANでルーザーズ7回戦まで進んだ。コンボダメージの向上と屈中Kを刺す立ち回りで読み合いが改善した。Act4はモダンケンのままMR1600〜1700の安定、MR1800到達を目標とした。",
+      "icon": "game"
     },
     {
       "slug": "36th-birthday-party",
@@ -622,9 +761,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week1",
-          "type": "continues"
+          "type": "continues",
+          "reason": "週1の振り返りで予告していた4月の種延36th生誕祭が、実際に開催された報告"
         }
-      ]
+      ],
+      "summary": "2024年4月13日に大船渡から夜行バスで東京へ行き、36歳の誕生祭を開いた1日の備忘録。早朝に池袋に着き、友人のときさばさんが運営するシェアハウスEngineMaker（四谷）を下見した後、日本橋で石油王と話した。メインの目的は銀座のCrypto Bar P2PでWorld IDのOrbによる虹彩認証を受けることで、無事に認証された。上野の国立科学博物館で大哺乳類展3を見たが混雑のため遠目で見て進み、鶯谷の萩の湯で休んだ。夜はEngineMakerで焼き肉パーティーを開き約16名が集まり、Twitchで配信してウスダヒロ先生と初めて対面した。帰りの夜行バスで大船渡に戻った。",
+      "icon": "event"
     },
     {
       "slug": "restart-twitch",
@@ -635,9 +777,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week9",
-          "type": "continues"
+          "type": "continues",
+          "reason": "大会参加を経てMRが伸びた流れの続きとして、休止していたTwitch配信を再開した"
         }
-      ]
+      ],
+      "summary": "スト6の大会出場でやる気が出てMRが1650付近まで伸び、1500〜1600を行き来する状態になった流れで、1年ほど止めていたTwitchの配信を再開した記録。ドライブゲージへの注意やコンボ火力の向上でAct1より勝てるようになっている。配信再開については「配信しなきゃ」から降りて「配信したい」に変わったこと、OBSのアップデートやPC環境の変化で整理が必要だったことを述べ、前の設定をすべて消して少しずつ戻す形で再開した。配信のアーカイブは自分のプレイを通しで見返せ、感情状態も残るためリプレイ機能より価値が高いと考えている。夜に配信しているので気軽にコメントしてほしいと結んでいる。",
+      "icon": "game"
     },
     {
       "slug": "2024-week9",
@@ -648,9 +793,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week8",
-          "type": "continues"
+          "type": "continues",
+          "reason": "先週エントリーした東京メトロカップの結果を報告する、大会参加の続報"
         }
-      ]
+      ],
+      "summary": "2024年第9週の週次振り返りで、ストリートファイター6が中心の週。CAPCOM CUP Xは台湾のUMAがジュリで優勝し、ふ〜ど選手がMenaRDを破る場面もあった。先週エントリーした東京メトロカップは全員参加となり、個人での大会に初出場した。一般部門DのグループHで2回戦から開始し、MR1500帯の相手に勝利した後、3回戦でモダンラシードのぽてぽてキリンさんに敗北。ルーザーズではモダン本田に勝利したが、ラウンド7でMR1900のルークに敗れて終了した。同グループのニシキンさんは本戦出場を決めた。初のソロ大会を長く戦えたことを受け、スト6の上達に取り組みたいとして締めている。",
+      "icon": "journal"
     },
     {
       "slug": "2024-week8",
@@ -663,13 +811,17 @@
       "inferredRefs": [
         {
           "slug": "2024-week7",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前週に続く週次振り返りで、その週の出来事をまとめている"
         },
         {
           "slug": "topanga-13",
-          "type": "continues"
+          "type": "continues",
+          "reason": "TOPANGA大会出場をきっかけに再開した大会参加の流れで、東京メトロカップへの参加を決めた"
         }
-      ]
+      ],
+      "summary": "2024年第8週の週次振り返り。先週に続き活動量は低く、気温が下がって雪も降った。先週もらった大量のひじきで煮物を作り、炒め物のようになったが冷凍保存した。CAPCOM CUP Xを観戦し、予選グループFの激戦や、MenaRDがガイル対策のJPを同郷のCabaに出した場面、Street Fighter LeagueでMenaRDがりゅうせいを破って優勝した場面に触れている。「実家が太い」という表現について、チャールズ・ダーウィンが実家の太さを人類に還元した例を引いて考えた。最後に東京メトロが開くスト6の大会TOKYO METRO CUPの一般部門にエントリーし、来週日曜日に出場予定と記す。",
+      "icon": "journal"
     },
     {
       "slug": "2024-week7",
@@ -682,9 +834,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week6",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前週に続く週次振り返りで、その週の出来事をまとめている"
         }
-      ]
+      ],
+      "summary": "2024年第7週の週次振り返り。睡眠負債が溜まっていたため活動は少なめで軽い振り返りとしている。去年申請していた認定心理士が第198回の認定委員会で認定された連絡が来たこと、大量のひじきを眺めて養殖方法を調べたこと、オフラインでスト6をプレイした際にアケコンのVictrix GambitがPS5非対応でBrookのコンバーター購入を検討したことを挙げている。CAPCOM CUP XのLCQ開始でスト6の練習を再開し始めた。気になったニュースはOpenAIのSoraの発表とCAPCOM CUP XのグループF。今週は mtane0412.me のLink in Bioの記事を投稿した。",
+      "icon": "journal"
     },
     {
       "slug": "quickly-built-domain-verification-site-with-astro",
@@ -695,9 +850,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week6",
-          "type": "continues"
+          "type": "continues",
+          "reason": "分散型SNSの運用整理から続く形で、各アカウントの所有を証明するサイトを作った"
         }
-      ]
+      ],
+      "summary": "分散型SNSの各アカウントが自分のものであると証明するため、パーソナルドメイン mtane0412.me を取得し、Link in bioのサイトをAstroで作った記録。以前はNostrの認証用にGitHub Pagesで作っていたが、Blueskyがカスタムドメインに対応したのを機に作り直した。Astroは直感的なJavaScript構文で書け、日本語ドキュメントも充実し、出力はゼロJSで高速だった。認証はNostrがnostr.json、Blueskyがatproto-didを.well-knownに置く方式で行い、FedibirdとMisskey.ioはrel=\"me\"のバックリンクで所有者確認した。",
+      "icon": "tech"
     },
     {
       "slug": "2024-week6",
@@ -710,9 +868,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week5",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前週に続く週次振り返りで、その週の出来事をまとめている"
         }
-      ]
+      ],
+      "summary": "2024年第6週の週次振り返り。冒頭でScrapboxの週次メモをもとにChatGPTに書き出しを書かせる実験をし、来週から試してもよいと評価した。今週は旧正月をベトナムの人たちと祝うアートワークショップなど地域のイベントに参加した。Blueskyの一般登録開始を受けて分散型SNSの運用を整理し、Nostrのクライアントnostterを試し、MastodonはPawooを削除してmstdn.jpからFedibirdへ引っ越した。気になったニュースとして、ホモ・サピエンスの北方への拡大が4万5000年前と判明した発見と、恐竜の羽毛の進化を前適応から説明した記事を取り上げた。",
+      "icon": "journal"
     },
     {
       "slug": "alfred-switchaudio-osx",
@@ -723,13 +884,17 @@
       "inferredRefs": [
         {
           "slug": "alfred-ghost",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "ChatGPT製AppleScriptでAlfred Workflowを作る手法に、音声切替という別の課題で再び取り組んだ"
         },
         {
           "slug": "alfred-midjourney",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "既存Workflowの言語依存が壊れる問題を経て、AppleScriptで作る同じ手法に再び頼った"
         }
-      ]
+      ],
+      "summary": "MacでBeats Fit ProなどのBluetoothイヤホンを使う際、Bluetoothマイクがオンになると音質が悪化するため、内蔵マイクへの切り替えをAlfredで行えるようにした記録。メニューバーのSoundから選ぶ操作が面倒で、H1チップで接続を切り替えるたびにマイクが変わる問題があった。switchaudio-osxを使う既存のAlfred WorkflowはPython2依存で動かなかったため、ChatGPTにAppleScriptを書いてもらって実装した。PythonやNodeに依存するWorkflowは使えなくなりがちで、AppleScriptなら長く使えるのではないかという見立てで締めている。",
+      "icon": "tech"
     },
     {
       "slug": "2024-week5",
@@ -744,9 +909,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week4",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前週に続く週次振り返りで、その週の出来事をまとめている"
         }
-      ]
+      ],
+      "summary": "2024年第5週の週次振り返り。ブログのdescriptionをChatGPTに考えてもらい「日々の小さな発見」という言葉を採用した。iDeCoとNISAで投資を始め、山崎元さんの記事などを参考に全世界株式のインデックスファンドへ毎月積み立てる方針とした。気になったニュースとして、ギークハウス新潟の解散（オーナーの川辺さんの「スキル・楽・カネのどれにも該当しない仕事は1週間以内にやめろ」という言葉に影響を受けた話）、糸井重里さんのXのポスト、「痛いの痛いの飛んでいけ」の神経基盤allolickingを挙げた。今週はAlfred Workflow、Ghostの目次、灯油給油の記事を投稿した。",
+      "icon": "journal"
     },
     {
       "slug": "refuel-kerosene-with-ease",
@@ -757,9 +925,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week1",
-          "type": "continues"
+          "type": "continues",
+          "reason": "たねハウスの各種修繕・改善作業の続報として、灯油給油の仕組みを見直した"
         }
-      ]
+      ],
+      "summary": "三陸沿岸の築60年の家「たねハウス」で冬に石油ファンヒーターを使う際の、灯油の給油作業を楽にした記録。工進の電動ポンプ（給油口に付けっぱなしにするタイプ）を使っており、自動停止とブザーで便利だったが、ポリタンクの付け替えが手間で灯油が付着しやすいのが悩みだった。そこでポンプ付きのポリタンクを給油専用として固定し、別のポリタンクからサイフォンの原理で継ぎ足す方式に変更した。継ぎ足し用ポリタンクを高く置くため、ホームセンターで買った発泡スチロールブロックをポリタンクトレーに合わせてカットして台にした。ポリタンク2個を使い切ったら補充に出る運用に落ち着いた。",
+      "icon": "house"
     },
     {
       "slug": "ghost-toc",
@@ -770,9 +941,12 @@
       "inferredRefs": [
         {
           "slug": "alfred-ghost",
-          "type": "continues"
+          "type": "continues",
+          "reason": "Ghost運用を便利にする一連の取り組みの続きとして、記事検索の次に目次機能を追加した"
         }
-      ]
+      ],
+      "summary": "Ghostブログの各記事に目次（Table of Contents）を付けた作業記録。Ghostには標準の目次機能がなく、Tocbotを使う公式チュートリアルに従ってテーマを改造する必要がある。Ghost Proの場合はCreator以上のプランが必要で、Tocbotのバージョンは最新にしておくとよい。できるだけシステム側をいじらない方針だったが、デフォルトでは不便なためテーマ改造に踏み切り、今後のテーマアップデートとの整合性が懸念点として残った。GhostがWordPressのようなプラグイン方式を採らず既存ライブラリを活用させることでシンプルさを担保している、という理解を述べて終わる。",
+      "icon": "tech"
     },
     {
       "slug": "alfred-ghost",
@@ -783,9 +957,12 @@
       "inferredRefs": [
         {
           "slug": "alfred-midjourney",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "ChatGPT製AppleScriptでAlfred Workflowを作る取り組みに、記事検索という別の課題で再び取り組んだ"
         }
-      ]
+      ],
+      "summary": "Ghostの記事をインクリメンタルサーチして公開URLをクリップボードにコピーするAlfred Workflow「alfred-ghost」を作成した記録。ghost n（新規記事作成）、ghost o（ダッシュボードを開く）、ghost s（タイトル検索。enterでURLコピー、control+enterで記事を開く）を備え、jqが必要な形で配布している。Ghostのエディタには過去記事を参照して挿入する機能がないのが動機だった。ChatGPTにAppleScriptを書かせて数十分で完成した。生成AIは「作れる人がより簡単に作れるようになった」のが実像だという考察で締めている。",
+      "icon": "tech"
     },
     {
       "slug": "2024-week4",
@@ -799,9 +976,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week3",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前週の振り返りに続く週次報告で、今週の出来事をまとめている"
         }
-      ]
+      ],
+      "summary": "2024年第4週の週次振り返り。今週やったこととして、Midjourneyの画像を出力するAlfred Workflowの作成、Badgrを使ったオープンバッジの試作、手持ちの本の自炊（1日1冊ペース、Book2ScrapboxでScrapbox化）を挙げている。オープンバッジについては、Blockcertsによるブロックチェーン連携やgaccoの公開講座で受けたマイクロクレデンシャルの考え方に触れ、学びを可視化する仕組みとして整理している。気になったニュースとして逆フリン効果を取り上げ、スマホと認知資源の関係を考察した。週末は友人とTOPANGAチャリティカップに出場している。",
+      "icon": "journal"
     },
     {
       "slug": "topanga-13",
@@ -812,9 +992,12 @@
       "inferredRefs": [
         {
           "slug": "road-to-master-from-scratch",
-          "type": "continues"
+          "type": "continues",
+          "reason": "モダン操作での上達の取り組みを経て、初のオフライン大会出場という次の段階に進んだ"
         }
-      ]
+      ],
+      "summary": "友人に誘われて第13回TOPANGAチャリティカップのストリートファイター6の5on5に出場した記録。格闘ゲームの大会は初参加で、チームメイトはTwitchで知り合った人たちだった。仕事と試験でスト6に触れておらず、使用キャラはケンのまま挑んだ。Winners2の初戦は平均MR1700の相手チームに敗れてルーザーズへ回り、ルーザーズ1では先鋒として5タテを達成した。その後チーム全員が勝ち星を重ね、最終結果はルーザーズ3回戦で敗退となった。総勢3000名超の大会で、途中Tonamelの不具合もあった。次の大会に向けて練習したいという意向で締めている。",
+      "icon": "game"
     },
     {
       "slug": "alfred-midjourney",
@@ -822,7 +1005,9 @@
       "url": "https://hanatane.net/alfred-midjourney/",
       "publishedAt": "2024-01-23T14:00:20.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "ブログのfeature imageをUnsplashからMidjourneyの生成画像に切り替え、AlfredからMidjourneyのpromptを送れるようにした記事。Unsplashは写真が被ってGhost感が出ることや解像度・テイストの統一が難しいことが問題で、Midjourneyなら解像度指定とpromptの研究で絵柄を揃えられる。しかしDiscordのmidjourneyチャンネルでpromptを入力する手順が煩雑だったため、公式APIのないMidjourneyに対し有志のNode.jsクライアントをTypeScriptで呼び出し、Alfredからシェルスクリプトで実行する仕組みを作った。生成開始時と完了時にプッシュ通知を出す動作まで実装し、コードを掲載して終わっている。",
+      "icon": "tech"
     },
     {
       "slug": "2024-week3",
@@ -836,17 +1021,22 @@
       "inferredRefs": [
         {
           "slug": "2024-week2",
-          "type": "continues"
+          "type": "continues",
+          "reason": "週次振り返りの続きで、先週から続く田中角栄への関心に触れている。"
         },
         {
           "slug": "select-pomodoro-timer",
-          "type": "continues"
+          "type": "continues",
+          "reason": "今週投稿した記事として本文中で明示的に振り返っている。"
         },
         {
           "slug": "harry-potter-and-digital-twin",
-          "type": "continues"
+          "type": "continues",
+          "reason": "今週投稿した記事として本文中で明示的に振り返っている。"
         }
-      ]
+      ],
+      "summary": "2024年第3週の振り返り記事。放送大学の単位認定試験を全て終えたことを報告している。今週やったこととして、NHKの映像の世紀バタフライエフェクトをきっかけにハマった田中角栄の本を、章ではなく1日1ポモドーロで区切って読む方法を試し、角栄が小学校の草間道之輔校長から教わった「人間の脳は数多いモーターの集まり」という知識観を紹介している。気になったニュースとしてChatGPTを活用した九段氏の芥川賞受賞作をめぐる議論、格闘ゲーム選手会と全日本男子プロテニス選手会の意見交換会、iOSのヘルスケアデータをHealth Auto ExportとGrafanaで見る記事を挙げ、今週投稿したFlowとデジタルツインの記事に触れている。",
+      "icon": "journal"
     },
     {
       "slug": "harry-potter-and-digital-twin",
@@ -854,7 +1044,9 @@
       "url": "https://hanatane.net/harry-potter-and-digital-twin/",
       "publishedAt": "2024-01-18T16:22:16.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "ハリー・ポッターシリーズで写真の中の人物が動いて話す描写に子供の頃は死生観の違和感を覚えていたが、2022年に大規模言語モデルの生成AIに触れて、生前の大量の情報からその人らしい行動や人格を生成しているのだと腑に落ちたという記事。この魔法は現実のモノをデジタル空間に再現するデジタルツインの概念そのものだと述べ、MITのセザー・ヒダルゴが提唱する民主主義の拡張の文脈で、間接民主制をAIで乗り越えられる可能性に触れている。分身に任せると現実の自分はセンシング担当になり、どちらが本当の自分か分からなくなるという考察を経て、serial experiments lainを見ることを勧めて終わっている。",
+      "icon": "journal"
     },
     {
       "slug": "select-pomodoro-timer",
@@ -862,7 +1054,9 @@
       "url": "https://hanatane.net/select-pomodoro-timer/",
       "publishedAt": "2024-01-16T14:07:50.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "ポモドーロ・テクニックに過去に失敗した筆者が、井戸端の人たちがポモドーロ単位で作業を管理しているのを見て再挑戦し、タイマーアプリを選んだ記事。Togglのポモドーロ機能はすべての時間管理に手を出しがちで、Apple Watch上では通常のタイマー表示になるため見送り、スタートとストップ以外に触るところがほぼないシンプルなFlowを採用した。FlowはURLスキームに対応しAlfredの公式ワークフローがあり、ロードマップにAPIやThings連携があることから買い切り版を購入した。実践の結果、1日に集中できる時間が少ないと痛感しつつ、ポモドーロ数を増やす視点に立てたと述べて締めている。",
+      "icon": "journal"
     },
     {
       "slug": "2024-week2",
@@ -876,17 +1070,22 @@
       "inferredRefs": [
         {
           "slug": "2024-week1",
-          "type": "continues"
+          "type": "continues",
+          "reason": "週次振り返りの2週目で、先週買ったゲーミング着る毛布に加えてカイロを購入したと続報している。"
         },
         {
           "slug": "embedding-in-ghost-should-not-be-abused",
-          "type": "continues"
+          "type": "continues",
+          "reason": "今週投稿した記事として本文中で明示的に振り返っている。"
         },
         {
           "slug": "thin-vs-thing",
-          "type": "continues"
+          "type": "continues",
+          "reason": "今週投稿した記事として本文中で明示的に振り返っている。"
         }
-      ]
+      ],
+      "summary": "2024年第2週の振り返り記事。朝の室温が0度付近になる寒さの中、ゲーミング着る毛布に加えて貼るカイロを首に貼る使い方を紹介し、年末セールで買い増ししたSwitchbot製品で玄関カメラをAtom Camから置き換え、Atom Camは離れの動物観察用に回した。ニュースではCES2024の犬猫用スマート首輪Minitailz、Samsungの移動ロボットBallie、Twitchのトランスコード発表を取り上げ、面白かった記事として糸井重里と宮本茂の対談シリーズとドット絵Vtuberシステムの技術記事を挙げている。映像の世紀で見た田中角栄がマイブームであること、今週投稿したGhostとDuolingoの記事にも触れている。",
+      "icon": "journal"
     },
     {
       "slug": "thin-vs-thing",
@@ -894,7 +1093,9 @@
       "url": "https://hanatane.net/thin-vs-thing/",
       "publishedAt": "2024-01-14T14:20:14.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "英語を学びたいという80代のおばあちゃんに触発されてDuolingoを再開し、大幅にアップデートされた内容の全コンプリートを目指して毎日続けているという記事。スマホ版に追加された発音問題のうち、ThinとThingの聞き分けが不可能なレベルに難しいと述べ、違いは/θɪn/と/θɪŋ/の末尾のnとngだけで、Duolingoの音声は「グ」が省略された発音のため空気の通り方の微妙な差を聞き分けるしかないと説明している。文字起こしを通すと正しく区別されることに驚き、日本語で発音を学ぶ教材としてあいうえおフォニックスとYouTubeの動画を紹介した上で、まだ全く聞き分けられない状態だと締めている。",
+      "icon": "journal"
     },
     {
       "slug": "embedding-in-ghost-should-not-be-abused",
@@ -905,9 +1106,12 @@
       "inferredRefs": [
         {
           "slug": "2024-week1",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前回投稿（2024-week1）でXの埋め込みを使った際に気づいた不具合を報告している。"
         }
-      ]
+      ],
+      "summary": "Ghostで記事を公開した際に見つけた埋め込みの問題を記した記事。Xの投稿を時系列に埋め込んで活動記録を作る方法は時間の節約になっていたが、Ghostが購読者へ送るメールでは埋め込みの画像が表示されず、Xの埋め込みスクリプトが適用される前の引用テキストだけが表示されることに気付いた。調べたところ、セキュリティ上の理由でHTMLメールではiFrameやJavaScriptが無効化されることが多く、Xは画像もスクリプトで展開するためだと分かった。メールでも正しく表示したい場合はスクリーンショットが推奨されており、今後はニュースレターの作法を意識する必要があると結論づけている。",
+      "icon": "tech"
     },
     {
       "slug": "2024-week1",
@@ -918,13 +1122,17 @@
       "inferredRefs": [
         {
           "slug": "reflection-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": "2024年の方針として宣言した週次振り返り記事の第1弾にあたる。"
         },
         {
           "slug": "progress-of-tanehouse",
-          "type": "continues"
+          "type": "continues",
+          "reason": "課題に挙げていた浴室の塗り直しや換気口対策を実施した続報になっている。"
         }
-      ]
+      ],
+      "summary": "初めての週次振り返り記事。年末年始はたねハウスの浴室改装に充て、アルミテープで塞がれていた箇所をコメリで買った「くりぬくぞう」で切り取って補修し、ペンキ塗り、コーキング、旧換気口をスタイロフォームで塞ぐ作業を行った。ほかに、Windowsをゲームコンソールと割り切りThingsやFlow、Alfredを使うため家でもMacに寄せたこと、西尾氏のScrapboxをきっかけにブログのCC0化を検討していること、放送大学の教科書を裁断してBook2ScrapboxでScrapbox化したこと、Twitchのimplied nudity禁止、レーザー墨出し器やApple Watch SEの購入、4月の種延36th生誕祭の予定を記している。",
+      "icon": "journal"
     },
     {
       "slug": "reflection-2023",
@@ -938,21 +1146,27 @@
       "inferredRefs": [
         {
           "slug": "writing-gap",
-          "type": "updates"
+          "type": "updates",
+          "reason": "書けなかった原因を分析した過去の記事を踏まえ、2024年は通知なし更新へ方針転換すると述べている。"
         },
         {
           "slug": "why-ghost",
-          "type": "updates"
+          "type": "updates",
+          "reason": "Ghostのニュースレター形式が更新の敷居を上げたと判明し、運用方針の見直しを述べている。"
         },
         {
           "slug": "tanehouse-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": "家購入後の移住・引っ越し完了とDIY・スマートホーム化の進捗を1年の総括として続報している。"
         },
         {
           "slug": "progress-of-tanehouse",
-          "type": "continues"
+          "type": "continues",
+          "reason": "たねハウスの整備状況を振り返り、来年はシェアハウス開設を目指すと続報している。"
         }
-      ]
+      ],
+      "summary": "2023年の振り返り記事。3月にGhostでブログを始めたが、ニュースレターとして送られるため文章の敷居が上がり更新が滞ったことを反省し、2024年は通知なしで気軽に記事を投稿し、週次レビュー記事を購読者へ毎週配信し、有料購読者にはDiscordなどブログ以外のrewardを設ける方針を述べている。また築60年の中古住宅を購入し、6月に移住、8月に引っ越しを完了してDIYやSwitchbotによるスマートホーム化が新しいライフワークになったが、シェアハウスは年内にオープンできなかったため、来年は住民募集を始め電気工事士の資格取得を目指すとしている。放送大学の卒業と格闘ゲーム開始にも触れている。",
+      "icon": "journal"
     },
     {
       "slug": "twitchdeshi-ting-zhe-gazi-rayuan-gutuwasuruchromekuo-zhang-wozuo-tuta",
@@ -963,9 +1177,12 @@
       "inferredRefs": [
         {
           "slug": "created-a-garbage-classification-ai",
-          "type": "continues"
+          "type": "continues",
+          "reason": "ChatGPTで何がどれだけ早く作れるか試す一連のsurveyの続報として、次のデモを行っている。"
         }
-      ]
+      ],
+      "summary": "ChatGPTの支援でChrome拡張を作れることを示すデモとして、Twitchのチャットで視聴者が要注意ワードに自分で気付けるようにする拡張を作りChrome Web Storeに公開した記事。Twitchの初見詐欺問題を題材に、NoBackseatingなどの配信タグごとに要注意ワードを登録し、チャット入力欄が赤く警告表示され、送信時に確認ダイアログが出る仕組みである。実用性はほぼないと述べつつ、SPAへのMutationObserver対応やmacOSのIME確定時のEnter誤作動を学べたこと、今後はLLMがモデレーションし人間モデレーターがレビューする構造に可能性があるとまとめている。",
+      "icon": "tech"
     },
     {
       "slug": "diy-scaler",
@@ -973,7 +1190,9 @@
       "url": "https://hanatane.net/diy-scaler/",
       "publishedAt": "2023-11-20T22:00:16.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "Why The Lucky Stiffの「何も作らない人は何を好むかで判断する」という言葉を引き、手元にあったM5StackとM5 Scale Kitで体重計を自作した記事。Arduino IDEでサンプルプログラムを動かし、SCALES KITを配線して珪藻土バスマットに取り付けたが重さが取れず、原因はサンプルがport B想定なのに対し本体横のGrove端子がport Aだったことで、助言を受けてピン番号を変更して動作した。入門として体重計らしいものができた状態で終わり、今後は割れそうな5mmアクリルを珪藻土マットに替え、体重データを利用できるようプログラムを書き換える予定を述べている。",
+      "icon": "tech"
     },
     {
       "slug": "created-a-garbage-classification-ai",
@@ -981,7 +1200,9 @@
       "url": "https://hanatane.net/created-a-garbage-classification-ai/",
       "publishedAt": "2023-11-12T22:00:58.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "OpenAIのDevDayで発表されたGPTsを使い、居住自治体のゴミ分類に答えるカスタムChatGPTを作った記事。Instructionsに公式情報源の大まかなルールを転記し、PDFでしか公開されていないゴミ分類辞典をGoogle DocsとGoogle Sheetsを経由してCSV化してアップロードした。作成自体は数分で、全体約30分の大半はPDFからCSVへの変換作業だった。品目の質問、曖昧な質問、写真の解析まで回答できることを確認している。所感として、同じ仕組みはLINE botにも展開できること、今後は自治体や企業がAIの利用できる形式のデータを持つかどうかが差になると述べている。",
+      "icon": "tech"
     },
     {
       "slug": "introduction-to-tanka",
@@ -992,9 +1213,12 @@
       "inferredRefs": [
         {
           "slug": "road-to-master-from-scratch",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "journal"
     },
     {
       "slug": "road-to-master-from-scratch",
@@ -1005,17 +1229,22 @@
       "inferredRefs": [
         {
           "slug": "street-fighter6",
-          "type": "continues"
+          "type": "continues",
+          "reason": "スト6を始めた記事の続報として、モダン入力でマスター到達までの取り組みを振り返っている。"
         },
         {
           "slug": "ranked-match-diary",
-          "type": "continues"
+          "type": "continues",
+          "reason": "プラチナ2スタートで始まったランクマ日記の続きとして、マスター到達を報告している。"
         },
         {
           "slug": "progress-of-tanehouse",
-          "type": "continues"
+          "type": "continues",
+          "reason": "編集後記でたねハウスの棚差し替えや井戸の稼働など整備の続報を伝えている。"
         }
-      ]
+      ],
+      "summary": "格闘ゲーム初心者の筆者がストリートファイター6でモダンケンを使いマスターに到達するまでの取り組み方をまとめた記事。ワールドツアーをチュートリアルとして活用し、やらないことを明確にして中アシストコンボとドライブインパクトに絞ったこと、ウメハラの「1日ひとつだけ、強くなる」の実践、対戦で生じた怒りを起点に改善する感情駆動の学習、疑問や感情を残すメモの取り方、Researchat.fmのたまきからの助言、バトルハブで格上に挑む潜在学習を紹介している。最後にモダン入力・ワールドツアー・バトルハブが上達の鍵だったと述べ、マスターリーグ以降はより厳しい上達が必要になると結んでいる。",
+      "icon": "game"
     },
     {
       "slug": "progress-of-tanehouse",
@@ -1026,13 +1255,17 @@
       "inferredRefs": [
         {
           "slug": "tanehouse-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         },
         {
           "slug": "ranked-match-diary",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "house"
     },
     {
       "slug": "tanehouse-2023",
@@ -1043,13 +1276,17 @@
       "inferredRefs": [
         {
           "slug": "announcement202307",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         },
         {
           "slug": "ranked-match-diary",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "house"
     },
     {
       "slug": "ranked-match-diary",
@@ -1060,9 +1297,12 @@
       "inferredRefs": [
         {
           "slug": "i-hate-multitask",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "game"
     },
     {
       "slug": "announcement202307",
@@ -1073,13 +1313,17 @@
       "inferredRefs": [
         {
           "slug": "start-blogging-in-2023",
-          "type": "updates"
+          "type": "updates",
+          "reason": "開設時に掲げた毎週月曜更新の方針を、水曜投稿への試験移行という形で改めている。"
         },
         {
           "slug": "i-hate-multitask",
-          "type": "continues"
+          "type": "continues",
+          "reason": "前号で触れていた退去・引っ越し準備が過熱し、その結果として休載と投稿日変更に至った続報。"
         }
-      ]
+      ],
+      "summary": "2023年7月のお知らせ記事。1つ目は、引っ越し作業で1ヶ月休みなしの状態が続き、アレルギー反応で蕁麻疹が出たため今週の更新を休むという告知で、「投稿を休む」という選択肢を増やすことで継続性を上げると述べる。2つ目は投稿日の変更で、これまでの毎週月曜投稿から水曜投稿へ試験的に移行するという内容である。理由は日曜が唯一の空き日で予定が入りやすく、日曜に予定、寝落ち、月曜夜も予定という流れで投稿が間に合わなかったことが何度かあったためで、日曜に大枠を書く方向は変えずに余裕を持たせる狙いを示す。休息を最優先し、来週また投稿すると告げて終わる。",
+      "icon": "journal"
     },
     {
       "slug": "i-hate-multitask",
@@ -1090,13 +1334,17 @@
       "inferredRefs": [
         {
           "slug": "diet-declaration-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         },
         {
           "slug": "street-fighter6",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "journal"
     },
     {
       "slug": "selling-fresh-sea-urchins-on-mercari",
@@ -1107,9 +1355,12 @@
       "inferredRefs": [
         {
           "slug": "diet-declaration-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": null
     },
     {
       "slug": "when-i-was-living-on-the-street",
@@ -1117,7 +1368,9 @@
       "url": "https://hanatane.net/when-i-was-living-on-the-street/",
       "publishedAt": "2023-06-28T22:00:29.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": "journal"
     },
     {
       "slug": "street-fighter6",
@@ -1128,13 +1381,17 @@
       "inferredRefs": [
         {
           "slug": "expectation-control",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": null
         },
         {
           "slug": "diet-declaration-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "game"
     },
     {
       "slug": "diet-declaration-2023",
@@ -1142,7 +1399,9 @@
       "url": "https://hanatane.net/diet-declaration-2023/",
       "publishedAt": "2023-06-11T22:00:42.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": "journal"
     },
     {
       "slug": "writing-gap",
@@ -1153,9 +1412,12 @@
       "inferredRefs": [
         {
           "slug": "why-ghost",
-          "type": "continues"
+          "type": "continues",
+          "reason": null
         }
-      ]
+      ],
+      "summary": null,
+      "icon": "journal"
     },
     {
       "slug": "hometown-tour-on-google-maps",
@@ -1163,7 +1425,9 @@
       "url": "https://hanatane.net/hometown-tour-on-google-maps/",
       "publishedAt": "2023-05-28T22:36:41.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": null
     },
     {
       "slug": "how-to-deal-with-weeds",
@@ -1171,7 +1435,9 @@
       "url": "https://hanatane.net/how-to-deal-with-weeds/",
       "publishedAt": "2023-05-21T22:00:41.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": null
     },
     {
       "slug": "sea-squirt-and-getting-old",
@@ -1179,7 +1445,9 @@
       "url": "https://hanatane.net/sea-squirt-and-getting-old/",
       "publishedAt": "2023-05-14T22:00:01.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": "journal"
     },
     {
       "slug": "gw2023",
@@ -1187,7 +1455,9 @@
       "url": "https://hanatane.net/gw2023/",
       "publishedAt": "2023-05-07T22:00:54.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": null
     },
     {
       "slug": "reflaction202304",
@@ -1201,7 +1471,9 @@
         "went-to-special-exhibition",
         "why-ghost"
       ],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": null,
+      "icon": null
     },
     {
       "slug": "most-influential-studies",
@@ -1214,9 +1486,12 @@
       "inferredRefs": [
         {
           "slug": "went-to-special-exhibition",
-          "type": "revisits"
+          "type": "revisits",
+          "reason": "前回触れた人類進化への関心を、分離脳研究という別角度の心理学トピックで再び取り上げている。"
         }
-      ]
+      ],
+      "summary": "放送大学で心理学を学び卒業を迎える筆者が、自分に最も影響を与えた研究としてガザニガの分離脳患者の実験を紹介する記事。脳梁を切断した患者の片側の脳だけに刺激を提示すると、左脳は「何も映らなかった」と答える一方で左手は「顔」を描くという結果から、言語的に意識している「私」は左脳の部分に過ぎないと述べる。さらに右脳への指示を左脳が「ニワトリ小屋を掃除するため」などと事後的に説明する現象から、ガザニガが左半球を「インタープリター」と呼んだことを説明する。この知見により感情を「自分の中の動物の部分」として一歩引いて捉えられるようになったとし、象と象使いのたとえで感情と仲良くする必要性を述べる。",
+      "icon": "journal"
     },
     {
       "slug": "expectation-control",
@@ -1224,7 +1499,9 @@
       "url": "https://hanatane.net/expectation-control/",
       "publishedAt": "2023-04-16T22:00:40.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "「期待値コントロール」という言葉を軸に、過大な期待を調整することを考えた記事。言葉はScrapboxのコミュニティで西尾さんが用いたもので、ジョジョの奇妙な冒険でジャイロ・ツェペリが伝える「妙な期待はするな」や、バルタサル・グラシアン『The Art of Worldly Wisdom』の「入り口で大げさな期待を抱かせない」を関連付ける。仕事で行う学習効果の検証では高い期待を持つ参加者ほど進捗を正しく評価できず、登山ゲームPogostuckでも進捗を正確に捉えられる人がクリアに至ると述べる。大きな期待を達成可能な小さなゴールに分解する重要性を示し、現実的な見積もり能力が必要だと結論づける。",
+      "icon": "journal"
     },
     {
       "slug": "went-to-special-exhibition",
@@ -1232,7 +1509,9 @@
       "url": "https://hanatane.net/went-to-special-exhibition/",
       "publishedAt": "2023-04-09T22:00:42.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "大船渡市の博物館の開館40周年企画「大船渡市の縄文土器ほぼ全部展」を見に行った記録。2023年1月末の寒波で断水していた休日の散歩中に、市内で出土した縄文土器約350点を一堂に展示する企画展に立ち寄った。常設展の釣り針の展示をジョージ・C・ウィリアムズ『生物はなぜ進化するのか』の自然選択の例と結びつけ、土器の部位が人体になぞらえて命名されているのは松本彦七郎が編年に系統発生の考え方を導入したためだと調べた。企画展では中期の円筒式土器や注口土器、アスファルトが詰められた土器を見て北海道産アスファルトの交易ルートに関心を広げ、縄文への興味は人類進化への関心に根差すと述べて終わる。",
+      "icon": null
     },
     {
       "slug": "why-ghost",
@@ -1243,9 +1522,12 @@
       "inferredRefs": [
         {
           "slug": "start-blogging-in-2023",
-          "type": "continues"
+          "type": "continues",
+          "reason": "開設挨拶の2本目として、そこで予告した有料メンバーシップ運用の具体的な選定理由を報告する続報。"
         }
-      ]
+      ],
+      "summary": "ブログプラットフォームにGhostを選んだ理由を説明する記事。最重視した条件は、保守に手を取られず書くことに集中できるフルマネージドであることと、ターゲティング広告を載せずメンバーシップモデルで運用できることの2点である。候補のnote、Medium、Substackは、トップページのUI、日本人ユーザーの少なさ、英語UI、日本にニュースレター文化がないことなどを理由に見送った。Ghostは月額料金が高く最安のStarterプランは機能が限られるが、月額5ドルのpaid member2人で費用を賄えることや、制限が「小さく始める」ことに作用する点をむしろ利点と捉えた。公開後すぐ有料メンバーが付いたと報告して終わる。",
+      "icon": "tech"
     },
     {
       "slug": "start-blogging-in-2023",
@@ -1253,7 +1535,9 @@
       "url": "https://hanatane.net/start-blogging-in-2023/",
       "publishedAt": "2023-03-26T12:31:37.000Z",
       "refs": [],
-      "inferredRefs": []
+      "inferredRefs": [],
+      "summary": "ブログ『はなしのタネ』開設の挨拶記事。筆者の種延真之は広島出身で東京を経て岩手県大船渡市に住み、放送大学で心理学を学びつつ正社員の仕事、個人のECサイト運営、地域の水産加工会社の手伝いを掛け持ちしていると自己紹介する。以前のブログは引きこもり期に止めたが、人との交流が増えたため自分の考えを文章で置く場所として再開する。想定読者は知り合いで、日常で誰かに話したいことを書き、毎週月曜に1本更新することを目標に掲げる。広告なしで運用するため有料メンバーシップを用意し、paid member向けに月1本の記事を出す方針を示し、Subscribeによる購読を呼びかけて終わる。",
+      "icon": "journal"
     }
   ]
 }
