@@ -3,5 +3,6 @@
   "summary": "長年使った Google 日本語入力から、未踏プロジェクト発の IME である azooKey に乗り換えた記事です。ニューラルかな漢字変換 Zenzai と、macOS のアクセシビリティ経由でコンテキストを取得する Tuner により、ライブ変換が実用レベルに達したと述べています。日本語入力中に Shift で大文字を打つと英字モードになる慣用機能が azooKey には無く、開発者の miwa さんが議論の末に採用しない決断をした経緯を紹介し、入力体験に寄与しない機能は削ぎ落とすほうが良いという考えに至っています。今後も azooKey を使い続けるとしています。",
   "relations": [],
   "annotated_at": "2026-09-10T04:53:17Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "tech"
 }

@@ -3,5 +3,6 @@
   "summary": "自宅の YAMAHA RTX830 の DNS 問題をきっかけに、LLM が YAMAHA のコマンドをほとんど知らない課題に対処した記事です。YAMAHA の HTML マニュアルを Claude Code で Markdown に変換し、コマンドの index と CLAUDE.md を整備してコマンドリファレンスを作成しました。これに Git 管理していた config とルーター同期用シェルスクリプトを加え、Claude Code と協調してネットワーク作業ができるリポジトリを構築しました。ドキュメントを参照せず進むこともあるため、CLAUDE.md を継続的にメンテする運用に落ち着いています。",
   "relations": [],
   "annotated_at": "2026-09-10T04:53:17Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "tech"
 }

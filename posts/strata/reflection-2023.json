@@ -24,5 +24,6 @@
     }
   ],
   "annotated_at": "2026-09-10T04:52:10Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "journal"
 }

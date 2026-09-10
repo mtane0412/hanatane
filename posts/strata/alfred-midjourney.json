@@ -3,5 +3,6 @@
   "summary": "ブログのfeature imageをUnsplashからMidjourneyの生成画像に切り替え、AlfredからMidjourneyのpromptを送れるようにした記事。Unsplashは写真が被ってGhost感が出ることや解像度・テイストの統一が難しいことが問題で、Midjourneyなら解像度指定とpromptの研究で絵柄を揃えられる。しかしDiscordのmidjourneyチャンネルでpromptを入力する手順が煩雑だったため、公式APIのないMidjourneyに対し有志のNode.jsクライアントをTypeScriptで呼び出し、Alfredからシェルスクリプトで実行する仕組みを作った。生成開始時と完了時にプッシュ通知を出す動作まで実装し、コードを掲載して終わっている。",
   "relations": [],
   "annotated_at": "2026-09-10T04:52:10Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "tech"
 }

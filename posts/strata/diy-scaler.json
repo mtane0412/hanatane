@@ -3,5 +3,6 @@
   "summary": "Why The Lucky Stiffの「何も作らない人は何を好むかで判断する」という言葉を引き、手元にあったM5StackとM5 Scale Kitで体重計を自作した記事。Arduino IDEでサンプルプログラムを動かし、SCALES KITを配線して珪藻土バスマットに取り付けたが重さが取れず、原因はサンプルがport B想定なのに対し本体横のGrove端子がport Aだったことで、助言を受けてピン番号を変更して動作した。入門として体重計らしいものができた状態で終わり、今後は割れそうな5mmアクリルを珪藻土マットに替え、体重データを利用できるようプログラムを書き換える予定を述べている。",
   "relations": [],
   "annotated_at": "2026-09-10T04:52:10Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "tech"
 }

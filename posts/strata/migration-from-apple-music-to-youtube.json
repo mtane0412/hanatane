@@ -3,5 +3,6 @@
   "summary": "Apple Musicの1ヶ月無料体験を得た機会に、Apple MusicのプレイリストをYouTube Musicへ移行した手順の記録。放送大学の学割で使っていたApple Musicの期限が切れてYouTubeに一本化したが、移行にはApple MusicかiTunes Matchの有効なサブスクリプションが必要なため無料体験中に作業した。手順はprivacy.apple.comの「データのコピーを転送」からプレイリストを選び、GoogleアカウントのOAuth認証を経てエクスポートを確認するもので、Chromeではエラーが出たためSafariで進めた。YouTube Music側で移行を確認し、Appleの無料サブスクリプションを解除して終えた。",
   "relations": [],
   "annotated_at": "2026-09-10T04:52:12Z",
-  "annotator": "claude-sonnet-5"
+  "annotator": "claude-sonnet-5",
+  "icon": "tech"
 }
