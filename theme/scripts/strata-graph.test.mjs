@@ -1187,3 +1187,83 @@ test('sproutPath: 段階 2 の芽は段階 1 より背が高く(上端の y が�
     const 葉の数 = path => (path.match(/ M /g) || []).length;
     assert.ok(葉の数(育った芽) > 葉の数(双葉));
 });
+
+/* ------------------------------------------------------------------
+ * 芽の向き(#30): 芽は斜めに伸ばし、種のすぐ上を通る根(エッジ)と重ならない側を選ぶ
+ * ------------------------------------------------------------------ */
+
+/** 芽の向きの API を読み込む(戻り値はテスト側レルムの値に正規化する) */
+function 芽の向きを読み込む() {
+    const window = {};
+    vm.runInNewContext(スクリプト, {window});
+    const api = window.HyperstrataGraph;
+    return {
+        chooseSproutLeans: (nodes, edges) => JSON.parse(JSON.stringify(api.chooseSproutLeans(nodes, edges))),
+        sproutTransform: (lean, x, baseY) => api.sproutTransform(lean, x, baseY)
+    };
+}
+
+/** 芽の向きを調べる種(row 2, col 0)。周りの根はテストごとに変える */
+const 種 = {slug: 'seed', row: 2, col: 0};
+
+test('chooseSproutLeans: 周りに根が無い種は既定の右へ傾ける', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    assert.deepEqual(chooseSproutLeans([種], []), {seed: 'right'});
+});
+
+test('chooseSproutLeans: 真上から同じ列を下りてくる根(幹)がある種は、真上を避けて右へ傾ける', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    const 幹 = {from: 'newer', to: 'seed', fromRow: 0, toRow: 2, fromCol: 0, toCol: 0};
+    assert.deepEqual(chooseSproutLeans([種], [幹]), {seed: 'right'});
+});
+
+test('chooseSproutLeans: 右隣の列を通り過ぎる根がある種は左へ傾ける', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    const 右隣の幹 = {from: 'newer', to: 'older', fromRow: 0, toRow: 4, fromCol: 1, toCol: 1};
+    assert.deepEqual(chooseSproutLeans([種], [右隣の幹]), {seed: 'left'});
+});
+
+test('chooseSproutLeans: 左右の隣の列に根があり真上が空いている種は、真上に伸ばす', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    const 右隣の幹 = {from: 'a', to: 'b', fromRow: 0, toRow: 4, fromCol: 1, toCol: 1};
+    const 左隣の幹 = {from: 'c', to: 'd', fromRow: 0, toRow: 4, fromCol: -1, toCol: -1};
+    assert.deepEqual(chooseSproutLeans([種], [右隣の幹, 左隣の幹]), {seed: 'up'});
+});
+
+test('chooseSproutLeans: 真上も左右も根で塞がれている種は、避けられないので既定の右へ傾ける', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    const 幹 = {from: 'newer', to: 'seed', fromRow: 0, toRow: 2, fromCol: 0, toCol: 0};
+    const 右隣の幹 = {from: 'a', to: 'b', fromRow: 0, toRow: 4, fromCol: 1, toCol: 1};
+    const 左隣の幹 = {from: 'c', to: 'd', fromRow: 0, toRow: 4, fromCol: -1, toCol: -1};
+    assert.deepEqual(chooseSproutLeans([種], [幹, 右隣の幹, 左隣の幹]), {seed: 'right'});
+});
+
+test('chooseSproutLeans: 迂回列(viaCol)から S 字で右上から入ってくる根は右側と真上を塞ぐので、左へ傾ける', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    const 迂回して入る根 = {from: 'newer', to: 'seed', fromRow: 0, toRow: 2, fromCol: 0, toCol: 0, viaCol: 1};
+    assert.deepEqual(chooseSproutLeans([種], [迂回して入る根]), {seed: 'left'});
+});
+
+test('chooseSproutLeans: すぐ上の行から斜めに列を移る根(S 字)は、その通り道の列を塞ぐ', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    // row 1 の col 1 から col -1 へ移って下りる根は、種(row 2, col 0)の真上と左右をまとめて横切る
+    const 横切る根 = {from: 'newer', to: 'older', fromRow: 1, toRow: 5, fromCol: 1, toCol: -1};
+    assert.deepEqual(chooseSproutLeans([種], [横切る根]), {seed: 'right'});
+    // 左隣までしか届かない S 字(col 0 → col -1)なら、真上と左だけが塞がるので右へ傾ける
+    const 左へ逸れる根 = {from: 'newer', to: 'older', fromRow: 1, toRow: 5, fromCol: 0, toCol: -1};
+    const 右隣の幹 = {from: 'a', to: 'b', fromRow: 0, toRow: 4, fromCol: 1, toCol: 1};
+    assert.deepEqual(chooseSproutLeans([種], [左へ逸れる根, 右隣の幹]), {seed: 'right'});
+});
+
+test('chooseSproutLeans: 種より下を通る根(その種から出る根)は芽の向きに影響しない', () => {
+    const {chooseSproutLeans} = 芽の向きを読み込む();
+    const 下へ出る根 = {from: 'seed', to: 'older', fromRow: 2, toRow: 5, fromCol: 0, toCol: 1};
+    assert.deepEqual(chooseSproutLeans([種], [下へ出る根]), {seed: 'right'});
+});
+
+test('sproutTransform: 右へ傾ける芽は付け根を中心に時計回り、左は反時計回りに回し、真上なら変形しない', () => {
+    const {sproutTransform} = 芽の向きを読み込む();
+    assert.match(sproutTransform('right', 10, 20), /^rotate\(\d+ 10 20\)$/);
+    assert.match(sproutTransform('left', 10, 20), /^rotate\(-\d+ 10 20\)$/);
+    assert.equal(sproutTransform('up', 10, 20), null);
+});
