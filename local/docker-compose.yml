@@ -1,0 +1,25 @@
+# ローカル確認環境: テーマの見た目を本番と同じ Ghost イメージで確認するための docker compose。
+# 本番(infra/ansible/templates/docker-compose.yml.j2)とは別物で、MySQL や Mailgun は使わず SQLite で動かす。
+# theme/ をテーマ「source」としてそのままバインドマウントするため、ソースを編集して再読み込みすれば反映される
+# (assets/built/ は `pnpm --filter ./theme build` または `pnpm --filter ./theme dev` で更新する)。
+# 使い方は local/README.md を参照。
+services:
+  ghost:
+    image: ghost:6.63.0
+    ports:
+      - "2368:2368"
+    environment:
+      NODE_ENV: development
+      url: http://localhost:2368
+      database__client: sqlite3
+      database__connection__filename: /var/lib/ghost/content/data/ghost-local.db
+      # ローカルではメールを送らない(招待やマジックリンクはログに出るだけ)
+      mail__transport: Direct
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+      - ../theme:/var/lib/ghost/content/themes/source
+      # テーマの node_modules は Ghost に見せない(テーマの読み込みと検証が遅くなるため、空のボリュームで隠す)
+      - /var/lib/ghost/content/themes/source/node_modules
+
+volumes:
+  ghost_content:
