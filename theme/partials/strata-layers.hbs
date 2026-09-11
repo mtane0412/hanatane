@@ -1,0 +1,80 @@
+{{!-- Hyperstrata: 本文下の他記事へのリンクを「上の層(後の記事)」「下の層(前の記事)」の 2 グループに束ねる(#42)。
+      地層では記事の位置は上(後)か下(前)しか無いため、出所(時間の隣接・人間の引用・研究者の注釈)の違いは
+      各行のバッジ(data-strata-badge)で示す。
+        - adjacent: Ghost の next_post(直上)/ prev_post(直下)
+        - cites:    現在記事が引用している記事(引用タグ #ref-<slug>。scripts/hyperstrata-sync.mjs が自動付与する)
+        - cited-by: 現在記事を引用している後の記事
+        - continues / revisits / updates: 研究者の注釈(posts/strata/)。assets/js/strata-layers.js が graph.json から足す
+      JavaScript 無しでも隣接と引用はサーバー描画で出る。直下の記事が引用先でもある場合は同じ slug の行が 2 つ並ぶが、
+      JS が data-slug で 1 行に統合し、経過日数(data-label-*)の書き込みと現在記事に近い順の並べ替えも行う。
+      発掘記録(details)は現在記事の要約であり他記事へのリンクではないため、リンク群より前に置く。
+      該当が無いグループ/セクションは CSS(:has)で隠す。
+      Cited by の limit は Ghost の get ヘルパーが limit="all" を非推奨としているため上限100件とする。
+      next_post と prev_post は入れ子にすると内側の文脈が隣の記事に変わるため、別のグループに分けて書く --}}
+<section class="gh-strata-layers gh-canvas" data-strata-layers
+    data-current-slug="{{slug}}"
+    data-current-published="{{published_at}}"
+    data-strata-graph-url="{{asset "graph.json"}}"
+    data-label-later="{{t "% days later"}}"
+    data-label-earlier="{{t "% days earlier"}}"
+    data-label-one-later="{{t "1 day later"}}"
+    data-label-one-earlier="{{t "1 day earlier"}}"
+    data-label-adjacent-above="{{t "Directly above"}}"
+    data-label-adjacent-below="{{t "Directly below"}}"
+    data-label-cites="{{t "Cited"}}"
+    data-label-cited-by="{{t "Cites this"}}"
+    data-label-continues="{{t "Continues"}}"
+    data-label-revisits="{{t "Revisits"}}"
+    data-label-updates="{{t "Updates"}}">
+    <details class="gh-strata-record" data-strata-record hidden>
+        <summary class="gh-strata-layers-title">{{t "Excavation record"}}</summary>
+        <p class="gh-strata-record-summary" data-strata-record-summary></p>
+        <p class="gh-strata-record-meta" data-strata-record-meta data-label-annotator="{{t "Excavated by"}}"></p>
+    </details>
+    <div class="gh-strata-layers-group" data-strata-layers-group="above">
+        <h2 class="gh-strata-layers-title">{{t "Layers above"}}</h2>
+        <ul class="gh-strata-layers-list" data-strata-layers-list>
+            {{#next_post}}
+                <li class="gh-strata-layer" data-slug="{{slug}}">
+                    <span class="gh-strata-layer-badges"><span class="gh-strata-badge" data-strata-badge="adjacent">{{t "Directly above"}}</span></span>
+                    <a class="gh-strata-layer-title" href="{{url}}">{{title}}</a>
+                    <span class="gh-strata-layer-meta"><time datetime="{{published_at}}">{{date}}</time><span data-strata-layer-gap></span></span>
+                </li>
+            {{/next_post}}
+            {{#get "posts" filter="tags:hash-ref-{{slug}}" limit="100" order="published_at asc" as |citing|}}
+                {{#foreach citing}}
+                    <li class="gh-strata-layer" data-slug="{{slug}}">
+                        <span class="gh-strata-layer-badges"><span class="gh-strata-badge" data-strata-badge="cited-by">{{t "Cites this"}}</span></span>
+                        <a class="gh-strata-layer-title" href="{{url}}">{{title}}</a>
+                        <span class="gh-strata-layer-meta"><time datetime="{{published_at}}">{{date}}</time><span data-strata-layer-gap></span></span>
+                    </li>
+                {{/foreach}}
+            {{/get}}
+        </ul>
+    </div>
+    <div class="gh-strata-layers-group" data-strata-layers-group="below">
+        <h2 class="gh-strata-layers-title">{{t "Layers below"}}</h2>
+        <ul class="gh-strata-layers-list" data-strata-layers-list>
+            {{#prev_post}}
+                <li class="gh-strata-layer" data-slug="{{slug}}">
+                    <span class="gh-strata-layer-badges"><span class="gh-strata-badge" data-strata-badge="adjacent">{{t "Directly below"}}</span></span>
+                    <a class="gh-strata-layer-title" href="{{url}}">{{title}}</a>
+                    <span class="gh-strata-layer-meta"><time datetime="{{published_at}}">{{date}}</time><span data-strata-layer-gap></span></span>
+                </li>
+            {{/prev_post}}
+            {{#foreach tags visibility="all"}}
+                {{#match slug "~^" "hash-ref-"}}
+                    {{#get "posts" filter="slug:'{{description}}'" limit="1" as |referenced|}}
+                        {{#foreach referenced}}
+                            <li class="gh-strata-layer" data-slug="{{slug}}">
+                                <span class="gh-strata-layer-badges"><span class="gh-strata-badge" data-strata-badge="cites">{{t "Cited"}}</span></span>
+                                <a class="gh-strata-layer-title" href="{{url}}">{{title}}</a>
+                                <span class="gh-strata-layer-meta"><time datetime="{{published_at}}">{{date}}</time><span data-strata-layer-gap></span></span>
+                            </li>
+                        {{/foreach}}
+                    {{/get}}
+                {{/match}}
+            {{/foreach}}
+        </ul>
+    </div>
+</section>

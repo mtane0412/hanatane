@@ -1,8 +1,8 @@
 /**
  * Hyperstrata の題材アイコン(posts/src/strata.ts の TOPIC_ICONS と対応)
  *
- * strata-annotation.js(記事末尾の関係一覧)と strata-graph.js(地層グラフの帯へのランダム配置)の
- * 両方から使う共通アイコン定義。<svg viewBox="0 0 24 24"> の子要素だけを文字列で持ち、
+ * strata-graph.js(地層グラフの帯へのランダム配置)から使うアイコン定義
+ * (本文下のリンク集 strata-layers.js には出さない)。<svg viewBox="0 0 24 24"> の子要素だけを文字列で持ち、
  * 色は currentColor で呼び出し側に委ねる。未知の icon(古い graph.json や将来追加分)は
  * createElement が null を返し、呼び出し側は何も描画しない。
  *
