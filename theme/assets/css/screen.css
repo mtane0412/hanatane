@@ -2478,137 +2478,27 @@ figcaption a {
     text-decoration: underline;
 }
 
-/* 16a. Hyperstrata neighbors (直上・直下の層: 前後の記事と経過日数)
+/* 16a. Hyperstrata layers (本文下の他記事へのリンク: 上の層・下の層に束ねた直上直下・引用・注釈と発掘記録)
 /* ---------------------------------------------------------- */
 
-.gh-strata-neighbors {
+.gh-strata-layers {
     margin-top: 48px;
 }
 
-/* 前後の記事が無い(記事が 1 本だけの)場合はセクションごと隠す(gh-citations と同じ方式) */
-.gh-strata-neighbors:not(:has(a)) {
+/* 行(li)が 1 つも無く発掘記録も表示されていなければセクションごと隠す。行が無いグループも隠す */
+.gh-strata-layers:not(:has(li)):not(:has([data-strata-record]:not([hidden]))),
+.gh-strata-layers-group:not(:has(li)) {
     display: none;
 }
 
-/* 上の層 / 下の層を地層の並びに合わせて縦に積む。ラベルとタイトルを左、公開日と経過日数を右に置く */
-.gh-strata-neighbor {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-        "label meta"
-        "title meta";
-    align-items: baseline;
-    column-gap: 16px;
-    padding: 10px 0;
-    border-top: 1px solid var(--color-border);
-    color: inherit;
-    text-decoration: none;
-}
-
-.gh-strata-neighbor:last-child {
-    border-bottom: 1px solid var(--color-border);
-}
-
-.gh-strata-neighbor:hover .gh-strata-neighbor-title {
-    text-decoration: underline;
-}
-
-.gh-strata-neighbor-label {
-    grid-area: label;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-secondary-text);
-}
-
-.gh-strata-neighbor-title {
-    grid-area: title;
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-}
-
-.gh-strata-neighbor-meta {
-    grid-area: meta;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex-shrink: 0;
-    font-size: 1.3rem;
-    color: var(--color-secondary-text);
-}
-
-.gh-strata-neighbor-meta [data-strata-neighbor-gap]:empty {
-    display: none;
-}
-
-/* 16b. Hyperstrata citations (References / Cited By)
-/* ---------------------------------------------------------- */
-
-.gh-citations {
-    margin-top: 48px;
-}
-
-.gh-citations:not(:has(li)),
-.gh-citations-group:not(:has(li)) {
-    display: none;
-}
-
-.gh-citations-group + .gh-citations-group {
+/* 発掘記録(表示中のみ)とグループ、グループ同士を同じ間隔で並べる */
+.gh-strata-record:not([hidden]) + .gh-strata-layers-group,
+.gh-strata-record:not([hidden]) + .gh-strata-layers-group:not(:has(li)) + .gh-strata-layers-group,
+.gh-strata-layers-group:has(li) + .gh-strata-layers-group {
     margin-top: 32px;
 }
 
-.gh-citations-title {
-    margin-bottom: 12px;
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-}
-
-.gh-citations-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.gh-citations-list li {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 10px 0;
-    border-top: 1px solid var(--color-border);
-}
-
-.gh-citations-list a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.gh-citations-list a:hover {
-    text-decoration: underline;
-}
-
-.gh-citations-list time {
-    flex-shrink: 0;
-    font-size: 1.3rem;
-    color: var(--color-secondary-text);
-}
-
-/* 16c. Hyperstrata annotation (記事末尾の発掘記録と関連記事: 過去記事との関係 / 後の記事からの参照)
-/* ---------------------------------------------------------- */
-
-.gh-strata-annotation {
-    margin-top: 48px;
-}
-
-/* 発掘記録(details)と Related posts / Later posts の各グループを gh-citations-group と同じ間隔で並べる。
-   各要素は JS が描画したときだけ hidden を外すため、前の要素が表示されているときだけ間隔を取る */
-.gh-strata-annotation-record:not([hidden]) + .gh-strata-annotation-group,
-.gh-strata-annotation-group:not([hidden]) + .gh-strata-annotation-group {
-    margin-top: 32px;
-}
-
-.gh-strata-annotation-title {
+.gh-strata-layers-title {
     margin-bottom: 12px;
     font-size: 1.6rem;
     font-weight: 700;
@@ -2617,35 +2507,35 @@ figcaption a {
 
 /* 発掘記録は details で折りたたみ、見出し(summary)をグループの見出しと同じ見た目にする。
    display: flex 等を当てないため、hidden 属性はブラウザ標準の display: none がそのまま効く */
-.gh-strata-annotation-record > summary {
+.gh-strata-record > summary {
     cursor: pointer;
     list-style: none;
 }
 
-.gh-strata-annotation-record > summary::-webkit-details-marker {
+.gh-strata-record > summary::-webkit-details-marker {
     display: none;
 }
 
 /* 開閉状態を示す三角(▸ / ▾)を見出しの前に置く */
-.gh-strata-annotation-record > summary::before {
+.gh-strata-record > summary::before {
     content: "▸";
     display: inline-block;
     width: 1em;
     color: var(--color-secondary-text);
 }
 
-.gh-strata-annotation-record[open] > summary::before {
+.gh-strata-record[open] > summary::before {
     content: "▾";
 }
 
-.gh-strata-annotation-summary {
+.gh-strata-record-summary {
     margin: 0 0 8px;
     font-size: 1.5rem;
     line-height: 1.7;
 }
 
 /* 発掘者と発掘日は要約の末尾に控えめに添える */
-.gh-strata-annotation-meta {
+.gh-strata-record-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -2655,43 +2545,77 @@ figcaption a {
     color: var(--color-secondary-text);
 }
 
-.gh-strata-annotation-meta:empty {
+.gh-strata-record-meta:empty {
     display: none;
 }
 
-.gh-strata-annotation-list {
+.gh-strata-layers-list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.gh-strata-annotation-item {
-    display: flex;
-    flex-wrap: wrap;
+/* 1 行 = 1 記事。バッジ列とタイトルを左、公開日と経過日数を右、研究者の理由を下の全幅に置く */
+.gh-strata-layer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "badges meta"
+        "title meta"
+        "reason reason";
     align-items: baseline;
-    gap: 8px;
+    column-gap: 16px;
     padding: 10px 0;
     border-top: 1px solid var(--color-border);
 }
 
-.gh-strata-annotation-type {
-    flex-shrink: 0;
+.gh-strata-layer:last-child {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.gh-strata-layer-badges {
+    grid-area: badges;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+}
+
+.gh-strata-badge {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--color-secondary-text);
 }
 
-.gh-strata-annotation-item a {
+.gh-strata-layer-title {
+    grid-area: title;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     color: inherit;
     text-decoration: none;
 }
 
-.gh-strata-annotation-item a:hover {
+.gh-strata-layer-title:hover {
     text-decoration: underline;
 }
 
-.gh-strata-annotation-reason {
-    flex-basis: 100%;
+.gh-strata-layer-meta {
+    grid-area: meta;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-layer-meta [data-strata-layer-gap]:empty {
+    display: none;
+}
+
+.gh-strata-layer-reason {
+    grid-area: reason;
+    margin-top: 4px;
     font-size: 1.3rem;
     color: var(--color-secondary-text);
 }

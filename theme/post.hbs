@@ -62,72 +62,9 @@
 
     </article>
 
-    {{!-- Hyperstrata: 直上・直下の層(前後の記事と経過日数)。JavaScript 無しでも出る(#33) --}}
-    {{> "strata-neighbors"}}
-
-    {{!-- Hyperstrata: 引用ネットワーク。引用タグ(#ref-<slug>)は scripts/hyperstrata-sync.mjs が自動付与する。
-          該当が無いグループ/セクションは CSS(:has) で非表示にする。
-          Cited by の limit は Ghost の get ヘルパーが limit="all" を非推奨としているため上限100件とする --}}
-    <section class="gh-citations gh-canvas">
-        <div class="gh-citations-group">
-            <h2 class="gh-citations-title">{{t "References"}}</h2>
-            <ul class="gh-citations-list">
-                {{#foreach tags visibility="all"}}
-                    {{#match slug "~^" "hash-ref-"}}
-                        {{#get "posts" filter="slug:'{{description}}'" limit="1" as |referenced|}}
-                            {{#foreach referenced}}
-                                <li><a href="{{url}}">{{title}}</a><time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time></li>
-                            {{/foreach}}
-                        {{/get}}
-                    {{/match}}
-                {{/foreach}}
-            </ul>
-        </div>
-        <div class="gh-citations-group">
-            <h2 class="gh-citations-title">{{t "Cited by"}}</h2>
-            <ul class="gh-citations-list">
-                {{#get "posts" filter="tags:hash-ref-{{slug}}" limit="100" order="published_at asc" as |citing|}}
-                    {{#foreach citing}}
-                        <li><a href="{{url}}">{{title}}</a><time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time></li>
-                    {{/foreach}}
-                {{/get}}
-            </ul>
-        </div>
-    </section>
-
-    {{!-- Hyperstrata: Claude Code が posts/strata/ に書いた注釈(研究者の要約と過去記事との関係)を出す。
-          scripts/hyperstrata-sync.mjs が graph.json に合成する summary・annotator・annotatedAt・
-          inferredRefs(type・reason)を assets/js/strata-annotation.js が fetch して描画する。
-            - Excavation record: 考古学の発掘記録のように、要約(summary)を折りたたみ(details)で出し、
-                                 末尾に発掘者(annotator)と発掘日(annotatedAt)を添える。限定記事は summary が
-                                 暗号化されて graph.json で null になるため出さない
-            - Related posts:     現在記事から過去記事への関係
-            - Later posts:       現在記事を参照している後の記事(逆引き)。immutable な本文は書き換えず、
-                                 古い記事側に「後の記事で更新(updates)・再訪(revisits)された」と知らせる
-          2 つのグループは References / Cited by と同じレベルに揃える。
-          JavaScript 無効時や該当が無いグループ/記事(strata pending)では hidden のままにする。
-          関係の種類(続報/再訪/更新)は一覧見出しではなく各項目のバッジ(data-label-*)として表示する --}}
-    <section class="gh-strata-annotation gh-canvas" data-strata-annotation data-current-slug="{{slug}}" data-strata-graph-url="{{asset "graph.json"}}" hidden>
-        <details class="gh-strata-annotation-record" data-strata-annotation-record hidden>
-            <summary class="gh-strata-annotation-title">{{t "Excavation record"}}</summary>
-            <p class="gh-strata-annotation-summary" data-strata-annotation-summary></p>
-            <p class="gh-strata-annotation-meta" data-strata-annotation-meta data-label-annotator="{{t "Excavated by"}}"></p>
-        </details>
-        <div class="gh-strata-annotation-group" data-strata-annotation-group="relations" hidden>
-            <h2 class="gh-strata-annotation-title">{{t "Related posts"}}</h2>
-            <ul class="gh-strata-annotation-list" data-strata-annotation-list
-                data-label-continues="{{t "Continues"}}"
-                data-label-revisits="{{t "Revisits"}}"
-                data-label-updates="{{t "Updates"}}"></ul>
-        </div>
-        <div class="gh-strata-annotation-group" data-strata-annotation-group="cited-by" hidden>
-            <h2 class="gh-strata-annotation-title">{{t "Later posts"}}</h2>
-            <ul class="gh-strata-annotation-list" data-strata-annotation-list
-                data-label-continues="{{t "Continues"}}"
-                data-label-revisits="{{t "Revisits"}}"
-                data-label-updates="{{t "Updates"}}"></ul>
-        </div>
-    </section>
+    {{!-- Hyperstrata: 本文下の他記事へのリンク(直上・直下、引用、研究者の注釈)を上の層・下の層に束ねて出す(#42)。
+          発掘記録(現在記事の要約)も同じパーシャルの先頭に出る --}}
+    {{> "strata-layers"}}
 
     {{#if comments}}
         <div class="gh-comments gh-canvas">
