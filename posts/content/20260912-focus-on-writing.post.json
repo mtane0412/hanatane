@@ -1,0 +1,227 @@
+{
+	"title": "「書くことに集中する」を作る",
+	"slug": "20260912-focus-on-writing",
+	"status": "published",
+	"visibility": "public",
+	"tags": [
+		"技術の話",
+		"Ghost"
+	],
+	"excerpt": "excerpt・タグ・slugを人間が書かずに考古学者(LLM)へ任せる分業、Podcast風のexcerpt形式、発掘記録の表示、引用されたページが芽吹く地層の表現について話しました。",
+	"featured": false,
+	"published_at": "2026-09-11T15:23:46.000Z",
+	"updated_at": "2026-09-11T15:23:46.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "ブログをHyperstrataにしていくシリーズ。地層に痕跡を残す人間(ワシ)と地層に現れる関係性をアノテーションする考古学者(LLM)という役割分担が明確になったのでさらにサイトにアイデアを落とし込んでいく。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://hanatane.net/implementation-hyperstrata/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/icon512-2a4ce3f3-fe23-4c6c-839c-35b876493501.png",
+						"title": "Hyperstrataの地層を考える - はなしのタネ",
+						"description": "三内丸山遺跡で教わった地層と土器の年代測定、書く人間と関係を整理するシステムの分業、Claude Codeが見出した関係を破線で描く実装、タグやカテゴリーが不要になるかもしれない見通しについて話しました。",
+						"author": "たねのぶ",
+						"publisher": "はなしのタネ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/og-implementation-hyperstrata-388a40b6-ba7c-48c7-a7f6-da749c07dc11.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Ghostにはexcerpt(抜粋)を入れるフィールドがあるが、ここは人間は書かずにページ全体の関連性を評価するときに考古学者が考えていれる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "excerptに関しては前もLLMに出力させていたことがあったがイマイチしっくりせずに自分で書き直したりしていた。今回はPodcastのように「A、B、Cの話をしました。」というような形式に統一することにした。思えばPodcastも本質的にはイミュータブルなものの積み上げだ。発信がミュータブルであるというのは文字を書くという文化ではじめて生まれるもので、イミュータブルな堆積を特徴とするHyperstrataは話すように書くということなのかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/09/image-3.png",
+					"width": 796,
+					"height": 308,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "タグも書かない。タグは分類そのものなのでやはり考古学者の領分になる。今のところ自分が恣意的につけたタグを用いて自動で分類することにしているが、地層の堆積とネットワークの変化に応じてタグはダイナミックに変化するようにしたい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "slugも書かない。Ghostではタイトルを書くとタイトルに応じて自動でslugがつくようになっているが、日本語を書くと中国語slugがつく仕様なので毎回書き直していた。これを英語slugにするのと同時に、同じ話題を繰り返すことが想定されているのでslugに年月日もつけることにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "僕が直接関係性を記述するReferencesとcited by以外にも考古学者が見出した関連性へのリンクが末尾にある。この部分に各ページの関連性を評価するために生成したそのページの記録を発掘記録として一応表示できるようにした。excerptとは役割が違い、記事の要約と結論がここに書かれている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/09/image-4.png",
+					"width": 1608,
+					"height": 1526,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "グラフビューでの地層で、他ページから直接引用されたページに関しては種が芽吹く表現を加えた。これはHyperstrataについてClaude Codeとディスカッションしたときに「はなしのタネ」とかけた実装になっている。ページは種でただ地層に埋まっているだけで、それが再利用されるときに種が芽吹くという具合。Strataの地層と植物の種がたまたま噛み合っていたのでこれは結構面白い表現だと思って気に入っている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/09/image-5.png",
+					"width": 406,
+					"height": 532,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "以上、色々と追加して最終的にはタイトルと本文を書き殴ってあとは投げればよしなにされる体制を作った。LLMを使って記事を脚色したりブラッシュアップしたりしようとしないことが肝だと感じている。ちゃんとした記事として整えることを考えたらこの結びもきれいに収めたくなるが、とにかく書いて投げるを実践することが重要なのでこのような状態でも投稿できるのが今のところとても心地いい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
