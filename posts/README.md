@@ -154,7 +154,7 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 | 引用（人間の層） | 著者。本文に過去記事へのリンクを書く | Ghost の `#ref-<slug>` タグ（`hyperstrata-sync` workflow が付ける） | 著者が意識的に参照した関係 |
 | 注釈（機械の層） | Claude Code のセッション（`.claude/skills/strata-annotate`） | `posts/strata/<slug>.json` | 要約と、過去記事との関係の推定 |
 
-注釈は本文には手を入れず、記事ごとに 1 ファイルで積みます。人間はタグやカテゴリを付けず、書くことに集中します。タグ・slug・excerpt は公開前に研究者（Claude Code）が整えます（後述の「[公開前の整備](#公開前の整備slugexcerpttags)」）。
+注釈は本文には手を入れず、記事ごとにファイルで積みます（初回の注釈が 1 ファイル、解釈を改めるたびに再検討の注釈を 1 ファイル追加します。後述の「[注釈の再検討](#注釈の再検討1-記事複数注釈)」）。人間はタグやカテゴリを付けず、書くことに集中します。タグ・slug・excerpt は公開前に研究者（Claude Code）が整えます（後述の「[公開前の整備](#公開前の整備slugexcerpttags)」）。
 
 ### 注釈ファイルの形式
 
@@ -193,8 +193,23 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 ルール（`pnpm --filter ./posts strata check` が検査します。CI と pre-commit hook でも実行）:
 
 - 注釈は公開済みの記事にだけ付けます。関係は自分より前に公開された記事だけを指します（後方参照のみ。有向非巡回グラフを保つ）。
-- 一度書いた注釈は書き換えません。解釈を改めたいときは新しい注釈を積みます（現状は 1 記事 1 ファイルで、追記の形式は未定）。
+- 一度書いた注釈は書き換えません（タイポ修正も含む）。解釈を改めたいときは再検討の注釈を新しいファイルとして積みます（次節）。
 - 限定記事（`visibility` が `members` / `paid`）の注釈は `strata/private/<slug>.json` に置き、`summary` と `reason` を sops で暗号化します。関係先の slug と `type`、`icon` は title と同じく公開情報として平文で残します。
+
+### 注釈の再検討（1 記事複数注釈）
+
+後の記事が出たことで古い記事の関係や要約を見直したくなったら（年代測定の修正のように）、初回の注釈には触れず、同じディレクトリに再検討の注釈を積みます。
+
+| 注釈 | ファイル | `annotated_at` |
+|---|---|---|
+| 初回 | `strata/<slug>.json`（限定記事は `strata/private/<slug>.json`） | ISO 8601（既存ファイルの形式のまま） |
+| 再検討 | `strata/<slug>.<YYYYMMDDTHHMMSSZ>.json`（限定記事は `strata/private/<slug>.<YYYYMMDDTHHMMSSZ>.json`） | `YYYY-MM-DDTHH:MM:SSZ`（UTC・秒精度）。ファイル名のスタンプは `annotated_at` から `-` と `:` を除いたもの |
+
+- 再検討の注釈は差分ではなく完全な注釈（`summary`・`relations`・`icon` すべて）として書きます。読む側は 1 ファイルで完結します。
+- Ghost の slug はドットを含まないため、ファイル名は最初のドットで slug とスタンプに分かれます。ディレクトリ構成を変えないので、`.sops.yaml` の暗号化ルールと `.gitignore` はそのまま当てはまります。
+- `strata check` は「再検討には初回の注釈がある」「再検討の `annotated_at` は初回より後（同時刻も不可）」「ファイル名のスタンプと `annotated_at` が一致する」を検査します。
+- `strata catalog` の要約と、`hyperstrata-sync` workflow が作る `theme/assets/graph.json` は、記事ごとに `annotated_at` が最新の注釈を採用します。履歴は graph.json に含めません（過去の解釈はリポジトリに残ります）。
+- 限定記事の再検討は `strata/private/<slug>.<スタンプ>.plain.json` に書き、`pnpm --filter ./posts strata encrypt <slug>.<スタンプ>` で暗号化します。
 
 ### コマンド
 
@@ -202,10 +217,12 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 pnpm --filter ./posts strata pending          # 公開済みでまだ注釈が無い記事を、公開日の古い順に一覧する
 pnpm --filter ./posts strata catalog <slug>   # <slug> より前に公開された記事の一覧（要約付き）を JSON で出す（限定記事の要約は復号する）
 pnpm --filter ./posts strata text <slug>      # <slug> の本文をプレーンテキストで出す（限定記事は復号する）
-pnpm --filter ./posts strata check            # すべての注釈の形式・置き場所・暗号化・整合を検査する
-pnpm --filter ./posts strata decrypt <slug>   # strata/private/<slug>.json を復号して <slug>.plain.json（.gitignore 対象）を作る
-pnpm --filter ./posts strata encrypt <slug>   # <slug>.plain.json を検証・暗号化して strata/private/<slug>.json に書き、平文を削除する
+pnpm --filter ./posts strata check            # すべての注釈の形式・置き場所・暗号化・整合・再検討の順序を検査する
+pnpm --filter ./posts strata decrypt <stem>   # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
+pnpm --filter ./posts strata encrypt <stem>   # <stem>.plain.json を検証・暗号化して strata/private/<stem>.json に書き、平文を削除する
 ```
+
+`<stem>` は注釈ファイル名から `.json` を除いたものです（初回の注釈は `<slug>`、再検討は `<slug>.<YYYYMMDDTHHMMSSZ>`）。`strata encrypt` は暗号化済みファイルが既にあれば拒みます（一度書いた注釈を書き換えないため）。
 
 記事一覧は `content/**/*.post.json` の平文メタ情報から作るため、注釈を付ける前に `pull` で最新にしてください。注釈を付ける手順は `.claude/skills/strata-annotate/SKILL.md` にまとめています。
 

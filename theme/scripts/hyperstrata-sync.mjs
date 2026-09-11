@@ -13,7 +13,9 @@
  * - 公開記事の一覧と引用関係を Hyperstrata グラフ用の `assets/graph.json` に書き出す
  *   (テーマの assets/js/strata-graph.js が fetch して描画する。`{{#get}}` の 100 件上限と
  *   全ページへの一覧埋め込みを避けるため、テーマ側ではなく本スクリプトで生成する)
- * - `posts/strata/`(Claude Code のセッションが書く Hyperstrata の注釈。`.claude/skills/strata-annotate`)
+ * - `posts/strata/`(Claude Code のセッションが書く Hyperstrata の注釈。`.claude/skills/strata-annotate`。
+ *   1 記事に初回 `<slug>.json` と再検討 `<slug>.<YYYYMMDDTHHMMSSZ>.json` が積まれることがあり、
+ *   annotated_at が最新の注釈だけを採用する。履歴は graph.json に含めない)
  *   を読み、著者が本文リンクで作る引用(人間の層・`refs`)とは別に、機械が判定した推定関係
  *   (`inferredRefs`)として graph.json に合成する。Ghost Admin API へのアクセスは不要で、
  *   リポジトリ内のファイルを読むだけ
@@ -254,12 +256,34 @@ export function parseAnnotation(annotation, {includeText}) {
 }
 
 /**
+ * 同じ記事(slug)に複数の注釈(初回と再検討)があるとき、annotated_at が最新のものだけを残す。
+ * 入力の並び順(ファイル名順)には依存しない。annotated_at の無い注釈があれば最新を決められないため例外にする。
+ *
+ * @param {Array<ReturnType<typeof parseAnnotation>>} annotations parseAnnotation の結果の一覧
+ * @returns {Array<ReturnType<typeof parseAnnotation>>} slug ごとに 1 件(最初に現れた slug の順)
+ */
+export function selectLatestAnnotations(annotations) {
+    const latestBySlug = new Map();
+    for (const annotation of annotations) {
+        if (annotation.annotatedAt === null) {
+            throw new Error(`Hyperstrata 注釈に annotated_at がありません(最新の注釈を決められません): ${annotation.slug}`);
+        }
+        const current = latestBySlug.get(annotation.slug);
+        if (!current || Date.parse(annotation.annotatedAt) > Date.parse(current.annotatedAt)) {
+            latestBySlug.set(annotation.slug, annotation);
+        }
+    }
+    return [...latestBySlug.values()];
+}
+
+/**
  * `posts/strata/`(公開記事の注釈)と `posts/strata/private/`(限定記事の注釈)を読み、
  * 記事 slug → Hyperstrata の関係先(`inferredRelationsBySlug`)と要約(`summaryBySlug`)の対応表を作る。
  *
  * `posts/strata/private/` の summary と relations[].reason は sops で暗号化されており、このスクリプトは
  * 復号しないため、parseAnnotation の includeText: false で null にする(relations[].slug/type は
  * 暗号化対象に含まれず平文のためそのまま使う)。ディレクトリが存在しない場合はそのディレクトリ分を空とする。
+ * 同じ記事に再検討の注釈があれば selectLatestAnnotations で最新だけを採用する。
  *
  * @returns {Promise<{inferredRelationsBySlug: Map<string, Array<{slug: string, type: string, reason: string|null}>>, summaryBySlug: Map<string, string>, iconBySlug: Map<string, string>, annotatorBySlug: Map<string, string>, annotatedAtBySlug: Map<string, string>}>}
  */
@@ -268,11 +292,7 @@ async function readInferredRelations() {
         {url: new URL('../../posts/strata/', import.meta.url), includeText: true},
         {url: new URL('../../posts/strata/private/', import.meta.url), includeText: false}
     ];
-    const inferredRelationsBySlug = new Map();
-    const summaryBySlug = new Map();
-    const iconBySlug = new Map();
-    const annotatorBySlug = new Map();
-    const annotatedAtBySlug = new Map();
+    const parsedAnnotations = [];
     for (const {url: dir, includeText} of dirs) {
         let fileNames;
         try {
@@ -292,20 +312,27 @@ async function readInferredRelations() {
             } catch (error) {
                 throw new Error(`Hyperstrata 注釈のJSONを解釈できません: ${fileUrl.pathname}(${error.message})`);
             }
-            const parsed = parseAnnotation(annotation, {includeText});
-            inferredRelationsBySlug.set(parsed.slug, parsed.relations);
-            if (parsed.summary !== null) {
-                summaryBySlug.set(parsed.slug, parsed.summary);
-            }
-            if (parsed.icon !== null) {
-                iconBySlug.set(parsed.slug, parsed.icon);
-            }
-            if (parsed.annotator !== null) {
-                annotatorBySlug.set(parsed.slug, parsed.annotator);
-            }
-            if (parsed.annotatedAt !== null) {
-                annotatedAtBySlug.set(parsed.slug, parsed.annotatedAt);
-            }
+            parsedAnnotations.push(parseAnnotation(annotation, {includeText}));
+        }
+    }
+    const inferredRelationsBySlug = new Map();
+    const summaryBySlug = new Map();
+    const iconBySlug = new Map();
+    const annotatorBySlug = new Map();
+    const annotatedAtBySlug = new Map();
+    for (const parsed of selectLatestAnnotations(parsedAnnotations)) {
+        inferredRelationsBySlug.set(parsed.slug, parsed.relations);
+        if (parsed.summary !== null) {
+            summaryBySlug.set(parsed.slug, parsed.summary);
+        }
+        if (parsed.icon !== null) {
+            iconBySlug.set(parsed.slug, parsed.icon);
+        }
+        if (parsed.annotator !== null) {
+            annotatorBySlug.set(parsed.slug, parsed.annotator);
+        }
+        if (parsed.annotatedAt !== null) {
+            annotatedAtBySlug.set(parsed.slug, parsed.annotatedAt);
         }
     }
     return {inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug};
