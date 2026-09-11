@@ -1110,3 +1110,80 @@ test('hiatusBoundaryPath: 同じ入力なら常に同じ形になり(決定的)�
     assert.equal(hiatusBoundaryPath(50, 200, 設定), hiatusBoundaryPath(50, 200, 設定));
     assert.notEqual(hiatusBoundaryPath(50, 200, 設定), hiatusBoundaryPath(50, 200, {...設定, seed: 2}));
 });
+
+/* ------------------------------------------------------------------
+ * 芽吹き(#30): 後の記事に引用・関係付けされた(被参照のある)種だけが芽を出し、被参照が多いほど育つ
+ * ------------------------------------------------------------------ */
+
+/** 芽吹きの API を読み込む(戻り値はテスト側レルムの値に正規化する) */
+function 芽吹きを読み込む() {
+    const window = {};
+    vm.runInNewContext(スクリプト, {window});
+    const api = window.HyperstrataGraph;
+    return {
+        countIncomingRefs: posts => JSON.parse(JSON.stringify(api.countIncomingRefs(posts))),
+        sproutStage: count => api.sproutStage(count),
+        sproutPath: (x, baseY, size, stage) => api.sproutPath(x, baseY, size, stage)
+    };
+}
+
+const 芽吹き記事 = [
+    {slug: 'seed', title: '種の記事', url: '/seed/', publishedAt: '2026-01-10T00:00:00.000Z', refs: []},
+    {slug: 'lonely', title: '孤立した記事', url: '/lonely/', publishedAt: '2026-01-12T00:00:00.000Z', refs: []},
+    {slug: 'human', title: '本文で引用する記事', url: '/human/', publishedAt: '2026-02-01T00:00:00.000Z', refs: ['seed']},
+    {slug: 'machine', title: '注釈で関係付けられた記事', url: '/machine/', publishedAt: '2026-03-01T00:00:00.000Z', refs: [], inferredRefs: [{slug: 'seed', type: 'updates'}]},
+    {slug: 'both', title: '引用と注釈の両方で指す記事', url: '/both/', publishedAt: '2026-04-01T00:00:00.000Z', refs: ['seed', 'human'], inferredRefs: [{slug: 'seed', type: 'revisits'}, {slug: 'seed', type: 'updates'}]}
+];
+
+test('countIncomingRefs: 人間の層(refs)と機械の層(inferredRefs)の両方から被参照数を数える', () => {
+    const {countIncomingRefs} = 芽吹きを読み込む();
+    const counts = countIncomingRefs(芽吹き記事);
+    // seed は human(refs)・machine(inferredRefs)・both の 3 記事から参照されている
+    assert.equal(counts.seed, 3);
+    assert.equal(counts.human, 1);
+});
+
+test('countIncomingRefs: 同じ記事が引用と注釈の両方で同じ相手を指しても、参照元 1 記事につき 1 と数える', () => {
+    const {countIncomingRefs} = 芽吹きを読み込む();
+    const counts = countIncomingRefs([芽吹き記事[0], 芽吹き記事[4]]);
+    assert.equal(counts.seed, 1);
+});
+
+test('countIncomingRefs: 被参照の無い孤立した記事は数に含めない(0 として扱える)', () => {
+    const {countIncomingRefs} = 芽吹きを読み込む();
+    const counts = countIncomingRefs(芽吹き記事);
+    assert.equal(Object.prototype.hasOwnProperty.call(counts, 'lonely'), false);
+    assert.equal(counts.lonely || 0, 0);
+});
+
+test('countIncomingRefs: 自分自身への参照は数えない', () => {
+    const {countIncomingRefs} = 芽吹きを読み込む();
+    const counts = countIncomingRefs([
+        {slug: 'self', title: '自己参照', url: '/self/', publishedAt: '2026-01-01T00:00:00.000Z', refs: ['self'], inferredRefs: [{slug: 'self', type: 'updates'}]}
+    ]);
+    assert.deepEqual(counts, {});
+});
+
+test('countIncomingRefs: inferredRefs が無い旧形式の記事(refs のみ)でも動く', () => {
+    const {countIncomingRefs} = 芽吹きを読み込む();
+    assert.deepEqual(countIncomingRefs(記事), {introduction: 2, 'unknown-slug': 1});
+});
+
+test('sproutStage: 被参照 0 は芽なし(0)、1〜2 は双葉(1)、3 以上は葉が増える(2)の 3 段階にする', () => {
+    const {sproutStage} = 芽吹きを読み込む();
+    assert.equal(sproutStage(0), 0);
+    assert.equal(sproutStage(1), 1);
+    assert.equal(sproutStage(2), 1);
+    assert.equal(sproutStage(3), 2);
+    assert.equal(sproutStage(10), 2);
+});
+
+test('sproutPath: 段階 2 の芽は段階 1 より背が高く(上端の y が小さく)、葉のセグメントが多い', () => {
+    const {sproutPath} = 芽吹きを読み込む();
+    const 双葉 = sproutPath(10, 100, 10, 1);
+    const 育った芽 = sproutPath(10, 100, 10, 2);
+    const 上端 = path => Math.min(...path.trim().split(/\s+/).filter(token => !Number.isNaN(Number(token))).map(Number).filter((value, index) => index % 2 === 1));
+    assert.ok(上端(育った芽) < 上端(双葉), `段階 2 の上端 ${上端(育った芽)} は段階 1 の上端 ${上端(双葉)} より小さいはずです`);
+    const 葉の数 = path => (path.match(/ M /g) || []).length;
+    assert.ok(葉の数(育った芽) > 葉の数(双葉));
+});
