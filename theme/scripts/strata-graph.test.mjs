@@ -1267,3 +1267,105 @@ test('sproutTransform: 右へ傾ける芽は付け根を中心に時計回り、
     assert.match(sproutTransform('left', 10, 20), /^rotate\(-\d+ 10 20\)$/);
     assert.equal(sproutTransform('up', 10, 20), null);
 });
+
+/* ------------------------------------------------------------------
+ * 題材アイコン(icon)による絞り込み(#31)
+ * 固定ページの地層ビューで選んだ icon の種を光らせ、他を暗くする
+ * ------------------------------------------------------------------ */
+
+/** strata-graph.js の絞り込み関連の純粋関数を取り出す */
+function 絞り込みを読み込む() {
+    const window = {};
+    vm.runInNewContext(スクリプト, {window});
+    const api = window.HyperstrataGraph;
+    const 正規化 = value => JSON.parse(JSON.stringify(value));
+    return {
+        computeIconEmphasis: (nodes, edges, icon) => 正規化(api.computeIconEmphasis(nodes, edges, icon)),
+        parseIconHash: hash => api.parseIconHash(hash),
+        formatIconHash: icon => api.formatIconHash(icon)
+    };
+}
+
+const 題材付きノード = [
+    {slug: 'cat-arrival', icon: 'cat'},
+    {slug: 'cat-vet', icon: 'cat'},
+    {slug: 'ghost-upgrade', icon: 'tech'},
+    {slug: 'untagged', icon: null}
+];
+const 題材付きエッジ = [
+    {from: 'cat-vet', to: 'cat-arrival'},
+    {from: 'ghost-upgrade', to: 'cat-arrival'},
+    {from: 'untagged', to: 'ghost-upgrade'}
+];
+
+test('computeIconEmphasis: 選んだ icon を持つノードだけを距離 0 で強調し、他のノードは含めない(暗くする)', () => {
+    const {computeIconEmphasis} = 絞り込みを読み込む();
+    const emphasis = computeIconEmphasis(題材付きノード, 題材付きエッジ, 'cat');
+    assert.equal(emphasis.neutral, false);
+    assert.deepEqual(emphasis.nodes, {'cat-arrival': 0, 'cat-vet': 0});
+});
+
+test('computeIconEmphasis: エッジは両端が選んだ icon なら 0、片方だけなら 1、どちらも違えば -1(暗転)になる', () => {
+    const {computeIconEmphasis} = 絞り込みを読み込む();
+    const emphasis = computeIconEmphasis(題材付きノード, 題材付きエッジ, 'cat');
+    assert.deepEqual(emphasis.edges, [0, 1, -1]);
+});
+
+test('computeIconEmphasis: icon が空なら中立モード(何も強調せず何も暗くしない)になる', () => {
+    const {computeIconEmphasis} = 絞り込みを読み込む();
+    const emphasis = computeIconEmphasis(題材付きノード, 題材付きエッジ, '');
+    assert.equal(emphasis.neutral, true);
+    assert.deepEqual(emphasis.nodes, {});
+    assert.deepEqual(emphasis.edges, [null, null, null]);
+});
+
+test('computeIconEmphasis: どのノードも持たない icon を選ぶと、全ノード・全エッジが暗くなる', () => {
+    const {computeIconEmphasis} = 絞り込みを読み込む();
+    const emphasis = computeIconEmphasis(題材付きノード, 題材付きエッジ, 'travel');
+    assert.equal(emphasis.neutral, false);
+    assert.deepEqual(emphasis.nodes, {});
+    assert.deepEqual(emphasis.edges, [-1, -1, -1]);
+});
+
+test('computeIconEmphasis: cat を選ぶと、実際の graph.json では猫の記事 4 件だけが強調される', () => {
+    const {computeIconEmphasis} = 絞り込みを読み込む();
+    const graph = JSON.parse(readFileSync(new URL('../assets/graph.json', import.meta.url), 'utf8'));
+    const emphasis = computeIconEmphasis(graph.posts, [], 'cat');
+    const 強調された = Object.keys(emphasis.nodes);
+    assert.equal(強調された.length, 4);
+    強調された.forEach(slug => {
+        assert.equal(graph.posts.find(post => post.slug === slug).icon, 'cat');
+    });
+});
+
+test('parseIconHash: "#icon=cat" から icon 名を取り出す', () => {
+    const {parseIconHash} = 絞り込みを読み込む();
+    assert.equal(parseIconHash('#icon=cat'), 'cat');
+});
+
+test('parseIconHash: icon の指定が無いハッシュ・空文字は空文字(絞り込み無し)になる', () => {
+    const {parseIconHash} = 絞り込みを読み込む();
+    assert.equal(parseIconHash(''), '');
+    assert.equal(parseIconHash('#'), '');
+    assert.equal(parseIconHash('#top'), '');
+    assert.equal(parseIconHash('#icon='), '');
+});
+
+test('parseIconHash: 他のパラメータと並んでいても icon だけを取り出し、URL エンコードを解く', () => {
+    const {parseIconHash} = 絞り込みを読み込む();
+    assert.equal(parseIconHash('#foo=1&icon=game&bar=2'), 'game');
+    assert.equal(parseIconHash('#icon=%E7%8C%AB'), '猫');
+});
+
+test('formatIconHash: icon 名から "#icon=<name>" を作り、空なら空文字(ハッシュ無し)を返す', () => {
+    const {formatIconHash} = 絞り込みを読み込む();
+    assert.equal(formatIconHash('cat'), '#icon=cat');
+    assert.equal(formatIconHash(''), '');
+});
+
+test('parseIconHash / formatIconHash: 往復しても icon 名が変わらない', () => {
+    const {parseIconHash, formatIconHash} = 絞り込みを読み込む();
+    ['cat', 'house', 'hunting', 'game', 'tech', 'travel', 'journal', 'event'].forEach(icon => {
+        assert.equal(parseIconHash(formatIconHash(icon)), icon);
+    });
+});

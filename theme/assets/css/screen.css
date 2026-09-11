@@ -2796,6 +2796,94 @@ figcaption a {
     text-decoration: underline;
 }
 
+/* 題材アイコンによる絞り込み(#31)。選んだ icon の種は光らせ(is-lit)、他の種と根は記事ペインと同じ暗転色にする(is-dim)。
+   両端とも選ばれた根(is-level-0)は強調色、片方だけの根(is-level-1)は通常色のまま */
+.gh-strata-node.is-lit .gh-strata-dot {
+    fill: var(--ghost-accent-color);
+    stroke: var(--ghost-accent-color);
+}
+
+.gh-strata-node.is-lit .gh-strata-sprout {
+    stroke: var(--ghost-accent-color);
+}
+
+.gh-strata-node.is-dim .gh-strata-dot {
+    fill: var(--strata-seed-dim);
+}
+
+.gh-strata-node.is-dim .gh-strata-sprout {
+    stroke: var(--strata-seed-dim);
+}
+
+.gh-strata-node.is-dim .gh-strata-title {
+    fill: var(--color-secondary-text);
+    opacity: 0.55;
+}
+
+.gh-strata-edge.is-level-0 {
+    stroke: var(--ghost-accent-color);
+    stroke-width: 2.2;
+}
+
+.gh-strata-edge.is-dim {
+    stroke: var(--strata-root-dim);
+}
+
+/* 絞り込みのトグル(custom-strata.hbs の [data-strata-filter])。JS が描画するまで hidden */
+.gh-strata-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.gh-strata-filter[hidden] {
+    display: none;
+}
+
+.gh-strata-filter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px 4px 8px;
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-secondary-text);
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.gh-strata-filter-button:hover,
+.gh-strata-filter-button:focus-visible {
+    color: var(--color-primary-text);
+    border-color: var(--strata-seed);
+}
+
+.gh-strata-filter-button[aria-pressed="true"] {
+    color: #fff;
+    background-color: var(--ghost-accent-color);
+    border-color: var(--ghost-accent-color);
+}
+
+.gh-strata-filter-icon {
+    display: inline-flex;
+    width: 14px;
+    height: 14px;
+}
+
+.gh-strata-filter-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.gh-strata-filter-count {
+    opacity: 0.7;
+}
+
 /* Hyperstrata: 記事ページ左側の固定引用グラフペイン(partials/strata-pane.hbs)。
    body に post-template と has-strata-pane(テーマ設定 show_strata_pane が ON)が
    揃ったときだけ .gh-viewport をペイン幅ぶん右にオフセットする。ヘッダー・フッターも .gh-viewport 内にあるため一緒にずれる。
