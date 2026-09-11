@@ -10,7 +10,7 @@
     全ページ共通のペインに記事一覧を毎回埋め込むと HTML が記事数に比例して肥大化するため(#25)。
     JavaScript が無効な環境ではペインは空のまま表示される。
 --}}
-<aside class="gh-strata-pane" data-strata-pane data-current-slug="{{slug}}" data-strata-label="{{t "Citation graph"}}" data-strata-graph-url="{{asset "graph.json"}}">
+<aside class="gh-strata-pane" data-strata-pane data-current-slug="{{slug}}" data-strata-label="{{t "Citation graph"}}" data-strata-hiatus-label="{{t "% days of hiatus"}}" data-strata-graph-url="{{asset "graph.json"}}">
     <button class="gh-strata-pane-toggle" type="button" aria-label="{{t "Toggle citation graph"}}" aria-expanded="false" data-strata-toggle>
         <span class="gh-strata-pane-toggle-icon" aria-hidden="true"></span>
     </button>

@@ -140,7 +140,7 @@ test('buildLayout: ノードは記事の icon をそのまま持ち、無けれ�
 test('buildLayout: 空配列でもノード・エッジ・年ラベルが空の結果を返す', () => {
     const {buildLayout} = 読み込む();
     const layout = buildLayout([], {minGap: 40, pixelsPerDay: 1});
-    assert.deepEqual(layout, {nodes: [], edges: [], yearMarks: [], height: 0});
+    assert.deepEqual(layout, {nodes: [], edges: [], yearMarks: [], hiatuses: [], height: 0});
 });
 
 test('buildLayout: 公開日が解釈できないノードは Fail-Fast で例外にする', () => {
@@ -256,7 +256,7 @@ test('buildPaneLayout: ノードは記事の icon をそのまま持ち、無け
 
 test('buildPaneLayout: 空配列でも空のレイアウトを返す', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    assert.deepEqual(buildPaneLayout([], ペイン設定), {nodes: [], edges: [], monthMarks: [], minCol: 0, maxCol: 0, height: 0});
+    assert.deepEqual(buildPaneLayout([], ペイン設定), {nodes: [], edges: [], monthMarks: [], hiatuses: [], minCol: 0, maxCol: 0, height: 0});
 });
 
 /* ------------------------------------------------------------------
@@ -799,11 +799,14 @@ function タイムラインを読み込む() {
     };
 }
 
-/** テンプレートが出力し JS が計測した行(新しい順)。month は行の公開月、top/bottom は行の上下端、y は種の中心 */
+/**
+ * テンプレートが出力し JS が計測した行(新しい順)。month は行の公開月、publishedAt は行の公開日時(data-published)、
+ * top/bottom は行の上下端、y は種の中心
+ */
 const 行 = [
-    {slug: 'newest', month: '2026-03', top: 0, bottom: 100, y: 40},
-    {slug: 'middle', month: '2026-01', top: 100, bottom: 200, y: 140},
-    {slug: 'oldest', month: '2026-01', top: 200, bottom: 300, y: 240}
+    {slug: 'newest', month: '2026-03', publishedAt: '2026-03-15T12:00:00.000Z', top: 0, bottom: 100, y: 40},
+    {slug: 'middle', month: '2026-01', publishedAt: '2026-01-20T12:00:00.000Z', top: 100, bottom: 200, y: 140},
+    {slug: 'oldest', month: '2026-01', publishedAt: '2026-01-15T12:00:00.000Z', top: 200, bottom: 300, y: 240}
 ];
 
 const タイムライン記事 = [
@@ -832,7 +835,7 @@ test('buildTimelineLayout: ノードは行の順に並び、行番号・種の y
 test('buildTimelineLayout: ノードは posts の icon をそのまま持ち、graph.json に無い行(icon 未取得)は null になる', () => {
     const {buildTimelineLayout} = タイムラインを読み込む();
     const 記事一覧 = タイムライン記事.map(post => post.slug === 'oldest' ? Object.assign({}, post, {icon: 'travel'}) : post);
-    const 行一覧 = 行.concat([{slug: 'not-synced', month: '2025-12', top: 300, bottom: 400, y: 340}]);
+    const 行一覧 = 行.concat([{slug: 'not-synced', month: '2025-12', publishedAt: '2025-12-10T12:00:00.000Z', top: 300, bottom: 400, y: 340}]);
     const layout = buildTimelineLayout(行一覧, 記事一覧);
     const icons = Object.fromEntries(layout.nodes.map(node => [node.slug, node.icon]));
     assert.equal(icons.oldest, 'travel');
@@ -862,7 +865,7 @@ test('buildTimelineLayout: 表示中の行に無い記事への引用は、行�
 
 test('buildTimelineLayout: graph.json に無い行(同期前の新しい記事)は引用の無い孤立した記事として扱う', () => {
     const {buildTimelineLayout} = タイムラインを読み込む();
-    const 未同期の行 = [{slug: 'unsynced', month: '2026-04', top: 0, bottom: 100, y: 40}].concat(行);
+    const 未同期の行 = [{slug: 'unsynced', month: '2026-04', publishedAt: '2026-04-10T12:00:00.000Z', top: 0, bottom: 100, y: 40}].concat(行);
     const layout = buildTimelineLayout(未同期の行, タイムライン記事);
     assert.equal(layout.nodes[0].slug, 'unsynced');
     assert.equal(layout.edges.some(edge => edge.from === 'unsynced' || edge.to === 'unsynced'), false);
@@ -881,7 +884,7 @@ test('buildTimelineLayout: 枝分かれした列は幹の左(負の列)に置き
 
 test('buildTimelineLayout: 行が無ければ空のレイアウトを返す', () => {
     const {buildTimelineLayout} = タイムラインを読み込む();
-    assert.deepEqual(buildTimelineLayout([], タイムライン記事), {bands: [], nodes: [], edges: [], offPage: []});
+    assert.deepEqual(buildTimelineLayout([], タイムライン記事), {bands: [], nodes: [], edges: [], offPage: [], hiatuses: []});
 });
 
 /* ------------------------------------------------------------------
@@ -979,4 +982,131 @@ test('placeTimelineAxis: 列が多くて laneLeft〜laneRight に収まらない
     assert.deepEqual(placeTimelineAxis({minCol: -7, maxCol: 0, laneLeft: 84, laneRight: 140, laneWidth: 16}), {axisX: 140, laneWidth: 8});
     // 正負にまたがる場合も同様に縮め、右端の列を laneRight に置く
     assert.deepEqual(placeTimelineAxis({minCol: -6, maxCol: 1, laneLeft: 84, laneRight: 140, laneWidth: 16}), {axisX: 132, laneWidth: 8});
+});
+
+/* ------------------------------------------------------------------
+ * 長い空白期間を地層の不整合面(hiatus)として扱う(#29)
+ * ------------------------------------------------------------------ */
+
+/** 不整合面用 API を読み込む */
+function 不整合面を読み込む() {
+    const window = {};
+    vm.runInNewContext(スクリプト, {window});
+    const api = window.HyperstrataGraph;
+    const 正規化 = value => JSON.parse(JSON.stringify(value));
+    return {
+        buildLayout: (posts, options) => 正規化(api.buildLayout(posts, options)),
+        buildPaneLayout: (posts, options) => 正規化(api.buildPaneLayout(posts, options)),
+        buildTimelineLayout: (rows, posts, options) => 正規化(api.buildTimelineLayout(rows, posts, options)),
+        hiatusBoundaryPath: (y, width, options) => api.hiatusBoundaryPath(y, width, options)
+    };
+}
+
+/**
+ * 実際の graph.json と同じ空白: window-film(2026-04-06)と hyperstrata(2026-09-09)の間が 156 日。
+ * first-hunt → window-film は 37 日で、しきい値(60 日)を超えない。
+ * 日数を整数にするため時刻は正午に揃える(月ラベルはローカル時刻で判定するため月末・月初も避ける)
+ */
+const 空白のある記事 = [
+    {slug: 'first-hunt', title: '初めての狩猟', url: '/first-hunt/', publishedAt: '2026-02-27T12:00:00.000Z', refs: []},
+    {slug: 'window-film', title: '窓フィルム', url: '/window-film/', publishedAt: '2026-04-05T12:00:00.000Z', refs: []},
+    {slug: 'hyperstrata', title: 'Hyperstrata', url: '/hyperstrata/', publishedAt: '2026-09-08T12:00:00.000Z', refs: ['window-film']}
+];
+
+const 不整合面設定 = {hiatusDays: 60, hiatusGap: 44};
+
+test('buildLayout: しきい値(hiatusDays)を超える空白は hiatusGap の高さに圧縮し、hiatuses に日数と前後の記事を記録する', () => {
+    const {buildLayout} = 不整合面を読み込む();
+    const layout = buildLayout(空白のある記事, {minGap: 44, pixelsPerDay: 1.5, ...不整合面設定});
+    assert.deepEqual(layout.nodes.map(node => node.slug), ['hyperstrata', 'window-film', 'first-hunt']);
+    // 156 日 × 1.5px = 234px のところを hiatusGap(44px)に圧縮する
+    assert.equal(layout.nodes[1].y - layout.nodes[0].y, 44);
+    // しきい値以下の空白(37 日)は従来どおり日数に比例する
+    assert.equal(layout.nodes[2].y - layout.nodes[1].y, 37 * 1.5);
+    assert.deepEqual(layout.hiatuses, [{y: layout.nodes[0].y + 22, days: 156, newer: 'hyperstrata', older: 'window-film'}]);
+});
+
+test('buildLayout: 圧縮したぶんは後続のノードにも引き継がれ、全体の高さ(height)が縮む', () => {
+    const {buildLayout} = 不整合面を読み込む();
+    const 圧縮なし = buildLayout(空白のある記事, {minGap: 44, pixelsPerDay: 1.5, hiatusDays: 1000, hiatusGap: 44});
+    const 圧縮あり = buildLayout(空白のある記事, {minGap: 44, pixelsPerDay: 1.5, ...不整合面設定});
+    assert.deepEqual(圧縮なし.hiatuses, []);
+    assert.equal(圧縮なし.height - 圧縮あり.height, 234 - 44);
+});
+
+test('buildLayout: hiatusDays を省略した場合は不整合面を検出せず、hiatuses は空になる(既存の呼び出しと互換)', () => {
+    const {buildLayout} = 不整合面を読み込む();
+    const layout = buildLayout(空白のある記事, {minGap: 44, pixelsPerDay: 1.5});
+    assert.deepEqual(layout.hiatuses, []);
+    assert.equal(layout.nodes[1].y - layout.nodes[0].y, 234);
+});
+
+test('buildPaneLayout: しきい値を超える空白の前後の行の間に hiatusGap ぶんの余白を空け、その中央に不整合面を置く', () => {
+    const {buildPaneLayout} = 不整合面を読み込む();
+    const layout = buildPaneLayout(空白のある記事, {...ペイン設定, ...不整合面設定});
+    assert.deepEqual(layout.nodes.map(node => node.slug), ['hyperstrata', 'window-film', 'first-hunt']);
+    // 不整合面 → 月の区切り → 行の順に並ぶため、行の間隔は hiatusGap + monthGap + rowHeight になる
+    assert.equal(layout.nodes[1].y - layout.nodes[0].y, 不整合面設定.hiatusGap + ペイン設定.monthGap + ペイン設定.rowHeight);
+    assert.deepEqual(layout.hiatuses, [{y: layout.nodes[0].y + 不整合面設定.hiatusGap / 2, days: 156, newer: 'hyperstrata', older: 'window-film'}]);
+    // 不整合面は月の区切り(2026-04)より上にある
+    const 月の区切り = layout.monthMarks.find(mark => mark.label === '2026-04');
+    assert.ok(layout.hiatuses[0].y < 月の区切り.y);
+    // しきい値以下の空白(37 日)には不整合面を置かず、月の区切りだけになる
+    assert.equal(layout.nodes[2].y - layout.nodes[1].y, ペイン設定.monthGap + ペイン設定.rowHeight);
+});
+
+test('buildPaneLayout: hiatusDays を省略した場合は不整合面を検出せず、hiatuses は空になる(既存の呼び出しと互換)', () => {
+    const {buildPaneLayout} = 不整合面を読み込む();
+    const layout = buildPaneLayout(空白のある記事, ペイン設定);
+    assert.deepEqual(layout.hiatuses, []);
+    assert.equal(layout.nodes[1].y - layout.nodes[0].y, ペイン設定.monthGap + ペイン設定.rowHeight);
+});
+
+/** タイムラインの行は DOM の位置で決まるため空白は圧縮せず、隣接する行の境界に不整合面を置く */
+const 空白のある行 = [
+    {slug: 'hyperstrata', month: '2026-09', publishedAt: '2026-09-08T12:00:00.000Z', top: 0, bottom: 100, y: 40},
+    {slug: 'window-film', month: '2026-04', publishedAt: '2026-04-05T12:00:00.000Z', top: 100, bottom: 200, y: 140},
+    {slug: 'first-hunt', month: '2026-02', publishedAt: '2026-02-27T12:00:00.000Z', top: 200, bottom: 300, y: 240}
+];
+
+test('buildTimelineLayout: しきい値を超える空白は、前後の行の境界(前の行の bottom)に不整合面として記録する', () => {
+    const {buildTimelineLayout} = 不整合面を読み込む();
+    const layout = buildTimelineLayout(空白のある行, 空白のある記事, {hiatusDays: 60});
+    assert.deepEqual(layout.hiatuses, [{y: 100, days: 156, newer: 'hyperstrata', older: 'window-film'}]);
+});
+
+test('buildTimelineLayout: 行の公開日は graph.json ではなく行自身の publishedAt(テンプレートの data-published)から読む', () => {
+    const {buildTimelineLayout} = 不整合面を読み込む();
+    // graph.json に無い(同期前の)行どうしでも空白を判定できる
+    const layout = buildTimelineLayout(空白のある行, [], {hiatusDays: 60});
+    assert.deepEqual(layout.hiatuses.map(item => [item.newer, item.older, item.days]), [['hyperstrata', 'window-film', 156]]);
+});
+
+test('buildTimelineLayout: 行の publishedAt が解釈できない場合は Fail-Fast で例外にする', () => {
+    const {buildTimelineLayout} = 不整合面を読み込む();
+    const 壊れた行 = [{slug: 'broken', month: '2026-09', publishedAt: 'not-a-date', top: 0, bottom: 100, y: 40}];
+    assert.throws(() => buildTimelineLayout(壊れた行, [], {hiatusDays: 60}), /公開日を解釈できません: broken/);
+});
+
+test('buildTimelineLayout: hiatusDays を省略した場合は不整合面を検出せず、hiatuses は空になる(既存の呼び出しと互換)', () => {
+    const {buildTimelineLayout} = 不整合面を読み込む();
+    assert.deepEqual(buildTimelineLayout(空白のある行, 空白のある記事).hiatuses, []);
+});
+
+test('hiatusBoundaryPath: 荒い境界線は指定した y から始まり右端(width)まで到達し、振幅は amplitude 以内に収まる', () => {
+    const {hiatusBoundaryPath} = 不整合面を読み込む();
+    const path = hiatusBoundaryPath(50, 200, {amplitude: 6, step: 12, seed: 1});
+    assert.match(path, /^M 0 50 /);
+    const 座標 = path.trim().split(/\s+/).filter(token => !Number.isNaN(Number(token))).map(Number);
+    assert.equal(座標[座標.length - 2], 200);
+    for (let i = 1; i < 座標.length; i += 2) {
+        assert.ok(Math.abs(座標[i] - 50) <= 6, `y=${座標[i]} は 50±6 の範囲を超えています`);
+    }
+});
+
+test('hiatusBoundaryPath: 同じ入力なら常に同じ形になり(決定的)、seed が違えば形が変わる', () => {
+    const {hiatusBoundaryPath} = 不整合面を読み込む();
+    const 設定 = {amplitude: 6, step: 12, seed: 1};
+    assert.equal(hiatusBoundaryPath(50, 200, 設定), hiatusBoundaryPath(50, 200, 設定));
+    assert.notEqual(hiatusBoundaryPath(50, 200, 設定), hiatusBoundaryPath(50, 200, {...設定, seed: 2}));
 });
