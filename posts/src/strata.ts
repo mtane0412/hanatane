@@ -2,7 +2,12 @@
  * Hyperstrata の注釈ファイル（posts/strata/<slug>.json）のルール
  *
  * 記事本文のリンクから作る引用（人間の層、theme/scripts/hyperstrata-sync.mjs の `#ref-*`）とは別に、
- * Claude Code のセッションが過去記事との関係を推定して書く「機械の層」を、記事ごとに 1 ファイルで堆積させます。
+ * Claude Code のセッションが過去記事との関係を推定して書く「機械の層」を、記事ごとにファイルで堆積させます。
+ *
+ * ファイル名:
+ *   - 初回の注釈: <slug>.json
+ *   - 再検討の注釈: <slug>.<YYYYMMDDTHHMMSSZ>.json（スタンプは annotated_at を UTC 秒精度で表したもの。
+ *     初回の注釈は書き換えず、解釈を改めるたびに完全な注釈として新しいファイルを積む）
  *
  * 形式:
  *   {
@@ -16,7 +21,9 @@
  *
  * ルール:
  *   - 注釈は公開済みの記事にだけ付け、関係は自分より前に公開された記事だけを指す（後方参照のみ、DAG を保つ）
- *   - 一度書いた注釈は書き換えない（解釈も地層として積む）
+ *   - 一度書いた注釈は書き換えない（解釈も地層として積む）。再検討は <slug>.<stamp>.json に積み、
+ *     初回の注釈が存在すること・annotated_at が初回より後であることを検査する（checkStrataHistory）
+ *   - 読み出し（catalog・graph.json）は記事ごとに annotated_at が最新の注釈を採用する（selectLatestAnnotations）
  *   - 限定記事（visibility が members / paid）の注釈は strata/private/ に置き、summary と reason を sops で暗号化する
  *     （関係の存在と種類、icon は title と同じく公開情報として平文で残す）
  *
@@ -109,6 +116,24 @@ export interface CatalogEntry {
 const SOPS_ENCRYPTED_VALUE_PATTERN = /^ENC\[/;
 const ISO_8601_PATTERN =
 	/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
+/** 再検討の注釈の annotated_at に求める形式（UTC・秒精度。ファイル名のスタンプと 1 対 1 に対応させる） */
+const UTC_SECONDS_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+/** 再検討の注釈ファイル名のスタンプ（annotated_at から - と : を除いたもの） */
+const STAMP_PATTERN = /^\d{8}T\d{6}Z$/;
+const STAMP_FORMAT = "YYYYMMDDTHHMMSSZ";
+const UTC_SECONDS_FORMAT = "YYYY-MM-DDTHH:MM:SSZ";
+
+/** parseStrataFileName の結果。stamp は初回の注釈なら null */
+export interface StrataFileName {
+	slug: string;
+	stamp: string | null;
+}
+
+/** ファイル名と注釈の組（checkStrataHistory の入力） */
+export interface StrataFile {
+	fileName: string;
+	annotation: StrataAnnotation;
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
 	return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -135,6 +160,38 @@ function requireNonEmptyString(
 }
 
 /**
+ * 注釈ファイル名を slug とスタンプに分けます。
+ * Ghost の slug はドットを含まないため、最初のドットまでを slug とみなします。
+ *
+ * @param fileName - `<slug>.json`（初回）または `<slug>.<YYYYMMDDTHHMMSSZ>.json`（再検討）
+ */
+export function parseStrataFileName(fileName: string): StrataFileName {
+	if (!fileName.endsWith(STRATA_SUFFIX)) {
+		throw new Error(
+			`${fileName}: 注釈ファイルは ${STRATA_SUFFIX} にしてください`,
+		);
+	}
+	const stem = fileName.slice(0, -STRATA_SUFFIX.length);
+	const dot = stem.indexOf(".");
+	if (dot === -1) {
+		return { slug: stem, stamp: null };
+	}
+	const slug = stem.slice(0, dot);
+	const stamp = stem.slice(dot + 1);
+	if (slug === "" || !STAMP_PATTERN.test(stamp)) {
+		throw new Error(
+			`${fileName}: 再検討の注釈ファイル名は <slug>.<${STAMP_FORMAT}>.json にしてください`,
+		);
+	}
+	return { slug, stamp };
+}
+
+/** annotated_at（UTC 秒精度）をファイル名のスタンプに変換します */
+function toStamp(annotatedAt: string): string {
+	return annotatedAt.replace(/[-:]/g, "");
+}
+
+/**
  * 注釈ファイルの内容を構造的に検証して読み込みます。
  * 記事一覧との整合（存在・公開順）は checkStrataAnnotation で別に検査します。
  * sops で暗号化された値（ENC[...]）も文字列としてそのまま通します。
@@ -156,7 +213,7 @@ export function parseStrataAnnotation(
 		throw new Error(`${fileName}: JSON オブジェクトではありません`);
 	}
 	const slug = requireNonEmptyString(data, "slug", fileName);
-	const expectedSlug = fileName.replace(/\.json$/, "");
+	const { slug: expectedSlug, stamp } = parseStrataFileName(fileName);
 	if (slug !== expectedSlug) {
 		throw new Error(
 			`${fileName}: slug（${slug}）がファイル名（${expectedSlug}）と一致しません`,
@@ -187,6 +244,19 @@ export function parseStrataAnnotation(
 		throw new Error(
 			`${fileName}: annotated_at は ISO 8601 形式にしてください: ${annotatedAt}`,
 		);
+	}
+	if (stamp !== null) {
+		// 再検討の注釈はファイル名のスタンプと annotated_at を 1 対 1 に対応させる
+		if (!UTC_SECONDS_PATTERN.test(annotatedAt)) {
+			throw new Error(
+				`${fileName}: 再検討の注釈の annotated_at は ${UTC_SECONDS_FORMAT} 形式にしてください: ${annotatedAt}`,
+			);
+		}
+		if (toStamp(annotatedAt) !== stamp) {
+			throw new Error(
+				`${fileName}: ファイル名のスタンプ（${stamp}）と annotated_at（${annotatedAt}）が一致しません`,
+			);
+		}
 	}
 	if (data.icon !== undefined && !isTopicIcon(data.icon)) {
 		throw new Error(
@@ -263,6 +333,66 @@ export function checkStrataAnnotation(
 		}
 	}
 	return problems;
+}
+
+/**
+ * 再検討の注釈（`<slug>.<stamp>.json`）が初回の注釈（`<slug>.json`）の上に正しく積まれているかを検査し、
+ * 問題の一覧を返します（無ければ空配列）。
+ *
+ * - 再検討には対応する初回の注釈があること
+ * - 再検討の annotated_at は初回の annotated_at より後であること（同時刻も不可）
+ *
+ * ファイル名と annotated_at の対応は parseStrataAnnotation が検査済みなので、ここでは扱いません。
+ */
+export function checkStrataHistory(files: readonly StrataFile[]): string[] {
+	const problems: string[] = [];
+	const firstBySlug = new Map<string, StrataFile>();
+	for (const file of files) {
+		if (parseStrataFileName(file.fileName).stamp === null) {
+			firstBySlug.set(file.annotation.slug, file);
+		}
+	}
+	for (const file of files) {
+		if (parseStrataFileName(file.fileName).stamp === null) {
+			continue;
+		}
+		const first = firstBySlug.get(file.annotation.slug);
+		if (!first) {
+			problems.push(
+				`${file.fileName}: 初回の注釈（${file.annotation.slug}${STRATA_SUFFIX}）がありません`,
+			);
+			continue;
+		}
+		if (
+			Date.parse(file.annotation.annotated_at) <=
+			Date.parse(first.annotation.annotated_at)
+		) {
+			problems.push(
+				`${file.fileName}: annotated_at（${file.annotation.annotated_at}）が初回の注釈（${first.annotation.annotated_at}）より前です（再検討は後から積みます）`,
+			);
+		}
+	}
+	return problems;
+}
+
+/**
+ * 記事ごとに annotated_at が最新の注釈を採用した対応表（slug → 注釈）を返します。
+ * catalog の要約や graph.json はこの最新の解釈を使います（履歴は含めません）。
+ */
+export function selectLatestAnnotations(
+	annotations: readonly StrataAnnotation[],
+): Map<string, StrataAnnotation> {
+	const latest = new Map<string, StrataAnnotation>();
+	for (const annotation of annotations) {
+		const current = latest.get(annotation.slug);
+		if (
+			!current ||
+			Date.parse(annotation.annotated_at) > Date.parse(current.annotated_at)
+		) {
+			latest.set(annotation.slug, annotation);
+		}
+	}
+	return latest;
 }
 
 /**

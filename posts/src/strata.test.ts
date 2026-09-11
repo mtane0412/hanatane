@@ -7,13 +7,16 @@ import { describe, expect, it } from "vitest";
 import {
 	buildCatalog,
 	checkStrataAnnotation,
+	checkStrataHistory,
 	checkStrataPlacement,
 	isSopsEncryptedStrata,
 	lexicalToText,
 	listPendingPosts,
 	type PublishedPost,
 	parseStrataAnnotation,
+	parseStrataFileName,
 	readPublishedPost,
+	selectLatestAnnotations,
 	strataRelativePath,
 } from "./strata";
 
@@ -501,5 +504,197 @@ describe("readPublishedPost のタグと excerpt", () => {
 		const post = readPublishedPost(content, "welcome-cat.post.json");
 		expect(post.tags).toBeUndefined();
 		expect(post.excerpt).toBeUndefined();
+	});
+});
+
+/**
+ * 注釈の再検討（1 記事複数注釈、#32）
+ * 初回の注釈は <slug>.json、再検討は <slug>.<YYYYMMDDTHHMMSSZ>.json に積む。
+ */
+const 再検討の注釈 = {
+	...正しい注釈,
+	summary:
+		"後の記事を踏まえて読み直した要約。Ghost での引用グラフの実装が、後に地層の可視化へ発展する出発点だったと位置づける。",
+	relations: [
+		{
+			slug: "window-film",
+			type: "revisits",
+			reason:
+				"再検討により、続報ではなく同じ家の環境整備というテーマへの再訪と判断した。",
+		},
+	],
+	annotated_at: "2026-09-11T03:15:00Z",
+};
+
+describe("parseStrataFileName", () => {
+	it("初回の注釈ファイル名は slug だけを持つ", () => {
+		expect(parseStrataFileName("hyperstrata.json")).toEqual({
+			slug: "hyperstrata",
+			stamp: null,
+		});
+	});
+
+	it("再検討の注釈ファイル名は slug と注釈日時のスタンプを持つ", () => {
+		expect(parseStrataFileName("hyperstrata.20260911T031500Z.json")).toEqual({
+			slug: "hyperstrata",
+			stamp: "20260911T031500Z",
+		});
+	});
+
+	it("スタンプの形式が違うファイル名はエラーになる", () => {
+		expect(() => parseStrataFileName("hyperstrata.v2.json")).toThrow(
+			"YYYYMMDDTHHMMSSZ",
+		);
+		expect(() =>
+			parseStrataFileName("hyperstrata.2026-09-11T03:15:00Z.json"),
+		).toThrow("YYYYMMDDTHHMMSSZ");
+	});
+
+	it(".json 以外のファイル名はエラーになる", () => {
+		expect(() => parseStrataFileName("hyperstrata.txt")).toThrow(".json");
+	});
+});
+
+describe("parseStrataAnnotation（再検討の注釈）", () => {
+	it("ファイル名のスタンプと annotated_at が一致すれば読み込める", () => {
+		const annotation = parseStrataAnnotation(
+			JSON.stringify(再検討の注釈),
+			"hyperstrata.20260911T031500Z.json",
+		);
+		expect(annotation.slug).toBe("hyperstrata");
+		expect(annotation.annotated_at).toBe("2026-09-11T03:15:00Z");
+	});
+
+	it("ファイル名のスタンプと annotated_at が一致しないとエラーになる", () => {
+		expect(() =>
+			parseStrataAnnotation(
+				JSON.stringify(再検討の注釈),
+				"hyperstrata.20260911T031501Z.json",
+			),
+		).toThrow("annotated_at");
+	});
+
+	it("再検討の annotated_at は UTC の秒精度（YYYY-MM-DDTHH:MM:SSZ）でないとエラーになる", () => {
+		expect(() =>
+			parseStrataAnnotation(
+				JSON.stringify({
+					...再検討の注釈,
+					annotated_at: "2026-09-11T03:15:00.000Z",
+				}),
+				"hyperstrata.20260911T031500Z.json",
+			),
+		).toThrow("YYYY-MM-DDTHH:MM:SSZ");
+		expect(() =>
+			parseStrataAnnotation(
+				JSON.stringify({
+					...再検討の注釈,
+					annotated_at: "2026-09-11T12:15:00+09:00",
+				}),
+				"hyperstrata.20260911T031500Z.json",
+			),
+		).toThrow("YYYY-MM-DDTHH:MM:SSZ");
+	});
+
+	it("初回の注釈ファイルでは annotated_at のミリ秒付きも従来どおり読み込める", () => {
+		const annotation = parseStrataAnnotation(
+			JSON.stringify(正しい注釈),
+			"hyperstrata.json",
+		);
+		expect(annotation.annotated_at).toBe("2026-09-10T03:00:00.000Z");
+	});
+});
+
+describe("checkStrataHistory", () => {
+	const 初回 = parseStrataAnnotation(
+		JSON.stringify(正しい注釈),
+		"hyperstrata.json",
+	);
+	const 再検討 = parseStrataAnnotation(
+		JSON.stringify(再検討の注釈),
+		"hyperstrata.20260911T031500Z.json",
+	);
+
+	it("初回の注釈より後の annotated_at を持つ再検討なら問題なし", () => {
+		expect(
+			checkStrataHistory([
+				{ fileName: "hyperstrata.json", annotation: 初回 },
+				{ fileName: "hyperstrata.20260911T031500Z.json", annotation: 再検討 },
+			]),
+		).toEqual([]);
+	});
+
+	it("初回の注釈が無いのに再検討だけがあると問題になる", () => {
+		expect(
+			checkStrataHistory([
+				{ fileName: "hyperstrata.20260911T031500Z.json", annotation: 再検討 },
+			]),
+		).toEqual([
+			"hyperstrata.20260911T031500Z.json: 初回の注釈（hyperstrata.json）がありません",
+		]);
+	});
+
+	it("再検討の annotated_at が初回より前だと問題になる", () => {
+		const 古い再検討 = parseStrataAnnotation(
+			JSON.stringify({ ...再検討の注釈, annotated_at: "2026-09-01T00:00:00Z" }),
+			"hyperstrata.20260901T000000Z.json",
+		);
+		expect(
+			checkStrataHistory([
+				{ fileName: "hyperstrata.json", annotation: 初回 },
+				{
+					fileName: "hyperstrata.20260901T000000Z.json",
+					annotation: 古い再検討,
+				},
+			]),
+		).toEqual([
+			"hyperstrata.20260901T000000Z.json: annotated_at（2026-09-01T00:00:00Z）が初回の注釈（2026-09-10T03:00:00.000Z）より前です（再検討は後から積みます）",
+		]);
+	});
+
+	it("再検討の annotated_at が初回と同時刻でも問題になる（必ず後）", () => {
+		const 同時刻の初回 = parseStrataAnnotation(
+			JSON.stringify({ ...正しい注釈, annotated_at: "2026-09-11T03:15:00Z" }),
+			"hyperstrata.json",
+		);
+		expect(
+			checkStrataHistory([
+				{ fileName: "hyperstrata.json", annotation: 同時刻の初回 },
+				{ fileName: "hyperstrata.20260911T031500Z.json", annotation: 再検討 },
+			]),
+		).toHaveLength(1);
+	});
+
+	it("再検討が無い記事だけなら問題なし", () => {
+		expect(
+			checkStrataHistory([{ fileName: "hyperstrata.json", annotation: 初回 }]),
+		).toEqual([]);
+	});
+});
+
+describe("selectLatestAnnotations", () => {
+	it("記事ごとに annotated_at が最新の注釈を採用する", () => {
+		const 初回 = parseStrataAnnotation(
+			JSON.stringify(正しい注釈),
+			"hyperstrata.json",
+		);
+		const 再検討 = parseStrataAnnotation(
+			JSON.stringify(再検討の注釈),
+			"hyperstrata.20260911T031500Z.json",
+		);
+		const 猫の注釈 = parseStrataAnnotation(
+			JSON.stringify({
+				...正しい注釈,
+				slug: "welcome-cat",
+				relations: [],
+				annotated_at: "2026-09-10T04:00:00Z",
+			}),
+			"welcome-cat.json",
+		);
+		// ファイルの並び順に依存しないことを確かめるため、再検討を先に渡す
+		const latest = selectLatestAnnotations([再検討, 猫の注釈, 初回]);
+		expect(latest.size).toBe(2);
+		expect(latest.get("hyperstrata")?.summary).toBe(再検討の注釈.summary);
+		expect(latest.get("hyperstrata")?.relations[0].type).toBe("revisits");
+		expect(latest.get("welcome-cat")?.relations).toEqual([]);
 	});
 });

@@ -18,6 +18,7 @@ import {
     buildGraph,
     serializeGraph,
     parseAnnotation,
+    selectLatestAnnotations,
     GRAPH_JSON_PATH,
     REF_TAG_PREFIX
 } from './hyperstrata-sync.mjs';
@@ -456,4 +457,48 @@ test('buildGraph: annotatorBySlug と annotatedAtBySlug を渡すと各記事に
     assert.equal(対応表.get('hyperstrata-introduction').annotatedAt, '2026-09-10T04:53:17Z');
     assert.equal(対応表.get('digital-garden-limits').annotator, null);
     assert.equal(対応表.get('digital-garden-limits').annotatedAt, null);
+});
+
+// selectLatestAnnotations: 1 記事に複数の注釈(初回 + 再検討)があるとき、annotated_at が最新のものを採用する(#32)
+
+test('selectLatestAnnotations: 同じ slug の注釈が複数あれば annotated_at が最新のものだけを残す(ファイルの並び順に依存しない)', () => {
+    const 初回 = parseAnnotation({slug: 'hyperstrata', summary: '初回の要約', relations: [{slug: 'window-film', type: 'continues', reason: '初回の理由'}], annotated_at: '2026-09-10T03:00:00.000Z', annotator: 'claude-sonnet-5'}, {includeText: true});
+    const 再検討 = parseAnnotation({slug: 'hyperstrata', summary: '再検討の要約', relations: [{slug: 'window-film', type: 'revisits', reason: '再検討の理由'}], annotated_at: '2026-09-11T03:15:00Z', annotator: 'claude-fable-5-1', icon: 'tech'}, {includeText: true});
+    const 猫 = parseAnnotation({slug: 'welcome-cat', summary: '猫の要約', relations: [], annotated_at: '2026-09-10T04:00:00Z', annotator: 'claude-sonnet-5'}, {includeText: true});
+    const latest = selectLatestAnnotations([再検討, 猫, 初回]);
+    assert.deepEqual(latest.map(item => item.slug), ['hyperstrata', 'welcome-cat']);
+    assert.equal(latest[0].summary, '再検討の要約');
+    assert.equal(latest[0].annotator, 'claude-fable-5-1');
+    assert.equal(latest[0].annotatedAt, '2026-09-11T03:15:00Z');
+    assert.deepEqual(latest[0].relations, [{slug: 'window-film', type: 'revisits', reason: '再検討の理由'}]);
+});
+
+test('selectLatestAnnotations: annotated_at が無い注釈が混ざっていれば例外を投げる(最新を決められない)', () => {
+    const 日時なし = parseAnnotation({slug: 'hyperstrata', summary: '要約'}, {includeText: true});
+    assert.throws(() => selectLatestAnnotations([日時なし]), /annotated_at/);
+});
+
+test('buildGraph: 再検討の注釈を採用したとき、graph.json には最新の summary / inferredRefs / annotator / annotatedAt だけが載る(履歴は含めない)', () => {
+    const 初回 = parseAnnotation({slug: 'hyperstrata-introduction', summary: '初回の要約', relations: [{slug: 'digital-garden-limits', type: 'continues', reason: '初回の理由'}], annotated_at: '2026-09-10T03:00:00Z', annotator: 'claude-sonnet-5'}, {includeText: true});
+    const 再検討 = parseAnnotation({slug: 'hyperstrata-introduction', summary: '再検討の要約', relations: [{slug: 'digital-garden-limits', type: 'updates', reason: '再検討の理由'}], annotated_at: '2026-09-11T03:15:00Z', annotator: 'claude-fable-5-1'}, {includeText: true});
+    const latest = selectLatestAnnotations([初回, 再検討]);
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const graph = buildGraph({
+        posts: グラフ用記事,
+        referencedSlugsBySlug,
+        inferredRelationsBySlug: new Map(latest.map(item => [item.slug, item.relations])),
+        summaryBySlug: new Map(latest.map(item => [item.slug, item.summary])),
+        annotatorBySlug: new Map(latest.map(item => [item.slug, item.annotator])),
+        annotatedAtBySlug: new Map(latest.map(item => [item.slug, item.annotatedAt]))
+    });
+    const 記事 = graph.posts.find(post => post.slug === 'hyperstrata-introduction');
+    assert.equal(記事.summary, '再検討の要約');
+    assert.equal(記事.annotator, 'claude-fable-5-1');
+    assert.equal(記事.annotatedAt, '2026-09-11T03:15:00Z');
+    assert.deepEqual(記事.inferredRefs, [{slug: 'digital-garden-limits', type: 'updates', reason: '再検討の理由'}]);
+    assert.equal('history' in 記事, false);
 });

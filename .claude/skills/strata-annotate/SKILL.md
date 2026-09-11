@@ -55,6 +55,19 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
 - `annotator`: 実行中のモデル ID（例: `claude-fable-5-1`）。
 - JSON は 2 スペースインデント、末尾改行あり。
 
+## 再検討（既存の注釈の解釈を改める）
+
+後の記事が出て古い記事の関係や要約を見直したくなったとき（ユーザーが「注釈を見直して」「再検討して」と言ったとき、または注釈中に既存の注釈の誤りに気づいたとき）は、既存のファイルを書き換えず、再検討の注釈を新しいファイルとして積む。
+
+1. `pnpm --filter ./posts strata text <slug>` と `strata catalog <slug>` で本文と候補を読み直す。既存の注釈（`posts/strata/<slug>.json` と、あれば `<slug>.<スタンプ>.json`）も読み、何を改めるのかを把握する。
+2. `date -u +%Y-%m-%dT%H:%M:%SZ` で `annotated_at` を得る（UTC・秒精度。ミリ秒やオフセット付きは不可）。ファイル名のスタンプは `annotated_at` から `-` と `:` を除いたもの（例: `2026-09-11T03:15:00Z` → `20260911T031500Z`）。
+3. `posts/strata/<slug>.<スタンプ>.json`（限定記事は `posts/strata/private/<slug>.<スタンプ>.plain.json`）に、差分ではなく完全な注釈（`summary`・`relations`・`icon` すべて）を、上記「判定の基準」「書き方」のとおりに書く。改めない部分は前の注釈から引き継ぐ。
+4. 限定記事なら `pnpm --filter ./posts strata encrypt <slug>.<スタンプ>` で暗号化する。
+5. `pnpm --filter ./posts strata check` で検査する（再検討の `annotated_at` が初回より後であること、初回の注釈が存在することを検査する）。
+6. 以降は通常の手順と同じ（feature ブランチ・PR・マージ後の `hyperstrata-sync.yml` 手動実行）。`graph.json` には最新の注釈だけが載る。
+
+再検討の理由（どの記事を読んで何を改めたか）は PR の説明に書く。注釈ファイルには入れない。
+
 ## 一括処理（既存記事）
 
 - 要約は記事どうしに依存しないので、サブエージェントに分けて並列に書いてよい。関係の判定は、対象より前の記事の要約がそろってから行う（2 段階）。
@@ -63,7 +76,7 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
 
 ## 禁止・注意
 
-- 既存の注釈ファイルを書き換えない（タイポ修正も含む）。間違いに気づいたときはユーザーに報告する。
+- 既存の注釈ファイルを書き換えない（タイポ修正も含む）。間違いに気づいたときはユーザーに報告し、改めるなら上記「再検討」の手順で新しいファイルを積む。
 - 本文（`content/`）を編集しない。
 - `posts/strata/private/*.plain.json` を残さない。
 - 下書き（`status: draft`）や `published_at` の無い記事に注釈を付けない。
