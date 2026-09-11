@@ -1,0 +1,25 @@
+{{!-- Hyperstrata: 直上・直下の層(前後の記事)。記事本文の末尾(References の前)に出す(#33)。
+      地層では隣り合う層の関係がそのまま時間の前後になるため、Ghost の next_post(新しい記事)を「上の層」、
+      prev_post(古い記事)を「下の層」として、JavaScript 無しでもタイトル・URL・公開日が分かるように出す。
+      経過日数はサーバー側で計算できないため、現在記事と各記事の公開日時(published_at)を属性で渡し、
+      assets/js/strata-neighbors.js が「N 日後 / N 日前」(data-label-later / data-label-earlier の % を日数に置き換える)を
+      [data-strata-neighbor-gap] に書き込む。JS が無い場合は公開日だけが残る。
+      限定記事(members / paid)も Ghost のヘルパーが通常通り返すため、タイトルと URL の表示に限る。
+      next_post と prev_post は入れ子にすると内側の文脈が隣の記事に変わるため並べて書き、
+      前後どちらの記事も無い(記事が 1 本だけの)場合は gh-citations と同じく CSS(:has)でセクションを隠す --}}
+<section class="gh-strata-neighbors gh-canvas" data-strata-neighbors data-current-published="{{published_at}}" data-label-later="{{t "% days later"}}" data-label-earlier="{{t "% days earlier"}}">
+    {{#next_post}}
+        <a class="gh-strata-neighbor gh-strata-neighbor-above" href="{{url}}">
+            <span class="gh-strata-neighbor-label">{{t "Layer above"}}</span>
+            <span class="gh-strata-neighbor-title">{{title}}</span>
+            <span class="gh-strata-neighbor-meta"><time datetime="{{published_at}}">{{date}}</time><span data-strata-neighbor-gap></span></span>
+        </a>
+    {{/next_post}}
+    {{#prev_post}}
+        <a class="gh-strata-neighbor gh-strata-neighbor-below" href="{{url}}">
+            <span class="gh-strata-neighbor-label">{{t "Layer below"}}</span>
+            <span class="gh-strata-neighbor-title">{{title}}</span>
+            <span class="gh-strata-neighbor-meta"><time datetime="{{published_at}}">{{date}}</time><span data-strata-neighbor-gap></span></span>
+        </a>
+    {{/prev_post}}
+</section>
