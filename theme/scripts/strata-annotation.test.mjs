@@ -57,13 +57,23 @@ const 記事一覧 = [
         inferredRefs: [],
         summary: null,
         icon: 'cat'
+    },
+    {
+        slug: 'cat-one-year',
+        title: '猫を迎えて1年',
+        url: 'https://hanatane.net/cat-one-year/',
+        publishedAt: '2026-12-31T00:00:00.000Z',
+        refs: [],
+        inferredRefs: [{slug: 'welcome-cat', type: 'updates', reason: '迎えた当初の見立てを1年後に改めているため。'}],
+        summary: null,
+        icon: 'cat'
     }
 ];
 
 test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情報付きで返し、summary と icon は含めない(関連記事欄には要約も題材アイコンも出さない)', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧, 'hyperstrata');
-    assert.deepEqual(Object.keys(view), ['relations']);
+    assert.deepEqual(Object.keys(view), ['relations', 'citedBy']);
     assert.deepEqual(view.relations, [
         {
             type: 'continues',
@@ -94,13 +104,13 @@ test('buildAnnotationView: reason が無い関係は reason: null のまま返�
 test('buildAnnotationView: 現在記事に inferredRefs が無ければ空の関係一覧を返す(summary があっても表示対象にしない)', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧.map(post => (post.slug === 'welcome-cat' ? {...post, summary: '猫を迎えた記事の要約。'} : post)), 'welcome-cat');
-    assert.deepEqual(view, {relations: []});
+    assert.deepEqual(view.relations, []);
 });
 
 test('buildAnnotationView: currentSlug が posts に無い(空文字含む)場合は relations: [] を返す', () => {
     const {buildAnnotationView} = 読み込む();
-    assert.deepEqual(buildAnnotationView(記事一覧, ''), {relations: []});
-    assert.deepEqual(buildAnnotationView(記事一覧, 'not-found'), {relations: []});
+    assert.deepEqual(buildAnnotationView(記事一覧, ''), {relations: [], citedBy: []});
+    assert.deepEqual(buildAnnotationView(記事一覧, 'not-found'), {relations: [], citedBy: []});
 });
 
 test('buildAnnotationView: 関係先slugが posts に存在しない場合(古いキャッシュ等)は無視する', () => {
@@ -116,7 +126,41 @@ test('buildAnnotationView: 関係先slugが posts に存在しない場合(古�
             summary: null
         }
     ];
-    assert.deepEqual(buildAnnotationView(posts, 'a'), {relations: []});
+    assert.deepEqual(buildAnnotationView(posts, 'a'), {relations: [], citedBy: []});
+});
+
+test('buildAnnotationView: 現在記事を inferredRefs に持つ後の記事を citedBy として公開日の昇順で返す(古い記事側に updates / revisits を見せる)', () => {
+    const {buildAnnotationView} = 読み込む();
+    const view = buildAnnotationView(記事一覧, 'welcome-cat');
+    assert.deepEqual(view.citedBy, [
+        {
+            type: 'continues',
+            reason: null,
+            slug: 'window-film',
+            title: '縁側の窓に目隠しシートを貼った(猫のストレス対策)',
+            url: 'https://hanatane.net/window-film/',
+            publishedAt: '2026-04-06T12:54:38.000Z'
+        },
+        {
+            type: 'updates',
+            reason: '迎えた当初の見立てを1年後に改めているため。',
+            slug: 'cat-one-year',
+            title: '猫を迎えて1年',
+            url: 'https://hanatane.net/cat-one-year/',
+            publishedAt: '2026-12-31T00:00:00.000Z'
+        }
+    ]);
+});
+
+test('buildAnnotationView: 現在記事を参照する記事が無ければ citedBy は空配列を返す', () => {
+    const {buildAnnotationView} = 読み込む();
+    assert.deepEqual(buildAnnotationView(記事一覧, 'cat-one-year').citedBy, []);
+});
+
+test('buildAnnotationView: citedBy は公開日が逆順に並んだ posts でも公開日の昇順に整列する', () => {
+    const {buildAnnotationView} = 読み込む();
+    const view = buildAnnotationView([...記事一覧].reverse(), 'welcome-cat');
+    assert.deepEqual(view.citedBy.map(post => post.slug), ['window-film', 'cat-one-year']);
 });
 
 test('buildAnnotationView: posts が配列でない場合は例外を投げる', () => {
