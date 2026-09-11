@@ -32,7 +32,12 @@
  *   確定した座標の上に重ねて描く。2 ホップの強調(computeEmphasis)には両方を渡す
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、グラフは描画しない
  *
- * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / buildStrataBands / strataBoundaryPath)、
+ * - 不整合面(hiatus): 記事の空白期間が一定日数(hiatusDays)を超える箇所は、地質学の不整合面のように 1 本の荒い境界線
+ *   (hiatusBoundaryPath)で描き、空白の日数をラベルで示す(#29)。固定ページと記事ペインでは空白を hiatusGap の高さに
+ *   圧縮し、タイムラインは行の位置を DOM が決めるため圧縮せず隣接する行の境界に置く。ラベル文言はテンプレートが
+ *   data-strata-hiatus-label で渡す(% を日数に置き換える)
+ *
+ * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / buildStrataBands / strataBoundaryPath / hiatusBoundaryPath)、
  * 無限スクロールで継ぎ足す行の選別(selectNewTimelineRows)と
  * graph.json の検証(parseGraph)は DOM に依存しない純粋関数として window.HyperstrataGraph に公開し、
  * scripts/strata-graph.test.mjs から検証する。
@@ -40,6 +45,25 @@
 (function () {
     const SVG_NS = 'http://www.w3.org/2000/svg';
     const MS_PER_DAY = 24 * 60 * 60 * 1000;
+    /** この日数を超える記事の空白を不整合面(hiatus)として描く(#29)。固定ページ・記事ペイン・タイムラインで共通 */
+    const HIATUS_DAYS = 60;
+
+    /**
+     * 新しい記事(newerTime)と古い記事(olderTime)の間の空白が、不整合面として扱うしきい値を超えていれば日数を返す。
+     * hiatusDays が未指定(undefined)の場合は不整合面を検出しない(null)。
+     *
+     * @param {number} newerTime
+     * @param {number} olderTime
+     * @param {number|undefined} hiatusDays しきい値(日)。この日数を超える空白を不整合面とする
+     * @returns {number|null} 空白の日数(整数に丸める)。しきい値以下なら null
+     */
+    function hiatusDaysBetween(newerTime, olderTime, hiatusDays) {
+        if (hiatusDays === undefined) {
+            return null;
+        }
+        const days = (newerTime - olderTime) / MS_PER_DAY;
+        return days > hiatusDays ? Math.round(days) : null;
+    }
 
     /**
      * 記事一覧からグラフのレイアウト(ノード座標・エッジ・年の区切り)を計算する。
@@ -47,10 +71,13 @@
      * 新しい記事を上(地表)、古い記事を下(深い層)に置く。y 座標は最新記事からの経過日数 × pixelsPerDay を
      * 基本とし、隣接ノードとの間隔が minGap を下回る場合は minGap まで押し下げる
      * (同日公開の記事が重ならないようにするため)。yearMarks は年ごとの地層の上端(その年で最も新しいノードの位置)。
+     * 隣接する記事の空白が hiatusDays を超える場合は、その空白を hiatusGap の高さに圧縮し(以降のノードも同じぶん上に詰める)、
+     * 圧縮した区間の中央を不整合面(hiatuses)として記録する(#29)。
      *
      * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts
-     * @param {{minGap: number, pixelsPerDay: number}} options
-     * @returns {{nodes: object[], edges: object[], yearMarks: object[], height: number}}
+     * @param {{minGap: number, pixelsPerDay: number, hiatusDays?: number, hiatusGap?: number}} options
+     *   hiatusDays を省略すると不整合面を検出しない(hiatuses は空)。指定する場合は hiatusGap も必須
+     * @returns {{nodes: object[], edges: object[], yearMarks: object[], hiatuses: Array<{y: number, days: number, newer: string, older: string}>, height: number}}
      */
     function buildLayout(posts, options) {
         const sorted = posts
@@ -66,18 +93,29 @@
             });
 
         if (sorted.length === 0) {
-            return {nodes: [], edges: [], yearMarks: [], height: 0};
+            return {nodes: [], edges: [], yearMarks: [], hiatuses: [], height: 0};
         }
 
         const nodes = [];
         const yearMarks = [];
+        const hiatuses = [];
         const newestTime = sorted[0].time;
         let previousY = -Infinity;
+        let previousTime = null;
         let previousYear = null;
+        /** 不整合面で圧縮したぶんの累計(px)。経過日数から求めた y をこの値だけ上に詰める */
+        let compressed = 0;
 
-        sorted.forEach(function (post) {
-            const scaledY = ((newestTime - post.time) / MS_PER_DAY) * options.pixelsPerDay;
-            const y = Math.max(scaledY, previousY + options.minGap);
+        sorted.forEach(function (post, index) {
+            const scaledY = ((newestTime - post.time) / MS_PER_DAY) * options.pixelsPerDay - compressed;
+            let y = Math.max(scaledY, previousY + options.minGap);
+            const days = index === 0 ? null : hiatusDaysBetween(previousTime, post.time, options.hiatusDays);
+            if (days !== null) {
+                // 空白を hiatusGap の高さに圧縮し、縮めたぶんを以降のノードにも引き継ぐ
+                y = previousY + options.hiatusGap;
+                compressed += scaledY - y;
+                hiatuses.push({y: previousY + options.hiatusGap / 2, days: days, newer: sorted[index - 1].slug, older: post.slug});
+            }
             const year = new Date(post.time).getFullYear();
             if (year !== previousYear) {
                 yearMarks.push({year: year, y: y});
@@ -85,6 +123,7 @@
             }
             nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, y: y, icon: post.icon || null});
             previousY = y;
+            previousTime = post.time;
         });
 
         const slugs = new Set(nodes.map(function (node) {
@@ -115,7 +154,7 @@
             });
         });
 
-        return {nodes: nodes, edges: edges, yearMarks: yearMarks, height: previousY};
+        return {nodes: nodes, edges: edges, yearMarks: yearMarks, hiatuses: hiatuses, height: previousY};
     }
 
     /**
@@ -214,13 +253,45 @@
     }
 
     /**
+     * レイアウトの不整合面(hiatuses)を、荒い境界線と空白の日数ラベルの層として <g> にまとめる(#29)。
+     * 線は月・年の境界(strataBoundaryPath)より振幅の大きいギザギザにして区別する。
+     * seed には不整合面の添字を使い、複数あっても同じ形が並ばないようにする。
+     *
+     * @param {Array<{y: number, days: number}>} hiatuses
+     * @param {{lineWidth: number, lineOffsetX: number, amplitude: number, labelX: number, labelDy: number, labelAnchor: string, label: string, labelClass?: string}} options
+     *   lineWidth は線の右端、lineOffsetX は線を左へはみ出させる幅(bleed)、labelX / labelDy はラベルの x と線からの縦のずれ、
+     *   labelAnchor は text-anchor、label は % を日数に置き換える文言
+     * @returns {SVGGElement}
+     */
+    function buildHiatusGroup(hiatuses, options) {
+        const group = createElement('g', {class: 'gh-strata-hiatuses'});
+        hiatuses.forEach(function (hiatus, index) {
+            group.appendChild(createElement('path', {
+                class: 'gh-strata-hiatus-line',
+                transform: 'translate(' + (-options.lineOffsetX) + ' 0)',
+                d: hiatusBoundaryPath(hiatus.y, options.lineWidth, {amplitude: options.amplitude, step: 10, seed: index + 1})
+            }));
+            const label = createElement('text', {
+                class: 'gh-strata-hiatus-label' + (options.labelClass ? ' ' + options.labelClass : ''),
+                x: options.labelX,
+                y: hiatus.y + options.labelDy,
+                'text-anchor': options.labelAnchor
+            });
+            label.textContent = options.label.replace('%', String(hiatus.days));
+            group.appendChild(label);
+        });
+        return group;
+    }
+
+    /**
      * レイアウトを SVG として描画する。
      *
      * @param {ReturnType<typeof buildLayout>} layout
      * ペインと同じ「地層の中を種と根が伸びる」デザイン: 年ごとの帯を地層として塗り分け(古い年ほど深く濃い)、
      * 境界は波線、記事は種(楕円)、引用の線は古い層へ伸びる根(左に膨らむ弧)として描く。
      *
-     * @param {{axisX: number, paddingTop: number, paddingBottom: number, width: number, maxArcWidth: number, nodeRadius: number, yearGap: number, maxDepthShade: number, titleMaxLength: number, label: string}} options
+     * @param {{axisX: number, paddingTop: number, paddingBottom: number, width: number, maxArcWidth: number, nodeRadius: number, yearGap: number, maxDepthShade: number, titleMaxLength: number, label: string, hiatusLabel: string}} options
+     *   hiatusLabel は不整合面の日数ラベルの文言(% を日数に置き換える)
      * @returns {SVGSVGElement}
      */
     function renderSvg(layout, options) {
@@ -292,6 +363,19 @@
             yearGroup.appendChild(label);
         });
         svg.appendChild(yearGroup);
+
+        // 不整合面(圧縮した長い空白)。荒い境界線を引き、日数をタイトルと同じ位置(時間軸の右)に示す(#29)
+        svg.appendChild(buildHiatusGroup(layout.hiatuses.map(function (hiatus) {
+            return {y: hiatus.y + options.paddingTop, days: hiatus.days};
+        }), {
+            lineWidth: options.width,
+            lineOffsetX: 0,
+            amplitude: 5,
+            labelX: options.axisX + options.nodeRadius * 2 + 4,
+            labelDy: -6,
+            labelAnchor: 'start',
+            label: options.hiatusLabel
+        }));
 
         // 時間軸(地表から深部へ下りる細い線)
         svg.appendChild(createElement('line', {
@@ -446,14 +530,17 @@
     /**
      * 固定ペイン用のレイアウトを計算する。新しい記事を上(row 0)に並べ、行間は一定(rowHeight)、
      * 月が変わる位置に区切り(monthMarks)を置いて monthGap ぶん余白を空ける。
+     * 隣接する記事の空白が hiatusDays を超える場合は、月の区切りの前に hiatusGap ぶん余白を足し、
+     * その中央を不整合面(hiatuses)として記録する(#29)。行間は一定なので圧縮ではなく余白の追加になる。
      *
      * 列(col)の割り当て(assignColumns)は人間の引用(refs)だけで決める。Hyperstrata の注釈から
      * 合成した推定エッジ(inferredRefs)は幹の形に影響させず、確定した行(row)の上に kind: 'inferred'
      * として重ねて描く。
      *
      * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts
-     * @param {{rowHeight: number, monthGap: number, paddingTop: number, paddingBottom: number}} options
-     * @returns {{nodes: object[], edges: object[], monthMarks: object[], minCol: number, maxCol: number, height: number}}
+     * @param {{rowHeight: number, monthGap: number, paddingTop: number, paddingBottom: number, hiatusDays?: number, hiatusGap?: number}} options
+     *   hiatusDays を省略すると不整合面を検出しない(hiatuses は空)。指定する場合は hiatusGap も必須
+     * @returns {{nodes: object[], edges: object[], monthMarks: object[], hiatuses: Array<{y: number, days: number, newer: string, older: string}>, minCol: number, maxCol: number, height: number}}
      *   nodes は col(列番号)、edges は fromCol / toCol(両端の列番号)と kind('human' | 'inferred')を持つ
      */
     function buildPaneLayout(posts, options) {
@@ -470,16 +557,23 @@
             });
 
         if (sorted.length === 0) {
-            return {nodes: [], edges: [], monthMarks: [], minCol: 0, maxCol: 0, height: 0};
+            return {nodes: [], edges: [], monthMarks: [], hiatuses: [], minCol: 0, maxCol: 0, height: 0};
         }
 
         const nodes = [];
         const monthMarks = [];
+        const hiatuses = [];
         const rowOf = {};
         let previousMonth = null;
         let y = options.paddingTop;
 
         sorted.forEach(function (post, row) {
+            const days = row === 0 ? null : hiatusDaysBetween(sorted[row - 1].time, post.time, options.hiatusDays);
+            if (days !== null) {
+                // 不整合面は前の行の下・月の区切りの上に置く
+                hiatuses.push({y: y + options.hiatusGap / 2, days: days, newer: sorted[row - 1].slug, older: post.slug});
+                y += options.hiatusGap;
+            }
             const month = monthLabel(post.time);
             if (month !== previousMonth) {
                 // 区切りは月の最初のノードの上に置く
@@ -552,6 +646,7 @@
             nodes: nodes,
             edges: edges,
             monthMarks: monthMarks,
+            hiatuses: hiatuses,
             minCol: Math.min(columns.minCol, lanes.minCol),
             maxCol: Math.max(columns.maxCol, lanes.maxCol),
             height: y + options.paddingBottom
@@ -643,12 +738,34 @@
      * graph.json に無い行(同期前の新しい記事)は引用の無い孤立した記事として扱う。
      * 列(col)は人間の引用(refs)だけで決め、Hyperstrata の注釈から合成した推定エッジ(inferredRefs)は
      * 列確定後に kind: 'inferred' として重ねて追加する。offPage(ページ外への束)も人間の引用のみ数える。
+     * 隣接する行の公開日(行自身の publishedAt。graph.json に無い行でも判定できる)の空白が hiatusDays を超える場合は、
+     * 前の行の下端を不整合面(hiatuses)として記録する(#29)。行の位置は DOM が決めるため空白は圧縮しない。
      *
-     * @param {Array<{slug: string, month: string, top: number, bottom: number, y: number}>} rows 表示順(新しい順)の行
+     * @param {Array<{slug: string, month: string, publishedAt: string, top: number, bottom: number, y: number}>} rows 表示順(新しい順)の行
      * @param {Array<{slug: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts graph.json の記事一覧
-     * @returns {{bands: object[], nodes: object[], edges: object[], offPage: object[]}}
+     * @param {{hiatusDays?: number}} [options] hiatusDays を省略すると不整合面を検出しない(hiatuses は空)
+     * @returns {{bands: object[], nodes: object[], edges: object[], offPage: object[], hiatuses: Array<{y: number, days: number, newer: string, older: string}>}}
      */
-    function buildTimelineLayout(rows, posts) {
+    function buildTimelineLayout(rows, posts, options) {
+        const hiatusDays = options ? options.hiatusDays : undefined;
+        const times = rows.map(function (row) {
+            const time = Date.parse(row.publishedAt);
+            if (Number.isNaN(time)) {
+                throw new Error('公開日を解釈できません: ' + row.slug + ' (' + row.publishedAt + ')');
+            }
+            return time;
+        });
+        const hiatuses = [];
+        rows.forEach(function (row, index) {
+            if (index === 0) {
+                return;
+            }
+            const days = hiatusDaysBetween(times[index - 1], times[index], hiatusDays);
+            if (days !== null) {
+                hiatuses.push({y: rows[index - 1].bottom, days: days, newer: rows[index - 1].slug, older: row.slug});
+            }
+        });
+
         const refsOf = {};
         const inferredRefsOf = {};
         const iconOf = {};
@@ -730,7 +847,7 @@
             });
         });
 
-        return {bands: bands, nodes: nodes, edges: edges, offPage: offPage};
+        return {bands: bands, nodes: nodes, edges: edges, offPage: offPage, hiatuses: hiatuses};
     }
 
     /**
@@ -1037,6 +1154,28 @@
         return d;
     }
 
+    /**
+     * 不整合面(長い空白期間)の境界線を、月や年の境界(strataBoundaryPath の緩やかな波線)と区別できる荒い折れ線として作る。
+     * step ごとの点を y ± amplitude の範囲でランダムにずらして直線で繋ぐ(侵食された地層面のギザギザ)。
+     * ずれは seed から決定的に計算する(mulberry32)ため、再描画しても同じ形になる。
+     *
+     * @param {number} y 境界線の基準となる y 座標
+     * @param {number} width 線の右端(x)
+     * @param {{amplitude: number, step: number, seed: number}} options
+     * @returns {string} SVG path の d 属性
+     */
+    function hiatusBoundaryPath(y, width, options) {
+        const random = mulberry32(options.seed);
+        let d = 'M 0 ' + y;
+        let x = 0;
+        while (x < width) {
+            x = Math.min(x + options.step, width);
+            const offset = (random() * 2 - 1) * options.amplitude;
+            d += ' L ' + x + ' ' + (y + offset);
+        }
+        return d;
+    }
+
     /** 距離に応じた強調クラス名を返す(0: 現在記事、1: 直接の引用、2: 2 ホップ、-1: 無関係、null: 中立モードで強調なし) */
     function emphasisClass(distance) {
         if (distance === null) {
@@ -1073,8 +1212,9 @@
      *
      * @param {ReturnType<typeof buildPaneLayout>} layout
      * @param {ReturnType<typeof computeEmphasis>} emphasis
-     * @param {{axisX: number, laneWidth: number, rowHeight: number, width: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, dateLocale: string, summaryMaxLength: number}} options
-     *   axisX は列 0 の x 座標、laneWidth は列の間隔(px)。maxDepthShade は地層の色の濃さの段階数の上限(CSS の data-depth と一致させる)、bleed は地層をペイン端まで届かせるための左右のはみ出し幅(px)
+     * @param {{axisX: number, laneWidth: number, rowHeight: number, width: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, hiatusLabel: string, dateLocale: string, summaryMaxLength: number}} options
+     *   axisX は列 0 の x 座標、laneWidth は列の間隔(px)。maxDepthShade は地層の色の濃さの段階数の上限(CSS の data-depth と一致させる)、bleed は地層をペイン端まで届かせるための左右のはみ出し幅(px)、
+     *   hiatusLabel は不整合面の日数ラベルの文言(% を日数に置き換える)
      */
     function renderPaneSvg(layout, emphasis, options) {
         const svg = createElement('svg', {
@@ -1143,6 +1283,17 @@
             monthGroup.appendChild(label);
         });
         svg.appendChild(monthGroup);
+
+        // 不整合面(長い空白)。月の境界より荒い線をペインの端まで引き、日数を月ラベルと同じ右端に示す(#29)
+        svg.appendChild(buildHiatusGroup(layout.hiatuses, {
+            lineWidth: bleedWidth,
+            lineOffsetX: options.bleed,
+            amplitude: 4,
+            labelX: options.width - 8,
+            labelDy: -5,
+            labelAnchor: 'end',
+            label: options.hiatusLabel
+        }));
 
         // エッジ。強調するものが上に重なるように、無関係 → 遠い → 近い の順で追加する
         const edgeGroup = createElement('g', {class: 'gh-strata-pane-edges'});
@@ -1296,7 +1447,14 @@
             return;
         }
         const rowHeight = 26;
-        const layout = buildPaneLayout(posts, {rowHeight: rowHeight, monthGap: 30, paddingTop: 24, paddingBottom: 48});
+        const layout = buildPaneLayout(posts, {
+            rowHeight: rowHeight,
+            monthGap: 30,
+            paddingTop: 24,
+            paddingBottom: 48,
+            hiatusDays: HIATUS_DAYS,
+            hiatusGap: 44
+        });
         const emphasis = computeEmphasis(layout.nodes, layout.edges, pane.dataset.currentSlug || '', 2);
         const laneWidth = 12;
         const padding = 24;
@@ -1310,6 +1468,7 @@
             maxDepthShade: 6,
             bleed: 400,
             label: pane.dataset.strataLabel || '',
+            hiatusLabel: pane.dataset.strataHiatusLabel || '%',
             dateLocale: document.documentElement.lang || undefined,
             summaryMaxLength: 80
         });
@@ -1331,8 +1490,10 @@
      * タイムラインの各行(記事カード)の位置を DOM から計測する。座標は行リスト(list)の上端を 0 とする。
      * 種の y はタイトルの 1 行目の中心に合わせる(タイトルが複数行に折り返しても種が上にずれないようにするため)。
      *
+     * publishedAt はテンプレートが data-published で出力する公開日時(不整合面の判定に使う)。
+     *
      * @param {HTMLElement} list [data-strata-rows]
-     * @returns {Array<{slug: string, month: string, top: number, bottom: number, y: number}>}
+     * @returns {Array<{slug: string, month: string, publishedAt: string, top: number, bottom: number, y: number}>}
      */
     function measureTimelineRows(list) {
         const listTop = list.getBoundingClientRect().top;
@@ -1345,6 +1506,7 @@
             return {
                 slug: row.dataset.slug,
                 month: row.dataset.month,
+                publishedAt: row.dataset.published,
                 top: rect.top - listTop,
                 bottom: rect.bottom - listTop,
                 y: titleRect.top - listTop + firstLine / 2
@@ -1356,9 +1518,10 @@
      * タイムラインのレイアウトを SVG として描画する。行リストの背後に重ねるため、大きさは行リストと同じにする。
      *
      * @param {ReturnType<typeof buildTimelineLayout>} layout
-     * @param {{width: number, height: number, labelWidth: number, axisX: number, laneWidth: number, bend: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, offPageLabel: string, compact: boolean}} options
+     * @param {{width: number, height: number, labelWidth: number, axisX: number, laneWidth: number, bend: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, offPageLabel: string, hiatusLabel: string, compact: boolean}} options
      *   labelWidth は月ラベル列の幅、axisX は列 0 の x 座標、bend は根が隣の列へ移るときの縦の長さ(px)、
-     *   bleed は地層を画面の端まで届かせるための左右のはみ出し幅(px)、compact は狭い画面向け(月ラベルを帯の左上に小さく置く)
+     *   bleed は地層を画面の端まで届かせるための左右のはみ出し幅(px)、hiatusLabel は不整合面の日数ラベルの文言(% を日数に置き換える)、
+     *   compact は狭い画面向け(月ラベルを帯の左上に小さく置く)
      */
     function renderTimelineSvg(layout, options) {
         const svg = createElement('svg', {
@@ -1429,6 +1592,20 @@
             labelGroup.appendChild(label);
         });
         svg.appendChild(labelGroup);
+
+        // 不整合面(長い空白)。行の境界に月の境界より荒い線を画面の端まで引き、日数を線のすぐ上に示す(#29)。
+        // ラベルは月ラベル列(labelWidth)に収まらない長さなので、軸の右(記事カードの行間の余白)に置く。
+        // 狭い画面では月ラベルと同じく帯の左上に小さく置く
+        svg.appendChild(buildHiatusGroup(layout.hiatuses, {
+            lineWidth: bleedWidth,
+            lineOffsetX: options.bleed,
+            amplitude: 5,
+            labelX: options.compact ? 4 : options.axisX + 12,
+            labelDy: -6,
+            labelAnchor: 'start',
+            label: options.hiatusLabel,
+            labelClass: options.compact ? 'is-compact' : ''
+        }));
 
         const nodeY = {};
         layout.nodes.forEach(function (node) {
@@ -1650,7 +1827,7 @@
         if (rows.length === 0) {
             return;
         }
-        const layout = buildTimelineLayout(rows, posts);
+        const layout = buildTimelineLayout(rows, posts, {hiatusDays: HIATUS_DAYS});
         const compact = list.clientWidth < 600;
         const styles = getComputedStyle(list);
         const labelWidth = compact ? 0 : parseFloat(styles.getPropertyValue('--strata-timeline-label-width'));
@@ -1681,6 +1858,7 @@
             bleed: 2000,
             label: container.dataset.strataLabel || '',
             offPageLabel: container.dataset.strataOffpageLabel || '+%',
+            hiatusLabel: container.dataset.strataHiatusLabel || '%',
             compact: compact
         });
         list.insertBefore(svg, list.firstChild);
@@ -1705,7 +1883,7 @@
         if (posts.length === 0) {
             return;
         }
-        const layout = buildLayout(posts, {minGap: 44, pixelsPerDay: 1.5});
+        const layout = buildLayout(posts, {minGap: 44, pixelsPerDay: 1.5, hiatusDays: HIATUS_DAYS, hiatusGap: 80});
         const svg = renderSvg(layout, {
             axisX: 180,
             width: 720,
@@ -1716,7 +1894,8 @@
             yearGap: 34,
             maxDepthShade: 6,
             titleMaxLength: 32,
-            label: container.dataset.strataLabel || ''
+            label: container.dataset.strataLabel || '',
+            hiatusLabel: container.dataset.strataHiatusLabel || '%'
         });
         const figure = document.createElement('div');
         figure.className = 'gh-strata-graph';
@@ -1735,6 +1914,7 @@
         computeEmphasis: computeEmphasis,
         buildStrataBands: buildStrataBands,
         strataBoundaryPath: strataBoundaryPath,
+        hiatusBoundaryPath: hiatusBoundaryPath,
         assignBandIcons: assignBandIcons,
         columnExtent: columnExtent,
         paneEdgePath: paneEdgePath,

@@ -2709,6 +2709,26 @@ figcaption a {
     letter-spacing: 0.04em;
 }
 
+/* 不整合面(長い空白期間)の境界線とラベル。月・年の境界より荒く濃い線で区別する(固定ページ・記事ペイン・タイムラインで共通) */
+.gh-strata-hiatus-line {
+    fill: none;
+    stroke: var(--strata-seed);
+    stroke-width: 1.2;
+    stroke-linejoin: round;
+    opacity: 0.6;
+}
+
+.gh-strata-hiatus-label {
+    fill: var(--strata-seed);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+}
+
+.gh-strata-hiatus-label.is-compact {
+    font-size: 9px;
+}
+
 /* 引用の線は、新しい記事(上)から古い層(下)へ伸びる「根」として土色で描く */
 .gh-strata-edge {
     fill: none;
