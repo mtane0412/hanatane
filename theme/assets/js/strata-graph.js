@@ -488,7 +488,7 @@
                 previousMonth = month;
             }
             y += row === 0 ? 0 : options.rowHeight;
-            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, row: row, y: y, icon: post.icon || null});
+            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, row: row, y: y, icon: post.icon || null, summary: post.summary || null});
             rowOf[post.slug] = row;
         });
 
@@ -1073,7 +1073,7 @@
      *
      * @param {ReturnType<typeof buildPaneLayout>} layout
      * @param {ReturnType<typeof computeEmphasis>} emphasis
-     * @param {{axisX: number, laneWidth: number, rowHeight: number, width: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, dateLocale: string}} options
+     * @param {{axisX: number, laneWidth: number, rowHeight: number, width: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, dateLocale: string, summaryMaxLength: number}} options
      *   axisX は列 0 の x 座標、laneWidth は列の間隔(px)。maxDepthShade は地層の色の濃さの段階数の上限(CSS の data-depth と一致させる)、bleed は地層をペイン端まで届かせるための左右のはみ出し幅(px)
      */
     function renderPaneSvg(layout, emphasis, options) {
@@ -1182,6 +1182,10 @@
             anchor.setAttribute('aria-label', node.title + ' (' + dateText + ')');
             anchor.setAttribute('data-title', node.title);
             anchor.setAttribute('data-date', dateText);
+            // 研究者の要約(summary)は長いので、ツールチップには先頭だけを出す(private 由来で null なら出さない)
+            if (node.summary) {
+                anchor.setAttribute('data-summary', truncate(node.summary, options.summaryMaxLength));
+            }
             const x = columnX(node.col, options);
             if (distance === 0) {
                 // 現在の記事は「芽吹いた種」として、輪と芽(茎と双葉)をつける
@@ -1206,7 +1210,8 @@
     }
 
     /**
-     * ノード(種)にマウスを乗せた・フォーカスしたときに、記事のタイトルと公開日を HTML のツールチップで表示する。
+     * ノード(種)にマウスを乗せた・フォーカスしたときに、記事のタイトルと公開日、研究者の要約の先頭(data-summary があれば)を
+     * HTML のツールチップで表示する。
      * SVG の <title> は表示までの遅延が長く狭いペインでは読みづらいため、ペイン内に絶対配置した要素を使う。
      * ツールチップはペインの座標系(fixed)に対して置くため、スクロール領域に切り取られない。
      */
@@ -1219,13 +1224,19 @@
         title.className = 'gh-strata-pane-tooltip-title';
         const date = document.createElement('span');
         date.className = 'gh-strata-pane-tooltip-date';
+        const summary = document.createElement('span');
+        summary.className = 'gh-strata-pane-tooltip-summary';
         tooltip.appendChild(title);
         tooltip.appendChild(date);
+        tooltip.appendChild(summary);
         pane.appendChild(tooltip);
 
         const show = function (anchor) {
             title.textContent = anchor.getAttribute('data-title');
             date.textContent = anchor.getAttribute('data-date');
+            const summaryText = anchor.getAttribute('data-summary');
+            summary.textContent = summaryText || '';
+            summary.hidden = !summaryText;
             const dot = anchor.querySelector('.gh-strata-pane-dot');
             const dotRect = dot.getBoundingClientRect();
             const paneRect = pane.getBoundingClientRect();
@@ -1299,7 +1310,8 @@
             maxDepthShade: 6,
             bleed: 400,
             label: pane.dataset.strataLabel || '',
-            dateLocale: document.documentElement.lang || undefined
+            dateLocale: document.documentElement.lang || undefined,
+            summaryMaxLength: 80
         });
         const scroll = pane.querySelector('[data-strata-scroll]');
         scroll.appendChild(svg);
