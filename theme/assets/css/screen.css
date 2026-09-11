@@ -2478,6 +2478,69 @@ figcaption a {
     text-decoration: underline;
 }
 
+/* 16a. Hyperstrata neighbors (直上・直下の層: 前後の記事と経過日数)
+/* ---------------------------------------------------------- */
+
+.gh-strata-neighbors {
+    margin-top: 48px;
+}
+
+/* 前後の記事が無い(記事が 1 本だけの)場合はセクションごと隠す(gh-citations と同じ方式) */
+.gh-strata-neighbors:not(:has(a)) {
+    display: none;
+}
+
+/* 上の層 / 下の層を地層の並びに合わせて縦に積む。ラベルとタイトルを左、公開日と経過日数を右に置く */
+.gh-strata-neighbor {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "label meta"
+        "title meta";
+    align-items: baseline;
+    column-gap: 16px;
+    padding: 10px 0;
+    border-top: 1px solid var(--color-border);
+    color: inherit;
+    text-decoration: none;
+}
+
+.gh-strata-neighbor:last-child {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.gh-strata-neighbor:hover .gh-strata-neighbor-title {
+    text-decoration: underline;
+}
+
+.gh-strata-neighbor-label {
+    grid-area: label;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-neighbor-title {
+    grid-area: title;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.gh-strata-neighbor-meta {
+    grid-area: meta;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-neighbor-meta [data-strata-neighbor-gap]:empty {
+    display: none;
+}
+
 /* 16b. Hyperstrata citations (References / Cited By)
 /* ---------------------------------------------------------- */
 

@@ -62,6 +62,9 @@
 
     </article>
 
+    {{!-- Hyperstrata: 直上・直下の層(前後の記事と経過日数)。JavaScript 無しでも出る(#33) --}}
+    {{> "strata-neighbors"}}
+
     {{!-- Hyperstrata: 引用ネットワーク。引用タグ(#ref-<slug>)は scripts/hyperstrata-sync.mjs が自動付与する。
           該当が無いグループ/セクションは CSS(:has) で非表示にする。
           Cited by の limit は Ghost の get ヘルパーが limit="all" を非推奨としているため上限100件とする --}}
