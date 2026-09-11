@@ -1,24 +1,24 @@
 /**
- * Hyperstrata 注釈(記事末尾の関連記事: 過去記事との関係)ビュー
+ * Hyperstrata 注釈(記事末尾の発掘記録と関連記事: 過去記事との関係)ビュー
  *
- * scripts/hyperstrata-sync.mjs が assets/graph.json に合成する inferredRefs(関係先・種類・理由)を
- * fetch で読み取り、post.hbs の gh-citations(References / Cited by)の直後にある
- * [data-strata-annotation] セクションへ 2 つのグループとして描画する。
+ * scripts/hyperstrata-sync.mjs が assets/graph.json に合成する summary(要約)・annotator(発掘者)・
+ * annotatedAt(発掘日)・inferredRefs(関係先・種類・理由)を fetch で読み取り、post.hbs の
+ * gh-citations(References / Cited by)の直後にある [data-strata-annotation] セクションへ描画する。
+ *   - Excavation record(発掘記録): 現在記事の summary を <details> の折りたたみで出し、末尾に
+ *                    発掘者名と発掘日を添える(考古学の発掘記録のように「研究者がいつ読んで何と要約したか」を掲示する)
  *   - Related posts: 現在記事の inferredRefs(現在記事から過去記事への関係)
  *   - Later posts:   現在記事を inferredRefs に持つ後の記事(逆引き。人間の層の Cited by に相当し、
  *                    古い記事を読んでいる人に「後の記事で更新(updates)・再訪(revisits)された」と知らせる)
  * 記事本文(immutable)は書き換えず、研究者の札を上に置く形で後の層との関係を見せる。
- * graph.json には記事の要約(summary)もあるが、関連記事欄は本文の後に置くリンク集であり
- * 要約は冗長なため表示しない(要約はグラフビュー assets/js/strata-graph.js 側の用途)。
  * URL はテンプレートが data-strata-graph-url({{asset "graph.json"}})で渡す。
  * 本文の表示を優先するため、初期化は requestIdleCallback で遅らせ、fetch は低優先度で行う
  * (assets/js/strata-graph.js と同じ方針。graph.json は同一 URL のため 2 回目の fetch は
  * ブラウザの HTTP キャッシュから返る)。
  *
- * - posts/strata/private/(限定記事の注釈)は reason が sops で暗号化されており、
- *   hyperstrata-sync.mjs は復号しないため、graph.json では inferredRefs[].reason が null になる。
- *   その場合は種類・タイトル・URL だけの関係一覧として表示する
- * - 関係が無いグループは非表示のままにし、両方とも無い記事(注釈が無い/機械の層が無い/
+ * - posts/strata/private/(限定記事の注釈)は summary と reason が sops で暗号化されており、
+ *   hyperstrata-sync.mjs は復号しないため、graph.json では summary と inferredRefs[].reason が null になる。
+ *   その場合、発掘記録は出さず(record: null)、関係は種類・タイトル・URL だけの一覧として表示する
+ * - 発掘記録も関係も無いグループは非表示のままにし、すべて無い記事(注釈が無い/機械の層が無い/
  *   後の記事から参照されていない)ではセクションごと非表示のままにする
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、何も表示しない
  * - 現在記事の情報選択(buildAnnotationView)は DOM に依存しない純粋関数として
@@ -54,16 +54,19 @@
     }
 
     /**
-     * graph.json の記事配列から、現在記事の関係先(relations)と、現在記事を関係先に持つ
+     * graph.json の記事配列から、現在記事の発掘記録(record)と関係先(relations)、現在記事を関係先に持つ
      * 後の記事(citedBy)を組み立てる。
      *
+     * - record: 現在記事の summary・annotator・annotatedAt。summary が無い記事(注釈が無い、または
+     *   posts/strata/private/ 由来で暗号化されている)は null にして発掘記録を出さない。
+     *   annotator / annotatedAt が無い旧形式の graph.json では両者を null にする
      * - relations: 現在記事の inferredRefs を、関係先の記事情報付きで inferredRefs の順に並べる
      * - citedBy: 全記事の inferredRefs を走査し、slug が現在記事のものを逆引きして、
      *   参照している記事の情報付きで公開日の昇順に並べる(人間の層の Cited by と同じ並び)
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>, summary?: string|null, annotator?: string|null, annotatedAt?: string|null}>} posts
      * @param {string} currentSlug 現在表示中の記事の slug
-     * @returns {{relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>, citedBy: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>}}
+     * @returns {{record: {summary: string, annotator: string|null, annotatedAt: string|null}|null, relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>, citedBy: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>}}
      */
     function buildAnnotationView(posts, currentSlug) {
         if (!Array.isArray(posts)) {
@@ -75,8 +78,13 @@
         });
         const current = currentSlug ? postBySlug[currentSlug] : null;
         if (!current) {
-            return {relations: [], citedBy: []};
+            return {record: null, relations: [], citedBy: []};
         }
+        const record = current.summary ? {
+            summary: current.summary,
+            annotator: current.annotator || null,
+            annotatedAt: current.annotatedAt || null
+        } : null;
         const relations = (current.inferredRefs || [])
             .map(function (ref) {
                 const target = postBySlug[ref.slug];
@@ -96,7 +104,7 @@
         citedBy.sort(function (a, b) {
             return a.publishedAt < b.publishedAt ? -1 : (a.publishedAt > b.publishedAt ? 1 : 0);
         });
-        return {relations: relations, citedBy: citedBy};
+        return {record: record, relations: relations, citedBy: citedBy};
     }
 
     /**
@@ -179,16 +187,53 @@
     }
 
     /**
-     * [data-strata-annotation] セクションへ関係一覧(Related posts / Later posts)を描画する。
-     * どちらのグループにも関係が無ければセクションは非表示のままにする。
+     * 発掘記録([data-strata-annotation-record] の <details>)へ要約と発掘者・発掘日を描画し、表示する。
+     * 発掘日は <time datetime> に ISO 8601 を入れ、表示はページの言語(html の lang)の日付書式にする。
      *
      * @param {HTMLElement} section
-     * @param {{relations: Array<object>, citedBy: Array<object>}} view
+     * @param {{summary: string, annotator: string|null, annotatedAt: string|null}|null} record
+     * @returns {boolean} 描画したら true
+     */
+    function renderRecord(section, record) {
+        const details = section.querySelector('[data-strata-annotation-record]');
+        if (!details || !record) {
+            return false;
+        }
+        const summary = details.querySelector('[data-strata-annotation-summary]');
+        const meta = details.querySelector('[data-strata-annotation-meta]');
+        if (!summary || !meta) {
+            return false;
+        }
+        summary.textContent = record.summary;
+        if (record.annotator) {
+            const annotator = document.createElement('span');
+            annotator.className = 'gh-strata-annotation-annotator';
+            annotator.textContent = (meta.dataset.labelAnnotator ? meta.dataset.labelAnnotator + ' ' : '') + record.annotator;
+            meta.appendChild(annotator);
+        }
+        if (record.annotatedAt) {
+            const time = document.createElement('time');
+            time.className = 'gh-strata-annotation-date';
+            time.setAttribute('datetime', record.annotatedAt);
+            time.textContent = new Date(record.annotatedAt).toLocaleDateString(document.documentElement.lang || undefined);
+            meta.appendChild(time);
+        }
+        details.hidden = false;
+        return true;
+    }
+
+    /**
+     * [data-strata-annotation] セクションへ発掘記録と関係一覧(Related posts / Later posts)を描画する。
+     * 発掘記録もどちらのグループの関係も無ければセクションは非表示のままにする。
+     *
+     * @param {HTMLElement} section
+     * @param {{record: object|null, relations: Array<object>, citedBy: Array<object>}} view
      */
     function render(section, view) {
+        const hasRecord = renderRecord(section, view.record);
         const hasRelations = renderGroup(section, 'relations', view.relations);
         const hasCitedBy = renderGroup(section, 'cited-by', view.citedBy);
-        if (hasRelations || hasCitedBy) {
+        if (hasRecord || hasRelations || hasCitedBy) {
             section.hidden = false;
         }
     }

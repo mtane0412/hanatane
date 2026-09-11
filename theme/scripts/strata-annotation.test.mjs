@@ -36,7 +36,9 @@ const 記事一覧 = [
         refs: ['window-film'],
         inferredRefs: [{slug: 'window-film', type: 'continues', reason: '前回の記事として明言しているため。'}],
         summary: 'Hyperstrata を Ghost に実装した記事の要約。',
-        icon: 'tech'
+        icon: 'tech',
+        annotator: 'claude-sonnet-5',
+        annotatedAt: '2026-09-10T04:53:17Z'
     },
     {
         slug: 'window-film',
@@ -46,7 +48,9 @@ const 記事一覧 = [
         refs: [],
         inferredRefs: [{slug: 'welcome-cat', type: 'continues', reason: null}],
         summary: null,
-        icon: 'cat'
+        icon: 'cat',
+        annotator: 'claude-sonnet-5',
+        annotatedAt: '2026-09-10T04:51:15Z'
     },
     {
         slug: 'welcome-cat',
@@ -70,10 +74,10 @@ const 記事一覧 = [
     }
 ];
 
-test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情報付きで返し、summary と icon は含めない(関連記事欄には要約も題材アイコンも出さない)', () => {
+test('buildAnnotationView: 現在記事の inferredRefs を関係先の記事情報付きで返し、各関係には summary と icon を含めない(関連記事の一覧には要約も題材アイコンも出さない)', () => {
     const {buildAnnotationView} = 読み込む();
     const view = buildAnnotationView(記事一覧, 'hyperstrata');
-    assert.deepEqual(Object.keys(view), ['relations', 'citedBy']);
+    assert.deepEqual(Object.keys(view), ['record', 'relations', 'citedBy']);
     assert.deepEqual(view.relations, [
         {
             type: 'continues',
@@ -109,8 +113,8 @@ test('buildAnnotationView: 現在記事に inferredRefs が無ければ空の関
 
 test('buildAnnotationView: currentSlug が posts に無い(空文字含む)場合は relations: [] を返す', () => {
     const {buildAnnotationView} = 読み込む();
-    assert.deepEqual(buildAnnotationView(記事一覧, ''), {relations: [], citedBy: []});
-    assert.deepEqual(buildAnnotationView(記事一覧, 'not-found'), {relations: [], citedBy: []});
+    assert.deepEqual(buildAnnotationView(記事一覧, ''), {record: null, relations: [], citedBy: []});
+    assert.deepEqual(buildAnnotationView(記事一覧, 'not-found'), {record: null, relations: [], citedBy: []});
 });
 
 test('buildAnnotationView: 関係先slugが posts に存在しない場合(古いキャッシュ等)は無視する', () => {
@@ -126,7 +130,7 @@ test('buildAnnotationView: 関係先slugが posts に存在しない場合(古�
             summary: null
         }
     ];
-    assert.deepEqual(buildAnnotationView(posts, 'a'), {relations: [], citedBy: []});
+    assert.deepEqual(buildAnnotationView(posts, 'a'), {record: null, relations: [], citedBy: []});
 });
 
 test('buildAnnotationView: 現在記事を inferredRefs に持つ後の記事を citedBy として公開日の昇順で返す(古い記事側に updates / revisits を見せる)', () => {
@@ -166,4 +170,29 @@ test('buildAnnotationView: citedBy は公開日が逆順に並んだ posts で�
 test('buildAnnotationView: posts が配列でない場合は例外を投げる', () => {
     const {buildAnnotationView} = 読み込む();
     assert.throws(() => buildAnnotationView(null, 'a'), /posts/);
+});
+
+test('buildAnnotationView: 現在記事に summary があれば発掘記録(record)として要約・発掘者・発掘日を返す', () => {
+    const {buildAnnotationView} = 読み込む();
+    const view = buildAnnotationView(記事一覧, 'hyperstrata');
+    assert.deepEqual(view.record, {
+        summary: 'Hyperstrata を Ghost に実装した記事の要約。',
+        annotator: 'claude-sonnet-5',
+        annotatedAt: '2026-09-10T04:53:17Z'
+    });
+});
+
+test('buildAnnotationView: summary が null の記事(posts/strata/private/ 由来)は annotator があっても record を null にする(限定記事では発掘記録を出さない)', () => {
+    const {buildAnnotationView} = 読み込む();
+    assert.equal(buildAnnotationView(記事一覧, 'window-film').record, null);
+});
+
+test('buildAnnotationView: summary があり annotator / annotatedAt が無い記事(旧形式の graph.json)は record の両者を null にする', () => {
+    const {buildAnnotationView} = 読み込む();
+    const posts = 記事一覧.map(post => (post.slug === 'welcome-cat' ? {...post, summary: '猫を迎えた記事の要約。'} : post));
+    assert.deepEqual(buildAnnotationView(posts, 'welcome-cat').record, {
+        summary: '猫を迎えた記事の要約。',
+        annotator: null,
+        annotatedAt: null
+    });
 });

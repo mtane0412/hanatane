@@ -2531,15 +2531,16 @@ figcaption a {
     color: var(--color-secondary-text);
 }
 
-/* 16c. Hyperstrata annotation (記事末尾の関連記事: 過去記事との関係 / 後の記事からの参照)
+/* 16c. Hyperstrata annotation (記事末尾の発掘記録と関連記事: 過去記事との関係 / 後の記事からの参照)
 /* ---------------------------------------------------------- */
 
 .gh-strata-annotation {
     margin-top: 48px;
 }
 
-/* Related posts と Later posts の 2 グループを gh-citations-group と同じ間隔で並べる。
-   グループは JS が関係を描画したときだけ hidden を外すため、前のグループが表示されているときだけ間隔を取る */
+/* 発掘記録(details)と Related posts / Later posts の各グループを gh-citations-group と同じ間隔で並べる。
+   各要素は JS が描画したときだけ hidden を外すため、前の要素が表示されているときだけ間隔を取る */
+.gh-strata-annotation-record:not([hidden]) + .gh-strata-annotation-group,
 .gh-strata-annotation-group:not([hidden]) + .gh-strata-annotation-group {
     margin-top: 32px;
 }
@@ -2549,6 +2550,50 @@ figcaption a {
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: -0.01em;
+}
+
+/* 発掘記録は details で折りたたみ、見出し(summary)をグループの見出しと同じ見た目にする。
+   display: flex 等を当てないため、hidden 属性はブラウザ標準の display: none がそのまま効く */
+.gh-strata-annotation-record > summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.gh-strata-annotation-record > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* 開閉状態を示す三角(▸ / ▾)を見出しの前に置く */
+.gh-strata-annotation-record > summary::before {
+    content: "▸";
+    display: inline-block;
+    width: 1em;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-annotation-record[open] > summary::before {
+    content: "▾";
+}
+
+.gh-strata-annotation-summary {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
+/* 発掘者と発掘日は要約の末尾に控えめに添える */
+.gh-strata-annotation-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--color-secondary-text);
+}
+
+.gh-strata-annotation-meta:empty {
+    display: none;
 }
 
 .gh-strata-annotation-list {
@@ -2900,7 +2945,7 @@ figcaption a {
     ry: 7;
 }
 
-/* 種にマウスを乗せたときのツールチップ(タイトルと公開日)。位置は JS がペイン基準で決める */
+/* 種にマウスを乗せたときのツールチップ(タイトルと公開日、研究者の要約の先頭)。位置は JS がペイン基準で決める */
 .gh-strata-pane-tooltip {
     position: absolute;
     z-index: 2;
@@ -2933,6 +2978,19 @@ figcaption a {
     font-family: var(--font-mono);
     font-size: 1rem;
     color: var(--color-secondary-text);
+}
+
+/* 研究者の要約の先頭(strata-graph.js が summaryMaxLength 文字で切る)。summary が無い記事では JS が hidden にする */
+.gh-strata-pane-tooltip-summary {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--color-secondary-text);
+    overflow-wrap: anywhere;
+}
+
+.gh-strata-pane-tooltip-summary[hidden] {
+    display: none;
 }
 
 /* 開閉ボタンは狭い画面でだけ表示する */

@@ -185,7 +185,7 @@ const グラフ用記事 = [
     {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', published_at: '2026-03-01T00:00:00.000Z'}
 ];
 
-test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slug/title/url/publishedAt/refs/inferredRefs/summary を含める', () => {
+test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slug/title/url/publishedAt/refs/inferredRefs/summary/icon/annotator/annotatedAt を含める', () => {
     const referencedSlugsBySlug = new Map([
         ['hyperstrata-introduction', []],
         ['digital-garden-limits', ['hyperstrata-introduction']],
@@ -195,9 +195,9 @@ test('buildGraph: 記事を公開日の降順(同日は slug 順)に並べ、slu
     const graph = buildGraph({posts: [グラフ用記事[0], グラフ用記事[2], グラフ用記事[1]], referencedSlugsBySlug});
     assert.deepEqual(graph, {
         posts: [
-            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: [], summary: null, icon: null},
-            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: [], summary: null, icon: null},
-            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: [], summary: null, icon: null}
+            {slug: 'correction-of-first-note', title: '最初のノートの訂正', url: 'https://example.com/correction-of-first-note/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['digital-garden-limits', 'hyperstrata-introduction'], inferredRefs: [], summary: null, icon: null, annotator: null, annotatedAt: null},
+            {slug: 'digital-garden-limits', title: 'デジタルガーデンの限界', url: 'https://example.com/digital-garden-limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['hyperstrata-introduction'], inferredRefs: [], summary: null, icon: null, annotator: null, annotatedAt: null},
+            {slug: 'hyperstrata-introduction', title: 'Hyperstrata 紹介', url: 'https://example.com/hyperstrata-introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: [], summary: null, icon: null, annotator: null, annotatedAt: null}
         ]
     });
 });
@@ -353,7 +353,9 @@ test('parseAnnotation: includeText:true では summary と relations[].reason �
         relations: [
             {slug: 'welcome-cat', type: 'continues', reason: '前回の記事として明言しているため。'}
         ],
-        icon: null
+        icon: null,
+        annotator: 'claude-sonnet-5',
+        annotatedAt: '2026-09-10T04:53:17Z'
     });
 });
 
@@ -372,13 +374,15 @@ test('parseAnnotation: includeText:false では summary と relations[].reason �
         relations: [
             {slug: 'diet-declaration-2023', type: 'continues', reason: null}
         ],
-        icon: null
+        icon: null,
+        annotator: null,
+        annotatedAt: null
     });
 });
 
 test('parseAnnotation: relations が無い注釈は空配列になる', () => {
     const result = parseAnnotation({slug: 'lonely-post'}, {includeText: true});
-    assert.deepEqual(result, {slug: 'lonely-post', summary: null, relations: [], icon: null});
+    assert.deepEqual(result, {slug: 'lonely-post', summary: null, relations: [], icon: null, annotator: null, annotatedAt: null});
 });
 
 // ---------------------------------------------------------------------------
@@ -422,4 +426,34 @@ test('buildGraph: iconBySlug を渡さない場合も、既存の呼び出し方
     graph.posts.forEach(post => {
         assert.equal(post.icon, null);
     });
+});
+
+// ---------------------------------------------------------------------------
+// 発掘記録(annotator・annotated_at)の合成
+// ---------------------------------------------------------------------------
+
+test('parseAnnotation: annotator と annotated_at はそのまま含める(private でも暗号化されないため includeText に関わらず通す)', () => {
+    const annotation = {slug: 'welcome-cat', annotated_at: '2026-09-10T04:51:15Z', annotator: 'claude-sonnet-5'};
+    const 平文注釈 = parseAnnotation(annotation, {includeText: true});
+    assert.equal(平文注釈.annotator, 'claude-sonnet-5');
+    assert.equal(平文注釈.annotatedAt, '2026-09-10T04:51:15Z');
+    const private注釈 = parseAnnotation(annotation, {includeText: false});
+    assert.equal(private注釈.annotator, 'claude-sonnet-5');
+    assert.equal(private注釈.annotatedAt, '2026-09-10T04:51:15Z');
+});
+
+test('buildGraph: annotatorBySlug と annotatedAtBySlug を渡すと各記事に annotator / annotatedAt が付き、対応が無い記事は null になる', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const annotatorBySlug = new Map([['hyperstrata-introduction', 'claude-sonnet-5']]);
+    const annotatedAtBySlug = new Map([['hyperstrata-introduction', '2026-09-10T04:53:17Z']]);
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, annotatorBySlug, annotatedAtBySlug});
+    const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
+    assert.equal(対応表.get('hyperstrata-introduction').annotator, 'claude-sonnet-5');
+    assert.equal(対応表.get('hyperstrata-introduction').annotatedAt, '2026-09-10T04:53:17Z');
+    assert.equal(対応表.get('digital-garden-limits').annotator, null);
+    assert.equal(対応表.get('digital-garden-limits').annotatedAt, null);
 });

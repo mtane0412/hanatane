@@ -182,6 +182,8 @@ export function selectOrphanRefTags(tags) {
  * 空配列にする。関係先が公開記事一覧に無い場合(下書き・削除済みを指している)と自己参照は除外する。
  *
  * `summaryBySlug` を渡すと、各記事に Hyperstrata 注釈の要約(`summary`)を付ける。対応が無い記事は null にする。
+ * `annotatorBySlug` / `annotatedAtBySlug` を渡すと、発掘記録として注釈を書いた研究者(`annotator`)と
+ * 注釈日時(`annotatedAt`)を付ける。対応が無い記事は null にする(テーマの記事ページが summary と共に掲示する)。
  * `inferredRelationsBySlug` の各関係に `reason`(関係の理由)があれば `inferredRefs` にそのまま含め、
  * 無ければ null にする(`posts/strata/private/` の暗号化注釈は summary/reason を渡さないため)。
  *
@@ -191,9 +193,11 @@ export function selectOrphanRefTags(tags) {
  * @param {Map<string, Array<{slug: string, type: string, reason?: string}>>} [params.inferredRelationsBySlug] 記事 slug → Hyperstrata 注釈の関係先の対応表
  * @param {Map<string, string>} [params.summaryBySlug] 記事 slug → Hyperstrata 注釈の要約の対応表
  * @param {Map<string, string>} [params.iconBySlug] 記事 slug → Hyperstrata 注釈の題材アイコン種別の対応表
- * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string, reason: string|null}>, summary: string|null, icon: string|null}>}}
+ * @param {Map<string, string>} [params.annotatorBySlug] 記事 slug → 注釈を書いた研究者(モデル ID)の対応表
+ * @param {Map<string, string>} [params.annotatedAtBySlug] 記事 slug → 注釈日時(ISO 8601)の対応表
+ * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string, reason: string|null}>, summary: string|null, icon: string|null, annotator: string|null, annotatedAt: string|null}>}}
  */
-export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map(), summaryBySlug = new Map(), iconBySlug = new Map()}) {
+export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map(), summaryBySlug = new Map(), iconBySlug = new Map(), annotatorBySlug = new Map(), annotatedAtBySlug = new Map()}) {
     const publishedSlugs = new Set(posts.map((post) => post.slug));
     const nodes = posts.map((post) => {
         const refs = referencedSlugsBySlug.get(post.slug);
@@ -211,7 +215,9 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
             refs,
             inferredRefs,
             summary: summaryBySlug.get(post.slug) ?? null,
-            icon: iconBySlug.get(post.slug) ?? null
+            icon: iconBySlug.get(post.slug) ?? null,
+            annotator: annotatorBySlug.get(post.slug) ?? null,
+            annotatedAt: annotatedAtBySlug.get(post.slug) ?? null
         };
     });
     nodes.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
@@ -223,12 +229,13 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
  *
  * `posts/strata/private/` の注釈は summary と relations[].reason が sops(`posts/.sops.yaml`)で暗号化されており、
  * このスクリプトは復号しない。`includeText: false` を渡すと、暗号文を graph.json(公開アセット)に
- * そのまま書き出してしまわないよう summary と reason を null にする。関係先の slug と type、icon(題材アイコン種別)は
- * private でも暗号化されないため、includeText に関わらずそのまま含める。
+ * そのまま書き出してしまわないよう summary と reason を null にする。関係先の slug と type、icon(題材アイコン種別)、
+ * annotator(注釈を書いた研究者)、annotated_at(注釈日時)は private でも暗号化されないため
+ * (`posts/.sops.yaml` の encrypted_regex は summary と reason だけ)、includeText に関わらずそのまま含める。
  *
- * @param {{slug: string, summary?: string, relations?: Array<{slug: string, type: string, reason?: string}>, icon?: string}} annotation
+ * @param {{slug: string, summary?: string, relations?: Array<{slug: string, type: string, reason?: string}>, icon?: string, annotator?: string, annotated_at?: string}} annotation
  * @param {{includeText: boolean}} params
- * @returns {{slug: string, summary: string|null, relations: Array<{slug: string, type: string, reason: string|null}>, icon: string|null}}
+ * @returns {{slug: string, summary: string|null, relations: Array<{slug: string, type: string, reason: string|null}>, icon: string|null, annotator: string|null, annotatedAt: string|null}}
  */
 export function parseAnnotation(annotation, {includeText}) {
     const relations = (annotation.relations ?? []).map((relation) => ({
@@ -240,7 +247,9 @@ export function parseAnnotation(annotation, {includeText}) {
         slug: annotation.slug,
         summary: includeText ? (annotation.summary ?? null) : null,
         relations,
-        icon: annotation.icon ?? null
+        icon: annotation.icon ?? null,
+        annotator: annotation.annotator ?? null,
+        annotatedAt: annotation.annotated_at ?? null
     };
 }
 
@@ -252,7 +261,7 @@ export function parseAnnotation(annotation, {includeText}) {
  * 復号しないため、parseAnnotation の includeText: false で null にする(relations[].slug/type は
  * 暗号化対象に含まれず平文のためそのまま使う)。ディレクトリが存在しない場合はそのディレクトリ分を空とする。
  *
- * @returns {Promise<{inferredRelationsBySlug: Map<string, Array<{slug: string, type: string, reason: string|null}>>, summaryBySlug: Map<string, string>, iconBySlug: Map<string, string>}>}
+ * @returns {Promise<{inferredRelationsBySlug: Map<string, Array<{slug: string, type: string, reason: string|null}>>, summaryBySlug: Map<string, string>, iconBySlug: Map<string, string>, annotatorBySlug: Map<string, string>, annotatedAtBySlug: Map<string, string>}>}
  */
 async function readInferredRelations() {
     const dirs = [
@@ -262,6 +271,8 @@ async function readInferredRelations() {
     const inferredRelationsBySlug = new Map();
     const summaryBySlug = new Map();
     const iconBySlug = new Map();
+    const annotatorBySlug = new Map();
+    const annotatedAtBySlug = new Map();
     for (const {url: dir, includeText} of dirs) {
         let fileNames;
         try {
@@ -289,9 +300,15 @@ async function readInferredRelations() {
             if (parsed.icon !== null) {
                 iconBySlug.set(parsed.slug, parsed.icon);
             }
+            if (parsed.annotator !== null) {
+                annotatorBySlug.set(parsed.slug, parsed.annotator);
+            }
+            if (parsed.annotatedAt !== null) {
+                annotatedAtBySlug.set(parsed.slug, parsed.annotatedAt);
+            }
         }
     }
-    return {inferredRelationsBySlug, summaryBySlug, iconBySlug};
+    return {inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug};
 }
 
 /**
@@ -442,8 +459,8 @@ async function main() {
     const refTags = await client.getRefTags();
     await ensureRefTagDescriptions(client, refTags, dryRun);
     const prunedCount = await pruneOrphanRefTags(client, refTags, dryRun);
-    const {inferredRelationsBySlug, summaryBySlug, iconBySlug} = await readInferredRelations();
-    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug, iconBySlug}), dryRun);
+    const {inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug} = await readInferredRelations();
+    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug}), dryRun);
     console.log(`完了: ${updatedCount} 件の記事を更新、${prunedCount} 件の引用タグを削除${dryRun ? '予定' : ''}、graph.json は${graphChanged ? '更新' : '変更なし'}`);
 }
 

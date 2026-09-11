@@ -234,6 +234,13 @@ test('buildPaneLayout: ノードは列(col)を持ち、最も新しい記事の�
     assert.equal(layout.maxCol, Math.max(列.newest, 列.middle, 列.oldest));
 });
 
+test('buildPaneLayout: ノードは記事の summary(研究者の要約)をそのまま持ち、無ければ null になる(ツールチップに先頭を出すため)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 要約付き = ペイン記事.map(post => (post.slug === 'newest' ? {...post, summary: '最新の記事の要約。'} : post));
+    const layout = buildPaneLayout(要約付き, ペイン設定);
+    assert.deepEqual(layout.nodes.map(node => node.summary), ['最新の記事の要約。', null, null]);
+});
+
 test('buildPaneLayout: ノードは記事の icon をそのまま持ち、無ければ null になる', () => {
     const {buildPaneLayout} = ペインを読み込む();
     const 記事一覧 = [
