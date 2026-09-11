@@ -154,7 +154,7 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 | 引用（人間の層） | 著者。本文に過去記事へのリンクを書く | Ghost の `#ref-<slug>` タグ（`hyperstrata-sync` workflow が付ける） | 著者が意識的に参照した関係 |
 | 注釈（機械の層） | Claude Code のセッション（`.claude/skills/strata-annotate`） | `posts/strata/<slug>.json` | 要約と、過去記事との関係の推定 |
 
-注釈は本文には手を入れず、記事ごとに 1 ファイルで積みます。人間はタグやカテゴリを付けず、書くことに集中します。
+注釈は本文には手を入れず、記事ごとに 1 ファイルで積みます。人間はタグやカテゴリを付けず、書くことに集中します。タグ・slug・excerpt は公開前に研究者（Claude Code）が整えます（後述の「[公開前の整備](#公開前の整備slugexcerpttags)」）。
 
 ### 注釈ファイルの形式
 
@@ -208,6 +208,42 @@ pnpm --filter ./posts strata encrypt <slug>   # <slug>.plain.json を検証・�
 ```
 
 記事一覧は `content/**/*.post.json` の平文メタ情報から作るため、注釈を付ける前に `pull` で最新にしてください。注釈を付ける手順は `.claude/skills/strata-annotate/SKILL.md` にまとめています。
+
+## 公開前の整備（slug・excerpt・tags）
+
+著者が下書きを書き終えたあと、公開する前に、Claude Code のセッション（`.claude/skills/publish-prepare`）が研究者として slug・excerpt・tags を整えます。整備は下書きのうちに行います（slug は URL と Hyperstrata の関係の主キーになるため、公開後は変えません）。流れは「下書き → 整備（publish-prepare） → 公開（ghost-posts） → 注釈（strata-annotate）」です。
+
+| 項目 | 基準 | 検査 |
+|---|---|---|
+| slug | `YYYYMMDD-<英語の題材>`（例: `20260910-hyperstrata-design`）。日付は公開予定日（JST）。同じ話題が繰り返される前提で、日付で一意にする。既存記事（日付の無い slug）は変えない | `curate check`、`curate rename` |
+| excerpt | 140 字以内。「A、B、C について話しました。」のように話した題材を並べる、Podcast の概要のような文。結論や感想は入れない（結論まで書く要約は注釈の `summary`） | `curate check` |
+| tags | `tags.json`（統制語彙）から 1〜3 個。`#` で始まる内部タグ（`#ref-*` など）は対象外 | `curate check`、`curate tags check`（CI と pre-commit hook） |
+
+### 統制語彙（`tags.json`）
+
+```json
+{
+  "tags": [
+    { "name": "猫の話", "slug": "cat", "description": "飼い猫の記事（お迎え・行動・道具・健康）" }
+  ]
+}
+```
+
+- `name` は Ghost のタグ名（記事の `tags` に書く値）、`slug` は Ghost のタグ slug（英小文字・数字・ハイフン。日本語名から Ghost が自動生成する中国語読みの slug を避けるために明示する）、`description` はどんな記事に付けるかの基準です。
+- 語彙は固定ではありません。記事が積もるにつれて、研究者が記事全体を見ながら統合・分割・改名を行います。語彙を変えたら `curate tags sync` で Ghost のタグに反映し、既存記事のタグを付け替えたうえで `curate tags check` を通します。
+- 語彙に無いタグが付いた記事があると `curate tags check` が失敗します（付け替え忘れの検出）。
+
+### コマンド
+
+```bash
+pnpm --filter ./posts curate tags                    # 統制語彙を、記事での使用数とともに一覧する
+pnpm --filter ./posts curate tags check              # すべての記事のタグが統制語彙にあるかを検査する（CI と pre-commit hook）
+pnpm --filter ./posts curate tags sync [--dry-run]   # 統制語彙に合わせて Ghost のタグを作成・slug 変更する（語彙に無い Ghost のタグには触れない）
+pnpm --filter ./posts curate check <slug>            # 下書きが公開の基準（slug 形式・excerpt・タグ）を満たすかを検査する
+pnpm --filter ./posts curate rename <old> <new>      # 下書きの slug を変更する（Ghost 側を変え、content/ の古いファイルを消して pull し直す）
+```
+
+`curate rename` は下書きにだけ使えます。公開済みの記事や、Hyperstrata の注釈（`strata/<slug>.json`）がある記事は拒みます。ghst 0.17.1 の `post update` には slug を変える専用オプションが無いため、`{ "slug": ... }` を `--from-json` で渡しています。
 
 ## 開発
 

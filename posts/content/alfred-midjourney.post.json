@@ -5,7 +5,6 @@
 	"visibility": "public",
 	"tags": [
 		"技術の話",
-		"Alfred",
 		"#Import 2025-03-18 13:46"
 	],
 	"excerpt": "AlfredからMidjourneyのNode.jsクライアントを利用してDiscord上で画像生成ができるようにしました",

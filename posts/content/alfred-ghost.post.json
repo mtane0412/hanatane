@@ -6,7 +6,6 @@
 	"tags": [
 		"技術の話",
 		"Ghost",
-		"Alfred",
 		"#Import 2025-03-18 13:46"
 	],
 	"excerpt": "Ghostの記事をインクリメンタルサーチしてURLをクリップボードにコピーするAlfred Workflowを作りました",

@@ -8,7 +8,7 @@ hanatane.net（Ghost）に関わるものを束ねるモノレポ。パッケー
 |---|---|---|
 | `theme/` | Ghost テーマ（TryGhost/Source から派生、upstream 同期は終了し独自開発） | `theme/AGENTS.md` |
 | `ogp/` | OGP 画像生成。手動作成 Web アプリ（Cloudflare Workers）と、Ghost の `og_image` への事前生成 | `ogp/CLAUDE.md` |
-| `posts/` | 記事の管理（新規は Markdown、既存は `pull` で取り込んだ Lexical JSON）と、Ghost 公式 CLI `ghst` による反映。メンバー限定記事は `posts/content/private/` に sops+age で暗号化して置く。Hyperstrata の注釈（要約と過去記事との関係）は `posts/strata/` に置き、Claude Code が `.claude/skills/strata-annotate` で書く。記事の作成・更新は `.claude/skills/ghost-posts` を使う | `posts/README.md` |
+| `posts/` | 記事の管理（新規は Markdown、既存は `pull` で取り込んだ Lexical JSON）と、Ghost 公式 CLI `ghst` による反映。メンバー限定記事は `posts/content/private/` に sops+age で暗号化して置く。公開前の slug・excerpt・tags の整備は Claude Code が `.claude/skills/publish-prepare` で行う（統制語彙は `posts/tags.json`）。Hyperstrata の注釈（要約と過去記事との関係）は `posts/strata/` に置き、Claude Code が `.claude/skills/strata-annotate` で書く。記事の作成・更新は `.claude/skills/ghost-posts` を使う | `posts/README.md` |
 | `infra/` | さくら VPS の構成管理（Ansible、OpenTofu、sops+age 暗号化シークレット） | `infra/README.md`, `infra/docs/runbook.md` |
 | `packages/` | 共有パッケージ（今後: Ghost Admin API クライアントの共通化） | |
 | `local/` | ローカル確認環境。本番と同じ Ghost の Docker イメージで `theme/` を表示し、`posts/content/` の公開記事を公開日付きで投入する | `local/README.md` |
@@ -26,6 +26,8 @@ pnpm ghst <command>   # Ghost 公式 CLI（認証は pnpm ghst auth login --site
 pnpm --filter ./posts pull                          # Ghost の記事を content/<slug>.post.json に取り込む
 pnpm --filter ./posts push content/<slug>.md        # または content/<slug>.post.json
 pnpm --filter ./posts strata pending                # Hyperstrata の注釈が無い公開記事を一覧する（注釈は strata-annotate スキルで書く）
+pnpm --filter ./posts curate check <slug>           # 下書きが公開の基準（slug 形式・excerpt・統制語彙のタグ）を満たすかを検査する（整備は publish-prepare スキルで行う）
+pnpm --filter ./posts curate tags                   # 統制語彙（posts/tags.json）を使用数つきで一覧する
 pnpm --filter ./theme dev
 pnpm --filter ./ogp dev
 docker compose -f local/docker-compose.yml up -d   # ローカル確認環境(初回は local/README.md の手順で管理者作成と記事投入)

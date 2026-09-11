@@ -473,3 +473,33 @@ describe("lexicalToText", () => {
 		expect(() => lexicalToText({})).toThrow("root");
 	});
 });
+
+describe("readPublishedPost のタグと excerpt", () => {
+	it("平文メタ情報の tags と excerpt を読み取る", () => {
+		const content = JSON.stringify({
+			title: "猫を迎えた",
+			slug: "welcome-cat",
+			status: "draft",
+			visibility: "public",
+			tags: ["猫の話", "#ref-window-film"],
+			excerpt: "猫を迎えた 2 週間について話しました。",
+			lexical: {},
+		});
+		const post = readPublishedPost(content, "welcome-cat.post.json");
+		expect(post.tags).toEqual(["猫の話", "#ref-window-film"]);
+		expect(post.excerpt).toBe("猫を迎えた 2 週間について話しました。");
+	});
+
+	it("tags と excerpt が無ければ省略される", () => {
+		const content = JSON.stringify({
+			title: "猫を迎えた",
+			slug: "welcome-cat",
+			status: "draft",
+			visibility: "public",
+			lexical: {},
+		});
+		const post = readPublishedPost(content, "welcome-cat.post.json");
+		expect(post.tags).toBeUndefined();
+		expect(post.excerpt).toBeUndefined();
+	});
+});

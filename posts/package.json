@@ -12,7 +12,8 @@
 		"test": "vitest run",
 		"lint": "biome check",
 		"format": "biome format --write",
-		"type-check": "tsc --noEmit"
+		"type-check": "tsc --noEmit",
+		"curate": "tsx scripts/curate.ts"
 	},
 	"dependencies": {
 		"yaml": "^2.9.0"

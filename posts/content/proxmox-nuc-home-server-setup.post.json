@@ -5,7 +5,6 @@
 	"visibility": "public",
 	"tags": [
 		"技術の話",
-		"selfhosted",
 		"#Import 2025-03-18 13:46"
 	],
 	"excerpt": "「自宅サーバー環境を構築してみたい」と考えている方向けに、NUCとProxmoxを組み合わせた事例を紹介します",

@@ -9,7 +9,7 @@ description: hanatane.net（Ghost）の記事を posts/content/*.md で作成・
 
 ## 記事ファイルの形式
 
-- 新規記事: `posts/content/<slug>.md`（frontmatter 付き Markdown）。slug は英小文字とハイフンのみ。必須項目は `title`、`status` は省略すると `draft`。段落内で改行すると `<br>` になるため、1 段落は 1 行で書く。
+- 新規記事: `posts/content/<slug>.md`（frontmatter 付き Markdown）。slug は `YYYYMMDD-<英語の題材>`（例: `20260910-hyperstrata-design`。`publish-prepare` スキルの基準）。必須項目は `title`、`status` は省略すると `draft`。段落内で改行すると `<br>` になるため、1 段落は 1 行で書く。
 - 既存記事: `posts/content/<slug>.post.json`（`pull` で取り込んだ Lexical JSON）。本文は `lexical` の中で、テキスト修正は該当ノードの `text` を書き換える。ノードの構造（`type`、`version`、`children`）は既存に合わせる。
 - メンバー限定記事（`visibility` が `members` / `paid`）: `posts/content/private/<slug>.post.json`（sops 暗号化済み）。扱い方は後述の「メンバー限定記事」に従う。**`content/` 直下に `visibility: members` / `paid` のファイルを作ってはいけない**（push と pre-commit hook がエラーにする）。
 
@@ -37,6 +37,7 @@ description: hanatane.net（Ghost）の記事を posts/content/*.md で作成・
 
 ## 公開する
 
+- 公開の前に `publish-prepare` スキルで slug・excerpt・tags を整え、`pnpm --filter ./posts curate check <slug>` を通す（研究者の工程。新しい記事の slug は `YYYYMMDD-<英語の題材>`）。
 - ユーザーが明示的に公開を依頼した場合のみ行う。frontmatter を `status: published` に変えて push するか、`pnpm ghst post publish <id>` を使う。
 - メール配信（`--newsletter` など）は依頼が無い限り付けない。
 - 公開したら `pnpm --filter ./posts pull --slug <slug>` で `published_at` を取り込み、`strata-annotate` スキルで Hyperstrata の注釈（要約と過去記事との関係）を書く。注釈を後回しにするときは、その旨をユーザーに伝える。
