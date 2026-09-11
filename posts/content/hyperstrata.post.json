@@ -4,6 +4,7 @@
 	"status": "published",
 	"visibility": "public",
 	"tags": [
+		"技術の話",
 		"#ref-window-film"
 	],
 	"excerpt": "折登さんのHyperstrataというアイデア、mutableなCosenseとブログの書くコストの違い、immutableな記事が引用関係で地層のように積もる仕組みをGhostに無理やり実装した話について話しました。",
