@@ -42,7 +42,12 @@
  *   圧縮し、タイムラインは行の位置を DOM が決めるため圧縮せず隣接する行の境界に置く。ラベル文言はテンプレートが
  *   data-strata-hiatus-label で渡す(% を日数に置き換える)
  *
- * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / buildStrataBands / strataBoundaryPath / hiatusBoundaryPath / countIncomingRefs / sproutStage / sproutPath / chooseSproutLeans / sproutTransform)、
+ * - 題材アイコンによる絞り込み(#31): 固定ページ([data-strata])では、テンプレートが置く [data-strata-icon] のトグル
+ *   (aria-pressed)で icon を 1 つ選ぶと、その icon を持つ種を光らせ(is-lit)、他の種と根を暗くする(is-dim。記事ペインの
+ *   computeEmphasis と同じ暗転)。選択は URL のハッシュ(#icon=cat)に持ち、共有した URL を開くと同じ絞り込みで表示する。
+ *   絞り込みの集合は computeIconEmphasis、ハッシュの読み書きは parseIconHash / formatIconHash が純粋関数として担う
+ *
+ * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / computeIconEmphasis / parseIconHash / formatIconHash / buildStrataBands / strataBoundaryPath / hiatusBoundaryPath / countIncomingRefs / sproutStage / sproutPath / chooseSproutLeans / sproutTransform)、
  * 無限スクロールで継ぎ足す行の選別(selectNewTimelineRows)と
  * graph.json の検証(parseGraph)は DOM に依存しない純粋関数として window.HyperstrataGraph に公開し、
  * scripts/strata-graph.test.mjs から検証する。
@@ -979,6 +984,69 @@
             return value > maxHops ? -1 : value;
         });
         return {neutral: false, nodes: distance, edges: edgeDistances};
+    }
+
+    /**
+     * 題材アイコン(icon)による絞り込みの集合を求める(#31)。戻り値の形は computeEmphasis と揃え、emphasisClass で
+     * そのままクラス名にできる。
+     *
+     * @param {Array<{slug: string, icon?: string|null}>} nodes グラフ上の全ノード
+     * @param {Array<{from: string, to: string}>} edges
+     * @param {string} icon 選んだ icon 名。空なら絞り込み無し
+     * @returns {{neutral: boolean, nodes: Object<string, number>, edges: Array<number|null>}} nodes は選んだ icon を持つ
+     *   ノード(距離 0)だけを含み、含まれないノードは暗くする。edges は入力順に、両端とも選んだ icon なら 0、片方だけなら 1、
+     *   どちらも違えば -1(暗転)。icon が空なら中立モード(neutral: true、nodes は空、edges はすべて null)
+     */
+    function computeIconEmphasis(nodes, edges, icon) {
+        if (!icon) {
+            return {
+                neutral: true,
+                nodes: {},
+                edges: edges.map(function () {
+                    return null;
+                })
+            };
+        }
+        const distance = {};
+        nodes.forEach(function (node) {
+            if (node.icon === icon) {
+                distance[node.slug] = 0;
+            }
+        });
+        const edgeDistances = edges.map(function (edge) {
+            const lit = [edge.from, edge.to].filter(function (slug) {
+                return Object.prototype.hasOwnProperty.call(distance, slug);
+            }).length;
+            return lit === 0 ? -1 : 2 - lit;
+        });
+        return {neutral: false, nodes: distance, edges: edgeDistances};
+    }
+
+    /**
+     * URL のハッシュ(location.hash)から絞り込みの icon 名を取り出す(#31)。
+     * "#icon=cat" のほか "#a=1&icon=cat" のように他のパラメータと並んでいてもよい。
+     *
+     * @param {string} hash 先頭の # を含むハッシュ文字列(空でもよい)
+     * @returns {string} icon 名。指定が無ければ空文字
+     */
+    function parseIconHash(hash) {
+        const query = hash.charAt(0) === '#' ? hash.slice(1) : hash;
+        const found = query.split('&').map(function (pair) {
+            return pair.split('=');
+        }).find(function (pair) {
+            return pair[0] === 'icon';
+        });
+        return found && found[1] ? decodeURIComponent(found[1]) : '';
+    }
+
+    /**
+     * 絞り込みの icon 名から URL のハッシュを作る(#31)。parseIconHash の逆
+     *
+     * @param {string} icon icon 名。空なら絞り込み無し
+     * @returns {string} "#icon=<name>"。icon が空なら空文字(ハッシュ無し)
+     */
+    function formatIconHash(icon) {
+        return icon ? '#icon=' + encodeURIComponent(icon) : '';
     }
 
     /** 列番号を SVG の x 座標に変換する(列 0 が axisX) */
@@ -2103,6 +2171,90 @@
         figure.appendChild(svg);
         container.appendChild(figure);
         container.classList.add('is-rendered');
+        setupIconFilter(container, svg, layout);
+    }
+
+    /**
+     * 固定ページの題材アイコンによる絞り込み(#31)を組み立てる。
+     * テンプレートが置いた [data-strata-filter] 内の [data-strata-icon] ボタンにアイコンと件数を入れ、
+     * 記事が 1 件も無い icon のボタンは外す。ボタンを押すとその icon で絞り込み、もう一度押すと解除する
+     * (aria-pressed で状態を示す)。選択は URL のハッシュ(#icon=cat)に replaceState で書き、履歴を増やさない。
+     * 初期表示と hashchange(手入力や戻る・進む)ではハッシュから選択を復元する。ボタンの無い icon が指定されていれば無視する
+     */
+    function setupIconFilter(container, svg, layout) {
+        const filter = container.querySelector('[data-strata-filter]');
+        if (!filter) {
+            return;
+        }
+        const counts = {};
+        layout.nodes.forEach(function (node) {
+            if (node.icon) {
+                counts[node.icon] = (counts[node.icon] || 0) + 1;
+            }
+        });
+        const buttons = Array.from(filter.querySelectorAll('[data-strata-icon]')).filter(function (button) {
+            const icon = button.dataset.strataIcon;
+            if (!counts[icon]) {
+                button.remove();
+                return false;
+            }
+            const slot = button.querySelector('[data-strata-icon-slot]');
+            const glyph = window.HyperstrataIcons && window.HyperstrataIcons.createElement(icon);
+            if (slot && glyph) {
+                slot.appendChild(glyph);
+            }
+            const count = button.querySelector('[data-strata-icon-count]');
+            if (count) {
+                count.textContent = String(counts[icon]);
+            }
+            return true;
+        });
+        if (buttons.length === 0) {
+            return;
+        }
+        const knownIcon = function (icon) {
+            return buttons.some(function (button) {
+                return button.dataset.strataIcon === icon;
+            }) ? icon : '';
+        };
+        const apply = function (icon) {
+            buttons.forEach(function (button) {
+                button.setAttribute('aria-pressed', String(button.dataset.strataIcon === icon));
+            });
+            applyIconEmphasis(svg, computeIconEmphasis(layout.nodes, layout.edges, icon));
+        };
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const icon = button.getAttribute('aria-pressed') === 'true' ? '' : button.dataset.strataIcon;
+                history.replaceState(null, '', location.pathname + location.search + formatIconHash(icon));
+                apply(icon);
+            });
+        });
+        window.addEventListener('hashchange', function () {
+            apply(knownIcon(parseIconHash(location.hash)));
+        });
+        filter.hidden = false;
+        apply(knownIcon(parseIconHash(location.hash)));
+    }
+
+    /**
+     * 絞り込みの集合を固定ページの SVG に反映する(#31)。種(.gh-strata-node)は選ばれていれば is-lit、
+     * 選ばれていなければ is-dim を付け、中立モードではどちらも外す。根(.gh-strata-edge)は描画順が layout.edges と
+     * 同じであることを使い、距離を emphasisClass でクラスにする(両端が選ばれた 0 は is-level-0、片方だけの 1 は is-level-1)
+     */
+    function applyIconEmphasis(svg, emphasis) {
+        Array.from(svg.querySelectorAll('.gh-strata-node')).forEach(function (node) {
+            const lit = Object.prototype.hasOwnProperty.call(emphasis.nodes, node.dataset.slug);
+            node.classList.toggle('is-lit', !emphasis.neutral && lit);
+            node.classList.toggle('is-dim', !emphasis.neutral && !lit);
+        });
+        Array.from(svg.querySelectorAll('.gh-strata-edge')).forEach(function (edge, index) {
+            edge.classList.remove('is-dim', 'is-level-0', 'is-level-1');
+            const className = emphasisClass(emphasis.edges[index]).trim();
+            if (className) {
+                edge.classList.add(className);
+            }
+        });
     }
 
     window.HyperstrataGraph = {
@@ -2113,6 +2265,9 @@
         placeTimelineAxis: placeTimelineAxis,
         assignColumns: assignColumns,
         computeEmphasis: computeEmphasis,
+        computeIconEmphasis: computeIconEmphasis,
+        parseIconHash: parseIconHash,
+        formatIconHash: formatIconHash,
         buildStrataBands: buildStrataBands,
         strataBoundaryPath: strataBoundaryPath,
         hiatusBoundaryPath: hiatusBoundaryPath,

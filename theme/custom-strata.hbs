@@ -9,6 +9,11 @@
     {{#get}} で一覧を埋め込まないのは、Ghost の get ヘルパーが 100 件上限で、公開記事がそれを超えると
     古い記事がグラフから消えるため(#25)。並び順は JS 側で公開日の降順(新しい記事が上=地表)に整える。
     JavaScript が無効な環境ではグラフは表示されない。
+
+    題材アイコン(icon)による絞り込み(#31): [data-strata-filter] のトグル([data-strata-icon]、aria-pressed)で icon を選ぶと、
+    JS がその icon の種を光らせて他を暗くする。ボタンの並びは posts/src/strata.ts の TOPIC_ICONS と同じ 8 種類で、
+    アイコンの図形と記事数は JS が入れ、記事の無い icon のボタンは JS が外す。選択は URL のハッシュ(#icon=cat)に持つ。
+    JS が有効になるまで(と無効な環境では)hidden のまま表示しない
 --}}
 
 {{#post}}
@@ -30,7 +35,50 @@
             {{content}}
         </section>
 
-        <section class="gh-strata gh-canvas" data-strata data-strata-label="{{t "Citation graph"}}" data-strata-hiatus-label="{{t "% days of hiatus"}}" data-strata-graph-url="{{asset "graph.json"}}"></section>
+        <section class="gh-strata gh-canvas" data-strata data-strata-label="{{t "Citation graph"}}" data-strata-hiatus-label="{{t "% days of hiatus"}}" data-strata-graph-url="{{asset "graph.json"}}">
+            <div class="gh-strata-filter" role="group" aria-label="{{t "Filter by topic"}}" data-strata-filter hidden>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="cat" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Cats"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="house" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "House"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="hunting" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Hunting"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="game" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Games"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="tech" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Tech"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="travel" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Travel"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="journal" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Journal"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+                <button type="button" class="gh-strata-filter-button" data-strata-icon="event" aria-pressed="false">
+                    <span class="gh-strata-filter-icon" data-strata-icon-slot aria-hidden="true"></span>
+                    <span class="gh-strata-filter-label">{{t "Events"}}</span>
+                    <span class="gh-strata-filter-count" data-strata-icon-count></span>
+                </button>
+            </div>
+        </section>
 
     </article>
 </main>
