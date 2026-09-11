@@ -3,7 +3,9 @@
 	"slug": "implementation-hyperstrata",
 	"status": "published",
 	"visibility": "public",
-	"tags": [],
+	"tags": [
+		"#ref-hyperstrata"
+	],
 	"featured": false,
 	"published_at": "2026-09-10T12:24:41.000Z",
 	"updated_at": "2026-09-10T12:24:41.000Z",
