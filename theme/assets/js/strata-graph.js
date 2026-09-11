@@ -547,7 +547,88 @@
             });
         });
 
-        return {nodes: nodes, edges: edges, monthMarks: monthMarks, minCol: columns.minCol, maxCol: columns.maxCol, height: y + options.paddingBottom};
+        const lanes = assignDetourLanes(nodes, edges);
+        return {
+            nodes: nodes,
+            edges: edges,
+            monthMarks: monthMarks,
+            minCol: Math.min(columns.minCol, lanes.minCol),
+            maxCol: Math.max(columns.maxCol, lanes.maxCol),
+            height: y + options.paddingBottom
+        };
+    }
+
+    /**
+     * エッジが途中の行のノードの上を通らないように、迂回する列(viaCol)を割り当てる。
+     *
+     * paneEdgePath はエッジを「上のノードから 1 行ぶんの S 字で引用先の列(toCol)へ移り、そのまま縦に下る」形で描くため、
+     * 縦の区間(toCol の fromRow + 1 .. toRow - 1)に別のノードがあると線が種の上を通ってしまう。
+     * 列(col)の割り当て(assignColumns)は人間の引用だけで決めるので、これは主に推定エッジ(inferredRefs)で起きる。
+     * そうしたエッジには、途中の行にノードが無く、直進するエッジの縦の区間(人間の幹)とも重ならない列を
+     * toCol に近い順に探して viaCol として持たせる。迂回エッジ同士は同じ列を共有してよい(列を分けると幅が広がりすぎる)。paneEdgePath は viaCol があれば上で viaCol へ移り、
+     * 下で toCol へ戻る。迂回しないエッジには viaCol を付けない(edges は破壊的に更新する)。
+     *
+     * @param {Array<{row: number, col: number}>} nodes
+     * @param {Array<{fromRow: number, toRow: number, fromCol: number, toCol: number, kind: string, viaCol?: number}>} edges
+     * @returns {{minCol: number, maxCol: number}} 迂回に使った列の範囲(無ければ 0..0)
+     */
+    function assignDetourLanes(nodes, edges) {
+        /** 列番号 → その列にノードがある行の集合 */
+        const nodeRows = {};
+        nodes.forEach(function (node) {
+            (nodeRows[node.col] = nodeRows[node.col] || new Set()).add(node.row);
+        });
+        /** 列番号 → 線の縦の区間(両端を含む)の配列 */
+        const laneRanges = {};
+        const overlaps = function (col, fromRow, toRow) {
+            return (laneRanges[col] || []).some(function (range) {
+                return fromRow <= range.toRow && range.fromRow <= toRow;
+            });
+        };
+        const hasNode = function (col, fromRow, toRow) {
+            return Array.from(nodeRows[col] || []).some(function (row) {
+                return fromRow <= row && row <= toRow;
+            });
+        };
+        const reserveLane = function (col, fromRow, toRow) {
+            (laneRanges[col] = laneRanges[col] || []).push({fromRow: fromRow, toRow: toRow});
+        };
+
+        // 直進できるエッジの縦の区間を先に占有させ、迂回エッジが幹の上に乗らないようにする。
+        // 人間の引用を先に処理し、推定エッジは残った列を使う
+        const needsDetour = [];
+        edges.slice().sort(function (a, b) {
+            return (a.kind === 'inferred' ? 1 : 0) - (b.kind === 'inferred' ? 1 : 0);
+        }).forEach(function (edge) {
+            const interiorFrom = edge.fromRow + 1;
+            const interiorTo = edge.toRow - 1;
+            if (interiorFrom > interiorTo || !hasNode(edge.toCol, interiorFrom, interiorTo)) {
+                reserveLane(edge.toCol, interiorFrom, edge.toRow);
+                return;
+            }
+            needsDetour.push(edge);
+        });
+
+        let minCol = 0;
+        let maxCol = 0;
+        needsDetour.forEach(function (edge) {
+            const interiorFrom = edge.fromRow + 1;
+            const interiorTo = edge.toRow - 1;
+            for (let offset = 1; ; offset += 1) {
+                const candidates = [edge.toCol + offset, edge.toCol - offset];
+                const found = candidates.filter(function (col) {
+                    return !hasNode(col, interiorFrom, interiorTo) && !overlaps(col, interiorFrom, interiorTo);
+                })[0];
+                if (found !== undefined) {
+                    // 迂回エッジ同士は同じ列を共有してよい(別の列にするとペインの幅が広がりすぎるため)
+                    edge.viaCol = found;
+                    minCol = Math.min(minCol, found);
+                    maxCol = Math.max(maxCol, found);
+                    break;
+                }
+            }
+        });
+        return {minCol: minCol, maxCol: maxCol};
     }
 
     /**
@@ -766,22 +847,32 @@
     /**
      * ペイン用エッジのパスを作る。両端が同じ列なら幹として直線で結ぶ。列が違う場合は、上のノードから
      * 1 行ぶんの S 字で相手の列へ移り、そのまま縦に下って下のノードへ届く(git のブランチ図の枝分かれ・合流の見た目)。
+     * viaCol(assignDetourLanes が付ける迂回列)があれば、上で viaCol へ S 字で移って縦に下り、下で 1 行ぶんの S 字で
+     * 相手の列へ戻ってから下のノードへ届く。
      * ノード座標は nodeY(slug → y)から引き、fromRow < toRow に揃えてあるため fromCol が上、toCol が下になる。
      */
     function paneEdgePath(edge, nodeY, options) {
         const xTop = columnX(edge.fromCol, options);
         const xBottom = columnX(edge.toCol, options);
+        const xLane = edge.viaCol === undefined ? xBottom : columnX(edge.viaCol, options);
         const top = Math.min(nodeY[edge.from], nodeY[edge.to]);
         const bottom = Math.max(nodeY[edge.from], nodeY[edge.to]);
-        if (xTop === xBottom) {
+        if (xTop === xLane && xLane === xBottom) {
             return 'M ' + xTop + ' ' + top + ' L ' + xTop + ' ' + bottom;
         }
         const bend = options.rowHeight;
         // 制御点を縦方向の中間に置き、行き過ぎのない滑らかな S 字で相手の列へ移る
         const half = bend / 2;
-        return 'M ' + xTop + ' ' + top +
-            ' C ' + xTop + ' ' + (top + half) + ' ' + xBottom + ' ' + (top + half) + ' ' + xBottom + ' ' + (top + bend) +
-            ' L ' + xBottom + ' ' + bottom;
+        let path = 'M ' + xTop + ' ' + top;
+        if (xTop !== xLane) {
+            path += ' C ' + xTop + ' ' + (top + half) + ' ' + xLane + ' ' + (top + half) + ' ' + xLane + ' ' + (top + bend);
+        }
+        if (xLane === xBottom) {
+            return path + ' L ' + xBottom + ' ' + bottom;
+        }
+        return path +
+            ' L ' + xLane + ' ' + (bottom - bend) +
+            ' C ' + xLane + ' ' + (bottom - half) + ' ' + xBottom + ' ' + (bottom - half) + ' ' + xBottom + ' ' + bottom;
     }
 
     /**
@@ -1019,10 +1110,10 @@
         // 一辺 paneIconSize で描かれるため、半分(paneIconSize / 2)ぶん avoid を広げてアイコンの端まで重ならないようにする。
         // 多すぎると目立つため帯ごとに最大 3 個までに絞る
         const paneIconSize = 14;
-        const paneColumns = columnExtent(layout.nodes);
-        const paneAvoid = paneColumns && {
-            min: columnX(paneColumns.min, options) - options.nodeRadius - paneIconSize / 2,
-            max: columnX(paneColumns.max, options) + options.nodeRadius + paneIconSize / 2
+        // 列の範囲は layout.minCol / maxCol を使い、迂回した根(viaCol)の列も避ける
+        const paneAvoid = {
+            min: columnX(layout.minCol, options) - options.nodeRadius - paneIconSize / 2,
+            max: columnX(layout.maxCol, options) + options.nodeRadius + paneIconSize / 2
         };
         svg.appendChild(buildBandIconGroup(
             assignBandIcons(paneBands, layout.nodes, {
@@ -1634,6 +1725,7 @@
         strataBoundaryPath: strataBoundaryPath,
         assignBandIcons: assignBandIcons,
         columnExtent: columnExtent,
+        paneEdgePath: paneEdgePath,
         parseGraph: parseGraph
     };
 

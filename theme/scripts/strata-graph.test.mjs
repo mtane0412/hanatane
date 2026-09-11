@@ -168,7 +168,8 @@ function ペインを読み込む() {
         buildStrataBands: (marks, height) => 正規化(api.buildStrataBands(marks, height)),
         strataBoundaryPath: (y, width, options) => api.strataBoundaryPath(y, width, options),
         assignBandIcons: (bands, nodes, options) => 正規化(api.assignBandIcons(bands, nodes, options)),
-        columnExtent: nodes => 正規化(api.columnExtent(nodes))
+        columnExtent: nodes => 正規化(api.columnExtent(nodes)),
+        paneEdgePath: (edge, nodeY, options) => api.paneEdgePath(edge, nodeY, options)
     };
 }
 
@@ -309,6 +310,95 @@ test('buildPaneLayout: inferredRefs 自体に同じ関係先が重複してい�
     ];
     const layout = buildPaneLayout(推定重複記事, ペイン設定);
     assert.deepEqual(layout.edges.map(edge => [edge.from, edge.to, edge.kind]), [['newest', 'oldest', 'inferred']]);
+});
+
+/* ------------------------------------------------------------------
+ * エッジの迂回(viaCol): 途中の行のノードや人間の幹の上を通らないように別の列へ回り込む
+ * ------------------------------------------------------------------ */
+
+/**
+ * 行順(新しい順): a(0) b(1) c(2) e(3) f(4) d(5)。
+ * 人間の引用: a→b, a→d, c→e。列は a,b,c,e,f が 0、d が +1(a→d の幹が +1 の行 1..5 を占有する)。
+ * 推定: a→f は列 0 を直進すると b, c, e の上を通り、+1 は a→d の幹と重なるため、-1 へ迂回するはず。
+ */
+const 迂回が必要な記事 = [
+    {slug: 'd', title: '最古の記事', url: '/d/', publishedAt: '2026-01-10T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'f', title: '記事f', url: '/f/', publishedAt: '2026-01-11T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'e', title: '記事e', url: '/e/', publishedAt: '2026-01-12T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'c', title: '記事c', url: '/c/', publishedAt: '2026-01-13T12:00:00.000Z', refs: ['e'], inferredRefs: []},
+    {slug: 'b', title: '記事b', url: '/b/', publishedAt: '2026-01-14T12:00:00.000Z', refs: [], inferredRefs: []},
+    {slug: 'a', title: '最新の記事', url: '/a/', publishedAt: '2026-01-15T12:00:00.000Z', refs: ['b', 'd'], inferredRefs: [{slug: 'f', type: 'continues'}]}
+];
+
+test('buildPaneLayout: 途中の行に同じ列のノードがある推定エッジは、ノードの無い列へ迂回する(viaCol)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
+    const 列 = Object.fromEntries(layout.nodes.map(node => [node.slug, node.col]));
+    assert.deepEqual([列.a, 列.b, 列.c, 列.e, 列.f, 列.d], [0, 0, 0, 0, 0, 1]);
+    const 推定エッジ = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
+    assert.equal(推定エッジ.kind, 'inferred');
+    assert.equal(typeof 推定エッジ.viaCol, 'number');
+    assert.notEqual(推定エッジ.viaCol, 0);
+    // 迂回した列の途中の行(1..3)にノードは無い
+    const 途中のノード = layout.nodes.filter(node => node.col === 推定エッジ.viaCol && node.row > 0 && node.row < 4);
+    assert.deepEqual(途中のノード, []);
+});
+
+test('buildPaneLayout: 迂回する列は人間の幹(エッジの縦の区間)とも重ならない', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
+    const 推定エッジ = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
+    // +1 は a→d の幹が行 1..5 を占有しているため使えず、-1 へ回る
+    assert.equal(推定エッジ.viaCol, -1);
+});
+
+test('buildPaneLayout: 迂回した列は minCol / maxCol に含める(ペインの幅に反映するため)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
+    assert.equal(layout.minCol, -1);
+    assert.equal(layout.maxCol, 1);
+});
+
+test('buildPaneLayout: 途中にノードの無いエッジは迂回しない(viaCol を持たない)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
+    const 迂回しない = layout.edges.filter(edge => !(edge.from === 'a' && edge.to === 'f'));
+    assert.ok(迂回しない.length > 0);
+    迂回しない.forEach(edge => {
+        assert.equal(edge.viaCol, undefined, edge.from + ' → ' + edge.to);
+    });
+});
+
+test('buildPaneLayout: 迂回するエッジ同士は同じ列を共有できる(ペインの幅を広げすぎないため)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 記事一覧 = 迂回が必要な記事.map(post => post.slug === 'b'
+        ? Object.assign({}, post, {inferredRefs: [{slug: 'f', type: 'continues'}]})
+        : post);
+    const layout = buildPaneLayout(記事一覧, ペイン設定);
+    const aからf = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
+    const bからf = layout.edges.find(edge => edge.from === 'b' && edge.to === 'f');
+    assert.equal(aからf.viaCol, -1);
+    assert.equal(bからf.viaCol, -1);
+    assert.equal(layout.minCol, -1);
+});
+
+test('paneEdgePath: viaCol を持つエッジは、上で迂回列へ S 字で移り、下で相手の列へ S 字で戻る', () => {
+    const {paneEdgePath} = ペインを読み込む();
+    const options = {axisX: 100, laneWidth: 12, rowHeight: 26};
+    const nodeY = {a: 20, f: 150};
+    const path = paneEdgePath({from: 'a', to: 'f', fromCol: 0, toCol: 0, viaCol: -1}, nodeY, options);
+    assert.ok(path.startsWith('M 100 20'));
+    assert.ok(path.endsWith('100 150'));
+    // 迂回列(x = 88)を縦に通る
+    assert.match(path, /L 88 \d+/);
+    assert.equal((path.match(/ C /g) || []).length, 2);
+});
+
+test('paneEdgePath: viaCol の無いエッジは従来どおり(同じ列なら直線)', () => {
+    const {paneEdgePath} = ペインを読み込む();
+    const options = {axisX: 100, laneWidth: 12, rowHeight: 26};
+    const path = paneEdgePath({from: 'a', to: 'f', fromCol: 0, toCol: 0}, {a: 20, f: 150}, options);
+    assert.equal(path, 'M 100 20 L 100 150');
 });
 
 /**
