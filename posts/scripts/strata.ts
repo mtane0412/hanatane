@@ -40,12 +40,12 @@ import {
 	PLAIN_STRATA_SUFFIX,
 	type PublishedPost,
 	parseStrataAnnotation,
-	readPublishedPost,
 	STRATA_DIR,
 	STRATA_SUFFIX,
 	type StrataAnnotation,
 	strataRelativePath,
 } from "../src/strata";
+import { loadPosts as loadPostsFrom } from "./lib/load-posts";
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "..");
 const CONTENT_DIR = path.join(POSTS_DIR, "content");
@@ -61,16 +61,7 @@ function usage(): never {
 
 /** content/ と content/private/ の `.post.json` から記事一覧を作る（lexical は読まない） */
 function loadPosts(): PublishedPost[] {
-	const posts: PublishedPost[] = [];
-	for (const dir of [CONTENT_DIR, path.join(CONTENT_DIR, PRIVATE_DIR)]) {
-		if (!existsSync(dir)) continue;
-		for (const fileName of readdirSync(dir)) {
-			if (!fileName.endsWith(POST_JSON_SUFFIX)) continue;
-			const content = readFileSync(path.join(dir, fileName), "utf8");
-			posts.push(readPublishedPost(content, fileName));
-		}
-	}
-	return posts;
+	return loadPostsFrom(CONTENT_DIR);
 }
 
 /** strata/ 配下の注釈ファイルを列挙する（strata 相対パス、public → private の順） */

@@ -43,3 +43,5 @@ jobs:
 
       # Hyperstrata の注釈（posts/strata）の形式・暗号化・整合（後方参照のみ）を検査する（復号しないため age 鍵は不要）
       - run: pnpm --filter ./posts strata check
+      # 記事のタグが統制語彙（posts/tags.json）にあるかを検査する（語彙を絞ったときの付け替え忘れを防ぐ）
+      - run: pnpm --filter ./posts curate tags check

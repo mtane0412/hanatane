@@ -1,0 +1,25 @@
+{
+  "tags": [
+    { "name": "技術の話", "slug": "tech", "description": "開発・自作ツール・自宅サーバー・アプリの乗り換えなど、技術が主題の記事" },
+    { "name": "Ghost", "slug": "ghost-tag", "description": "Ghost（hanatane.net の CMS）の運用・テーマ・移行・周辺ツールの記事。技術の話と併用する" },
+    { "name": "selfhosted", "slug": "selfhosted", "description": "自宅サーバー・VPS で自分でサービスを運用する記事。技術の話と併用する" },
+    { "name": "Alfred", "slug": "alfred", "description": "Alfred（macOS ランチャー）のワークフローの記事。技術の話と併用する" },
+    { "name": "たねのぶの話", "slug": "diary", "description": "著者自身の出来事・週報・振り返り・旅行・エッセイ的な考え。特定の題材に寄らない日記的な記事" },
+    { "name": "たねハウスの話", "slug": "tanehouse", "description": "古民家「たねハウス」の DIY・修繕・設備・住まいの記事" },
+    { "name": "DIY", "slug": "diy", "description": "自分で物を作った・直した記事。たねハウスの話や猫の話と併用する" },
+    { "name": "Switchbotのある暮らし", "slug": "switchbot", "description": "SwitchBot などスマートホーム機器で家を自動化する記事" },
+    { "name": "猫の話", "slug": "cat", "description": "飼い猫の記事（お迎え・行動・道具・健康）" },
+    { "name": "狩猟", "slug": "hunting", "description": "狩猟免許・罠猟・獲物の記事" },
+    { "name": "ゲームの話", "slug": "game", "description": "ゲーム全般（格ゲーの振り返り・大会参戦・ゲームの感想）の記事" },
+    { "name": "Street Fighter 6", "slug": "street-fighter-6", "description": "ストリートファイター6 のランクマッチ振り返り・大会の記事。ゲームの話と併用する" },
+    { "name": "Pogostuck", "slug": "pogostuck", "description": "Pogostuck の記事。ゲームの話と併用する" },
+    { "name": "Sigma fp", "slug": "sigma-fp", "description": "Sigma fp で撮った写真が中心の記事。たねのぶの話と併用する" },
+    { "name": "読んだ", "slug": "reading", "description": "本を読んだ記録・感想の記事" },
+    { "name": "Manga", "slug": "manga", "description": "漫画の感想の記事" },
+    { "name": "Science", "slug": "science", "description": "科学・研究（放送大学での学びや論文の話）が主題の記事" },
+    { "name": "Language", "slug": "language", "description": "言語・語学学習が主題の記事" },
+    { "name": "English", "slug": "english", "description": "英語で書いた、または英語学習の記事。Language と併用する" },
+    { "name": "昔話", "slug": "old-stories", "description": "著者の過去（学生時代・以前の仕事など）を振り返る記事" },
+    { "name": "お知らせ", "slug": "announcement", "description": "サイトの運営・方針・変更のお知らせ" }
+  ]
+}

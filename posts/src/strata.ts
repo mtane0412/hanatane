@@ -90,6 +90,10 @@ export interface PublishedPost {
 	visibility: PostVisibility;
 	/** 下書きには無い */
 	published_at?: string;
+	/** Ghost のタグ名の一覧（`#ref-*` などの内部タグを含む）。公開前の整備（src/curate.ts）で使う */
+	tags?: string[];
+	/** 一覧やカードに出る抜粋（custom_excerpt）。公開前の整備（src/curate.ts）で使う */
+	excerpt?: string;
 }
 
 /** `strata catalog` が Claude Code に渡す、候補となる過去記事の一覧の 1 件 */
@@ -407,6 +411,15 @@ export function readPublishedPost(
 	};
 	if (typeof data.published_at === "string" && data.published_at !== "") {
 		post.published_at = data.published_at;
+	}
+	if (
+		Array.isArray(data.tags) &&
+		data.tags.every((tag) => typeof tag === "string")
+	) {
+		post.tags = data.tags;
+	}
+	if (typeof data.excerpt === "string" && data.excerpt !== "") {
+		post.excerpt = data.excerpt;
 	}
 	return post;
 }
