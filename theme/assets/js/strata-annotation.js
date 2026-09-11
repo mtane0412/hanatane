@@ -3,7 +3,11 @@
  *
  * scripts/hyperstrata-sync.mjs が assets/graph.json に合成する inferredRefs(関係先・種類・理由)を
  * fetch で読み取り、post.hbs の gh-citations(References / Cited by)の直後にある
- * [data-strata-annotation] セクションへ「Related posts」のリンク一覧として描画する。
+ * [data-strata-annotation] セクションへ 2 つのグループとして描画する。
+ *   - Related posts: 現在記事の inferredRefs(現在記事から過去記事への関係)
+ *   - Later posts:   現在記事を inferredRefs に持つ後の記事(逆引き。人間の層の Cited by に相当し、
+ *                    古い記事を読んでいる人に「後の記事で更新(updates)・再訪(revisits)された」と知らせる)
+ * 記事本文(immutable)は書き換えず、研究者の札を上に置く形で後の層との関係を見せる。
  * graph.json には記事の要約(summary)もあるが、関連記事欄は本文の後に置くリンク集であり
  * 要約は冗長なため表示しない(要約はグラフビュー assets/js/strata-graph.js 側の用途)。
  * URL はテンプレートが data-strata-graph-url({{asset "graph.json"}})で渡す。
@@ -14,7 +18,8 @@
  * - posts/strata/private/(限定記事の注釈)は reason が sops で暗号化されており、
  *   hyperstrata-sync.mjs は復号しないため、graph.json では inferredRefs[].reason が null になる。
  *   その場合は種類・タイトル・URL だけの関係一覧として表示する
- * - 関係が無い記事(注釈が無い/機械の層が無い)ではセクションごと非表示のままにする
+ * - 関係が無いグループは非表示のままにし、両方とも無い記事(注釈が無い/機械の層が無い/
+ *   後の記事から参照されていない)ではセクションごと非表示のままにする
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、何も表示しない
  * - 現在記事の情報選択(buildAnnotationView)は DOM に依存しない純粋関数として
  *   window.HyperstrataAnnotation に公開し、scripts/strata-annotation.test.mjs から検証する
@@ -30,12 +35,35 @@
     };
 
     /**
-     * graph.json の記事配列から、現在記事の関係先(記事情報付き)を組み立てる。
-     * 現在記事の summary と関係先の icon は関連記事欄に表示しないため戻り値に含めない。
+     * 関係 1 件の表示データ(種類・理由と、リンク先記事の情報)を組み立てる。
+     * リンク先記事の summary と icon は関連記事欄に表示しないため含めない。
+     *
+     * @param {{type: string, reason?: string|null}} ref inferredRefs の 1 要素
+     * @param {{slug: string, title: string, url: string, publishedAt: string}} post リンク先の記事
+     * @returns {{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}}
+     */
+    function toRelation(ref, post) {
+        return {
+            type: ref.type,
+            reason: ref.reason || null,
+            slug: post.slug,
+            title: post.title,
+            url: post.url,
+            publishedAt: post.publishedAt
+        };
+    }
+
+    /**
+     * graph.json の記事配列から、現在記事の関係先(relations)と、現在記事を関係先に持つ
+     * 後の記事(citedBy)を組み立てる。
+     *
+     * - relations: 現在記事の inferredRefs を、関係先の記事情報付きで inferredRefs の順に並べる
+     * - citedBy: 全記事の inferredRefs を走査し、slug が現在記事のものを逆引きして、
+     *   参照している記事の情報付きで公開日の昇順に並べる(人間の層の Cited by と同じ並び)
      *
      * @param {Array<{slug: string, title: string, url: string, publishedAt: string, inferredRefs?: Array<{slug: string, type: string, reason: string|null}>}>} posts
      * @param {string} currentSlug 現在表示中の記事の slug
-     * @returns {{relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>}}
+     * @returns {{relations: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>, citedBy: Array<{type: string, reason: string|null, slug: string, title: string, url: string, publishedAt: string}>}}
      */
     function buildAnnotationView(posts, currentSlug) {
         if (!Array.isArray(posts)) {
@@ -47,27 +75,28 @@
         });
         const current = currentSlug ? postBySlug[currentSlug] : null;
         if (!current) {
-            return {relations: []};
+            return {relations: [], citedBy: []};
         }
         const relations = (current.inferredRefs || [])
             .map(function (ref) {
                 const target = postBySlug[ref.slug];
-                if (!target) {
-                    return null;
-                }
-                return {
-                    type: ref.type,
-                    reason: ref.reason || null,
-                    slug: target.slug,
-                    title: target.title,
-                    url: target.url,
-                    publishedAt: target.publishedAt
-                };
+                return target ? toRelation(ref, target) : null;
             })
             .filter(function (relation) {
                 return relation !== null;
             });
-        return {relations: relations};
+        const citedBy = [];
+        posts.forEach(function (post) {
+            (post.inferredRefs || []).forEach(function (ref) {
+                if (ref.slug === currentSlug) {
+                    citedBy.push(toRelation(ref, post));
+                }
+            });
+        });
+        citedBy.sort(function (a, b) {
+            return a.publishedAt < b.publishedAt ? -1 : (a.publishedAt > b.publishedAt ? 1 : 0);
+        });
+        return {relations: relations, citedBy: citedBy};
     }
 
     /**
@@ -126,22 +155,42 @@
     }
 
     /**
-     * [data-strata-annotation] セクションへ関係一覧を描画する。関係が無ければ非表示のままにする。
+     * グループ(見出し + 一覧)へ関係一覧を描画し、1 件以上あればグループを表示する。
      *
      * @param {HTMLElement} section
-     * @param {{relations: Array<object>}} view
+     * @param {string} groupName data-strata-annotation-group の値(relations / cited-by)
+     * @param {Array<object>} relations
+     * @returns {boolean} 描画した件数が 1 件以上なら true
+     */
+    function renderGroup(section, groupName, relations) {
+        const group = section.querySelector('[data-strata-annotation-group="' + groupName + '"]');
+        if (!group || relations.length === 0) {
+            return false;
+        }
+        const list = group.querySelector('[data-strata-annotation-list]');
+        if (!list) {
+            return false;
+        }
+        relations.forEach(function (relation) {
+            renderRelation(relation, list);
+        });
+        group.hidden = false;
+        return true;
+    }
+
+    /**
+     * [data-strata-annotation] セクションへ関係一覧(Related posts / Later posts)を描画する。
+     * どちらのグループにも関係が無ければセクションは非表示のままにする。
+     *
+     * @param {HTMLElement} section
+     * @param {{relations: Array<object>, citedBy: Array<object>}} view
      */
     function render(section, view) {
-        if (view.relations.length === 0) {
-            return;
+        const hasRelations = renderGroup(section, 'relations', view.relations);
+        const hasCitedBy = renderGroup(section, 'cited-by', view.citedBy);
+        if (hasRelations || hasCitedBy) {
+            section.hidden = false;
         }
-        const list = section.querySelector('[data-strata-annotation-list]');
-        if (list) {
-            view.relations.forEach(function (relation) {
-                renderRelation(relation, list);
-            });
-        }
-        section.hidden = false;
     }
 
     function init() {
