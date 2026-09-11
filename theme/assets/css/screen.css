@@ -2772,6 +2772,21 @@ figcaption a {
     stroke: var(--ghost-accent-color);
 }
 
+/* 固定ページの芽(#30)。被参照のある種だけに付く */
+.gh-strata-sprout {
+    fill: none;
+    stroke: var(--strata-seed);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.15s ease;
+}
+
+.gh-strata-node:hover .gh-strata-sprout,
+.gh-strata-node:focus .gh-strata-sprout {
+    stroke: var(--ghost-accent-color);
+}
+
 .gh-strata-title {
     fill: var(--color-primary-text);
 }
@@ -2928,19 +2943,21 @@ figcaption a {
     transition: fill 0.15s ease, rx 0.15s ease, ry 0.15s ease;
 }
 
-/* 現在の記事は「芽吹いた種」(輪と芽をつける)。引用チェーン上の記事を強調し、無関係な記事は暗くする */
+/* 現在の記事は輪で強調する。引用チェーン上の記事を強調し、無関係な記事は暗くする */
 .gh-strata-pane-ring {
     fill: none;
     stroke: var(--ghost-accent-color);
     stroke-width: 2;
 }
 
+/* 後の記事に引用・関係付けされた(被参照のある)種から伸びる芽(#30)。色は種と同じにし、強調レベルに追随させる */
 .gh-strata-pane-sprout {
     fill: none;
-    stroke: var(--ghost-accent-color);
+    stroke: var(--strata-seed);
     stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
+    transition: stroke 0.15s ease;
 }
 
 .gh-strata-pane-node.is-level-0 .gh-strata-pane-dot,
@@ -2948,13 +2965,27 @@ figcaption a {
     fill: var(--ghost-accent-color);
 }
 
+.gh-strata-pane-node.is-level-0 .gh-strata-pane-sprout,
+.gh-strata-pane-node.is-level-1 .gh-strata-pane-sprout {
+    stroke: var(--ghost-accent-color);
+}
+
 .gh-strata-pane-node.is-level-2 .gh-strata-pane-dot {
     fill: var(--ghost-accent-color);
     opacity: 0.6;
 }
 
+.gh-strata-pane-node.is-level-2 .gh-strata-pane-sprout {
+    stroke: var(--ghost-accent-color);
+    opacity: 0.6;
+}
+
 .gh-strata-pane-node.is-dim .gh-strata-pane-dot {
     fill: var(--strata-seed-dim);
+}
+
+.gh-strata-pane-node.is-dim .gh-strata-pane-sprout {
+    stroke: var(--strata-seed-dim);
 }
 
 .gh-strata-pane-node:hover .gh-strata-pane-dot,
@@ -2963,6 +2994,12 @@ figcaption a {
     opacity: 1;
     rx: 5.5;
     ry: 7;
+}
+
+.gh-strata-pane-node:hover .gh-strata-pane-sprout,
+.gh-strata-pane-node:focus .gh-strata-pane-sprout {
+    stroke: var(--ghost-accent-color);
+    opacity: 1;
 }
 
 /* 種にマウスを乗せたときのツールチップ(タイトルと公開日、研究者の要約の先頭)。位置は JS がペイン基準で決める */

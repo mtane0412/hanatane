@@ -21,7 +21,7 @@
  *    引用の無い孤立した記事でも、現在記事であれば強調する。
  *    data-current-slug が空の場合は中立モード(強調も暗転もなし)で描く。
  *    見た目は「地層(strata)の中を種と根が伸びる」イメージ: 月ごとの帯を地層として塗り分け(古いほど深く濃い)、
- *    境界は波線、記事は種(楕円)、現在記事は芽吹いた種、引用の線は古い層へ伸びる根として描く。
+ *    境界は波線、記事は種(楕円)、引用の線は古い層へ伸びる根として描く。現在記事は輪で強調する。
  *    種にマウスを乗せると HTML のツールチップでタイトルと公開日を表示する
  *
  * - ノード: 記事。クリックで記事ページへ遷移する(支援技術向けの名前は aria-label で与える)
@@ -32,12 +32,17 @@
  *   確定した座標の上に重ねて描く。2 ホップの強調(computeEmphasis)には両方を渡す
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、グラフは描画しない
  *
+ * - 芽吹き(sprout): 後の記事に引用・関係付けされた(人間の層 refs と機械の層 inferredRefs のどちらかで参照された)種は
+ *   芽(茎と双葉)を出し、被参照が SPROUT_LEAFY_AT 以上なら葉を増やす(#30)。被参照数は countIncomingRefs、段階は sproutStage で
+ *   決め、記事ペイン・トップのタイムライン・固定ページの 3 か所で揃える。孤立記事(被参照 0)は「まだ芽吹いていない種」。
+ *   芽は斜めに伸ばし、種のすぐ上を通る根と重ならない側を chooseSproutLeans で選ぶ(避けられなければ右)
+ *
  * - 不整合面(hiatus): 記事の空白期間が一定日数(hiatusDays)を超える箇所は、地質学の不整合面のように 1 本の荒い境界線
  *   (hiatusBoundaryPath)で描き、空白の日数をラベルで示す(#29)。固定ページと記事ペインでは空白を hiatusGap の高さに
  *   圧縮し、タイムラインは行の位置を DOM が決めるため圧縮せず隣接する行の境界に置く。ラベル文言はテンプレートが
  *   data-strata-hiatus-label で渡す(% を日数に置き換える)
  *
- * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / buildStrataBands / strataBoundaryPath / hiatusBoundaryPath)、
+ * レイアウト計算(buildLayout / buildPaneLayout / buildTimelineLayout / placeTimelineAxis / assignColumns / computeEmphasis / buildStrataBands / strataBoundaryPath / hiatusBoundaryPath / countIncomingRefs / sproutStage / sproutPath / chooseSproutLeans / sproutTransform)、
  * 無限スクロールで継ぎ足す行の選別(selectNewTimelineRows)と
  * graph.json の検証(parseGraph)は DOM に依存しない純粋関数として window.HyperstrataGraph に公開し、
  * scripts/strata-graph.test.mjs から検証する。
@@ -47,6 +52,10 @@
     const MS_PER_DAY = 24 * 60 * 60 * 1000;
     /** この日数を超える記事の空白を不整合面(hiatus)として描く(#29)。固定ページ・記事ペイン・タイムラインで共通 */
     const HIATUS_DAYS = 60;
+    /** 被参照がこの数以上の種は葉の増えた芽(段階 2)として描く(#30)。3 か所の描画で共通 */
+    const SPROUT_LEAFY_AT = 3;
+    /** 芽を左右へ傾ける角度(度)。根(エッジ)と重ならない側へ付け根を中心に回す(#30) */
+    const SPROUT_LEAN_DEGREES = 35;
 
     /**
      * 新しい記事(newerTime)と古い記事(olderTime)の間の空白が、不整合面として扱うしきい値を超えていれば日数を返す。
@@ -290,7 +299,8 @@
      * ペインと同じ「地層の中を種と根が伸びる」デザイン: 年ごとの帯を地層として塗り分け(古い年ほど深く濃い)、
      * 境界は波線、記事は種(楕円)、引用の線は古い層へ伸びる根(左に膨らむ弧)として描く。
      *
-     * @param {{axisX: number, paddingTop: number, paddingBottom: number, width: number, maxArcWidth: number, nodeRadius: number, yearGap: number, maxDepthShade: number, titleMaxLength: number, label: string, hiatusLabel: string}} options
+     * @param {{axisX: number, paddingTop: number, paddingBottom: number, width: number, maxArcWidth: number, nodeRadius: number, yearGap: number, maxDepthShade: number, titleMaxLength: number, label: string, hiatusLabel: string, incomingRefs: Object<string, number>}} options
+     *   incomingRefs は countIncomingRefs の戻り値(被参照のある種に芽を付ける)
      *   hiatusLabel は不整合面の日数ラベルの文言(% を日数に置き換える)
      * @returns {SVGSVGElement}
      */
@@ -405,9 +415,24 @@
 
         // ノード(記事)。<a> で包み、クリックで記事ページへ遷移する
         const nodeGroup = createElement('g', {class: 'gh-strata-nodes'});
+        // 芽の向き(#30): 固定ページの根は軸の左に膨らむ弧なので、列 0 の種の左隣(列 -1)を通る根として扱う
+        const rowOf = {};
+        layout.nodes.forEach(function (node, index) {
+            rowOf[node.slug] = index;
+        });
+        const sproutLeans = chooseSproutLeans(layout.nodes.map(function (node, index) {
+            return {slug: node.slug, row: index, col: 0};
+        }), layout.edges.map(function (edge) {
+            return {fromRow: Math.min(rowOf[edge.from], rowOf[edge.to]), toRow: Math.max(rowOf[edge.from], rowOf[edge.to]), fromCol: 0, toCol: 0, viaCol: -1};
+        }));
         layout.nodes.forEach(function (node) {
             const y = nodeY[node.slug];
             const anchor = createElement('a', {class: 'gh-strata-node', href: node.url, 'data-slug': node.slug, 'aria-label': node.title});
+            // 後の記事に根を張られた(被参照のある)種は芽を出す(#30)
+            const sprout = createSprout(node.slug, options.axisX, y, options.nodeRadius, sproutLeans[node.slug], 'gh-strata-sprout', options.incomingRefs);
+            if (sprout) {
+                anchor.appendChild(sprout);
+            }
             // 記事は「種」の形(縦長の楕円)で描く
             anchor.appendChild(createElement('ellipse', {
                 class: 'gh-strata-dot',
@@ -1188,23 +1213,186 @@
     }
 
     /**
-     * 現在記事の種から伸びる「芽」(茎と双葉)のパスを作る。baseY は種の上端、size は芽の高さ。
+     * 各記事が後の記事から参照された数(被参照数)を数える(#30)。
+     * 人間の層(refs)と機械の層(inferredRefs)の両方を対象とし、同じ参照元が引用と注釈の両方で同じ相手を指しても
+     * 参照元 1 記事につき 1 と数える。自分自身への参照は数えない。
+     * 被参照の無い記事はキーを持たない(呼び出し側は `counts[slug] || 0` で読む)。
+     *
+     * @param {Array<{slug: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>} posts graph.json の記事一覧
+     * @returns {Object<string, number>} slug → 被参照数
+     */
+    function countIncomingRefs(posts) {
+        const counts = {};
+        posts.forEach(function (post) {
+            const targets = {};
+            post.refs.forEach(function (slug) {
+                targets[slug] = true;
+            });
+            (post.inferredRefs || []).forEach(function (relation) {
+                targets[relation.slug] = true;
+            });
+            Object.keys(targets).forEach(function (slug) {
+                if (slug === post.slug) {
+                    return;
+                }
+                counts[slug] = (counts[slug] || 0) + 1;
+            });
+        });
+        return counts;
+    }
+
+    /**
+     * 被参照数から芽の段階を決める(#30)。0: まだ芽吹いていない種、1: 双葉、2: 葉が増えた芽。
+     *
+     * @param {number} count 被参照数
+     * @returns {0|1|2}
+     */
+    function sproutStage(count) {
+        if (count <= 0) {
+            return 0;
+        }
+        return count >= SPROUT_LEAFY_AT ? 2 : 1;
+    }
+
+    /**
+     * 種から伸びる「芽」(茎と双葉)のパスを作る。baseY は種の上端、size は芽の高さ。
+     * stage が 2 のときは茎を伸ばし、双葉の下にもう 1 対の葉を足す(被参照が多い種ほど育っている表現)。
      *
      * @param {number} x 茎の x 座標
      * @param {number} baseY 芽の付け根の y 座標
-     * @param {number} size 芽の高さ(px)
+     * @param {number} size 芽の高さ(px)。段階 1 の高さで、段階 2 ではこれより高くなる
+     * @param {1|2} stage 芽の段階(sproutStage の戻り値。0 のときは呼ばない)
      * @returns {string} SVG path の d 属性
      */
-    function sproutPath(x, baseY, size) {
-        const topY = baseY - size;
+    function sproutPath(x, baseY, size, stage) {
+        const height = stage === 2 ? size * 1.4 : size;
+        const topY = baseY - height;
         const leaf = size * 0.55;
-        return 'M ' + x + ' ' + baseY + ' L ' + x + ' ' + topY +
+        let path = 'M ' + x + ' ' + baseY + ' L ' + x + ' ' + topY +
             ' M ' + x + ' ' + (topY + leaf * 0.6) +
             ' Q ' + (x - leaf) + ' ' + (topY + leaf * 0.5) + ' ' + (x - leaf * 0.9) + ' ' + (topY - leaf * 0.35) +
             ' Q ' + (x - leaf * 0.2) + ' ' + (topY - leaf * 0.1) + ' ' + x + ' ' + (topY + leaf * 0.6) +
             ' M ' + x + ' ' + (topY + leaf * 0.2) +
             ' Q ' + (x + leaf) + ' ' + (topY + leaf * 0.1) + ' ' + (x + leaf * 0.9) + ' ' + (topY - leaf * 0.75) +
             ' Q ' + (x + leaf * 0.2) + ' ' + (topY - leaf * 0.5) + ' ' + x + ' ' + (topY + leaf * 0.2);
+        if (stage === 2) {
+            // 下の葉は双葉より小さく、茎の中ほどから左右に開く
+            const lowY = baseY - size * 0.45;
+            const small = leaf * 0.8;
+            path += ' M ' + x + ' ' + lowY +
+                ' Q ' + (x - small) + ' ' + lowY + ' ' + (x - small * 0.9) + ' ' + (lowY - small * 0.6) +
+                ' Q ' + (x - small * 0.2) + ' ' + (lowY - small * 0.3) + ' ' + x + ' ' + lowY +
+                ' M ' + x + ' ' + (lowY - small * 0.3) +
+                ' Q ' + (x + small) + ' ' + (lowY - small * 0.3) + ' ' + (x + small * 0.9) + ' ' + (lowY - small * 0.9) +
+                ' Q ' + (x + small * 0.2) + ' ' + (lowY - small * 0.6) + ' ' + x + ' ' + (lowY - small * 0.3);
+        }
+        return path;
+    }
+
+    /**
+     * 根(エッジ)が種のすぐ上の空間で占める(行, 列)の組を集める(#30)。
+     * 「行 g の空間」は行 g の種のすぐ上(行 g-1 との間)を指す。paneEdgePath の形に合わせて、上の種から 1 行ぶんの
+     * S 字(fromCol〜lane の列をまたぐ)、lane の列を縦に下る区間、下の種へ戻る 1 行ぶんの S 字(lane〜toCol)を数える。
+     * S 字のまたぐ列はすべて塞がっているとみなす(控えめに見積もる)。
+     *
+     * @param {Array<{fromRow: number, toRow: number, fromCol: number, toCol: number, viaCol?: number}>} edges
+     * @returns {Set<string>} "row:col" の集合
+     */
+    function occupiedAboveRows(edges) {
+        const occupied = new Set();
+        const addRange = function (row, colA, colB) {
+            for (let col = Math.min(colA, colB); col <= Math.max(colA, colB); col += 1) {
+                occupied.add(row + ':' + col);
+            }
+        };
+        edges.forEach(function (edge) {
+            const lane = edge.viaCol === undefined ? edge.toCol : edge.viaCol;
+            if (edge.toRow <= edge.fromRow + 1) {
+                addRange(edge.toRow, Math.min(edge.fromCol, lane, edge.toCol), Math.max(edge.fromCol, lane, edge.toCol));
+                return;
+            }
+            addRange(edge.fromRow + 1, edge.fromCol, lane);
+            for (let row = edge.fromRow + 2; row < edge.toRow; row += 1) {
+                addRange(row, lane, lane);
+            }
+            addRange(edge.toRow, lane, edge.toCol);
+        });
+        return occupied;
+    }
+
+    /**
+     * 種ごとに芽を傾ける向きを決める(#30)。芽は斜めに伸ばすのを基本とし、種のすぐ上の空間(真上・左隣・右隣の列)で
+     * 根(エッジ)が通っていない側を選ぶ。右 → 左の順で空いている側を探し、左右とも塞がっていて真上が空いていれば
+     * 真上に伸ばす。すべて塞がっていれば避けられないので既定の右にする。
+     *
+     * @param {Array<{slug: string, row: number, col: number}>} nodes
+     * @param {Array<{fromRow: number, toRow: number, fromCol: number, toCol: number, viaCol?: number}>} edges
+     * @returns {Object<string, 'right'|'left'|'up'>} slug → 向き
+     */
+    function chooseSproutLeans(nodes, edges) {
+        const occupied = occupiedAboveRows(edges);
+        const leans = {};
+        nodes.forEach(function (node) {
+            const free = function (col) {
+                return !occupied.has(node.row + ':' + col);
+            };
+            if (free(node.col + 1)) {
+                leans[node.slug] = 'right';
+            } else if (free(node.col - 1)) {
+                leans[node.slug] = 'left';
+            } else if (free(node.col)) {
+                leans[node.slug] = 'up';
+            } else {
+                leans[node.slug] = 'right';
+            }
+        });
+        return leans;
+    }
+
+    /**
+     * 芽の向きに応じた SVG の transform 属性を返す(#30)。付け根(x, baseY)を中心に、右なら時計回り、左なら反時計回りに回す。
+     *
+     * @param {'right'|'left'|'up'} lean chooseSproutLeans の戻り値
+     * @param {number} x 付け根の x 座標
+     * @param {number} baseY 付け根の y 座標
+     * @returns {string|null} 真上(up)なら null
+     */
+    function sproutTransform(lean, x, baseY) {
+        if (lean === 'up') {
+            return null;
+        }
+        return 'rotate(' + (lean === 'left' ? -SPROUT_LEAN_DEGREES : SPROUT_LEAN_DEGREES) + ' ' + x + ' ' + baseY + ')';
+    }
+
+    /**
+     * 被参照数(options.incomingRefs)に応じた芽のパス要素を作る。芽の無い種(段階 0)なら null を返す(#30)。
+     * 付け根は種(縦長の楕円)の上端に置き、lean の向きへ傾ける。
+     *
+     * @param {string} slug 記事の slug
+     * @param {number} x 茎の x 座標(種の中心)
+     * @param {number} y 種の中心の y 座標
+     * @param {number} nodeRadius 種の横半径(縦半径は 1.3 倍)
+     * @param {'right'|'left'|'up'} lean 芽を傾ける向き(chooseSproutLeans の戻り値)
+     * @param {string} className path に付けるクラス名
+     * @param {Object<string, number>} incomingRefs countIncomingRefs の戻り値
+     * @returns {SVGElement|null}
+     */
+    function createSprout(slug, x, y, nodeRadius, lean, className, incomingRefs) {
+        const stage = sproutStage(incomingRefs[slug] || 0);
+        if (stage === 0) {
+            return null;
+        }
+        // 種の上端より 1px 内側から生やし、種と芽がつながって見えるようにする
+        const baseY = y - nodeRadius * 1.3 + 1;
+        const attributes = {
+            class: className + ' is-stage-' + stage,
+            d: sproutPath(x, baseY, nodeRadius * 2.5, stage)
+        };
+        const transform = sproutTransform(lean, x, baseY);
+        if (transform) {
+            attributes.transform = transform;
+        }
+        return createElement('path', attributes);
     }
 
     /**
@@ -1212,7 +1400,7 @@
      *
      * @param {ReturnType<typeof buildPaneLayout>} layout
      * @param {ReturnType<typeof computeEmphasis>} emphasis
-     * @param {{axisX: number, laneWidth: number, rowHeight: number, width: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, hiatusLabel: string, dateLocale: string, summaryMaxLength: number}} options
+     * @param {{axisX: number, laneWidth: number, rowHeight: number, width: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, hiatusLabel: string, dateLocale: string, summaryMaxLength: number, incomingRefs: Object<string, number>}} options
      *   axisX は列 0 の x 座標、laneWidth は列の間隔(px)。maxDepthShade は地層の色の濃さの段階数の上限(CSS の data-depth と一致させる)、bleed は地層をペイン端まで届かせるための左右のはみ出し幅(px)、
      *   hiatusLabel は不整合面の日数ラベルの文言(% を日数に置き換える)
      */
@@ -1315,6 +1503,7 @@
         svg.appendChild(edgeGroup);
 
         // ノード。<a> で包み、<title> でタイトルと公開日をツールチップ表示する
+        const sproutLeans = chooseSproutLeans(layout.nodes, layout.edges);
         const nodeGroup = createElement('g', {class: 'gh-strata-pane-nodes'});
         layout.nodes.forEach(function (node) {
             // 中立モード(トップページ)では全ノードを標準色で描き、現在記事の輪も付けない
@@ -1339,15 +1528,16 @@
             }
             const x = columnX(node.col, options);
             if (distance === 0) {
-                // 現在の記事は「芽吹いた種」として、輪と芽(茎と双葉)をつける
+                // 現在の記事は輪で強調する(芽の有無とは独立)
                 anchor.appendChild(createElement('circle', {
                     class: 'gh-strata-pane-ring',
                     cx: x, cy: node.y, r: options.nodeRadius + 4
                 }));
-                anchor.appendChild(createElement('path', {
-                    class: 'gh-strata-pane-sprout',
-                    d: sproutPath(x, node.y - options.nodeRadius - 4, options.nodeRadius * 2.5)
-                }));
+            }
+            // 後の記事に根を張られた(被参照のある)種は芽を出す(#30)。根と重ならない側へ傾ける
+            const sprout = createSprout(node.slug, x, node.y, options.nodeRadius, sproutLeans[node.slug], 'gh-strata-pane-sprout', options.incomingRefs);
+            if (sprout) {
+                anchor.appendChild(sprout);
             }
             // ノードは「種」の形(縦長の楕円)で描く
             anchor.appendChild(createElement('ellipse', {
@@ -1470,7 +1660,8 @@
             label: pane.dataset.strataLabel || '',
             hiatusLabel: pane.dataset.strataHiatusLabel || '%',
             dateLocale: document.documentElement.lang || undefined,
-            summaryMaxLength: 80
+            summaryMaxLength: 80,
+            incomingRefs: countIncomingRefs(posts)
         });
         const scroll = pane.querySelector('[data-strata-scroll]');
         scroll.appendChild(svg);
@@ -1518,7 +1709,7 @@
      * タイムラインのレイアウトを SVG として描画する。行リストの背後に重ねるため、大きさは行リストと同じにする。
      *
      * @param {ReturnType<typeof buildTimelineLayout>} layout
-     * @param {{width: number, height: number, labelWidth: number, axisX: number, laneWidth: number, bend: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, offPageLabel: string, hiatusLabel: string, compact: boolean}} options
+     * @param {{width: number, height: number, labelWidth: number, axisX: number, laneWidth: number, bend: number, nodeRadius: number, maxDepthShade: number, bleed: number, label: string, offPageLabel: string, hiatusLabel: string, compact: boolean, incomingRefs: Object<string, number>}} options
      *   labelWidth は月ラベル列の幅、axisX は列 0 の x 座標、bend は根が隣の列へ移るときの縦の長さ(px)、
      *   bleed は地層を画面の端まで届かせるための左右のはみ出し幅(px)、hiatusLabel は不整合面の日数ラベルの文言(% を日数に置き換える)、
      *   compact は狭い画面向け(月ラベルを帯の左上に小さく置く)
@@ -1667,10 +1858,18 @@
 
         // 種(記事)。カードのタイトル 1 行目に合わせて置く
         const nodeGroup = createElement('g', {class: 'gh-strata-timeline-nodes'});
+        const sproutLeans = chooseSproutLeans(layout.nodes, layout.edges);
         layout.nodes.forEach(function (node) {
+            const x = columnX(node.col, laneOptions);
+            // 後の記事に根を張られた(被参照のある)種は芽を出す(#30)。被参照数はページ外の記事も含めた全体から数え、
+            // 向きは根と重ならない側にする
+            const sprout = createSprout(node.slug, x, node.y, options.nodeRadius, sproutLeans[node.slug], 'gh-strata-pane-sprout', options.incomingRefs);
+            if (sprout) {
+                nodeGroup.appendChild(sprout);
+            }
             nodeGroup.appendChild(createElement('ellipse', {
                 class: 'gh-strata-pane-dot',
-                cx: columnX(node.col, laneOptions), cy: node.y,
+                cx: x, cy: node.y,
                 rx: options.nodeRadius, ry: options.nodeRadius * 1.3
             }));
         });
@@ -1859,7 +2058,8 @@
             label: container.dataset.strataLabel || '',
             offPageLabel: container.dataset.strataOffpageLabel || '+%',
             hiatusLabel: container.dataset.strataHiatusLabel || '%',
-            compact: compact
+            compact: compact,
+            incomingRefs: countIncomingRefs(posts)
         });
         list.insertBefore(svg, list.firstChild);
         container.classList.add('is-rendered');
@@ -1895,7 +2095,8 @@
             maxDepthShade: 6,
             titleMaxLength: 32,
             label: container.dataset.strataLabel || '',
-            hiatusLabel: container.dataset.strataHiatusLabel || '%'
+            hiatusLabel: container.dataset.strataHiatusLabel || '%',
+            incomingRefs: countIncomingRefs(posts)
         });
         const figure = document.createElement('div');
         figure.className = 'gh-strata-graph';
@@ -1918,7 +2119,12 @@
         assignBandIcons: assignBandIcons,
         columnExtent: columnExtent,
         paneEdgePath: paneEdgePath,
-        parseGraph: parseGraph
+        parseGraph: parseGraph,
+        countIncomingRefs: countIncomingRefs,
+        sproutStage: sproutStage,
+        sproutPath: sproutPath,
+        chooseSproutLeans: chooseSproutLeans,
+        sproutTransform: sproutTransform
     };
 
     if (typeof document !== 'undefined') {
