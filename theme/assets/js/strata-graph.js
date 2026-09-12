@@ -17,6 +17,8 @@
  * 2. partials/strata-pane.hbs([data-strata-pane]): 記事ページ左側の固定ペイン。新しい記事が上、
  *    月ごとの区切り線付き。記事ごとに列(col)を持ち、引用チェーンが同じ列を継いで 1 本の幹になり、
  *    複数の引用で枝分かれ、複数からの被引用で合流する git のブランチ図のように描く(本家 Hyperstrata と同じ方式)。
+ *    列はブラウザでは計算しない。scripts/hyperstrata-sync.mjs が scripts/pane-layout.mjs(横幅上限つきの座標決定)で
+ *    決めて graph.json に載せた各記事の paneCol(列)と paneLanes(引用先 slug → 幹の列)をそのまま使う(#44)。
  *    現在の記事(data-current-slug)とその引用チェーン(2 ホップ)を強調し、無関係なものは暗くする。
  *    引用の無い孤立した記事でも、現在記事であれば強調する。
  *    data-current-slug が空の場合は中立モード(強調も暗転もなし)で描く。
@@ -28,8 +30,9 @@
  * - エッジ: 引用関係(引用元 → 引用先)。著者が本文リンクで作る人間の層(graph.json の refs、kind: 'human')と、
  *   Hyperstrata の注釈(posts/strata/)から scripts/hyperstrata-sync.mjs が合成する機械の層
  *   (graph.json の inferredRefs、kind: 'inferred')の 2 種類があり、CSS(is-inferred)で破線にして区別する。
- *   機械の層は記事ペイン・タイムラインの列(col)割り当てには参加させず(幹の形は人間の引用だけで決める)、
- *   確定した座標の上に重ねて描く。2 ホップの強調(computeEmphasis)には両方を渡す
+ *   機械の層はタイムラインの列(col)割り当てには参加させず(幹の形は人間の引用だけで決める)、
+ *   確定した座標の上に重ねて描く。記事ペインでは graph.json の paneLanes が推定エッジの列も持つ。
+ *   2 ホップの強調(computeEmphasis)には両方を渡す
  * - graph.json の取得や内容の検証に失敗した場合は console.error に出力し、グラフは描画しない
  *
  * - 芽吹き(sprout): 後の記事に引用・関係付けされた(人間の層 refs と機械の層 inferredRefs のどちらかで参照された)種は
@@ -174,12 +177,13 @@
     /**
      * graph.json の内容を検証し、記事配列を取り出す。
      *
-     * 必須項目(slug / title / url / publishedAt / refs)が欠けたデータは、描画途中で分かりにくく壊れるより
+     * 必須項目(slug / title / url / publishedAt / refs / paneCol / paneLanes)が欠けたデータは、描画途中で分かりにくく壊れるより
      * ここで例外にして早期に失敗させる。inferredRefs(Hyperstrata の注釈から合成した機械の層)は
      * 省略可能な項目として扱い、無い場合(旧形式の graph.json)でも壊れないようにする(後方互換)。
+     * paneCol(記事ペインの列)と paneLanes(引用先 slug → 幹の列)は scripts/hyperstrata-sync.mjs が載せる(#44)。
      *
      * @param {unknown} data graph.json をパースした値
-     * @returns {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>}>}
+     * @returns {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, paneCol: number, paneLanes: Object<string, number>}>}
      */
     function parseGraph(data) {
         if (!data || !Array.isArray(data.posts)) {
@@ -195,6 +199,17 @@
             if (!Array.isArray(post.refs)) {
                 throw new Error('graph.json の posts[' + index + '] に refs 配列がありません');
             }
+            if (!Number.isInteger(post.paneCol)) {
+                throw new Error('graph.json の posts[' + index + '] に paneCol(記事ペインの列)がありません');
+            }
+            if (!post.paneLanes || typeof post.paneLanes !== 'object') {
+                throw new Error('graph.json の posts[' + index + '] に paneLanes(幹の列)がありません');
+            }
+            Object.keys(post.paneLanes).forEach(function (target) {
+                if (!Number.isInteger(post.paneLanes[target])) {
+                    throw new Error('graph.json の posts[' + index + '] の paneLanes.' + target + ' は整数である必要があります');
+                }
+            });
             if (post.inferredRefs !== undefined) {
                 if (!Array.isArray(post.inferredRefs)) {
                     throw new Error('graph.json の posts[' + index + '] の inferredRefs は配列である必要があります');
@@ -563,15 +578,18 @@
      * 隣接する記事の空白が hiatusDays を超える場合は、月の区切りの前に hiatusGap ぶん余白を足し、
      * その中央を不整合面(hiatuses)として記録する(#29)。行間は一定なので圧縮ではなく余白の追加になる。
      *
-     * 列(col)の割り当て(assignColumns)は人間の引用(refs)だけで決める。Hyperstrata の注釈から
-     * 合成した推定エッジ(inferredRefs)は幹の形に影響させず、確定した行(row)の上に kind: 'inferred'
-     * として重ねて描く。
+     * 列(col)は計算せず、graph.json の各記事が持つ paneCol(列)と paneLanes(引用先 slug → 幹の列)を使う(#44)。
+     * 列は scripts/pane-layout.mjs が人間の引用(refs)で幹を作り、Hyperstrata の注釈から合成した推定エッジ
+     * (inferredRefs)を幅の上限の中で重ねて決めたもの。エッジの幹の列が引用先の列と違えば viaCol として持ち、
+     * paneEdgePath が上で幹の列へ移り、下で引用先の列へ戻る S 字で描く。推定エッジは kind: 'inferred' で重ねる。
+     * paneCol / paneLanes が無い記事は例外にする(列を載せる前の graph.json を黙って描かない)。
      *
-     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null}>} posts
+     * @param {Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs?: Array<{slug: string, type: string}>, icon?: string|null, paneCol: number, paneLanes: Object<string, number>}>} posts
      * @param {{rowHeight: number, monthGap: number, paddingTop: number, paddingBottom: number, hiatusDays?: number, hiatusGap?: number}} options
      *   hiatusDays を省略すると不整合面を検出しない(hiatuses は空)。指定する場合は hiatusGap も必須
      * @returns {{nodes: object[], edges: object[], monthMarks: object[], hiatuses: Array<{y: number, days: number, newer: string, older: string}>, minCol: number, maxCol: number, height: number}}
-     *   nodes は col(列番号)、edges は fromCol / toCol(両端の列番号)と kind('human' | 'inferred')を持つ
+     *   nodes は col(列番号)、edges は fromCol / toCol(両端の列番号)、viaCol(幹の列。引用先の列と同じなら無し)、
+     *   kind('human' | 'inferred')を持つ。minCol / maxCol は記事と幹が使う列の範囲
      */
     function buildPaneLayout(posts, options) {
         const sorted = posts
@@ -583,7 +601,8 @@
                 return Object.assign({}, post, {time: time});
             })
             .sort(function (a, b) {
-                return b.time - a.time;
+                // 同じ公開日時は slug 順にして、graph.json を作る hyperstrata-sync.mjs(buildGraph)と同じ行順にする(paneCol の前提)
+                return b.time - a.time || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0);
             });
 
         if (sorted.length === 0) {
@@ -612,148 +631,76 @@
                 previousMonth = month;
             }
             y += row === 0 ? 0 : options.rowHeight;
-            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, row: row, y: y, icon: post.icon || null, summary: post.summary || null});
+            if (!Number.isInteger(post.paneCol)) {
+                throw new Error('記事 ' + post.slug + ' に paneCol(記事ペインの列)がありません');
+            }
+            if (!post.paneLanes || typeof post.paneLanes !== 'object') {
+                throw new Error('記事 ' + post.slug + ' に paneLanes(幹の列)がありません');
+            }
+            nodes.push({slug: post.slug, title: post.title, url: post.url, publishedAt: post.publishedAt, row: row, y: y, col: post.paneCol, icon: post.icon || null, summary: post.summary || null});
             rowOf[post.slug] = row;
         });
 
-        const rawEdges = [];
+        // エッジは人間の引用(refs)を先に、推定エッジ(inferredRefs)を後に作る。
+        // 人間の引用と同じ組(from, to)を指す推定は人間の引用を優先し、inferredRefs 自体の重複も 1 本にまとめる。
+        // 幹の列(paneLanes)が引用先の列と違うエッジは viaCol を持つ
+        const edges = [];
+        const edgeKeys = new Set();
+        const addEdge = function (post, ref, kind) {
+            if (!Object.prototype.hasOwnProperty.call(rowOf, ref) || ref === post.slug) {
+                return;
+            }
+            const key = post.slug + '|' + ref;
+            if (edgeKeys.has(key)) {
+                return;
+            }
+            edgeKeys.add(key);
+            const lane = post.paneLanes[ref];
+            if (!Number.isInteger(lane)) {
+                throw new Error('記事 ' + post.slug + ' の paneLanes に引用先 ' + ref + ' の列がありません');
+            }
+            // 引用元は引用先より新しい(上にある)はずだが、同時刻などで逆転した場合も上→下に揃える
+            const fromRow = Math.min(rowOf[post.slug], rowOf[ref]);
+            const toRow = Math.max(rowOf[post.slug], rowOf[ref]);
+            const edge = {
+                from: post.slug,
+                to: ref,
+                fromRow: fromRow,
+                toRow: toRow,
+                kind: kind,
+                fromCol: nodes[fromRow].col,
+                toCol: nodes[toRow].col
+            };
+            if (lane !== edge.toCol) {
+                edge.viaCol = lane;
+            }
+            edges.push(edge);
+        };
         sorted.forEach(function (post) {
             post.refs.forEach(function (ref) {
-                if (Object.prototype.hasOwnProperty.call(rowOf, ref) && ref !== post.slug) {
-                    const fromRow = rowOf[post.slug];
-                    const toRow = rowOf[ref];
-                    // 引用元は引用先より新しい(上にある)はずだが、同時刻などで逆転した場合も上→下に揃える
-                    rawEdges.push({
-                        from: post.slug,
-                        to: ref,
-                        fromRow: Math.min(fromRow, toRow),
-                        toRow: Math.max(fromRow, toRow)
-                    });
-                }
+                addEdge(post, ref, 'human');
             });
         });
-        // 列(col)は人間の引用だけで決める(幹の形が推定エッジで揺れないようにするため)
-        const columns = assignColumns(nodes, rawEdges);
-        nodes.forEach(function (node, index) {
-            node.col = columns.cols[index];
-        });
-        const edges = rawEdges.map(function (edge) {
-            return Object.assign({}, edge, {kind: 'human', fromCol: columns.cols[edge.fromRow], toCol: columns.cols[edge.toRow]});
-        });
-
-        // 推定エッジ(inferredRefs)は列の割り当てが終わったあとに、確定した行の座標の上へ重ねて追加する。
-        // 人間の引用と同じ組(from, to)を指す場合は人間の引用を優先し、inferredRefs 自体の重複も 1 本にまとめる
-        const edgeKeys = new Set(rawEdges.map(function (edge) {
-            return edge.from + '|' + edge.to;
-        }));
         sorted.forEach(function (post) {
             (post.inferredRefs || []).forEach(function (relation) {
-                const ref = relation.slug;
-                if (!Object.prototype.hasOwnProperty.call(rowOf, ref) || ref === post.slug) {
-                    return;
-                }
-                const key = post.slug + '|' + ref;
-                if (edgeKeys.has(key)) {
-                    return;
-                }
-                edgeKeys.add(key);
-                const fromRow = Math.min(rowOf[post.slug], rowOf[ref]);
-                const toRow = Math.max(rowOf[post.slug], rowOf[ref]);
-                edges.push({
-                    from: post.slug,
-                    to: ref,
-                    fromRow: fromRow,
-                    toRow: toRow,
-                    kind: 'inferred',
-                    fromCol: columns.cols[fromRow],
-                    toCol: columns.cols[toRow]
-                });
+                addEdge(post, relation.slug, 'inferred');
             });
         });
 
-        const lanes = assignDetourLanes(nodes, edges);
+        const usedCols = nodes.map(function (node) {
+            return node.col;
+        }).concat(edges.map(function (edge) {
+            return edge.viaCol === undefined ? edge.toCol : edge.viaCol;
+        }));
         return {
             nodes: nodes,
             edges: edges,
             monthMarks: monthMarks,
             hiatuses: hiatuses,
-            minCol: Math.min(columns.minCol, lanes.minCol),
-            maxCol: Math.max(columns.maxCol, lanes.maxCol),
+            minCol: Math.min.apply(null, usedCols),
+            maxCol: Math.max.apply(null, usedCols),
             height: y + options.paddingBottom
         };
-    }
-
-    /**
-     * エッジが途中の行のノードの上を通らないように、迂回する列(viaCol)を割り当てる。
-     *
-     * paneEdgePath はエッジを「上のノードから 1 行ぶんの S 字で引用先の列(toCol)へ移り、そのまま縦に下る」形で描くため、
-     * 縦の区間(toCol の fromRow + 1 .. toRow - 1)に別のノードがあると線が種の上を通ってしまう。
-     * 列(col)の割り当て(assignColumns)は人間の引用だけで決めるので、これは主に推定エッジ(inferredRefs)で起きる。
-     * そうしたエッジには、途中の行にノードが無く、直進するエッジの縦の区間(人間の幹)とも重ならない列を
-     * toCol に近い順に探して viaCol として持たせる。迂回エッジ同士は同じ列を共有してよい(列を分けると幅が広がりすぎる)。paneEdgePath は viaCol があれば上で viaCol へ移り、
-     * 下で toCol へ戻る。迂回しないエッジには viaCol を付けない(edges は破壊的に更新する)。
-     *
-     * @param {Array<{row: number, col: number}>} nodes
-     * @param {Array<{fromRow: number, toRow: number, fromCol: number, toCol: number, kind: string, viaCol?: number}>} edges
-     * @returns {{minCol: number, maxCol: number}} 迂回に使った列の範囲(無ければ 0..0)
-     */
-    function assignDetourLanes(nodes, edges) {
-        /** 列番号 → その列にノードがある行の集合 */
-        const nodeRows = {};
-        nodes.forEach(function (node) {
-            (nodeRows[node.col] = nodeRows[node.col] || new Set()).add(node.row);
-        });
-        /** 列番号 → 線の縦の区間(両端を含む)の配列 */
-        const laneRanges = {};
-        const overlaps = function (col, fromRow, toRow) {
-            return (laneRanges[col] || []).some(function (range) {
-                return fromRow <= range.toRow && range.fromRow <= toRow;
-            });
-        };
-        const hasNode = function (col, fromRow, toRow) {
-            return Array.from(nodeRows[col] || []).some(function (row) {
-                return fromRow <= row && row <= toRow;
-            });
-        };
-        const reserveLane = function (col, fromRow, toRow) {
-            (laneRanges[col] = laneRanges[col] || []).push({fromRow: fromRow, toRow: toRow});
-        };
-
-        // 直進できるエッジの縦の区間を先に占有させ、迂回エッジが幹の上に乗らないようにする。
-        // 人間の引用を先に処理し、推定エッジは残った列を使う
-        const needsDetour = [];
-        edges.slice().sort(function (a, b) {
-            return (a.kind === 'inferred' ? 1 : 0) - (b.kind === 'inferred' ? 1 : 0);
-        }).forEach(function (edge) {
-            const interiorFrom = edge.fromRow + 1;
-            const interiorTo = edge.toRow - 1;
-            if (interiorFrom > interiorTo || !hasNode(edge.toCol, interiorFrom, interiorTo)) {
-                reserveLane(edge.toCol, interiorFrom, edge.toRow);
-                return;
-            }
-            needsDetour.push(edge);
-        });
-
-        let minCol = 0;
-        let maxCol = 0;
-        needsDetour.forEach(function (edge) {
-            const interiorFrom = edge.fromRow + 1;
-            const interiorTo = edge.toRow - 1;
-            for (let offset = 1; ; offset += 1) {
-                const candidates = [edge.toCol + offset, edge.toCol - offset];
-                const found = candidates.filter(function (col) {
-                    return !hasNode(col, interiorFrom, interiorTo) && !overlaps(col, interiorFrom, interiorTo);
-                })[0];
-                if (found !== undefined) {
-                    // 迂回エッジ同士は同じ列を共有してよい(別の列にするとペインの幅が広がりすぎるため)
-                    edge.viaCol = found;
-                    minCol = Math.min(minCol, found);
-                    maxCol = Math.max(maxCol, found);
-                    break;
-                }
-            }
-        });
-        return {minCol: minCol, maxCol: maxCol};
     }
 
     /**
@@ -1057,7 +1004,7 @@
     /**
      * ペイン用エッジのパスを作る。両端が同じ列なら幹として直線で結ぶ。列が違う場合は、上のノードから
      * 1 行ぶんの S 字で相手の列へ移り、そのまま縦に下って下のノードへ届く(git のブランチ図の枝分かれ・合流の見た目)。
-     * viaCol(assignDetourLanes が付ける迂回列)があれば、上で viaCol へ S 字で移って縦に下り、下で 1 行ぶんの S 字で
+     * viaCol(graph.json の paneLanes が引用先の列と違うときに buildPaneLayout が付ける幹の列)があれば、上で viaCol へ S 字で移って縦に下り、下で 1 行ぶんの S 字で
      * 相手の列へ戻ってから下のノードへ届く。
      * ノード座標は nodeY(slug → y)から引き、fromRow < toRow に揃えてあるため fromCol が上、toCol が下になる。
      */
@@ -1716,7 +1663,7 @@
         const emphasis = computeEmphasis(layout.nodes, layout.edges, pane.dataset.currentSlug || '', 2);
         const laneWidth = 12;
         const padding = 24;
-        // 列 0 を中心に左右へ広がるため、最も左の列が padding の位置に来るように列 0 の x を決める
+        // 最も左の列(minCol。graph.json の列は 0 始まりだが、念のため minCol を使う)が padding の位置に来るように列 0 の x を決める
         const svg = renderPaneSvg(layout, emphasis, {
             axisX: padding - layout.minCol * laneWidth,
             laneWidth: laneWidth,
