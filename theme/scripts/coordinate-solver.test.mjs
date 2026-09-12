@@ -68,6 +68,18 @@ test('minimizeWeightedDistances: 制約を同時に満たせない(正の長さ�
     );
 });
 
+test('minimizeWeightedDistances: 逆向きの弧(流量を戻す)を含む負閉路も消去して最適解に到達する', () => {
+    // t(0) は b1(1) と重み 1、b3(3) と重み 1 で結ばれ、b1 → b3 は間隔 2。初期流(補助ノードから両端へ)を
+    // 戻す閉路を消さないと t の座標が b1 か b3 の一方に偏るが、最適解は t が b1 と b3 の間のどこでも距離 2。
+    // さらに t と b2(2) を重み 5 で結ぶと、t は b2 の真上(距離 2 + 0)に固定される
+    const x = minimizeWeightedDistances({
+        size: 4,
+        gaps: [{from: 1, to: 2, min: 1}, {from: 2, to: 3, min: 1}],
+        distances: [{a: 0, b: 1, weight: 1}, {a: 0, b: 3, weight: 1}, {a: 0, b: 2, weight: 5}]
+    });
+    assert.deepEqual(x, [1, 0, 1, 2]);
+});
+
 test('minimizeWeightedDistances: 制約もノードも無ければ空配列を返す', () => {
     assert.deepEqual(minimizeWeightedDistances({size: 0, gaps: [], distances: []}), []);
 });

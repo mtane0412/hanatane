@@ -205,6 +205,11 @@
             if (!post.paneLanes || typeof post.paneLanes !== 'object') {
                 throw new Error('graph.json の posts[' + index + '] に paneLanes(幹の列)がありません');
             }
+            Object.keys(post.paneLanes).forEach(function (target) {
+                if (!Number.isInteger(post.paneLanes[target])) {
+                    throw new Error('graph.json の posts[' + index + '] の paneLanes.' + target + ' は整数である必要があります');
+                }
+            });
             if (post.inferredRefs !== undefined) {
                 if (!Array.isArray(post.inferredRefs)) {
                     throw new Error('graph.json の posts[' + index + '] の inferredRefs は配列である必要があります');
@@ -596,7 +601,8 @@
                 return Object.assign({}, post, {time: time});
             })
             .sort(function (a, b) {
-                return b.time - a.time;
+                // 同じ公開日時は slug 順にして、graph.json を作る hyperstrata-sync.mjs(buildGraph)と同じ行順にする(paneCol の前提)
+                return b.time - a.time || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0);
             });
 
         if (sorted.length === 0) {

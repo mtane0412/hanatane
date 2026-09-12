@@ -110,6 +110,13 @@ test('layoutTrunks: 空の入力では幅 1・空の結果を返す', () => {
     assert.deepEqual(layoutTrunks([], [], {maxColumns: 4}), {cols: [], lanes: [], width: 1});
 });
 
+test('layoutTrunks: maxColumns が 1 以上の整数でなければ例外にする', () => {
+    const {nodes, edges} = 入力(['a'], []);
+    assert.throws(() => layoutTrunks(nodes, edges, {maxColumns: 0}), /maxColumns/);
+    assert.throws(() => layoutTrunks(nodes, edges, {maxColumns: 2.5}), /maxColumns/);
+    assert.throws(() => layoutTrunks(nodes, edges, {}), /maxColumns/);
+});
+
 test('layoutTrunks: 入力のノード・エッジ配列を変更しない', () => {
     const {nodes, edges} = 入力(['a', 'b'], [['a', 'b']]);
     const ノード複製 = JSON.stringify(nodes);

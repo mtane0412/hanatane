@@ -241,8 +241,9 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
  *
  * 列は scripts/pane-layout.mjs の layoutPane が決める(人間の引用で幹を作り、推定エッジは幅の上限の中で重ねる)。
  * 入力の graph は変更せず、posts を複製して返す。一覧に無い引用先(下書きなど)には列を付けない。
+ * inferredRefs の無い記事(旧形式)も受け付ける(parseGraph と同じく省略可能な項目として扱う)。
  *
- * @param {{posts: Array<{slug: string, refs: string[], inferredRefs: Array<{slug: string}>}>}} graph buildGraph の結果(新しい順)
+ * @param {{posts: Array<{slug: string, refs: string[], inferredRefs?: Array<{slug: string}>}>}} graph buildGraph の結果(新しい順)
  * @param {{maxColumns: number}} options 列数の上限
  * @returns {{posts: Array<object>}} 各記事に paneCol と paneLanes を足した graph
  * @throws {Error} 列数の上限に収まらない場合(layoutPane がそのまま投げる)
@@ -251,7 +252,7 @@ export function attachPaneLayout(graph, {maxColumns}) {
     const layout = layoutPane(graph.posts, {maxColumns});
     const posts = graph.posts.map((post) => {
         const paneLanes = {};
-        post.refs.concat(post.inferredRefs.map(relation => relation.slug)).forEach((target) => {
+        post.refs.concat((post.inferredRefs || []).map(relation => relation.slug)).forEach((target) => {
             const lane = layout.lanes[post.slug + '|' + target];
             if (lane !== undefined) {
                 paneLanes[target] = lane;

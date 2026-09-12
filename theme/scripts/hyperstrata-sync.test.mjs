@@ -547,6 +547,12 @@ test('attachPaneLayout: 一覧に無い引用先は paneLanes に含めない(bu
     assert.deepEqual(result.posts[0].paneLanes, {});
 });
 
+test('attachPaneLayout: inferredRefs の無い記事(旧形式の graph.json)も受け付け、人間の引用だけで列を付ける', () => {
+    const graph = {posts: [{slug: 'newest', refs: ['oldest']}, {slug: 'oldest', refs: []}]};
+    const result = attachPaneLayout(graph, {maxColumns: 8});
+    assert.deepEqual(result.posts[0].paneLanes, {oldest: result.posts[0].paneCol});
+});
+
 test('PANE_MAX_COLUMNS: 記事ペインの列数の上限は 8(列幅 12px で最小幅 240px のペインに収まる)', () => {
     assert.equal(PANE_MAX_COLUMNS, 8);
 });

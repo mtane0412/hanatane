@@ -249,6 +249,18 @@ test('buildPaneLayout: ノードの列(col)は graph.json の paneCol をその�
     assert.equal(layout.maxCol, 1);
 });
 
+test('buildPaneLayout: 同じ公開日時の記事は slug 順に並べる(graph.json を作る hyperstrata-sync と同じ順にして paneCol の行と合わせる)', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 同時刻 = [
+        {slug: 'zeta', title: 'ゼータ', url: '/zeta/', publishedAt: '2026-02-01T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {}},
+        {slug: 'alpha', title: 'アルファ', url: '/alpha/', publishedAt: '2026-02-01T00:00:00.000Z', refs: [], paneCol: 1, paneLanes: {}}
+    ];
+    const layout = buildPaneLayout(同時刻, ペイン設定);
+    assert.deepEqual(layout.nodes.map(node => node.slug), ['alpha', 'zeta']);
+    const 逆順 = buildPaneLayout([同時刻[1], 同時刻[0]], ペイン設定);
+    assert.deepEqual(逆順.nodes.map(node => node.slug), ['alpha', 'zeta']);
+});
+
 test('buildPaneLayout: paneCol / paneLanes の無い記事(列を載せる前の graph.json)は Fail-Fast で例外にする', () => {
     const {buildPaneLayout} = ペインを読み込む();
     assert.throws(() => buildPaneLayout(ペイン記事, ペイン設定), /paneCol/);
@@ -785,6 +797,7 @@ test('parseGraph: 記事ペインの列(paneCol / paneLanes)が無い場合は�
     assert.throws(() => parseGraph({posts: [{...基本, paneCol: 1.5, paneLanes: {}}]}), /paneCol/);
     assert.throws(() => parseGraph({posts: [{...基本, paneCol: 0}]}), /paneLanes/);
     assert.throws(() => parseGraph({posts: [{...基本, paneCol: 0, paneLanes: null}]}), /paneLanes/);
+    assert.throws(() => parseGraph({posts: [{...基本, paneCol: 0, paneLanes: {b: '1'}}]}), /paneLanes/);
     assert.deepEqual(parseGraph({posts: [{...基本, paneCol: 0, paneLanes: {}}]}), [{...基本, paneCol: 0, paneLanes: {}}]);
 });
 

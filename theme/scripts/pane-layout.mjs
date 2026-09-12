@@ -50,8 +50,8 @@ const REFINE_PASSES = 2;
  * @throws {Error} 幹だけで列数の上限を超える場合
  */
 export function layoutTrunks(nodes, edges, options) {
-    if (!(options.maxColumns >= 1)) {
-        throw new Error('maxColumns は 1 以上である必要があります');
+    if (!Number.isInteger(options.maxColumns) || options.maxColumns < 1) {
+        throw new Error('maxColumns は 1 以上の整数である必要があります: ' + options.maxColumns);
     }
     if (nodes.length === 0) {
         return {cols: [], lanes: [], width: 1};
@@ -92,6 +92,9 @@ export function layoutTrunks(nodes, edges, options) {
  * @throws {Error} 列数の上限に収まらない場合
  */
 export function layoutPane(posts, options) {
+    if (!Number.isInteger(options.maxColumns) || options.maxColumns < 1) {
+        throw new Error('maxColumns は 1 以上の整数である必要があります: ' + options.maxColumns);
+    }
     if (posts.length === 0) {
         return {cols: {}, lanes: {}, width: 1};
     }
@@ -119,6 +122,7 @@ export function layoutPane(posts, options) {
     posts.forEach((post) => {
         (post.inferredRefs || []).forEach(relation => collect(post, relation.slug, inferredEdges));
     });
+    // 同じ slug に対する列は graph.json の行順(新しい順・同時刻は slug 順)に依存するため、入力の順序をそのまま使う
 
     const trunks = layoutTrunks(nodes, humanEdges, options);
     // 余った列を左右に配る
