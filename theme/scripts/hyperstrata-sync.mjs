@@ -19,6 +19,9 @@
  *   を読み、著者が本文リンクで作る引用(人間の層・`refs`)とは別に、機械が判定した推定関係
  *   (`inferredRefs`)として graph.json に合成する。Ghost Admin API へのアクセスは不要で、
  *   リポジトリ内のファイルを読むだけ
+ * - 記事ペイン(partials/strata-pane.hbs)の列割り当て(各記事の列 `paneCol` と、引用先ごとの幹の列 `paneLanes`)を
+ *   scripts/pane-layout.mjs で計算して graph.json に載せる(#44)。ブラウザ側(strata-graph.js)は列を計算せず
+ *   この値をそのまま描画する。列数の上限は PANE_MAX_COLUMNS
  * - `--dry-run` を付けると更新・削除内容と graph.json の差分有無の表示のみ行う
  *
  * 必要な環境変数(既存の deploy-theme.yml と同じ Secrets):
@@ -31,6 +34,8 @@
 import {createHmac} from 'node:crypto';
 import {readFile, writeFile, readdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
+
+import {layoutPane} from './pane-layout.mjs';
 
 /** 引用タグ名の接頭辞。`#` 始まりのため Ghost では内部タグとして扱われる */
 export const REF_TAG_PREFIX = '#ref-';
@@ -45,6 +50,11 @@ const ADMIN_API_VERSION = 'v5.0';
  * テーマ zip に同梱され、テンプレートから `{{asset "graph.json"}}` で参照できる位置に置く。
  */
 export const GRAPH_JSON_PATH = 'assets/graph.json';
+/**
+ * 記事ペインの列数の上限。ペインの最小幅 240px(screen.css の --strata-pane-width)で、
+ * 列幅 12px × 8 列 + 余白(strata-graph.js の renderPane が使う padding 24px と右の 72px)が収まる値
+ */
+export const PANE_MAX_COLUMNS = 8;
 
 /**
  * Ghost Admin API 用の JWT を生成する。
@@ -224,6 +234,32 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
     });
     nodes.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
     return {posts: nodes};
+}
+
+/**
+ * graph.json の各記事に、記事ペインの列(`paneCol`)と、引用先・推定関係先ごとの幹の列(`paneLanes`: 引用先 slug → 列)を付ける。
+ *
+ * 列は scripts/pane-layout.mjs の layoutPane が決める(人間の引用で幹を作り、推定エッジは幅の上限の中で重ねる)。
+ * 入力の graph は変更せず、posts を複製して返す。一覧に無い引用先(下書きなど)には列を付けない。
+ *
+ * @param {{posts: Array<{slug: string, refs: string[], inferredRefs: Array<{slug: string}>}>}} graph buildGraph の結果(新しい順)
+ * @param {{maxColumns: number}} options 列数の上限
+ * @returns {{posts: Array<object>}} 各記事に paneCol と paneLanes を足した graph
+ * @throws {Error} 列数の上限に収まらない場合(layoutPane がそのまま投げる)
+ */
+export function attachPaneLayout(graph, {maxColumns}) {
+    const layout = layoutPane(graph.posts, {maxColumns});
+    const posts = graph.posts.map((post) => {
+        const paneLanes = {};
+        post.refs.concat(post.inferredRefs.map(relation => relation.slug)).forEach((target) => {
+            const lane = layout.lanes[post.slug + '|' + target];
+            if (lane !== undefined) {
+                paneLanes[target] = lane;
+            }
+        });
+        return {...post, paneCol: layout.cols[post.slug], paneLanes};
+    });
+    return {...graph, posts};
 }
 
 /**
@@ -487,7 +523,8 @@ async function main() {
     await ensureRefTagDescriptions(client, refTags, dryRun);
     const prunedCount = await pruneOrphanRefTags(client, refTags, dryRun);
     const {inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug} = await readInferredRelations();
-    const graphChanged = await writeGraphJson(buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug}), dryRun);
+    const graph = buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug});
+    const graphChanged = await writeGraphJson(attachPaneLayout(graph, {maxColumns: PANE_MAX_COLUMNS}), dryRun);
     console.log(`完了: ${updatedCount} 件の記事を更新、${prunedCount} 件の引用タグを削除${dryRun ? '予定' : ''}、graph.json は${graphChanged ? '更新' : '変更なし'}`);
 }
 

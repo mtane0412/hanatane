@@ -20,7 +20,9 @@ import {
     parseAnnotation,
     selectLatestAnnotations,
     GRAPH_JSON_PATH,
-    REF_TAG_PREFIX
+    REF_TAG_PREFIX,
+    attachPaneLayout,
+    PANE_MAX_COLUMNS
 } from './hyperstrata-sync.mjs';
 
 const サイトURL = 'https://example.com';
@@ -501,4 +503,50 @@ test('buildGraph: 再検討の注釈を採用したとき、graph.json には最
     assert.equal(記事.annotatedAt, '2026-09-11T03:15:00Z');
     assert.deepEqual(記事.inferredRefs, [{slug: 'digital-garden-limits', type: 'updates', reason: '再検討の理由'}]);
     assert.equal('history' in 記事, false);
+});
+
+/* ------------------------------------------------------------------
+ * 記事ペインの列割り当て(#44): graph.json に paneCol / paneLanes を載せる
+ * ------------------------------------------------------------------ */
+
+test('attachPaneLayout: 各記事に列(paneCol)と、引用先・推定関係先ごとの幹の列(paneLanes)を付ける', () => {
+    const graph = {posts: [
+        {slug: 'newest', refs: ['oldest'], inferredRefs: [{slug: 'middle', type: 'continues', reason: null}]},
+        {slug: 'middle', refs: [], inferredRefs: []},
+        {slug: 'oldest', refs: [], inferredRefs: []}
+    ]};
+    const result = attachPaneLayout(graph, {maxColumns: 8});
+    result.posts.forEach((post) => {
+        assert.ok(Number.isInteger(post.paneCol), `${post.slug} に paneCol が無い`);
+        assert.ok(post.paneCol >= 0 && post.paneCol < 8);
+    });
+    // newest → oldest(人間の引用)と newest → middle(推定)の 2 本ぶん
+    assert.deepEqual(Object.keys(result.posts[0].paneLanes).sort(), ['middle', 'oldest']);
+    assert.deepEqual(result.posts[1].paneLanes, {});
+    assert.deepEqual(result.posts[2].paneLanes, {});
+    // 引用チェーン newest → oldest は同じ列を継ぎ、middle は幹を避けて別の列になる
+    assert.equal(result.posts[0].paneCol, result.posts[2].paneCol);
+    assert.equal(result.posts[0].paneLanes.oldest, result.posts[0].paneCol);
+    assert.notEqual(result.posts[1].paneCol, result.posts[0].paneCol);
+});
+
+test('attachPaneLayout: 入力の graph を変更せず、posts のその他の項目はそのまま残す', () => {
+    const graph = {posts: [{slug: 'only', title: '唯一の記事', refs: [], inferredRefs: [], summary: null}]};
+    const 複製 = JSON.stringify(graph);
+    const result = attachPaneLayout(graph, {maxColumns: 8});
+    assert.equal(JSON.stringify(graph), 複製);
+    assert.equal(result.posts[0].title, '唯一の記事');
+    assert.equal(result.posts[0].summary, null);
+    assert.equal(result.posts[0].paneCol, 0);
+    assert.deepEqual(result.posts[0].paneLanes, {});
+});
+
+test('attachPaneLayout: 一覧に無い引用先は paneLanes に含めない(buildGraph が refs に残した slug でも列は付けない)', () => {
+    const graph = {posts: [{slug: 'only', refs: ['missing'], inferredRefs: []}]};
+    const result = attachPaneLayout(graph, {maxColumns: 8});
+    assert.deepEqual(result.posts[0].paneLanes, {});
+});
+
+test('PANE_MAX_COLUMNS: 記事ペインの列数の上限は 8(列幅 12px で最小幅 240px のペインに収まる)', () => {
+    assert.equal(PANE_MAX_COLUMNS, 8);
 });

@@ -10,6 +10,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 
+import {attachPaneLayout} from './hyperstrata-sync.mjs';
+
 const スクリプト = readFileSync(new URL('../assets/js/strata-graph.js', import.meta.url), 'utf8');
 
 /**
@@ -27,10 +29,11 @@ function 読み込む() {
     };
 }
 
+/** paneCol / paneLanes は記事ペイン用の列(#44)。固定ページ(buildLayout)は使わないが、parseGraph の必須項目なので持たせる */
 const 記事 = [
-    {slug: 'introduction', title: '紹介記事', url: '/introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: []},
-    {slug: 'limits', title: '限界について', url: '/limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['introduction']},
-    {slug: 'correction', title: '紹介記事の訂正', url: '/correction/', publishedAt: '2026-05-20T00:00:00.000Z', refs: ['introduction', 'unknown-slug']}
+    {slug: 'introduction', title: '紹介記事', url: '/introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {}},
+    {slug: 'limits', title: '限界について', url: '/limits/', publishedAt: '2026-03-01T00:00:00.000Z', refs: ['introduction'], paneCol: 1, paneLanes: {introduction: 0}},
+    {slug: 'correction', title: '紹介記事の訂正', url: '/correction/', publishedAt: '2026-05-20T00:00:00.000Z', refs: ['introduction', 'unknown-slug'], paneCol: 0, paneLanes: {introduction: 0}}
 ];
 
 test('buildLayout: ノードは新しい記事が上(公開日の降順)に並び、y座標が単調増加する', () => {
@@ -175,6 +178,15 @@ function ペインを読み込む() {
 
 const ペイン設定 = {rowHeight: 26, monthGap: 30, paddingTop: 20, paddingBottom: 40};
 
+/**
+ * 記事ペインの列(paneCol / paneLanes)は scripts/hyperstrata-sync.mjs が graph.json に載せる(#44)。
+ * テストでは同じ関数で列を付けてから buildPaneLayout に渡す。記事は新しい順に並べてから付ける
+ */
+function ペイン配置を付ける(posts) {
+    const 新しい順 = posts.slice().sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+    return attachPaneLayout({posts: 新しい順.map(post => ({...post, inferredRefs: post.inferredRefs || []}))}, {maxColumns: 8}).posts;
+}
+
 /** 月ラベルはローカル時刻で判定するため、日付は月の中旬(タイムゾーンで月が変わらない)にする */
 const ペイン記事 = [
     {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: []},
@@ -184,7 +196,7 @@ const ペイン記事 = [
 
 test('buildPaneLayout: ノードは新しい記事が上(row 0)になり、y が行ごとに増える', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(ペイン記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(ペイン記事), ペイン設定);
     assert.deepEqual(layout.nodes.map(node => node.slug), ['newest', 'middle', 'oldest']);
     assert.deepEqual(layout.nodes.map(node => node.row), [0, 1, 2]);
     assert.ok(layout.nodes[0].y < layout.nodes[1].y);
@@ -195,7 +207,7 @@ test('buildPaneLayout: ノードは新しい記事が上(row 0)になり、y が
 
 test('buildPaneLayout: 月が変わるごとに YYYY-MM の区切りを置き、monthGap ぶん余白を空ける', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(ペイン記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(ペイン記事), ペイン設定);
     assert.deepEqual(layout.monthMarks.map(mark => mark.label), ['2026-03', '2026-01']);
     // 区切りは各月の最初のノードより上にある
     assert.ok(layout.monthMarks[0].y < layout.nodes[0].y);
@@ -208,7 +220,7 @@ test('buildPaneLayout: 月が変わるごとに YYYY-MM の区切りを置き、
 
 test('buildPaneLayout: エッジは行番号(fromRow/toRow)と両端の列(fromCol/toCol)を持ち、fromRow < toRow になる', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(ペイン記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(ペイン記事), ペイン設定);
     assert.deepEqual(
         layout.edges.map(edge => [edge.from, edge.to, edge.fromRow, edge.toRow]),
         [
@@ -223,21 +235,44 @@ test('buildPaneLayout: エッジは行番号(fromRow/toRow)と両端の列(fromC
     );
 });
 
-test('buildPaneLayout: ノードは列(col)を持ち、最も新しい記事の引用チェーン(newest → oldest)が列 0 を継ぎ、middle は別の列に分岐する', () => {
+test('buildPaneLayout: ノードの列(col)は graph.json の paneCol をそのまま使い、引用チェーン(newest → oldest)が同じ列を継ぎ、middle は別の列に分岐する', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(ペイン記事, ペイン設定);
+    const 配置済み = ペイン配置を付ける(ペイン記事);
+    const layout = buildPaneLayout(配置済み, ペイン設定);
     const 列 = Object.fromEntries(layout.nodes.map(node => [node.slug, node.col]));
-    assert.equal(列.newest, 0);
-    assert.equal(列.oldest, 0);
-    assert.notEqual(列.middle, 0);
-    assert.equal(layout.minCol, Math.min(列.newest, 列.middle, 列.oldest));
-    assert.equal(layout.maxCol, Math.max(列.newest, 列.middle, 列.oldest));
+    配置済み.forEach((post) => {
+        assert.equal(列[post.slug], post.paneCol);
+    });
+    assert.equal(列.newest, 列.oldest);
+    assert.notEqual(列.middle, 列.newest);
+    assert.equal(layout.minCol, 0);
+    assert.equal(layout.maxCol, 1);
+});
+
+test('buildPaneLayout: paneCol / paneLanes の無い記事(列を載せる前の graph.json)は Fail-Fast で例外にする', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    assert.throws(() => buildPaneLayout(ペイン記事, ペイン設定), /paneCol/);
+    const 列だけ = ペイン配置を付ける(ペイン記事).map(post => ({...post, paneLanes: undefined}));
+    assert.throws(() => buildPaneLayout(列だけ, ペイン設定), /paneLanes/);
+});
+
+test('buildPaneLayout: エッジの幹の列(paneLanes)が引用先の列と違えば viaCol として持ち、同じなら viaCol を付けない', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 配置済み = ペイン配置を付ける(ペイン記事).map(post => (post.slug === 'middle'
+        ? {...post, paneLanes: {oldest: post.paneCol}}
+        : post));
+    const layout = buildPaneLayout(配置済み, ペイン設定);
+    const middleからoldest = layout.edges.find(edge => edge.from === 'middle');
+    // middle の幹を middle 自身の列に書き換えたので、引用先 oldest の列とは違い、viaCol になる
+    assert.equal(middleからoldest.viaCol, 配置済み.find(post => post.slug === 'middle').paneCol);
+    const newestからoldest = layout.edges.find(edge => edge.from === 'newest');
+    assert.equal(newestからoldest.viaCol, undefined);
 });
 
 test('buildPaneLayout: ノードは記事の summary(研究者の要約)をそのまま持ち、無ければ null になる(ツールチップに先頭を出すため)', () => {
     const {buildPaneLayout} = ペインを読み込む();
     const 要約付き = ペイン記事.map(post => (post.slug === 'newest' ? {...post, summary: '最新の記事の要約。'} : post));
-    const layout = buildPaneLayout(要約付き, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(要約付き), ペイン設定);
     assert.deepEqual(layout.nodes.map(node => node.summary), ['最新の記事の要約。', null, null]);
 });
 
@@ -248,7 +283,7 @@ test('buildPaneLayout: ノードは記事の icon をそのまま持ち、無け
         ペイン記事[1],
         ペイン記事[2]
     ];
-    const layout = buildPaneLayout(記事一覧, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(記事一覧), ペイン設定);
     const icons = Object.fromEntries(layout.nodes.map(node => [node.slug, node.icon]));
     assert.equal(icons.oldest, 'house');
     assert.equal(icons.middle, null);
@@ -272,17 +307,17 @@ const 推定を含むペイン記事 = [
 
 test('buildPaneLayout: 推定エッジ(kind: "inferred")を人間の引用に追加する', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(推定を含むペイン記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(推定を含むペイン記事), ペイン設定);
     const 推定エッジ = layout.edges.filter(edge => edge.kind === 'inferred');
     assert.deepEqual(推定エッジ.map(edge => [edge.from, edge.to]), [['newest', 'middle']]);
     const 人間エッジ = layout.edges.filter(edge => edge.kind === 'human');
     assert.deepEqual(人間エッジ.map(edge => [edge.from, edge.to]), [['newest', 'oldest'], ['middle', 'oldest']]);
 });
 
-test('buildPaneLayout: 推定エッジを追加しても列(col)・minCol・maxCol は人間の引用のみの場合と変わらない(assignColumns に参加しない)', () => {
+test('buildPaneLayout: 推定エッジを追加しても列(col)・minCol・maxCol は人間の引用のみの場合と変わらない(幹の形は人間の引用だけで決まる)', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const 人間のみ = buildPaneLayout(ペイン記事, ペイン設定);
-    const 推定あり = buildPaneLayout(推定を含むペイン記事, ペイン設定);
+    const 人間のみ = buildPaneLayout(ペイン配置を付ける(ペイン記事), ペイン設定);
+    const 推定あり = buildPaneLayout(ペイン配置を付ける(推定を含むペイン記事), ペイン設定);
     assert.deepEqual(推定あり.nodes.map(node => node.col), 人間のみ.nodes.map(node => node.col));
     assert.equal(推定あり.minCol, 人間のみ.minCol);
     assert.equal(推定あり.maxCol, 人間のみ.maxCol);
@@ -290,7 +325,7 @@ test('buildPaneLayout: 推定エッジを追加しても列(col)・minCol・maxC
 
 test('buildPaneLayout: 推定エッジの fromRow/toRow は上(新しい記事)から下(古い記事)へ揃える', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(推定を含むペイン記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(推定を含むペイン記事), ペイン設定);
     const 推定エッジ = layout.edges.find(edge => edge.kind === 'inferred');
     assert.equal(推定エッジ.fromRow, 0); // newest
     assert.equal(推定エッジ.toRow, 1); // middle
@@ -302,7 +337,7 @@ test('buildPaneLayout: 同じ記事の組を人間の引用と機械の推定が
         {slug: 'oldest', title: '最初の記事', url: '/oldest/', publishedAt: '2026-01-15T12:00:00.000Z', refs: [], inferredRefs: []},
         {slug: 'newest', title: '最新の記事', url: '/newest/', publishedAt: '2026-03-15T12:00:00.000Z', refs: ['oldest'], inferredRefs: [{slug: 'oldest', type: 'continues'}]}
     ];
-    const layout = buildPaneLayout(重複あり記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(重複あり記事), ペイン設定);
     assert.deepEqual(layout.edges.map(edge => [edge.from, edge.to, edge.kind]), [['newest', 'oldest', 'human']]);
 });
 
@@ -315,18 +350,18 @@ test('buildPaneLayout: inferredRefs 自体に同じ関係先が重複してい�
             {slug: 'oldest', type: 'revisits'}
         ]}
     ];
-    const layout = buildPaneLayout(推定重複記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(推定重複記事), ペイン設定);
     assert.deepEqual(layout.edges.map(edge => [edge.from, edge.to, edge.kind]), [['newest', 'oldest', 'inferred']]);
 });
 
 /* ------------------------------------------------------------------
- * エッジの迂回(viaCol): 途中の行のノードや人間の幹の上を通らないように別の列へ回り込む
+ * エッジの迂回(viaCol): 幹の列(paneLanes)が引用先の列と違うエッジは、別の列を縦に通る
+ * (列の決め方は scripts/pane-layout.mjs のテストで検証する。ここでは graph.json の値を描画用に写すことを検証する)
  * ------------------------------------------------------------------ */
 
 /**
  * 行順(新しい順): a(0) b(1) c(2) e(3) f(4) d(5)。
- * 人間の引用: a→b, a→d, c→e。列は a,b,c,e,f が 0、d が +1(a→d の幹が +1 の行 1..5 を占有する)。
- * 推定: a→f は列 0 を直進すると b, c, e の上を通り、+1 は a→d の幹と重なるため、-1 へ迂回するはず。
+ * 人間の引用: a→b, a→d, c→e。推定: a→f は b, c, e のある列を直進できず、a→d の幹とも重ならない列へ迂回する
  */
 const 迂回が必要な記事 = [
     {slug: 'd', title: '最古の記事', url: '/d/', publishedAt: '2026-01-10T12:00:00.000Z', refs: [], inferredRefs: []},
@@ -339,13 +374,11 @@ const 迂回が必要な記事 = [
 
 test('buildPaneLayout: 途中の行に同じ列のノードがある推定エッジは、ノードの無い列へ迂回する(viaCol)', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
-    const 列 = Object.fromEntries(layout.nodes.map(node => [node.slug, node.col]));
-    assert.deepEqual([列.a, 列.b, 列.c, 列.e, 列.f, 列.d], [0, 0, 0, 0, 0, 1]);
+    const layout = buildPaneLayout(ペイン配置を付ける(迂回が必要な記事), ペイン設定);
     const 推定エッジ = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
     assert.equal(推定エッジ.kind, 'inferred');
     assert.equal(typeof 推定エッジ.viaCol, 'number');
-    assert.notEqual(推定エッジ.viaCol, 0);
+    assert.notEqual(推定エッジ.viaCol, 推定エッジ.toCol);
     // 迂回した列の途中の行(1..3)にノードは無い
     const 途中のノード = layout.nodes.filter(node => node.col === 推定エッジ.viaCol && node.row > 0 && node.row < 4);
     assert.deepEqual(途中のノード, []);
@@ -353,22 +386,24 @@ test('buildPaneLayout: 途中の行に同じ列のノードがある推定エッ
 
 test('buildPaneLayout: 迂回する列は人間の幹(エッジの縦の区間)とも重ならない', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(迂回が必要な記事), ペイン設定);
     const 推定エッジ = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
-    // +1 は a→d の幹が行 1..5 を占有しているため使えず、-1 へ回る
-    assert.equal(推定エッジ.viaCol, -1);
+    const 幹 = layout.edges.find(edge => edge.from === 'a' && edge.to === 'd');
+    assert.notEqual(推定エッジ.viaCol, 幹.viaCol === undefined ? 幹.toCol : 幹.viaCol);
 });
 
 test('buildPaneLayout: 迂回した列は minCol / maxCol に含める(ペインの幅に反映するため)', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
-    assert.equal(layout.minCol, -1);
-    assert.equal(layout.maxCol, 1);
+    const layout = buildPaneLayout(ペイン配置を付ける(迂回が必要な記事), ペイン設定);
+    const 推定エッジ = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
+    assert.ok(layout.minCol <= 推定エッジ.viaCol && 推定エッジ.viaCol <= layout.maxCol);
+    assert.equal(layout.minCol, 0);
+    assert.equal(layout.maxCol, 2);
 });
 
-test('buildPaneLayout: 途中にノードの無いエッジは迂回しない(viaCol を持たない)', () => {
+test('buildPaneLayout: 幹の列が引用先の列と同じエッジは迂回しない(viaCol を持たない)', () => {
     const {buildPaneLayout} = ペインを読み込む();
-    const layout = buildPaneLayout(迂回が必要な記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(迂回が必要な記事), ペイン設定);
     const 迂回しない = layout.edges.filter(edge => !(edge.from === 'a' && edge.to === 'f'));
     assert.ok(迂回しない.length > 0);
     迂回しない.forEach(edge => {
@@ -376,17 +411,16 @@ test('buildPaneLayout: 途中にノードの無いエッジは迂回しない(vi
     });
 });
 
-test('buildPaneLayout: 迂回するエッジ同士は同じ列を共有できる(ペインの幅を広げすぎないため)', () => {
+test('buildPaneLayout: 同じ引用先へ迂回するエッジ同士は同じ列(1 本の幹)を共有する', () => {
     const {buildPaneLayout} = ペインを読み込む();
     const 記事一覧 = 迂回が必要な記事.map(post => post.slug === 'b'
         ? Object.assign({}, post, {inferredRefs: [{slug: 'f', type: 'continues'}]})
         : post);
-    const layout = buildPaneLayout(記事一覧, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(記事一覧), ペイン設定);
     const aからf = layout.edges.find(edge => edge.from === 'a' && edge.to === 'f');
     const bからf = layout.edges.find(edge => edge.from === 'b' && edge.to === 'f');
-    assert.equal(aからf.viaCol, -1);
-    assert.equal(bからf.viaCol, -1);
-    assert.equal(layout.minCol, -1);
+    assert.equal(typeof aからf.viaCol, 'number');
+    assert.equal(aからf.viaCol, bからf.viaCol);
 });
 
 test('paneEdgePath: viaCol を持つエッジは、上で迂回列へ S 字で移り、下で相手の列へ S 字で戻る', () => {
@@ -744,6 +778,16 @@ test('parseGraph: posts が配列でない・必須項目が欠けている場�
     assert.throws(() => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z'}]}), /refs/);
 });
 
+test('parseGraph: 記事ペインの列(paneCol / paneLanes)が無い場合は例外を投げる(#44。列を載せる前の graph.json を描かない)', () => {
+    const parseGraph = parseGraphを読み込む();
+    const 基本 = {slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: []};
+    assert.throws(() => parseGraph({posts: [{...基本, paneLanes: {}}]}), /paneCol/);
+    assert.throws(() => parseGraph({posts: [{...基本, paneCol: 1.5, paneLanes: {}}]}), /paneCol/);
+    assert.throws(() => parseGraph({posts: [{...基本, paneCol: 0}]}), /paneLanes/);
+    assert.throws(() => parseGraph({posts: [{...基本, paneCol: 0, paneLanes: null}]}), /paneLanes/);
+    assert.deepEqual(parseGraph({posts: [{...基本, paneCol: 0, paneLanes: {}}]}), [{...基本, paneCol: 0, paneLanes: {}}]);
+});
+
 /* ------------------------------------------------------------------
  * inferredRefs(機械の層)の検証(#12): 省略可能な項目として扱い、旧形式の graph.json でも壊れない
  * ------------------------------------------------------------------ */
@@ -757,7 +801,7 @@ test('parseGraph: inferredRefs フィールドが無い記事(旧形式の graph
 test('parseGraph: inferredRefs がある場合は {slug, type} の配列として通す', () => {
     const parseGraph = parseGraphを読み込む();
     const 記事with推定 = [{
-        slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [],
+        slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {},
         inferredRefs: [{slug: 'b', type: 'continues'}]
     }];
     const posts = parseGraph({posts: 記事with推定});
@@ -767,7 +811,7 @@ test('parseGraph: inferredRefs がある場合は {slug, type} の配列とし�
 test('parseGraph: inferredRefs が配列でない場合は例外を投げる', () => {
     const parseGraph = parseGraphを読み込む();
     assert.throws(
-        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], inferredRefs: 'not-an-array'}]}),
+        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {}, inferredRefs: 'not-an-array'}]}),
         /inferredRefs/
     );
 });
@@ -775,11 +819,11 @@ test('parseGraph: inferredRefs が配列でない場合は例外を投げる', (
 test('parseGraph: inferredRefs の要素に slug または type が無い場合は例外を投げる', () => {
     const parseGraph = parseGraphを読み込む();
     assert.throws(
-        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], inferredRefs: [{slug: 'b'}]}]}),
+        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {}, inferredRefs: [{slug: 'b'}]}]}),
         /inferredRefs/
     );
     assert.throws(
-        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], inferredRefs: [{type: 'continues'}]}]}),
+        () => parseGraph({posts: [{slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {}, inferredRefs: [{type: 'continues'}]}]}),
         /inferredRefs/
     );
 });
@@ -1043,7 +1087,7 @@ test('buildLayout: hiatusDays を省略した場合は不整合面を検出せ�
 
 test('buildPaneLayout: しきい値を超える空白の前後の行の間に hiatusGap ぶんの余白を空け、その中央に不整合面を置く', () => {
     const {buildPaneLayout} = 不整合面を読み込む();
-    const layout = buildPaneLayout(空白のある記事, {...ペイン設定, ...不整合面設定});
+    const layout = buildPaneLayout(ペイン配置を付ける(空白のある記事), {...ペイン設定, ...不整合面設定});
     assert.deepEqual(layout.nodes.map(node => node.slug), ['hyperstrata', 'window-film', 'first-hunt']);
     // 不整合面 → 月の区切り → 行の順に並ぶため、行の間隔は hiatusGap + monthGap + rowHeight になる
     assert.equal(layout.nodes[1].y - layout.nodes[0].y, 不整合面設定.hiatusGap + ペイン設定.monthGap + ペイン設定.rowHeight);
@@ -1057,7 +1101,7 @@ test('buildPaneLayout: しきい値を超える空白の前後の行の間に hi
 
 test('buildPaneLayout: hiatusDays を省略した場合は不整合面を検出せず、hiatuses は空になる(既存の呼び出しと互換)', () => {
     const {buildPaneLayout} = 不整合面を読み込む();
-    const layout = buildPaneLayout(空白のある記事, ペイン設定);
+    const layout = buildPaneLayout(ペイン配置を付ける(空白のある記事), ペイン設定);
     assert.deepEqual(layout.hiatuses, []);
     assert.equal(layout.nodes[1].y - layout.nodes[0].y, ペイン設定.monthGap + ペイン設定.rowHeight);
 });
