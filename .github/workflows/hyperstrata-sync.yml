@@ -9,6 +9,8 @@
 # graph.json に差分があるときだけ main にコミット・push し、テーマを再配布するために
 # deploy-theme.yml を workflow_dispatch で起動する(GITHUB_TOKEN による push は
 # 他のワークフローの push トリガーを起動しないため、明示的に呼ぶ必要がある)。
+# 起動時は push したコミットの SHA を入力 sha で渡す。`--ref main` だけでは起動時点の
+# main が解決されるため、push 直後だと push 前のコミットが配布されることがある。
 # 差分が無ければコミットもデプロイも行わない。dry_run のときは何も書き換えない。
 #
 # 事前準備: deploy-theme.yml と同じ Secrets(GHOST_ADMIN_API_URL / GHOST_ADMIN_API_KEY)を使う。
@@ -72,10 +74,13 @@ jobs:
           git commit -m "Update Hyperstrata graph.json"
           git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Deploy theme with the updated graph.json
         if: steps.commit.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-        run: gh workflow run deploy-theme.yml --repo "$GH_REPO" --ref main
+          DEPLOY_SHA: ${{ steps.commit.outputs.sha }}
+        # push したコミットを sha で明示し、deploy-theme がそのコミットを checkout するようにする
+        run: gh workflow run deploy-theme.yml --repo "$GH_REPO" --ref main -f sha="$DEPLOY_SHA"

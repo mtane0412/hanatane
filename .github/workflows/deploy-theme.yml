@@ -15,6 +15,12 @@ name: Deploy Theme
 # workflow_dispatch は hyperstrata-sync.yml が graph.json を main に push した後に呼ぶためのもの。
 # GITHUB_TOKEN による push は他のワークフローの push トリガーを起動しない(GitHub の仕様)ため、
 # 同期ワークフローが `gh workflow run` で明示的にこのワークフローを起動する。
+#
+# 入力 sha は、その呼び出しでデプロイするコミットを固定するためのもの。
+# `gh workflow run --ref main` は起動時点の main を解決するため、push の直後に呼ぶと
+# push 前のコミットが選ばれて古い graph.json が配布されることがあった(2026-09-13 に発生)。
+# 同期ワークフローは push したコミットの SHA を渡し、checkout はその SHA を使う。
+# 省略時(手動実行や push トリガー)は起動した ref の先頭(github.sha)をデプロイする。
 on:
   push:
     branches:
@@ -24,6 +30,11 @@ on:
       - 'pnpm-lock.yaml'
       - '.github/workflows/deploy-theme.yml'
   workflow_dispatch:
+    inputs:
+      sha:
+        description: 'デプロイするコミット SHA(省略時は起動した ref の先頭)'
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -36,6 +47,8 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
+          # 同期ワークフローから渡された SHA があればそれを、無ければ起動した ref の先頭を使う
+          ref: ${{ inputs.sha || github.sha }}
           persist-credentials: false
 
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
