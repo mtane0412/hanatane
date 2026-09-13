@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "20260913-cultural-preservation",
+      "title": "土器は何の役に立つのか",
+      "url": "https://hanatane.net/20260913-cultural-preservation/",
+      "publishedAt": "2026-09-13T14:54:24.000Z",
+      "refs": [],
+      "inferredRefs": [],
+      "summary": null,
+      "icon": null,
+      "annotator": null,
+      "annotatedAt": null,
+      "paneCol": 1,
+      "paneLanes": {}
+    },
+    {
       "slug": "20260912-focus-on-writing",
       "title": "「書くことに集中する」を作る",
       "url": "https://hanatane.net/20260912-focus-on-writing/",
