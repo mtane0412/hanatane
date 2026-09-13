@@ -1,0 +1,393 @@
+{
+	"title": "土器は何の役に立つのか",
+	"slug": "20260913-cultural-preservation",
+	"status": "published",
+	"visibility": "public",
+	"tags": [
+		"たねのぶの話"
+	],
+	"excerpt": "「9割土器の博物館に税金を使う価値はあるのか」というポスト、三内丸山遺跡の面接授業で聞いた文化保護の費用、鞆の浦の景観訴訟と宮崎駿の言葉、局所最適解の話をしました。",
+	"featured": false,
+	"published_at": "2026-09-13T14:54:24.000Z",
+	"updated_at": "2026-09-13T14:54:24.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「9割土器しかない博物館に税金を投下する価値はあるのか」という要旨のことをポストした政治家の方がいたらしく、それに対する反論のポストが流れてきた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/toki1_ta/status/2098060143099523190",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">博物館・資料館は「地域の記憶」である文化財を守り伝えていくためにあり、仮に「9割が土器」であった場合、それこそがその地域の歴史が「そう」であったという特筆性を示すものとなります。<br><br>とはいえ興味のない大多数の方々からすれば「どうでもいいもの」なのも、また厳然たる事実です。…</p>&mdash; T_Toki＠稜堡式（Bastion Fort）の人 (@toki1_ta) <a href=\"https://x.com/toki1_ta/status/2098060143099523190?ref_src=twsrc%5Etfw\">September 10, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://x.com/toki1_ta/status/2098060143099523190",
+						"author_name": "T_Toki＠稜堡式（Bastion Fort）の人",
+						"author_url": "https://x.com/toki1_ta",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">博物館・資料館は「地域の記憶」である文化財を守り伝えていくためにあり、仮に「9割が土器」であった場合、それこそがその地域の歴史が「そう」であったという特筆性を示すものとなります。<br><br>とはいえ興味のない大多数の方々からすれば「どうでもいいもの」なのも、また厳然たる事実です。…</p>&mdash; T_Toki＠稜堡式（Bastion Fort）の人 (@toki1_ta) <a href=\"https://x.com/toki1_ta/status/2098060143099523190?ref_src=twsrc%5Etfw\">September 10, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "X",
+						"provider_url": "https://x.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "読書猿さんもかなりまとまった記事を公開している。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://note.com/reading_monkey/n/nb8bbee09d2c8?sub_rt=share_pb#577e8623-97e5-4e7b-9e43-035e12e27c72",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/android-chrome-512x512-8bbed5e4-2536-4c37-94f1-ae04dfc13aaa.png",
+						"title": "「土器しかない」という政治家が見落としているもの――博物館・人文知・国民統合という統治の基礎条件｜Reading Monkey",
+						"description": "導入　繰り返される言葉 「土器しかないような博物館に価値があるのか」という趣旨の言葉を、特定の発言者や個別施設の評価から切り離して考える。この種の言葉は珍しくない。2017年4月、当時の地方創生担当大臣は文化財観光をめぐるセミナーで、観光マインドを持たない学芸員を「一番のがん」と呼び、各地の博物館関係者から批判を受けた。[1] 2024年7月、奈良県知事は県立民俗博物館の収蔵問題について、文化財に指定されていない同種の農機具を保管し続ける意味がどこにあるのかという議論から始める必要があり、価値のあるものだけを残して廃棄処分することも検討せざるを得ないと述べた。[2] これに対して日本",
+						"author": "Reading Monkey",
+						"publisher": "note（ノート）",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/rectangle_large_type_2_069164ea4604fa2d61c62142638c8429-9176c493-46ae-4502-8252-fad25a5ede21.png"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "他の方の反応も勉強になるものが多い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/VirtualSoil/status/2098023552746447156",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">その政治家に読ませなくては。ドキドキ。 <a href=\"https://t.co/1ndiSOYWz7\">https://t.co/1ndiSOYWz7</a> <a href=\"https://t.co/ukeuTY5aTH\">pic.twitter.com/ukeuTY5aTH</a></p>&mdash; 藤井一至 (土の研究者) (@VirtualSoil) <a href=\"https://x.com/VirtualSoil/status/2098023552746447156?ref_src=twsrc%5Etfw\">September 10, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://x.com/VirtualSoil/status/2098023552746447156",
+						"author_name": "藤井一至 (土の研究者)",
+						"author_url": "https://x.com/VirtualSoil",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">その政治家に読ませなくては。ドキドキ。 <a href=\"https://t.co/1ndiSOYWz7\">https://t.co/1ndiSOYWz7</a> <a href=\"https://t.co/ukeuTY5aTH\">pic.twitter.com/ukeuTY5aTH</a></p>&mdash; 藤井一至 (土の研究者) (@VirtualSoil) <a href=\"https://x.com/VirtualSoil/status/2098023552746447156?ref_src=twsrc%5Etfw\">September 10, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "X",
+						"provider_url": "https://x.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/RikutakaMuse/status/2098665641909891353",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">土器ってすごい。<br>遥か昔、文字もない時代の人々の技術や美的センス、創意工夫が込められています。<br>土器がたくさん残っているということは、それだけ住みよく素晴らしい土地であったという証拠です。<br>「うちの町には土器がたくさんある！」皆様が胸を張って誇れるように伝えていきたいです。 <a href=\"https://t.co/YlBumFscCl\">pic.twitter.com/YlBumFscCl</a></p>&mdash; 陸前高田市立博物館 (@RikutakaMuse) <a href=\"https://x.com/RikutakaMuse/status/2098665641909891353?ref_src=twsrc%5Etfw\">September 12, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://x.com/RikutakaMuse/status/2098665641909891353",
+						"author_name": "陸前高田市立博物館",
+						"author_url": "https://x.com/RikutakaMuse",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">土器ってすごい。<br>遥か昔、文字もない時代の人々の技術や美的センス、創意工夫が込められています。<br>土器がたくさん残っているということは、それだけ住みよく素晴らしい土地であったという証拠です。<br>「うちの町には土器がたくさんある！」皆様が胸を張って誇れるように伝えていきたいです。 <a href=\"https://t.co/YlBumFscCl\">pic.twitter.com/YlBumFscCl</a></p>&mdash; 陸前高田市立博物館 (@RikutakaMuse) <a href=\"https://x.com/RikutakaMuse/status/2098665641909891353?ref_src=twsrc%5Etfw\">September 12, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "X",
+						"provider_url": "https://x.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://x.com/_arcfish/status/2098998231284002995",
+					"embedType": "twitter",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">土器そのものが持つ考古学的な意味に加えて、それが発掘されて私たちの前に現れたことの意味。その先の将来にわたり地域と住民の皆さんに伝えていくことの意味。… <a href=\"https://t.co/aNQb6gF8Lu\">https://t.co/aNQb6gF8Lu</a></p>&mdash; 鈴木雅 (@_arcfish) <a href=\"https://x.com/_arcfish/status/2098998231284002995?ref_src=twsrc%5Etfw\">September 13, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+					"metadata": {
+						"url": "https://x.com/_arcfish/status/2098998231284002995",
+						"author_name": "鈴木雅",
+						"author_url": "https://x.com/_arcfish",
+						"html": "<blockquote class=\"twitter-tweet\"><p lang=\"ja\" dir=\"ltr\">土器そのものが持つ考古学的な意味に加えて、それが発掘されて私たちの前に現れたことの意味。その先の将来にわたり地域と住民の皆さんに伝えていくことの意味。… <a href=\"https://t.co/aNQb6gF8Lu\">https://t.co/aNQb6gF8Lu</a></p>&mdash; 鈴木雅 (@_arcfish) <a href=\"https://x.com/_arcfish/status/2098998231284002995?ref_src=twsrc%5Etfw\">September 13, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>\n\n",
+						"width": 550,
+						"height": null,
+						"type": "twitter",
+						"cache_age": "3153600000",
+						"provider_name": "X",
+						"provider_url": "https://x.com",
+						"version": "1.0"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "今年の6月に放送大学の面接授業で、三内丸山遺跡に実際に赴いて遺跡・遺構の保存・活用をテーマに授業を受けた。現地の展示見学の際に「ここでは○億円かけています」「この施設は当時○億円で、改修工事のために○億円かけて改修を行う予定です」など、文化保護事業に結構な金額がかかっていることを繰り返し強調していた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "遺跡・遺構をお金をかけて保護することに何の意味があるのか、という問いは文化保護事業全般に常に投げかけられている問いでもあり、これは研究者や学芸員ではなくすべての人が考えなければならない問題でもある。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "広島県福山市に住んでいたときに鞆の浦埋立て架橋計画問題というのが起こっていた。崖の上のポニョの制作で滞在していた宮崎駿が運動の最前線に立っていた印象で、利便性を訴える住民vs歴史的価値を重視する外部の人々というような風に見えていた。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "この景観訴訟は結局福山市側が敗れて景観は守られるに至った。そのときに宮崎駿は会見で以下のようなコメントをしている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "便利とか不便とか過疎とか過密とかというレベルでないところでもう少し遠くを見た生活の組み立て方とか国土とか気候とか、いろんなことを踏まえたうえでどういう風に生きていくのか",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-quote",
+					"version": 1
+				},
+				{
+					"type": "embed",
+					"version": 1,
+					"url": "https://www.youtube.com/watch?v=C7ohnC0d5Bo",
+					"embedType": "video",
+					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/C7ohnC0d5Bo?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"鞆の浦 景観訴訟　宮崎駿監督が記者会見 091001\"></iframe>",
+					"metadata": {
+						"title": "鞆の浦 景観訴訟　宮崎駿監督が記者会見 091001",
+						"author_name": "newstamo2009",
+						"author_url": "https://www.youtube.com/@newstamo2009",
+						"type": "video",
+						"height": 113,
+						"width": 200,
+						"version": "1.0",
+						"provider_name": "YouTube",
+						"provider_url": "https://www.youtube.com/",
+						"thumbnail_height": 360,
+						"thumbnail_width": 480,
+						"thumbnail_url": "https://i.ytimg.com/vi/C7ohnC0d5Bo/hqdefault.jpg",
+						"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/C7ohnC0d5Bo?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"鞆の浦 景観訴訟　宮崎駿監督が記者会見 091001\"></iframe>"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あー、なるほど。ここで「君たちはどう生きるか」につながるわけかーとなった。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "bookmark",
+					"version": 1,
+					"url": "https://www.ghibli.jp/works/kimitachi/",
+					"metadata": {
+						"icon": "https://hanatane.net/content/images/icon/favicon-2364e505-cfa0-4e76-afe1-62326f966a15.png",
+						"title": "君たちはどう生きるか - スタジオジブリ｜STUDIO GHIBLI",
+						"description": "君たちはどう生きるか。 原作・脚本・監督 宮﨑 駿 プロデューサー 鈴木敏夫 制作 スタジオジブリ ⋅ 星野康二 ⋅ 宮崎吾朗 ⋅ 中島清文 音楽 久石 譲 主題歌 米津玄師 声の出演",
+						"author": "Shinichi Takai",
+						"publisher": "スタジオジブリ作品名から選ぶ",
+						"thumbnail": "https://hanatane.net/content/images/thumbnail/kimitachi-f0b549ca-6eee-4511-8f0c-3e2f7f396ff7.jpg"
+					},
+					"caption": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "アルゴリズムの問題で最適解に至る経路を調べる際に局所最適解に陥ってしまうという問題がある。三内丸山遺跡は最初巨人軍の試合を青森で行うために開発が始まった。仮に野球スタジアムが作られていたら最初の数十年は興行的な成果を上げていたのかもしれないが、今の世界遺産となる遺跡にはならなかったのかもしれない。​",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "「どう生きるのか」という究極の問いを考えるのはとても難しい。なぜならワンショットで答えを出す必要がある。やり直しがきかない。こういう場合は類似の事例のデータセットを作るのが定石だが、残念ながら人や人の集団の生き方のデータセットは限られている。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "そういうわけでそういった価値のある文化というデータに対して結構なコストをかけて保存しているのだと思う。これを経済というものさしで測るのは非常に難しい。電磁誘導の現象を発見しても人間は「磁石で電気を発生させて一体何の役に立つのか？」くらいしか思わず、電気を軸にした経済発展を予測することは難しい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "文化は限られているので可能な限り保存しておいた方が良いというのが今のところ自分の答えに近い。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
