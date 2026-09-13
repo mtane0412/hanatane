@@ -6,13 +6,33 @@
       "url": "https://hanatane.net/20260913-cultural-preservation/",
       "publishedAt": "2026-09-13T14:54:24.000Z",
       "refs": [],
-      "inferredRefs": [],
-      "summary": null,
-      "icon": null,
-      "annotator": null,
-      "annotatedAt": null,
+      "inferredRefs": [
+        {
+          "slug": "went-to-special-exhibition",
+          "type": "revisits",
+          "reason": "大船渡の博物館で縄文土器の企画展を楽しんだ記事から、土器だらけの博物館に税金を使う価値はあるのかという問いの側から同じ題材に戻っている。"
+        },
+        {
+          "slug": "sapporo-hachinohe-aomori",
+          "type": "revisits",
+          "reason": "念願だった三内丸山遺跡を初めて訪れた旅行記から、翌年の面接授業で改めて訪れ、保存にかかる費用という別の面から同じ遺跡を見直している。"
+        },
+        {
+          "slug": "implementation-hyperstrata",
+          "type": "revisits",
+          "reason": "三内丸山遺跡の面接授業を地層のメタファーの手がかりとして書いた記事から、同じ授業を文化保護事業の費用と価値という別の論点で振り返っている。"
+        }
+      ],
+      "summary": "「9 割土器しかない博物館に税金を投下する価値はあるのか」という政治家のポストと、それへの反論をきっかけに、文化保護事業に費用をかける意味を考えた記事です。2026 年 6 月の放送大学の面接授業で三内丸山遺跡を訪れ、保存や改修に億単位の費用がかかることを繰り返し聞いた経験と、福山市在住時に見た鞆の浦の埋立て架橋計画をめぐる景観訴訟、そこで宮崎駿が述べた「もう少し遠くを見た生活の組み立て方」という言葉を並べます。三内丸山遺跡が野球場の開発から始まったことを局所最適解の例として挙げ、「どう生きるか」はやり直しのきかない一回きりの問いなのに、人の生き方のデータセットは限られているため、文化というデータを経済のものさしで測らず可能な限り保存しておくのが今の自分の答えに近い、と結んでいます。",
+      "icon": "journal",
+      "annotator": "claude-fable-5-1",
+      "annotatedAt": "2026-09-13T14:55:09Z",
       "paneCol": 1,
-      "paneLanes": {}
+      "paneLanes": {
+        "went-to-special-exhibition": 7,
+        "sapporo-hachinohe-aomori": 2,
+        "implementation-hyperstrata": 0
+      }
     },
     {
       "slug": "20260912-focus-on-writing",
@@ -51,7 +71,7 @@
       "paneCol": 1,
       "paneLanes": {
         "implementation-hyperstrata": 1,
-        "hyperstrata": 2,
+        "hyperstrata": 0,
         "why-ghost": 7,
         "writing-gap": 0
       }
@@ -163,7 +183,7 @@
       "paneCol": 1,
       "paneLanes": {
         "hunter-license-2024": 0,
-        "2025-reflection": 2
+        "2025-reflection": 3
       }
     },
     {
@@ -207,7 +227,7 @@
       "annotatedAt": "2026-09-10T04:53:17Z",
       "paneCol": 1,
       "paneLanes": {
-        "2025-reflection": 2
+        "2025-reflection": 3
       }
     },
     {
@@ -234,7 +254,7 @@
       "annotatedAt": "2026-09-10T04:53:17Z",
       "paneCol": 1,
       "paneLanes": {
-        "2025-reflection": 2,
+        "2025-reflection": 3,
         "welcome-cat": 4
       }
     },
