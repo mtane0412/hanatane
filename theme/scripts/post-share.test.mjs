@@ -63,6 +63,7 @@ function 読み込み() {
         document: window.document,
         DOMParser: window.DOMParser,
         Node: window.Node,
+        URL: window.URL,
         console
     });
     vm.runInContext(スクリプト, context);
@@ -288,6 +289,41 @@ test('埋め込みカード(iframe)は src へのリンクにし、キャプシ�
     assert.equal(md, '[https://www.youtube.com/embed/abc123](https://www.youtube.com/embed/abc123)\n\n三内丸山遺跡の動画');
 });
 
+test('X の埋め込み(blockquote.twitter-tweet)は本文・投稿者・日付・投稿 URL を引用にし、X への投稿であることを明示する', () => {
+    // Ghost が保存する oEmbed の HTML そのもの(widgets.js が iframe に置き換える前)。リンクには ref クエリが付く
+    const md = 変換(`
+        <figure class="kg-card kg-embed-card"><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">かわいい🥰 <a href="https://t.co/L7xwOSCFL5?ref=hanatane.net">pic.twitter.com/L7xwOSCFL5</a></p>— たねのぶ (@mtane0412) <a href="https://twitter.com/mtane0412/status/2007731976481190307?ref_src=twsrc%5Etfw&amp;ref=hanatane.net">January 4, 2026</a></blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></figure>
+    `);
+    assert.equal(md, [
+        '> かわいい🥰 pic.twitter.com/L7xwOSCFL5',
+        '>',
+        '> — たねのぶ (@mtane0412) の X への投稿 (January 4, 2026)',
+        '> https://x.com/mtane0412/status/2007731976481190307'
+    ].join('\n'));
+});
+
+test('X の埋め込みの本文は改行(br)を保って各行を引用にし、キャプションを添える', () => {
+    const md = 変換(`
+        <figure class="kg-card kg-embed-card kg-card-hascaption"><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">土器を焼いた。<br>野焼きで 3 時間。</p>&mdash; たねのぶ (@mtane0412) <a href="https://twitter.com/mtane0412/status/1?ref_src=twsrc%5Etfw">March 1, 2026</a></blockquote></figure>
+        <figure class="kg-card kg-embed-card kg-card-hascaption"><blockquote class="twitter-tweet"><p>a</p>&mdash; b (@b) <a href="https://twitter.com/b/status/2">May 5, 2026</a></blockquote><figcaption>焼成の記録</figcaption></figure>
+    `);
+    assert.equal(md, [
+        '> 土器を焼いた。',
+        '> 野焼きで 3 時間。',
+        '>',
+        '> — たねのぶ (@mtane0412) の X への投稿 (March 1, 2026)',
+        '> https://x.com/mtane0412/status/1',
+        '',
+        '> a',
+        '>',
+        '> — b (@b) の X への投稿 (May 5, 2026)',
+        '> https://x.com/b/status/2',
+        '',
+        '焼成の記録'
+    ].join('\n'));
+});
+
 test('コールアウトとトグルは本文のテキストを残し、サインアップカードは出さない', () => {
     const md = 変換(`
         <div class="kg-card kg-callout-card kg-callout-card-blue">
@@ -392,6 +428,56 @@ test('extractPost は取得した記事ページの HTML からタイトルと�
 test('extractPost は本文(.gh-content)が無い HTML には例外を投げる', () => {
     const {extractPost} = 読み込み();
     assert.throws(() => extractPost('<html><body><p>not a post</p></body></html>'), /gh-content/);
+});
+
+// ---------------------------------------------------------------------------
+// loadPostContent(記事ページの fetch)
+// ---------------------------------------------------------------------------
+
+/**
+ * fetch をスタブにして post-share.js を読み込む。
+ *
+ * @param {(path: string) => {ok: boolean, status: number, text: () => Promise<string>}} respond
+ * @returns {{loadPostContent: Function, 呼び出し: string[]}}
+ */
+function fetchスタブ付き読み込み(respond) {
+    const 呼び出し = [];
+    const dom = new JSDOM('<!doctype html><html><body></body></html>', {url: 'http://localhost:2368/1x4-cat-tower/'});
+    const {window} = dom;
+    window.fetch = path => {
+        呼び出し.push(path);
+        return Promise.resolve(respond(path));
+    };
+    const context = vm.createContext({
+        window,
+        document: window.document,
+        DOMParser: window.DOMParser,
+        Node: window.Node,
+        URL: window.URL,
+        fetch: window.fetch,
+        console
+    });
+    vm.runInContext(スクリプト, context);
+    return {loadPostContent: window.HanataneShare.loadPostContent, 呼び出し};
+}
+
+test('loadPostContent は記事ページを fetch し、サーバー出力の HTML(X の埋め込みが iframe に置き換わる前)からタイトルと本文を取り出す', async () => {
+    const html = `<!doctype html><html><body><article>
+        <h1 class="gh-article-title">1x4 材でキャットタワーを作る</h1>
+        <section class="gh-content"><p>本文。</p><figure class="kg-card kg-embed-card"><blockquote class="twitter-tweet"><p>かわいい🥰</p>&mdash; たねのぶ (@mtane0412) <a href="https://twitter.com/mtane0412/status/3">January 4, 2026</a></blockquote></figure></section>
+    </article></body></html>`;
+    const {loadPostContent, 呼び出し} = fetchスタブ付き読み込み(() => ({ok: true, status: 200, text: () => Promise.resolve(html)}));
+    const result = await loadPostContent('/1x4-cat-tower/');
+    assert.deepEqual(呼び出し, ['/1x4-cat-tower/']);
+    assert.deepEqual(素(result), {
+        title: '1x4 材でキャットタワーを作る',
+        markdown: '本文。\n\n> かわいい🥰\n>\n> — たねのぶ (@mtane0412) の X への投稿 (January 4, 2026)\n> https://x.com/mtane0412/status/3'
+    });
+});
+
+test('loadPostContent は記事ページの取得に失敗したら status と path を含む例外で reject する', async () => {
+    const {loadPostContent} = fetchスタブ付き読み込み(() => ({ok: false, status: 404, text: () => Promise.resolve('')}));
+    await assert.rejects(loadPostContent('/missing/'), /404 \/missing\//);
 });
 
 // ---------------------------------------------------------------------------
