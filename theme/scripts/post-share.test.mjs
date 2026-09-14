@@ -429,3 +429,36 @@ test('buildDocument は関連記事を区切り線の後に、関係の種類と
         '後の本文'
     ].join('\n'));
 });
+
+// ---------------------------------------------------------------------------
+// mapWithLimit(関連記事の fetch の同時実行数の上限)
+// ---------------------------------------------------------------------------
+
+test('mapWithLimit は同時実行数を上限までに抑えつつ、入力と同じ順で結果を返す', async () => {
+    const {mapWithLimit} = 読み込み();
+    let 実行中 = 0;
+    let 最大同時実行 = 0;
+    const 記事 = ['window-film', 'hyperstrata', 'writing-focus', 'unrelated', 'went-to-special-exhibition'];
+    const result = await mapWithLimit(記事, 2, function (slug) {
+        実行中 += 1;
+        最大同時実行 = Math.max(最大同時実行, 実行中);
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                実行中 -= 1;
+                resolve(slug.toUpperCase());
+            }, 5);
+        });
+    });
+    assert.deepEqual(素(result), ['WINDOW-FILM', 'HYPERSTRATA', 'WRITING-FOCUS', 'UNRELATED', 'WENT-TO-SPECIAL-EXHIBITION']);
+    assert.equal(最大同時実行, 2);
+});
+
+test('mapWithLimit は 1 件でも失敗すればその失敗で reject する', async () => {
+    const {mapWithLimit} = 読み込み();
+    await assert.rejects(
+        mapWithLimit(['hyperstrata', 'missing'], 2, function (slug) {
+            return slug === 'missing' ? Promise.reject(new Error('関連記事の取得に失敗しました: 404 /missing/')) : Promise.resolve(slug);
+        }),
+        /404 \/missing\//
+    );
+});
