@@ -3,11 +3,13 @@
 
     - 感想をポストする: 押すと選択肢(data-share-options="post")が開き、X / Bluesky / Threads の
       intent URL にタイトルと絶対 URL を渡すリンクを並べる(リンク自体は JavaScript 不要)
+    - はてなブックマーク: 追加パネル(b.hatena.ne.jp/entry/panel/)へ URL とタイトルを渡すリンク
     - タイトルとURLをコピー: assets/js/post-share.js がクリップボードへ「タイトル\n URL」を書く
     - AIに渡す: 本文(.gh-content)を Markdown に変換してクリップボードへ書く。押すと選択肢
       (data-share-options="ai")が開き、「この記事だけ」か「graph.json で関係のある記事(引用・被引用・
       研究者の注釈)も含める」かを選ぶ。関連記事の本文は各記事ページを fetch して取り出す
     文言は t ヘルパーを通し、locales-local/ja.json(gulp が locales/ja.json に合成する)で日本語にする。
+    選択肢はボタンと同じ包み(gh-post-share-menu)に入れ、CSS でボタンの下に重ねて出す(後続の要素を押し下げない)。
     JavaScript が無効な環境では選択肢を開けないため、ボタンは disabled のまま残る。
 --}}
 <section class="gh-post-share gh-canvas" data-post-share
@@ -22,38 +24,45 @@
     data-label-no-related="{{t "No related posts"}}">
     <h2 class="gh-post-share-title">{{t "Share this post"}}</h2>
     <div class="gh-post-share-buttons">
-        <button class="gh-post-share-button" type="button" data-share-toggle="post" aria-expanded="false" aria-controls="gh-post-share-post-options" disabled>
-            <span>{{t "Post your thoughts"}}</span>
-        </button>
+        <div class="gh-post-share-menu">
+            <button class="gh-post-share-button" type="button" data-share-toggle="post" aria-expanded="false" aria-controls="gh-post-share-post-options" disabled>
+                <span>{{t "Post your thoughts"}}</span>
+            </button>
+            <div class="gh-post-share-options" id="gh-post-share-post-options" data-share-options="post" hidden>
+                <div class="gh-post-share-buttons">
+                    <a class="gh-post-share-button" href="https://x.com/intent/post?text={{encode title}}&amp;url={{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
+                        {{> "icons/x"}}<span>X</span>
+                    </a>
+                    <a class="gh-post-share-button" href="https://bsky.app/intent/compose?text={{encode title}}%0A{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
+                        {{> "icons/bluesky"}}<span>Bluesky</span>
+                    </a>
+                    <a class="gh-post-share-button" href="https://www.threads.net/intent/post?text={{encode title}}%0A{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
+                        {{> "icons/threads"}}<span>Threads</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a class="gh-post-share-button" href="https://b.hatena.ne.jp/entry/panel/?url={{encode (url absolute="true")}}&amp;title={{encode title}}" target="_blank" rel="noopener noreferrer">
+            {{> "icons/hatena"}}<span>{{t "Hatena Bookmark"}}</span>
+        </a>
         <button class="gh-post-share-button" type="button" data-share-copy disabled>
             <span>{{t "Copy title & URL"}}</span>
         </button>
-        <button class="gh-post-share-button" type="button" data-share-toggle="ai" aria-expanded="false" aria-controls="gh-post-share-ai-options" disabled>
-            <span>{{t "Copy for AI"}}</span>
-        </button>
-    </div>
-    <div class="gh-post-share-options" id="gh-post-share-post-options" data-share-options="post" hidden>
-        <div class="gh-post-share-buttons">
-            <a class="gh-post-share-button" href="https://x.com/intent/post?text={{encode title}}&amp;url={{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
-                {{> "icons/x"}}<span>X</span>
-            </a>
-            <a class="gh-post-share-button" href="https://bsky.app/intent/compose?text={{encode title}}%0A{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
-                {{> "icons/bluesky"}}<span>Bluesky</span>
-            </a>
-            <a class="gh-post-share-button" href="https://www.threads.net/intent/post?text={{encode title}}%0A{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
-                {{> "icons/threads"}}<span>Threads</span>
-            </a>
-        </div>
-    </div>
-    <div class="gh-post-share-options" id="gh-post-share-ai-options" data-share-options="ai" hidden>
-        <p class="gh-post-share-note">{{t "Copies the title and body as Markdown to paste into an AI assistant."}}</p>
-        <div class="gh-post-share-buttons">
-            <button class="gh-post-share-button" type="button" data-share-ai="single">
-                <span>{{t "This post only"}}</span>
+        <div class="gh-post-share-menu">
+            <button class="gh-post-share-button" type="button" data-share-toggle="ai" aria-expanded="false" aria-controls="gh-post-share-ai-options" disabled>
+                <span>{{t "Copy for AI"}}</span>
             </button>
-            <button class="gh-post-share-button" type="button" data-share-ai="related">
-                <span data-share-ai-related-label>{{t "This post and related posts"}}</span>
-            </button>
+            <div class="gh-post-share-options" id="gh-post-share-ai-options" data-share-options="ai" hidden>
+                <p class="gh-post-share-note">{{t "Copies the title and body as Markdown to paste into an AI assistant."}}</p>
+                <div class="gh-post-share-buttons">
+                    <button class="gh-post-share-button" type="button" data-share-ai="single">
+                        <span>{{t "This post only"}}</span>
+                    </button>
+                    <button class="gh-post-share-button" type="button" data-share-ai="related">
+                        <span data-share-ai-related-label>{{t "This post and related posts"}}</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>

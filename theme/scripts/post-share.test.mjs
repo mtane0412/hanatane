@@ -44,7 +44,7 @@ function 描画(post = 現在記事) {
     hbs.registerHelper('url', function (options) {
         return options.hash.absolute ? 'https://hanatane.net' + this.url : this.url;
     });
-    ['x', 'bluesky', 'threads'].forEach(function (name) {
+    ['x', 'bluesky', 'threads', 'hatena'].forEach(function (name) {
         hbs.registerPartial('icons/' + name, readFileSync(new URL(`../partials/icons/${name}.hbs`, import.meta.url), 'utf8'));
     });
     return hbs.compile(パーシャル)(post);
@@ -102,7 +102,7 @@ test('「感想をポストする」を押すと開く選択肢に X / Bluesky /
     const url = encodeURIComponent('https://hanatane.net/implementation-hyperstrata/');
     assert.ok(/<button[^>]*data-share-toggle="post"[^>]*aria-expanded="false"[^>]*>\s*<span>感想をポストする<\/span>/.test(html), html);
     assert.ok(/<div[^>]*data-share-options="post"[^>]*hidden/.test(html), html);
-    const 選択肢 = html.slice(html.indexOf('data-share-options="post"'), html.indexOf('data-share-options="ai"'));
+    const 選択肢 = html.slice(html.indexOf('data-share-options="post"'), html.indexOf('b.hatena.ne.jp'));
     assert.ok(選択肢.includes(`href="https://x.com/intent/post?text=${title}&amp;url=${url}"`), 選択肢);
     assert.ok(選択肢.includes(`href="https://bsky.app/intent/compose?text=${title}%0A${url}"`), 選択肢);
     assert.ok(選択肢.includes(`href="https://www.threads.net/intent/post?text=${title}%0A${url}"`), 選択肢);
@@ -116,6 +116,31 @@ test('「感想をポストする」を押すと開く選択肢に X / Bluesky /
     });
     ['X', 'Bluesky', 'Threads'].forEach(function (name) {
         assert.ok(選択肢.includes(`<span>${name}</span>`), 選択肢);
+    });
+});
+
+test('はてなブックマークのリンクは「感想をポストする」の右隣に置き、URL とタイトルを渡して別タブで開く', () => {
+    const html = 描画();
+    const url = encodeURIComponent('https://hanatane.net/implementation-hyperstrata/');
+    const title = encodeURIComponent('Hyperstrataの地層を考える');
+    const 位置 = html.indexOf('data-share-toggle="post"');
+    const はてな = html.indexOf('href="https://b.hatena.ne.jp/entry/panel/?url=' + url + '&amp;title=' + title + '"');
+    const コピー = html.indexOf('data-share-copy');
+    assert.ok(位置 >= 0 && はてな > 位置 && はてな < コピー, html);
+    const link = html.slice(html.lastIndexOf('<a ', はてな), html.indexOf('</a>', はてな));
+    assert.ok(link.includes('target="_blank"') && link.includes('rel="noopener noreferrer"'), link);
+    assert.ok(link.includes('<span>はてなブックマーク</span>'), link);
+});
+
+test('選択肢を持つボタンは、選択肢をボタンから生やして重ねられるよう、ボタンと選択肢を同じ包み(gh-post-share-menu)に入れる', () => {
+    const html = 描画();
+    ['post', 'ai'].forEach(function (name) {
+        const options = html.indexOf('data-share-options="' + name + '"');
+        const 包みの開始 = html.lastIndexOf('class="gh-post-share-menu"', options);
+        const toggle = html.indexOf('data-share-toggle="' + name + '"');
+        // 包みの直後にボタンがあり、その次に選択肢が続く(間に別の包みが無い)
+        assert.ok(包みの開始 >= 0 && toggle > 包みの開始 && options > toggle, html);
+        assert.equal(html.lastIndexOf('class="gh-post-share-menu"', toggle), 包みの開始, html);
     });
 });
 
