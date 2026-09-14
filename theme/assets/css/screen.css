@@ -4378,15 +4378,15 @@ body[class^="gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-head
     height: 16px;
 }
 
-/* AI に渡す選択肢。hidden 属性を display: flex 等で打ち消さないよう、ブロック要素のまま置く */
-.gh-post-share-ai-options {
+/* ボタンを押すと開く選択肢(感想をポストする / AI に渡す)。hidden 属性を display: flex 等で打ち消さないよう、ブロック要素のまま置く */
+.gh-post-share-options {
     margin-top: 16px;
     padding: 16px;
     background-color: var(--color-lighter-gray);
     border-radius: 12px;
 }
 
-.gh-post-share-ai-note {
+.gh-post-share-note {
     margin: 0 0 12px;
     font-size: 1.4rem;
     line-height: 1.6;

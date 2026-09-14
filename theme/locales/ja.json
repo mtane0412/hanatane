@@ -1,0 +1,13 @@
+{
+    "Copied": "コピーしました",
+    "Copies the title and body as Markdown to paste into an AI assistant.": "記事のタイトルと本文を Markdown にしてコピーします。AI アシスタントに貼り付けて使えます。",
+    "Copy failed": "コピーできませんでした",
+    "Copy for AI": "AIに渡す",
+    "Copy title & URL": "タイトルとURLをコピー",
+    "No related posts": "関連記事はありません",
+    "Post your thoughts": "感想をポストする",
+    "Share this post": "シェアする",
+    "This post and % related posts": "関連記事 % 件も含める",
+    "This post and related posts": "関連記事も含める",
+    "This post only": "この記事だけ"
+}

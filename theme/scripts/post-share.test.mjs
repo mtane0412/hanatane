@@ -4,6 +4,7 @@
  *
  * パーシャルは Ghost 本体のヘルパー群が使えないため、素の Handlebars で描画し、
  * Ghost のヘルパー `t` / `asset` / `encode` / `url` をスタブとして登録する(scripts/strata-layers.test.mjs と同じ方式)。
+ * `t` は locales-local/ja.json の翻訳を返し、UI の文言が日本語になることも確かめる。
  * JS はブラウザ向けに gulp で連結されるため node:vm で読み込み、window.HanataneShare に公開された純粋関数を検証する。
  * HTML → Markdown 変換は DOM を歩くため、jsdom の window を vm のグローバルに渡す。
  * ボタンのクリック処理(クリップボードへの書き込み)はテスト対象外とする。
@@ -17,6 +18,7 @@ import {JSDOM} from 'jsdom';
 
 const パーシャル = readFileSync(new URL('../partials/post-share.hbs', import.meta.url), 'utf8');
 const スクリプト = readFileSync(new URL('../assets/js/post-share.js', import.meta.url), 'utf8');
+const 日本語訳 = JSON.parse(readFileSync(new URL('../locales-local/ja.json', import.meta.url), 'utf8'));
 
 const 現在記事 = {
     slug: 'implementation-hyperstrata',
@@ -33,14 +35,16 @@ const 現在記事 = {
  */
 function 描画(post = 現在記事) {
     const hbs = Handlebars.create();
-    hbs.registerHelper('t', text => text);
+    // Ghost の t ヘルパーはサイトの locale(ja)の翻訳を返し、翻訳が無いキーはそのまま返す。
+    // 翻訳は locales-local/ja.json(gulp が locales/ja.json に合成する)から読む
+    hbs.registerHelper('t', text => 日本語訳[text] || text);
     hbs.registerHelper('asset', path => '/assets/' + path);
     hbs.registerHelper('encode', value => encodeURIComponent(value));
     // Ghost の url ヘルパーは absolute="true" でサイトの origin 付きの URL を返す
     hbs.registerHelper('url', function (options) {
         return options.hash.absolute ? 'https://hanatane.net' + this.url : this.url;
     });
-    ['x', 'bluesky'].forEach(function (name) {
+    ['x', 'bluesky', 'threads', 'facebook'].forEach(function (name) {
         hbs.registerPartial('icons/' + name, readFileSync(new URL(`../partials/icons/${name}.hbs`, import.meta.url), 'utf8'));
     });
     return hbs.compile(パーシャル)(post);
@@ -92,17 +96,25 @@ function 変換(html) {
 // パーシャル
 // ---------------------------------------------------------------------------
 
-test('X と Bluesky への投稿リンクは、タイトルと絶対 URL を URL エンコードして intent に渡し、別タブで開く', () => {
+test('「感想をポストする」を押すと開く選択肢に X / Bluesky / Threads / Facebook のリンクを置き、タイトルと絶対 URL を URL エンコードして intent に渡す', () => {
     const html = 描画();
     const title = encodeURIComponent('Hyperstrataの地層を考える');
     const url = encodeURIComponent('https://hanatane.net/implementation-hyperstrata/');
-    assert.ok(html.includes(`href="https://x.com/intent/post?text=${title}&amp;url=${url}"`), html);
-    assert.ok(html.includes(`href="https://bsky.app/intent/compose?text=${title}%0A${url}"`), html);
-    const links = html.match(/<a [^>]*class="gh-post-share-button"[^>]*>/g);
-    assert.equal(links.length, 2, html);
+    assert.ok(/<button[^>]*data-share-toggle="post"[^>]*aria-expanded="false"[^>]*>\s*<span>感想をポストする<\/span>/.test(html), html);
+    assert.ok(/<div[^>]*data-share-options="post"[^>]*hidden/.test(html), html);
+    const 選択肢 = html.slice(html.indexOf('data-share-options="post"'), html.indexOf('data-share-options="ai"'));
+    assert.ok(選択肢.includes(`href="https://x.com/intent/post?text=${title}&amp;url=${url}"`), 選択肢);
+    assert.ok(選択肢.includes(`href="https://bsky.app/intent/compose?text=${title}%0A${url}"`), 選択肢);
+    assert.ok(選択肢.includes(`href="https://www.threads.net/intent/post?text=${title}%0A${url}"`), 選択肢);
+    assert.ok(選択肢.includes(`href="https://www.facebook.com/sharer/sharer.php?u=${url}"`), 選択肢);
+    const links = 選択肢.match(/<a [^>]*class="gh-post-share-button"[^>]*>/g);
+    assert.equal(links.length, 4, 選択肢);
     links.forEach(function (link) {
         assert.ok(link.includes('target="_blank"'), link);
         assert.ok(link.includes('rel="noopener noreferrer"'), link);
+    });
+    ['X', 'Bluesky', 'Threads', 'Facebook'].forEach(function (name) {
+        assert.ok(選択肢.includes(`<span>${name}</span>`), 選択肢);
     });
 });
 
@@ -114,18 +126,21 @@ test('コピーと AI のボタンには、JS が使うタイトル・絶対 URL
     assert.ok(html.includes('data-current-slug="implementation-hyperstrata"'), html);
     assert.ok(html.includes('data-published="2026-09-10T12:24:41.000Z"'), html);
     assert.ok(html.includes('data-strata-graph-url="/assets/graph.json"'), html);
-    assert.ok(/<button[^>]*data-share-copy[^>]*>/.test(html), html);
-    assert.ok(/<button[^>]*data-share-ai-toggle[^>]*aria-expanded="false"/.test(html), html);
+    assert.ok(/<button[^>]*data-share-copy[^>]*>\s*<span>タイトルとURLをコピー<\/span>/.test(html), html);
+    assert.ok(/<button[^>]*data-share-toggle="ai"[^>]*aria-expanded="false"[^>]*>\s*<span>AIに渡す<\/span>/.test(html), html);
 });
 
-test('AI に渡す選択肢(この記事だけ / 関連記事も含める)は初期状態では hidden で、JS が開くまで見えない', () => {
+test('AI に渡す選択肢(この記事だけ / 関連記事も含める)は初期状態では hidden で、文言は日本語にする', () => {
     const html = 描画();
-    assert.ok(/<div[^>]*data-share-ai-options[^>]*hidden/.test(html), html);
-    assert.ok(/<button[^>]*data-share-ai="single"/.test(html), html);
+    assert.ok(/<div[^>]*data-share-options="ai"[^>]*hidden/.test(html), html);
+    assert.ok(/<button[^>]*data-share-ai="single"[^>]*>\s*<span>この記事だけ<\/span>/.test(html), html);
     assert.ok(/<button[^>]*data-share-ai="related"/.test(html), html);
-    assert.ok(html.includes('data-label-copied="Copied"'), html);
-    assert.ok(html.includes('data-label-failed="Copy failed"'), html);
-    assert.ok(html.includes('data-label-related="This post and % related posts"'), html);
+    assert.ok(html.includes('<span data-share-ai-related-label>関連記事も含める</span>'), html);
+    assert.ok(html.includes('data-label-copied="コピーしました"'), html);
+    assert.ok(html.includes('data-label-failed="コピーできませんでした"'), html);
+    assert.ok(html.includes('data-label-related="関連記事 % 件も含める"'), html);
+    assert.ok(html.includes('data-label-no-related="関連記事はありません"'), html);
+    assert.ok(html.includes('シェアする'), html);
 });
 
 // ---------------------------------------------------------------------------
