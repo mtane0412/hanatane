@@ -60,6 +60,7 @@
         "gulp-zip": "6.1.0",
         "handlebars": "4.7.9",
         "inquirer": "14.0.2",
+        "jsdom": "27.4.0",
         "postcss": "8.5.16",
         "postcss-easy-import": "4.0.0",
         "pump": "3.0.4"

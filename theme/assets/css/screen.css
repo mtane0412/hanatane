@@ -4318,3 +4318,118 @@ body[class^="gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-head
         font-size: calc(1.6rem * var(--factor, 1));
     }
 }
+
+/* Post share (記事末尾の共有導線: partials/post-share.hbs) */
+.gh-post-share {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+.gh-post-share-title {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.gh-post-share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* リンク(X / Bluesky)とボタン(コピー)を同じ見た目の枠付きボタンにする */
+.gh-post-share-button {
+    display: inline-flex;
+    gap: 0.5em;
+    align-items: center;
+    padding: 0.7em 1.2em;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-darker-gray);
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--color-dark-border);
+    border-radius: 100px;
+}
+
+.gh-post-share-button:hover {
+    background-color: var(--color-lighter-gray);
+    text-decoration: none;
+}
+
+.gh-post-share-button[aria-expanded="true"] {
+    color: var(--color-white);
+    background-color: var(--color-darker-gray);
+    border-color: var(--color-darker-gray);
+}
+
+.gh-post-share-button:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.gh-post-share-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* 選択肢を持つボタンの包み。選択肢はここを基準にボタンの下へ重ねる */
+.gh-post-share-menu {
+    position: relative;
+}
+
+/* ボタンを押すと開く選択肢(感想をポストする / AI に渡す)。ボタンから生えるように絶対配置で重ね、後続の要素を押し下げない。
+   hidden 属性を display で打ち消さないよう、display は指定しない */
+.gh-post-share-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 10;
+    min-width: 100%;
+    max-width: min(480px, calc(100vw - 32px));
+    width: max-content;
+    padding: 12px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+    animation: gh-post-share-grow 0.15s ease-out;
+    transform-origin: top left;
+}
+
+@keyframes gh-post-share-grow {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gh-post-share-options {
+        animation: none;
+    }
+}
+
+/* AI の選択肢は右端に近いため、画面右にはみ出さないよう右寄せで開く余地を残す */
+.gh-post-share-menu:last-child .gh-post-share-options {
+    left: auto;
+    right: 0;
+    transform-origin: top right;
+}
+
+.gh-post-share-note {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--color-secondary-text);
+}

@@ -178,6 +178,9 @@ importers:
       inquirer:
         specifier: 14.0.2
         version: 14.0.2(@types/node@25.9.5)
+      jsdom:
+        specifier: 27.4.0
+        version: 27.4.0
       postcss:
         specifier: 8.5.16
         version: 8.5.16
