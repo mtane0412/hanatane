@@ -44,7 +44,7 @@ function 描画(post = 現在記事) {
     hbs.registerHelper('url', function (options) {
         return options.hash.absolute ? 'https://hanatane.net' + this.url : this.url;
     });
-    ['x', 'bluesky', 'threads', 'facebook'].forEach(function (name) {
+    ['x', 'bluesky', 'threads'].forEach(function (name) {
         hbs.registerPartial('icons/' + name, readFileSync(new URL(`../partials/icons/${name}.hbs`, import.meta.url), 'utf8'));
     });
     return hbs.compile(パーシャル)(post);
@@ -96,7 +96,7 @@ function 変換(html) {
 // パーシャル
 // ---------------------------------------------------------------------------
 
-test('「感想をポストする」を押すと開く選択肢に X / Bluesky / Threads / Facebook のリンクを置き、タイトルと絶対 URL を URL エンコードして intent に渡す', () => {
+test('「感想をポストする」を押すと開く選択肢に X / Bluesky / Threads のリンクを置き、タイトルと絶対 URL を URL エンコードして intent に渡す', () => {
     const html = 描画();
     const title = encodeURIComponent('Hyperstrataの地層を考える');
     const url = encodeURIComponent('https://hanatane.net/implementation-hyperstrata/');
@@ -106,14 +106,15 @@ test('「感想をポストする」を押すと開く選択肢に X / Bluesky /
     assert.ok(選択肢.includes(`href="https://x.com/intent/post?text=${title}&amp;url=${url}"`), 選択肢);
     assert.ok(選択肢.includes(`href="https://bsky.app/intent/compose?text=${title}%0A${url}"`), 選択肢);
     assert.ok(選択肢.includes(`href="https://www.threads.net/intent/post?text=${title}%0A${url}"`), 選択肢);
-    assert.ok(選択肢.includes(`href="https://www.facebook.com/sharer/sharer.php?u=${url}"`), 選択肢);
+    // Facebook は本文の事前入力を受け取れない(sharer.php は URL のみ)ため置かない
+    assert.ok(!選択肢.includes('facebook.com'), 選択肢);
     const links = 選択肢.match(/<a [^>]*class="gh-post-share-button"[^>]*>/g);
-    assert.equal(links.length, 4, 選択肢);
+    assert.equal(links.length, 3, 選択肢);
     links.forEach(function (link) {
         assert.ok(link.includes('target="_blank"'), link);
         assert.ok(link.includes('rel="noopener noreferrer"'), link);
     });
-    ['X', 'Bluesky', 'Threads', 'Facebook'].forEach(function (name) {
+    ['X', 'Bluesky', 'Threads'].forEach(function (name) {
         assert.ok(選択肢.includes(`<span>${name}</span>`), 選択肢);
     });
 });

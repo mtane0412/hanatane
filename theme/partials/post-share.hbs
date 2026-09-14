@@ -1,7 +1,7 @@
 {{!--
     記事末尾の共有導線。post.hbs から {{#post}} コンテキスト内で本文の直後に呼ばれる。
 
-    - 感想をポストする: 押すと選択肢(data-share-options="post")が開き、X / Bluesky / Threads / Facebook の
+    - 感想をポストする: 押すと選択肢(data-share-options="post")が開き、X / Bluesky / Threads の
       intent URL にタイトルと絶対 URL を渡すリンクを並べる(リンク自体は JavaScript 不要)
     - タイトルとURLをコピー: assets/js/post-share.js がクリップボードへ「タイトル\n URL」を書く
     - AIに渡す: 本文(.gh-content)を Markdown に変換してクリップボードへ書く。押すと選択肢
@@ -42,9 +42,6 @@
             </a>
             <a class="gh-post-share-button" href="https://www.threads.net/intent/post?text={{encode title}}%0A{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
                 {{> "icons/threads"}}<span>Threads</span>
-            </a>
-            <a class="gh-post-share-button" href="https://www.facebook.com/sharer/sharer.php?u={{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
-                {{> "icons/facebook"}}<span>Facebook</span>
             </a>
         </div>
     </div>
