@@ -1,0 +1,47 @@
+{{!--
+    記事末尾の共有導線。post.hbs から {{#post}} コンテキスト内で本文の直後に呼ばれる。
+
+    - X / Bluesky: 各サービスの intent URL にタイトルと絶対 URL を渡すだけのリンク(JavaScript 不要)
+    - Copy title & URL: assets/js/post-share.js がクリップボードへ「タイトル\n URL」を書く
+    - Copy for AI: 本文(.gh-content)を Markdown に変換してクリップボードへ書く。ボタンを押すと
+      「この記事だけ」か「graph.json で関係のある記事(引用・被引用・研究者の注釈)も含める」かを選ぶ
+      選択肢(data-share-ai-options)が開く。関連記事の本文は各記事ページを fetch して取り出す
+    JavaScript が無効な環境では X / Bluesky のリンクだけが機能し、コピーのボタンは disabled のまま残る。
+--}}
+<section class="gh-post-share gh-canvas" data-post-share
+    data-title="{{title}}"
+    data-url="{{url absolute="true"}}"
+    data-current-slug="{{slug}}"
+    data-published="{{published_at}}"
+    data-strata-graph-url="{{asset "graph.json"}}"
+    data-label-copied="{{t "Copied"}}"
+    data-label-failed="{{t "Copy failed"}}"
+    data-label-related="{{t "This post and % related posts"}}"
+    data-label-no-related="{{t "No related posts"}}">
+    <h2 class="gh-post-share-title">{{t "Share this post"}}</h2>
+    <div class="gh-post-share-buttons">
+        <a class="gh-post-share-button" href="https://x.com/intent/post?text={{encode title}}&amp;url={{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
+            {{> "icons/x"}}<span>{{t "Post on X"}}</span>
+        </a>
+        <a class="gh-post-share-button" href="https://bsky.app/intent/compose?text={{encode title}}%0A{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">
+            {{> "icons/bluesky"}}<span>{{t "Post on Bluesky"}}</span>
+        </a>
+        <button class="gh-post-share-button" type="button" data-share-copy disabled>
+            <span>{{t "Copy title & URL"}}</span>
+        </button>
+        <button class="gh-post-share-button" type="button" data-share-ai-toggle aria-expanded="false" aria-controls="gh-post-share-ai-options" disabled>
+            <span>{{t "Copy for AI"}}</span>
+        </button>
+    </div>
+    <div class="gh-post-share-ai-options" id="gh-post-share-ai-options" data-share-ai-options hidden>
+        <p class="gh-post-share-ai-note">{{t "Copies the title and body as Markdown to paste into an AI assistant."}}</p>
+        <div class="gh-post-share-buttons">
+            <button class="gh-post-share-button" type="button" data-share-ai="single">
+                <span>{{t "This post only"}}</span>
+            </button>
+            <button class="gh-post-share-button" type="button" data-share-ai="related">
+                <span data-share-ai-related-label>{{t "This post and related posts"}}</span>
+            </button>
+        </div>
+    </div>
+</section>

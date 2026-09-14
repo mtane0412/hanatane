@@ -60,6 +60,9 @@
             {{content}}
         </section>
 
+        {{!-- 記事末尾の共有導線(X / Bluesky への投稿、タイトルと URL のコピー、AI に渡す Markdown のコピー) --}}
+        {{> "post-share"}}
+
     </article>
 
     {{!-- Hyperstrata: 本文下の他記事へのリンク(直上・直下、引用、研究者の注釈)を上の層・下の層に束ねて出す(#42)。
