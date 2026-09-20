@@ -205,19 +205,22 @@ export function evaluateIcons(
 	cases: readonly IconCase[],
 	threshold: number,
 ): IconReport {
-	const applied = cases.map(
-		(testCase): IconCase =>
-			testCase.confidence < threshold
-				? { ...testCase, predicted: NO_ICON_LABEL }
-				: testCase,
-	);
-	const mismatches = applied.filter(
-		(testCase) => testCase.predicted !== (testCase.expected ?? NO_ICON_LABEL),
-	);
+	let omitted = 0;
+	const mismatches: IconCase[] = [];
+	for (const testCase of cases) {
+		const isOmitted = testCase.confidence < threshold;
+		if (isOmitted) omitted++;
+		const applied: IconCase = isOmitted
+			? { ...testCase, predicted: NO_ICON_LABEL }
+			: testCase;
+		if (applied.predicted !== (applied.expected ?? NO_ICON_LABEL)) {
+			mismatches.push(applied);
+		}
+	}
 	return {
 		total: cases.length,
 		matched: cases.length - mismatches.length,
-		omitted: cases.filter((testCase) => testCase.confidence < threshold).length,
+		omitted,
 		mismatches,
 	};
 }
