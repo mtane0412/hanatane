@@ -97,6 +97,31 @@ describe("selectStrengthTargets", () => {
 		expect(selectStrengthTargets(posts, annotations)).toEqual([]);
 	});
 
+	it("公開済みでない記事（下書きに戻した記事など）の注釈は、要約を送らないよう対象にしない", () => {
+		// 前提: window-film は注釈を書いたあとで下書きに戻された
+		const posts = [
+			記事("tanehouse-2023", "古民家を買った"),
+			{
+				...記事("window-film", "窓にフィルムを貼った"),
+				status: "draft" as const,
+			},
+		];
+		const annotations = new Map([
+			["tanehouse-2023", 注釈("tanehouse-2023", "古民家を購入した。")],
+			[
+				"window-film",
+				注釈("window-film", "窓に断熱フィルムを貼った。", [
+					{
+						slug: "tanehouse-2023",
+						type: "continues",
+						reason: "たねハウスの改修の続き",
+					},
+				]),
+			],
+		]);
+		expect(selectStrengthTargets(posts, annotations)).toEqual([]);
+	});
+
 	it("公開記事の注釈に限定記事が混ざっていたら、外部の API に送らないようエラーにする", () => {
 		const posts = [記事("members-diary", "メンバー向けの日記", "members")];
 		const annotations = new Map([

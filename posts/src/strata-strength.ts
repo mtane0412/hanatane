@@ -59,7 +59,7 @@ export function selectStrengthTargets(
 	const summarized = new Map<string, SummarizedPost>();
 	for (const annotation of publicAnnotations.values()) {
 		const post = postBySlug.get(annotation.slug);
-		if (!post?.published_at) continue;
+		if (post?.status !== "published" || !post.published_at) continue;
 		if (isPrivateVisibility(post.visibility)) {
 			throw new Error(
 				`${post.slug}: 限定記事の注釈が公開記事の注釈に混ざっています。外部の API に送らないよう中断します`,
