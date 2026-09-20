@@ -8,8 +8,12 @@
  * 確率は候補選びの補助にすぎない。関係を採用するか、種類は何かは、これまでどおり Claude Code が本文を読んで決める。
  * このモジュールは対象の絞り込みと並べ替えだけを担当する。API の呼び出しは scripts/strata.ts が行う。
  */
-import { isPrivateVisibility } from "./private-post";
-import type { CatalogEntry, PublishedPost } from "./strata";
+import path from "node:path";
+import { isPrivateVisibility, PRIVATE_DIR } from "./private-post";
+import { type CatalogEntry, type PublishedPost, STRATA_DIR } from "./strata";
+
+/** 記事の本文を置くディレクトリ（posts/ からの相対） */
+const CONTENT_DIR = "content";
 
 /** Jev が判定した確率つきの一覧の 1 件。判定していない記事（限定記事・未注釈）は null */
 export type RankedCatalogEntry = CatalogEntry & {
@@ -60,4 +64,29 @@ export function rankCatalog(
 		.sort((a, b) => (b.jev_probability ?? 0) - (a.jev_probability ?? 0));
 	const notJudged = entries.filter((entry) => entry.jev_probability === null);
 	return [...judged, ...notJudged];
+}
+
+/**
+ * 要約ファイルが、限定記事の置き場所（content/private/、strata/private/）の下に無いことを確かめます。
+ * 要約はプレーンテキストで、どの記事のものかを中身からは確かめられないため、
+ * 限定記事の平文作業ファイル（`<slug>.plain.json` など）を誤って渡して外部の API に送る事故を、置き場所で防ぎます。
+ *
+ * @param summaryFile - 要約ファイルのパス（相対パスは実行時のカレントディレクトリから解決する）
+ * @param postsDir - posts/ の絶対パス
+ */
+export function checkJevSummaryPath(
+	summaryFile: string,
+	postsDir: string,
+): void {
+	const resolved = path.resolve(summaryFile);
+	for (const parent of [CONTENT_DIR, STRATA_DIR]) {
+		const privateDir = path.join(postsDir, parent, PRIVATE_DIR);
+		const relative = path.relative(privateDir, resolved);
+		// privateDir の下にあるパスは、相対パスが ".." で始まらず、絶対パスにもならない
+		if (!relative.startsWith("..") && !path.isAbsolute(relative)) {
+			throw new Error(
+				`${summaryFile}: ${parent}/${PRIVATE_DIR}/ の下のファイルは要約ファイルにできません（限定記事の内容を外部の API に送らないため）`,
+			);
+		}
+	}
 }

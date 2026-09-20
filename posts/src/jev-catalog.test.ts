@@ -5,7 +5,11 @@
  * 限定記事の要約は外部の API に送らないので、判定の対象から外す。
  */
 import { describe, expect, it } from "vitest";
-import { rankCatalog, selectJevCandidates } from "./jev-catalog";
+import {
+	checkJevSummaryPath,
+	rankCatalog,
+	selectJevCandidates,
+} from "./jev-catalog";
 import type { CatalogEntry, PublishedPost } from "./strata";
 
 const 古民家を買った: CatalogEntry = {
@@ -91,5 +95,33 @@ describe("rankCatalog", () => {
 			new Map([["tanehouse-2023", 0.4]]),
 		);
 		expect(entry).toEqual({ ...古民家を買った, jev_probability: 0.4 });
+	});
+});
+
+describe("checkJevSummaryPath", () => {
+	const postsDir = "/repo/posts";
+
+	it("限定記事の置き場所の外にある要約ファイルは受け付ける", () => {
+		expect(() =>
+			checkJevSummaryPath("/tmp/scratchpad/summary.txt", postsDir),
+		).not.toThrow();
+	});
+
+	it("限定記事の注釈の平文作業ファイルは、外部に送らないようエラーにする", () => {
+		expect(() =>
+			checkJevSummaryPath(
+				"/repo/posts/strata/private/members-letter.plain.json",
+				postsDir,
+			),
+		).toThrow("strata/private");
+	});
+
+	it("限定記事の本文の置き場所にあるファイルも、相対パスで指定されてもエラーにする", () => {
+		expect(() =>
+			checkJevSummaryPath(
+				"/repo/posts/strata/../content/private/members-letter.md",
+				postsDir,
+			),
+		).toThrow("content/private");
 	});
 });

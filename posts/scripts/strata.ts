@@ -37,7 +37,11 @@ import {
 } from "node:fs";
 import path from "node:path";
 import { TypeSafeClient } from "@typesafe-ai/sdk";
-import { rankCatalog, selectJevCandidates } from "../src/jev-catalog";
+import {
+	checkJevSummaryPath,
+	rankCatalog,
+	selectJevCandidates,
+} from "../src/jev-catalog";
 import {
 	buildRelationQuestions,
 	buildRelationState,
@@ -170,6 +174,7 @@ async function catalogWithJev(
 	if (!process.env[JEV_API_KEY_ENV]) {
 		throw new Error(`環境変数 ${JEV_API_KEY_ENV} が設定されていません`);
 	}
+	checkJevSummaryPath(summaryFile, POSTS_DIR);
 	const summary = readFileSync(summaryFile, "utf8").trim();
 	if (summary === "") {
 		throw new Error(`${summaryFile}: 要約が空です`);
