@@ -24,10 +24,18 @@ const 語彙: TagVocabularyEntry[] = [
 
 describe("buildPostState", () => {
 	it("タイトルと本文を名前付きのフィールドにする", () => {
-		expect(buildPostState("猫を迎えた", "保護猫を迎えました。")).toEqual({
-			title: "猫を迎えた",
-			body: "保護猫を迎えました。",
-		});
+		const state = buildPostState("猫を迎えた", "保護猫を迎えました。");
+		expect(state.title).toBe("猫を迎えた");
+		expect(state.body).toBe("保護猫を迎えました。");
+	});
+
+	it("本文に書かれていない背景（著者の自宅が古民家「たねハウス」であること）を添える", () => {
+		// 自宅の修繕の記事は、本文に「たねハウス」と書かれていなくても「たねハウスの話」が付く
+		const state = buildPostState(
+			"窓にフィルムを貼った",
+			"自宅の窓に貼りました。",
+		);
+		expect(state.site_context).toContain("たねハウス");
 	});
 
 	it("長い本文は上限の文字数で切る", () => {
@@ -42,6 +50,12 @@ describe("buildTagQuestions", () => {
 		const questions = buildTagQuestions(語彙);
 		expect(Object.keys(questions)).toEqual(["tech", "cat"]);
 		expect(questions.cat.type).toBe("noul");
+	});
+
+	it("no の基準で、題材に触れているだけの記事（週報での言及など）を除く", () => {
+		const questions = buildTagQuestions(語彙);
+		expect(questions.cat.instructions).toContain("主題");
+		expect(questions.cat.criteria?.false).toContain("触れているだけ");
 	});
 
 	it("質問にタグ名を、yes の基準に統制語彙の説明文を入れる", () => {

@@ -51,7 +51,6 @@ import {
 import { POST_JSON_SUFFIX } from "../src/post-json";
 import { isPrivateVisibility } from "../src/private-post";
 import {
-	lexicalToText,
 	PLAIN_STRATA_SUFFIX,
 	parseStrataAnnotation,
 	readPublishedPost,
@@ -60,6 +59,7 @@ import {
 	type StrataAnnotation,
 	selectLatestAnnotations,
 } from "../src/strata";
+import { readBodyText } from "./lib/read-body";
 import { createTypesafeClient } from "./lib/typesafe-client";
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "..");
@@ -137,20 +137,6 @@ function loadPublicAnnotations(): Map<string, StrataAnnotation> {
 		annotations.push(parseStrataAnnotation(content, fileName));
 	}
 	return selectLatestAnnotations(annotations);
-}
-
-function readBodyText(content: string, fileName: string): string {
-	const data: unknown = JSON.parse(content);
-	if (
-		typeof data !== "object" ||
-		data === null ||
-		!("lexical" in data) ||
-		typeof data.lexical !== "object" ||
-		data.lexical === null
-	) {
-		throw new Error(`${fileName}: lexical がありません`);
-	}
-	return lexicalToText(data.lexical as Record<string, unknown>);
 }
 
 /** Jev に 1 記事を判定させ、タグと icon の評価の入力にする */

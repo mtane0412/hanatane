@@ -1,6 +1,6 @@
 ---
 name: publish-prepare
-description: hanatane.net の下書きを公開する前に、研究者（Claude Code）が slug・excerpt・tags を整える。ユーザーが「公開の準備をして」「slug と excerpt を整えて」「タグを付けて」「公開して」と言ったとき、ghost-posts スキルで公開する直前に使う。判断は Claude Code が行い、posts/tags.json の統制語彙を使う。
+description: hanatane.net の下書きを公開する前に、研究者（Claude Code）が slug・excerpt・tags を整える。ユーザーが「公開の準備をして」「slug と excerpt を整えて」「タグを付けて」「公開して」と言ったとき、ghost-posts スキルで公開する直前に使う。判断は Claude Code が行い、posts/tags.json の統制語彙を使う。タグの付け忘れ・付けすぎの見直しにだけ、任意で Jev（TypeSafe の判定モデル）の確率を使える。
 ---
 
 # 公開前の整備（slug・excerpt・tags）
@@ -17,6 +17,9 @@ description: hanatane.net の下書きを公開する前に、研究者（Claude
 6. `posts/content/<新しい slug>.post.json` の `excerpt` と `tags` を書き換える（`#ref-*` など `#` で始まる内部タグは残す）。
 7. `pnpm --filter ./posts push content/<新しい slug>.post.json` で Ghost に反映する。
 8. `pnpm --filter ./posts curate check <新しい slug>` で基準を満たしていることを確認する。
+   - 任意の補助（公開記事で、`posts/secrets/typesafe.env` に TypeSafe の API キーがあるときだけ）: `--jev` を付けると、タグが記事の内容に合っているかを Jev（TypeSafe の判定モデル）に聞き、「付いていないが、主題に当てはまりそう」（確率 0.7 以上）と「付いているが、主題に当てはまらなさそう」（確率 0.3 未満）を警告として出す。警告は見直しのきっかけで、公開の基準（終了コード）には影響しない。
+   - 警告が出たら本文を読み直して決める。Jev は本文に書かれたことしか見ないので、本文に出てこない事情で付けたタグ（自宅での作業に付ける「たねハウスの話」など）は警告が出てもそのままでよい。Jev が判定できない「たねのぶの話」は対象外なので、自分で判断する。警告が無いことをタグが正しい根拠にしない。
+   - 限定記事には `--jev` を使えない（本文を外部の API に送らない。エラーになる）。
 9. 決めた slug・excerpt・tags と、その理由を 1 行ずつユーザーに示す。公開は `ghost-posts` スキルの「公開する」に従い、ユーザーの明示的な依頼があるときだけ行う。
 10. `content/` の `.post.json` と（語彙を変えたときは）`posts/tags.json` を feature ブランチでコミットし、PR にする（main 直接コミット禁止）。
 
