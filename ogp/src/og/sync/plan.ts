@@ -49,8 +49,9 @@ export function gradientForSlug(slug: string): GradientPreset {
  *
  * 配色は著者の好みで決めています。`ghost-tag` と `street-fighter-6` は
  * `tech` / `game` と併用するタグなので対応表に入れません。
+ * キーが統制語彙に存在することは `plan.test.ts` で検査しています。
  */
-const TAG_GRADIENTS: Record<string, GradientPreset> = {
+export const TAG_GRADIENTS: Record<string, GradientPreset> = {
 	tech: "ocean",
 	diary: "sunset",
 	tanehouse: "orange",
@@ -108,13 +109,16 @@ export function existingSocialImage(post: GhostPost): string | null {
 }
 
 /**
- * 記事とサイト名から描画パラメータを組み立てる
+ * 記事・サイト名・選択済みのグラデーションから描画パラメータを組み立てる
  *
- * @throws 著者名かタグが取得できない場合（`include=authors,tags` の指定漏れを隠さないため）
+ * グラデーションは呼び出し側が `selectGradient` で選んで渡します（選択の根拠をログに残すため）。
+ *
+ * @throws 著者名が取得できない場合（`include=authors` の指定漏れを隠さないため）
  */
 export function buildRenderParams(
 	post: GhostPost,
 	siteTitle: string,
+	gradient: GradientPreset,
 ): OgpRenderParams {
 	const authorName = post.primary_author?.name;
 	if (!authorName) {
@@ -126,6 +130,6 @@ export function buildRenderParams(
 		title: post.title,
 		siteName: siteTitle,
 		authorName,
-		gradient: selectGradient(post).gradient,
+		gradient,
 	};
 }

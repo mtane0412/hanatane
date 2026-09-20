@@ -72,7 +72,9 @@ export async function syncOgImages({
 					? `${post.slug}: タグ ${choice.tag} からグラデーション ${choice.gradient} を選びました`
 					: `${post.slug}: 対応するタグが無いため、slug のハッシュでグラデーション ${choice.gradient} を選びました`,
 			);
-			const png = await render(buildRenderParams(post, siteTitle));
+			const png = await render(
+				buildRenderParams(post, siteTitle, choice.gradient),
+			);
 			imageUrl = await client.uploadImage(png, ogImageFilename(post.slug));
 		}
 		await client.setSocialImages(post, imageUrl);

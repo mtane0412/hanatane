@@ -5,6 +5,8 @@ on:
   pull_request:
     paths:
       - 'ogp/**'
+      # ogp/src/og/sync/plan.ts の TAG_GRADIENTS が統制語彙と食い違わないかをテストで検査している
+      - 'posts/tags.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
       - '.github/workflows/test-ogp.yml'

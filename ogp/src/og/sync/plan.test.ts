@@ -1,6 +1,7 @@
 /**
  * 事前生成の対象選定・描画パラメータ組み立て（純粋関数）のテスト
  */
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { GRADIENT_PRESETS } from "@/types/ogp";
 import {
@@ -10,6 +11,7 @@ import {
 	gradientForSlug,
 	selectGradient,
 	selectPostsNeedingOgImage,
+	TAG_GRADIENTS,
 } from "./plan";
 
 const 基本記事: GhostPost = {
@@ -40,6 +42,22 @@ describe("gradientForSlug", () => {
 			Array.from({ length: 40 }, (_, i) => gradientForSlug(`post-${i}`)),
 		);
 		expect(presets.size).toBeGreaterThan(1);
+	});
+});
+
+describe("TAG_GRADIENTS", () => {
+	it("対応表のタグはすべて統制語彙（posts/tags.json）に存在する", () => {
+		// タグの slug を変えたときに、対応表が黙ってハッシュでの選択に落ちるのを防ぐ
+		const { tags } = JSON.parse(
+			readFileSync(
+				new URL("../../../../posts/tags.json", import.meta.url),
+				"utf8",
+			),
+		) as { tags: { slug: string }[] };
+		const 統制語彙 = tags.map((tag) => tag.slug);
+		for (const slug of Object.keys(TAG_GRADIENTS)) {
+			expect(統制語彙).toContain(slug);
+		}
 	});
 });
 
@@ -137,7 +155,7 @@ describe("existingSocialImage", () => {
 
 describe("buildRenderParams", () => {
 	it("記事とサイト名から描画パラメータを組み立てる", () => {
-		expect(buildRenderParams(基本記事, "はなしのタネ")).toEqual({
+		expect(buildRenderParams(基本記事, "はなしのタネ", "ocean")).toEqual({
 			title: "Workers で OGP 画像を自動生成する",
 			siteName: "はなしのタネ",
 			authorName: "たねのぶ",
@@ -147,7 +165,11 @@ describe("buildRenderParams", () => {
 
 	it("著者名が無い記事はエラーにする", () => {
 		expect(() =>
-			buildRenderParams({ ...基本記事, primary_author: null }, "はなしのタネ"),
+			buildRenderParams(
+				{ ...基本記事, primary_author: null },
+				"はなしのタネ",
+				"ocean",
+			),
 		).toThrow(/著者/);
 	});
 });
