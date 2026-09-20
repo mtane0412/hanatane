@@ -294,7 +294,8 @@ pnpm --filter ./posts jev-eval relations-report 5         # 保存済みの結�
 `jev-eval run` / `relations-run` と `strata catalog --jev-summary` は TypeSafe の API キーを使います。キーをコマンドラインに書くとシェルの履歴や Claude Code のセッションの記録に残るため、sops + age で暗号化した `posts/secrets/typesafe.env`（dotenv 形式）に置きます。
 
 ```bash
-cd posts
+cd posts                     # .sops.yaml の path_regex（secrets/*.env）に合うよう、必ず posts/ で実行する
+mkdir -p secrets
 sops secrets/typesafe.env    # エディタが開くので TYPESAFE_API_KEY=<キー> を書いて保存する（保存時に暗号化される。平文はディスクに残らない）
 ```
 
