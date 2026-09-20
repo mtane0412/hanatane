@@ -6,11 +6,16 @@
  *   - 既知の関係（注釈の relations）が、確率の順位の上位に入るか（候補選びの代替・補助になるか）
  *   - 注釈に無いのに確率が高い組（埋もれた関係の候補）はどれか
  *   - 関係の種類（continues / revisits / updates）を当てられるか
+ *   - 既知の関係の強さを score（段階評価）で聞いたとき、順位付けに使える分布になるか（#56）
  * を測る。関係を採用するかの最終判断は、これまでどおり Claude Code が本文を読んで行う。
  *
  * このモジュールは組と質問の組み立てと集計だけを担当する。API の呼び出しとファイル入出力は scripts/jev-eval.ts が行う。
  */
-import type { ChoiceQuestion, NoulQuestion } from "@typesafe-ai/sdk";
+import type {
+	ChoiceQuestion,
+	NoulQuestion,
+	ScoreQuestion,
+} from "@typesafe-ai/sdk";
 import { RELATION_TYPES, type RelationType } from "./strata";
 
 /** 種類の質問で「関係が無い」を表す選択肢 */
@@ -205,6 +210,113 @@ export function evaluateRelationTypes(
 		total: cases.length,
 		matched: cases.length - mismatches.length,
 		mismatches,
+	};
+}
+
+/**
+ * 関係の強さの段階（0 が最も弱い）。
+ * 「関係がある確率」は題材の連続性に寄り、revisits / updates を低く出す（#56 の実測）。
+ * そこで種類に依らず「過去記事をどれだけ直接受けているか」を聞き、最上位に続報・更新・再訪を並べる。
+ */
+export const STRENGTH_RUBRIC = [
+	"題材の分野や書かれた時期が同じというだけで、`older_post` の具体的な出来事や考えには触れていない",
+	"`older_post` と同じテーマに触れているが、別の出来事であり、`older_post` の内容を前提にしていない",
+	"`older_post` と同じプロジェクト・人・場所・考えの話が続いており、`older_post` は `newer_post` の背景になっている",
+	"`newer_post` は `older_post` を直接受けている（同じ出来事の直接の続報、`older_post` で述べた判断や内容の更新、`older_post` の出来事そのものへの再訪）",
+] as const;
+
+/** 関係の強さを聞く score の質問を作ります。state は buildRelationState と同じものを使います。 */
+export function buildStrengthQuestion(): ScoreQuestion<typeof STRENGTH_RUBRIC> {
+	return {
+		type: "score",
+		instructions:
+			"`newer_post` と `older_post` は同じ著者のブログ記事の要約で、`newer_post` は `older_post` と関係があると分かっています。その関係はどれくらい強いですか？",
+		criteria: STRENGTH_RUBRIC,
+	};
+}
+
+/** Jev の score（期待値。段階の間の値を取りうる）を、段階の数に依らない 0〜1 の強さにします。 */
+export function normalizeStrength(score: number): number {
+	const max = STRENGTH_RUBRIC.length - 1;
+	if (!(score >= 0 && score <= max)) {
+		throw new Error(
+			`score が段階の範囲（0〜${String(max)}）を外れています: ${String(score)}`,
+		);
+	}
+	return score / max;
+}
+
+/** 既知の関係 1 本の強さ。probability は relations-run の「関係がある確率」で、判定が無い組は null */
+export interface StrengthCase {
+	newer: string;
+	older: string;
+	type: RelationType;
+	strength: number;
+	probability: number | null;
+}
+
+export interface Distribution {
+	median: number;
+	min: number;
+	max: number;
+}
+
+export interface StrengthReport {
+	/** 関係の種類ごとの分布。種類による偏りを確率と比べるために並べる */
+	byType: {
+		type: RelationType;
+		count: number;
+		strength: Distribution;
+		probability: Distribution | null;
+	}[];
+	/** 強さの 0.1 刻みの度数分布（1.0 は最後の区間） */
+	histogram: number[];
+}
+
+/** 度数分布の区間の数（0.1 刻み） */
+const HISTOGRAM_BINS = 10;
+
+/** 強さが順位付けに使える分布か（種類による偏り、値の散らばり）を見るための集計をします。 */
+export function evaluateStrength(
+	cases: readonly StrengthCase[],
+): StrengthReport {
+	const byType: StrengthReport["byType"] = [];
+	for (const type of RELATION_TYPES) {
+		const ofType = cases.filter((item) => item.type === type);
+		if (ofType.length === 0) continue;
+		const probabilities = ofType
+			.map((item) => item.probability)
+			.filter((value) => value !== null);
+		byType.push({
+			type,
+			count: ofType.length,
+			strength: distribution(ofType.map((item) => item.strength)),
+			probability:
+				probabilities.length === 0 ? null : distribution(probabilities),
+		});
+	}
+	const histogram = Array<number>(HISTOGRAM_BINS).fill(0);
+	for (const item of cases) {
+		const bin = Math.min(
+			HISTOGRAM_BINS - 1,
+			Math.floor(item.strength * HISTOGRAM_BINS),
+		);
+		histogram[bin] += 1;
+	}
+	return { byType, histogram };
+}
+
+/** 空でない値の列の分布を出します。 */
+function distribution(values: readonly number[]): Distribution {
+	if (values.length === 0) {
+		throw new Error("分布を出す値がありません");
+	}
+	const sorted = [...values].sort((a, b) => a - b);
+	return {
+		// 偶数件のときは上側の値を取る（評価の目安なので平均はしない）
+		median: sorted[Math.floor(sorted.length / 2)],
+		min: sorted[0],
+		max: sorted[sorted.length - 1],
 	};
 }
 

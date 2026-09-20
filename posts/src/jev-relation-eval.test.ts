@@ -9,9 +9,13 @@ import {
 	buildRelationPairs,
 	buildRelationQuestions,
 	buildRelationState,
+	buildStrengthQuestion,
 	evaluateRelationRanking,
 	evaluateRelationTypes,
+	evaluateStrength,
 	NO_RELATION_LABEL,
+	normalizeStrength,
+	STRENGTH_RUBRIC,
 	type SummarizedPost,
 } from "./jev-relation-eval";
 import { RELATION_TYPES } from "./strata";
@@ -152,5 +156,108 @@ describe("evaluateRelationTypes", () => {
 		expect(report.mismatches.map((item) => item.newer)).toEqual([
 			"welcome-cat",
 		]);
+	});
+});
+
+describe("buildStrengthQuestion", () => {
+	it("関係の強さを段階で聞く score の質問を作る（0 が最も弱く、最後の段階が最も強い）", () => {
+		const question = buildStrengthQuestion();
+		expect(question.type).toBe("score");
+		expect(question.criteria).toEqual(STRENGTH_RUBRIC);
+	});
+});
+
+describe("normalizeStrength", () => {
+	it("Jev の期待値の score を、段階の数に依らない 0〜1 の強さにする", () => {
+		// 前提: 段階は 0 から STRENGTH_RUBRIC.length - 1 まで
+		const 最大の段階 = STRENGTH_RUBRIC.length - 1;
+		expect(normalizeStrength(0)).toBe(0);
+		expect(normalizeStrength(最大の段階)).toBe(1);
+		expect(normalizeStrength(最大の段階 / 2)).toBe(0.5);
+	});
+
+	it("段階の範囲を外れた score はエラーにする", () => {
+		expect(() => normalizeStrength(-0.1)).toThrow("score が段階の範囲");
+		expect(() => normalizeStrength(STRENGTH_RUBRIC.length)).toThrow(
+			"score が段階の範囲",
+		);
+	});
+});
+
+describe("evaluateStrength", () => {
+	it("関係の種類ごとに、強さと確率の件数・中央値・最小・最大を出す", () => {
+		// 前提: continues が 3 本、updates が 1 本。probability は relations-run の「関係がある確率」
+		const report = evaluateStrength([
+			{
+				newer: "window-film",
+				older: "tanehouse-2023",
+				type: "continues",
+				strength: 0.9,
+				probability: 0.8,
+			},
+			{
+				newer: "welcome-cat",
+				older: "tanehouse-2023",
+				type: "continues",
+				strength: 0.3,
+				probability: 0.2,
+			},
+			{
+				newer: "welcome-cat",
+				older: "window-film",
+				type: "continues",
+				strength: 0.6,
+				probability: 0.5,
+			},
+			{
+				newer: "cat-tower",
+				older: "welcome-cat",
+				type: "updates",
+				strength: 0.7,
+				probability: null,
+			},
+		]);
+		expect(report.byType).toEqual([
+			{
+				type: "continues",
+				count: 3,
+				strength: { median: 0.6, min: 0.3, max: 0.9 },
+				probability: { median: 0.5, min: 0.2, max: 0.8 },
+			},
+			{
+				type: "updates",
+				count: 1,
+				strength: { median: 0.7, min: 0.7, max: 0.7 },
+				// 確率の判定が無い組だけなので集計できない
+				probability: null,
+			},
+		]);
+	});
+
+	it("強さの分解能として、0.1 刻みの度数分布を出す（1.0 は最後の区間に入れる）", () => {
+		const report = evaluateStrength([
+			{
+				newer: "window-film",
+				older: "tanehouse-2023",
+				type: "continues",
+				strength: 0.05,
+				probability: null,
+			},
+			{
+				newer: "welcome-cat",
+				older: "tanehouse-2023",
+				type: "continues",
+				strength: 0.95,
+				probability: null,
+			},
+			{
+				newer: "welcome-cat",
+				older: "window-film",
+				type: "continues",
+				strength: 1,
+				probability: null,
+			},
+		]);
+		expect(report.histogram).toEqual([1, 0, 0, 0, 0, 0, 0, 0, 0, 2]);
 	});
 });

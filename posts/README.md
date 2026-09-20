@@ -304,19 +304,22 @@ pnpm --filter ./posts curate rename <old> <new>      # 下書きの slug を変�
 - タグ: 統制語彙（`tags.json`）のタグごとに「記事の主題がこのタグに当てはまるか」を聞き、記事に付いているタグと突き合わせます。質問は `curate check --jev` と共通（`src/jev-eval.ts` の `buildTagQuestions`）なので、タグの説明文や質問を変えたら、ここで精度を測り直してください。
 - icon: 題材の icon を 1 つ選ばせ、Hyperstrata の注釈の icon と突き合わせます。`report` は「確信度がしきい値未満の判定は icon を省略する」としたときの一致を、しきい値を振って並べます。質問は `strata jev-icon` と共通（`src/jev-eval.ts` の `buildIconQuestion`）なので、選択肢の説明文を変えたら、ここで精度を測り直してください。
 - 関係: 注釈の要約どうしの全組（新しい記事 → それより前の記事）に「続報・再訪・更新のいずれかか」を聞き、注釈の既知の関係が確率の順位の上位 K 件（既定は 8。`strata-annotate` の候補の上限）に入るかを測ります。注釈に無いのに確率が高い組は「埋もれた関係の候補」として一覧にします。関係を採用するかの判断は、これまでどおり Claude Code が本文を読んで行います。
+- 関係の強さ（#56）: 注釈の既知の関係だけに「過去記事をどれだけ直接受けているか」を 4 段階の score で聞き、0〜1 に正規化します（`src/jev-relation-eval.ts` の `STRENGTH_RUBRIC`）。「関係がある確率」は題材の連続性に寄り、`revisits` / `updates` を低く出すため、強さは別の質問にしました。既知の関係 81 本の評価（2026-09-20）では、種類ごとの中央値が確率の 0.60 / 0.21 / 0.29（continues / revisits / updates）に対し、強さは 0.60 / 0.35 / 0.59 で、0.1 刻みの度数分布もほぼ平らでした。
 
 ```bash
 pnpm --filter ./posts jev-eval run                        # 公開記事を判定させ、結果を .jev-eval/results.json（.gitignore 対象）に保存して集計を表示する
 pnpm --filter ./posts jev-eval report 0.7                 # 保存済みの結果を、しきい値を変えて集計し直す（API を呼ばない）
 pnpm --filter ./posts jev-eval relations-run              # 要約の全組（約 3,300 組）を判定させ、.jev-eval/relations.json に保存して集計を表示する
 pnpm --filter ./posts jev-eval relations-report 5         # 保存済みの結果を、上位 K 件を変えて集計し直す（API を呼ばない）
+pnpm --filter ./posts jev-eval strength-run               # 既知の関係（約 80 本）だけに強さの score を聞き、.jev-eval/strength.json に保存して集計を表示する
+pnpm --filter ./posts jev-eval strength-report            # 保存済みの結果を集計し直す（API を呼ばない）
 ```
 
 記事の本文と注釈の要約を外部の API に送るため、対象は `content/` 直下の公開記事だけです。限定記事（`content/private/`、`strata/private/`）は読みませんし送りません。
 
 ### TypeSafe の API キー（`secrets/typesafe.env`）
 
-`jev-eval run` / `relations-run` と `strata catalog --jev-summary` は TypeSafe の API キーを使います。キーをコマンドラインに書くとシェルの履歴や Claude Code のセッションの記録に残るため、sops + age で暗号化した `posts/secrets/typesafe.env`（dotenv 形式）に置きます。
+`jev-eval run` / `relations-run` / `strength-run` と `strata catalog --jev-summary` は TypeSafe の API キーを使います。キーをコマンドラインに書くとシェルの履歴や Claude Code のセッションの記録に残るため、sops + age で暗号化した `posts/secrets/typesafe.env`（dotenv 形式）に置きます。
 
 ```bash
 cd posts                     # .sops.yaml の path_regex（secrets/*.env）に合うよう、必ず posts/ で実行する
