@@ -4,8 +4,7 @@
 	"status": "published",
 	"visibility": "public",
 	"tags": [
-		"技術の話",
-		"たねハウスの話"
+		"技術の話"
 	],
 	"excerpt": "Claude Codeを使ってYAMAHAルーターをメンテするためのコマンドリファレンスとGit管理体制を作る。",
 	"feature_image": "https://hanatane.net/content/images/2025/12/photo-1702541667327-2ff5ef089586.jpeg",
