@@ -9,3 +9,5 @@ dist-ssr
 .tanstack
 .output
 .idea
+# Jev の評価結果（posts/scripts/jev-eval.ts が書く。ローカル専用）
+posts/.jev-eval/
