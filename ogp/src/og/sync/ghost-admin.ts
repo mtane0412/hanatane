@@ -124,7 +124,7 @@ export function createGhostAdminClient({
 			);
 			const { posts } = await request<{ posts: GhostPost[] }>(
 				"GET",
-				`/posts/?limit=all&filter=${filter}&include=authors`,
+				`/posts/?limit=all&filter=${filter}&include=authors,tags`,
 			);
 			return posts;
 		},

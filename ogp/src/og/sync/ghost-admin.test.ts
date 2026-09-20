@@ -66,7 +66,7 @@ describe("createGhostAdminClient", () => {
 		expect(url.searchParams.get("filter")).toBe(
 			"status:published+feature_image:null+(og_image:null,twitter_image:null)",
 		);
-		expect(url.searchParams.get("include")).toBe("authors");
+		expect(url.searchParams.get("include")).toBe("authors,tags");
 		expect(url.searchParams.get("limit")).toBe("all");
 		expect(
 			(calls[0].init.headers as Record<string, string>).Authorization,

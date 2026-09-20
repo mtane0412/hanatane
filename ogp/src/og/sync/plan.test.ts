@@ -8,6 +8,7 @@ import {
 	existingSocialImage,
 	type GhostPost,
 	gradientForSlug,
+	selectGradient,
 	selectPostsNeedingOgImage,
 } from "./plan";
 
@@ -20,6 +21,7 @@ const 基本記事: GhostPost = {
 	og_image: null,
 	twitter_image: null,
 	primary_author: { name: "たねのぶ" },
+	tags: [{ slug: "tech" }],
 };
 
 describe("gradientForSlug", () => {
@@ -38,6 +40,51 @@ describe("gradientForSlug", () => {
 			Array.from({ length: 40 }, (_, i) => gradientForSlug(`post-${i}`)),
 		);
 		expect(presets.size).toBeGreaterThan(1);
+	});
+});
+
+describe("selectGradient", () => {
+	it("統制語彙のタグに対応するプリセットを選ぶ", () => {
+		const 対応表 = {
+			tech: "ocean",
+			diary: "sunset",
+			tanehouse: "orange",
+			cat: "pink",
+			hunting: "forest",
+			game: "purple",
+			reading: "green",
+		};
+		for (const [tag, gradient] of Object.entries(対応表)) {
+			expect(selectGradient({ ...基本記事, tags: [{ slug: tag }] })).toEqual({
+				gradient,
+				source: "tag",
+				tag,
+			});
+		}
+	});
+
+	it("タグを先頭から見て、最初に対応が見つかったものを採用する", () => {
+		expect(
+			selectGradient({
+				...基本記事,
+				tags: [{ slug: "ghost-tag" }, { slug: "cat" }, { slug: "tech" }],
+			}),
+		).toEqual({ gradient: "pink", source: "tag", tag: "cat" });
+	});
+
+	it("対応するタグが無い記事は slug のハッシュで選び、その旨を返す", () => {
+		for (const tags of [[], [{ slug: "hash-quote" }]]) {
+			expect(selectGradient({ ...基本記事, tags })).toEqual({
+				gradient: gradientForSlug("workers-ogp"),
+				source: "hash",
+			});
+		}
+	});
+
+	it("tags が取得できていない記事はエラーにする", () => {
+		expect(() => selectGradient({ ...基本記事, tags: undefined })).toThrow(
+			/include=.*tags/,
+		);
 	});
 });
 
@@ -94,7 +141,7 @@ describe("buildRenderParams", () => {
 			title: "Workers で OGP 画像を自動生成する",
 			siteName: "はなしのタネ",
 			authorName: "たねのぶ",
-			gradient: gradientForSlug("workers-ogp"),
+			gradient: "ocean",
 		});
 	});
 

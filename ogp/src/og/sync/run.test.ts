@@ -16,6 +16,7 @@ const 記事一覧: GhostPost[] = [
 		og_image: null,
 		twitter_image: null,
 		primary_author: { name: "たねのぶ" },
+		tags: [{ slug: "cat" }],
 	},
 	{
 		id: "p2",
@@ -26,6 +27,7 @@ const 記事一覧: GhostPost[] = [
 		og_image: null,
 		twitter_image: null,
 		primary_author: { name: "たねのぶ" },
+		tags: [],
 	},
 ];
 
@@ -69,6 +71,26 @@ describe("syncOgImages", () => {
 				authorName: "たねのぶ",
 			}),
 		);
+	});
+
+	it("グラデーションをタグから選んだか、slug のハッシュで選んだかをログに残す", async () => {
+		const logs: string[] = [];
+		await syncOgImages({
+			client: createFakeClient(記事一覧),
+			render: 描画,
+			dryRun: false,
+			log: (message) => logs.push(message),
+		});
+		expect(logs).toContain(
+			"first: タグ cat からグラデーション pink を選びました",
+		);
+		expect(
+			logs.some((line) =>
+				/^second: 対応するタグが無いため、slug のハッシュでグラデーション \w+ を選びました$/.test(
+					line,
+				),
+			),
+		).toBe(true);
 	});
 
 	it("dryRun では描画もアップロードも更新も行わず対象だけ返す", async () => {

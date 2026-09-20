@@ -106,7 +106,7 @@ Tailwind CSS v4を使用しています。Viteプラグイン（`@tailwindcss/vi
 
 `/og` の実行時レンダリングは Workers 無料プランの CPU 上限（10ms）を超えるため、本番運用は事前生成方式です。GitHub Actions（リポジトリルートの `.github/workflows/sync-og-images.yml`、15 分おき + 手動）が Ghost Admin API で「公開済み・feature_image なし・og_image なし」の記事を取得し、PNG を生成して images/upload にアップロードし、記事の `og_image` に設定します。`ghost_head` は `og_image` を最優先で使うため、テーマ側の変更は不要です。
 
-- 対象選定・配色決定: `src/og/sync/plan.ts`（slug の FNV-1a ハッシュでグラデーションを決定的に選ぶ）
+- 対象選定・配色決定: `src/og/sync/plan.ts`（記事のタグ（`posts/tags.json` の統制語彙）からグラデーションを選ぶ。対応表は `TAG_GRADIENTS`。対応するタグが無い記事は slug の FNV-1a ハッシュで決定的に選び、ログに残す）
 - Admin API クライアント: `src/og/sync/ghost-admin.ts`（JWT 生成、記事取得、画像アップロード、og_image 更新）
 - 実行フロー: `src/og/sync/run.ts`（失敗時は例外で停止し、暗黙にスキップしない）
 - Node 用資源ローダー: `src/og/resources-node.ts`
