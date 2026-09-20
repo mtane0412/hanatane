@@ -24,9 +24,10 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
    - 対象が限定記事のとき、`jev-icon` はエラーになる（限定記事の本文は外部の API に送らない）。
 8. `posts/strata/<slug>.json`（限定記事は `posts/strata/private/<slug>.plain.json`）を書く。
 9. 限定記事なら `pnpm --filter ./posts strata encrypt <slug>` で暗号化する（検証も同時に行われる）。
-10. `pnpm --filter ./posts strata check` で検査する。
-11. feature ブランチでコミットし、PR にする（main 直接コミット禁止）。
-12. PR がマージされたら、`gh workflow run hyperstrata-sync.yml --repo mtane0412/hanatane` で `theme/assets/graph.json` への反映を手動実行する。`hyperstrata-sync.yml` は 15 分おきの cron も持つが、GitHub Actions が高頻度 cron を高負荷時に間引く仕様のため数時間かかることがある（cron は保険として残る）。
+10. 公開記事の注釈に関係（`relations`）を書いたら、`pnpm --filter ./posts strata strength` で関係の強さ（`posts/strata-strength.json`）を更新する（`posts/secrets/typesafe.env` に TypeSafe の API キーがあるときだけ。無ければ飛ばしてよく、その関係は「強さ不明」として描かれる）。強さは Jev が要約どうしを見て付ける派生データで、関係を採用するかの判断には使わない。限定記事が絡む関係は対象外（要約を外部の API に送らない）。
+11. `pnpm --filter ./posts strata check` で検査する。
+12. feature ブランチでコミットし（`strata-strength.json` の更新も同じ PR に含める）、PR にする（main 直接コミット禁止）。
+13. PR がマージされたら、`gh workflow run hyperstrata-sync.yml --repo mtane0412/hanatane` で `theme/assets/graph.json` への反映を手動実行する。`hyperstrata-sync.yml` は 15 分おきの cron も持つが、GitHub Actions が高頻度 cron を高負荷時に間引く仕様のため数時間かかることがある（cron は保険として残る）。
 
 ## 判定の基準（変えない。変えるときはこのファイルを更新し、既存の注釈は書き換えない）
 
@@ -70,7 +71,7 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
 3. `posts/strata/<slug>.<スタンプ>.json`（限定記事は `posts/strata/private/<slug>.<スタンプ>.plain.json`）に、差分ではなく完全な注釈（`summary`・`relations`・`icon` すべて）を、上記「判定の基準」「書き方」のとおりに書く。改めない部分は前の注釈から引き継ぐ。
 4. 限定記事なら `pnpm --filter ./posts strata encrypt <slug>.<スタンプ>` で暗号化する。
 5. `pnpm --filter ./posts strata check` で検査する（再検討の `annotated_at` が初回より後であること、初回の注釈が存在することを検査する）。
-6. 以降は通常の手順と同じ（feature ブランチ・PR・マージ後の `hyperstrata-sync.yml` 手動実行）。`graph.json` には最新の注釈だけが載る。
+6. 以降は通常の手順と同じ（`strata strength` での強さの更新・feature ブランチ・PR・マージ後の `hyperstrata-sync.yml` 手動実行）。`graph.json` には最新の注釈だけが載る。
 
 再検討の理由（どの記事を読んで何を改めたか）は PR の説明に書く。注釈ファイルには入れない。
 

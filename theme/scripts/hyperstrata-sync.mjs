@@ -19,6 +19,8 @@
  *   を読み、著者が本文リンクで作る引用(人間の層・`refs`)とは別に、機械が判定した推定関係
  *   (`inferredRefs`)として graph.json に合成する。Ghost Admin API へのアクセスは不要で、
  *   リポジトリ内のファイルを読むだけ
+ * - `posts/strata-strength.json`(関係の強さ。`pnpm --filter ./posts strata strength` が手元で Jev に聞いて事前計算する)を読み、
+ *   強さがある関係の `inferredRefs[].strength` に載せる(#56)。このスクリプトは Jev を呼ばない
  * - 記事ペイン(partials/strata-pane.hbs)の列割り当て(各記事の列 `paneCol` と、引用先ごとの幹の列 `paneLanes`)を
  *   scripts/pane-layout.mjs で計算して graph.json に載せる(#44)。ブラウザ側(strata-graph.js)は列を計算せず
  *   この値をそのまま描画する。列数の上限は PANE_MAX_COLUMNS
@@ -198,18 +200,21 @@ export function selectOrphanRefTags(tags) {
  * 注釈日時(`annotatedAt`)を付ける。対応が無い記事は null にする(テーマの記事ページが summary と共に掲示する)。
  * `inferredRelationsBySlug` の各関係に `reason`(関係の理由)があれば `inferredRefs` にそのまま含め、
  * 無ければ null にする(`posts/strata/private/` の暗号化注釈は summary/reason を渡さないため)。
+ * `strengthByRelation`(parseStrengths の結果)に強さがある関係には `strength`(0〜1)を付ける。強さは公開記事どうしの
+ * 関係にしか無い(posts/src/strata-strength.ts)ので、無い関係には項目ごと付けない(テーマ側は「強さ不明」として扱う)。
  *
  * @param {object} params
  * @param {Array<{slug: string, title: string, url: string, published_at: string}>} params.posts 公開済み記事
  * @param {Map<string, string[]>} params.referencedSlugsBySlug 記事 slug → 引用先 slug の対応表
  * @param {Map<string, Array<{slug: string, type: string, reason?: string}>>} [params.inferredRelationsBySlug] 記事 slug → Hyperstrata 注釈の関係先の対応表
+ * @param {Map<string, number>} [params.strengthByRelation] 関係(strengthKey(from, to))→ 強さ(0〜1)の対応表
  * @param {Map<string, string>} [params.summaryBySlug] 記事 slug → Hyperstrata 注釈の要約の対応表
  * @param {Map<string, string>} [params.iconBySlug] 記事 slug → Hyperstrata 注釈の題材アイコン種別の対応表
  * @param {Map<string, string>} [params.annotatorBySlug] 記事 slug → 注釈を書いた研究者(モデル ID)の対応表
  * @param {Map<string, string>} [params.annotatedAtBySlug] 記事 slug → 注釈日時(ISO 8601)の対応表
- * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string, reason: string|null}>, summary: string|null, icon: string|null, annotator: string|null, annotatedAt: string|null}>}}
+ * @returns {{posts: Array<{slug: string, title: string, url: string, publishedAt: string, refs: string[], inferredRefs: Array<{slug: string, type: string, reason: string|null, strength?: number}>, summary: string|null, icon: string|null, annotator: string|null, annotatedAt: string|null}>}}
  */
-export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map(), summaryBySlug = new Map(), iconBySlug = new Map(), annotatorBySlug = new Map(), annotatedAtBySlug = new Map()}) {
+export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug = new Map(), strengthByRelation = new Map(), summaryBySlug = new Map(), iconBySlug = new Map(), annotatorBySlug = new Map(), annotatedAtBySlug = new Map()}) {
     const publishedSlugs = new Set(posts.map((post) => post.slug));
     const nodes = posts.map((post) => {
         const refs = referencedSlugsBySlug.get(post.slug);
@@ -218,7 +223,14 @@ export function buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlu
         }
         const inferredRefs = (inferredRelationsBySlug.get(post.slug) ?? [])
             .filter((relation) => relation.slug !== post.slug && publishedSlugs.has(relation.slug))
-            .map((relation) => ({slug: relation.slug, type: relation.type, reason: relation.reason ?? null}));
+            .map((relation) => {
+                const inferredRef = {slug: relation.slug, type: relation.type, reason: relation.reason ?? null};
+                const strength = strengthByRelation.get(strengthKey(post.slug, relation.slug));
+                if (strength !== undefined) {
+                    inferredRef.strength = strength;
+                }
+                return inferredRef;
+            });
         return {
             slug: post.slug,
             title: post.title,
@@ -311,6 +323,68 @@ export function selectLatestAnnotations(annotations) {
         }
     }
     return [...latestBySlug.values()];
+}
+
+/**
+ * 関係の強さの対応表のキーを作る(from が注釈を持つ新しい記事、to が過去記事)。
+ *
+ * @param {string} from
+ * @param {string} to
+ * @returns {string}
+ */
+function strengthKey(from, to) {
+    return `${from}\t${to}`;
+}
+
+/**
+ * `posts/strata-strength.json`(Hyperstrata の関係の強さ。`pnpm --filter ./posts strata strength` が手元で Jev に聞いて書く)
+ * の中身を検査し、関係 → 強さの対応表にする。このスクリプト(CI)は Jev を呼ばず、事前計算された値を読むだけにする。
+ * 形式の検査は posts/src/strata-strength.ts の parseStrengthFile と同じ基準で、壊れた値を graph.json に載せないよう例外にする。
+ *
+ * @param {{strengths?: Array<{from: string, to: string, strength: number}>}} data strata-strength.json を JSON.parse した値
+ * @returns {Map<string, number>} strengthKey(from, to) → 強さ(0〜1)
+ */
+export function parseStrengths(data) {
+    if (!data || !Array.isArray(data.strengths)) {
+        throw new Error('strata-strength.json の strengths は配列である必要があります');
+    }
+    const strengthByRelation = new Map();
+    data.strengths.forEach((item, index) => {
+        if (!item || typeof item.from !== 'string' || typeof item.to !== 'string') {
+            throw new Error(`strata-strength.json の strengths[${index}] に from/to がありません`);
+        }
+        if (typeof item.strength !== 'number' || !(item.strength >= 0 && item.strength <= 1)) {
+            throw new Error(`strata-strength.json の strengths[${index}] の strength は 0〜1 の数値である必要があります`);
+        }
+        strengthByRelation.set(strengthKey(item.from, item.to), item.strength);
+    });
+    return strengthByRelation;
+}
+
+/**
+ * `posts/strata-strength.json` を読む。ファイルが無い場合は強さ無し(空の対応表)とする
+ * (注釈のディレクトリが無い場合と同じ扱い。強さは任意の付加情報で、無くてもグラフは作れる)。
+ *
+ * @returns {Promise<Map<string, number>>}
+ */
+async function readStrengths() {
+    const fileUrl = new URL('../../posts/strata-strength.json', import.meta.url);
+    let content;
+    try {
+        content = await readFile(fileUrl, 'utf8');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return new Map();
+        }
+        throw error;
+    }
+    let data;
+    try {
+        data = JSON.parse(content);
+    } catch (error) {
+        throw new Error(`関係の強さのJSONを解釈できません: ${fileUrl.pathname}(${error.message})`);
+    }
+    return parseStrengths(data);
 }
 
 /**
@@ -524,7 +598,8 @@ async function main() {
     await ensureRefTagDescriptions(client, refTags, dryRun);
     const prunedCount = await pruneOrphanRefTags(client, refTags, dryRun);
     const {inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug} = await readInferredRelations();
-    const graph = buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug});
+    const strengthByRelation = await readStrengths();
+    const graph = buildGraph({posts, referencedSlugsBySlug, inferredRelationsBySlug, strengthByRelation, summaryBySlug, iconBySlug, annotatorBySlug, annotatedAtBySlug});
     const graphChanged = await writeGraphJson(attachPaneLayout(graph, {maxColumns: PANE_MAX_COLUMNS}), dryRun);
     console.log(`完了: ${updatedCount} 件の記事を更新、${prunedCount} 件の引用タグを削除${dryRun ? '予定' : ''}、graph.json は${graphChanged ? '更新' : '変更なし'}`);
 }

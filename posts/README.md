@@ -297,6 +297,20 @@ pnpm --filter ./posts curate rename <old> <new>      # 下書きの slug を変�
 - しきい値の根拠は、公開 82 記事 × 8 タグ = 656 判定の評価です（2026-09-20）。付いていない記事の確率は 90% 点で 0.11 以下、付いている記事の確率は中央値で 0.84 以上と離れており、警告は 9 件でした。
 - 記事のタイトルと本文（冒頭 8,000 字）を外部の API に送るため、限定記事には使えません（エラーにします）。オプションを付けなければ API は呼びません。CI と pre-commit hook は Jev を使いません。
 
+## 関係の強さ（`strata-strength.json`）
+
+Hyperstrata の関係（注釈の `relations`）の強さを、Jev の score で事前計算して `posts/strata-strength.json` に置きます（#56）。`theme/scripts/hyperstrata-sync.mjs` がこれを読み、`graph.json` の `inferredRefs[].strength`（0〜1）に載せます。テーマは「AIに渡す」の関連記事の順位付けと、地層のグラフの辺の太さに使います。
+
+```bash
+pnpm --filter ./posts strata strength   # 強さがまだ無い関係だけを Jev に聞き、strata-strength.json を更新する
+```
+
+- 注釈（`strata/<slug>.json`）は書き換えません。強さは Jev の版が変われば計算し直す派生データなので、別ファイルにしています。計算し直すときは、対象の行（またはファイルごと）を消して実行し直します。
+- 計算済みの関係は聞き直しません。注釈から消えた関係の強さは、実行時に取り除きます。
+- 要約を外部の API に送るため、対象は公開記事どうしの関係だけです。限定記事が絡む関係は強さを持たず、テーマは「強さ不明」として扱います（辺は標準の太さ、順位は強さのある関係の後ろ）。
+- CI（`hyperstrata-sync.yml`）は Jev を呼びません。`strata-annotate` で注釈を書いたあとに手元で実行し、注釈と同じ PR に含めます。`strata check` が形式を検査します。
+- 質問は評価（`jev-eval strength-run`）と共通（`src/jev-relation-eval.ts` の `buildStrengthQuestion`）です。段階の説明文を変えたら、評価で分布を測り直してください。
+
 ## Jev の精度評価（実験）
 
 [Jev](https://docs.typesafe.ai/)（TypeSafe の判定モデル。文章を生成せず、yes/no の確率や選択肢の確率分布を返す）が日本語の記事で使える精度かを、既存の正解ラベルで測ります。Jev の学習の主言語は英語なので、タグの検査や Hyperstrata の関係候補の絞り込みに採用する前の判断材料にします。

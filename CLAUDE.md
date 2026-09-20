@@ -26,6 +26,7 @@ pnpm ghst <command>   # Ghost 公式 CLI（認証は pnpm ghst auth login --site
 pnpm --filter ./posts pull                          # Ghost の記事を content/<slug>.post.json に取り込む
 pnpm --filter ./posts push content/<slug>.md        # または content/<slug>.post.json
 pnpm --filter ./posts strata pending                # Hyperstrata の注釈が無い公開記事を一覧する（注釈は strata-annotate スキルで書く）
+pnpm --filter ./posts strata strength               # Hyperstrata の関係の強さ（posts/strata-strength.json）を Jev で事前計算する（強さが無い公開記事どうしの関係だけ。posts/README.md 参照）
 pnpm --filter ./posts curate check <slug>           # 下書きが公開の基準（slug 形式・excerpt・統制語彙のタグ）を満たすかを検査する（整備は publish-prepare スキルで行う）
 pnpm --filter ./posts curate tags                   # 統制語彙（posts/tags.json）を使用数つきで一覧する
 pnpm --filter ./posts jev-eval report               # Jev（TypeSafe の判定モデル）の日本語精度の評価を集計する（実験。run / relations-run は posts/secrets/typesafe.env の API キーを使う、posts/README.md 参照）
@@ -43,7 +44,7 @@ node local/seed-posts.mjs                          # ローカルの Ghost に�
 | `test-ogp.yml` | PR（ogp/ 変更時） | 型チェック、Lint、テスト、ビルド |
 | `test-posts.yml` | PR（posts/ 変更時） | 型チェック、Lint、テスト |
 | `deploy-theme.yml` | main への push（theme/ 変更時）、手動 | テーマ zip を Ghost へデプロイ |
-| `hyperstrata-sync.yml` | 15 分おき、手動 | 引用タグ付与と `theme/assets/graph.json` 更新（記事ペインの列 `paneCol` / `paneLanes` も `theme/scripts/pane-layout.mjs` で事前計算して載せる） |
+| `hyperstrata-sync.yml` | 15 分おき、手動 | 引用タグ付与と `theme/assets/graph.json` 更新（関係の強さは `posts/strata-strength.json` から読むだけで、Jev は呼ばない。記事ペインの列 `paneCol` / `paneLanes` も `theme/scripts/pane-layout.mjs` で事前計算して載せる） |
 | `sync-og-images.yml` | Ghost の `post.published` Webhook（`ogp/` の Worker が `repository_dispatch` に中継）、15 分おき、手動 | feature image の無い記事に OGP 画像を生成して `og_image` に設定 |
 
 必要な Secrets: `GHOST_ADMIN_API_URL`、`GHOST_ADMIN_API_KEY`（すべての workflow で共通）。
