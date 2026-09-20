@@ -28,7 +28,7 @@ pnpm --filter ./posts push content/<slug>.md        # または content/<slug>.p
 pnpm --filter ./posts strata pending                # Hyperstrata の注釈が無い公開記事を一覧する（注釈は strata-annotate スキルで書く）
 pnpm --filter ./posts curate check <slug>           # 下書きが公開の基準（slug 形式・excerpt・統制語彙のタグ）を満たすかを検査する（整備は publish-prepare スキルで行う）
 pnpm --filter ./posts curate tags                   # 統制語彙（posts/tags.json）を使用数つきで一覧する
-pnpm --filter ./posts jev-eval report               # Jev（TypeSafe の判定モデル）の日本語精度の評価を集計する（実験。run / relations-run は TYPESAFE_API_KEY が必要、posts/README.md 参照）
+pnpm --filter ./posts jev-eval report               # Jev（TypeSafe の判定モデル）の日本語精度の評価を集計する（実験。run / relations-run は posts/secrets/typesafe.env の API キーを使う、posts/README.md 参照）
 pnpm --filter ./theme dev
 pnpm --filter ./ogp dev
 docker compose -f local/docker-compose.yml up -d   # ローカル確認環境(初回は local/README.md の手順で管理者作成と記事投入)
@@ -52,7 +52,7 @@ node local/seed-posts.mjs                          # ローカルの Ghost に�
 
 ## 公開リポジトリとしての約束
 
-- 機密は sops + age で暗号化したものだけをコミットする（`infra/secrets/`、`infra/tofu/*.sops.tfvars`、`posts/content/private/*.post.json`）。
+- 機密は sops + age で暗号化したものだけをコミットする（`infra/secrets/`、`infra/tofu/*.sops.tfvars`、`posts/content/private/*.post.json`、`posts/secrets/*.env`）。
 - メンバー限定記事（Ghost の `visibility` が `members` / `paid`）の本文を平文でコミットしない。`posts/content/private/` に暗号化して置き、`pnpm --filter ./posts check-private`（pre-commit hook と CI で自動実行）で検査する。限定記事の Hyperstrata 注釈も `posts/strata/private/` に暗号化して置く（`pnpm --filter ./posts strata check` で検査）。
 - VPS の origin IP は Cloudflare Proxy で秘匿しているため、平文で書かない（`infra/tofu/origin.sops.tfvars` を使う）。
 - `.tfstate` はコミットしない（`infra/tofu/.gitignore`）。

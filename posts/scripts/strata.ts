@@ -9,7 +9,7 @@
  *   pnpm strata catalog <slug>     # <slug> より前に公開された記事の一覧（要約付き）を JSON で出す。関係の候補選びに使う
  *   pnpm strata catalog <slug> --jev-summary <要約ファイル>
  *                                  # 一覧に Jev（TypeSafe の判定モデル）が判定した「関係がある確率」（jev_probability）を付け、確率の高い順に並べる。
- *                                  # <要約ファイル> は <slug> の要約の下書き（プレーンテキスト）。環境変数 TYPESAFE_API_KEY が必要
+ *                                  # <要約ファイル> は <slug> の要約の下書き（プレーンテキスト）。API キーは secrets/typesafe.env（sops）から読む
  *   pnpm strata text <slug>        # <slug> の本文をプレーンテキストで出す（限定記事は sops で復号する）
  *   pnpm strata check              # すべての注釈の形式・置き場所・暗号化・整合（後方参照のみ・再検討の順序）を検査する（CI と pre-commit hook）
  *   pnpm strata decrypt <stem>     # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
@@ -36,7 +36,6 @@ import {
 	writeFileSync,
 } from "node:fs";
 import path from "node:path";
-import { TypeSafeClient } from "@typesafe-ai/sdk";
 import {
 	checkJevSummaryPath,
 	rankCatalog,
@@ -68,6 +67,7 @@ import {
 	strataRelativePath,
 } from "../src/strata";
 import { loadPosts as loadPostsFrom } from "./lib/load-posts";
+import { createTypesafeClient } from "./lib/typesafe-client";
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "..");
 const CONTENT_DIR = path.join(POSTS_DIR, "content");
@@ -75,7 +75,6 @@ const STRATA_ROOT = path.join(POSTS_DIR, STRATA_DIR);
 const PRIVATE_STRATA_DIR = path.join(STRATA_ROOT, PRIVATE_DIR);
 
 const JEV_SUMMARY_OPTION = "--jev-summary";
-const JEV_API_KEY_ENV = "TYPESAFE_API_KEY";
 /** Jev に同時に投げるリクエストの数。レート制限（1,200 リクエスト/分）に掛からないよう絞る */
 const JEV_CONCURRENCY = 4;
 
@@ -171,9 +170,6 @@ async function catalogWithJev(
 	slug: string,
 	summaryFile: string,
 ): Promise<void> {
-	if (!process.env[JEV_API_KEY_ENV]) {
-		throw new Error(`環境変数 ${JEV_API_KEY_ENV} が設定されていません`);
-	}
 	checkJevSummaryPath(summaryFile, POSTS_DIR);
 	const summary = readFileSync(summaryFile, "utf8").trim();
 	if (summary === "") {
@@ -184,7 +180,7 @@ async function catalogWithJev(
 	const entries = buildCatalog(slug, posts, loadAnnotations(true));
 	const candidates = selectJevCandidates(target, entries);
 
-	const client = new TypeSafeClient();
+	const client = createTypesafeClient();
 	const questions = { related: buildRelationQuestions().related };
 	const newer = {
 		slug,

@@ -1,4 +1,4 @@
-# メンバー限定記事（content/private/*.post.json）とその Hyperstrata 注釈（strata/private/*.json）の sops + age 暗号化設定
+# メンバー限定記事（content/private/*.post.json）とその Hyperstrata 注釈（strata/private/*.json）、外部 API のキー（secrets/*.env）の sops + age 暗号化設定
 #
 # - 記事は lexical（本文）だけを暗号化し、title / slug / status / visibility / tags などのメタ情報は平文で残す
 # - 注釈は summary（要約）と reason（関係の理由）だけを暗号化し、関係先 slug と種類は平文で残す
@@ -12,6 +12,11 @@ creation_rules:
       age187xyvlrhufzdpyxlvcasuqr5k6du0dht7p5g5zslaztr9pgh6sgs26tj9s
   - path_regex: strata/private/.*\.json$
     encrypted_regex: ^(summary|reason)$
+    age: >-
+      age1wegta6e9stczq4k56djgnuym48eup5k5gkysnm0aawmuqurnw3xspepxry,
+      age187xyvlrhufzdpyxlvcasuqr5k6du0dht7p5g5zslaztr9pgh6sgs26tj9s
+  # 外部 API のキー（dotenv）。値をすべて暗号化する。src/typesafe-key.ts と scripts/check-private.ts 参照
+  - path_regex: secrets/.*\.env$
     age: >-
       age1wegta6e9stczq4k56djgnuym48eup5k5gkysnm0aawmuqurnw3xspepxry,
       age187xyvlrhufzdpyxlvcasuqr5k6du0dht7p5g5zslaztr9pgh6sgs26tj9s
