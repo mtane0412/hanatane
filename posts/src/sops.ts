@@ -1,5 +1,5 @@
 /**
- * 限定記事の `.post.json` と、その Hyperstrata 注釈（strata/private/*.json）を sops + age で暗号化・復号する薄いラッパー
+ * 限定記事の `.post.json` と、その Hyperstrata 注釈（strata/private/*.json）、API キー（secrets/*.env）を sops + age で暗号化・復号する薄いラッパー
  *
  * 設定は posts/.sops.yaml にあり、`content/private/*.post.json` に対して
  * `encrypted_regex: ^lexical$` で本文（lexical）だけを、`strata/private/*.json` に対して
@@ -87,5 +87,15 @@ export function encryptPostJson(
  * @param encryptedPath - 暗号化済みファイルの絶対パス
  */
 export function decryptPostJson(encryptedPath: string): string {
+	return runSops(["--decrypt", encryptedPath]);
+}
+
+/**
+ * sops で暗号化した dotenv（secrets/*.env）を復号し、平文の dotenv を返します。
+ * 平文はファイルに書かず、呼び出し元のプロセスの中だけで扱ってください。
+ *
+ * @param encryptedPath - 暗号化済みファイルの絶対パス
+ */
+export function decryptDotenv(encryptedPath: string): string {
 	return runSops(["--decrypt", encryptedPath]);
 }

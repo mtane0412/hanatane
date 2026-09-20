@@ -8,7 +8,8 @@
  *   pnpm jev-eval relations-report [K]  # 保存済みの結果を集計し直す（API を呼ばない）。K は上位何件を候補とみなすか。既定は 8
  *
  * 注意:
- *   - run と relations-run には環境変数 TYPESAFE_API_KEY が必要
+ *   - run と relations-run には TypeSafe の API キーが必要。sops で暗号化した secrets/typesafe.env から読む
+ *     （環境変数 TYPESAFE_API_KEY があればそちらを使う。src/typesafe-key.ts 参照）
  *   - 記事の本文と注釈の要約を外部の API（TypeSafe）に送るため、対象は content/ 直下の公開記事だけ。
  *     限定記事（content/private/、strata/private/）は読まないし送らない
  *   - 質問の組み立てと集計のルールは src/jev-eval.ts と src/jev-relation-eval.ts に集約している。ここでは API の呼び出しとファイル入出力だけを扱う
@@ -21,7 +22,7 @@ import {
 	writeFileSync,
 } from "node:fs";
 import path from "node:path";
-import { type Question, TypeSafeClient } from "@typesafe-ai/sdk";
+import type { Question, TypeSafeClient } from "@typesafe-ai/sdk";
 import {
 	isInternalTag,
 	parseTagVocabulary,
@@ -59,6 +60,7 @@ import {
 	type StrataAnnotation,
 	selectLatestAnnotations,
 } from "../src/strata";
+import { createTypesafeClient } from "./lib/typesafe-client";
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "..");
 const CONTENT_DIR = path.join(POSTS_DIR, "content");
@@ -67,7 +69,6 @@ const RESULTS_DIR = path.join(POSTS_DIR, ".jev-eval");
 const RESULTS_PATH = path.join(RESULTS_DIR, "results.json");
 const RELATIONS_PATH = path.join(RESULTS_DIR, "relations.json");
 
-const API_KEY_ENV = "TYPESAFE_API_KEY";
 /** icon の質問の ID。タグの slug（ハイフン区切り）と衝突しないようにアンダースコアを使う */
 const ICON_QUESTION_ID = "topic_icon";
 /** 同時に投げるリクエストの数 */
@@ -205,15 +206,8 @@ async function judgePost(
 	};
 }
 
-function createClient(): TypeSafeClient {
-	if (!process.env[API_KEY_ENV]) {
-		throw new Error(`環境変数 ${API_KEY_ENV} が設定されていません`);
-	}
-	return new TypeSafeClient();
-}
-
 async function run(): Promise<void> {
-	const client = createClient();
+	const client = createTypesafeClient();
 	const questions: Record<string, Question> = {
 		...buildTagQuestions(loadVocabulary()),
 		[ICON_QUESTION_ID]: buildIconQuestion(),
@@ -347,7 +341,7 @@ function loadSummarizedPosts(
 }
 
 async function relationsRun(): Promise<void> {
-	const client = createClient();
+	const client = createTypesafeClient();
 	const annotations = loadPublicAnnotations();
 	const pairs = buildRelationPairs(loadSummarizedPosts(annotations));
 	const questions = buildRelationQuestions();
