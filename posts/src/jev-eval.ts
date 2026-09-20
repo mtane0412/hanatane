@@ -34,8 +34,18 @@ const ICON_DESCRIPTIONS: Record<TopicIcon, string> = {
 	event: "勉強会・登壇・交流イベントが主題の記事",
 };
 
+/**
+ * 本文に書かれていない、タグの判定に要る背景。
+ * 自宅の修繕の記事は本文に「たねハウス」と書かれないことが多く、背景が無いと「たねハウスの話」を見逃す
+ * （2026-09-20 の評価で、付いている 8 記事の確率の中央値が 0.40 だった）。
+ * 無関係な情報は Jev の精度を落とすので、判定に要る最小限に留める。
+ */
+const SITE_CONTEXT =
+	"著者の自宅は、岩手県の古民家「たねハウス」です。自宅・家の修繕や設備の話は、たねハウスの話です。";
+
 /** Jev に渡す記事の状態 */
 export interface PostState {
+	site_context: string;
 	title: string;
 	body: string;
 }
@@ -46,7 +56,7 @@ export interface PostState {
  */
 export function buildPostState(title: string, text: string): PostState {
 	const body = Array.from(text).slice(0, BODY_MAX_CHARACTERS).join("");
-	return { title, body };
+	return { site_context: SITE_CONTEXT, title, body };
 }
 
 /**
@@ -60,10 +70,11 @@ export function buildTagQuestions(
 	for (const entry of vocabulary) {
 		questions[entry.slug] = {
 			type: "noul",
-			instructions: `\`title\` と \`body\` はブログ記事です。この記事にタグ「${entry.name}」を付けるのは適切ですか？`,
+			instructions: `\`title\` と \`body\` はブログ記事です。この記事の主題は、タグ「${entry.name}」に当てはまりますか？`,
 			criteria: {
 				true: entry.description,
-				false: "この記事の主題はタグの説明に当てはまらない",
+				false:
+					"記事の主題がタグの説明に当てはまらない。または、その題材に触れているだけ（週報や振り返りの中の一項目など）で、記事全体の主題ではない",
 			},
 		};
 	}

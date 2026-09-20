@@ -9,12 +9,16 @@
  *   pnpm curate tags check                 # すべての記事のタグが統制語彙にあるかを検査する（CI と pre-commit hook）
  *   pnpm curate tags sync [--dry-run]      # 統制語彙に合わせて Ghost のタグを作成・slug 変更する
  *   pnpm curate check <slug>               # 下書きが公開の基準（slug 形式・excerpt・タグ）を満たすかを検査する
+ *   pnpm curate check <slug> --jev         # 上に加えて、タグが記事の内容に合っているかを Jev（TypeSafe の判定モデル）に聞き、
+ *                                          # 付け忘れ・付けすぎの候補を警告として出す（警告は終了コードに影響しない）
  *   pnpm curate rename <old> <new>         # 下書きの slug を変更し、content/ のファイルを pull し直す
  *
  * 注意:
  *   - 記事一覧は content/**\/*.post.json の平文メタ情報から作る。整備の前に `pnpm pull --slug <slug>` で最新にすること
  *   - rename は下書きにだけ使える。公開済み記事の slug は URL と Hyperstrata の主キーなので変えない
  *   - rename は Ghost 側を先に変え、その後 content/ の古いファイルを消して `pnpm pull --slug <new>` で取り込み直す
+ *   - --jev は記事のタイトルと本文を外部の API（TypeSafe）に送る。限定記事には使えない（エラーにする）。
+ *     API キーは sops で暗号化した secrets/typesafe.env から読む（src/typesafe-key.ts 参照）
  *   - ghst の stdout はパイプだと 64KB 付近で途切れるため、JSON 出力は一時ファイルに書かせてから読む
  */
 import { spawnSync } from "node:child_process";
@@ -39,20 +43,25 @@ import {
 	TAG_VOCABULARY_FILE,
 	type TagVocabularyEntry,
 } from "../src/curate";
+import { buildPostState, buildTagQuestions } from "../src/jev-eval";
+import { reviewTags, selectJevTags } from "../src/jev-tags";
 import { POST_JSON_SUFFIX } from "../src/post-json";
-import { PRIVATE_DIR } from "../src/private-post";
+import { isPrivateVisibility, PRIVATE_DIR } from "../src/private-post";
 import { type PublishedPost, STRATA_DIR, STRATA_SUFFIX } from "../src/strata";
 import { loadPosts } from "./lib/load-posts";
+import { readBodyText } from "./lib/read-body";
+import { createTypesafeClient } from "./lib/typesafe-client";
 
 /** ghst の終了コード。README の Exit code mapping に対応する */
 const GHST_EXIT_NOT_FOUND = 5;
+const JEV_OPTION = "--jev";
 const POSTS_DIR = path.resolve(import.meta.dirname, "..");
 const CONTENT_DIR = path.join(POSTS_DIR, "content");
 const VOCABULARY_PATH = path.join(POSTS_DIR, TAG_VOCABULARY_FILE);
 
 function usage(): never {
 	console.error(
-		"使い方: pnpm curate tags [check | sync [--dry-run]] | check <slug> | rename <old-slug> <new-slug>",
+		"使い方: pnpm curate tags [check | sync [--dry-run]] | check <slug> [--jev] | rename <old-slug> <new-slug>",
 	);
 	process.exit(2);
 }
@@ -187,8 +196,51 @@ function findPost(posts: PublishedPost[], slug: string): PublishedPost {
 	return post;
 }
 
-function check(slug: string): void {
+/**
+ * タグが記事の内容に合っているかを Jev に聞き、付け忘れ・付けすぎの候補を警告として出す。
+ * 警告は見直しのきっかけで、公開の基準（終了コード）には影響しない。
+ */
+async function reviewTagsWithJev(post: PublishedPost): Promise<void> {
+	if (isPrivateVisibility(post.visibility)) {
+		throw new Error(
+			`${post.slug}: 限定記事の本文は外部の API に送れません。--jev を付けずに実行してください`,
+		);
+	}
+	const fileName = `${post.slug}${POST_JSON_SUFFIX}`;
+	const body = readBodyText(
+		readFileSync(path.join(CONTENT_DIR, fileName), "utf8"),
+		fileName,
+	);
+	const vocabulary = loadVocabulary();
+	const result = await createTypesafeClient().systemOne({
+		state: { ...buildPostState(post.title, body) },
+		questions: buildTagQuestions(selectJevTags(vocabulary)),
+	});
+	const probabilities = new Map(
+		Object.entries(result.answers).map(([slug, answer]) => [slug, answer.noul]),
+	);
+	const warnings = reviewTags(post.tags ?? [], vocabulary, probabilities);
+	if (warnings.length === 0) {
+		console.log("Jev: タグの付け忘れ・付けすぎの候補はありません");
+		return;
+	}
+	console.log(
+		"Jev: タグを見直す候補があります（決めるのは研究者。本文を読んで判断すること）:",
+	);
+	for (const warning of warnings) {
+		const label =
+			warning.kind === "missing"
+				? "付いていないが、主題に当てはまりそう"
+				: "付いているが、主題に当てはまらなさそう";
+		console.log(
+			`  - 「${warning.tag}」: ${label}（確率 ${warning.probability.toFixed(2)}）`,
+		);
+	}
+}
+
+async function check(slug: string, withJev: boolean): Promise<void> {
 	const post = findPost(loadPosts(CONTENT_DIR), slug);
+	if (withJev) await reviewTagsWithJev(post);
 	const problems = checkPublishReadiness(post, loadVocabulary());
 	if (problems.length > 0) {
 		console.error(`${slug} は公開の基準を満たしていません:`);
@@ -300,7 +352,7 @@ function rename(oldSlug: string, newSlug: string): void {
 	}
 }
 
-function main(): void {
+async function main(): Promise<void> {
 	const [command, ...rest] = process.argv.slice(2);
 	switch (command) {
 		case "tags": {
@@ -318,9 +370,9 @@ function main(): void {
 			break;
 		}
 		case "check": {
-			const [slug] = rest;
-			if (!slug) usage();
-			check(slug);
+			const [slug, flag] = rest;
+			if (!slug || (flag !== undefined && flag !== JEV_OPTION)) usage();
+			await check(slug, flag === JEV_OPTION);
 			break;
 		}
 		case "rename": {
@@ -334,4 +386,4 @@ function main(): void {
 	}
 }
 
-main();
+await main();
