@@ -79,6 +79,8 @@ const CONCURRENCY = 8;
  */
 const RELATION_CONCURRENCY = 4;
 const DEFAULT_THRESHOLD = 0.5;
+/** icon の一致率を測る確信度のしきい値。0 は Jev の選択をそのまま使う */
+const ICON_THRESHOLDS = [0, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 /** 関係の候補とみなす上位の件数の既定。strata-annotate スキルの「候補は最大 8 本」に合わせる */
 const DEFAULT_TOP_K = 8;
 /** 「埋もれた関係の候補」として表示する件数 */
@@ -285,10 +287,24 @@ function printReport(results: SavedResults, threshold: number): void {
 		);
 	}
 
-	const iconReport = evaluateIcons(results.iconCases);
+	// icon は「確信度がしきい値未満なら省略」としたときの一致率を、しきい値を振って並べる
 	console.log(
-		`\n## icon: ${String(iconReport.matched)} / ${String(iconReport.total)} 件が注釈と一致`,
+		`\n## icon（${String(results.iconCases.length)} 記事）: 確信度がしきい値未満の判定を「該当なし」にしたときの一致`,
 	);
+	console.log("しきい値\t一致\t省略\t食い違い");
+	for (const iconThreshold of ICON_THRESHOLDS) {
+		const swept = evaluateIcons(results.iconCases, iconThreshold);
+		console.log(
+			[
+				iconThreshold.toFixed(1),
+				swept.matched,
+				swept.omitted,
+				swept.mismatches.length,
+			].join("\t"),
+		);
+	}
+	const iconReport = evaluateIcons(results.iconCases, 0);
+	console.log("\n### 食い違い（しきい値なし）");
 	for (const item of iconReport.mismatches) {
 		console.log(
 			`${item.slug}\t注釈 ${item.expected ?? "なし"}\tJev ${item.predicted}\t確信度 ${item.confidence.toFixed(2)}`,

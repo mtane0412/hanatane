@@ -10,6 +10,8 @@
  *   pnpm strata catalog <slug> --jev-summary <要約ファイル>
  *                                  # 一覧に Jev（TypeSafe の判定モデル）が判定した「関係がある確率」（jev_probability）を付け、確率の高い順に並べる。
  *                                  # <要約ファイル> は <slug> の要約の下書き（プレーンテキスト）。API キーは secrets/typesafe.env（sops）から読む
+ *   pnpm strata jev-icon <slug>    # <slug> の icon の候補を、Jev が判定した確率の高い順に JSON で出す（icon: null は「該当なし」）。
+ *                                  # contested が true なら題材が拮抗しているので、icon の省略も検討する
  *   pnpm strata text <slug>        # <slug> の本文をプレーンテキストで出す（限定記事は sops で復号する）
  *   pnpm strata check              # すべての注釈の形式・置き場所・暗号化・整合（後方参照のみ・再検討の順序）を検査する（CI と pre-commit hook）
  *   pnpm strata decrypt <stem>     # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
@@ -25,6 +27,7 @@
  *   - catalog と text は限定記事の復号に age の秘密鍵（~/.config/sops/age/keys.txt）が必要
  *   - --jev-summary は要約を外部の API（TypeSafe）に送る。送るのは公開記事の要約だけで、限定記事の要約は送らない
  *     （限定の過去記事は jev_probability が null のまま一覧に残り、<slug> が限定記事ならエラーにする）
+ *   - jev-icon は記事のタイトルと本文を外部の API（TypeSafe）に送る。限定記事には使えない（エラーにする）
  *   - 判定ルールは src/strata.ts に集約している。ここではファイル入出力と sops の実行だけを扱う
  */
 import {
@@ -41,6 +44,8 @@ import {
 	rankCatalog,
 	selectJevCandidates,
 } from "../src/jev-catalog";
+import { buildIconQuestion, buildPostState } from "../src/jev-eval";
+import { checkJevIconTarget, suggestIcon } from "../src/jev-icon";
 import {
 	buildRelationQuestions,
 	buildRelationState,
@@ -67,6 +72,7 @@ import {
 	strataRelativePath,
 } from "../src/strata";
 import { loadPosts as loadPostsFrom } from "./lib/load-posts";
+import { readBodyText } from "./lib/read-body";
 import { createTypesafeClient } from "./lib/typesafe-client";
 
 const POSTS_DIR = path.resolve(import.meta.dirname, "..");
@@ -80,7 +86,7 @@ const JEV_CONCURRENCY = 4;
 
 function usage(): never {
 	console.error(
-		"使い方: pnpm strata pending | catalog <slug> [--jev-summary <要約ファイル>] | text <slug> | check | decrypt <stem> | encrypt <stem>（stem は <slug> または <slug>.<YYYYMMDDTHHMMSSZ>）",
+		"使い方: pnpm strata pending | catalog <slug> [--jev-summary <要約ファイル>] | jev-icon <slug> | text <slug> | check | decrypt <stem> | encrypt <stem>（stem は <slug> または <slug>.<YYYYMMDDTHHMMSSZ>）",
 	);
 	process.exit(2);
 }
@@ -204,6 +210,25 @@ async function catalogWithJev(
 		});
 	}
 	console.log(JSON.stringify(rankCatalog(entries, probabilities), null, 2));
+}
+
+/**
+ * 記事のタイトルと本文を Jev に判定させ、icon の候補を確率の高い順に出す。
+ * 質問は評価（scripts/jev-eval.ts）と共通なので、説明文を変えたら評価で精度を測り直すこと。
+ */
+async function jevIcon(slug: string): Promise<void> {
+	const post = findPost(loadPosts(), slug);
+	checkJevIconTarget(post);
+	const fileName = `${slug}${POST_JSON_SUFFIX}`;
+	const body = readBodyText(
+		readFileSync(path.join(CONTENT_DIR, fileName), "utf8"),
+		fileName,
+	);
+	const result = await createTypesafeClient().systemOne({
+		state: { ...buildPostState(post.title, body) },
+		questions: { icon: buildIconQuestion() },
+	});
+	console.log(JSON.stringify(suggestIcon(result.answers.icon), null, 2));
 }
 
 function text(slug: string): void {
@@ -369,6 +394,10 @@ async function main(): Promise<void> {
 			} else {
 				usage();
 			}
+			break;
+		case "jev-icon":
+			if (!slug) usage();
+			await jevIcon(slug);
 			break;
 		case "text":
 			withSlug(text);

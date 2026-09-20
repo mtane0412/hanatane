@@ -1,6 +1,6 @@
 ---
 name: strata-annotate
-description: hanatane.net の公開記事に Hyperstrata の注釈（要約と過去記事との関係）を posts/strata/<slug>.json として書く。ユーザーが「地層に積んで」「注釈を付けて」「strata を更新して」「記事を公開したあと」に言ったとき、または ghost-posts スキルで記事を公開した直後に使う。判断は Claude Code が行う。関係の候補選びの補助にだけ、任意で Jev（TypeSafe の判定モデル）の確率を使える。
+description: hanatane.net の公開記事に Hyperstrata の注釈（要約と過去記事との関係）を posts/strata/<slug>.json として書く。ユーザーが「地層に積んで」「注釈を付けて」「strata を更新して」「記事を公開したあと」に言ったとき、または ghost-posts スキルで記事を公開した直後に使う。判断は Claude Code が行う。関係の候補選びと icon 選びの補助にだけ、任意で Jev（TypeSafe の判定モデル）の確率を使える。
 ---
 
 # Hyperstrata 注釈（posts/strata/）
@@ -19,6 +19,9 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
    - 対象が限定記事のとき、`--jev-summary` はエラーになる（限定記事の要約は外部の API に送らない）。従来どおり手順 4 の一覧から選ぶ。
 6. 候補ごとに関係を判定する。関係が無ければ入れない。孤立（`relations: []`）は正常な状態で、無理に関係を作らない。
 7. 対象記事の題材から `icon` を選ぶ（下記「アイコン種別の基準」）。どれにも当てはまらなければ `icon` を省略する。
+   - 任意の補助（公開記事で、`posts/secrets/typesafe.env` に TypeSafe の API キーがあるときだけ）: 自分で `icon` を決めたあとに `pnpm --filter ./posts strata jev-icon <slug>` を実行すると、Jev が判定した候補が確率の高い順に出る（`icon: null` は「該当なし」）。評価（2026-09-20、`posts/README.md` の「Jev の精度評価」）では、確信度 0.9 以上の判定は 95% が注釈と一致し、上位 2 候補には 95% で注釈の `icon` が入った。
+   - 自分の判断と Jev の 1 位が食い違う、または `contested` が `true`（確信度 0.7 未満。題材が拮抗している）なら、本文をもう一度見て、`icon` の省略も含めて考え直す。Jev に合わせる必要はない。Jev は「該当なし」を選びにくく、どれにも当てはまらない記事を `journal` に、自宅の設備の記事（`house`）を `journal` に寄せる偏りがある。
+   - 対象が限定記事のとき、`jev-icon` はエラーになる（限定記事の本文は外部の API に送らない）。
 8. `posts/strata/<slug>.json`（限定記事は `posts/strata/private/<slug>.plain.json`）を書く。
 9. 限定記事なら `pnpm --filter ./posts strata encrypt <slug>` で暗号化する（検証も同時に行われる）。
 10. `pnpm --filter ./posts strata check` で検査する。

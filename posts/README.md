@@ -217,6 +217,7 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 pnpm --filter ./posts strata pending          # 公開済みでまだ注釈が無い記事を、公開日の古い順に一覧する
 pnpm --filter ./posts strata catalog <slug>   # <slug> より前に公開された記事の一覧（要約付き）を JSON で出す（限定記事の要約は復号する）
 pnpm --filter ./posts strata catalog <slug> --jev-summary <要約ファイル>   # 一覧に Jev が判定した「関係がある確率」（jev_probability）を付け、高い順に並べる（後述）
+pnpm --filter ./posts strata jev-icon <slug>  # <slug> の icon の候補を、Jev が判定した確率の高い順に JSON で出す（後述）
 pnpm --filter ./posts strata text <slug>      # <slug> の本文をプレーンテキストで出す（限定記事は復号する）
 pnpm --filter ./posts strata check            # すべての注釈の形式・置き場所・暗号化・整合・再検討の順序を検査する
 pnpm --filter ./posts strata decrypt <stem>   # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
@@ -235,6 +236,15 @@ pnpm --filter ./posts strata encrypt <stem>   # <stem>.plain.json を検証・�
 - 外部の API に送るのは公開記事のタイトルと要約だけです。限定の過去記事と未注釈の記事は送らず、`jev_probability` が `null` のまま一覧の末尾に残ります。対象が限定記事のときはエラーにします。
 - 多くの題材に触れる記事（ブログ開始の挨拶、年間の振り返り）は、どの記事からも確率が高く出る偏りがあります。
 - オプションを付けなければ従来どおりで、API は呼びません。CI と pre-commit hook は Jev を使いません。
+
+### icon 選びの補助（Jev、任意）
+
+`strata jev-icon <slug>` は、記事の題材の icon（`src/strata.ts` の `TOPIC_ICONS` と「該当なし」）を [Jev](https://docs.typesafe.ai/) に 1 つ選ばせ、候補を確率の高い順に JSON で出します（`icon: null` は「該当なし」）。確信度が 0.7 未満なら `contested: true` を付けます。題材が拮抗しているので、icon の省略も検討してください。1 回の費用は 1 円未満です。
+
+- 候補は判断の補助です。icon を付けるか、どれにするかは、これまでどおり Claude Code が本文を読んで決めます。
+- 評価（2026-09-20、公開 82 記事）では、Jev の選択が注釈と一致したのは確信度 0.9 以上で 57 件中 54 件、0.7 以上 0.9 未満で 12 件中 11 件、0.7 未満で 13 件中 4 件でした（`jev-eval report` の食い違いの一覧から数えられます）。確率分布を見た別の測定（issue #54。`results.json` は確率分布を保存していません）では、上位 2 候補に 82 件中 78 件で注釈の icon が入りました。
+- Jev は「該当なし」を選びにくく、注釈に icon が無い 5 記事のうち 4 記事を `journal` か `event` にしました。「該当なし」と `journal` の説明文を具体的にすると「該当なし」は 4 記事で当たりますが、`house` や `tech` の記事を同じ数だけ「該当なし」に誤るようになり、全体の一致は変わりませんでした（同じ測定で 82 件中 70 件 → 71 件。issue #54）。そのため説明文は変えていません。
+- 記事のタイトルと本文（冒頭 8,000 字）を外部の API に送るため、限定記事には使えません（エラーにします）。このコマンドを実行しなければ API は呼びません。CI と pre-commit hook は Jev を使いません。
 
 ## 公開前の整備（slug・excerpt・tags）
 
@@ -292,7 +302,7 @@ pnpm --filter ./posts curate rename <old> <new>      # 下書きの slug を変�
 [Jev](https://docs.typesafe.ai/)（TypeSafe の判定モデル。文章を生成せず、yes/no の確率や選択肢の確率分布を返す）が日本語の記事で使える精度かを、既存の正解ラベルで測ります。Jev の学習の主言語は英語なので、タグの検査や Hyperstrata の関係候補の絞り込みに採用する前の判断材料にします。
 
 - タグ: 統制語彙（`tags.json`）のタグごとに「記事の主題がこのタグに当てはまるか」を聞き、記事に付いているタグと突き合わせます。質問は `curate check --jev` と共通（`src/jev-eval.ts` の `buildTagQuestions`）なので、タグの説明文や質問を変えたら、ここで精度を測り直してください。
-- icon: 題材の icon を 1 つ選ばせ、Hyperstrata の注釈の icon と突き合わせます。
+- icon: 題材の icon を 1 つ選ばせ、Hyperstrata の注釈の icon と突き合わせます。`report` は「確信度がしきい値未満の判定は icon を省略する」としたときの一致を、しきい値を振って並べます。質問は `strata jev-icon` と共通（`src/jev-eval.ts` の `buildIconQuestion`）なので、選択肢の説明文を変えたら、ここで精度を測り直してください。
 - 関係: 注釈の要約どうしの全組（新しい記事 → それより前の記事）に「続報・再訪・更新のいずれかか」を聞き、注釈の既知の関係が確率の順位の上位 K 件（既定は 8。`strata-annotate` の候補の上限）に入るかを測ります。注釈に無いのに確率が高い組は「埋もれた関係の候補」として一覧にします。関係を採用するかの判断は、これまでどおり Claude Code が本文を読んで行います。
 
 ```bash
