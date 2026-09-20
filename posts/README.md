@@ -216,6 +216,7 @@ hanatane.net は [Hyperstrata](https://strata.orito-itsuki.graphics/introduction
 ```bash
 pnpm --filter ./posts strata pending          # 公開済みでまだ注釈が無い記事を、公開日の古い順に一覧する
 pnpm --filter ./posts strata catalog <slug>   # <slug> より前に公開された記事の一覧（要約付き）を JSON で出す（限定記事の要約は復号する）
+pnpm --filter ./posts strata catalog <slug> --jev-summary <要約ファイル>   # 一覧に Jev が判定した「関係がある確率」（jev_probability）を付け、高い順に並べる（後述）
 pnpm --filter ./posts strata text <slug>      # <slug> の本文をプレーンテキストで出す（限定記事は復号する）
 pnpm --filter ./posts strata check            # すべての注釈の形式・置き場所・暗号化・整合・再検討の順序を検査する
 pnpm --filter ./posts strata decrypt <stem>   # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
@@ -225,6 +226,15 @@ pnpm --filter ./posts strata encrypt <stem>   # <stem>.plain.json を検証・�
 `<stem>` は注釈ファイル名から `.json` を除いたものです（初回の注釈は `<slug>`、再検討は `<slug>.<YYYYMMDDTHHMMSSZ>`）。`strata encrypt` は暗号化済みファイルが既にあれば拒みます（一度書いた注釈を書き換えないため）。
 
 記事一覧は `content/**/*.post.json` の平文メタ情報から作るため、注釈を付ける前に `pull` で最新にしてください。注釈を付ける手順は `.claude/skills/strata-annotate/SKILL.md` にまとめています。
+
+### 関係の候補選びの補助（Jev、任意）
+
+`strata catalog` に `--jev-summary <要約ファイル>` を付けると、対象記事の要約の下書き（プレーンテキスト）と一覧の各記事の要約を 1 組ずつ [Jev](https://docs.typesafe.ai/) に判定させ、`jev_probability`（続報・再訪・更新のいずれかである確率）を付けて高い順に並べます。環境変数 `TYPESAFE_API_KEY` が必要です。1 回の費用は 1 円未満です。
+
+- 確率は候補を見る順番を決めるための補助です。関係を採用するか、種類は何かは、これまでどおり Claude Code が本文を読んで決めます。Jev は関係の種類を当てられない（評価で 48% の一致）ので、種類は聞きません。
+- 外部の API に送るのは公開記事のタイトルと要約だけです。限定の過去記事と未注釈の記事は送らず、`jev_probability` が `null` のまま一覧の末尾に残ります。対象が限定記事のときはエラーにします。
+- 多くの題材に触れる記事（ブログ開始の挨拶、年間の振り返り）は、どの記事からも確率が高く出る偏りがあります。
+- オプションを付けなければ従来どおりで、API は呼びません。CI と pre-commit hook は Jev を使いません。
 
 ## 公開前の整備（slug・excerpt・tags）
 

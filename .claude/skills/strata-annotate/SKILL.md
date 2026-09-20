@@ -1,6 +1,6 @@
 ---
 name: strata-annotate
-description: hanatane.net の公開記事に Hyperstrata の注釈（要約と過去記事との関係）を posts/strata/<slug>.json として書く。ユーザーが「地層に積んで」「注釈を付けて」「strata を更新して」「記事を公開したあと」に言ったとき、または ghost-posts スキルで記事を公開した直後に使う。判断は Claude Code が行い、API は使わない。
+description: hanatane.net の公開記事に Hyperstrata の注釈（要約と過去記事との関係）を posts/strata/<slug>.json として書く。ユーザーが「地層に積んで」「注釈を付けて」「strata を更新して」「記事を公開したあと」に言ったとき、または ghost-posts スキルで記事を公開した直後に使う。判断は Claude Code が行う。関係の候補選びの補助にだけ、任意で Jev（TypeSafe の判定モデル）の確率を使える。
 ---
 
 # Hyperstrata 注釈（posts/strata/）
@@ -14,6 +14,9 @@ description: hanatane.net の公開記事に Hyperstrata の注釈（要約と�
 3. `pnpm --filter ./posts strata text <slug>` で本文を読む（限定記事も復号して出る）。
 4. `pnpm --filter ./posts strata catalog <slug>` で、対象より前に公開された記事の一覧（要約付き）を得る。この一覧に無い記事は関係先にできない（後方参照のみ）。
 5. 一覧から関係の候補を選ぶ。題材・出来事・人・場所・考えの継続が見えるものを最大 8 本まで。迷う候補は `strata text` で本文を読んでから決める。要約が `null` の記事（未注釈）は title だけで判断せず本文を読む。
+   - 任意の補助（公開記事で、環境変数 `TYPESAFE_API_KEY` があるときだけ）: 先に対象記事の要約の下書きをスクラッチのファイルに書き、`pnpm --filter ./posts strata catalog <slug> --jev-summary <要約ファイル>` を実行すると、一覧に `jev_probability`（要約どうしを見て「続報・再訪・更新のいずれかである」と Jev が判定した確率）が付き、確率の高い順に並ぶ。評価（2026-09-20、`posts/README.md` の「Jev の精度評価」）では、既知の関係の 86% が上位 8 件、96% が上位 16 件に入った。上位 16 件は必ず検討し、それより下と `jev_probability` が `null` の記事（限定記事・未注釈。Jev に送っていない）は従来どおり自分の目で見る。
+   - Jev の確率は候補選びの順番を決めるだけに使う。確率が高いことを関係を採用する理由にしない（ブログ開始の挨拶や年間の振り返りのように多くの題材に触れる記事は、どの記事からも確率が高く出る）。確率が低いことを、本文に継続が読み取れる関係を外す理由にもしない。関係の有無と種類は、下記「判定の基準」で本文から決める。
+   - 対象が限定記事のとき、`--jev-summary` はエラーになる（限定記事の要約は外部の API に送らない）。従来どおり手順 4 の一覧から選ぶ。
 6. 候補ごとに関係を判定する。関係が無ければ入れない。孤立（`relations: []`）は正常な状態で、無理に関係を作らない。
 7. 対象記事の題材から `icon` を選ぶ（下記「アイコン種別の基準」）。どれにも当てはまらなければ `icon` を省略する。
 8. `posts/strata/<slug>.json`（限定記事は `posts/strata/private/<slug>.plain.json`）を書く。
