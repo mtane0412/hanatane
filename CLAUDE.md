@@ -28,6 +28,7 @@ pnpm --filter ./posts push content/<slug>.md        # または content/<slug>.p
 pnpm --filter ./posts strata pending                # Hyperstrata の注釈が無い公開記事を一覧する（注釈は strata-annotate スキルで書く）
 pnpm --filter ./posts curate check <slug>           # 下書きが公開の基準（slug 形式・excerpt・統制語彙のタグ）を満たすかを検査する（整備は publish-prepare スキルで行う）
 pnpm --filter ./posts curate tags                   # 統制語彙（posts/tags.json）を使用数つきで一覧する
+pnpm --filter ./posts jev-eval report               # Jev（TypeSafe の判定モデル）の日本語精度の評価を集計する（実験。run / relations-run は TYPESAFE_API_KEY が必要、posts/README.md 参照）
 pnpm --filter ./theme dev
 pnpm --filter ./ogp dev
 docker compose -f local/docker-compose.yml up -d   # ローカル確認環境(初回は local/README.md の手順で管理者作成と記事投入)

@@ -13,7 +13,8 @@
 		"lint": "biome check",
 		"format": "biome format --write",
 		"type-check": "tsc --noEmit",
-		"curate": "tsx scripts/curate.ts"
+		"curate": "tsx scripts/curate.ts",
+		"jev-eval": "tsx scripts/jev-eval.ts"
 	},
 	"dependencies": {
 		"yaml": "^2.9.0"
@@ -21,6 +22,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4",
 		"@types/node": "^24.0.0",
+		"@typesafe-ai/sdk": "^0.6.0",
 		"tsx": "^4.23.13",
 		"typescript": "^5.7.2",
 		"vitest": "^3.0.5"

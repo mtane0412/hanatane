@@ -262,6 +262,23 @@ pnpm --filter ./posts curate rename <old> <new>      # 下書きの slug を変�
 
 `curate rename` は下書きにだけ使えます。公開済みの記事や、Hyperstrata の注釈（`strata/<slug>.json`）がある記事は拒みます。ghst 0.17.1 の `post update` には slug を変える専用オプションが無いため、`{ "slug": ... }` を `--from-json` で渡しています。
 
+## Jev の精度評価（実験）
+
+[Jev](https://docs.typesafe.ai/)（TypeSafe の判定モデル。文章を生成せず、yes/no の確率や選択肢の確率分布を返す）が日本語の記事で使える精度かを、既存の正解ラベルで測ります。Jev の学習の主言語は英語なので、タグの検査や Hyperstrata の関係候補の絞り込みに採用する前の判断材料にします。
+
+- タグ: 統制語彙（`tags.json`）のタグごとに「この記事に付くか」を聞き、記事に付いているタグと突き合わせます。
+- icon: 題材の icon を 1 つ選ばせ、Hyperstrata の注釈の icon と突き合わせます。
+- 関係: 注釈の要約どうしの全組（新しい記事 → それより前の記事）に「続報・再訪・更新のいずれかか」を聞き、注釈の既知の関係が確率の順位の上位 K 件（既定は 8。`strata-annotate` の候補の上限）に入るかを測ります。注釈に無いのに確率が高い組は「埋もれた関係の候補」として一覧にします。関係を採用するかの判断は、これまでどおり Claude Code が本文を読んで行います。
+
+```bash
+TYPESAFE_API_KEY=... pnpm --filter ./posts jev-eval run   # 公開記事を判定させ、結果を .jev-eval/results.json（.gitignore 対象）に保存して集計を表示する
+pnpm --filter ./posts jev-eval report 0.7                 # 保存済みの結果を、しきい値を変えて集計し直す（API を呼ばない）
+TYPESAFE_API_KEY=... pnpm --filter ./posts jev-eval relations-run   # 要約の全組（約 3,300 組）を判定させ、.jev-eval/relations.json に保存して集計を表示する
+pnpm --filter ./posts jev-eval relations-report 5         # 保存済みの結果を、上位 K 件を変えて集計し直す（API を呼ばない）
+```
+
+記事の本文と注釈の要約を外部の API に送るため、対象は `content/` 直下の公開記事だけです。限定記事（`content/private/`、`strata/private/`）は読みませんし送りません。
+
 ## 開発
 
 ```bash
