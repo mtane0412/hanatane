@@ -6,9 +6,11 @@
  *   pnpm jev-eval report [しきい値]  # 保存済みの結果を集計し直す（API を呼ばない）。しきい値の既定は 0.5
  *   pnpm jev-eval relations-run      # 公開記事の注釈の要約どうしの全組を Jev に判定させ、.jev-eval/relations.json に保存して集計を表示する
  *   pnpm jev-eval relations-report [K]  # 保存済みの結果を集計し直す（API を呼ばない）。K は上位何件を候補とみなすか。既定は 8
+ *   pnpm jev-eval strength-run       # 既知の関係（注釈の relations）だけに強さの score を聞き、.jev-eval/strength.json に保存して集計を表示する
+ *   pnpm jev-eval strength-report    # 保存済みの結果を集計し直す（API を呼ばない）
  *
  * 注意:
- *   - run と relations-run には TypeSafe の API キーが必要。sops で暗号化した secrets/typesafe.env から読む
+ *   - run、relations-run、strength-run には TypeSafe の API キーが必要。sops で暗号化した secrets/typesafe.env から読む
  *     （環境変数 TYPESAFE_API_KEY があればそちらを使う。src/typesafe-key.ts 参照）
  *   - 記事の本文と注釈の要約を外部の API（TypeSafe）に送るため、対象は content/ 直下の公開記事だけ。
  *     限定記事（content/private/、strata/private/）は読まないし送らない
@@ -42,10 +44,14 @@ import {
 	buildRelationPairs,
 	buildRelationQuestions,
 	buildRelationState,
+	buildStrengthQuestion,
 	evaluateRelationRanking,
 	evaluateRelationTypes,
+	evaluateStrength,
 	type KnownRelation,
+	normalizeStrength,
 	type RelationTypeCase,
+	type StrengthCase,
 	type SummarizedPost,
 } from "../src/jev-relation-eval";
 import { POST_JSON_SUFFIX } from "../src/post-json";
@@ -68,6 +74,7 @@ const STRATA_ROOT = path.join(POSTS_DIR, STRATA_DIR);
 const RESULTS_DIR = path.join(POSTS_DIR, ".jev-eval");
 const RESULTS_PATH = path.join(RESULTS_DIR, "results.json");
 const RELATIONS_PATH = path.join(RESULTS_DIR, "relations.json");
+const STRENGTH_PATH = path.join(RESULTS_DIR, "strength.json");
 
 /** icon の質問の ID。タグの slug（ハイフン区切り）と衝突しないようにアンダースコアを使う */
 const ICON_QUESTION_ID = "topic_icon";
@@ -111,9 +118,16 @@ interface SavedRelations {
 	}[];
 }
 
+/** .jev-eval/strength.json の形。probability は relations.json の「関係がある確率」の写し（無ければ null） */
+interface SavedStrength {
+	model: string;
+	inputTokens: number;
+	cases: StrengthCase[];
+}
+
 function usage(): never {
 	console.error(
-		"使い方: pnpm jev-eval <run | report [しきい値] | relations-run | relations-report [K]>",
+		"使い方: pnpm jev-eval <run | report [しきい値] | relations-run | relations-report [K] | strength-run | strength-report>",
 	);
 	process.exit(1);
 }
@@ -461,12 +475,119 @@ function printRelationsReport(
 	}
 }
 
+/** relations.json があれば「関係がある確率」を組ごとに引けるようにする。無ければ空（確率との比較を省く） */
+function loadRelationProbabilities(): Map<string, number> {
+	if (!existsSync(RELATIONS_PATH)) return new Map();
+	const relations = JSON.parse(
+		readFileSync(RELATIONS_PATH, "utf8"),
+	) as SavedRelations;
+	return new Map(
+		relations.judgments.map((judgment) => [
+			`${judgment.newer}\t${judgment.older}`,
+			judgment.probability,
+		]),
+	);
+}
+
+async function strengthRun(): Promise<void> {
+	const client = createTypesafeClient();
+	const annotations = loadPublicAnnotations();
+	const postBySlug = new Map(
+		loadSummarizedPosts(annotations).map((post) => [post.slug, post]),
+	);
+	const probabilities = loadRelationProbabilities();
+	const questions = { strength: buildStrengthQuestion() };
+
+	// 対象は公開記事どうしの既知の関係だけ。相手が限定記事や未注釈の関係は要約を送れないので飛ばす
+	const targets = [];
+	for (const annotation of annotations.values()) {
+		const newer = postBySlug.get(annotation.slug);
+		if (!newer) continue;
+		for (const relation of annotation.relations) {
+			const older = postBySlug.get(relation.slug);
+			if (older) targets.push({ newer, older, type: relation.type });
+		}
+	}
+
+	const results: SavedStrength = { model: "", inputTokens: 0, cases: [] };
+	for (let start = 0; start < targets.length; start += RELATION_CONCURRENCY) {
+		const batch = await Promise.all(
+			targets.slice(start, start + RELATION_CONCURRENCY).map(async (target) => {
+				const result = await client.systemOne({
+					state: buildRelationState(target.newer, target.older),
+					questions,
+				});
+				return { target, result };
+			}),
+		);
+		for (const { target, result } of batch) {
+			results.model = result.model;
+			results.inputTokens += result.usage.input_tokens;
+			results.cases.push({
+				newer: target.newer.slug,
+				older: target.older.slug,
+				type: target.type,
+				strength: normalizeStrength(result.answers.strength.score),
+				probability:
+					probabilities.get(`${target.newer.slug}\t${target.older.slug}`) ??
+					null,
+			});
+		}
+	}
+
+	mkdirSync(RESULTS_DIR, { recursive: true });
+	writeFileSync(STRENGTH_PATH, `${JSON.stringify(results, null, "\t")}\n`);
+	printStrengthReport(results);
+}
+
+function strengthReport(): void {
+	if (!existsSync(STRENGTH_PATH)) {
+		throw new Error(
+			"保存済みの結果がありません。先に pnpm jev-eval strength-run を実行してください",
+		);
+	}
+	printStrengthReport(
+		JSON.parse(readFileSync(STRENGTH_PATH, "utf8")) as SavedStrength,
+	);
+}
+
+function printStrengthReport(results: SavedStrength): void {
+	const cost = (results.inputTokens / 1_000_000) * INPUT_PRICE_PER_MTOK;
+	console.log(
+		`モデル: ${results.model} / 既知の関係 ${String(results.cases.length)} 本 / 入力 ${String(results.inputTokens)} トークン（約 $${cost.toFixed(4)}）`,
+	);
+	const report = evaluateStrength(results.cases);
+	console.log("\n## 関係の種類ごとの分布（中央値 / 最小 / 最大）");
+	for (const item of report.byType) {
+		const format = (d: { median: number; min: number; max: number } | null) =>
+			d === null
+				? "なし"
+				: `${d.median.toFixed(2)} / ${d.min.toFixed(2)} / ${d.max.toFixed(2)}`;
+		console.log(
+			`${item.type}\t${String(item.count)} 本\t強さ ${format(item.strength)}\t確率 ${format(item.probability)}`,
+		);
+	}
+	console.log(`\n## 強さの度数分布（0.1 刻み）: ${report.histogram.join(" ")}`);
+
+	console.log("\n## 関係ごとの強さ（新しい記事ごとに強い順）");
+	const sorted = [...results.cases].sort(
+		(a, b) => a.newer.localeCompare(b.newer) || b.strength - a.strength,
+	);
+	for (const item of sorted) {
+		console.log(
+			`${item.newer} → ${item.older}\t${item.type}\t強さ ${item.strength.toFixed(2)}\t確率 ${item.probability === null ? "なし" : item.probability.toFixed(2)}`,
+		);
+	}
+}
+
 async function main(): Promise<void> {
 	const [command, arg] = process.argv.slice(2);
 	if (command === "run") return run();
 	if (command === "report") return report(arg);
 	if (command === "relations-run") return relationsRun();
 	if (command === "relations-report") return relationsReport(arg);
+	if (command === "strength-run") return strengthRun();
+	if (command === "strength-report") return strengthReport();
 	usage();
 }
 

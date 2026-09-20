@@ -18,6 +18,7 @@ import {
     buildGraph,
     serializeGraph,
     parseAnnotation,
+    parseStrengths,
     selectLatestAnnotations,
     GRAPH_JSON_PATH,
     REF_TAG_PREFIX,
@@ -333,6 +334,49 @@ test('buildGraph: inferredRelationsBySlug の各関係に reason があれば in
     assert.deepEqual(対応表.get('correction-of-first-note').inferredRefs, [
         {slug: 'hyperstrata-introduction', type: 'updates', reason: null}
     ]);
+});
+
+test('buildGraph: strengthByRelation に強さがある関係だけ inferredRefs に strength を付ける(限定記事が絡む関係などは付けない)', () => {
+    const referencedSlugsBySlug = new Map([
+        ['hyperstrata-introduction', []],
+        ['digital-garden-limits', []],
+        ['correction-of-first-note', []]
+    ]);
+    const inferredRelationsBySlug = new Map([
+        ['digital-garden-limits', [
+            {slug: 'hyperstrata-introduction', type: 'continues', reason: '前回の紹介記事の続報のため。'}
+        ]],
+        ['correction-of-first-note', [
+            {slug: 'hyperstrata-introduction', type: 'updates'}
+        ]]
+    ]);
+    // 前提: 強さが計算済みなのは digital-garden-limits → hyperstrata-introduction だけ
+    const strengthByRelation = parseStrengths({
+        strengths: [{from: 'digital-garden-limits', to: 'hyperstrata-introduction', strength: 0.82, model: 'jev-1.13.0'}]
+    });
+    const graph = buildGraph({posts: グラフ用記事, referencedSlugsBySlug, inferredRelationsBySlug, strengthByRelation});
+    const 対応表 = new Map(graph.posts.map(post => [post.slug, post]));
+    assert.deepEqual(対応表.get('digital-garden-limits').inferredRefs, [
+        {slug: 'hyperstrata-introduction', type: 'continues', reason: '前回の紹介記事の続報のため。', strength: 0.82}
+    ]);
+    assert.deepEqual(対応表.get('correction-of-first-note').inferredRefs, [
+        {slug: 'hyperstrata-introduction', type: 'updates', reason: null}
+    ]);
+});
+
+// ---------------------------------------------------------------------------
+// parseStrengths: posts/strata-strength.json(関係の強さ)を検査して読む
+// ---------------------------------------------------------------------------
+
+test('parseStrengths: strength が 0〜1 の数値でなければ例外にする(壊れた強さを graph.json に載せない)', () => {
+    assert.throws(
+        () => parseStrengths({strengths: [{from: 'digital-garden-limits', to: 'hyperstrata-introduction', strength: '強い', model: 'jev-1.13.0'}]}),
+        /strengths\[0\] の strength は 0〜1 の数値/
+    );
+});
+
+test('parseStrengths: strengths が配列でなければ例外にする', () => {
+    assert.throws(() => parseStrengths({}), /strengths は配列/);
 });
 
 // ---------------------------------------------------------------------------

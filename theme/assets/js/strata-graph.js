@@ -30,6 +30,8 @@
  * - エッジ: 引用関係(引用元 → 引用先)。著者が本文リンクで作る人間の層(graph.json の refs、kind: 'human')と、
  *   Hyperstrata の注釈(posts/strata/)から scripts/hyperstrata-sync.mjs が合成する機械の層
  *   (graph.json の inferredRefs、kind: 'inferred')の 2 種類があり、CSS(is-inferred)で破線にして区別する。
+ *   推定エッジは関係の強さ(inferredRefs[].strength。hyperstrata-sync が posts/strata-strength.json から載せる)を持つことがあり、
+ *   強い関係を太く、弱い関係を細く描く(strengthClass。強さ不明は標準の太さ)。
  *   機械の層はタイムラインの列(col)割り当てには参加させず(幹の形は人間の引用だけで決める)、
  *   確定した座標の上に重ねて描く。記事ペインでは graph.json の paneLanes が推定エッジの列も持つ。
  *   2 ホップの強調(computeEmphasis)には両方を渡す
@@ -64,6 +66,13 @@
     const SPROUT_LEAFY_AT = 3;
     /** 芽を左右へ傾ける角度(度)。根(エッジ)と重ならない側へ付け根を中心に回す(#30) */
     const SPROUT_LEAN_DEGREES = 35;
+    /**
+     * 推定エッジ(inferredRefs)の太さを分ける関係の強さのしきい値(#56)。graph.json の inferredRefs[].strength(0〜1)が
+     * STRONG 以上なら太く(is-strong)、WEAK 以下なら細く(is-weak)描く。既知の関係の強さは 0〜1 にほぼ平らに分布する
+     * (posts/README.md の「Jev の精度評価」)ので、3 等分にしている。太さそのものは CSS(screen.css)で決める
+     */
+    const STRENGTH_STRONG_MIN = 0.67;
+    const STRENGTH_WEAK_MAX = 0.33;
 
     /**
      * 新しい記事(newerTime)と古い記事(olderTime)の間の空白が、不整合面として扱うしきい値を超えていれば日数を返す。
@@ -151,7 +160,7 @@
         // (人間の引用を先に処理してから機械の推定を処理する)。
         const edges = [];
         const edgeKeys = new Set();
-        const pushEdge = function (from, to, kind) {
+        const pushEdge = function (from, to, kind, relation) {
             if (!slugs.has(to) || to === from) {
                 return;
             }
@@ -160,18 +169,50 @@
                 return;
             }
             edgeKeys.add(key);
-            edges.push({from: from, to: to, kind: kind});
+            edges.push(withStrength({from: from, to: to, kind: kind}, relation || {}));
         };
         sorted.forEach(function (post) {
             post.refs.forEach(function (ref) {
                 pushEdge(post.slug, ref, 'human');
             });
             (post.inferredRefs || []).forEach(function (relation) {
-                pushEdge(post.slug, relation.slug, 'inferred');
+                pushEdge(post.slug, relation.slug, 'inferred', relation);
             });
         });
 
         return {nodes: nodes, edges: edges, yearMarks: yearMarks, hiatuses: hiatuses, height: previousY};
+    }
+
+    /**
+     * エッジの関係の強さを、線の太さを決める CSS クラス(先頭に空白つき)にする。
+     * 強さを持つのは公開記事どうしの推定エッジだけで、人間の引用と強さ不明の推定エッジ(限定記事が絡む関係・未計算)は
+     * 空文字を返して標準の太さのままにする。
+     *
+     * @param {{kind: string, strength?: number}} edge
+     * @returns {string} ' is-strong' / ' is-weak' / ''
+     */
+    function strengthClass(edge) {
+        if (edge.kind !== 'inferred' || typeof edge.strength !== 'number') {
+            return '';
+        }
+        if (edge.strength >= STRENGTH_STRONG_MIN) {
+            return ' is-strong';
+        }
+        return edge.strength <= STRENGTH_WEAK_MAX ? ' is-weak' : '';
+    }
+
+    /**
+     * 推定エッジに関係の強さ(graph.json の inferredRefs[].strength)を写す。強さの無い関係には項目を付けない。
+     *
+     * @param {object} edge 推定エッジ(kind: 'inferred')
+     * @param {{strength?: number}} relation graph.json の inferredRefs の 1 件
+     * @returns {object} edge
+     */
+    function withStrength(edge, relation) {
+        if (typeof relation.strength === 'number') {
+            edge.strength = relation.strength;
+        }
+        return edge;
     }
 
     /**
@@ -217,6 +258,10 @@
                 post.inferredRefs.forEach(function (relation, relationIndex) {
                     if (!relation || typeof relation.slug !== 'string' || typeof relation.type !== 'string') {
                         throw new Error('graph.json の posts[' + index + '].inferredRefs[' + relationIndex + '] に slug/type がありません');
+                    }
+                    // strength(関係の強さ)は公開記事どうしの関係にしか無いので省略可能
+                    if (relation.strength !== undefined && !(typeof relation.strength === 'number' && relation.strength >= 0 && relation.strength <= 1)) {
+                        throw new Error('graph.json の posts[' + index + '].inferredRefs[' + relationIndex + '] の strength は 0〜1 の数値である必要があります');
                     }
                 });
             }
@@ -424,7 +469,7 @@
             // 引用元(新しい記事)から引用先(古い記事)へ、左に膨らむ弧を描く
             const sweep = fromY > toY ? 1 : 0;
             const path = createElement('path', {
-                class: 'gh-strata-edge' + (edge.kind === 'inferred' ? ' is-inferred' : ''),
+                class: 'gh-strata-edge' + (edge.kind === 'inferred' ? ' is-inferred' : '') + strengthClass(edge),
                 d: 'M ' + options.axisX + ' ' + fromY + ' A ' + rx + ' ' + ry + ' 0 0 ' + sweep + ' ' + options.axisX + ' ' + toY,
                 'data-from': edge.from,
                 'data-to': edge.to
@@ -646,7 +691,7 @@
         // 幹の列(paneLanes)が引用先の列と違うエッジは viaCol を持つ
         const edges = [];
         const edgeKeys = new Set();
-        const addEdge = function (post, ref, kind) {
+        const addEdge = function (post, ref, kind, relation) {
             if (!Object.prototype.hasOwnProperty.call(rowOf, ref) || ref === post.slug) {
                 return;
             }
@@ -674,7 +719,7 @@
             if (lane !== edge.toCol) {
                 edge.viaCol = lane;
             }
-            edges.push(edge);
+            edges.push(withStrength(edge, relation || {}));
         };
         sorted.forEach(function (post) {
             post.refs.forEach(function (ref) {
@@ -683,7 +728,7 @@
         });
         sorted.forEach(function (post) {
             (post.inferredRefs || []).forEach(function (relation) {
-                addEdge(post, relation.slug, 'inferred');
+                addEdge(post, relation.slug, 'inferred', relation);
             });
         });
 
@@ -820,7 +865,7 @@
                 const target = rowOf[ref];
                 const fromRow = Math.min(index, target);
                 const toRow = Math.max(index, target);
-                edges.push({from: row.slug, to: ref, fromRow: fromRow, toRow: toRow, kind: 'inferred', fromCol: cols[fromRow], toCol: cols[toRow]});
+                edges.push(withStrength({from: row.slug, to: ref, fromRow: fromRow, toRow: toRow, kind: 'inferred', fromCol: cols[fromRow], toCol: cols[toRow]}, relation));
             });
         });
 
@@ -1509,7 +1554,7 @@
             return rank(b.distance) - rank(a.distance);
         }).forEach(function (item) {
             edgeGroup.appendChild(createElement('path', {
-                class: 'gh-strata-pane-edge' + emphasisClass(item.distance) + (item.edge.kind === 'inferred' ? ' is-inferred' : ''),
+                class: 'gh-strata-pane-edge' + emphasisClass(item.distance) + (item.edge.kind === 'inferred' ? ' is-inferred' : '') + strengthClass(item.edge),
                 d: paneEdgePath(item.edge, nodeY, options),
                 'data-from': item.edge.from,
                 'data-to': item.edge.to
@@ -1831,7 +1876,7 @@
         const edgeGroup = createElement('g', {class: 'gh-strata-timeline-edges'});
         layout.edges.forEach(function (edge) {
             edgeGroup.appendChild(createElement('path', {
-                class: 'gh-strata-pane-edge' + (edge.kind === 'inferred' ? ' is-inferred' : ''),
+                class: 'gh-strata-pane-edge' + (edge.kind === 'inferred' ? ' is-inferred' : '') + strengthClass(edge),
                 d: paneEdgePath(edge, nodeY, laneOptions)
             }));
         });
@@ -2221,6 +2266,7 @@
         assignBandIcons: assignBandIcons,
         columnExtent: columnExtent,
         paneEdgePath: paneEdgePath,
+        strengthClass: strengthClass,
         parseGraph: parseGraph,
         countIncomingRefs: countIncomingRefs,
         sproutStage: sproutStage,

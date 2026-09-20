@@ -53,7 +53,7 @@ function 描画(post = 現在記事) {
 /**
  * assets/js/post-share.js を jsdom の window 付きで読み込み、window.HanataneShare を返す。
  *
- * @returns {{htmlToMarkdown: Function, collectRelated: Function, buildDocument: Function, buildCopyText: Function, extractPost: Function, window: object}}
+ * @returns {{htmlToMarkdown: Function, collectRelated: Function, selectRelated: Function, buildDocument: Function, buildCopyText: Function, extractPost: Function, window: object}}
  */
 function 読み込み() {
     const dom = new JSDOM('<!doctype html><html><body></body></html>');
@@ -405,6 +405,76 @@ test('collectRelated は現在記事が graph.json に無ければ空配列を�
     const {collectRelated} = 読み込み();
     assert.deepEqual(素(collectRelated(グラフ, 'not-in-graph')), []);
     assert.throws(() => collectRelated(null, 'hyperstrata'), /配列/);
+});
+
+test('collectRelated は注釈の関係の強さ(inferredRefs[].strength)を記事ごとにまとめ、強さが無ければ null にする', () => {
+    const {collectRelated} = 読み込み();
+    // 前提: 年間の振り返りが 2 本の記事と関係を持ち、うち 1 本だけ強さが計算済み(もう 1 本は限定記事が絡む関係を想定)
+    const 強さつきグラフ = [
+        {slug: 'welcome-cat', title: '猫を迎えた', url: 'https://hanatane.net/welcome-cat/', publishedAt: '2025-03-01T00:00:00.000Z', refs: [], inferredRefs: []},
+        {slug: 'members-diary', title: 'メンバー向けの日記', url: 'https://hanatane.net/members-diary/', publishedAt: '2025-06-01T00:00:00.000Z', refs: [], inferredRefs: []},
+        {
+            slug: 'reflection-2025',
+            title: '2025年の振り返り',
+            url: 'https://hanatane.net/reflection-2025/',
+            publishedAt: '2025-12-31T00:00:00.000Z',
+            refs: [],
+            inferredRefs: [
+                {slug: 'welcome-cat', type: 'continues', reason: '猫のその後を書いている。', strength: 0.79},
+                {slug: 'members-diary', type: 'continues', reason: null}
+            ]
+        }
+    ];
+    const related = 素(collectRelated(強さつきグラフ, 'reflection-2025'));
+    assert.deepEqual(related.map(post => [post.slug, post.strength]), [['welcome-cat', 0.79], ['members-diary', null]]);
+    // 逆向き(関係を指された側から見た場合)も同じ強さになる
+    const 逆向き = 素(collectRelated(強さつきグラフ, 'welcome-cat'));
+    assert.deepEqual(逆向き.map(post => [post.slug, post.strength]), [['reflection-2025', 0.79]]);
+});
+
+// ---------------------------------------------------------------------------
+// selectRelated
+// ---------------------------------------------------------------------------
+
+/** selectRelated のテスト用に、collectRelated が返す形の関連記事を作る */
+function 関連記事(slug, publishedAt, types, strength) {
+    return {
+        slug,
+        title: slug,
+        url: `https://hanatane.net/${slug}/`,
+        publishedAt,
+        relations: types.map(type => ({type, reason: null})),
+        strength
+    };
+}
+
+test('selectRelated は著者の引用(cites / cited-by)を先頭に、次に関係の強い順、強さ不明を最後に並べ、上位 limit 件に絞る', () => {
+    const {selectRelated} = 読み込み();
+    const related = [
+        関連記事('weak-relation', '2025-01-01T00:00:00.000Z', ['continues'], 0.2),
+        関連記事('unknown-strength', '2025-02-01T00:00:00.000Z', ['continued-by'], null),
+        関連記事('strong-relation', '2025-03-01T00:00:00.000Z', ['updates'], 0.9),
+        関連記事('cited-by-author', '2025-04-01T00:00:00.000Z', ['cites'], null)
+    ];
+    assert.deepEqual(
+        素(selectRelated(related, 3)).map(post => post.slug),
+        ['cited-by-author', 'strong-relation', 'weak-relation']
+    );
+    // limit に満たなければ全件を返す(強さ不明は最後)
+    assert.deepEqual(
+        素(selectRelated(related, 8)).map(post => post.slug),
+        ['cited-by-author', 'strong-relation', 'weak-relation', 'unknown-strength']
+    );
+});
+
+test('selectRelated は順位が同じ記事を公開日の古い順に並べ、limit が 1 以上の整数でなければ例外を投げる', () => {
+    const {selectRelated} = 読み込み();
+    const related = [
+        関連記事('later-post', '2025-05-01T00:00:00.000Z', ['continues'], null),
+        関連記事('earlier-post', '2025-01-01T00:00:00.000Z', ['continues'], null)
+    ];
+    assert.deepEqual(素(selectRelated(related, 8)).map(post => post.slug), ['earlier-post', 'later-post']);
+    assert.throws(() => selectRelated(related, 0), /limit/);
 });
 
 // ---------------------------------------------------------------------------

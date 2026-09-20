@@ -12,6 +12,8 @@
  *                                  # <要約ファイル> は <slug> の要約の下書き（プレーンテキスト）。API キーは secrets/typesafe.env（sops）から読む
  *   pnpm strata jev-icon <slug>    # <slug> の icon の候補を、Jev が判定した確率の高い順に JSON で出す（icon: null は「該当なし」）。
  *                                  # contested が true なら題材が拮抗しているので、icon の省略も検討する
+ *   pnpm strata strength           # 公開記事どうしの関係のうち強さがまだ無いものを Jev に聞き、strata-strength.json を更新する（#56。
+ *                                  # 計算済みの値は聞き直さない。要約を外部の API に送るので限定記事が絡む関係は対象外）
  *   pnpm strata text <slug>        # <slug> の本文をプレーンテキストで出す（限定記事は sops で復号する）
  *   pnpm strata check              # すべての注釈の形式・置き場所・暗号化・整合（後方参照のみ・再検討の順序）を検査する（CI と pre-commit hook）
  *   pnpm strata decrypt <stem>     # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
@@ -49,6 +51,8 @@ import { checkJevIconTarget, suggestIcon } from "../src/jev-icon";
 import {
 	buildRelationQuestions,
 	buildRelationState,
+	buildStrengthQuestion,
+	normalizeStrength,
 } from "../src/jev-relation-eval";
 import { POST_JSON_SUFFIX } from "../src/post-json";
 import { isPrivateVisibility, PRIVATE_DIR } from "../src/private-post";
@@ -71,6 +75,14 @@ import {
 	selectLatestAnnotations,
 	strataRelativePath,
 } from "../src/strata";
+import {
+	parseStrengthFile,
+	planStrengthUpdate,
+	type RelationStrength,
+	STRENGTH_FILE,
+	selectStrengthTargets,
+	serializeStrengthFile,
+} from "../src/strata-strength";
 import { loadPosts as loadPostsFrom } from "./lib/load-posts";
 import { readBodyText } from "./lib/read-body";
 import { createTypesafeClient } from "./lib/typesafe-client";
@@ -79,6 +91,7 @@ const POSTS_DIR = path.resolve(import.meta.dirname, "..");
 const CONTENT_DIR = path.join(POSTS_DIR, "content");
 const STRATA_ROOT = path.join(POSTS_DIR, STRATA_DIR);
 const PRIVATE_STRATA_DIR = path.join(STRATA_ROOT, PRIVATE_DIR);
+const STRENGTH_PATH = path.join(POSTS_DIR, STRENGTH_FILE);
 
 const JEV_SUMMARY_OPTION = "--jev-summary";
 /** Jev に同時に投げるリクエストの数。レート制限（1,200 リクエスト/分）に掛からないよう絞る */
@@ -86,7 +99,7 @@ const JEV_CONCURRENCY = 4;
 
 function usage(): never {
 	console.error(
-		"使い方: pnpm strata pending | catalog <slug> [--jev-summary <要約ファイル>] | jev-icon <slug> | text <slug> | check | decrypt <stem> | encrypt <stem>（stem は <slug> または <slug>.<YYYYMMDDTHHMMSSZ>）",
+		"使い方: pnpm strata pending | catalog <slug> [--jev-summary <要約ファイル>] | jev-icon <slug> | strength | text <slug> | check | decrypt <stem> | encrypt <stem>（stem は <slug> または <slug>.<YYYYMMDDTHHMMSSZ>）",
 	);
 	process.exit(2);
 }
@@ -231,6 +244,78 @@ async function jevIcon(slug: string): Promise<void> {
 	console.log(JSON.stringify(suggestIcon(result.answers.icon), null, 2));
 }
 
+/**
+ * 公開記事どうしの関係のうち、強さがまだ無いものだけを Jev に聞いて strata-strength.json を書き直す。
+ * 質問は評価（scripts/jev-eval.ts の strength-run）と共通なので、段階の説明文を変えたら評価で分布を測り直すこと。
+ */
+async function strength(): Promise<void> {
+	// 限定記事の注釈（strata/private/）は読まない。要約が暗号化されており、外部の API にも送れない
+	const publicAnnotations = selectLatestAnnotations(
+		listStrataFiles()
+			.filter((relativePath) => !relativePath.startsWith(`${PRIVATE_DIR}/`))
+			.map((fileName) =>
+				parseStrataAnnotation(
+					readFileSync(path.join(STRATA_ROOT, fileName), "utf8"),
+					fileName,
+				),
+			),
+	);
+	const targets = selectStrengthTargets(loadPosts(), publicAnnotations);
+	const existing = existsSync(STRENGTH_PATH)
+		? parseStrengthFile(readFileSync(STRENGTH_PATH, "utf8"), STRENGTH_FILE)
+		: [];
+	const plan = planStrengthUpdate(
+		targets.map((target) => ({
+			from: target.newer.slug,
+			to: target.older.slug,
+		})),
+		existing,
+	);
+
+	const added: RelationStrength[] = [];
+	if (plan.missing.length > 0) {
+		const client = createTypesafeClient();
+		const questions = { strength: buildStrengthQuestion() };
+		const missingKeys = new Set(
+			plan.missing.map((item) => `${item.from}\t${item.to}`),
+		);
+		const missingTargets = targets.filter((target) =>
+			missingKeys.has(`${target.newer.slug}\t${target.older.slug}`),
+		);
+		for (
+			let start = 0;
+			start < missingTargets.length;
+			start += JEV_CONCURRENCY
+		) {
+			const batch = missingTargets.slice(start, start + JEV_CONCURRENCY);
+			const results = await Promise.all(
+				batch.map((target) =>
+					client.systemOne({
+						state: buildRelationState(target.newer, target.older),
+						questions,
+					}),
+				),
+			);
+			results.forEach((result, index) => {
+				added.push({
+					from: batch[index].newer.slug,
+					to: batch[index].older.slug,
+					strength: normalizeStrength(result.answers.strength.score),
+					model: result.model,
+				});
+			});
+		}
+	}
+
+	writeFileSync(STRENGTH_PATH, serializeStrengthFile([...plan.kept, ...added]));
+	for (const item of added) {
+		console.log(`${item.from} → ${item.to}\t${item.strength.toFixed(2)}`);
+	}
+	console.error(
+		`${STRENGTH_FILE}: ${String(added.length)} 本を追加、${String(plan.kept.length)} 本は計算済み、${String(existing.length - plan.kept.length)} 本を削除`,
+	);
+}
+
 function text(slug: string): void {
 	const post = findPost(loadPosts(), slug);
 	const fileName = `${slug}${POST_JSON_SUFFIX}`;
@@ -295,6 +380,14 @@ function check(): void {
 		problems.push(
 			...checkStrataHistory(parsed).map((problem) => `${prefix}${problem}`),
 		);
+	}
+	// 強さのファイルは hyperstrata-sync が読むので、形式が崩れたままコミットされないようにここで検査する
+	if (existsSync(STRENGTH_PATH)) {
+		try {
+			parseStrengthFile(readFileSync(STRENGTH_PATH, "utf8"), STRENGTH_FILE);
+		} catch (error) {
+			problems.push(error instanceof Error ? error.message : String(error));
+		}
 	}
 	if (problems.length > 0) {
 		console.error("Hyperstrata の注釈に問題があります:");
@@ -398,6 +491,9 @@ async function main(): Promise<void> {
 		case "jev-icon":
 			if (!slug) usage();
 			await jevIcon(slug);
+			break;
+		case "strength":
+			await strength();
 			break;
 		case "text":
 			withSlug(text);
