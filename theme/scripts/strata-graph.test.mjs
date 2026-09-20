@@ -98,6 +98,22 @@ test('buildLayout: inferredRefs から kind: "inferred" のエッジを作る', 
     ]);
 });
 
+test('buildLayout: 推定エッジは inferredRefs の strength(関係の強さ)を持ち、強さの無い関係と人間の引用には付けない', () => {
+    const {buildLayout} = 読み込む();
+    // 前提: correction → introduction だけ強さが計算済み。limits → correction は強さ不明(限定記事が絡む関係などを想定)
+    const 強さつき記事 = [
+        {slug: 'introduction', title: '紹介記事', url: '/introduction/', publishedAt: '2026-01-10T00:00:00.000Z', refs: [], inferredRefs: []},
+        {slug: 'correction', title: '紹介記事の訂正', url: '/correction/', publishedAt: '2026-03-01T00:00:00.000Z', refs: [], inferredRefs: [{slug: 'introduction', type: 'updates', strength: 0.9}]},
+        {slug: 'limits', title: '限界について', url: '/limits/', publishedAt: '2026-05-20T00:00:00.000Z', refs: ['introduction'], inferredRefs: [{slug: 'correction', type: 'continues'}]}
+    ];
+    const layout = buildLayout(強さつき記事, {minGap: 40, pixelsPerDay: 1});
+    assert.deepEqual(layout.edges, [
+        {from: 'limits', to: 'introduction', kind: 'human'},
+        {from: 'limits', to: 'correction', kind: 'inferred'},
+        {from: 'correction', to: 'introduction', kind: 'inferred', strength: 0.9}
+    ]);
+});
+
 test('buildLayout: 一覧に存在しない slug への inferredRefs はエッジにしない', () => {
     const {buildLayout} = 読み込む();
     const layout = buildLayout(推定を含む記事, {minGap: 40, pixelsPerDay: 1});
@@ -324,6 +340,16 @@ test('buildPaneLayout: 推定エッジ(kind: "inferred")を人間の引用に追
     assert.deepEqual(推定エッジ.map(edge => [edge.from, edge.to]), [['newest', 'middle']]);
     const 人間エッジ = layout.edges.filter(edge => edge.kind === 'human');
     assert.deepEqual(人間エッジ.map(edge => [edge.from, edge.to]), [['newest', 'oldest'], ['middle', 'oldest']]);
+});
+
+test('buildPaneLayout: 推定エッジは inferredRefs の strength(関係の強さ)を持つ', () => {
+    const {buildPaneLayout} = ペインを読み込む();
+    const 強さつきペイン記事 = 推定を含むペイン記事.map(post => (
+        post.slug === 'newest' ? {...post, inferredRefs: [{slug: 'middle', type: 'continues', strength: 0.25}]} : post
+    ));
+    const layout = buildPaneLayout(ペイン配置を付ける(強さつきペイン記事), ペイン設定);
+    const 推定エッジ = layout.edges.filter(edge => edge.kind === 'inferred');
+    assert.deepEqual(推定エッジ.map(edge => [edge.from, edge.to, edge.strength]), [['newest', 'middle', 0.25]]);
 });
 
 test('buildPaneLayout: 推定エッジを追加しても列(col)・minCol・maxCol は人間の引用のみの場合と変わらない(幹の形は人間の引用だけで決まる)', () => {
@@ -809,6 +835,35 @@ test('parseGraph: inferredRefs フィールドが無い記事(旧形式の graph
     const parseGraph = parseGraphを読み込む();
     const posts = parseGraph({posts: 記事}); // 記事 fixture には inferredRefs が無い
     assert.deepEqual(posts, 記事);
+});
+
+test('parseGraph: inferredRefs の strength は省略可能で、あるなら 0〜1 の数値でなければ例外にする', () => {
+    const parseGraph = parseGraphを読み込む();
+    const 強さつき = strength => [{
+        slug: 'a', title: 'A', url: '/a/', publishedAt: '2026-01-01T00:00:00.000Z', refs: [], paneCol: 0, paneLanes: {},
+        inferredRefs: [{slug: 'b', type: 'continues', strength}]
+    }];
+    assert.deepEqual(parseGraph({posts: 強さつき(0.82)}), 強さつき(0.82));
+    assert.throws(() => parseGraph({posts: 強さつき('強い')}), /strength は 0〜1 の数値/);
+    assert.throws(() => parseGraph({posts: 強さつき(1.5)}), /strength は 0〜1 の数値/);
+});
+
+/* ------------------------------------------------------------------
+ * strengthClass(#56): 推定エッジの太さを決める CSS クラス
+ * ------------------------------------------------------------------ */
+
+test('strengthClass: 関係の強さを 3 段階の CSS クラスにし、強さ不明(人間の引用・限定記事が絡む関係)は標準の太さのままにする', () => {
+    const window = {};
+    vm.runInNewContext(スクリプト, {window});
+    const {strengthClass} = window.HyperstrataGraph;
+    assert.equal(strengthClass({kind: 'inferred', strength: 0.9}), ' is-strong');
+    assert.equal(strengthClass({kind: 'inferred', strength: 0.5}), '');
+    assert.equal(strengthClass({kind: 'inferred', strength: 0.1}), ' is-weak');
+    // 境界値: STRONG 以上は強い、WEAK 以下は弱い
+    assert.equal(strengthClass({kind: 'inferred', strength: 0.67}), ' is-strong');
+    assert.equal(strengthClass({kind: 'inferred', strength: 0.33}), ' is-weak');
+    assert.equal(strengthClass({kind: 'inferred'}), '');
+    assert.equal(strengthClass({kind: 'human'}), '');
 });
 
 test('parseGraph: inferredRefs がある場合は {slug, type} の配列として通す', () => {

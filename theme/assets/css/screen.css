@@ -2741,6 +2741,16 @@ figcaption a {
     opacity: 0.6;
 }
 
+/* 推定関係の強さ(graph.json の inferredRefs[].strength を strata-graph.js の strengthClass が 3 段階にしたもの)を
+   線の太さで表す。強さ不明(限定記事が絡む関係など)は標準の太さ(1.6)のまま */
+.gh-strata-edge.is-inferred.is-strong {
+    stroke-width: 2.4;
+}
+
+.gh-strata-edge.is-inferred.is-weak {
+    stroke-width: 1;
+}
+
 .gh-strata-node {
     cursor: pointer;
 }
@@ -3004,6 +3014,24 @@ figcaption a {
    区別できるよう破線にする。色は is-level-1/is-level-2/is-dim にまかせる */
 .gh-strata-pane-edge.is-inferred {
     stroke-dasharray: 2.5 2.5;
+}
+
+/* 推定関係の強さを線の太さで表す(強さ不明は標準の太さ 1.4 のまま)。現在の記事と直接つながる線(is-level-1、標準 2.4)は
+   強調の太さを保ったまま差を付ける */
+.gh-strata-pane-edge.is-inferred.is-strong {
+    stroke-width: 2.2;
+}
+
+.gh-strata-pane-edge.is-inferred.is-weak {
+    stroke-width: 0.9;
+}
+
+.gh-strata-pane-edge.is-inferred.is-level-1.is-strong {
+    stroke-width: 3.2;
+}
+
+.gh-strata-pane-edge.is-inferred.is-level-1.is-weak {
+    stroke-width: 1.6;
 }
 
 .gh-strata-pane-node {
