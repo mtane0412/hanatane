@@ -10,6 +10,7 @@ import type { GhostAdminClient } from "./ghost-admin";
 import {
 	buildRenderParams,
 	existingSocialImage,
+	selectGradient,
 	selectPostsNeedingOgImage,
 } from "./plan";
 
@@ -65,7 +66,15 @@ export async function syncOgImages({
 		if (imageUrl) {
 			log(`${post.slug}: 生成済みの画像を再利用します → ${imageUrl}`);
 		} else {
-			const png = await render(buildRenderParams(post, siteTitle));
+			const choice = selectGradient(post);
+			log(
+				choice.source === "tag"
+					? `${post.slug}: タグ ${choice.tag} からグラデーション ${choice.gradient} を選びました`
+					: `${post.slug}: 対応するタグが無いため、slug のハッシュでグラデーション ${choice.gradient} を選びました`,
+			);
+			const png = await render(
+				buildRenderParams(post, siteTitle, choice.gradient),
+			);
 			imageUrl = await client.uploadImage(png, ogImageFilename(post.slug));
 		}
 		await client.setSocialImages(post, imageUrl);

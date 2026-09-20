@@ -48,7 +48,7 @@ export function createAdminToken(
 export interface GhostAdminClient {
 	/** サイト名（OGP 画像に描くサイト名として使う） */
 	getSiteTitle(): Promise<string>;
-	/** 公開済みで feature_image が無く、og_image か twitter_image が未設定の記事を著者込みで取得する */
+	/** 公開済みで feature_image が無く、og_image か twitter_image が未設定の記事を著者・タグ込みで取得する */
 	listPostsNeedingOgImage(): Promise<GhostPost[]>;
 	/** PNG をアップロードし、公開 URL を返す */
 	uploadImage(png: Uint8Array<ArrayBuffer>, filename: string): Promise<string>;
@@ -124,7 +124,7 @@ export function createGhostAdminClient({
 			);
 			const { posts } = await request<{ posts: GhostPost[] }>(
 				"GET",
-				`/posts/?limit=all&filter=${filter}&include=authors`,
+				`/posts/?limit=all&filter=${filter}&include=authors,tags`,
 			);
 			return posts;
 		},
