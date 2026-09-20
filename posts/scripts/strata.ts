@@ -7,6 +7,9 @@
  * 使い方:
  *   pnpm strata pending            # 公開済みでまだ注釈が無い記事を、公開日の古い順に一覧する
  *   pnpm strata catalog <slug>     # <slug> より前に公開された記事の一覧（要約付き）を JSON で出す。関係の候補選びに使う
+ *   pnpm strata catalog <slug> --jev-summary <要約ファイル>
+ *                                  # 一覧に Jev（TypeSafe の判定モデル）が判定した「関係がある確率」（jev_probability）を付け、確率の高い順に並べる。
+ *                                  # <要約ファイル> は <slug> の要約の下書き（プレーンテキスト）。環境変数 TYPESAFE_API_KEY が必要
  *   pnpm strata text <slug>        # <slug> の本文をプレーンテキストで出す（限定記事は sops で復号する）
  *   pnpm strata check              # すべての注釈の形式・置き場所・暗号化・整合（後方参照のみ・再検討の順序）を検査する（CI と pre-commit hook）
  *   pnpm strata decrypt <stem>     # strata/private/<stem>.json を復号して <stem>.plain.json（.gitignore 対象）を作る
@@ -20,6 +23,8 @@
  *   - 記事一覧は content/**\/*.post.json の平文メタ情報から作る。注釈を付ける前に `pnpm pull` で最新にすること
  *   - check は復号しないため age の秘密鍵は不要で、CI でもそのまま動く
  *   - catalog と text は限定記事の復号に age の秘密鍵（~/.config/sops/age/keys.txt）が必要
+ *   - --jev-summary は要約を外部の API（TypeSafe）に送る。送るのは公開記事の要約だけで、限定記事の要約は送らない
+ *     （限定の過去記事は jev_probability が null のまま一覧に残り、<slug> が限定記事ならエラーにする）
  *   - 判定ルールは src/strata.ts に集約している。ここではファイル入出力と sops の実行だけを扱う
  */
 import {
@@ -31,6 +36,16 @@ import {
 	writeFileSync,
 } from "node:fs";
 import path from "node:path";
+import { TypeSafeClient } from "@typesafe-ai/sdk";
+import {
+	checkJevSummaryPath,
+	rankCatalog,
+	selectJevCandidates,
+} from "../src/jev-catalog";
+import {
+	buildRelationQuestions,
+	buildRelationState,
+} from "../src/jev-relation-eval";
 import { POST_JSON_SUFFIX } from "../src/post-json";
 import { isPrivateVisibility, PRIVATE_DIR } from "../src/private-post";
 import { decryptPostJson, encryptJson } from "../src/sops";
@@ -59,9 +74,14 @@ const CONTENT_DIR = path.join(POSTS_DIR, "content");
 const STRATA_ROOT = path.join(POSTS_DIR, STRATA_DIR);
 const PRIVATE_STRATA_DIR = path.join(STRATA_ROOT, PRIVATE_DIR);
 
+const JEV_SUMMARY_OPTION = "--jev-summary";
+const JEV_API_KEY_ENV = "TYPESAFE_API_KEY";
+/** Jev に同時に投げるリクエストの数。レート制限（1,200 リクエスト/分）に掛からないよう絞る */
+const JEV_CONCURRENCY = 4;
+
 function usage(): never {
 	console.error(
-		"使い方: pnpm strata pending | catalog <slug> | text <slug> | check | decrypt <stem> | encrypt <stem>（stem は <slug> または <slug>.<YYYYMMDDTHHMMSSZ>）",
+		"使い方: pnpm strata pending | catalog <slug> [--jev-summary <要約ファイル>] | text <slug> | check | decrypt <stem> | encrypt <stem>（stem は <slug> または <slug>.<YYYYMMDDTHHMMSSZ>）",
 	);
 	process.exit(2);
 }
@@ -141,6 +161,53 @@ function catalog(slug: string): void {
 	const posts = loadPosts();
 	const annotations = loadAnnotations(true);
 	console.log(JSON.stringify(buildCatalog(slug, posts, annotations), null, 2));
+}
+
+/**
+ * 一覧の公開記事の要約を、対象記事の要約の下書きと 1 組ずつ Jev に判定させ、確率の高い順に並べて出す。
+ * 聞くのは関係の有無だけ。種類（continues / revisits / updates）は評価で当たらなかったので聞かない。
+ */
+async function catalogWithJev(
+	slug: string,
+	summaryFile: string,
+): Promise<void> {
+	if (!process.env[JEV_API_KEY_ENV]) {
+		throw new Error(`環境変数 ${JEV_API_KEY_ENV} が設定されていません`);
+	}
+	checkJevSummaryPath(summaryFile, POSTS_DIR);
+	const summary = readFileSync(summaryFile, "utf8").trim();
+	if (summary === "") {
+		throw new Error(`${summaryFile}: 要約が空です`);
+	}
+	const posts = loadPosts();
+	const target = findPost(posts, slug);
+	const entries = buildCatalog(slug, posts, loadAnnotations(true));
+	const candidates = selectJevCandidates(target, entries);
+
+	const client = new TypeSafeClient();
+	const questions = { related: buildRelationQuestions().related };
+	const newer = {
+		slug,
+		title: target.title,
+		published_at: target.published_at ?? "",
+		summary,
+	};
+	const probabilities = new Map<string, number>();
+	for (let start = 0; start < candidates.length; start += JEV_CONCURRENCY) {
+		const batch = candidates.slice(start, start + JEV_CONCURRENCY);
+		const results = await Promise.all(
+			batch.map((older) =>
+				client.systemOne({
+					state: buildRelationState(newer, older),
+					questions,
+				}),
+			),
+		);
+		results.forEach((result, index) => {
+			probabilities.set(batch[index].slug, result.answers.related.noul);
+		});
+	}
+	console.log(JSON.stringify(rankCatalog(entries, probabilities), null, 2));
 }
 
 function text(slug: string): void {
@@ -285,8 +352,8 @@ function encrypt(stem: string): void {
 	console.log(`暗号化しました（平文は削除済み）: ${encryptedPath}`);
 }
 
-function main(): void {
-	const [command, slug] = process.argv.slice(2);
+async function main(): Promise<void> {
+	const [command, slug, option, optionValue] = process.argv.slice(2);
 	const withSlug = (run: (slug: string) => void): void => {
 		if (!slug) usage();
 		run(slug);
@@ -299,7 +366,13 @@ function main(): void {
 			check();
 			break;
 		case "catalog":
-			withSlug(catalog);
+			if (option === undefined) {
+				withSlug(catalog);
+			} else if (slug && option === JEV_SUMMARY_OPTION && optionValue) {
+				await catalogWithJev(slug, optionValue);
+			} else {
+				usage();
+			}
 			break;
 		case "text":
 			withSlug(text);
@@ -315,4 +388,4 @@ function main(): void {
 	}
 }
 
-main();
+await main();
