@@ -165,34 +165,77 @@ describe("evaluateTags", () => {
 
 describe("evaluateIcons", () => {
 	it("注釈の icon と一致した割合を出し、icon が無い記事は「該当なし」を正解にする", () => {
-		const report = evaluateIcons([
-			{
-				slug: "welcome-cat",
-				expected: "cat",
-				predicted: "cat",
-				confidence: 0.9,
-			},
-			{
-				slug: "iwate-trip",
-				expected: "travel",
-				predicted: "journal",
-				confidence: 0.4,
-			},
-			{
-				slug: "thin-vs-thing",
-				expected: null,
-				predicted: NO_ICON_LABEL,
-				confidence: 0.6,
-			},
-		]);
+		const report = evaluateIcons(
+			[
+				{
+					slug: "welcome-cat",
+					expected: "cat",
+					predicted: "cat",
+					confidence: 0.9,
+				},
+				{
+					slug: "iwate-trip",
+					expected: "travel",
+					predicted: "journal",
+					confidence: 0.4,
+				},
+				{
+					slug: "thin-vs-thing",
+					expected: null,
+					predicted: NO_ICON_LABEL,
+					confidence: 0.6,
+				},
+			],
+			0,
+		);
 		expect(report.total).toBe(3);
 		expect(report.matched).toBe(2);
+		expect(report.omitted).toBe(0);
 		expect(report.mismatches).toEqual([
 			{
 				slug: "iwate-trip",
 				expected: "travel",
 				predicted: "journal",
 				confidence: 0.4,
+			},
+		]);
+	});
+
+	it("確信度がしきい値未満の判定は「該当なし」（icon を省略）として扱う", () => {
+		const report = evaluateIcons(
+			[
+				{
+					// 注釈に icon が無い記事を、低い確信度で journal と判定した。省略すれば一致する
+					slug: "asphalt-pavement",
+					expected: null,
+					predicted: "journal",
+					confidence: 0.19,
+				},
+				{
+					// 正しい判定でも、確信度が低いと省略されて食い違いになる
+					slug: "thin-vs-thing",
+					expected: "journal",
+					predicted: "journal",
+					confidence: 0.49,
+				},
+				{
+					// しきい値ちょうどの判定は省略しない
+					slug: "welcome-cat",
+					expected: "cat",
+					predicted: "cat",
+					confidence: 0.5,
+				},
+			],
+			0.5,
+		);
+		expect(report.omitted).toBe(2);
+		expect(report.matched).toBe(2);
+		expect(report.mismatches).toEqual([
+			{
+				slug: "thin-vs-thing",
+				expected: "journal",
+				predicted: NO_ICON_LABEL,
+				confidence: 0.49,
 			},
 		]);
 	});

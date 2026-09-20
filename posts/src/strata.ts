@@ -143,7 +143,8 @@ function isRelationType(value: unknown): value is RelationType {
 	return (RELATION_TYPES as readonly unknown[]).includes(value);
 }
 
-function isTopicIcon(value: unknown): value is TopicIcon {
+/** 値が TOPIC_ICONS のいずれかであるかを判定します。 */
+export function isTopicIcon(value: unknown): value is TopicIcon {
 	return (TOPIC_ICONS as readonly unknown[]).includes(value);
 }
 

@@ -190,17 +190,37 @@ export interface IconCase {
 export interface IconReport {
 	total: number;
 	matched: number;
+	/** 確信度がしきい値未満で「該当なし」に置き換えた判定の数 */
+	omitted: number;
+	/** 食い違った判定。predicted はしきい値を適用した後の値 */
 	mismatches: IconCase[];
 }
 
-/** icon の判定を注釈の icon と突き合わせます。注釈に icon が無い記事は NO_ICON_LABEL を正解にします。 */
-export function evaluateIcons(cases: readonly IconCase[]): IconReport {
-	const mismatches = cases.filter(
-		(testCase) => testCase.predicted !== (testCase.expected ?? NO_ICON_LABEL),
-	);
+/**
+ * icon の判定を注釈の icon と突き合わせます。注釈に icon が無い記事は NO_ICON_LABEL を正解にします。
+ * 確信度が threshold 未満の判定は、strata-annotate スキルの「拮抗したら省略」にならって NO_ICON_LABEL として扱います。
+ * threshold を 0 にすると、Jev の選択をそのまま使います。
+ */
+export function evaluateIcons(
+	cases: readonly IconCase[],
+	threshold: number,
+): IconReport {
+	let omitted = 0;
+	const mismatches: IconCase[] = [];
+	for (const testCase of cases) {
+		const isOmitted = testCase.confidence < threshold;
+		if (isOmitted) omitted++;
+		const applied: IconCase = isOmitted
+			? { ...testCase, predicted: NO_ICON_LABEL }
+			: testCase;
+		if (applied.predicted !== (applied.expected ?? NO_ICON_LABEL)) {
+			mismatches.push(applied);
+		}
+	}
 	return {
 		total: cases.length,
 		matched: cases.length - mismatches.length,
+		omitted,
 		mismatches,
 	};
 }
