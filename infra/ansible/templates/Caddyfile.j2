@@ -7,8 +7,10 @@
  # Cloudflare 経由のアクセスに限定する:
  #   接続元（TCP の送信元）が cloudflare_ip_ranges（group_vars/all.yml）に含まれるリクエストだけを処理し、
  #   それ以外（origin への直アクセス）は応答を返さず切断する。
- #   trusted_proxies に同じ範囲を指定し、Cloudflare が付ける X-Forwarded-For の実クライアント IP を
- #   Ghost へ引き継ぐ（指定しないと Caddy が Cloudflare の IP で上書きする）。
+ #   trusted_proxies に同じ範囲を指定し、Cloudflare が付ける CF-Connecting-IP を実クライアント IP として扱う。
+ #   訪問者が送る X-Forwarded-For は偽装できるため信用せず、上流へ渡す X-Forwarded-For を
+ #   CF-Connecting-IP（Cloudflare が常に上書きする）から作り直す。Ghost はその左端の IP を
+ #   ログイン試行の回数制限などに使う。
  #
  # セキュリティヘッダー:
  #   HSTS・nosniff・クリックジャッキング対策・Referrer-Policy を付与し、X-Powered-By を削除する。
@@ -16,6 +18,7 @@
 {
     servers {
         trusted_proxies static {{ cloudflare_ip_ranges | join(' ') }}
+        client_ip_headers CF-Connecting-IP
     }
 }
 
@@ -33,6 +36,9 @@
     }
 
     handle @cloudflare {
+        # 偽装可能な X-Forwarded-For を検証済みのクライアント IP で置き換える（reverse_proxy が末尾に Cloudflare の IP を追記する）
+        request_header X-Forwarded-For {client_ip}
+
 {% if ghost_analytics_enabled %}
         import snippets/TrafficAnalytics
 {% endif %}
