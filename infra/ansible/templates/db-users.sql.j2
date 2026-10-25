@@ -1,0 +1,21 @@
+{# db-users.sql.j2
+ # アプリ専用の MySQL データベースとユーザーを冪等に作成する SQL。
+ # deploy.yml が root で db コンテナの mysql に標準入力から流し込む（パスワードをコマンド引数に出さないため）。
+ #
+ # - ghost ユーザー: ghost DB だけを操作できる
+ # - activitypub ユーザー: activitypub DB だけを操作できる（ghost_activitypub_enabled の場合）
+ # - 毎回 ALTER USER でパスワードを secrets/ghost.env の値に揃える（ローテーションはこのファイルの再適用で行う）
+ #
+ # 注意: パスワードは SQL 文字列と接続 URL に埋め込むため、deploy.yml で英数字のみであることを検証している。
+ #}
+CREATE DATABASE IF NOT EXISTS `ghost`;
+CREATE USER IF NOT EXISTS 'ghost'@'%' IDENTIFIED BY '{{ ghost_secrets['GHOST_DB_PASSWORD'] }}';
+ALTER USER 'ghost'@'%' IDENTIFIED BY '{{ ghost_secrets['GHOST_DB_PASSWORD'] }}';
+GRANT ALL PRIVILEGES ON `ghost`.* TO 'ghost'@'%';
+{% if ghost_activitypub_enabled %}
+
+CREATE DATABASE IF NOT EXISTS `activitypub`;
+CREATE USER IF NOT EXISTS 'activitypub'@'%' IDENTIFIED BY '{{ ghost_secrets['ACTIVITYPUB_DB_PASSWORD'] }}';
+ALTER USER 'activitypub'@'%' IDENTIFIED BY '{{ ghost_secrets['ACTIVITYPUB_DB_PASSWORD'] }}';
+GRANT ALL PRIVILEGES ON `activitypub`.* TO 'activitypub'@'%';
+{% endif %}
