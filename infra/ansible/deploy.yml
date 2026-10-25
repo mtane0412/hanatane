@@ -58,6 +58,21 @@
       run_once: true
       no_log: true
 
+    # db-users.sql.j2 の SQL 文字列と activitypub-migrate の接続 URL に埋め込むため、英数字のみに限定する
+    - name: アプリ専用 DB ユーザーのパスワードの形式を検証する
+      ansible.builtin.assert:
+        that:
+          - ghost_secrets[item] is defined
+          - ghost_secrets[item] is match('^[A-Za-z0-9]{24,}$')
+        fail_msg: "secrets/ghost.env の {{ item }} は 24 文字以上の英数字で設定してください"
+        quiet: true
+      loop:
+        - GHOST_DB_PASSWORD
+        - ACTIVITYPUB_DB_PASSWORD
+      delegate_to: localhost
+      run_once: true
+      no_log: true
+
     # ---- 2. VPS へのファイル配置 ----
     - name: ~/ghost/ 配下の必要ディレクトリを作成する
       ansible.builtin.file:
@@ -68,7 +83,6 @@
         group: debian
       loop:
         - "{{ ghost_dir }}/caddy/snippets"
-        - "{{ ghost_dir }}/mysql-init"
         - "{{ ghost_dir }}/tinybird"
 
     - name: VPS に .env を配置する
@@ -106,14 +120,6 @@
         group: debian
       register: _caddy_snippets_result
 
-    - name: mysql-init スクリプトを配置する（新規ボリューム用 DB 初期化）
-      ansible.builtin.copy:
-        src: "files/mysql-init/"
-        dest: "{{ ghost_dir }}/mysql-init/"
-        mode: "0755"
-        owner: debian
-        group: debian
-
     - name: Tinybird ビルドコンテキストを配置する
       ansible.builtin.copy:
         src: "files/tinybird/"
@@ -123,17 +129,18 @@
         group: debian
       when: ghost_analytics_enabled
 
-    # ---- 3. ActivityPub 用データベースの準備（冪等） ----
-    # 既存の db ボリュームでは mysql-init スクリプトが再実行されないため、
-    # Ansible タスクで冪等に CREATE DATABASE を実行する。
-    - name: db コンテナを起動する（ActivityPub 用データベース準備）
+    # ---- 3. アプリ専用データベースとユーザーの準備（冪等） ----
+    # Ghost・ActivityPub は root ではなく、それぞれの DB だけを操作できる専用ユーザーで接続する。
+    # templates/db-users.sql.j2 を毎回適用し、DB・ユーザー・パスワード・権限を secrets/ghost.env の値に揃える
+    # （新規ボリュームも既存ボリュームも同じ手順で扱う。挙動は tests/db-users.test.sh で検証している）。
+    - name: db コンテナを起動する（アプリ専用ユーザーの準備）
       ansible.builtin.command:
         cmd: docker compose up -d db
         chdir: "{{ ghost_dir }}"
       changed_when: false
-      when: ghost_activitypub_enabled
 
-    - name: MySQL が healthy になるまで待機する
+    # root のパスワードはコマンド引数に出さず、db コンテナ内の環境変数 MYSQL_ROOT_PASSWORD から渡す
+    - name: MySQL が接続を受け付けるまで待機する
       ansible.builtin.command:
         argv:
           - docker
@@ -141,12 +148,9 @@
           - exec
           - "-T"
           - db
-          - mysqladmin
-          - ping
-          - "-h"
-          - "127.0.0.1"
-          - "-uroot"
-          - "-p{{ ghost_secrets['MYSQL_ROOT_PASSWORD'] }}"
+          - sh
+          - "-c"
+          - 'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysqladmin ping -h 127.0.0.1 -uroot'
       args:
         chdir: "{{ ghost_dir }}"
       register: _mysql_ping
@@ -154,10 +158,9 @@
       retries: 60
       delay: 2
       changed_when: false
-      when: ghost_activitypub_enabled
-      no_log: true
 
-    - name: activitypub データベースを作成する（冪等）
+    # SQL（専用ユーザーのパスワードを含む）は標準入力から渡し、コマンド引数に出さない
+    - name: アプリ専用のデータベースとユーザーを作成・更新する（冪等）
       ansible.builtin.command:
         argv:
           - docker
@@ -165,15 +168,13 @@
           - exec
           - "-T"
           - db
-          - mysql
-          - "-uroot"
-          - "-p{{ ghost_secrets['MYSQL_ROOT_PASSWORD'] }}"
-          - "-e"
-          - "CREATE DATABASE IF NOT EXISTS activitypub;"
+          - sh
+          - "-c"
+          - 'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysql -h 127.0.0.1 -uroot'
+        stdin: "{{ lookup('ansible.builtin.template', 'templates/db-users.sql.j2') }}"
       args:
         chdir: "{{ ghost_dir }}"
       changed_when: false
-      when: ghost_activitypub_enabled
       no_log: true
 
     # ---- 4. アナリティクス未設定時のクリーンアップ ----

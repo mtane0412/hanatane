@@ -27,8 +27,8 @@ services:
       # Ghost 設定: https://ghost.org/docs/config/#configuration-options
       database__client: mysql
       database__connection__host: db
-      database__connection__user: root
-      database__connection__password: ${MYSQL_ROOT_PASSWORD}
+      database__connection__user: ghost
+      database__connection__password: ${GHOST_DB_PASSWORD}
       database__connection__database: ghost
       url: https://{{ ghost_domain }}/
       # メール設定（Mailgun SMTP）
@@ -85,17 +85,9 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-{% if ghost_activitypub_enabled %}
-      # ActivityPub 用追加データベース（既存ボリュームでは init スクリプトは不要、deploy.yml が冪等作成する）
-      MYSQL_USER: ghost
-      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_MULTIPLE_DATABASES: activitypub
-{% endif %}
+      # アプリ用の DB とユーザーは deploy.yml が templates/db-users.sql.j2 で作成する
     volumes:
       - db:/var/lib/mysql
-{% if ghost_activitypub_enabled %}
-      - ./mysql-init:/docker-entrypoint-initdb.d
-{% endif %}
     healthcheck:
       test: "mysqladmin ping -p$$MYSQL_ROOT_PASSWORD -h 127.0.0.1"
       interval: 1s
@@ -231,9 +223,9 @@ services:
     environment:
       NODE_ENV: production
       MYSQL_HOST: db
-      # root ユーザーで接続（既存の MYSQL_ROOT_PASSWORD を再利用）
-      MYSQL_USER: root
-      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      # activitypub DB だけを操作できる専用ユーザーで接続する
+      MYSQL_USER: activitypub
+      MYSQL_PASSWORD: ${ACTIVITYPUB_DB_PASSWORD}
       MYSQL_DATABASE: activitypub
       LOCAL_STORAGE_PATH: /opt/activitypub/content/images/activitypub
       LOCAL_STORAGE_HOSTING_URL: https://{{ ghost_domain }}/content/images/activitypub
@@ -251,7 +243,7 @@ services:
     # activitypub データベースのマイグレーションを実行する（一度きり）
     image: ghcr.io/tryghost/activitypub-migrations:{{ activitypub_image_tag }}
     environment:
-      MYSQL_DB: mysql://root:${MYSQL_ROOT_PASSWORD}@tcp(db:3306)/activitypub
+      MYSQL_DB: mysql://activitypub:${ACTIVITYPUB_DB_PASSWORD}@tcp(db:3306)/activitypub
     networks:
       - ghost_network
     depends_on:

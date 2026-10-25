@@ -32,11 +32,11 @@ Web Analytics と ActivityPub は `ansible/group_vars/all.yml` の `ghost_analyt
 │   ├── templates/                      # Jinja2 テンプレート
 │   │   ├── docker-compose.yml.j2      # Docker Compose（analytics/AP 条件付き）
 │   │   ├── Caddyfile.j2               # Caddy リバースプロキシ設定
+│   │   ├── db-users.sql.j2            # アプリ専用 DB ユーザーの作成 SQL
 │   │   └── env.j2                     # ~/ghost/.env テンプレート
 │   └── files/
 │       ├── tinybird/                  # Tinybird ビルドコンテキスト（ベンダリング）
-│       ├── caddy/snippets/            # Caddy snippets（TrafficAnalytics, ActivityPub）
-│       └── mysql-init/                # MySQL 初期化スクリプト
+│       └── caddy/snippets/            # Caddy snippets（TrafficAnalytics, ActivityPub）
 ├── tofu/
 │   ├── dns.tf                         # hanatane.net DNS レコード（Cloudflare）
 │   └── versions.tf                    # プロバイダバージョン固定

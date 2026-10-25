@@ -266,7 +266,9 @@ ssh sakura 'docker compose -f ~/ghost/docker-compose.yml logs activitypub'
 
 | キー | 説明 |
 |---|---|
-| `MYSQL_ROOT_PASSWORD` | MySQL root パスワード（Ghost/DB 共用） |
+| `MYSQL_ROOT_PASSWORD` | MySQL root パスワード（DB 管理用。アプリは使わない） |
+| `GHOST_DB_PASSWORD` | Ghost 専用 DB ユーザー `ghost` のパスワード（24 文字以上の英数字） |
+| `ACTIVITYPUB_DB_PASSWORD` | ActivityPub 専用 DB ユーザー `activitypub` のパスワード（24 文字以上の英数字） |
 | `MAIL_AUTH_USER` | Mailgun SMTP 認証ユーザー |
 | `MAIL_AUTH_PASS` | Mailgun SMTP パスワード |
 | `CLOUDFLARE_API_TOKEN` | Cloudflare DNS 編集 API トークン（tofu 用） |
