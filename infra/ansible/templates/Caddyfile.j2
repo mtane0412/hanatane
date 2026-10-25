@@ -3,16 +3,49 @@
  # Ansible テンプレートとして管理: Jinja2 変数（{{ }}、{% %}）は Ansible が展開し、
  # Caddy の環境変数参照（{$VAR}）はそのまま Caddy に渡される。
  # snippets/ は ./caddy/snippets/ 配下に配置されたファイルを参照する（ghost_network 経由）。
+ #
+ # Cloudflare 経由のアクセスに限定する:
+ #   接続元（TCP の送信元）が cloudflare_ip_ranges（group_vars/all.yml）に含まれるリクエストだけを処理し、
+ #   それ以外（origin への直アクセス）は応答を返さず切断する。
+ #   trusted_proxies に同じ範囲を指定し、Cloudflare が付ける X-Forwarded-For の実クライアント IP を
+ #   Ghost へ引き継ぐ（指定しないと Caddy が Cloudflare の IP で上書きする）。
+ #
+ # セキュリティヘッダー:
+ #   HSTS・nosniff・クリックジャッキング対策・Referrer-Policy を付与し、X-Powered-By を削除する。
  #}
+{
+    servers {
+        trusted_proxies static {{ cloudflare_ip_ranges | join(' ') }}
+    }
+}
+
 {{ ghost_domain }}, www.{{ ghost_domain }} {
+    # remote_ip は trusted_proxies の影響を受けず、常に TCP の接続元を判定する
+    @cloudflare remote_ip {{ cloudflare_ip_ranges | join(' ') }}
+
+    # セキュリティヘッダー（mg.hanatane.net 等のサブドメインに影響しないよう HSTS に includeSubDomains は付けない）
+    header {
+        Strict-Transport-Security "max-age=31536000"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -X-Powered-By
+    }
+
+    handle @cloudflare {
 {% if ghost_analytics_enabled %}
-    import snippets/TrafficAnalytics
+        import snippets/TrafficAnalytics
 {% endif %}
 {% if ghost_activitypub_enabled %}
-    import snippets/ActivityPub
+        import snippets/ActivityPub
 {% endif %}
 
+        handle {
+            reverse_proxy ghost:2368
+        }
+    }
+
     handle {
-        reverse_proxy ghost:2368
+        abort
     }
 }
