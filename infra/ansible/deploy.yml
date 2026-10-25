@@ -66,12 +66,13 @@
           - ghost_secrets[item] is match('^[A-Za-z0-9]{24,}$')
         fail_msg: "secrets/ghost.env の {{ item }} は 24 文字以上の英数字で設定してください"
         quiet: true
+      # 失敗理由（キー名と形式要件）を表示するため no_log は付けない。
+      # assert が出力するのは式とキー名だけで、パスワードの値は出力されない
       loop:
         - GHOST_DB_PASSWORD
         - ACTIVITYPUB_DB_PASSWORD
       delegate_to: localhost
       run_once: true
-      no_log: true
 
     # ---- 2. VPS へのファイル配置 ----
     - name: ~/ghost/ 配下の必要ディレクトリを作成する
