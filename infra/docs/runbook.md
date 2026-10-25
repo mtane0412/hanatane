@@ -175,6 +175,28 @@ TLS 証明書は `caddy_data` named volume に保存されるため再取得は�
 
 ---
 
+### Cloudflare 経由のアクセスに限定する（origin 直アクセスの遮断）
+
+Caddy は、接続元が `ansible/group_vars/all.yml` の `cloudflare_ip_ranges` に含まれないリクエストを応答なしで切断する。
+Cloudflare Proxy を迂回して origin へ直接届くリクエスト（WAF・レート制限の回避）を防ぐための措置である。
+同じ範囲を `trusted_proxies` に指定し、Cloudflare が付ける `CF-Connecting-IP` を実クライアント IP として扱う。
+訪問者が送る `X-Forwarded-For` は偽装できるため、上流（Ghost 等）へ渡す `X-Forwarded-For` はこの IP から作り直す。
+
+Cloudflare が IP 範囲を追加すると、`cloudflare_ip_ranges` を更新するまで新しい範囲経由のアクセスが切断される。
+定期的に公式の一覧と照合し、差分があれば更新してデプロイする。
+
+```bash
+# 公式一覧と group_vars の差分を確認する（出力が空なら一致）
+# 公式一覧は末尾に改行がないため echo で区切り、空行は除いて比較する（取得に失敗した場合は curl -f がエラーにする）
+diff <({ curl -fsS https://www.cloudflare.com/ips-v4 && echo && curl -fsS https://www.cloudflare.com/ips-v6 && echo; } | grep -v '^$') \
+     <(grep -E '^  - [0-9a-f]' ansible/group_vars/all.yml | sed 's/^  - //')
+
+# デプロイ後の確認: origin へ直接接続すると切断される（curl の終了コードが 0 以外）こと
+curl -sS -o /dev/null --connect-to hanatane.net:443:"$(ssh -G sakura | awk '/^hostname /{print $2}')":443 https://hanatane.net/
+```
+
+---
+
 ### Tinybird ブートストラップ手順（初回のみ・手動）
 
 `ghost_analytics_enabled: true` にして最初にデプロイする前に、以下を実施する。
