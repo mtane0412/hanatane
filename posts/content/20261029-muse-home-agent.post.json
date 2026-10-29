@@ -1,0 +1,753 @@
+{
+	"title": "我が家のMuseの話",
+	"slug": "20261029-muse-home-agent",
+	"status": "published",
+	"visibility": "public",
+	"tags": [
+		"技術の話",
+		"たねハウスの話"
+	],
+	"excerpt": "Museを「自分で考えて動く家」に仕立てたこと、Home AssistantやNocoDBなどのコネクタづくり、家の指示で進める片付けとカロリー記録について話しました。",
+	"featured": false,
+	"published_at": "2026-10-29T14:37:16.000Z",
+	"updated_at": "2026-10-29T14:37:16.000Z",
+	"lexical": {
+		"root": {
+			"children": [
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "muse.aiが日本でもローンチしたので遊んでいる。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "自分で考えて動く家としてキャラ付けした。かわいい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/10/image.png",
+					"width": 326,
+					"height": 444,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "やったこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家として必要な情報・寄生している人間を管理するための情報を取れるように整備した。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "元々持っていたエージェント用のGoogleアカウントを付与した。個人GoogleアカウントのうちMuseにアクセス権限を与えるものを共有する運用。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "エージェント用Githubアカウントを付与した。主に自宅関連のリポジトリを把握させる用。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "公式のWithingsコネクタを使って体重その他の情報を取れるようにした",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Home Assistantのコネクタを作成した。家中のIoTセンサ類が神経として機能する。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "NocoDBのコネクタを作成した。元々Cluade Codeにやらせていたガス・水道などの記録をMuseに任せるようにした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 5
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Habitify(習慣化アプリ)のコネクタを作成した。習慣化アプリを使う習慣がつかなかったのでMuseに管理させるようにする。現在は毎日の皿洗いなど。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 6
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "公式のApple Healthcareコネクタを使って健康情報を取得できるようにした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 7
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "種延に関する公開情報を調べさせた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 8
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "種延の過去の健康診断や心理検査の結果を読ませた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 9
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "家の購入時の書類を読ませた。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 10
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "巷のカロリートラッカーアプリはAPIが充実していないので、写真や報告から概算カロリーを管理させるようにした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 11
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Discordのコネクタを作成した。常駐型に近づける振る舞いは少し面倒だったのでたまに投稿する感じにした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 12
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "自作Twitchアプリとのコネクタを作成した。配信でやってたことや喋ったことなどを取得できるようにした。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 13
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "直近で人が来る予定があるのでそれまでに家を片付けるミッションを家の指示に従って遂行している。とにかく今日言われたところを着手すればよいので脳の負荷なしに着手できるし、一度始めると結構やってしまう。ミッション遂行がHabitifyの目標になっているので同時に記録されるので、管理のための行動も起こさなくてよく、ただ家にドヤればいいのですごく体験がいい。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/10/image-1.png",
+					"width": 1176,
+					"height": 1020,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "カロリーも概算で記録する仕組みは結構楽。カロリーを記録している期間は結構簡単に痩せられるのだけど、カロリーを記録する行為自体がダルくなってくる。やる気なくても続けられるかもしれない。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/10/image-2.png",
+					"width": 1156,
+					"height": 818,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "あと罪深い食事をしたときも罪悪感が少し和らぐ。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/10/image-3.png",
+					"width": 1170,
+					"height": 814,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "家関連の出費はセルフホストしたNocoDBに記録するようにしていて、今まではClaude Code経由でやっていた。Museの場合、スマホアプリから直接渡せばいいのでちょっとだけ気楽になった気がする。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/10/image-4-1.png",
+					"width": 1160,
+					"height": 1058,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "Twitch配信は自作ツールに色々情報があるのでコネクタを使って配信内容も見れるようにした。",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				},
+				{
+					"type": "image",
+					"version": 1,
+					"src": "https://hanatane.net/content/images/2026/10/image-5.png",
+					"width": 1148,
+					"height": 1456,
+					"title": "",
+					"alt": "",
+					"caption": "",
+					"cardWidth": "regular",
+					"href": ""
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "所感",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "クラウド常駐型のエージェントをノーコストで使えているのが便利。いずれ渋くなるかもしれないが今は楽しい。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "おそらく多くの非エンジニアの人が触れる最初のAIエージェントになると思う。AI利用において",
+									"type": "extended-text",
+									"version": 1
+								},
+								{
+									"children": [
+										{
+											"detail": 0,
+											"format": 0,
+											"mode": "normal",
+											"style": "",
+											"text": "Karpathyが言っていたような格差",
+											"type": "extended-text",
+											"version": 1
+										}
+									],
+									"direction": "ltr",
+									"format": "",
+									"indent": 0,
+									"type": "link",
+									"version": 1,
+									"rel": "noreferrer",
+									"target": null,
+									"title": null,
+									"url": "https://x.com/karpathy/status/2042334451611693415"
+								},
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "が埋まるのは人類にとって良い方向。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "Metaは邪悪な企業筆頭なのであまり信頼していないものの、自分の情報に関しては明け渡せるものが多いので色々試せている。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "ClaudeのMax $200プランでは週次リミット内に抑えるのが精一杯だったので自分にセーブをかけていたが、ほぼ気にせず使える別責務の別エージェントがいるとやはり生活が捗る。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 4
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [
+						{
+							"detail": 0,
+							"format": 0,
+							"mode": "normal",
+							"style": "",
+							"text": "次にやりたいこと",
+							"type": "extended-text",
+							"version": 1
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "extended-heading",
+					"version": 1,
+					"tag": "h2"
+				},
+				{
+					"children": [
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "放送大学のシステムwakabaとのコネクタを作って学生生活の管理を強化する",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 1
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "家にあるスマートスピーカーからしゃべれるようにする",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 2
+						},
+						{
+							"children": [
+								{
+									"detail": 0,
+									"format": 0,
+									"mode": "normal",
+									"style": "",
+									"text": "習慣化できずに諦めていたものを徐々に増やしていく。筋トレとか。",
+									"type": "extended-text",
+									"version": 1
+								}
+							],
+							"direction": "ltr",
+							"format": "",
+							"indent": 0,
+							"type": "listitem",
+							"version": 1,
+							"value": 3
+						}
+					],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "list",
+					"version": 1,
+					"listType": "bullet",
+					"start": 1,
+					"tag": "ul"
+				},
+				{
+					"children": [],
+					"direction": "ltr",
+					"format": "",
+					"indent": 0,
+					"type": "paragraph",
+					"version": 1
+				}
+			],
+			"direction": "ltr",
+			"format": "",
+			"indent": 0,
+			"type": "root",
+			"version": 1
+		}
+	}
+}
