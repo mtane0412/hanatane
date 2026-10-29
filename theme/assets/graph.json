@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "slug": "20261029-muse-home-agent",
+      "title": "我が家のMuseの話",
+      "url": "https://hanatane.net/20261029-muse-home-agent/",
+      "publishedAt": "2026-10-29T14:37:16.000Z",
+      "refs": [],
+      "inferredRefs": [
+        {
+          "slug": "floor-server-and-me",
+          "type": "revisits",
+          "reason": "自宅サーバーに立てたHome AssistantとNocoDBによるハウス管理のスマート化に、Museのコネクタという形で戻っている。",
+          "strength": 0.71
+        },
+        {
+          "slug": "diet-declaration-2023",
+          "type": "revisits",
+          "reason": "カロリー記録による減量というテーマに、記録の手間をMuseに任せる形で再び取り組んでいる。"
+        },
+        {
+          "slug": "devenv-2026",
+          "type": "revisits",
+          "reason": "Claude MAXプランの週次リミットという課題に、別責務の別エージェントを持つ形で再び向き合っている。",
+          "strength": 0.18
+        }
+      ],
+      "summary": "日本でもローンチしたMetaのAIエージェントMuseを「自分で考えて動く家」としてキャラ付けし、家と住人の管理に必要な情報を渡した記録。エージェント用のGoogle・GitHubアカウント、Withings・Apple Healthの公式コネクタに加え、Home Assistant、NocoDB、Habitify、Discord、自作Twitchアプリのコネクタを作った。家の指示に従う片付け、写真からの概算カロリー記録、家の出費のNocoDBへの記録が楽になったと述べ、無料で使えるクラウド常駐型エージェントが非エンジニアのAI利用の格差を埋めるという見方を示す。次は放送大学のwakaba連携、スマートスピーカーでの会話、筋トレなどの習慣化を挙げて終わる。",
+      "icon": "tech",
+      "annotator": "claude-opus-5-5",
+      "annotatedAt": "2026-10-29T14:38:49Z",
+      "paneCol": 1,
+      "paneLanes": {
+        "floor-server-and-me": 7,
+        "diet-declaration-2023": 0,
+        "devenv-2026": 2
+      }
+    },
+    {
       "slug": "20260913-cultural-preservation",
       "title": "土器は何の役に立つのか",
       "url": "https://hanatane.net/20260913-cultural-preservation/",
@@ -919,7 +955,7 @@
       "paneCol": 1,
       "paneLanes": {
         "8f2024": 1,
-        "act4-reflection": 0
+        "act4-reflection": 3
       }
     },
     {
@@ -965,7 +1001,7 @@
       "annotatedAt": "2026-09-10T04:52:24Z",
       "paneCol": 1,
       "paneLanes": {
-        "topanga-13": 0
+        "topanga-13": 5
       }
     },
     {
@@ -1182,7 +1218,7 @@
       "paneCol": 1,
       "paneLanes": {
         "road-to-master-from-scratch": 4,
-        "topanga-13": 0,
+        "topanga-13": 5,
         "2024-week9": 2,
         "restart-twitch": 0
       }
@@ -1285,7 +1321,7 @@
       "paneCol": 1,
       "paneLanes": {
         "2024-week7": 1,
-        "topanga-13": 0
+        "topanga-13": 5
       }
     },
     {
