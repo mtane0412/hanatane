@@ -1,0 +1,24 @@
+{
+  "slug": "20261029-muse-home-agent",
+  "summary": "日本でもローンチしたMetaのAIエージェントMuseを「自分で考えて動く家」としてキャラ付けし、家と住人の管理に必要な情報を渡した記録。エージェント用のGoogle・GitHubアカウント、Withings・Apple Healthの公式コネクタに加え、Home Assistant、NocoDB、Habitify、Discord、自作Twitchアプリのコネクタを作った。家の指示に従う片付け、写真からの概算カロリー記録、家の出費のNocoDBへの記録が楽になったと述べ、無料で使えるクラウド常駐型エージェントが非エンジニアのAI利用の格差を埋めるという見方を示す。次は放送大学のwakaba連携、スマートスピーカーでの会話、筋トレなどの習慣化を挙げて終わる。",
+  "relations": [
+    {
+      "slug": "floor-server-and-me",
+      "type": "revisits",
+      "reason": "自宅サーバーに立てたHome AssistantとNocoDBによるハウス管理のスマート化に、Museのコネクタという形で戻っている。"
+    },
+    {
+      "slug": "diet-declaration-2023",
+      "type": "revisits",
+      "reason": "カロリー記録による減量というテーマに、記録の手間をMuseに任せる形で再び取り組んでいる。"
+    },
+    {
+      "slug": "devenv-2026",
+      "type": "revisits",
+      "reason": "Claude MAXプランの週次リミットという課題に、別責務の別エージェントを持つ形で再び向き合っている。"
+    }
+  ],
+  "annotated_at": "2026-10-29T14:38:49Z",
+  "annotator": "claude-opus-5-5",
+  "icon": "tech"
+}

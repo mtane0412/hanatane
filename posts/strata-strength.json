@@ -175,6 +175,18 @@
 			"model": "jev-1.13.0"
 		},
 		{
+			"from": "20261029-muse-home-agent",
+			"to": "devenv-2026",
+			"strength": 0.18,
+			"model": "jev-1.14.0"
+		},
+		{
+			"from": "20261029-muse-home-agent",
+			"to": "floor-server-and-me",
+			"strength": 0.71,
+			"model": "jev-1.14.0"
+		},
+		{
 			"from": "36th-birthday-party",
 			"to": "2024-week1",
 			"strength": 0.94,
