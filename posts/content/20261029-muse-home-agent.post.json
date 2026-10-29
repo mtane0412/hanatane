@@ -1,14 +1,16 @@
 {
 	"title": "我が家のMuseの話",
 	"slug": "20261029-muse-home-agent",
-	"status": "draft",
+	"status": "published",
 	"visibility": "public",
 	"tags": [
 		"技術の話",
 		"たねハウスの話"
 	],
+	"excerpt": "Museを「自分で考えて動く家」に仕立てたこと、Home AssistantやNocoDBなどのコネクタづくり、家の指示で進める片付けとカロリー記録について話しました。",
 	"featured": false,
-	"updated_at": "2026-10-29T14:35:26.000Z",
+	"published_at": "2026-10-29T14:37:16.000Z",
+	"updated_at": "2026-10-29T14:37:16.000Z",
 	"lexical": {
 		"root": {
 			"children": [
@@ -747,6 +749,5 @@
 			"type": "root",
 			"version": 1
 		}
-	},
-	"excerpt": "Museを「自分で考えて動く家」に仕立てたこと、Home AssistantやNocoDBなどのコネクタづくり、家の指示で進める片付けとカロリー記録について話しました。"
+	}
 }
