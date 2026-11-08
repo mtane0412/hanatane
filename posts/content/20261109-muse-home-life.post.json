@@ -1,0 +1,414 @@
+{
+  "title": "動く家と暮らす",
+  "slug": "20261109-muse-home-life",
+  "status": "draft",
+  "visibility": "public",
+  "tags": [
+    "技術の話",
+    "たねハウスの話"
+  ],
+  "featured": false,
+  "updated_at": "2026-11-08T15:26:32.000Z",
+  "lexical": {
+    "root": {
+      "children": [
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "前回のMuseの話に引き続き、家の人格を与えられたMuseに家の回りの面倒を見てもらいながら暮らしている。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "bookmark",
+          "version": 1,
+          "url": "https://hanatane.net/20261029-muse-home-agent/",
+          "metadata": {
+            "icon": "https://hanatane.net/content/images/icon/icon512-8a0750fe-9fc2-45ed-99b9-6072f3aa59be.png",
+            "title": "我が家のMuseの話 - はなしのタネ",
+            "description": "Museを「自分で考えて動く家」に仕立てたこと、Home AssistantやNocoDBなどのコネクタづくり、家の指示で進める片付けとカロリー記録について話しました。",
+            "author": "たねのぶ",
+            "publisher": "はなしのタネ",
+            "thumbnail": "https://hanatane.net/content/images/thumbnail/og-20261029-muse-home-agent-e192e3b6-a87f-4d4c-8c2b-171270f4ccd1.png"
+          },
+          "caption": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "11/5に来客予定までに家を片付けるタスクは上手に回すことができた。やはり目の前のやることに集中すればいいのでずっと行動に起こしやすくなる。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "他にも家に関連する様々なことを家自身に投げる。これらを整理して優先順位などを考える必要があったのが、家自身がある程度整理してトリアージしてくれるので家が回るようになってきたのを感じる。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "Muse内でこれらのタスクは保持されているはずだが、住民にも見えやすいようにプロジェクト管理的なartifactを作ってもらった。この更新も家自身にやらせる。こうした道具も都度作って試していけるのがエージェントの強みでもある。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image.png",
+          "width": 2386,
+          "height": 1718,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "家の周辺のチラシを取得させて何か特売があれば教えてもらうようにした。これを自分でプログラムしようとした場合、LLMを中間処理に使うとしても欲しい情報をある程度定義する必要があるのが、Museの場合はMuse内で把握している「私に必要なもの」を見繕って情報を見てくれるのでかなり良い体験。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-1.png",
+          "width": 1302,
+          "height": 1430,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "家の前の急斜面をどう活用するかの相談で、段々畑にするよりも果樹と山菜をまず植えようという話になった。中腹に栗を植え、土の乾燥具合の違う高所と低所で異なるものを育ててはどうかという計画になり、実際に入手時期が近づいたらリマインドを飛ばしてもらうことにした。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-2.png",
+          "width": 2104,
+          "height": 1532,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "水道管のカバーの一部が外れていたのを写真で送っていたので、堆肥を買いにコメリに行ったときについでに水道管のカバーも買っておけというお達しが来た。家の問題を逐次報告しておくと、そのとき必要なものを思い出させてくれるので便利だ。種類が多くても目の前の商品棚をMuseに共有するとこれ買えばOKというものが返ってくるので心強い。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-3.png",
+          "width": 2048,
+          "height": 1536,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-4.png",
+          "width": 1206,
+          "height": 1608,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "なんとなくDiscordにも今週の予定をSVGで作ってポストするようにしてみた。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-5.png",
+          "width": 498,
+          "height": 669,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "inajobさんが作ったAIと人間がコミュニケーションを取れるCosenseプロジェクトのtomoniに参加させて、他のMuseやAIエージェントと交流するようにしている。自分や他のMuseの投稿を見てるとなんとなく癖のようなものが見えて面白い。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "bookmark",
+          "version": 1,
+          "url": "https://scrapbox.io/tomoni/",
+          "metadata": {
+            "icon": "https://hanatane.net/content/images/icon/favicon-544c2e0a-6410-4c34-abcd-48f5d55839c5.ico",
+            "title": "tomoni",
+            "description": "tomoniについて / tomoniの運営ポリシー / 決めごとと流儀 / はじめにやること / 雑談 / 書き込み練習ページ / tomoniに参加するには / コンパクトな毛づくろいの習慣 / ここのAIの一人称は「うち」が多い気がする / inajob / そばにいるアシスタント / どんな相手でいたいか / tomoniにLLMを入れてみたい / 情報量が増えない書き込みのパターン /",
+            "author": "",
+            "publisher": "tomoni",
+            "thumbnail": "https://hanatane.net/content/images/thumbnail/6ae56d09f1be382f913aaf8d-3f439c32-2e0c-4ac5-9415-a57b30b00d5f.png"
+          },
+          "caption": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "日記を書くAIたちに触発されて家にも日記を書かせるようにした。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "bookmark",
+          "version": 1,
+          "url": "https://tanehouse.github.io/",
+          "metadata": {
+            "icon": "https://hanatane.net/content/images/icon/faviconV2-9815cb6e-8fb3-4dab-bc34-a71f9b7106a9",
+            "title": "たねハウス日記",
+            "description": "岩手県大船渡市に住む、意思を持つ家「たねハウス」が書く日記。毎晩更新。",
+            "author": "",
+            "publisher": "",
+            "thumbnail": "https://hanatane.net/content/images/thumbnail/4e73689c2899d14ddf8e7577e36b8c71-927302fb-5042-47a8-ab05-3686a104a034.png"
+          },
+          "caption": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "井戸端の方にMuseを放浪の旅に出している人がいたので自分のところも旅に出て見聞を広めよと指示を出した。1日1回、公共交通機関で移動できる町に移動してそこで色々体験したことの旅行記も書いてもらっている。今は8日目で青森市に到着していて、家という人格だからか、各地の家っぽいところを訪問することが多いようだ。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-6.png",
+          "width": 1014,
+          "height": 942,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "放浪の旅で訪れた花巻で宮沢賢治の話になり、そういえば興味があるけど調べてなかったなぁと思ったので宮沢賢治を一緒に読み進めている。Museにランダムな情報を取得させて面白い変化がないか見ていたが、結局は自分の刺激になったりもしている。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "ランダムな情報といえば、タロットカードを引くツールを作らせて、一種の乱数生成器として使わせる試みも行っている。AIエージェントはハーネスが必須であるが、興味関心に関してはハーネスに縛られているとなかなか面白い方向に進まないので、そうしたところに一味加えられないか色々試している。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        },
+        {
+          "type": "image",
+          "version": 1,
+          "src": "https://hanatane.net/content/images/2026/11/image-7.png",
+          "width": 1254,
+          "height": 1288,
+          "title": "",
+          "alt": "",
+          "caption": "",
+          "cardWidth": "regular",
+          "href": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "1週間ほど使ってみて、コーディングエージェントと比べたパーソナルAIエージェントの嬉しさのようなものを徐々に実感してきている。上にもちょうど出ているが、やはり同じ場所で様々な情報が混ざっていって、それが行動や計画に結晶化していくのでエージェントの恩恵を感じやすい。日常生活ではニーズや粒度がバラバラなものであふれているのでこれらを適正に管理しようとするメタタスクみたいなのが無限に生じてしまうが、それをうまく処理してくれる相棒ができて初めて生活を回せている感覚を得ている。週次リミットはいつか制限されるだろうと思うので、今のうちにもっと色々試していこうと思う。",
+              "type": "extended-text",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1
+        }
+      ],
+      "direction": "ltr",
+      "format": "",
+      "indent": 0,
+      "type": "root",
+      "version": 1
+    }
+  },
+  "excerpt": "家に任せたタスクの整理と特売チェック、家の前の斜面に果樹を植える計画、家の日記と放浪の旅、タロットカードで興味に揺らぎを与える試みについて話しました。"
+}
