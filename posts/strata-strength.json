@@ -187,6 +187,18 @@
 			"model": "jev-1.14.0"
 		},
 		{
+			"from": "20261109-muse-home-life",
+			"to": "20261029-muse-home-agent",
+			"strength": 0.84,
+			"model": "jev-1.14.0"
+		},
+		{
+			"from": "20261109-muse-home-life",
+			"to": "read-gtd",
+			"strength": 0.37,
+			"model": "jev-1.14.0"
+		},
+		{
 			"from": "36th-birthday-party",
 			"to": "2024-week1",
 			"strength": 0.94,
